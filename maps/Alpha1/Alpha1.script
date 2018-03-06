@@ -1,0 +1,8 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(1, '<$5>');
+  Actions.PlayerNameSet(2, '<$6>');
+end;
