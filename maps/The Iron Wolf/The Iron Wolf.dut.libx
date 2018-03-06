@@ -1,0 +1,23 @@
+// Libx for "The Iron wolf"
+//
+// Notice:
+//   This file was made for reference and testing of functions.
+//   Other scripters/map makers may use any code written in this file with exception of full blocks.
+//   Were one to copy a full block please do create a comment containing credits to the original creator,
+//   this would be Thimo Braker (Thibmo).
+//
+// Current map version: 1.0.16
+// Designed for: Knights Province release 1.05-7 ( Specific )
+//
+
+0:Thibmo (Thimo Braker)
+1:
+2:Welkom in de map The Iron Wolf!||Kun jij de AI verslaan?
+3:Huis compleet! De %s is zojuist voledig afgebouwd.|Gefeliciteerd!
+4:Bouw één School
+5:Bouw twee Stone-cutters
+6:Bouw drie Woodcutters
+7:Bouw twee Sawmills
+8:Bouw één Fort
+9:Bouw één Tavern
+10:Bouw één Fishery

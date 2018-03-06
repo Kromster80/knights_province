@@ -1,0 +1,214 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+// Pascal script for "The Iron wolf"
+//
+// Notice:
+//   This script was made for reference and testing of functions.
+//   Other scripters/map makers may use any code written in this script with exception of full blocks.
+//   Were one to copy a full block please do create a comment containing credits to the original creator,
+//   this would be Thimo Braker (Thibmo) and Krom.
+//
+// Current map version: 1.0.17
+// Designed for: Knights Province Alpha 6
+//
+
+type TObjectiveSuccess =
+record
+  isSchoolDone, isStoneDone, isWoodDone, isSawDone, isFortDone, isTavernDone, isFisheryDone: Boolean;
+  School, Stonecutter, Woodcutter, Sawmill {, Fort}, Tavern, Fishery: Integer;
+end;
+
+
+var
+  objSuccess: array [0..1] of TObjectiveSuccess;
+  tickCountScript: array [0..1] of Integer;
+  missionFirstWin: Integer;
+
+
+procedure ShowWelcomeMessage;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do 
+    tickCountScript[i] := 0;
+  Actions.PlayerOverlaySet(-1, '<$2>');
+end;
+ 
+ 
+procedure ShowHouseCompleteMessage(aIndex: Integer; aHouseName: AnsiString);
+begin
+  tickCountScript[aIndex] := 0;
+  Actions.PlayerOverlaySetFormatted(aIndex, '<$3>', [aHouseName]); // Temp commented out due to libx issue
+end;
+
+  
+procedure CheckVictory;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do
+  begin
+    if (objSuccess[i].School = -1) and (objSuccess[i].Stonecutter = -1) and (objSuccess[i].Woodcutter = -1)
+                                   and (objSuccess[i].Sawmill = -1){ and (objSuccess[i].Fort = -1)}
+                                   and (missionFirstWin = -1) then
+    begin
+      missionFirstWin := i;
+      Actions.PlayerWin([i], True);
+    end;
+  end;
+end;
+
+  
+procedure UpdateObjectivesStatus;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do
+  begin
+    // Primary
+    if (objSuccess[i].School <> -1)      and States.PlayerHouseCanBuild(i, htSchool)                                             then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].School, osActive);
+    if (objSuccess[i].Stonecutter <> -1) and States.PlayerHouseCanBuild(i, htStonecutters) and (States.StatHouseTypeCount(i, htSchool) >= 1) then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Stonecutter, osActive);
+    if (objSuccess[i].Woodcutter <> -1)  and States.PlayerHouseCanBuild(i, htWoodcutters)  and (States.StatHouseTypeCount(i, htStonecutters) >= 2) then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Woodcutter, osActive);
+    if (objSuccess[i].Sawmill <> -1)     and States.PlayerHouseCanBuild(i, htSawmill) and (States.StatHouseTypeCount(i, htWoodcutters) >= 3)  then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Sawmill, osActive);
+    { if (objSuccess[i].Fort <> -1)        and States.PlayerHouseCanBuild(i, htFort) and (States.StatHouseTypeCount(i, htSawmill) >= 1) then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Fort, osActive); } // Temp commented out due to AI issue
+    // Secondary
+    if (objSuccess[i].Tavern <> -1)      and States.PlayerHouseCanBuild(i, htTavern)                                             then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Tavern, osActive);
+    if (objSuccess[i].Fishery <> -1)     and States.PlayerHouseCanBuild(i, htFisherHut)                                              then Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Fishery, osActive);
+  end;
+end;
+
+
+procedure CheckObjectives;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do
+  begin
+    if (States.StatHouseTypeCount(i, htSchool) >= 1) and not objSuccess[i].isSchoolDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].School, osCompleted);
+      ShowHouseCompleteMessage(i, 'School');
+      objSuccess[i].School:= -1;
+      objSuccess[i].isSchoolDone := true;
+	    Actions.HouseAllow(i, htStonecutters, true);
+	    Actions.HouseAllow(i, htTavern, true);
+    end;
+
+    if (States.StatHouseTypeCount(i, htStonecutters) >= 2) and not objSuccess[i].isStoneDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Stonecutter, osCompleted);
+      ShowHouseCompleteMessage(i, 'Stone-cutter');
+      objSuccess[i].Stonecutter:= -1;
+      objSuccess[i].isStoneDone := true;
+	    Actions.HouseAllow(i, htWoodcutters, true);
+    end;
+
+    if (States.StatHouseTypeCount(i, htWoodcutters) >= 3) and not objSuccess[i].isWoodDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Woodcutter, osCompleted);
+      ShowHouseCompleteMessage(i, 'Woodcutter');
+      objSuccess[i].Woodcutter := -1;
+      objSuccess[i].isWoodDone := true;
+	    Actions.HouseAllow(i, htSawmill, true);
+    end;
+
+    if (States.StatHouseTypeCount(i, htSawmill) >= 2) and not objSuccess[i].isSawDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Sawmill, osCompleted);
+      ShowHouseCompleteMessage(i, 'Sawmill');
+      objSuccess[i].Sawmill := -1;
+      objSuccess[i].isSawDone := true;
+      // Actions.HouseAllow(i, htFort, true); // Temp commented out due to AI issue
+    end;
+  
+    { if (States.StatHouseTypeCount(i, htFort) >= 1) and not objSuccess[i].isFortDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Fort, osCompleted);
+      ShowHouseCompleteMessage(i, 'Fort');
+      objSuccess[i].Fort := -1;
+      objSuccess[i].isFortDone := true;
+    end; } // Temp commented out due to AI issue
+
+    if (States.StatHouseTypeCount(i, htTavern) >= 1) and not objSuccess[i].isTavernDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Tavern, osCompleted);
+      ShowHouseCompleteMessage(i, 'Tavern');
+      objSuccess[i].Tavern := -1;
+      objSuccess[i].isTavernDone := true;
+      Actions.HouseUnlock(i, htFisherHut);
+      Actions.HouseAllow(i, htFisherHut, true);
+    end;
+
+    if (States.StatHouseTypeCount(i, htFisherHut) >= 1) and not objSuccess[i].isFisheryDone then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Fishery, osCompleted);
+      ShowHouseCompleteMessage(i, 'Fishery');
+      objSuccess[i].Fishery := -1;
+      objSuccess[i].isFisheryDone := true;
+    end;
+  end;
+end;
+
+
+procedure OnMissionStart;
+var
+  i: Integer;
+begin
+  missionFirstWin := -1;
+
+  for i := 0 to 1 do
+  begin
+    // Primary
+    objSuccess[i].School      := Actions.PlayerObjectiveAdd(i, otMain, 0, osHidden, '<$4>');
+    objSuccess[i].Stonecutter := Actions.PlayerObjectiveAdd(i, otMain, 1, osHidden, '<$5>');
+    objSuccess[i].Woodcutter  := Actions.PlayerObjectiveAdd(i, otMain, 2, osHidden, '<$6>');
+    objSuccess[i].Sawmill     := Actions.PlayerObjectiveAdd(i, otMain, 3, osHidden, '<$7>');
+    { objSuccess[i].Fort        := Actions.PlayerObjectiveAdd(i, otMain, 4, osHidden, '<$8>'); // Temp commented out due to AI issue }
+    // Secondary
+    objSuccess[i].Tavern      := Actions.PlayerObjectiveAdd(i, otAdditional, 0, osHidden, '<$9>');
+    objSuccess[i].Fishery     := Actions.PlayerObjectiveAdd(i, otAdditional, 1, osHidden, '<$10>');
+    Actions.HouseAllow(i, htFisherHut, false);
+    Actions.HouseAllow(i, htWoodcutters, false);
+    Actions.HouseAllow(i, htStonecutters, false);
+    Actions.HouseAllow(i, htTavern, false);
+    Actions.HouseAllow(i, htFort, false);
+    Actions.HouseAllow(i, htSawmill, false);
+  end;
+
+  UpdateObjectivesStatus;
+  ShowWelcomeMessage;
+end;
+
+
+procedure HideTextOverlay;
+var
+  i: Integer;
+begin
+  for i := 0 to 1 do
+  begin
+    if tickCountScript[i] < 10 then
+      Inc(tickCountScript[i])
+    else
+    begin
+      Actions.PlayerOverlaySet(i, '');
+      tickCountScript[i] := 0;
+    end;
+  end;
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 10 = 0 then
+    UpdateObjectivesStatus;
+
+  if aTick mod 10 = 3 then
+  begin
+    CheckObjectives;
+    HideTextOverlay;
+  end;
+
+  if aTick mod 10 = 6 then
+    CheckVictory;
+end;

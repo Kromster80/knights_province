@@ -1,0 +1,330 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+// Pascal script for "Town Tutorial"
+//
+// Notice:
+//   This file was made for teaching players the basics of Knights Province.
+//
+// Current map version: 1.0.7
+// Designed for: Knights Province Alpha 8
+//
+
+const
+  HUMAN_PLAYER = 0;
+
+type TObjectiveStates = record
+  Done: Boolean;
+  ID:   Integer;
+end;
+
+type TObjectiveSuccess = record
+  // Units
+  School, Cottage:     TObjectiveStates;
+  // Basic supplies
+  Stone, Wood, Planks: TObjectiveStates;
+  // Food
+  Tavern, Fish, Cider: TObjectiveStates;
+  // Store
+  Store:               TObjectiveStates;
+end;
+
+var
+  objSuccess:  TObjectiveSuccess;
+  fDiscovered: Boolean;
+
+procedure ShowMessage(aOverlayID, aPopupID: Integer);
+begin
+  if aOverlayID = 100 then
+  begin
+    fDiscovered := True;
+    Actions.PlayerOverlaySet(HUMAN_PLAYER, '[$EAEAEA]Why are your units even in this area? O.o[]');
+  end else
+  begin
+    if (aOverlayID <> -1) then
+      Actions.PlayerOverlaySet(HUMAN_PLAYER, '<$' + IntToStr(aOverlayID) + '>');
+
+    if (aPopupID <> -1) then
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$' + IntToStr(aPopupID) + '>');
+  end;
+end;
+
+procedure CheckVictory;
+begin
+  if objSuccess.School.Done  and
+     objSuccess.Cottage.Done and
+     objSuccess.Stone.Done   and
+     objSuccess.Wood.Done    and
+     objSuccess.Planks.Done  and
+     objSuccess.Tavern.Done  and
+     objSuccess.Fish.Done    and
+     objSuccess.Cider.Done   and
+     objSuccess.Store.Done   then
+  begin
+    Actions.PlayerWin([HUMAN_PLAYER], True);
+
+    // Re-enable construction of tutorial buildings
+    Actions.HouseAllow(HUMAN_PLAYER, htSchool,       true);
+    Actions.HouseAllow(HUMAN_PLAYER, htCottage,      true);
+    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, true);
+    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  true);
+    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      true);
+    Actions.HouseAllow(HUMAN_PLAYER, htTavern,       true);
+    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    true);
+    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   true);
+    Actions.HouseAllow(HUMAN_PLAYER, htStore,        true);
+  end;
+end;
+
+procedure UpdateObjectivesStatus;
+begin
+  // Units
+  if (objSuccess.School.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htSchool) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.School.ID, osActive);
+
+  if (objSuccess.Cottage.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htCottage)      and
+                                       (States.StatHouseTypeCount(HUMAN_PLAYER, htSchool) >= 1) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Cottage.ID, osActive);
+
+  // Basic supplies
+  if (objSuccess.Stone.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htStonecutters)  and
+                                     (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 2) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Stone.ID, osActive);
+
+  if (objSuccess.Wood.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htWoodcutters)        and
+                                    (States.StatHouseTypeCount(HUMAN_PLAYER, htStonecutters) >= 2) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Wood.ID, osActive);
+
+  if (objSuccess.Planks.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htSawmill)           and
+                                      (States.StatHouseTypeCount(HUMAN_PLAYER, htStonecutters) >= 2) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Planks.ID, osActive);
+
+  // Food
+  if (objSuccess.Tavern.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htTavern)            and
+                                      (States.StatHouseTypeCount(HUMAN_PLAYER, htWoodcutters) >= 1) and
+                                      (States.StatHouseTypeCount(HUMAN_PLAYER, htSawmill)     >= 1) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Tavern.ID, osActive);
+
+  if (objSuccess.Fish.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htFisherHut)    and
+                                    (States.StatHouseTypeCount(HUMAN_PLAYER, htTavern) >= 1) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Fish.ID, osActive);
+
+  if (objSuccess.Cider.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htCiderMaker)   and
+                                     (States.StatHouseTypeCount(HUMAN_PLAYER, htTavern) >= 1) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Cider.ID, osActive);
+
+  // Store
+  if (objSuccess.Store.ID <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htStore)            and
+                                     (States.StatHouseTypeCount(HUMAN_PLAYER, htFisherHut)  >= 1) and
+                                     (States.StatHouseTypeCount(HUMAN_PLAYER, htCiderMaker) >= 1) then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Store.ID, osActive);
+end;
+
+procedure CheckObjectives;
+begin
+  // Units
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htSchool) >= 1) and not objSuccess.School.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.School.ID, osCompleted);
+    objSuccess.School.ID   := -1;
+    objSuccess.School.Done := True;
+
+    ShowMessage(11, 21);
+    Actions.HouseAllow(HUMAN_PLAYER, htSchool,  False);
+    Actions.HouseAllow(HUMAN_PLAYER, htCottage, True);
+  end;
+
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 2) and not objSuccess.Cottage.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Cottage.ID, osCompleted);
+    objSuccess.Cottage.ID   := -1;
+    objSuccess.Cottage.Done := True;
+
+    ShowMessage(12, 22);
+    Actions.HouseAllow(HUMAN_PLAYER, htCottage, False);
+    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, True);
+  end;
+
+  // Basic supplies
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htStonecutters) >= 2) and not objSuccess.Stone.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Stone.ID, osCompleted);
+    objSuccess.Stone.ID   := -1;
+    objSuccess.Stone.Done := True;
+
+    ShowMessage(13, 23);
+    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, False);
+    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  True);
+    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      True);
+  end;
+
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htWoodcutters) >= 1) and not objSuccess.Wood.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Wood.ID, osCompleted);
+    objSuccess.Wood.ID   := -1;
+    objSuccess.Wood.Done := True;
+
+    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters, False);
+
+    if objSuccess.Planks.Done then
+    begin
+      ShowMessage(14, 24);
+      Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
+    end;
+  end;
+
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htSawmill) >= 1) and not objSuccess.Planks.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Planks.ID, osCompleted);
+    objSuccess.Planks.ID   := -1;
+    objSuccess.Planks.Done := True;
+
+    Actions.HouseAllow(HUMAN_PLAYER, htSawmill, False);
+
+    if objSuccess.Wood.Done then
+    begin
+      ShowMessage(14, 24);
+      Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
+    end;
+  end;
+
+  // Food
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htTavern) >= 1) and not objSuccess.Tavern.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Tavern.ID, osCompleted);
+    objSuccess.Tavern.ID   := -1;
+    objSuccess.Tavern.Done := True;
+
+    ShowMessage(15, 25);
+    Actions.HouseAllow(HUMAN_PLAYER, htTavern, False);
+    Actions.HouseUnlock(HUMAN_PLAYER, htFisherHut);
+    Actions.HouseUnlock(HUMAN_PLAYER, htCiderMaker);
+    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut, True);
+    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker, True);
+  end;
+
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htFisherHut) >= 1) and not objSuccess.Fish.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Fish.ID, osCompleted);
+    objSuccess.Fish.ID   := -1;
+    objSuccess.Fish.Done := True;
+
+    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,  False);
+
+    if objSuccess.Cider.Done then
+    begin
+      ShowMessage(16, 26);
+      Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
+    end;
+  end;
+
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htCiderMaker) >= 1) and not objSuccess.Cider.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Cider.ID, osCompleted);
+    objSuccess.Cider.ID   := -1;
+    objSuccess.Cider.Done := True;
+
+    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker, False);
+
+    if objSuccess.Fish.Done then
+    begin
+      ShowMessage(16, 26);
+      Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
+    end;
+  end;
+
+  // Store
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htStore) >= 1) and not objSuccess.Store.Done then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSuccess.Store.ID, osCompleted);
+    objSuccess.Store.ID   := -1;
+    objSuccess.Store.Done := True;
+
+    ShowMessage(17, -1);
+    Actions.HouseAllow(HUMAN_PLAYER, htStore, False);
+  end;
+end;
+
+procedure CheckSquare;
+begin
+  if not fDiscovered then
+    if (States.UnitAt(61, 61) > 0) or
+       (States.UnitAt(62, 61) > 0) or
+       (States.UnitAt(61, 62) > 0) or
+       (States.UnitAt(62, 62) > 0) then
+      ShowMessage(100, -1);
+end;
+
+procedure FeedUnits;
+var
+  I:               Integer;
+  PlayerUnitArray: array of Integer;
+begin
+  PlayerUnitArray := States.PlayerGetAllUnits(HUMAN_PLAYER);
+
+  for I := 0 to Length(PlayerUnitArray) - 1 do
+    Actions.UnitHungerSet(PlayerUnitArray[I], States.UnitHungerMax);
+end;
+
+// Disable construction of the houses used during this map,
+// except for the first objective's house
+procedure BlockHouses;
+begin
+  Actions.HouseAllow(HUMAN_PLAYER, htCottage,      false);
+  Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, false);
+  Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  false);
+  Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      false);
+  Actions.HouseAllow(HUMAN_PLAYER, htTavern,       false);
+  Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    false);
+  Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   false);
+  Actions.HouseAllow(HUMAN_PLAYER, htStore,        false);
+end;
+
+// Initialize the objectives
+procedure SetMissionStartValues;
+begin
+  // Units
+  objSuccess.School.ID  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$30>');
+  objSuccess.Cottage.ID := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$31>');
+  // Basic supplies
+  objSuccess.Stone.ID   := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 3, osHidden, '<$32>');
+  objSuccess.Wood.ID    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 4, osHidden, '<$33>');
+  objSuccess.Planks.ID  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 5, osHidden, '<$34>');
+  // Food
+  objSuccess.Tavern.ID  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 6, osHidden, '<$35>');
+  objSuccess.Fish.ID    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 7, osHidden, '<$36>');
+  objSuccess.Cider.ID   := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 8, osHidden, '<$37>');
+  // Store
+  objSuccess.Store.ID   := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 9, osHidden, '<$38>');
+end;
+
+procedure OnMissionStart;
+begin
+  BlockHouses;
+  SetMissionStartValues;
+  UpdateObjectivesStatus;
+  FeedUnits;
+
+  ShowMessage(10, 20);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if not States.PlayerVictorious(HUMAN_PLAYER) then
+  begin
+    if aTick mod 10 = 0 then
+      UpdateObjectivesStatus;
+
+    if aTick mod 10 = 2 then
+      CheckObjectives;
+
+    if aTick mod 10 = 4 then
+      CheckVictory;
+
+    if (not objSuccess.Wood.Done) and (aTick mod 10 = 6) then
+      FeedUnits;
+  end;
+
+  if aTick mod 10 = 8 then
+    CheckSquare;
+end;
