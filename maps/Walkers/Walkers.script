@@ -1,0 +1,120 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+  WALKERS_PLAYER = 1;
+  WAVE_INTERVAL = 1200; // Every 2 min
+
+var
+  waveNumber: Integer;
+  waveGroups: Integer;
+  objWaves: Integer;
+
+
+// Find some random player's house and attack it
+procedure AttackRandomHouse(aGroup: Integer);
+var
+  allHouses: array of Integer;
+  I: Integer;
+begin
+  allHouses := States.PlayerGetAllHouses(HUMAN_PLAYER);
+  if Length(allHouses) = 0 then Exit;
+  I := States.SysRandomI(Length(allHouses));
+  Actions.GroupOrderAttackHouse(aGroup, allHouses[I]);
+end;
+
+
+procedure CreateNextWave;
+begin
+  Actions.GiveGroup(WALKERS_PLAYER, utMilitia, 73, 48, 6, waveNumber, waveNumber);
+  Inc(waveGroups);
+  
+  if waveNumber >= 10 then
+  begin
+    Actions.GiveGroup(WALKERS_PLAYER, utAxeFighter, 75, 48, 6, waveNumber - 9, waveNumber - 9);
+	Inc(waveGroups);
+  end;
+
+  // OrderIdleGroups will issue attack orders
+
+  // Next wave will be tougher
+  Inc(waveNumber);
+end;
+
+
+procedure Feed;
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(WALKERS_PLAYER);
+
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
+
+procedure OrderIdleGroups;
+var
+  allGroups: array of Integer;
+  I: Integer;
+begin
+  allGroups := States.PlayerGetAllGroups(WALKERS_PLAYER);
+
+  for I := 0 to High(allGroups) do
+  if States.GroupIsIdle(allGroups[I]) then
+    AttackRandomHouse(allGroups[I]);
+end;
+
+
+procedure UpdateObjective;
+var
+  allGroups: array of Integer;
+begin
+  // Assume that groups never link
+  allGroups := States.PlayerGetAllGroups(WALKERS_PLAYER);
+
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves, 'Waves deflected - ' + IntToStr(waveGroups - Length(allGroups)));
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  // Kill anyone entering bridge except Walkers
+  if (aTriggerId = 1) and (States.UnitOwner(aUnit) <> WALKERS_PLAYER) then
+    Actions.UnitKill(aUnit, False);
+end;
+
+
+procedure OnMissionStart;
+begin
+  // Name Walkers
+  Actions.PlayerNameSet(WALKERS_PLAYER, '<$5>');
+  
+  waveNumber := 1;
+  waveGroups := 0;
+
+  objWaves := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+  UpdateObjective;
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if (aTick mod WAVE_INTERVAL = 0) then
+  begin
+	if not States.PlayerDefeated(HUMAN_PLAYER) then
+	  CreateNextWave;
+
+	// Feed even when defeated
+    Feed;
+  end;
+
+  if aTick mod 30 = 0 then
+	if not States.PlayerDefeated(HUMAN_PLAYER) then
+	  OrderIdleGroups;
+	  
+  if aTick mod 30 = 0 then
+    UpdateObjective;
+end;
