@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Campaign UID="TUTR">
+    <id0 FlagX="147" FlagY="54" Folder="1_Citizens"/>
+    <id1 FlagX="239" FlagY="94" Folder="2_Basics"/>
+    <id2 FlagX="331" FlagY="155" Folder="3_Materials"/>
+    <id3 FlagX="131" FlagY="185" Folder="4_Stolen"/>
+    <id5 FlagX="420" FlagY="240" Folder="5_FightingBack"/>
+    <id4 FlagX="236" FlagY="228" Folder="6_Army"/>
+    <id6 FlagX="221" FlagY="319" Folder="7_TwoNeighbours"/>
+  </Campaign>
+</Root>

@@ -1,0 +1,49 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+  PLAYTIME = 30 * 60 * 10;
+  WOOD_NEEDED = 250;
+var
+  objWood: Integer;
+  woodProduced: Integer;
+  playerWon: Boolean;
+
+procedure UpdateObjective;
+begin
+  woodProduced := States.StatWaresProduced(HUMAN_PLAYER, wtWood);
+
+  if woodProduced < WOOD_NEEDED then
+    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWood, 'Collect ' + IntToStr(WOOD_NEEDED) + ' wood.|[$00FFFF]' + IntToStr(woodProduced) + ' / ' + IntToStr(WOOD_NEEDED))
+  else
+  begin
+    // Award victory just once
+    if not playerWon then
+    begin
+      Actions.PlayerWin([HUMAN_PLAYER], True);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objWood, osCompleted);
+      Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWood, '[$00E000]' + IntToStr(WOOD_NEEDED) + ' wood collected!');
+      playerWon := True;
+    end;
+  end;
+end;
+
+procedure OnMissionStart;
+begin
+  objWood := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+  playerWon := False;
+
+  UpdateObjective;
+
+  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 10 = 0 then
+    UpdateObjective;
+
+  //if aTick = PLAYTIME then
+  //  Actions.PlayerWin([HUMAN_PLAYER], True);
+end;

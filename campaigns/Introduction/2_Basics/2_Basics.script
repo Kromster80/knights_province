@@ -1,0 +1,89 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+var
+  objCottage: Integer;
+  objSchool: Integer;
+  objStonecutters: Integer;
+  objSawmill: Integer;
+  objTavern: Integer;
+
+
+procedure CheckVictory;
+begin
+  if (objCottage = -1) and (objSchool = -1) and (objStonecutters = -1) and (objSawmill = -1) then
+    Actions.PlayerWin([HUMAN_PLAYER], True);
+end;
+
+
+procedure UpdateObjectivesStatus;
+begin
+  if (objCottage <> -1)      and States.PlayerHouseCanBuild(HUMAN_PLAYER, htCottage)      then Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objCottage,      osActive);
+  if (objSchool <> -1)       and States.PlayerHouseCanBuild(HUMAN_PLAYER, htSchool)       then Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSchool,       osActive);
+  if (objStonecutters <> -1) and States.PlayerHouseCanBuild(HUMAN_PLAYER, htStonecutters) then Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objStonecutters, osActive);
+  if (objSawmill <> -1)      and States.PlayerHouseCanBuild(HUMAN_PLAYER, htSawmill)      then Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSawmill,      osActive);
+  if (objTavern <> -1)       and States.PlayerHouseCanBuild(HUMAN_PLAYER, htTavern)       then Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objTavern,       osActive);
+end;
+
+
+procedure CheckObjectives;
+begin
+  if (objCottage <> -1)      and (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 1) then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objCottage, osCompleted);
+    objCottage := -1;
+  end;
+
+  if (objSchool <> -1)       and (States.StatHouseTypeCount(HUMAN_PLAYER, htSchool) >= 1) then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSchool, osCompleted);
+    objSchool := -1;
+  end;
+
+  if (objStonecutters <> -1) and (States.StatHouseTypeCount(HUMAN_PLAYER, htStonecutters) >= 1) then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objStonecutters, osCompleted);
+    objStonecutters := -1;
+  end;
+
+  if (objSawmill <> -1)      and (States.StatHouseTypeCount(HUMAN_PLAYER, htSawmill) >= 1) then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSawmill, osCompleted);
+    objSawmill := -1;
+  end;
+
+  if (objTavern <> -1)       and (States.StatHouseTypeCount(HUMAN_PLAYER, htTavern) >= 1) then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objTavern, osCompleted);
+    objTavern := -1;
+  end;
+end;
+
+
+procedure OnMissionStart;
+begin
+  objCottage      := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, 'Build cottage');
+  objSchool       := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, 'Build school');
+  objStonecutters := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, 'Build stonecutters');
+  objSawmill      := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, 'Build sawmill');
+  objTavern       := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otAdditional, 0, osHidden, 'Build tavern');
+  
+  UpdateObjectivesStatus;
+  
+  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 10 = 0 then
+    UpdateObjectivesStatus;
+
+  if aTick mod 10 = 3 then
+    CheckObjectives;
+
+  if aTick mod 10 = 6 then
+    CheckVictory;
+end;
