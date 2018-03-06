@@ -1,0 +1,51 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+var
+  objective1: Integer;
+  objective2: Integer;
+  objective3: Integer;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(0, '<$5>');
+  Actions.PlayerNameSet(1, '<$6>');
+  Actions.PlayerNameSet(2, '<$7>');
+  Actions.PlayerNameSet(3, '<$8>');
+  Actions.PlayerNameSet(4, '<$9>');
+  Actions.PlayerNameSet(5, '<$10>');
+  Actions.PlayerNameSet(6, '<$11>');
+  Actions.PlayerNameSet(7, '<$12>');
+  Actions.PlayerNameSet(8, '<$13>');
+  Actions.PlayerAllianceChange(0, 3, true, true);
+  Actions.PlayerAllianceChange(0, 7, true, true);
+  Actions.PlayerMessageOpen(0, '<$14>');
+  Actions.PlayerColorChange(0, 0+0*256+255*65536);
+  objective1 := Actions.PlayerObjectiveAdd(0, otMain, 0, osActive, '<$17>');
+  objective2 := Actions.PlayerObjectiveAdd(0, otMain, 1, osHidden, '<$18>');
+  objective3:= Actions.PlayerObjectiveAdd(0, otMain, 2, osHidden, '<$19>');
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  if aPlayer = 1 then
+    begin
+      Actions.PlayerMessageOpen(0, '<$15>');
+	  Actions.PlayerObjectiveUpdateStatus(0, objective1, osCompleted);
+	  Actions.PlayerObjectiveUpdateStatus(0, objective2, osActive);
+	end;
+  if aPlayer = 2 then
+    begin
+      Actions.PlayerMessageOpen(0, '<$16>');
+	  Actions.FogRevealCircle(0,95,59,5);
+	  Actions.PlayerObjectiveUpdateStatus(0, objective2, osCompleted);
+	  Actions.PlayerObjectiveUpdateStatus(0, objective3, osActive);
+	end;
+  if aPlayer = 4 then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(0, objective3, osCompleted);
+	  Actions.PlayerWin([HUMAN_PLAYER], True);
+	end;
+end;
