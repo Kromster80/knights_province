@@ -1,0 +1,63 @@
+!VERSION 2
+
+// General settings
+!HANDS_COUNT 1
+!HAND_DEFAULT_HUMAN 1
+
+// Hands
+----------
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_COLOR 460799
+
+// Goals
+
+// AI
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+
+// Grant/Block houses
+!HOUSE_BLOCK 23
+!HOUSE_BLOCK 29
+!HOUSE_BLOCK 34
+!HOUSE_BLOCK 35
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Units
+!SET_UNIT 2 7 13
+!SET_UNIT 2 5 13
+!SET_UNIT 2 6 13
+!SET_UNIT 3 5 14
+!SET_UNIT 3 6 14
+!SET_UNIT 3 7 14
+
+
+
+// Hand neutral
+!HAND_CURRENT 99
+// Roads and fields
+
+
+
+// Stockpiles
+!SET_STOCKPILE 2 11 15 10
+!SET_STOCKPILE 3 13 16 10
+!SET_STOCKPILE 3 14 17 10
+!SET_STOCKPILE 3 15 15 10
+!SET_STOCKPILE 2 10 14 10
+!SET_STOCKPILE 2 11 13 10
+!SET_STOCKPILE 2 8 15 10
+!SET_STOCKPILE 3 12 18 10
+
+// Triggers
+
+// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5447 (2017.10.16 14:00)"  on 16.10.2017 14:00:24

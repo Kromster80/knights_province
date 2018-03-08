@@ -1,0 +1,19 @@
+!VERSION 2
+
+// General settings
+!HANDS_COUNT 0
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+
+// Hand neutral
+!HAND_CURRENT 99
+// Roads and fields
+
+
+
+// Stockpiles
+
+// Triggers
+
+// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5447 (2017.10.16 14:00)"  on 16.10.2017 14:00:24

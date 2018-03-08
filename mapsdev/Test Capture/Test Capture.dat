@@ -1,0 +1,93 @@
+!VERSION 2
+
+// General settings
+!HANDS_COUNT 2
+!HAND_DEFAULT_HUMAN 1
+
+// Hands
+----------
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 4 26
+!FOW_REVEAL 255
+
+// Goals
+
+// AI
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23
+!HOUSE_BLOCK 29
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Units
+// Groups
+!SET_GROUP 25 4 26 1 1 3
+!SET_GROUP_FOOD
+
+----------
+!HAND_CURRENT 1
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_COLOR 14924635
+
+// Goals
+
+// AI
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23
+!HOUSE_BLOCK 29
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 30 13 18 0
+
+// Roads and fields
+
+!SET_ROAD 13 18
+
+// Units
+!SET_UNIT 32 15 20
+!SET_UNIT_WARE 27 50
+!SET_UNIT 32 14 20
+!SET_UNIT_WARE 19 50
+!SET_UNIT 32 12 20
+!SET_UNIT_WARE 21 50
+!SET_UNIT 32 13 20
+!SET_UNIT_WARE 25 50
+
+
+
+// Hand neutral
+!HAND_CURRENT 99
+// Roads and fields
+
+
+
+// Stockpiles
+
+// Triggers
+!SET_TRIGGER 7 11 13 16 19
+
+// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5447 (2017.10.16 14:00)"  on 16.10.2017 14:00:24

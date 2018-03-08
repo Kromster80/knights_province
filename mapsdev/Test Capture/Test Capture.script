@@ -1,0 +1,14 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX: Word; aY: Word);
+begin
+  if (aTriggerId = 7) and (States.UnitOwner(aUnit) = 0) then
+  begin
+    Actions.HouseDestroy(States.HouseAt(13, 18), True);
+    Actions.GiveHouse(0, htFort, 13, 18, toSouth);
+
+    // No need to trigger this event anymore
+    Actions.TerrainTriggerDelete(7);
+  end;
+end;
