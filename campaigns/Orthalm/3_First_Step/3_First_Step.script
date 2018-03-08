@@ -1,0 +1,80 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Script made by DarkianMaker
+
+const
+  HUMAN_PLAYER = 0;
+  ENEMY_1 = 1;
+  ENEMY_2 = 2;
+  REINFORCEMENT_WAVE = 42000;
+var
+  ObjDefend, ObjDestroy, ObjBuild: Integer;
+  
+  FortBuilt, ReinforcementsArrived: Boolean;
+  ObjDefendDone, ObjDestroyDone, ObjBuildDone, HasWon: Boolean;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(HUMAN_PLAYER, '<$3>');
+  Actions.PlayerNameSet(ENEMY_1, '<$4>');
+  Actions.PlayerNameSet(ENEMY_2, '<$5>');
+  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$25>');
+  ObjDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$15>');
+  ObjBuild := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$16>');
+  ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$17>');
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  if aPlayer = ENEMY_2 then
+    begin
+	  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$26>');
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);
+	  ObjBuild := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$16>');
+      ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '<$17>');
+	  ObjDefendDone := true;
+	end;
+  
+  if aPlayer = ENEMY_1 then
+    begin
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osCompleted);
+	  ObjDestroyDone := true;
+	end;
+end;
+
+procedure CheckBuildingProgress;
+begin
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htFort) >= 1) then
+  begin
+    FortBuilt := true;
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjBuild, osCompleted);
+	Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$27>');
+	ObjBuildDone := true;
+  end;
+end;
+
+procedure CheckVictoryStatus;
+begin
+  if ObjDefendDone and ObjDestroyDone and ObjBuildDone then
+  begin
+    HasWon := true;
+	Actions.PlayerWin([HUMAN_PLAYER], True);
+  end;
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if FortBuilt = false then CheckBuildingProgress;
+  if HasWon = false then CheckVictoryStatus;
+  if (aTick mod REINFORCEMENT_WAVE = 0) then
+  begin
+	if ReinforcementsArrived = false then
+	  begin
+	    ReinforcementsArrived := true;
+		Actions.GiveGroup(HUMAN_PLAYER, utMilitia, 7, 54, 0, 12, 3);
+		Actions.GiveGroup(HUMAN_PLAYER, utBowman, 7, 61, 0, 6, 3);
+		Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 7, 58, 0, 9, 3);
+		Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$28>');
+	  end;
+  end;
+end;
