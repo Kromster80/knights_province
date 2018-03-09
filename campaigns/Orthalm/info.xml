@@ -2,7 +2,7 @@
 <Root>
   <Campaign UID="ORTH">
     <id0 FlagX="50" FlagY="400" Folder="1_Prologue"/>
-	<id1 FlagX="400" FlagY="420" Folder="2_Home"/>
-	<id2 FlagX="380" FlagY="415" Folder="3_First_Step"/>
+	<id1 FlagX="625" FlagY="525" Folder="2_Home"/>
+	<id2 FlagX="550" FlagY="510" Folder="3_First_Step"/>
   </Campaign>
 </Root>

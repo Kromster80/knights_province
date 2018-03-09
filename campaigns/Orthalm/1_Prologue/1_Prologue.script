@@ -16,6 +16,8 @@ var
   objective1: Integer;
   objective2: Integer;
   objective3: Integer;
+  
+  Enemy2Defeated, Enemy5Defeated, AssaultDefeated: Boolean;
 
 procedure OnMissionStart;
 begin
@@ -32,7 +34,7 @@ begin
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_2, true, true);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_3, true, true);
   Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$14>');
-  Actions.PlayerColorChange(HUMAN_PLAYER, 0+0*256+255*65536);
+  Actions.PlayerColorChange(ENEMY_5, 200+200*256+0*65536);
   objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$17>');
   objective2 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$18>');
   objective3 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$19>');
@@ -46,16 +48,28 @@ begin
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective1, osCompleted);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osActive);
 	end;
-  if aPlayer = ENEMY_2 then
-    begin
-      Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$16>');
-	  Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
-	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
-	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
-	end;
+  if aPlayer = ENEMY_2 then Enemy2Defeated := true;
   if aPlayer = ENEMY_3 then
     begin
       Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osCompleted);
 	  Actions.PlayerWin([HUMAN_PLAYER], True);
 	end;
+  if aPlayer = ENEMY_5 then Enemy5Defeated := true;
+end;
+
+procedure CheckAssaultStatus;
+begin
+  if Enemy2Defeated and Enemy5Defeated then
+    begin
+      Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$16>');
+	  Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
+	  AssaultDefeated := true;
+	end;
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if AssaultDefeated = false then CheckAssaultStatus;
 end;

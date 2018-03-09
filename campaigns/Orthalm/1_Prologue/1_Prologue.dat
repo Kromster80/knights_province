@@ -147,7 +147,7 @@
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 2
-!SET_AI_ATTACK POSITION 44 64
+!SET_AI_ATTACK POSITION 45 65
 !ADD_AI_ATTACK
 
 
@@ -925,6 +925,7 @@
 !HAND_CENTER_SCREEN 100 30
 
 // Goals
+!ADD_GOAL 1 1 0 8 0
 
 // AI
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
@@ -977,4 +978,4 @@
 
 // Triggers
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5863 (2018-03-05 18:33)"  on 6-3-2018 18:40:11
+// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5863 (2018-03-05 18:33)"  on 9-3-2018 13:50:37
