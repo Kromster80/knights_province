@@ -75,7 +75,6 @@
 !SET_HOUSE 9 7 93 0 // woodcutters
 !SET_HOUSE 21 21 95 0 // barracks
 !SET_HOUSE 4 5 104 0 // IronMine
-!SET_HOUSE 18 12 94 0 // rangershop
 !SET_HOUSE 7 18 76 0 // bakery
 !SET_HOUSE 30 42 72 0 // fort
 !WARE_OUT_ADD_TO_LAST 17 100 // shield
@@ -388,4 +387,4 @@
 
 // Triggers
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 17:47:00
+// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5927 (2018.03.19 20:11)"  on 19.03.2018 20:16:39

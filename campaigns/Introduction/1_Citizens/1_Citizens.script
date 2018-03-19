@@ -4,10 +4,11 @@
 const
   HUMAN_PLAYER = 0;
   ENEMY_PLAYER = 1;
+
 var
   objDefend: Integer;
   objCottage: Integer;
-  
+
 
 procedure CheckVictory;
 begin
@@ -18,14 +19,14 @@ end;
 
 procedure CheckObjectives;
 begin
-  if (objDefend <> -1)      and (States.StatArmyCount(ENEMY_PLAYER) = 0) then
+  if (objDefend <> -1) and (States.StatArmyCount(ENEMY_PLAYER) = 0) then
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objDefend, osCompleted);
     objDefend := -1;
     Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$3>');
   end;
   
-  if (objCottage <> -1)      and (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 3) then
+  if (objCottage <> -1) and (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 3) then
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objCottage, osCompleted);
     objCottage := -1;
@@ -35,9 +36,9 @@ end;
 
 procedure OnMissionStart;
 begin
-  objDefend     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Kill enemy soldiers');
-  objCottage    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Rebuild 3 cottages');
-  
+  objDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Kill enemy soldiers');
+  objCottage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Rebuild 3 cottages');
+
   Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
 end;
 
