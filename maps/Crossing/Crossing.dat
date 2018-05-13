@@ -297,4 +297,11 @@
 
 // Triggers
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 18:04:16
+// Emitters
+!SET_EMITTER 5 68 74
+!SET_EMITTER 5 68 69
+!SET_EMITTER 5 74 69
+!SET_EMITTER 5 74 75
+!SET_EMITTER 5 71 72
+
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r6199 (2018.05.13 20:36)"  on 13.05.2018 20:36:59
