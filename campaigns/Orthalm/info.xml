@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign UID="ORTH">
+  <Campaign UID="{00741C65-9EEA-4740-9088-3CFB994D2199}">
     <id0 FlagX="50" FlagY="400" Folder="1_Prologue"/>
 	<id1 FlagX="625" FlagY="525" Folder="2_Home"/>
 	<id2 FlagX="550" FlagY="510" Folder="3_First_Step"/>
