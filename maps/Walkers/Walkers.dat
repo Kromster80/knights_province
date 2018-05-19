@@ -113,6 +113,23 @@
 // Stockpiles
 
 // Triggers
-!SET_TRIGGER 1 58 44 60 52
+!SET_TRIGGER 1 58 44 60 53
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 18:10:05
+// Emitters
+!SET_EMITTER 6 60 45
+!SET_EMITTER 6 60 47
+!SET_EMITTER 6 60 49
+!SET_EMITTER 6 60 51
+!SET_EMITTER 6 60 53
+!SET_EMITTER 6 61 52
+!SET_EMITTER 6 61 50
+!SET_EMITTER 6 61 48
+!SET_EMITTER 6 61 46
+!SET_EMITTER 6 61 44
+!SET_EMITTER 7 58 45
+!SET_EMITTER 7 58 47
+!SET_EMITTER 7 58 49
+!SET_EMITTER 7 58 51
+!SET_EMITTER 7 58 53
+
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r6206 (2018.05.18 19:05)"  on 18.05.2018 19:09:22
