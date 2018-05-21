@@ -29,7 +29,7 @@ procedure CreateNextWave;
 begin
   Actions.GiveGroup(WALKERS_PLAYER, utMilitia, 73, 48, 6, waveNumber, waveNumber);
   Inc(waveGroups);
-  
+
   if waveNumber >= 10 then
   begin
     Actions.GiveGroup(WALKERS_PLAYER, utAxeFighter, 75, 48, 6, waveNumber - 9, waveNumber - 9);
@@ -91,7 +91,7 @@ procedure OnMissionStart;
 begin
   // Name Walkers
   Actions.PlayerNameSet(WALKERS_PLAYER, '<$5>');
-  
+
   waveNumber := 1;
   waveGroups := 0;
 
@@ -104,17 +104,17 @@ procedure OnTick(aTick: Integer);
 begin
   if (aTick mod WAVE_INTERVAL = 0) then
   begin
-	if not States.PlayerDefeated(HUMAN_PLAYER) then
-	  CreateNextWave;
+    if not States.PlayerDefeated(HUMAN_PLAYER) then
+      CreateNextWave;
 
-	// Feed even when defeated
+    // Feed even when defeated
     Feed;
   end;
 
   if aTick mod 30 = 0 then
-	if not States.PlayerDefeated(HUMAN_PLAYER) then
-	  OrderIdleGroups;
-	  
+    if not States.PlayerDefeated(HUMAN_PLAYER) then
+      OrderIdleGroups;
+
   if aTick mod 30 = 0 then
     UpdateObjective;
 end;
