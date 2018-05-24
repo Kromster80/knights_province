@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign UID="{799544A4-8B5A-4666-9A62-A5BF6657B63B}">
+  <Campaign GUID="{799544A4-8B5A-4666-9A62-A5BF6657B63B}">
     <id0 FlagX="147" FlagY="54" Folder="1_Citizens"/>
     <id1 FlagX="239" FlagY="94" Folder="2_Basics"/>
     <id2 FlagX="331" FlagY="155" Folder="3_Materials"/>
