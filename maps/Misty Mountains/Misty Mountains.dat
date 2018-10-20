@@ -197,8 +197,8 @@
 !HAND_CURRENT 99
 // Houses
 !SET_HOUSE 38 49 62 1
-!SET_HOUSE 38 63 76 0
 !SET_HOUSE 38 69 57 1
+!SET_HOUSE 38 63 73 0
 
 // Roads and fields
 
@@ -267,4 +267,4 @@
 !SET_EMITTER 5 43 70
 !SET_EMITTER 5 32 96
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r6749 (2018.09.27 19:53)"  on 19.10.2018 23:28:39
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r6852 (2018.10.17 19:36)"  on 20.10.2018 12:38:57
