@@ -30,8 +30,8 @@ begin
     begin
 	  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$26>');
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);
-	  ObjBuild := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$16>');
-      ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '<$17>');
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjBuild, osActive);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osActive);
 	  ObjDefendDone := true;
 	end;
   
@@ -71,9 +71,9 @@ begin
 	if ReinforcementsArrived = false then
 	  begin
 	    ReinforcementsArrived := true;
-		Actions.GiveGroup(HUMAN_PLAYER, utMilitia, 7, 54, 0, 12, 3);
-		Actions.GiveGroup(HUMAN_PLAYER, utBowman, 7, 61, 0, 6, 3);
-		Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 7, 58, 0, 9, 3);
+		Actions.GiveGroup(HUMAN_PLAYER, utMilitia, 37, 54, 0, 12, 3);
+		Actions.GiveGroup(HUMAN_PLAYER, utBowman, 37, 61, 0, 6, 3);
+		Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 37, 58, 0, 9, 3);
 		Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$28>');
 	  end;
   end;
