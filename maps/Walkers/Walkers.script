@@ -20,7 +20,7 @@ var
 begin
   allHouses := States.PlayerGetAllHouses(HUMAN_PLAYER);
   if Length(allHouses) = 0 then Exit;
-  I := States.SysRandomI(Length(allHouses));
+  I := Utils.RandomI(Length(allHouses));
   Actions.GroupOrderAttackHouse(aGroup, allHouses[I]);
 end;
 
