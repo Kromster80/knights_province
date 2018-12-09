@@ -2,7 +2,8 @@
 
 RTS game written in Delphi from scratch.
 
-Official website: [knightsprovince.com](http://knightsprovince.com)
+ - Official website: [knightsprovince.com](http://knightsprovince.com)
+ - Official [Discord server](https://discord.gg/yw4BTgE)
 
 This repository includes:
 
