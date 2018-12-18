@@ -61,7 +61,7 @@
 !SET_HOUSE 11 16 27 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 70 // wood
-!WARE_OUT_ADD_TO_LAST 8 1000 // gold
+!WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 50 // fish
 !WARE_OUT_ADD_TO_LAST 30 65 // cider
 
@@ -141,7 +141,7 @@
 !SET_HOUSE 11 67 93 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 70 // wood
-!WARE_OUT_ADD_TO_LAST 8 1000 // gold
+!WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 50 // fish
 !WARE_OUT_ADD_TO_LAST 30 65 // cider
 
@@ -174,4 +174,6 @@
 
 // Triggers
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5766 (2018.02.21 18:12)"  on 21.02.2018 18:20:35
+// Emitters
+
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7066 (2018.12.16 21:19)"  on 16.12.2018 21:21:27

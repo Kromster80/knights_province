@@ -149,7 +149,6 @@
 !SET_HOUSE 32 92 90 0 // ciderMaker
 !SET_HOUSE 19 87 76 0 // WeaponWorkshop
 !SET_HOUSE 20 91 76 0 // ArmorWorkshop
-!SET_HOUSE 18 96 76 0 // rangershop
 !SET_HOUSE 25 88 80 0 // tannery
 !SET_HOUSE 24 93 80 0 // butchers
 !SET_HOUSE 16 98 80 0 // cattlefarm
@@ -336,4 +335,6 @@
 
 // Triggers
 
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 18:05:19
+// Emitters
+
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7066 (2018.12.16 21:19)"  on 16.12.2018 21:20:18
