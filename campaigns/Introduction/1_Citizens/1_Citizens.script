@@ -3,7 +3,7 @@
 
 const
   HUMAN_PLAYER = 0;
-  ENEMY_PLAYER = 1;
+  ENEMY_PLAYER = 2; // Minor group of enemy offenders
 
 var
   objDefend: Integer;
