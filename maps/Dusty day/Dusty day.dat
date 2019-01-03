@@ -52,8 +52,8 @@
 // Houses
 !SET_HOUSE 11 29 12 0 // camp
 !WARE_OUT_ADD_TO_LAST 1 40 // trunk
-!WARE_OUT_ADD_TO_LAST 2 50 // stone
-!WARE_OUT_ADD_TO_LAST 3 30 // wood
+!WARE_OUT_ADD_TO_LAST 2 80 // stone
+!WARE_OUT_ADD_TO_LAST 3 45 // wood
 !WARE_OUT_ADD_TO_LAST 8 500 // gold
 !WARE_OUT_ADD_TO_LAST 28 40 // fish
 !WARE_OUT_ADD_TO_LAST 29 15 // club
@@ -125,8 +125,8 @@
 // Houses
 !SET_HOUSE 11 115 130 0 // camp
 !WARE_OUT_ADD_TO_LAST 1 40 // trunk
-!WARE_OUT_ADD_TO_LAST 2 50 // stone
-!WARE_OUT_ADD_TO_LAST 3 30 // wood
+!WARE_OUT_ADD_TO_LAST 2 80 // stone
+!WARE_OUT_ADD_TO_LAST 3 45 // wood
 !WARE_OUT_ADD_TO_LAST 8 500 // gold
 !WARE_OUT_ADD_TO_LAST 28 40 // fish
 !WARE_OUT_ADD_TO_LAST 29 15 // club
@@ -159,8 +159,4 @@
 
 
 
-// Stockpiles
-
-// Triggers
-
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 18:07:57
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7102 (2019.01.03 17:42)"  on 03.01.2019 18:03:08
