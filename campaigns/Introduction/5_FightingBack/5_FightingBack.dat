@@ -36,16 +36,22 @@
 !HOUSE_BLOCK 16
 !HOUSE_BLOCK 17
 !HOUSE_BLOCK 18
+!HOUSE_BLOCK 20
 !HOUSE_BLOCK 21
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 24
 !HOUSE_BLOCK 25
 !HOUSE_BLOCK 29
+!HOUSE_BLOCK 30
 !HOUSE_BLOCK 31
 !HOUSE_BLOCK 34
 !HOUSE_BLOCK 35
 
 // Block units
+!UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 10 // butcher
+!UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -113,6 +119,7 @@
 // Houses
 !SET_HOUSE 11 70 23 0 // camp
 !WARE_OUT_ADD_TO_LAST 3 1000 // wood
+!WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 2000 // fish
 !WARE_OUT_ADD_TO_LAST 30 2000 // cider
 !SET_HOUSE 27 62 29 0 // tavern
@@ -292,11 +299,7 @@
 
 // Units
 !SET_UNIT 32 30 59
-!SET_UNIT_WARE 3 60
+!SET_UNIT_WARE 3 50
 
 
-// Stockpiles
-
-// Triggers
-
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 17:55:49
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7121 (2019.01.03 18:57)"  on 03.01.2019 19:44:43
