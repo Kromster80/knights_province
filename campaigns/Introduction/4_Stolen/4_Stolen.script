@@ -8,7 +8,6 @@ const
 procedure OnMissionStart;
 begin
   Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
-  
 end;
 
 
