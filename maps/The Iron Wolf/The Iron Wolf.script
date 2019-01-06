@@ -9,22 +9,19 @@
 //   Were one to copy a full block please do create a comment containing credits to the original creator,
 //   this would be Thimo Braker (Thibmo) and Krom.
 //
-// Current map version: 1.0.17
+// Current map version: 1.0.18
 // Designed for: Knights Province Alpha 6
 //
 
-type TObjectiveSuccess =
-record
+type TObjectiveSuccess = record
   isSchoolDone, isStoneDone, isWoodDone, isSawDone, isFortDone, isTavernDone, isFisheryDone: Boolean;
   School, Stonecutter, Woodcutter, Sawmill {, Fort}, Tavern, Fishery: Integer;
 end;
-
 
 var
   objSuccess: array [0..1] of TObjectiveSuccess;
   tickCountScript: array [0..1] of Integer;
   missionFirstWin: Integer;
-
 
 procedure ShowWelcomeMessage;
 var
@@ -32,23 +29,21 @@ var
 begin
   for i := 0 to 1 do 
     tickCountScript[i] := 0;
+
   Actions.PlayerOverlaySet(-1, '<$2>');
 end;
- 
- 
+
 procedure ShowHouseCompleteMessage(aIndex: Integer; aHouseName: AnsiString);
 begin
   tickCountScript[aIndex] := 0;
   Actions.PlayerOverlaySetFormatted(aIndex, '<$3>', [aHouseName]); // Temp commented out due to libx issue
 end;
 
-  
 procedure CheckVictory;
 var
   i: Integer;
 begin
   for i := 0 to 1 do
-  begin
     if (objSuccess[i].School = -1) and (objSuccess[i].Stonecutter = -1) and (objSuccess[i].Woodcutter = -1)
                                    and (objSuccess[i].Sawmill = -1){ and (objSuccess[i].Fort = -1)}
                                    and (missionFirstWin = -1) then
@@ -56,10 +51,8 @@ begin
       missionFirstWin := i;
       Actions.PlayerWin([i], True);
     end;
-  end;
 end;
 
-  
 procedure UpdateObjectivesStatus;
 var
   i: Integer;
@@ -86,7 +79,6 @@ begin
         Actions.PlayerObjectiveUpdateStatus(i, objSuccess[i].Fishery, osActive);
   end;
 end;
-
 
 procedure CheckObjectives;
 var
@@ -159,7 +151,6 @@ begin
   end;
 end;
 
-
 procedure OnMissionStart;
 var
   i: Integer;
@@ -189,13 +180,11 @@ begin
   ShowWelcomeMessage;
 end;
 
-
 procedure HideTextOverlay;
 var
   i: Integer;
 begin
   for i := 0 to 1 do
-  begin
     if tickCountScript[i] < 10 then
       Inc(tickCountScript[i])
     else
@@ -203,7 +192,6 @@ begin
       Actions.PlayerOverlaySet(i, '');
       tickCountScript[i] := 0;
     end;
-  end;
 end;
 
 
