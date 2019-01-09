@@ -1,14 +1,8 @@
 Each folder is a single map (named MAP_NAME through this document).
 
-Folder name should be MAP_NAME
-
 Folder contains all required map files. So far these are:
  - MAP_NAME.dat - static script file of the map
  - MAP_NAME.map - map terrain
-
-Optional:
+ - MAP_NAME.mi - temporary file created by the game which stores the map/mission info so it is not necessary to scan the files each time. It can be safely deleted.
  - MAP_NAME.script - dynamic script file
  - MAP_NAME.eng.libx - translation files (in every locale game supports) for text used in dynamic script and map description in main menu
-
-Temp (can be safely deleted):
- - MAP_NAME.mi - map/mission info so it is not necessary to scan the files each time
