@@ -12,8 +12,8 @@
 !HAND_CENTER_SCREEN 13 108
 
 // Goals
-!ADD_GOAL 0 0 1 1 0
-!ADD_GOAL 0 0 1 2 0
+!ADD_GOAL 0 0 1 1 1
+!ADD_GOAL 0 0 1 2 1
 !ADD_GOAL 1 0 0 0 0
 
 // AI
@@ -378,8 +378,4 @@
 
 
 
-// Stockpiles
-
-// Triggers
-
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 17:58:38
+// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7140 (2019.01.11 21:38)"  on 11.01.2019 21:39:11
