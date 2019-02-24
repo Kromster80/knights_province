@@ -144,6 +144,7 @@
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 524287
 
 // Goals
@@ -308,9 +309,4 @@
 
 
 
-
-// Stockpiles
-
-// Triggers
-
-// This mission was made with Map Editor of "Knights Province. Alpha 9 wip r5761 (2018.02.21 17:44)"  on 21.02.2018 17:57:01
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:12
