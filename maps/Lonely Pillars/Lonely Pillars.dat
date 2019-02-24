@@ -277,7 +277,7 @@
 
 
 // Hand neutral
-!HAND_CURRENT 40
+!HAND_CURRENT 4
 !HAND_ACTIVATE
 // Houses
 !SET_HOUSE 39 95 91 0
