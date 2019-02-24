@@ -174,7 +174,7 @@
 ----------
 !HAND_CURRENT 3
 !HAND_ACTIVATE
-!HAND_COLOR 54440
+!HAND_COLOR 8421504
 
 // Houses
 !SET_HOUSE 38 30 76 0 // wolfsden
@@ -202,4 +202,4 @@
 !SET_STOCKPILE 15 126 6 5
 !SET_STOCKPILE 15 125 9 10
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:10
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 17:06:05

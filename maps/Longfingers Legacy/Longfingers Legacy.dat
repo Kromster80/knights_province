@@ -387,7 +387,7 @@
 ----------
 !HAND_CURRENT 6
 !HAND_ACTIVATE
-!HAND_COLOR 6388031
+!HAND_COLOR 8421504
 
 // Roads and fields
 
@@ -773,4 +773,4 @@
 !SET_EMITTER 5 159 179
 !SET_EMITTER 5 167 159
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:10
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 17:06:05
