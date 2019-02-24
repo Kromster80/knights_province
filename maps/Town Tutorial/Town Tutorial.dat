@@ -1,4 +1,4 @@
-!VERSION 2
+!VERSION 3
 
 // General settings
 !HANDS_COUNT 1
@@ -8,6 +8,7 @@
 ----------
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 16 20
 !FOW_REVEAL 18 10 15
@@ -146,13 +147,6 @@
 !SET_UNIT 2 19 19
 !SET_UNIT 2 12 19
 !SET_UNIT 2 20 19
-
-
-
-// Hand neutral
-!HAND_CURRENT 99
-// Roads and fields
-
 
 
 // Stockpiles

@@ -1,4 +1,4 @@
-!VERSION 2
+!VERSION 3
 
 // General settings
 !HANDS_COUNT 2
@@ -8,6 +8,7 @@
 ----------
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 21 231
 
@@ -121,6 +122,7 @@
 ----------
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
+!HAND_ACTIVATE
 !HAND_COLOR 25087
 
 // Goals
@@ -286,11 +288,6 @@
 !SET_GROUP 18 94 207 4 3 3
 !SET_GROUP 18 33 100 4 3 6
 !SET_GROUP 18 22 100 4 3 6
-
-
-// Hand neutral
-!HAND_CURRENT 99
-// Roads and fields
 
 
 
