@@ -282,42 +282,43 @@
 !SET_GROUP 25 11 40 4 4 12
 !SET_GROUP 21 3 29 4 3 9
 
-
-// Hand neutral
+----------
 !HAND_CURRENT 4
 !HAND_ACTIVATE
+!HAND_COLOR 8421504
+
 // Houses
-!SET_HOUSE 39 44 74 0
-!SET_HOUSE 39 57 102 0
-!SET_HOUSE 39 59 32 0
-!SET_HOUSE 39 24 14 0
-!SET_HOUSE 38 5 52 0
-!SET_HOUSE 38 19 39 0
-!SET_HOUSE 39 41 52 0
-!SET_HOUSE 38 33 45 0
-!SET_HOUSE 38 40 57 0
-!SET_HOUSE 38 47 34 0
-!SET_HOUSE 38 27 35 0
-!SET_HOUSE 38 14 7 0
-!SET_HOUSE 38 5 8 0
-!SET_HOUSE 38 2 18 0
-!SET_HOUSE 38 21 28 0
-!SET_HOUSE 38 41 26 0
-!SET_HOUSE 38 28 21 0
-!SET_HOUSE 38 25 5 0
-!SET_HOUSE 38 44 69 0
-!SET_HOUSE 38 56 88 0
-!SET_HOUSE 38 18 89 0
-!SET_HOUSE 38 7 97 0
-!SET_HOUSE 38 27 63 0
-!SET_HOUSE 38 11 13 0
-!SET_HOUSE 38 31 17 0
-!SET_HOUSE 38 38 30 0
-!SET_HOUSE 38 11 69 0
-!SET_HOUSE 38 17 66 0
-!SET_HOUSE 38 43 95 0
-!SET_HOUSE 39 48 101 0
-!SET_HOUSE 39 28 100 0
+!SET_HOUSE 39 44 74 0 // bearsden
+!SET_HOUSE 39 57 102 0 // bearsden
+!SET_HOUSE 39 59 32 0 // bearsden
+!SET_HOUSE 39 24 14 0 // bearsden
+!SET_HOUSE 38 5 52 0 // wolfsden
+!SET_HOUSE 38 19 39 0 // wolfsden
+!SET_HOUSE 39 41 52 0 // bearsden
+!SET_HOUSE 38 33 45 0 // wolfsden
+!SET_HOUSE 38 40 57 0 // wolfsden
+!SET_HOUSE 38 47 34 0 // wolfsden
+!SET_HOUSE 38 27 35 0 // wolfsden
+!SET_HOUSE 38 14 7 0 // wolfsden
+!SET_HOUSE 38 5 8 0 // wolfsden
+!SET_HOUSE 38 2 18 0 // wolfsden
+!SET_HOUSE 38 21 28 0 // wolfsden
+!SET_HOUSE 38 41 26 0 // wolfsden
+!SET_HOUSE 38 28 21 0 // wolfsden
+!SET_HOUSE 38 25 5 0 // wolfsden
+!SET_HOUSE 38 44 69 0 // wolfsden
+!SET_HOUSE 38 56 88 0 // wolfsden
+!SET_HOUSE 38 18 89 0 // wolfsden
+!SET_HOUSE 38 7 97 0 // wolfsden
+!SET_HOUSE 38 27 63 0 // wolfsden
+!SET_HOUSE 38 11 13 0 // wolfsden
+!SET_HOUSE 38 31 17 0 // wolfsden
+!SET_HOUSE 38 38 30 0 // wolfsden
+!SET_HOUSE 38 11 69 0 // wolfsden
+!SET_HOUSE 38 17 66 0 // wolfsden
+!SET_HOUSE 38 43 95 0 // wolfsden
+!SET_HOUSE 39 48 101 0 // bearsden
+!SET_HOUSE 39 28 100 0 // bearsden
 
 // Roads and fields
 
@@ -564,10 +565,5 @@
 !SET_UNIT 36 30 101
 
 
-// Stockpiles
 
-// Triggers
-
-// Emitters
-
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7083 (2018/12/20 08:44)"  on 12/30/2018 6:31:49 PM
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:10

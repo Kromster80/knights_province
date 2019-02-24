@@ -218,7 +218,6 @@
 !SET_UNIT 2 17 46
 !SET_UNIT 2 18 43
 !SET_UNIT 2 30 50
-
 // Groups
 !SET_GROUP 21 21 53 6 3 6
 !SET_GROUP 19 11 45 1 3 9
@@ -234,6 +233,7 @@
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 1
 !HAND_COLOR 14924635
 
 // Goals
@@ -329,6 +329,7 @@
 !HAND_CURRENT 2
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 25087
 
 // Goals
@@ -398,6 +399,7 @@
 !HAND_CURRENT 3
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 16711680
 
 // Goals
@@ -444,6 +446,7 @@
 !HAND_CURRENT 4
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 8388736
 
 // Goals
@@ -486,12 +489,4 @@
 !SET_GROUP 19 47 51 6 3 6
 
 
-
-
-// Stockpiles
-
-// Triggers
-
-// Emitters
-
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r6718 (2018-09-23 11:32)"  on 23-9-2018 23:29:46
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:13
