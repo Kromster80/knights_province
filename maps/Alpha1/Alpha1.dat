@@ -249,6 +249,7 @@
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 
 // Goals
@@ -344,6 +345,7 @@
 !HAND_CURRENT 2
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 524287
 
 // Goals
@@ -378,10 +380,11 @@
 !SET_GROUP 18 24 13 4 4 8
 !SET_GROUP 20 30 12 5 4 9
 
-
-// Hand neutral
+----------
 !HAND_CURRENT 3
 !HAND_ACTIVATE
+!HAND_COLOR 8421504
+
 // Roads and fields
 
 
@@ -392,4 +395,5 @@
 !SET_UNIT 44 48 58
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7147 (2019.01.13 23:39)"  on 13.01.2019 23:41:42
+
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:09

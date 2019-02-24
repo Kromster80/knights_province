@@ -124,9 +124,6 @@
 !SET_UNIT 1 16 23
 
 
-// Stockpiles
-
-// Triggers
 
 // Emitters
 !SET_EMITTER 7 52 45
@@ -136,4 +133,4 @@
 !SET_EMITTER 7 51 47
 !SET_EMITTER 7 52 46
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7083 (2018/12/20 17:44)"  on 28/12/2018 18:56:25
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:10
