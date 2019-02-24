@@ -384,9 +384,11 @@
 !SET_UNIT 1 218 30
 
 
-
-// Hand neutral
+----------
 !HAND_CURRENT 6
+!HAND_ACTIVATE
+!HAND_COLOR 6388031
+
 // Roads and fields
 
 !SET_ROAD 125 0 !SET_ROAD 126 0 !SET_ROAD 128 0 !SET_ROAD 125 1
@@ -723,9 +725,6 @@
 !SET_UNIT 46 127 95
 
 
-// Stockpiles
-
-// Triggers
 
 // Emitters
 !SET_EMITTER 7 16 94
@@ -774,4 +773,4 @@
 !SET_EMITTER 5 159 179
 !SET_EMITTER 5 167 159
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7066 (2018.12.16 17:56)"  on 17.12.2018 22:17:03
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:10

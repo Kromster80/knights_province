@@ -100,15 +100,17 @@
 // Groups
 !SET_GROUP 25 30 29 4 1 1
 
-
-// Hand neutral
+----------
 !HAND_CURRENT 1
 !HAND_ACTIVATE
+!HAND_COLOR 8421504
+
 // Roads and fields
 
 
 // Units
 !SET_UNIT 36 39 45
+
 
 
 // Stockpiles
@@ -118,4 +120,4 @@
 !SET_STOCKPILE 1 39 47 5
 !SET_STOCKPILE 1 39 43 5
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7121 (2019.01.03 22:45)"  on 03.01.2019 22:47:12
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:13

@@ -134,13 +134,14 @@
 !SET_UNIT 1 68 64
 
 
-
-// Hand neutral
+----------
 !HAND_CURRENT 2
 !HAND_ACTIVATE
+!HAND_COLOR 8421504
+
 // Houses
-!SET_HOUSE 38 5 13 0
-!SET_HOUSE 38 19 16 0
+!SET_HOUSE 38 5 13 0 // wolfsden
+!SET_HOUSE 38 19 16 0 // wolfsden
 
 // Roads and fields
 
@@ -149,9 +150,6 @@
 !SET_UNIT 36 89 4
 
 
-// Stockpiles
-
-// Triggers
 
 // Emitters
 !SET_EMITTER 5 89 4
@@ -171,4 +169,4 @@
 !SET_EMITTER 6 66 93
 !SET_EMITTER 7 24 11
 
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7090 (2018.12.22 13:13)"  on 23.12.2018 20:06:35
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:11

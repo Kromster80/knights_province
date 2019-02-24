@@ -88,6 +88,7 @@
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
 !HAND_COLOR 8388736
 !HAND_CENTER_SCREEN 63 95
 
@@ -165,6 +166,4 @@
 !SET_GROUP 25 60 94 4 1 1
 
 
-
-
-// This mission was made with Map Editor of "Knights Province. Alpha 10 wip r7129 (2019/01/04 20:19)"  on 05/01/2019 22:42:50
+// This mission was made with Map Editor of "Knights Province. Alpha 10.1 wip r7219 (2019.02.24 16:58)"  on 24.02.2019 16:58:11
