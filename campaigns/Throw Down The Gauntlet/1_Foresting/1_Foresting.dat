@@ -17,6 +17,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 6
 
@@ -103,7 +104,6 @@
 ----------
 !HAND_CURRENT 1
 !HAND_ACTIVATE
-!HAND_COLOR 8421504
 
 // Roads and fields
 
@@ -120,4 +120,4 @@
 !SET_STOCKPILE 1 39 47 5
 !SET_STOCKPILE 1 39 43 5
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7219 (2019.02.24 18:46)"  on 24.02.2019 18:46:17
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:09
