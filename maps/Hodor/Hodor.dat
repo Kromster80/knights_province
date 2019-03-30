@@ -1,7 +1,6 @@
 !VERSION 3
 
 // General settings
-!MODE_SKIRMISH
 !HANDS_COUNT 2
 !HAND_DEFAULT_HUMAN 0
 
@@ -133,4 +132,4 @@
 !SET_EMITTER 7 51 47
 !SET_EMITTER 7 52 46
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7219 (2019.02.24 18:46)"  on 24.02.2019 18:46:13
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:05

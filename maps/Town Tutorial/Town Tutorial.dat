@@ -20,6 +20,7 @@
 !ADD_GOAL 0 0 1 0 0
 
 // AI
+!SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 6
 
@@ -150,4 +151,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7219 (2019.02.24 18:46)"  on 24.02.2019 18:46:15
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:06

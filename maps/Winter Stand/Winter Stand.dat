@@ -1,7 +1,6 @@
 !VERSION 3
 
 // General settings
-!MODE_SKIRMISH
 !HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
@@ -137,7 +136,6 @@
 ----------
 !HAND_CURRENT 2
 !HAND_ACTIVATE
-!HAND_COLOR 8421504
 
 // Houses
 !SET_HOUSE 38 5 13 0 // wolfsden
@@ -169,4 +167,4 @@
 !SET_EMITTER 6 66 93
 !SET_EMITTER 7 24 11
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7219 (2019.02.24 18:46)"  on 24.02.2019 18:46:15
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:07
