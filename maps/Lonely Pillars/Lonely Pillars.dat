@@ -459,10 +459,6 @@
 !SET_ROAD 137 78 !SET_ROAD 138 78 !SET_ROAD 139 78
 
 // Units
-!SET_UNIT 32 95 93 // wagon
-!SET_UNIT_WARE 27 15
-!SET_UNIT 32 96 35 // wagon
-!SET_UNIT_WARE 27 15
 !SET_UNIT 44 40 107 // deer
 !SET_UNIT 44 41 17 // deer
 !SET_UNIT 44 80 11 // deer
@@ -493,6 +489,10 @@
 
 
 // Units
+!SET_UNIT 32 95 93 // wagon
+!SET_UNIT_WARE 27 15
+!SET_UNIT 32 96 35 // wagon
+!SET_UNIT_WARE 27 15
 !SET_UNIT 45 81 94 // boar
 !SET_UNIT 45 80 90 // boar
 !SET_UNIT 45 94 84 // boar
@@ -506,4 +506,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:09)"  on 17.07.2019 20:30:15
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 21:40)"  on 17.07.2019 21:40:25
