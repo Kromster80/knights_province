@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -31,8 +31,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -188,55 +186,53 @@
 !SET_ROAD 8 105 !SET_ROAD 9 105
 
 // Units
-!SET_UNIT 2 26 73
-!SET_UNIT 2 27 73
-!SET_UNIT 2 28 73
-!SET_UNIT 2 28 74
-!SET_UNIT 2 27 74
-!SET_UNIT 2 26 74
-!SET_UNIT 14 22 69
-!SET_UNIT 4 7 67
-!SET_UNIT 8 12 71
-!SET_UNIT 13 9 85
-!SET_UNIT 12 39 78
-!SET_UNIT 12 27 83
-!SET_UNIT 7 33 78
-!SET_UNIT 8 21 82
-!SET_UNIT 3 30 74
-!SET_UNIT 3 31 74
-!SET_UNIT 3 29 76
-!SET_UNIT 4 2 62
-!SET_UNIT 9 22 77
-!SET_UNIT 9 17 77
-!SET_UNIT 7 35 86
-!SET_UNIT 6 43 85
-!SET_UNIT 10 47 85
-!SET_UNIT 15 11 99
-!SET_UNIT 15 16 99
-!SET_UNIT 16 15 103
-!SET_UNIT 16 16 83
-!SET_UNIT 4 7 94
-!SET_UNIT 4 7 99
-!SET_UNIT 4 14 86
-!SET_UNIT 10 24 86
-!SET_UNIT 14 18 70
-!SET_UNIT 17 33 53
-!SET_UNIT 17 37 53
-!SET_UNIT 5 5 105
-!SET_UNIT 5 11 80
-!SET_UNIT 6 37 73
-!SET_UNIT 8 12 95
-!SET_UNIT 2 28 75
-!SET_UNIT 2 27 75
-!SET_UNIT 2 26 75
-!SET_UNIT 2 26 76
-!SET_UNIT 2 27 76
-!SET_UNIT 2 25 73
-!SET_UNIT 2 25 74
-!SET_UNIT 2 25 75
-!SET_UNIT 2 25 76
-!SET_UNIT 2 28 76
-!SET_UNIT 8 19 86
+!SET_UNIT 2 26 73 // serf
+!SET_UNIT 2 27 73 // serf
+!SET_UNIT 2 28 73 // serf
+!SET_UNIT 2 28 74 // serf
+!SET_UNIT 2 27 74 // serf
+!SET_UNIT 2 26 74 // serf
+!SET_UNIT 14 22 69 // stonecutter
+!SET_UNIT 4 7 67 // woodcutter
+!SET_UNIT 8 12 71 // carpenter
+!SET_UNIT 13 9 85 // fisher
+!SET_UNIT 12 39 78 // brewer
+!SET_UNIT 12 27 83 // brewer
+!SET_UNIT 7 33 78 // farmer
+!SET_UNIT 8 21 82 // carpenter
+!SET_UNIT 3 30 74 // builder
+!SET_UNIT 3 31 74 // builder
+!SET_UNIT 3 29 76 // builder
+!SET_UNIT 4 2 62 // woodcutter
+!SET_UNIT 9 22 77 // baker
+!SET_UNIT 9 17 77 // baker
+!SET_UNIT 7 35 86 // farmer
+!SET_UNIT 6 43 85 // breeder
+!SET_UNIT 10 47 85 // butcher
+!SET_UNIT 15 11 99 // smith
+!SET_UNIT 15 16 99 // smith
+!SET_UNIT 16 15 103 // metallurg
+!SET_UNIT 16 16 83 // metallurg
+!SET_UNIT 4 7 94 // woodcutter
+!SET_UNIT 4 7 99 // woodcutter
+!SET_UNIT 4 14 86 // woodcutter
+!SET_UNIT 10 24 86 // butcher
+!SET_UNIT 14 18 70 // stonecutter
+!SET_UNIT 5 5 105 // miner
+!SET_UNIT 5 11 80 // miner
+!SET_UNIT 6 37 73 // breeder
+!SET_UNIT 8 12 95 // carpenter
+!SET_UNIT 2 28 75 // serf
+!SET_UNIT 2 27 75 // serf
+!SET_UNIT 2 26 75 // serf
+!SET_UNIT 2 26 76 // serf
+!SET_UNIT 2 27 76 // serf
+!SET_UNIT 2 25 73 // serf
+!SET_UNIT 2 25 74 // serf
+!SET_UNIT 2 25 75 // serf
+!SET_UNIT 2 25 76 // serf
+!SET_UNIT 2 28 76 // serf
+!SET_UNIT 8 19 86 // carpenter
 // Groups
 !SET_GROUP 20 27 22 2 7 21
 !SET_GROUP 26 31 31 2 7 21
@@ -270,8 +266,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -323,20 +317,19 @@
 !SET_ROAD 42 37
 
 // Units
-!SET_UNIT 2 68 28
-!SET_UNIT 2 67 28
-!SET_UNIT 2 66 28
-!SET_UNIT 2 68 29
-!SET_UNIT 2 67 29
-!SET_UNIT 2 66 29
-!SET_UNIT 3 61 28
-!SET_UNIT 3 62 28
-!SET_UNIT 3 63 28
-!SET_UNIT 3 63 29
-!SET_UNIT 3 62 29
-!SET_UNIT 3 61 29
-!SET_UNIT 14 74 29
-!SET_UNIT 17 33 19
+!SET_UNIT 2 68 28 // serf
+!SET_UNIT 2 67 28 // serf
+!SET_UNIT 2 66 28 // serf
+!SET_UNIT 2 68 29 // serf
+!SET_UNIT 2 67 29 // serf
+!SET_UNIT 2 66 29 // serf
+!SET_UNIT 3 61 28 // builder
+!SET_UNIT 3 62 28 // builder
+!SET_UNIT 3 63 28 // builder
+!SET_UNIT 3 63 29 // builder
+!SET_UNIT 3 62 29 // builder
+!SET_UNIT 3 61 29 // builder
+!SET_UNIT 14 74 29 // stonecutter
 // Groups
 !SET_GROUP 19 36 22 5 6 12
 !SET_GROUP 19 40 31 6 6 12
@@ -362,8 +355,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -389,11 +380,22 @@
 
 
 // Units
-!SET_UNIT 36 45 58
-!SET_UNIT 46 48 61
-!SET_UNIT 45 46 62
-!SET_UNIT 44 48 58
+!SET_UNIT 44 48 58 // deer
+
+
+----------
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Roads and fields
+
+
+// Units
+!SET_UNIT 36 45 58 // wolf
+!SET_UNIT 46 48 61 // bear
+!SET_UNIT 45 46 62 // boar
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:04
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:10
