@@ -35,7 +35,6 @@
 !HOUSE_BLOCK 15
 !HOUSE_BLOCK 16
 !HOUSE_BLOCK 17
-!HOUSE_BLOCK 18
 !HOUSE_BLOCK 19
 !HOUSE_BLOCK 20
 !HOUSE_BLOCK 21
@@ -48,8 +47,6 @@
 !HOUSE_BLOCK 29
 !HOUSE_BLOCK 30
 !HOUSE_BLOCK 31
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -59,7 +56,6 @@
 !UNIT_BLOCK 10 // butcher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
-!UNIT_BLOCK 17 // recruit
 !UNIT_BLOCK 19 // axefighter
 !UNIT_BLOCK 20 // swordsman
 !UNIT_BLOCK 21 // bowman
@@ -89,14 +85,14 @@
 !SET_ROAD 19 52 !SET_ROAD 15 53 !SET_ROAD 15 54
 
 // Units
-!SET_UNIT 2 11 54
-!SET_UNIT 2 12 54
-!SET_UNIT 2 11 53
-!SET_UNIT 2 12 53
-!SET_UNIT 3 16 53
-!SET_UNIT 3 16 54
-!SET_UNIT 3 17 53
-!SET_UNIT 3 17 54
+!SET_UNIT 2 11 54 // serf
+!SET_UNIT 2 12 54 // serf
+!SET_UNIT 2 11 53 // serf
+!SET_UNIT 2 12 53 // serf
+!SET_UNIT 3 16 53 // builder
+!SET_UNIT 3 16 54 // builder
+!SET_UNIT 3 17 53 // builder
+!SET_UNIT 3 17 54 // builder
 // Groups
 !SET_GROUP 18 26 50 2 3 6
 
@@ -120,8 +116,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -150,11 +144,11 @@
 
 
 // Units
-!SET_UNIT 32 41 14
+!SET_UNIT 32 41 14 // wagon
 !SET_UNIT_WARE 3 50
-!SET_UNIT 32 60 3
+!SET_UNIT 32 60 3 // wagon
 !SET_UNIT_WARE 2 50
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:08
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:13

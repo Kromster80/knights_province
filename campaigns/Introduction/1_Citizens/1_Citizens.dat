@@ -39,7 +39,6 @@
 !HOUSE_BLOCK 15
 !HOUSE_BLOCK 16
 !HOUSE_BLOCK 17
-!HOUSE_BLOCK 18
 !HOUSE_BLOCK 19
 !HOUSE_BLOCK 20
 !HOUSE_BLOCK 21
@@ -54,8 +53,6 @@
 !HOUSE_BLOCK 30
 !HOUSE_BLOCK 31
 !HOUSE_BLOCK 32
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -119,20 +116,20 @@
 !SET_ROAD 18 37
 
 // Units
-!SET_UNIT 2 14 18
-!SET_UNIT 2 15 18
-!SET_UNIT 2 15 19
-!SET_UNIT 2 14 19
-!SET_UNIT 4 11 13
-!SET_UNIT 8 17 24
-!SET_UNIT 14 22 13
-!SET_UNIT 12 16 37
-!SET_UNIT 2 18 19
-!SET_UNIT 2 18 18
-!SET_UNIT 2 17 18
-!SET_UNIT 2 17 19
-!SET_UNIT 3 4 28
-!SET_UNIT 3 4 29
+!SET_UNIT 2 14 18 // serf
+!SET_UNIT 2 15 18 // serf
+!SET_UNIT 2 15 19 // serf
+!SET_UNIT 2 14 19 // serf
+!SET_UNIT 4 11 13 // woodcutter
+!SET_UNIT 8 17 24 // carpenter
+!SET_UNIT 14 22 13 // stonecutter
+!SET_UNIT 12 16 37 // brewer
+!SET_UNIT 2 18 19 // serf
+!SET_UNIT 2 18 18 // serf
+!SET_UNIT 2 17 18 // serf
+!SET_UNIT 2 17 19 // serf
+!SET_UNIT 3 4 28 // builder
+!SET_UNIT 3 4 29 // builder
 // Groups
 !SET_GROUP 19 13 34 2 4 12
 
@@ -234,4 +231,4 @@
 !ATTACK_POSITION 28 16
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:08
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:13

@@ -29,8 +29,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -85,16 +83,16 @@
 !SET_ROAD 23 33 !SET_ROAD 24 33 !SET_ROAD 25 33 !SET_ROAD 26 33
 
 // Units
-!SET_UNIT 2 14 27
-!SET_UNIT 2 16 27
-!SET_UNIT 2 16 20
-!SET_UNIT 2 21 32
-!SET_UNIT 2 11 27
-!SET_UNIT 2 19 27
-!SET_UNIT 13 3 22
-!SET_UNIT 13 9 19
-!SET_UNIT 4 3 30
-!SET_UNIT 8 8 28
+!SET_UNIT 2 14 27 // serf
+!SET_UNIT 2 16 27 // serf
+!SET_UNIT 2 16 20 // serf
+!SET_UNIT 2 21 32 // serf
+!SET_UNIT 2 11 27 // serf
+!SET_UNIT 2 19 27 // serf
+!SET_UNIT 13 3 22 // fisher
+!SET_UNIT 13 9 19 // fisher
+!SET_UNIT 4 3 30 // woodcutter
+!SET_UNIT 8 8 28 // carpenter
 // Groups
 !SET_GROUP 19 25 38 4 4 8
 
@@ -125,8 +123,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -151,22 +147,22 @@
 !SET_ROAD 58 43 !SET_ROAD 59 43 !SET_ROAD 60 43
 
 // Units
-!SET_UNIT 32 43 34
+!SET_UNIT 32 43 34 // wagon
 !SET_UNIT_WARE 21 15
-!SET_UNIT 32 15 55
+!SET_UNIT 32 15 55 // wagon
 !SET_UNIT_WARE 19 20
-!SET_UNIT 32 17 56
+!SET_UNIT 32 17 56 // wagon
 !SET_UNIT_WARE 21 15
-!SET_UNIT 32 41 33
+!SET_UNIT 32 41 33 // wagon
 !SET_UNIT_WARE 17 20
-!SET_UNIT 32 46 57
+!SET_UNIT 32 46 57 // wagon
 !SET_UNIT_WARE 17 50
-!SET_UNIT 32 45 59
+!SET_UNIT 32 45 59 // wagon
 !SET_UNIT_WARE 21 50
-!SET_UNIT 2 55 39
-!SET_UNIT 2 56 39
-!SET_UNIT 2 56 40
-!SET_UNIT 32 44 56
+!SET_UNIT 2 55 39 // serf
+!SET_UNIT 2 56 39 // serf
+!SET_UNIT 2 56 40 // serf
+!SET_UNIT 32 44 56 // wagon
 !SET_UNIT_WARE 19 50
 // Groups
 !SET_GROUP 19 40 38 5 3 6
@@ -199,8 +195,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -225,12 +219,12 @@
 !SET_ROAD 60 16 !SET_ROAD 61 16
 
 // Units
-!SET_UNIT 32 4 50
+!SET_UNIT 32 4 50 // wagon
 !SET_UNIT_WARE 30 50
-!SET_UNIT 2 56 16
-!SET_UNIT 2 57 16
-!SET_UNIT 2 58 16
-!SET_UNIT 2 59 16
+!SET_UNIT 2 56 16 // serf
+!SET_UNIT 2 57 16 // serf
+!SET_UNIT 2 58 16 // serf
+!SET_UNIT 2 59 16 // serf
 // Groups
 !SET_GROUP 19 53 50 6 4 4
 !SET_GROUP 19 3 54 4 5 10
@@ -243,9 +237,9 @@
 
 
 // Units
-!SET_UNIT 32 35 3
+!SET_UNIT 32 35 3 // wagon
 !SET_UNIT_WARE 2 30
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:08
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:13
