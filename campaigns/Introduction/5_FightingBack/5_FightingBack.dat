@@ -293,6 +293,7 @@
 
 ----------
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1
 !HAND_ACTIVATE
 
 // Roads and fields
@@ -304,4 +305,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:13
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 21:40)"  on 17.07.2019 21:40:28
