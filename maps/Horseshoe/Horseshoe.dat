@@ -50,18 +50,18 @@
 !SET_ROAD 21 29 !SET_ROAD 22 29 !SET_ROAD 23 29
 
 // Units
-!SET_UNIT 2 19 29
-!SET_UNIT 3 21 29
-!SET_UNIT 2 18 29
-!SET_UNIT 3 22 29
-!SET_UNIT 2 17 29
-!SET_UNIT 3 23 29
-!SET_UNIT 2 19 30
-!SET_UNIT 3 21 30
-!SET_UNIT 2 18 30
-!SET_UNIT 3 22 30
-!SET_UNIT 2 17 30
-!SET_UNIT 3 23 30
+!SET_UNIT 2 19 29 // serf
+!SET_UNIT 3 21 29 // builder
+!SET_UNIT 2 18 29 // serf
+!SET_UNIT 3 22 29 // builder
+!SET_UNIT 2 17 29 // serf
+!SET_UNIT 3 23 29 // builder
+!SET_UNIT 2 19 30 // serf
+!SET_UNIT 3 21 30 // builder
+!SET_UNIT 2 18 30 // serf
+!SET_UNIT 3 22 30 // builder
+!SET_UNIT 2 17 30 // serf
+!SET_UNIT 3 23 30 // builder
 
 
 ----------
@@ -109,22 +109,23 @@
 !SET_ROAD 91 23 !SET_ROAD 92 23 !SET_ROAD 93 23
 
 // Units
-!SET_UNIT 2 89 23
-!SET_UNIT 3 91 23
-!SET_UNIT 2 88 23
-!SET_UNIT 3 92 23
-!SET_UNIT 2 87 23
-!SET_UNIT 3 93 23
-!SET_UNIT 2 89 24
-!SET_UNIT 3 91 24
-!SET_UNIT 2 88 24
-!SET_UNIT 3 92 24
-!SET_UNIT 2 87 24
-!SET_UNIT 3 93 24
+!SET_UNIT 2 89 23 // serf
+!SET_UNIT 3 91 23 // builder
+!SET_UNIT 2 88 23 // serf
+!SET_UNIT 3 92 23 // builder
+!SET_UNIT 2 87 23 // serf
+!SET_UNIT 3 93 23 // builder
+!SET_UNIT 2 89 24 // serf
+!SET_UNIT 3 91 24 // builder
+!SET_UNIT 2 88 24 // serf
+!SET_UNIT 3 92 24 // builder
+!SET_UNIT 2 87 24 // serf
+!SET_UNIT 3 93 24 // builder
 
 
 ----------
 !HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
 // Houses
@@ -139,4 +140,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:05
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:06)"  on 17.07.2019 20:07:22

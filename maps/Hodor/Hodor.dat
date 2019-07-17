@@ -50,18 +50,18 @@
 !SET_ROAD 108 76 !SET_ROAD 109 76
 
 // Units
-!SET_UNIT 2 105 76
-!SET_UNIT 3 107 76
-!SET_UNIT 2 104 76
-!SET_UNIT 3 108 76
-!SET_UNIT 2 103 76
-!SET_UNIT 3 109 76
-!SET_UNIT 2 105 77
-!SET_UNIT 3 107 77
-!SET_UNIT 2 104 77
-!SET_UNIT 3 108 77
-!SET_UNIT 1 106 76
-!SET_UNIT 1 106 77
+!SET_UNIT 2 105 76 // serf
+!SET_UNIT 3 107 76 // builder
+!SET_UNIT 2 104 76 // serf
+!SET_UNIT 3 108 76 // builder
+!SET_UNIT 2 103 76 // serf
+!SET_UNIT 3 109 76 // builder
+!SET_UNIT 2 105 77 // serf
+!SET_UNIT 3 107 77 // builder
+!SET_UNIT 2 104 77 // serf
+!SET_UNIT 3 108 77 // builder
+!SET_UNIT 1 106 76 // blank
+!SET_UNIT 1 106 77 // blank
 
 
 ----------
@@ -109,18 +109,18 @@
 !SET_ROAD 18 22 !SET_ROAD 19 22
 
 // Units
-!SET_UNIT 2 15 22
-!SET_UNIT 3 17 22
-!SET_UNIT 2 14 22
-!SET_UNIT 3 18 22
-!SET_UNIT 2 13 22
-!SET_UNIT 3 19 22
-!SET_UNIT 2 15 23
-!SET_UNIT 3 17 23
-!SET_UNIT 2 14 23
-!SET_UNIT 3 18 23
-!SET_UNIT 1 16 22
-!SET_UNIT 1 16 23
+!SET_UNIT 2 15 22 // serf
+!SET_UNIT 3 17 22 // builder
+!SET_UNIT 2 14 22 // serf
+!SET_UNIT 3 18 22 // builder
+!SET_UNIT 2 13 22 // serf
+!SET_UNIT 3 19 22 // builder
+!SET_UNIT 2 15 23 // serf
+!SET_UNIT 3 17 23 // builder
+!SET_UNIT 2 14 23 // serf
+!SET_UNIT 3 18 23 // builder
+!SET_UNIT 1 16 22 // blank
+!SET_UNIT 1 16 23 // blank
 
 
 
@@ -132,4 +132,4 @@
 !SET_EMITTER 7 51 47
 !SET_EMITTER 7 52 46
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:05
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:10
