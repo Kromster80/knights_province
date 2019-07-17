@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -56,31 +56,30 @@
 !SET_ROAD 58 28 !SET_ROAD 59 28
 
 // Units
-!SET_UNIT 3 53 27
-!SET_UNIT 3 53 28
-!SET_UNIT 3 53 29
-!SET_UNIT 2 53 26
-!SET_UNIT 2 53 23
-!SET_UNIT 2 53 25
-!SET_UNIT 2 53 24
-!SET_UNIT 1 48 26
-!SET_UNIT 1 52 26
-!SET_UNIT 1 51 26
-!SET_UNIT 1 50 26
-!SET_UNIT 1 49 26
-!SET_UNIT 32 125 1
+!SET_UNIT 3 53 27 // builder
+!SET_UNIT 3 53 28 // builder
+!SET_UNIT 3 53 29 // builder
+!SET_UNIT 2 53 26 // serf
+!SET_UNIT 2 53 23 // serf
+!SET_UNIT 2 53 25 // serf
+!SET_UNIT 2 53 24 // serf
+!SET_UNIT 1 48 26 // blank
+!SET_UNIT 1 52 26 // blank
+!SET_UNIT 1 51 26 // blank
+!SET_UNIT 1 50 26 // blank
+!SET_UNIT 1 49 26 // blank
+!SET_UNIT 32 125 1 // wagon
 !SET_UNIT_WARE 20 45
-!SET_UNIT 32 121 1
+!SET_UNIT 32 121 1 // wagon
 !SET_UNIT_WARE 9 30
-!SET_UNIT 32 123 1
+!SET_UNIT 32 123 1 // wagon
 !SET_UNIT_WARE 27 3
-!SET_UNIT 32 117 1
+!SET_UNIT 32 117 1 // wagon
 !SET_UNIT_WARE 14 45
-!SET_UNIT 32 119 1
+!SET_UNIT 32 119 1 // wagon
 !SET_UNIT_WARE 22 45
-!SET_UNIT 32 125 4
+!SET_UNIT 32 125 4 // wagon
 !SET_UNIT_WARE 18 45
-!SET_UNIT 17 86 59
 // Groups
 !SET_GROUP 19 63 28 2 4 8
 !SET_GROUP_FOOD
@@ -178,6 +177,20 @@
 !HAND_CURRENT 3
 !HAND_ACTIVATE
 
+// Roads and fields
+
+
+// Units
+!SET_UNIT 44 55 41 // deer
+!SET_UNIT 44 33 10 // deer
+!SET_UNIT 44 71 11 // deer
+!SET_UNIT 44 78 16 // deer
+
+----------
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1
+!HAND_ACTIVATE
+
 // Houses
 !SET_HOUSE 38 30 76 0 // wolfsden
 !SET_HOUSE 38 34 78 1 // wolfsden
@@ -186,10 +199,6 @@
 
 
 // Units
-!SET_UNIT 44 55 41
-!SET_UNIT 44 33 10
-!SET_UNIT 44 71 11
-!SET_UNIT 44 78 16
 !SET_UNIT 45 102 7
 !SET_UNIT 45 100 6
 !SET_UNIT 45 16 59
@@ -204,4 +213,4 @@
 !SET_STOCKPILE 15 126 6 5
 !SET_STOCKPILE 15 125 9 10
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:05
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:11
