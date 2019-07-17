@@ -37,8 +37,6 @@
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
 !HOUSE_BLOCK 31
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -69,19 +67,19 @@
 !SET_ROAD 25 24 !SET_ROAD 26 24 !SET_ROAD 27 24
 
 // Units
-!SET_UNIT 2 22 24
-!SET_UNIT 2 23 24
-!SET_UNIT 2 24 24
-!SET_UNIT 2 24 25
-!SET_UNIT 2 23 25
-!SET_UNIT 2 22 25
-!SET_UNIT 3 26 24
-!SET_UNIT 3 27 24
-!SET_UNIT 3 28 24
-!SET_UNIT 3 28 25
-!SET_UNIT 3 27 25
-!SET_UNIT 3 26 25
-!SET_UNIT 4 26 8
+!SET_UNIT 2 22 24 // serf
+!SET_UNIT 2 23 24 // serf
+!SET_UNIT 2 24 24 // serf
+!SET_UNIT 2 24 25 // serf
+!SET_UNIT 2 23 25 // serf
+!SET_UNIT 2 22 25 // serf
+!SET_UNIT 3 26 24 // builder
+!SET_UNIT 3 27 24 // builder
+!SET_UNIT 3 28 24 // builder
+!SET_UNIT 3 28 25 // builder
+!SET_UNIT 3 27 25 // builder
+!SET_UNIT 3 26 25 // builder
+!SET_UNIT 4 26 8 // woodcutter
 
 
 ----------
@@ -118,8 +116,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -318,23 +314,23 @@
 !SET_ROAD 84 107 !SET_ROAD 85 107 !SET_ROAD 86 107
 
 // Units
-!SET_UNIT 2 73 93
-!SET_UNIT 2 74 93
-!SET_UNIT 2 75 93
-!SET_UNIT 2 76 93
-!SET_UNIT 2 77 93
-!SET_UNIT 2 78 93
-!SET_UNIT 2 78 94
-!SET_UNIT 2 77 94
-!SET_UNIT 2 76 94
-!SET_UNIT 2 74 94
-!SET_UNIT 2 73 94
-!SET_UNIT 2 75 94
-!SET_UNIT 2 79 93
-!SET_UNIT 2 79 94
-!SET_UNIT 3 80 93
-!SET_UNIT 3 80 94
-!SET_UNIT 3 81 93
+!SET_UNIT 2 73 93 // serf
+!SET_UNIT 2 74 93 // serf
+!SET_UNIT 2 75 93 // serf
+!SET_UNIT 2 76 93 // serf
+!SET_UNIT 2 77 93 // serf
+!SET_UNIT 2 78 93 // serf
+!SET_UNIT 2 78 94 // serf
+!SET_UNIT 2 77 94 // serf
+!SET_UNIT 2 76 94 // serf
+!SET_UNIT 2 74 94 // serf
+!SET_UNIT 2 73 94 // serf
+!SET_UNIT 2 75 94 // serf
+!SET_UNIT 2 79 93 // serf
+!SET_UNIT 2 79 94 // serf
+!SET_UNIT 3 80 93 // builder
+!SET_UNIT 3 80 94 // builder
+!SET_UNIT 3 81 93 // builder
 // Groups
 !SET_GROUP 19 49 96 4 1 1
 !SET_GROUP 19 50 95 4 1 1
@@ -366,4 +362,4 @@
 !SET_GROUP 19 52 95 4 1 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:04
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:10
