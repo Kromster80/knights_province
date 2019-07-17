@@ -132,9 +132,10 @@
 !SET_UNIT 1 68 63 // blank
 !SET_UNIT 1 68 64 // blank
 
+
 ----------
 !HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 1
+!HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
 // Houses
@@ -145,7 +146,7 @@
 
 
 // Units
-!SET_UNIT 36 89 4
+!SET_UNIT 36 89 4 // wolf
 
 
 
@@ -167,4 +168,4 @@
 !SET_EMITTER 6 66 93
 !SET_EMITTER 7 24 11
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:12
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:34:50

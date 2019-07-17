@@ -397,17 +397,22 @@
 !SET_UNIT 44 78 53 // deer
 !SET_UNIT 44 58 51 // deer
 
+
 ----------
 !HAND_CURRENT 4
-!HAND_NEUTRAL_TYPE 1
+!HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
-!SET_UNIT 45 55 54
-!SET_UNIT 45 68 62
-!SET_UNIT 45 77 53
-!SET_UNIT 36 65 56
-!SET_UNIT 36 65 57
-!SET_UNIT 36 66 56
+// Roads and fields
+
+
+// Units
+!SET_UNIT 45 55 54 // boar
+!SET_UNIT 45 68 62 // boar
+!SET_UNIT 45 77 53 // boar
+!SET_UNIT 36 65 56 // wolf
+!SET_UNIT 36 65 57 // wolf
+!SET_UNIT 36 66 56 // wolf
 
 
 
@@ -430,4 +435,4 @@
 !SET_EMITTER 5 62 1
 !SET_EMITTER 5 63 4
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:14
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:34:52
