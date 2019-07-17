@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 5
+!HANDS_COUNT 6
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -59,18 +59,18 @@
 !SET_ROAD 40 40
 
 // Units
-!SET_UNIT 2 35 36
-!SET_UNIT 2 35 35
-!SET_UNIT 2 35 37
-!SET_UNIT 2 34 37
-!SET_UNIT 3 35 39
-!SET_UNIT 2 34 36
-!SET_UNIT 3 35 40
-!SET_UNIT 2 34 35
-!SET_UNIT 3 35 41
-!SET_UNIT 3 34 39
-!SET_UNIT 3 34 40
-!SET_UNIT 3 34 41
+!SET_UNIT 2 35 36 // serf
+!SET_UNIT 2 35 35 // serf
+!SET_UNIT 2 35 37 // serf
+!SET_UNIT 2 34 37 // serf
+!SET_UNIT 3 35 39 // builder
+!SET_UNIT 2 34 36 // serf
+!SET_UNIT 3 35 40 // builder
+!SET_UNIT 2 34 35 // serf
+!SET_UNIT 3 35 41 // builder
+!SET_UNIT 3 34 39 // builder
+!SET_UNIT 3 34 40 // builder
+!SET_UNIT 3 34 41 // builder
 
 
 ----------
@@ -126,18 +126,18 @@
 !SET_ROAD 39 91
 
 // Units
-!SET_UNIT 2 34 88
-!SET_UNIT 2 34 87
-!SET_UNIT 2 34 86
-!SET_UNIT 2 33 88
-!SET_UNIT 3 33 90
-!SET_UNIT 2 33 87
-!SET_UNIT 3 33 91
-!SET_UNIT 2 33 86
-!SET_UNIT 3 33 92
-!SET_UNIT 3 34 90
-!SET_UNIT 3 34 91
-!SET_UNIT 3 34 92
+!SET_UNIT 2 34 88 // serf
+!SET_UNIT 2 34 87 // serf
+!SET_UNIT 2 34 86 // serf
+!SET_UNIT 2 33 88 // serf
+!SET_UNIT 3 33 90 // builder
+!SET_UNIT 2 33 87 // serf
+!SET_UNIT 3 33 91 // builder
+!SET_UNIT 2 33 86 // serf
+!SET_UNIT 3 33 92 // builder
+!SET_UNIT 3 34 90 // builder
+!SET_UNIT 3 34 91 // builder
+!SET_UNIT 3 34 92 // builder
 
 
 ----------
@@ -193,18 +193,18 @@
 !SET_ROAD 150 39
 
 // Units
-!SET_UNIT 2 147 39
-!SET_UNIT 3 149 39
-!SET_UNIT 2 146 39
-!SET_UNIT 3 150 39
-!SET_UNIT 2 145 39
-!SET_UNIT 3 151 39
-!SET_UNIT 2 147 40
-!SET_UNIT 3 149 40
-!SET_UNIT 2 146 40
-!SET_UNIT 3 150 40
-!SET_UNIT 2 145 40
-!SET_UNIT 3 151 40
+!SET_UNIT 2 147 39 // serf
+!SET_UNIT 3 149 39 // builder
+!SET_UNIT 2 146 39 // serf
+!SET_UNIT 3 150 39 // builder
+!SET_UNIT 2 145 39 // serf
+!SET_UNIT 3 151 39 // builder
+!SET_UNIT 2 147 40 // serf
+!SET_UNIT 3 149 40 // builder
+!SET_UNIT 2 146 40 // serf
+!SET_UNIT 3 150 40 // builder
+!SET_UNIT 2 145 40 // serf
+!SET_UNIT 3 151 40 // builder
 
 
 ----------
@@ -260,31 +260,23 @@
 !SET_ROAD 152 89
 
 // Units
-!SET_UNIT 2 149 89
-!SET_UNIT 3 151 89
-!SET_UNIT 2 148 89
-!SET_UNIT 3 152 89
-!SET_UNIT 2 147 89
-!SET_UNIT 3 153 89
-!SET_UNIT 2 149 90
-!SET_UNIT 3 151 90
-!SET_UNIT 2 148 90
-!SET_UNIT 3 152 90
-!SET_UNIT 2 147 90
-!SET_UNIT 3 153 90
+!SET_UNIT 2 149 89 // serf
+!SET_UNIT 3 151 89 // builder
+!SET_UNIT 2 148 89 // serf
+!SET_UNIT 3 152 89 // builder
+!SET_UNIT 2 147 89 // serf
+!SET_UNIT 3 153 89 // builder
+!SET_UNIT 2 149 90 // serf
+!SET_UNIT 3 151 90 // builder
+!SET_UNIT 2 148 90 // serf
+!SET_UNIT 3 152 90 // builder
+!SET_UNIT 2 147 90 // serf
+!SET_UNIT 3 153 90 // builder
 
 
 ----------
 !HAND_CURRENT 4
 !HAND_ACTIVATE
-
-// Houses
-!SET_HOUSE 39 95 91 0 // bearsden
-!SET_HOUSE 38 100 32 1 // wolfsden
-!SET_HOUSE 38 90 31 0 // wolfsden
-!SET_HOUSE 39 95 38 1 // bearsden
-!SET_HOUSE 38 90 96 0 // wolfsden
-!SET_HOUSE 38 99 96 1 // wolfsden
 
 // Roads and fields
 
@@ -467,32 +459,51 @@
 !SET_ROAD 137 78 !SET_ROAD 138 78 !SET_ROAD 139 78
 
 // Units
-!SET_UNIT 32 95 93
+!SET_UNIT 32 95 93 // wagon
 !SET_UNIT_WARE 27 15
-!SET_UNIT 32 96 35
+!SET_UNIT 32 96 35 // wagon
 !SET_UNIT_WARE 27 15
-!SET_UNIT 45 81 94
-!SET_UNIT 45 80 90
-!SET_UNIT 45 94 84
-!SET_UNIT 45 111 97
-!SET_UNIT 45 110 93
-!SET_UNIT 45 95 46
-!SET_UNIT 45 109 39
-!SET_UNIT 45 110 32
-!SET_UNIT 45 83 32
-!SET_UNIT 45 81 37
-!SET_UNIT 44 40 107
-!SET_UNIT 44 41 17
-!SET_UNIT 44 80 11
-!SET_UNIT 44 123 8
-!SET_UNIT 44 152 24
-!SET_UNIT 44 159 65
-!SET_UNIT 44 149 103
-!SET_UNIT 44 116 121
-!SET_UNIT 44 92 115
-!SET_UNIT 44 60 119
-!SET_UNIT 44 38 65
+!SET_UNIT 44 40 107 // deer
+!SET_UNIT 44 41 17 // deer
+!SET_UNIT 44 80 11 // deer
+!SET_UNIT 44 123 8 // deer
+!SET_UNIT 44 152 24 // deer
+!SET_UNIT 44 159 65 // deer
+!SET_UNIT 44 149 103 // deer
+!SET_UNIT 44 116 121 // deer
+!SET_UNIT 44 92 115 // deer
+!SET_UNIT 44 60 119 // deer
+!SET_UNIT 44 38 65 // deer
+
+
+----------
+!HAND_CURRENT 5
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Houses
+!SET_HOUSE 39 95 91 0 // bearsden
+!SET_HOUSE 38 100 32 1 // wolfsden
+!SET_HOUSE 38 90 31 0 // wolfsden
+!SET_HOUSE 39 95 38 1 // bearsden
+!SET_HOUSE 38 90 96 0 // wolfsden
+!SET_HOUSE 38 99 96 1 // wolfsden
+
+// Roads and fields
+
+
+// Units
+!SET_UNIT 45 81 94 // boar
+!SET_UNIT 45 80 90 // boar
+!SET_UNIT 45 94 84 // boar
+!SET_UNIT 45 111 97 // boar
+!SET_UNIT 45 110 93 // boar
+!SET_UNIT 45 95 46 // boar
+!SET_UNIT 45 109 39 // boar
+!SET_UNIT 45 110 32 // boar
+!SET_UNIT 45 83 32 // boar
+!SET_UNIT 45 81 37 // boar
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:05
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:09)"  on 17.07.2019 20:30:15
