@@ -37,8 +37,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -58,18 +56,18 @@
 !SET_ROAD 31 132 !SET_ROAD 32 132 !SET_ROAD 33 132
 
 // Units
-!SET_UNIT 2 29 132
-!SET_UNIT 3 31 132
-!SET_UNIT 2 28 132
-!SET_UNIT 3 32 132
-!SET_UNIT 2 27 132
-!SET_UNIT 3 33 132
-!SET_UNIT 2 29 133
-!SET_UNIT 3 31 133
-!SET_UNIT 2 28 133
-!SET_UNIT 3 32 133
-!SET_UNIT 2 27 133
-!SET_UNIT 3 33 133
+!SET_UNIT 2 29 132 // serf
+!SET_UNIT 3 31 132 // builder
+!SET_UNIT 2 28 132 // serf
+!SET_UNIT 3 32 132 // builder
+!SET_UNIT 2 27 132 // serf
+!SET_UNIT 3 33 132 // builder
+!SET_UNIT 2 29 133 // serf
+!SET_UNIT 3 31 133 // builder
+!SET_UNIT 2 28 133 // serf
+!SET_UNIT 3 32 133 // builder
+!SET_UNIT 2 27 133 // serf
+!SET_UNIT 3 33 133 // builder
 
 
 ----------
@@ -104,8 +102,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -125,18 +121,18 @@
 !SET_ROAD 115 40 !SET_ROAD 116 40 !SET_ROAD 117 40
 
 // Units
-!SET_UNIT 2 113 40
-!SET_UNIT 3 115 40
-!SET_UNIT 2 112 40
-!SET_UNIT 3 116 40
-!SET_UNIT 2 111 40
-!SET_UNIT 3 117 40
-!SET_UNIT 2 113 41
-!SET_UNIT 3 115 41
-!SET_UNIT 2 112 41
-!SET_UNIT 3 116 41
-!SET_UNIT 2 111 41
-!SET_UNIT 3 117 41
+!SET_UNIT 2 113 40 // serf
+!SET_UNIT 3 115 40 // builder
+!SET_UNIT 2 112 40 // serf
+!SET_UNIT 3 116 40 // builder
+!SET_UNIT 2 111 40 // serf
+!SET_UNIT 3 117 40 // builder
+!SET_UNIT 2 113 41 // serf
+!SET_UNIT 3 115 41 // builder
+!SET_UNIT 2 112 41 // serf
+!SET_UNIT 3 116 41 // builder
+!SET_UNIT 2 111 41 // serf
+!SET_UNIT 3 117 41 // builder
 
 
 ----------
@@ -171,8 +167,6 @@
 // Grant/Block houses
 !HOUSE_BLOCK 23
 !HOUSE_BLOCK 29
-!HOUSE_BLOCK 34
-!HOUSE_BLOCK 35
 
 // Block units
 
@@ -192,19 +186,19 @@
 !SET_ROAD 26 24 !SET_ROAD 27 24 !SET_ROAD 28 24 !SET_ROAD 29 24
 
 // Units
-!SET_UNIT 2 25 24
-!SET_UNIT 3 27 24
-!SET_UNIT 2 24 24
-!SET_UNIT 3 28 24
-!SET_UNIT 2 23 24
-!SET_UNIT 3 29 24
-!SET_UNIT 2 25 25
-!SET_UNIT 3 27 25
-!SET_UNIT 2 24 25
-!SET_UNIT 3 28 25
-!SET_UNIT 2 23 25
-!SET_UNIT 3 29 25
+!SET_UNIT 2 25 24 // serf
+!SET_UNIT 3 27 24 // builder
+!SET_UNIT 2 24 24 // serf
+!SET_UNIT 3 28 24 // builder
+!SET_UNIT 2 23 24 // serf
+!SET_UNIT 3 29 24 // builder
+!SET_UNIT 2 25 25 // serf
+!SET_UNIT 3 27 25 // builder
+!SET_UNIT 2 24 25 // serf
+!SET_UNIT 3 28 25 // builder
+!SET_UNIT 2 23 25 // serf
+!SET_UNIT 3 29 25 // builder
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:06
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:12

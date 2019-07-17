@@ -54,18 +54,18 @@
 !SET_ROAD 21 57
 
 // Units
-!SET_UNIT 2 21 56
-!SET_UNIT 2 20 56
-!SET_UNIT 2 21 57
-!SET_UNIT 2 20 57
-!SET_UNIT 1 21 55
-!SET_UNIT 1 20 55
-!SET_UNIT 3 21 54
-!SET_UNIT 3 21 53
-!SET_UNIT 3 20 53
-!SET_UNIT 3 20 54
-!SET_UNIT 2 20 58
-!SET_UNIT 3 20 52
+!SET_UNIT 2 21 56 // serf
+!SET_UNIT 2 20 56 // serf
+!SET_UNIT 2 21 57 // serf
+!SET_UNIT 2 20 57 // serf
+!SET_UNIT 1 21 55 // blank
+!SET_UNIT 1 20 55 // blank
+!SET_UNIT 3 21 54 // builder
+!SET_UNIT 3 21 53 // builder
+!SET_UNIT 3 20 53 // builder
+!SET_UNIT 3 20 54 // builder
+!SET_UNIT 2 20 58 // serf
+!SET_UNIT 3 20 52 // builder
 
 
 ----------
@@ -116,18 +116,18 @@
 !SET_ROAD 70 105 !SET_ROAD 71 105 !SET_ROAD 72 105
 
 // Units
-!SET_UNIT 2 69 104
-!SET_UNIT 3 71 104
-!SET_UNIT 2 68 104
-!SET_UNIT 3 72 104
-!SET_UNIT 2 69 105
-!SET_UNIT 3 71 105
-!SET_UNIT 2 68 105
-!SET_UNIT 3 72 105
-!SET_UNIT 1 70 104
-!SET_UNIT 1 70 105
-!SET_UNIT 3 73 105
-!SET_UNIT 3 67 105
+!SET_UNIT 2 69 104 // serf
+!SET_UNIT 3 71 104 // builder
+!SET_UNIT 2 68 104 // serf
+!SET_UNIT 3 72 104 // builder
+!SET_UNIT 2 69 105 // serf
+!SET_UNIT 3 71 105 // builder
+!SET_UNIT 2 68 105 // serf
+!SET_UNIT 3 72 105 // builder
+!SET_UNIT 1 70 104 // blank
+!SET_UNIT 1 70 105 // blank
+!SET_UNIT 3 73 105 // builder
+!SET_UNIT 3 67 105 // builder
 
 
 ----------
@@ -179,22 +179,23 @@
 !SET_ROAD 80 31
 
 // Units
-!SET_UNIT 2 80 30
-!SET_UNIT 2 79 30
-!SET_UNIT 2 80 31
-!SET_UNIT 2 79 31
-!SET_UNIT 2 79 32
-!SET_UNIT 1 80 29
-!SET_UNIT 1 79 29
-!SET_UNIT 3 80 28
-!SET_UNIT 3 79 28
-!SET_UNIT 3 79 27
-!SET_UNIT 3 80 27
-!SET_UNIT 3 79 26
+!SET_UNIT 2 80 30 // serf
+!SET_UNIT 2 79 30 // serf
+!SET_UNIT 2 80 31 // serf
+!SET_UNIT 2 79 31 // serf
+!SET_UNIT 2 79 32 // serf
+!SET_UNIT 1 80 29 // blank
+!SET_UNIT 1 79 29 // blank
+!SET_UNIT 3 80 28 // builder
+!SET_UNIT 3 79 28 // builder
+!SET_UNIT 3 79 27 // builder
+!SET_UNIT 3 80 27 // builder
+!SET_UNIT 3 79 26 // builder
 
 
 ----------
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1
 !HAND_ACTIVATE
 
 // Houses
@@ -266,4 +267,4 @@
 !SET_EMITTER 5 43 70
 !SET_EMITTER 5 32 96
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:06
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:11
