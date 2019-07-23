@@ -37,7 +37,7 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 11 20 31 0 // camp
+!SET_HOUSE 11 20 33 0 // camp
 !WARE_OUT_ADD_TO_LAST 1 10 // trunk
 !WARE_OUT_ADD_TO_LAST 2 50 // stone
 !WARE_OUT_ADD_TO_LAST 3 50 // wood
@@ -49,24 +49,23 @@
 // Roads and fields
 
 !SET_ROAD 14 27 !SET_ROAD 14 28 !SET_ROAD 14 29 !SET_ROAD 14 30
-!SET_ROAD 14 31 !SET_ROAD 20 31 !SET_ROAD 14 32 !SET_ROAD 20 32
-!SET_ROAD 14 33 !SET_ROAD 20 33 !SET_ROAD 14 34 !SET_ROAD 15 34
-!SET_ROAD 16 34 !SET_ROAD 17 34 !SET_ROAD 18 34 !SET_ROAD 19 34
-!SET_ROAD 20 34 !SET_ROAD 21 34 !SET_ROAD 22 34 !SET_ROAD 23 34
-!SET_ROAD 24 34 !SET_ROAD 25 34 !SET_ROAD 25 35 !SET_ROAD 25 36
-!SET_ROAD 25 37
+!SET_ROAD 14 31 !SET_ROAD 14 32 !SET_ROAD 14 33 !SET_ROAD 20 33
+!SET_ROAD 14 34 !SET_ROAD 15 34 !SET_ROAD 16 34 !SET_ROAD 17 34
+!SET_ROAD 18 34 !SET_ROAD 19 34 !SET_ROAD 20 34 !SET_ROAD 21 34
+!SET_ROAD 22 34 !SET_ROAD 23 34 !SET_ROAD 24 34 !SET_ROAD 25 34
+!SET_ROAD 25 35 !SET_ROAD 25 36 !SET_ROAD 25 37
 
 // Units
-!SET_UNIT 2 17 33 // serf
-!SET_UNIT 2 18 33 // serf
-!SET_UNIT 2 19 33 // serf
-!SET_UNIT 3 21 33 // builder
-!SET_UNIT 3 22 33 // builder
-!SET_UNIT 3 23 33 // builder
-!SET_UNIT 1 19 32 // blank
-!SET_UNIT 1 18 32 // blank
-!SET_UNIT 1 21 32 // blank
-!SET_UNIT 1 22 32 // blank
+!SET_UNIT 2 17 35 // serf
+!SET_UNIT 2 18 35 // serf
+!SET_UNIT 2 19 35 // serf
+!SET_UNIT 3 23 35 // builder
+!SET_UNIT 3 22 35 // builder
+!SET_UNIT 3 21 35 // builder
+!SET_UNIT 1 19 34 // blank
+!SET_UNIT 1 18 34 // blank
+!SET_UNIT 1 21 34 // blank
+!SET_UNIT 1 22 34 // blank
 // Groups
 !SET_GROUP 19 26 31 3 3 6
 
@@ -145,4 +144,4 @@
 // Triggers
 !SET_TRIGGER 1 58 44 60 52
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:12
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7627 (2019.07.23 17:58)"  on 23.07.2019 17:59:28
