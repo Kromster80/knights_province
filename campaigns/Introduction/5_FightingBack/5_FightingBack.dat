@@ -71,7 +71,7 @@
 !SET_ROAD 13 33 !SET_ROAD 13 34 !SET_ROAD 11 35 !SET_ROAD 13 35
 !SET_ROAD 20 35 !SET_ROAD 11 36 !SET_ROAD 12 36 !SET_ROAD 13 36
 !SET_ROAD 14 36 !SET_ROAD 15 36 !SET_ROAD 17 36 !SET_ROAD 18 36
-!SET_ROAD 19 36 !SET_ROAD 20 36
+!SET_ROAD 19 36 !SET_ROAD 20 36 !SET_ROAD 21 36
 
 // Units
 !SET_UNIT 2 2 74 // serf
@@ -293,7 +293,7 @@
 
 ----------
 !HAND_CURRENT 3
-!HAND_NEUTRAL_TYPE 1
+!HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
 // Roads and fields
@@ -305,4 +305,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 21:40)"  on 17.07.2019 21:40:28
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7678 (2019.07.24 19:36)"  on 24.07.2019 19:40:21

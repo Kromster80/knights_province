@@ -137,11 +137,11 @@
 
 // Roads and fields
 
-!SET_ROAD 3 77
+!SET_ROAD 3 77 !SET_ROAD 2 78 !SET_ROAD 3 78 !SET_ROAD 4 78
 
 
 
 // Triggers
 !SET_TRIGGER 1 58 44 60 52
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7627 (2019.07.23 17:58)"  on 23.07.2019 17:59:28
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7678 (2019.07.24 19:36)"  on 24.07.2019 19:38:09
