@@ -1,0 +1,11 @@
+0:Klassix
+1:Defense Map.                                           Randomly generated attack direction.      Randomly generated troops in mid & late game.                                           IMPORTANT: Read the Mission Start Text!                                                          Required playtime: About 2 Hours
+
+2:Deserters
+3:Gauls
+
+11: READ ME !! Greetings! This is your Fort. The enemy will attack it from 4 Directions(N-W-S-E) every 3 minutes. The Mission Objective Indicator in your top left corner will show you where the bad guys are coming from. (Please note that due to a bug the First Wave, 1 Militia is not going to be displayed). The attack directions are randomly generated each time you play this map. Your Gametime is also beeing displayed in the Mission Objectives or in the Menu(ESC). Up to gametime minute 45 you will fight against growing waves of milita units. After that randomly generated Leather Tier units are starting to spawn. Around Gametime 1h20min Iron Tier units are starting to spawn! The respawn from then on is set to 4 minutes. Currently no enemy horses are spawning. This will change in a future version. The surrounding woods are full of Treasures protected by wild animals or Deserters. [IMPORTANT NOTE: THE WAY THE SCRIPT WORKS CURRENTLY MAKES IT IMPOSSIBLE TO LOAD A SAVEGAME] I had great fun making this map and wish you epic battles ! Now prepare your defenses captain!                                     KNOWN BUGS: Direction Indicator not working on First Wave and in rare occasions when spawn occurs from 2 or more directions/ Sometimes enemy units take a while to attack a new target after they destroyed a building. Towers and your units will trigger them tho.
+12: GG :-)
+
+15: [$0000ff]!!_INCOMING ATTACK_!![]
+16: [$00ff00]No Invaders spotted[]
