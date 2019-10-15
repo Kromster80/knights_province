@@ -216,16 +216,25 @@ end;
 
 
 
-// Find some random player's house and attack it
-procedure AttackRandomHouse(aGroup: Integer);
+// Find some random player's unit or house(if no unit alive) and attack it
+procedure AttackRandomUnit(aGroup: Integer);
 var
-  allHouses: array of Integer;
+  allGroups: array of Integer;
   I: Integer;
 begin
-  allHouses := States.PlayerGetAllHouses(HUMAN_PLAYER);
-  if Length(allHouses) = 0 then Exit;
-  I := Utils.RandomI(Length(allHouses));
-  Actions.GroupOrderAttackHouse(aGroup, allHouses[I]);
+  allGroups := States.PlayerGetAllUnits(HUMAN_PLAYER);
+  if Length(allGroups) = 0 then
+    begin
+      allGroups := States.PlayerGetAllHouses(HUMAN_PLAYER);
+      if Length(allGroups) = 0 then Exit;
+      I := Utils.RandomI(Length(allGroups));
+      Actions.GroupOrderAttackHouse(aGroup, allGroups[I]);
+    end
+    else
+    begin
+      I := Utils.RandomI(Length(allGroups));
+      Actions.GroupOrderAttackUnit(aGroup, allGroups[I]);
+    end;
 end;
 
 
@@ -239,7 +248,9 @@ begin
 
   for I := 0 to High(allGroups) do
   if States.GroupIsIdle(allGroups[I]) then
-    AttackRandomHouse(allGroups[I]);
+    begin
+      AttackRandomUnit(allGroups[I]);
+    end;
 end;
 
 
@@ -280,10 +291,10 @@ begin
   if not attacker_alive then
     begin
       Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves2, '<$16>');
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osHidden)
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osHidden)
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osHidden)
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osHidden)
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osHidden);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osHidden);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osHidden);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osHidden);
     end;
 
 end;
@@ -298,8 +309,6 @@ begin
 
   waveNumber := 1;
   waveGroups := 0;
-
-
 
 
   gametime_obj := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
@@ -359,9 +368,6 @@ begin
         CreateNextWave;
     end;
 
-	// Feed even when defeated
-  Feed;
-
 
   if aTick mod 10 = 0 then
     begin
@@ -381,10 +387,14 @@ begin
     begin
       UpdateObjective;
     end;
+
+  // Feed even when defeated
+  Feed;
+
 end;
 
 procedure OnPlayerDefeated(aPlayer: Integer);
 begin
   if aPlayer = 0 then
-    Actions.PlayerMessageOpen(0, '<$12>');
+    Actions.PlayerMessageOpen(0, '<$14>');
 end;
