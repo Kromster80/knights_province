@@ -40,17 +40,17 @@ end;
 
 procedure OnMissionStart;
 begin
-  objWagons      := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
-  objBandits     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$3>');
+  objWagons  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
+  objBandits := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$3>');
 
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$4>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$4>', True);
 end;
 
 
 procedure OnTick(aTick: Integer);
 begin
   if aTick = 2 then
-    Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$5>');
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
 
   if aTick mod 10 = 0 then
   begin

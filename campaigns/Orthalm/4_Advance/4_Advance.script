@@ -43,7 +43,7 @@ begin
   if aPlayer = ENEMY_2 then
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCavalry, osCompleted);
-	Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$26>');
+	Actions.PlayerMessage(HUMAN_PLAYER, '<$26>', True);
     CavalryDefeat := true;
   end;
   if aPlayer = ENEMY_3 then
@@ -70,7 +70,7 @@ begin
 	if MessageReceived = false then
 	begin
 	  MessageReceived := true;
-	  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$25>');
+	  Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjTravel, osFailed);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjWin, osActive);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjArmy, osActive);

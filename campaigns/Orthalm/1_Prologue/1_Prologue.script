@@ -33,7 +33,7 @@ begin
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_1, true, true);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_2, true, true);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_3, true, true);
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$14>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$14>', True);
   Actions.PlayerColorChange(ENEMY_5, 200+200*256+0*65536);
   objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$17>');
   objective2 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$18>');
@@ -44,7 +44,7 @@ procedure OnPlayerDefeated(aPlayer: Integer);
 begin
   if aPlayer = ENEMY_1 then
     begin
-      Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$15>');
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$15>', True);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective1, osCompleted);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osActive);
 	end;
@@ -61,12 +61,12 @@ procedure CheckAssaultStatus;
 begin
   if Enemy2Defeated and Enemy5Defeated then
     begin
-      Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$16>');
-	  Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
-	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
-	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
-	  AssaultDefeated := true;
-	end;
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
+      Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
+      AssaultDefeated := true;
+    end;
 end;
 
 procedure OnTick(aTick: Integer);

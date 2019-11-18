@@ -22,7 +22,7 @@ begin
   Actions.PlayerNameSet(ENEMY_2, '<$6>');
   Actions.PlayerNameSet(ENEMY_3, '<$7>');
   Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_1, true, false);
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$25>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
   ObjDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$15>');
   ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$16>');
   ObjRebuild := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otAdditional, 2, osHidden, '<$17>');
@@ -67,7 +67,7 @@ begin
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjFarms, osHidden);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjLumbers, osHidden);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCiders, osHidden);
-	  Actions.PlayerMessageOpen(0, '<$27>');
+	  Actions.PlayerMessage(0, '<$27>', True);
 	  Actions.GiveGroup(HUMAN_PLAYER, utMilitia, 74, 58, 6, 30, 6);
 	  AllRebuilt := true;
 	end;
@@ -77,7 +77,7 @@ procedure CheckAssaultStatus;
 begin
   if Enemy2Defeated and Enemy3Defeated then
     begin
-      Actions.PlayerMessageOpen(0, '<$26>');
+      Actions.PlayerMessage(0, '<$26>', True);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osActive);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjRebuild, osActive);

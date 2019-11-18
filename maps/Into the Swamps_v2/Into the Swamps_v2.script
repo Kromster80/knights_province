@@ -109,7 +109,7 @@ begin
   UpdateObjective;
 
 begin
- Actions.PlayerMessageOpen(0, '<$11>');
+ Actions.PlayerMessage(0, '<$11>', True);
 end;
 
 end;
@@ -137,5 +137,5 @@ end;
 procedure OnPlayerDefeated(aPlayer: Integer);
 begin
   if aPlayer = 0 then
-    Actions.PlayerMessageOpen(0, '<$12>'); 
+    Actions.PlayerMessage(0, '<$12>', True); 
 end;

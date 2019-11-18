@@ -8,12 +8,12 @@ const
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
 
 
 procedure OnTick(aTick: Integer);
 begin
   if aTick = 1200 then
-    Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$3>');
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
 end;

@@ -59,7 +59,7 @@ begin
 
   CheckResources;
 
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
 
 procedure OnTick(aTick: Integer);

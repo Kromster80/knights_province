@@ -18,7 +18,7 @@ begin
   Actions.PlayerNameSet(HUMAN_PLAYER, '<$3>');
   Actions.PlayerNameSet(ENEMY_1, '<$4>');
   Actions.PlayerNameSet(ENEMY_2, '<$5>');
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$25>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
   ObjDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$15>');
   ObjBuild := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$16>');
   ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$17>');
@@ -28,7 +28,7 @@ procedure OnPlayerDefeated(aPlayer: Integer);
 begin
   if aPlayer = ENEMY_2 then
     begin
-	  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$26>');
+	  Actions.PlayerMessage(HUMAN_PLAYER, '<$26>', True);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjBuild, osActive);
       Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osActive);
@@ -48,7 +48,7 @@ begin
   begin
     FortBuilt := true;
 	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjBuild, osCompleted);
-	Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$27>');
+	Actions.PlayerMessage(HUMAN_PLAYER, '<$27>', True);
 	ObjBuildDone := true;
   end;
 end;
@@ -74,7 +74,7 @@ begin
 		Actions.GiveGroup(HUMAN_PLAYER, utMilitia, 37, 54, 0, 12, 3);
 		Actions.GiveGroup(HUMAN_PLAYER, utBowman, 37, 61, 0, 6, 3);
 		Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 37, 58, 0, 9, 3);
-		Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$28>');
+		Actions.PlayerMessage(HUMAN_PLAYER, '<$28>', True);
 	  end;
   end;
 end;

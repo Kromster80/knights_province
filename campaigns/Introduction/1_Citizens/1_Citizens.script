@@ -23,7 +23,7 @@ begin
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objDefend, osCompleted);
     objDefend := -1;
-    Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$3>');
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
   end;
   
   if (objCottage <> -1) and (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 3) then
@@ -39,7 +39,7 @@ begin
   objDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Kill enemy soldiers');
   objCottage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Rebuild 3 cottages');
 
-  Actions.PlayerMessageOpen(HUMAN_PLAYER, '<$2>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
 
 
