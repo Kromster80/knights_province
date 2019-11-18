@@ -13,6 +13,17 @@
 const
   HUMAN_PLAYER = 0;
 
+  ctSchool  = 0;
+  ctCottage = 1;
+  ctStone   = 2;
+  ctWood    = 3;
+  ctTavern  = 4;
+  ctFood    = 5;
+  ctStore   = 6;
+
+  // As we're used to colors are 'ABGR' hex codes sent as cardinal
+  COLOR_50_PURPLE = $80FF00B2;
+
 type TObjectiveStates = record
   Done: Boolean;
   ID:   Integer;
@@ -20,18 +31,92 @@ end;
 
 type TObjectiveSuccess = record
   // Units
-  School, Cottage:     TObjectiveStates;
+  School, Cottage,
   // Basic supplies
-  Stone, Wood, Planks: TObjectiveStates;
+  Stone, Wood, Planks,
   // Food
-  Tavern, Fish, Cider: TObjectiveStates;
+  Tavern, Fish, Cider,
   // Store
   Store:               TObjectiveStates;
 end;
 
 var
-  objSuccess:  TObjectiveSuccess;
-  fDiscovered: Boolean;
+  objSuccess:     TObjectiveSuccess;
+  fDiscovered,
+  fCinRunning:    Boolean;
+  fActiveCinType,
+  fCinStep,
+  fHighl1,
+  fHighl2:        Integer;
+
+procedure DoAnimStep;
+begin
+  if fActiveCinType = ctFood then
+  begin
+    if fCinStep = 2 then
+    begin
+      Actions.CinematicFadeIn(3);
+      Actions.CinematicViewMoveTo(28, 16, -20.0, 0.05, 3);
+    end else if fCinStep = 3 then
+    begin
+      Actions.CinematicText('<$25>', 2);
+    end else if fCinStep = 11 then
+    begin
+      Actions.CinematicViewMoveTo(16, 25, -20.0, 0.05, 3);
+    end else if fCinStep = 19 then
+    begin
+      Actions.CinematicText('', 1);
+      Actions.CinematicFadeOut(2);
+    end else if fCinStep = 21 then
+    begin
+      Actions.CinematicBarsHide;
+      Actions.CinematicViewRevert;
+      Actions.CinematicFadeIn(2);
+    end else if fCinStep = 23 then
+    begin
+      Actions.CinematicEnd;
+      fCinRunning := False;
+    end;
+
+    exit;
+  end;
+
+  if fCinStep = 2 then
+  begin
+    Actions.CinematicFadeIn(3);
+    case fActiveCinType of
+      ctSchool:  Actions.CinematicViewMoveTo(11, 18, -20.0, 0.05, 3);
+      ctCottage: Actions.CinematicViewMoveTo(6, 16, -20.0, 0.05, 3);
+      ctStone:   Actions.CinematicViewMoveTo(39, 22, -20.0, 0.05, 3);
+      ctWood:    Actions.CinematicViewMoveTo(38, 28, -20.0, 0.05, 3);
+      ctTavern:  Actions.CinematicViewMoveTo(22, 18, -20.0, 0.05, 3);
+      ctStore:   Actions.CinematicViewMoveTo(22, 23, -20.0, 0.05, 3);
+    end;
+  end else if fCinStep = 3 then
+  begin
+    case fActiveCinType of
+      ctSchool:  Actions.CinematicText('<$20>', 2);
+      ctCottage: Actions.CinematicText('<$21>', 2);
+      ctStone:   Actions.CinematicText('<$22>', 2);
+      ctWood:    Actions.CinematicText('<$23>', 2);
+      ctTavern:  Actions.CinematicText('<$24>', 2);
+      ctStore:   Actions.CinematicText('<$26>', 2);
+    end;
+  end else if fCinStep = 11 then
+  begin
+    Actions.CinematicText('', 1);
+    Actions.CinematicFadeOut(2);
+  end else if fCinStep = 13 then
+  begin
+    Actions.CinematicBarsHide;
+    Actions.CinematicViewRevert;
+    Actions.CinematicFadeIn(2);
+  end else if fCinStep = 15 then
+  begin
+    Actions.CinematicEnd;
+    fCinRunning := False;
+  end;
+end;
 
 procedure ShowMessage(aOverlayID, aPopupID: Integer);
 begin
@@ -64,15 +149,15 @@ begin
     Actions.PlayerWin([HUMAN_PLAYER], True);
 
     // Re-enable construction of tutorial buildings
-    Actions.HouseAllow(HUMAN_PLAYER, htSchool,       true);
-    Actions.HouseAllow(HUMAN_PLAYER, htCottage,      true);
-    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, true);
-    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  true);
-    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      true);
-    Actions.HouseAllow(HUMAN_PLAYER, htTavern,       true);
-    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    true);
-    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   true);
-    Actions.HouseAllow(HUMAN_PLAYER, htStore,        true);
+    Actions.HouseAllow(HUMAN_PLAYER, htSchool,       True);
+    Actions.HouseAllow(HUMAN_PLAYER, htCottage,      True);
+    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, True);
+    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  True);
+    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      True);
+    Actions.HouseAllow(HUMAN_PLAYER, htTavern,       True);
+    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    True);
+    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   True);
+    Actions.HouseAllow(HUMAN_PLAYER, htStore,        True);
   end;
 end;
 
@@ -129,6 +214,12 @@ begin
     objSuccess.School.ID   := -1;
     objSuccess.School.Done := True;
 
+    Actions.TerrainHighlightDelete(fHighl1);
+    fHighl1        := Actions.TerrainHighlightLine(5, 13, 3, 2, 0.25, COLOR_50_PURPLE); // Mark Cottage 1
+    fHighl2        := Actions.TerrainHighlightLine(4, 17, 3, 2, 0.25, COLOR_50_PURPLE); // Mark Cottage 2
+    fCinRunning    := True;
+    fActiveCinType := ctCottage;
+    fCinStep       := 0;
     ShowMessage(11, 21);
     Actions.HouseAllow(HUMAN_PLAYER, htSchool,  False);
     Actions.HouseAllow(HUMAN_PLAYER, htCottage, True);
@@ -140,6 +231,13 @@ begin
     objSuccess.Cottage.ID   := -1;
     objSuccess.Cottage.Done := True;
 
+    Actions.TerrainHighlightDelete(fHighl1);
+    Actions.TerrainHighlightDelete(fHighl2);
+    fHighl1        := Actions.TerrainHighlightLine(41, 21, 3, 2, 0.25, COLOR_50_PURPLE); // Mark Stonecutter's 1
+    fHighl2        := Actions.TerrainHighlightLine(36, 18, 3, 2, 0.25, COLOR_50_PURPLE); // Mark Stonecutter's 2
+    fCinRunning    := True;
+    fActiveCinType := ctStone;
+    fCinStep       := 0;
     ShowMessage(12, 22);
     Actions.HouseAllow(HUMAN_PLAYER, htCottage, False);
     Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, True);
@@ -152,6 +250,13 @@ begin
     objSuccess.Stone.ID   := -1;
     objSuccess.Stone.Done := True;
 
+    Actions.TerrainHighlightDelete(fHighl1);
+    Actions.TerrainHighlightDelete(fHighl2);
+    fHighl1        := Actions.TerrainHighlightLine(40, 25, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Woordcutters
+    fHighl2        := Actions.TerrainHighlightLine(33, 25, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Sawmill
+    fCinRunning    := True;
+    fActiveCinType := ctWood;
+    fCinStep       := 0;
     ShowMessage(13, 23);
     Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, False);
     Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  True);
@@ -168,6 +273,12 @@ begin
 
     if objSuccess.Planks.Done then
     begin
+      Actions.TerrainHighlightDelete(fHighl1);
+      Actions.TerrainHighlightDelete(fHighl2);
+      fHighl1        := Actions.TerrainHighlightLine(20, 16, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Tavern
+      fCinRunning    := True;
+      fActiveCinType := ctTavern;
+      fCinStep       := 0;
       ShowMessage(14, 24);
       Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
     end;
@@ -183,6 +294,12 @@ begin
 
     if objSuccess.Wood.Done then
     begin
+      Actions.TerrainHighlightDelete(fHighl1);
+      Actions.TerrainHighlightDelete(fHighl2);
+      fHighl1        := Actions.TerrainHighlightLine(20, 16, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Tavern
+      fCinRunning    := True;
+      fActiveCinType := ctTavern;
+      fCinStep       := 0;
       ShowMessage(14, 24);
       Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
     end;
@@ -195,6 +312,12 @@ begin
     objSuccess.Tavern.ID   := -1;
     objSuccess.Tavern.Done := True;
 
+    Actions.TerrainHighlightDelete(fHighl1);
+    fHighl1        := Actions.TerrainHighlightLine(26, 14, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Fish
+    fHighl2        := Actions.TerrainHighlightLine(13, 23, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Cider
+    fCinRunning    := True;
+    fActiveCinType := ctFood;
+    fCinStep       := 0;
     ShowMessage(15, 25);
     Actions.HouseAllow(HUMAN_PLAYER, htTavern, False);
     Actions.HouseUnlock(HUMAN_PLAYER, htFisherHut);
@@ -213,6 +336,12 @@ begin
 
     if objSuccess.Cider.Done then
     begin
+      Actions.TerrainHighlightDelete(fHighl1);
+      Actions.TerrainHighlightDelete(fHighl2);
+      fHighl1        := Actions.TerrainHighlightLine(20, 21, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Store
+      fCinRunning    := True;
+      fActiveCinType := ctStore;
+      fCinStep       := 0;
       ShowMessage(16, 26);
       Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
     end;
@@ -228,6 +357,12 @@ begin
 
     if objSuccess.Fish.Done then
     begin
+      Actions.TerrainHighlightDelete(fHighl1);
+      Actions.TerrainHighlightDelete(fHighl2);
+      fHighl1        := Actions.TerrainHighlightLine(20, 21, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Store
+      fCinRunning    := True;
+      fActiveCinType := ctStore;
+      fCinStep       := 0;
       ShowMessage(16, 26);
       Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
     end;
@@ -240,6 +375,7 @@ begin
     objSuccess.Store.ID   := -1;
     objSuccess.Store.Done := True;
 
+    Actions.TerrainHighlightDelete(fHighl1);
     ShowMessage(17, -1);
     Actions.HouseAllow(HUMAN_PLAYER, htStore, False);
   end;
@@ -305,6 +441,14 @@ begin
   UpdateObjectivesStatus;
   FeedUnits;
 
+  fHighl1        := Actions.TerrainHighlightLine(10, 15, 3, 4, 0.25, COLOR_50_PURPLE); // Mark School
+  fCinRunning    := True;
+  fActiveCinType := ctSchool;
+  fCinStep       := 0;
+  Actions.CinematicBegin;
+  Actions.CinematicViewStore;
+  Actions.CinematicBarsShow;
+  Actions.CinematicFadeOut(1);
   ShowMessage(10, 20);
 end;
 
@@ -327,4 +471,18 @@ begin
 
   if aTick mod 10 = 8 then
     CheckSquare;
+
+  if fCinRunning and (aTick mod 10 = 3) then
+  begin
+    if (fCinStep = 0) and (fActiveCinType <> ctSchool) then
+    begin
+      Actions.CinematicBegin;
+      Actions.CinematicViewStore;
+      Actions.CinematicBarsShow;
+      Actions.CinematicFadeOut(1);
+    end;
+
+    DoAnimStep;
+    Inc(fCinStep);
+  end;
 end;
