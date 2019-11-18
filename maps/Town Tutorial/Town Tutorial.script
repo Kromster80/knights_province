@@ -49,168 +49,59 @@ var
   fHighl1,
   fHighl2:        Integer;
 
-procedure DoSchoolAnimStep;
+procedure DoAnimStep;
 begin
-  if fCinStep = 2 then
+  if fActiveCinType = ctFood then
   begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(11, 18, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$20>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
-  end;
-end;
+    if fCinStep = 2 then
+    begin
+      Actions.CinematicFadeIn(3);
+      Actions.CinematicViewMoveTo(28, 16, -20.0, 0.05, 3);
+    end else if fCinStep = 3 then
+    begin
+      Actions.CinematicText('<$25>', 2);
+    end else if fCinStep = 11 then
+    begin
+      Actions.CinematicViewMoveTo(16, 25, -20.0, 0.05, 3);
+    end else if fCinStep = 19 then
+    begin
+      Actions.CinematicText('', 1);
+      Actions.CinematicFadeOut(2);
+    end else if fCinStep = 21 then
+    begin
+      Actions.CinematicBarsHide;
+      Actions.CinematicViewRevert;
+      Actions.CinematicFadeIn(2);
+    end else if fCinStep = 23 then
+    begin
+      Actions.CinematicEnd;
+      fCinRunning := False;
+    end;
 
-procedure DoCottageAnimStep;
-begin
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(6, 16, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$21>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
+    exit;
   end;
-end;
 
-procedure DoStoneAnimStep;
-begin
   if fCinStep = 2 then
   begin
     Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(39, 22, -20.0, 0.05, 3);
+    case fActiveCinType of
+      ctSchool:  Actions.CinematicViewMoveTo(11, 18, -20.0, 0.05, 3);
+      ctCottage: Actions.CinematicViewMoveTo(6, 16, -20.0, 0.05, 3);
+      ctStone:   Actions.CinematicViewMoveTo(39, 22, -20.0, 0.05, 3);
+      ctWood:    Actions.CinematicViewMoveTo(38, 28, -20.0, 0.05, 3);
+      ctTavern:  Actions.CinematicViewMoveTo(22, 18, -20.0, 0.05, 3);
+      ctStore:   Actions.CinematicViewMoveTo(22, 23, -20.0, 0.05, 3);
+    end;
   end else if fCinStep = 3 then
   begin
-    Actions.CinematicText('<$22>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
-  end;
-end;
-
-procedure DoWoodAnimStep;
-begin
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(38, 28, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$23>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
-  end;
-end;
-
-procedure DoTavernAnimStep;
-begin
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(22, 18, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$24>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
-  end;
-end;
-
-procedure DoFoodAnimStep;
-begin
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(28, 16, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$25>', 2);
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicViewMoveTo(16, 25, -20.0, 0.05, 3);
-  end else if fCinStep = 19 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 21 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 23 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
-  end;
-end;
-
-procedure DoStoreAnimStep;
-begin
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    Actions.CinematicViewMoveTo(22, 23, -20.0, 0.05, 3);
-  end else if fCinStep = 3 then
-  begin
-    Actions.CinematicText('<$26>', 2);
+    case fActiveCinType of
+      ctSchool:  Actions.CinematicText('<$20>', 2);
+      ctCottage: Actions.CinematicText('<$21>', 2);
+      ctStone:   Actions.CinematicText('<$22>', 2);
+      ctWood:    Actions.CinematicText('<$23>', 2);
+      ctTavern:  Actions.CinematicText('<$24>', 2);
+      ctStore:   Actions.CinematicText('<$26>', 2);
+    end;
   end else if fCinStep = 11 then
   begin
     Actions.CinematicText('', 1);
@@ -591,16 +482,7 @@ begin
       Actions.CinematicFadeOut(1);
     end;
 
-    case fActiveCinType of
-      ctSchool:  DoSchoolAnimStep;
-      ctCottage: DoCottageAnimStep;
-      ctStone:   DoStoneAnimStep;
-      ctWood:    DoWoodAnimStep;
-      ctTavern:  DoTavernAnimStep;
-      ctFood:    DoFoodAnimStep;
-      ctStore:   DoStoreAnimStep;
-    end;
-
+    DoAnimStep;
     Inc(fCinStep);
   end;
 end;
