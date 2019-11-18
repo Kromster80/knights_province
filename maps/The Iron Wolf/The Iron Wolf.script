@@ -36,7 +36,7 @@ end;
 procedure ShowHouseCompleteMessage(aIndex: Integer; aHouseName: AnsiString);
 begin
   tickCountScript[aIndex] := 0;
-  Actions.PlayerOverlaySetFormatted(aIndex, '<$3>', [aHouseName]); // Temp commented out due to libx issue
+  Actions.PlayerOverlaySet(aIndex, Utils.Format('<$3>', [aHouseName]));
 end;
 
 procedure CheckVictory;

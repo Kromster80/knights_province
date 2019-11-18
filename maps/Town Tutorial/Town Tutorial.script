@@ -130,7 +130,7 @@ begin
       Actions.PlayerOverlaySet(HUMAN_PLAYER, '<$' + IntToStr(aOverlayID) + '>');
 
     if (aPopupID <> -1) then
-      Actions.PlayerMessage(HUMAN_PLAYER, '<$' + IntToStr(aPopupID) + '>');
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$' + IntToStr(aPopupID) + '>', False);
   end;
 end;
 
