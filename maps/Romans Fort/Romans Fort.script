@@ -43,7 +43,6 @@ var
   west_spawn: Boolean;
   south_spawn: Boolean;
   east_spawn: Boolean;
-  difficulty_locked: Boolean; //Im just here to prevent that the player goes back in the selectable menu and chooses an other difficulty while already playing.
   hardmode: Boolean;
 
 procedure PlayWAV(aPlayer: Integer; const aFilename: string; aVolume: Single);
@@ -328,18 +327,15 @@ end;
 
 procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
 begin
-  if (aTag = 1) and not difficulty_locked then
+  if (aTag = 1) then
     begin
       Actions.PlayerMessage(-1, '<$12>', True);
     end;
-  if (aTag = 2) and not difficulty_locked then
+  if (aTag = 2) then
     begin
       Actions.PlayerMessage(-1, '<$13>', True);
       hardmode := true;
     end;
-
-  difficulty_locked := true;
-
 end;
 
 procedure OnTick(aTick: Integer);
