@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign GUID="{00741C65-9EEA-4740-9088-3CFB994D2199}">
-    <id0 FlagX="50" FlagY="400" Folder="1_Prologue"/>
-	<id1 FlagX="625" FlagY="525" Folder="2_Home"/>
-	<id2 FlagX="550" FlagY="510" Folder="3_First_Step"/>
-	<id3 FlagX="520" FlagY="480" Folder="4_Advance"/>
+  <Campaign GUID="{00741C65-9EEA-4740-9088-3CFB994D2199}" Version="2">
+    <Chapters>
+      <id0 Title="3" ShortTitle="4" Background="background.png"/>
+    </Chapters>
+    <Missions>
+      <id0 Chapter="0" Title="10" Briefing="14" FlagX="50" FlagY="400" Folder="1_Prologue"/>
+	  <id1 Chapter="0" Title="11" Briefing="15" FlagX="625" FlagY="525" Folder="2_Home"/>
+      <id2 Chapter="0" Title="12" Briefing="16" FlagX="550" FlagY="510" Folder="3_First_Step"/>
+	  <id3 Chapter="0" Title="13" Briefing="17" FlagX="520" FlagY="480" Folder="4_Advance"/>
+    </Missions>
   </Campaign>
 </Root>

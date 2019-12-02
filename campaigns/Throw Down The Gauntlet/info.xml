@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}">
-    <id0 FlagX="200" FlagY="100" Folder="1_Foresting"/>
+  <Campaign GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Version="2">
+    <Chapters>
+      <id0 Title="3" ShortTitle="4" Background="background.png"/>
+    </Chapters>
+    <Missions>
+      <id0 Chapter="0" Title="10" Briefing="11" FlagX="200" FlagY="100" Folder="1_Foresting"/>
+    </Missions>
   </Campaign>
 </Root>
