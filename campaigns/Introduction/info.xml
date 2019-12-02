@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
   <Campaign GUID="{799544A4-8B5A-4666-9A62-A5BF6657B63B}">
-    <id0 FlagX="147" FlagY="54" Folder="1_Citizens"/>
-    <id1 FlagX="239" FlagY="94" Folder="2_Basics"/>
-    <id2 FlagX="331" FlagY="155" Folder="3_Materials"/>
-    <id3 FlagX="131" FlagY="185" Folder="4_Stolen"/>
-    <id5 FlagX="420" FlagY="240" Folder="5_FightingBack"/>
-    <id4 FlagX="236" FlagY="228" Folder="6_Army"/>
-    <id6 FlagX="221" FlagY="319" Folder="7_TwoNeighbours"/>
+    <Chapters>
+      <id0 Title="32" ShortTitle="30" Background="background1.png"/>
+      <id1 Title="33" ShortTitle="31" Background="background2.png"/>
+    </Chapters>
+    <Missions>
+      <id0 Chapter="0" Title="10" Briefing="17" FlagX="147" FlagY="54" Folder="1_Citizens"/>
+      <id1 Chapter="0" Title="11" Briefing="18" FlagX="239" FlagY="94" Folder="2_Basics"/>
+      <id2 Chapter="0" Title="12" Briefing="19" FlagX="331" FlagY="155" Folder="3_Materials"/>
+      <id3 Chapter="1" Title="13" Briefing="20" FlagX="131" FlagY="185" Folder="4_Stolen"/>
+      <id5 Chapter="1" Title="14" Briefing="21" FlagX="420" FlagY="240" Folder="5_FightingBack"/>
+      <id4 Chapter="1" Title="15" Briefing="22" FlagX="236" FlagY="228" Folder="6_Army"/>
+      <id6 Chapter="1" Title="16" Briefing="23" FlagX="221" FlagY="319" Folder="7_TwoNeighbours"/>
+    </Missions>
   </Campaign>
 </Root>
