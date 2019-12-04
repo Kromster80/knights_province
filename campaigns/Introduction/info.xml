@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign GUID="{799544A4-8B5A-4666-9A62-A5BF6657B63B}" Version="2">
+  <Campaign Version="2" GUID="{799544A4-8B5A-4666-9A62-A5BF6657B63B}" NodeImg="" PreviewImg="" NodeSpacing="40">
     <Chapters>
       <id0 Background="background1.png" Title="3" ShortTitle="4"/>
       <id1 Background="background2.png" Title="5" ShortTitle="6"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="417" FlagY="641" Folder="1_Citizens" Title="10" Briefing="17"/>
-      <id1 Chapter="0" FlagX="617" FlagY="547" Folder="2_Basics" Title="11" Briefing="18"/>
-      <id2 Chapter="0" FlagX="670" FlagY="264" Folder="3_Materials" Title="12" Briefing="19"/>
-      <id3 Chapter="1" FlagX="112" FlagY="235" Folder="4_Stolen" Title="13" Briefing="20"/>
-      <id4 Chapter="1" FlagX="308" FlagY="190" Folder="5_FightingBack" Title="14" Briefing="21"/>
-      <id5 Chapter="1" FlagX="392" FlagY="127" Folder="6_Army" Title="15" Briefing="22"/>
-      <id6 Chapter="1" FlagX="519" FlagY="117" Folder="7_TwoNeighbours" Title="16" Briefing="23"/>
+      <id0 Chapter="0" FlagX="417" FlagY="641" Folder="1_Citizens" Title="10" Briefing="17" MarkerImgLocked="" MarkerImgNormal="cottage.png" MarkerImgWon=""/>
+      <id1 Chapter="0" FlagX="617" FlagY="547" Folder="2_Basics" Title="11" Briefing="18" MarkerImgLocked="" MarkerImgNormal="build.png" MarkerImgWon="" NodeAnchors="457;625;457;675;581;486;581;536"/>
+      <id2 Chapter="0" FlagX="670" FlagY="264" Folder="3_Materials" Title="12" Briefing="19" MarkerImgLocked="" MarkerImgNormal="build.png" MarkerImgWon="" NodeAnchors="616;501;556;401;716;406;671;296"/>
+      <id3 Chapter="1" FlagX="112" FlagY="235" Folder="4_Stolen" Title="13" Briefing="20" MarkerImgLocked="" MarkerImgNormal="" MarkerImgWon=""/>
+      <id4 Chapter="1" FlagX="308" FlagY="190" Folder="5_FightingBack" Title="14" Briefing="21" MarkerImgLocked="" MarkerImgNormal="swordsman.png" MarkerImgWon="" NodeAnchors="0;100;0;0;0;0;0;0"/>
+      <id5 Chapter="1" FlagX="392" FlagY="127" Folder="6_Army" Title="15" Briefing="22" MarkerImgLocked="" MarkerImgNormal="" MarkerImgWon="" NodeAnchors="0;100;0;0;0;0;0;0"/>
+      <id6 Chapter="1" FlagX="519" FlagY="117" Folder="7_TwoNeighbours" Title="16" Briefing="23" MarkerImgLocked="" MarkerImgNormal="" MarkerImgWon="" NodeAnchors="0;100;0;0;0;0;0;0"/>
     </Missions>
   </Campaign>
 </Root>
