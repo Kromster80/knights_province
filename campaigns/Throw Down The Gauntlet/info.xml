@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Version="2">
+  <Campaign Version="2" LastEdited="2019.12.6 21:50:19" GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Title="0" Description="1" NodeImg="" PreviewImg="" NodeSpacing="40">
     <Chapters>
-      <id0 Title="3" ShortTitle="4" Background="background.png"/>
+      <id0 Background="background.png" Title="3" ShortTitle="4"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" Title="10" Briefing="11" FlagX="200" FlagY="100" Folder="1_Foresting"/>
+      <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" MarkerImgLocked="" MarkerImgNormal="" MarkerImgWon=""/>
     </Missions>
   </Campaign>
 </Root>
