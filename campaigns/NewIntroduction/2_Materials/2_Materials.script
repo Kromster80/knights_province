@@ -1,0 +1,69 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+var
+  objStone, objWood: Integer;
+  stoneNeeded, stoneReceived: Integer;
+  woodNeeded, woodReceived: Integer;
+
+procedure CheckVictory;
+begin
+  if (stoneReceived >= stoneNeeded) and (woodReceived >= woodNeeded) then
+    Actions.PlayerWin([HUMAN_PLAYER], True);
+end;
+
+procedure UpdateObjective;
+var
+  colorText: string;
+begin
+  // For stone
+  if (stoneReceived >= stoneNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
+
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objStone, 'Collect ' + IntToStr(stoneNeeded) + ' stone.|' + colorText + IntToStr(stoneReceived) + ' / ' + IntToStr(stoneNeeded));
+
+  if stoneReceived >= stoneNeeded then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objStone, osCompleted)
+  else
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objStone, osActive);
+
+  // For wood
+  if (woodReceived >= woodNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
+
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWood, 'Collect ' + IntToStr(woodNeeded) + ' wood.|' + colorText + IntToStr(woodReceived) + ' / ' + IntToStr(woodNeeded));
+
+  if woodReceived >= woodNeeded then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objWood, osCompleted)
+  else
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objWood, osActive);
+end;
+
+procedure CheckResources;
+begin
+  stoneReceived := States.StatWaresBalance(HUMAN_PLAYER, wtStone);
+  woodReceived  := States.StatWaresBalance(HUMAN_PLAYER, wtWood);
+
+  UpdateObjective;
+
+  CheckVictory;
+end;
+
+procedure OnMissionStart;
+begin
+  objStone := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+  objWood  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+
+  stoneNeeded := 120; stoneReceived := 0;
+  woodNeeded  := 120; woodReceived  := 0;
+
+  CheckResources;
+
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 10 = 0 then
+    CheckResources;
+end;

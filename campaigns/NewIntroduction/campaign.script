@@ -1,0 +1,10 @@
+procedure OnCampaignMenu;
+var
+  I: Integer;
+begin
+  for I := 0 to 6 do
+    Actions.CampaignMissionUnlock(I, True);
+
+  if not CampaignData.Won[0] then
+    Actions.CampaignProgress('none');
+end;

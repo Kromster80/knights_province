@@ -1,0 +1,3 @@
+Campaign map generated with https://azgaar.github.io/Fantasy-Map-Generator/
+
+Seed = 789771277

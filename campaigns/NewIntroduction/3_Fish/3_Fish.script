@@ -1,0 +1,136 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HUMAN_PLAYER = 0;
+  ownCampX = 18;
+  ownCampY = 90;
+  allyCampUnloadX = 101;
+  allyCampUnloadY = 68;
+var
+  ownCamp: Integer;
+  objFish, objcider: Integer;
+  fishNeeded, fishReceived: Integer;
+  ciderNeeded, ciderReceived: Integer;
+  ciderDealShown: Boolean;
+
+  
+procedure CheckVictory;
+begin
+  if (fishReceived >= fishNeeded) and (ciderReceived >= ciderNeeded) then
+    Actions.PlayerWin([HUMAN_PLAYER], True);
+end;
+
+
+procedure UpdateObjective;
+var
+  colorText: string;
+begin
+  // For fish
+  if (fishReceived >= fishNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
+
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objFish, 'Collect ' + IntToStr(fishNeeded) + ' fish.|' + colorText + IntToStr(fishReceived) + ' / ' + IntToStr(fishNeeded));
+
+  if fishReceived >= fishNeeded then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objFish, osCompleted)
+  else
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objFish, osActive);
+
+  // For cider
+  if (ciderReceived >= ciderNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
+
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objcider, 'Collect ' + IntToStr(ciderNeeded) + ' cider.|' + colorText + IntToStr(ciderReceived) + ' / ' + IntToStr(ciderNeeded));
+
+  if ciderReceived >= ciderNeeded then
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objcider, osCompleted)
+  else
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objcider, osActive);
+end;
+
+
+procedure CheckResources;
+begin
+  fishReceived := States.StatWaresBalance(HUMAN_PLAYER, wtfish);
+  ciderReceived  := States.StatWaresBalance(HUMAN_PLAYER, wtcider);
+
+  UpdateObjective;
+
+  CheckVictory;
+end;
+
+
+procedure OnMissionStart;
+begin
+  ownCamp := States.HouseAt(ownCampX, ownCampY);
+
+  objCider := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+  objFish := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
+
+  ciderNeeded := 20;
+  fishNeeded := 200;
+
+  CheckResources;
+
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+end;
+
+
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+var
+  I: Integer;
+  wagon: Integer;
+begin
+  if (aPlayer = HUMAN_PLAYER) and (aTag = 1) then
+    if States.HouseWareInside(ownCamp, wtCider) >= 10 then
+    begin
+      // Create a wagon
+      for I := -2 to 8 do
+      begin
+        wagon := Actions.GiveUnit(HUMAN_PLAYER, utWagon, ownCampX + I, ownCampY + 1, 1);
+        if wagon <> 0 then
+        begin
+          Actions.HouseWareRemove(ownCamp, wtCider, 10);
+          Actions.UnitCarryGive(wagon, wtCider, 10);
+          Actions.UnitOrderWalk(wagon, allyCampUnloadX, allyCampUnloadY);
+          Break;
+        end;
+      end;    
+    end;
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+var
+  I: Integer;
+  wagon: Integer;
+begin
+  if (aTriggerId = 1) and (States.UnitType(aUnit) = utWagon) and (States.UnitCarryType(aUnit) = wtCider)  then
+  begin
+    // Destroy wagon
+    Actions.UnitKill(aUnit, True);
+  
+    // Create new wagon
+    for I := -2 to 2 do
+    begin
+      wagon := Actions.GiveUnit(HUMAN_PLAYER, utWagon, allyCampUnloadX + I, allyCampUnloadY - 5, 1);
+      if wagon <> 0 then
+      begin
+        Actions.UnitCarryGive(wagon, wtFish, 20);
+        Actions.UnitOrderWalk(wagon, ownCampX, ownCampY);
+        Break;
+      end;
+    end;    
+  end;
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 10 = 0 then
+    CheckResources;
+    
+  if not ciderDealShown and (ciderReceived >= ciderNeeded + 10) then
+  begin
+    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], [1,2], True, False);
+    ciderDealShown := True;
+  end;
+end;
