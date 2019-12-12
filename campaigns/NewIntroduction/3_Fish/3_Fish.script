@@ -3,73 +3,18 @@
 
 const
   HUMAN_PLAYER = 0;
+  CIDER_NEEDED = 75;
   ownCampX = 18;
   ownCampY = 90;
   allyCampUnloadX = 101;
   allyCampUnloadY = 68;
 var
   ownCamp: Integer;
-  objFish, objcider: Integer;
-  fishNeeded, fishReceived: Integer;
-  ciderNeeded, ciderReceived: Integer;
   ciderDealShown: Boolean;
-
-  
-procedure CheckVictory;
-begin
-  if (fishReceived >= fishNeeded) and (ciderReceived >= ciderNeeded) then
-    Actions.PlayerWin([HUMAN_PLAYER], True);
-end;
-
-
-procedure UpdateObjective;
-var
-  colorText: string;
-begin
-  // For fish
-  if (fishReceived >= fishNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
-
-  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objFish, 'Collect ' + IntToStr(fishNeeded) + ' fish.|' + colorText + IntToStr(fishReceived) + ' / ' + IntToStr(fishNeeded));
-
-  if fishReceived >= fishNeeded then
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objFish, osCompleted)
-  else
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objFish, osActive);
-
-  // For cider
-  if (ciderReceived >= ciderNeeded) then colorText := '[$00E000]' else colorText := '[$00FFFF]';
-
-  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objcider, 'Collect ' + IntToStr(ciderNeeded) + ' cider.|' + colorText + IntToStr(ciderReceived) + ' / ' + IntToStr(ciderNeeded));
-
-  if ciderReceived >= ciderNeeded then
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objcider, osCompleted)
-  else
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objcider, osActive);
-end;
-
-
-procedure CheckResources;
-begin
-  fishReceived := States.StatWaresBalance(HUMAN_PLAYER, wtfish);
-  ciderReceived  := States.StatWaresBalance(HUMAN_PLAYER, wtcider);
-
-  UpdateObjective;
-
-  CheckVictory;
-end;
-
 
 procedure OnMissionStart;
 begin
   ownCamp := States.HouseAt(ownCampX, ownCampY);
-
-  objCider := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
-  objFish := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
-
-  ciderNeeded := 20;
-  fishNeeded := 200;
-
-  CheckResources;
 
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
@@ -119,18 +64,16 @@ begin
         Actions.UnitOrderWalk(wagon, ownCampX, ownCampY);
         Break;
       end;
-    end;    
+    end;
   end;
 end;
 
 procedure OnTick(aTick: Integer);
 begin
-  if aTick mod 10 = 0 then
-    CheckResources;
-    
-  if not ciderDealShown and (ciderReceived >= ciderNeeded + 10) then
+  if aTick mod 50 = 0 then
+  if not ciderDealShown and (States.StatWaresBalance(HUMAN_PLAYER, wtCider) >= CIDER_NEEDED) then
   begin
-    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], [1,2], True, False);
+    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], ['', ''], [1,2], True, False);
     ciderDealShown := True;
   end;
 end;
