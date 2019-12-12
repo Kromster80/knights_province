@@ -15,6 +15,8 @@
 !FOW_REVEAL 39 48 8
 
 // Goals
+!ADD_GOAL 0 2 2 120 1
+!ADD_GOAL 0 2 3 120 1
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -119,4 +121,4 @@
 !SET_STOCKPILE 1 39 55 5
 !SET_STOCKPILE 1 39 51 5
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8253 (2019.12.07 17:08)"  on 07.12.2019 17:14:07
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8321 (2019.12.12 19:04)"  on 12.12.2019 19:05:01
