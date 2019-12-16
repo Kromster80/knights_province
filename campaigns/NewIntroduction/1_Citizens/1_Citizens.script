@@ -45,7 +45,7 @@ end;
 
 procedure OnPlayerVistory(aPlayer: Integer);
 begin
-  CampaignData[0].Won := True;
+  CampaignData.Won[0] := True;
 end;
 
 
