@@ -55,6 +55,23 @@
 !HOUSE_BLOCK 32
 
 // Block units
+!UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 6 // breeder
+!UNIT_BLOCK 7 // farmer
+!UNIT_BLOCK 9 // baker
+!UNIT_BLOCK 10 // butcher
+!UNIT_BLOCK 12 // brewer
+!UNIT_BLOCK 13 // fisher
+!UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
+!UNIT_BLOCK 20 // swordsman
+!UNIT_BLOCK 21 // bowman
+!UNIT_BLOCK 22 // arbaletman
+!UNIT_BLOCK 23 // pikeman
+!UNIT_BLOCK 24 // hallebardman
+!UNIT_BLOCK 25 // horsescout
+!UNIT_BLOCK 26 // cavalry
+!UNIT_BLOCK 32 // wagon
 
 // Block trades
 
