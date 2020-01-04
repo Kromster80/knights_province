@@ -320,7 +320,7 @@ begin
   UpdateObjective;
 
 begin
-  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'], [1,2], True, True);
+  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'],['baby.png', 'skull.png'], [1,2], True, True);
 end;
 
 end;
