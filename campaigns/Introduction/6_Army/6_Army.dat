@@ -153,6 +153,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 524287
+!HAND_CENTER_SCREEN 10 12
 
 // Fog of War
 
@@ -320,4 +321,4 @@
 !SET_UNIT 12 3 5 // brewer
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8456 (2020.01.09 21:31)"  on 09.01.2020 21:37:28
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8684 (2020.03.21 11:54)"  on 21.03.2020 11:55:26
