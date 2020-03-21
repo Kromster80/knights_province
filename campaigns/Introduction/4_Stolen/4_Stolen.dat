@@ -5,12 +5,14 @@
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 23 36
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 1 0 0 0 0
@@ -82,6 +84,9 @@
 !SET_ROAD 21 32 !SET_ROAD 22 32 !SET_ROAD 23 32 !SET_ROAD 26 32
 !SET_ROAD 23 33 !SET_ROAD 24 33 !SET_ROAD 25 33 !SET_ROAD 26 33
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 14 27 // serf
 !SET_UNIT 2 16 27 // serf
@@ -93,15 +98,18 @@
 !SET_UNIT 13 9 19 // fisher
 !SET_UNIT 4 3 30 // woodcutter
 !SET_UNIT 8 8 28 // carpenter
-// Groups
-!SET_GROUP 19 25 38 4 4 8
 
-----------
+// Groups
+!SET_GROUP 19 25 38 4 4 8 // axefighter
+
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 524287
+
+// Fog of War
 
 // Goals
 
@@ -111,9 +119,9 @@
 !SET_AI_CHARACTER BUILDERS_COUNT 6
 
 // Dispositions
-!SET_AI_DEFENCE 54 46 4 1 10 -1 6 3
+!SET_AI_DEFENCE 54 46 4 1 10 -1 6 3 // melee
 !SET_AI_DEFENCE_STOCK 19 6 // axefighter
-!SET_AI_DEFENCE 59 46 4 1 10 -1 10 5
+!SET_AI_DEFENCE 58 49 5 1 10 -1 10 5 // melee
 !SET_AI_DEFENCE_STOCK 18 10 // militia
 
 // Alliances
@@ -132,19 +140,26 @@
 !SET_HOUSE 36 16 55 0 // campfire
 !SET_HOUSE 36 42 36 0 // campfire
 !SET_HOUSE 36 45 58 0 // campfire
-!SET_HOUSE 11 55 38 0 // camp
-!WARE_OUT_ADD_TO_LAST 28 1000 // fish
-!WARE_OUT_ADD_TO_LAST 30 1000 // cider
-!SET_HOUSE 27 60 42 0 // tavern
 !SET_HOUSE 30 59 36 0 // fort
+!SET_HOUSE 11 66 36 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 27 63 42 1 // tavern
 
 // Roads and fields
 
-!SET_ROAD 59 36 !SET_ROAD 59 37 !SET_ROAD 55 38 !SET_ROAD 57 38
-!SET_ROAD 58 38 !SET_ROAD 59 38 !SET_ROAD 54 39 !SET_ROAD 55 39
-!SET_ROAD 56 39 !SET_ROAD 57 39 !SET_ROAD 55 40 !SET_ROAD 56 40
-!SET_ROAD 56 41 !SET_ROAD 56 42 !SET_ROAD 60 42 !SET_ROAD 56 43
-!SET_ROAD 57 43 !SET_ROAD 58 43 !SET_ROAD 59 43 !SET_ROAD 60 43
+!SET_ROAD 59 36 !SET_ROAD 66 36 !SET_ROAD 59 37 !SET_ROAD 66 37
+!SET_ROAD 59 38 !SET_ROAD 60 38 !SET_ROAD 61 38 !SET_ROAD 62 38
+!SET_ROAD 63 38 !SET_ROAD 64 38 !SET_ROAD 65 38 !SET_ROAD 66 38
+!SET_ROAD 61 39 !SET_ROAD 61 40 !SET_ROAD 61 41 !SET_ROAD 61 42
+!SET_ROAD 62 42 !SET_ROAD 63 42
+
+// Fences
+
 
 // Units
 !SET_UNIT 32 43 34 // wagon
@@ -159,23 +174,26 @@
 !SET_UNIT_WARE 17 50
 !SET_UNIT 32 45 59 // wagon
 !SET_UNIT_WARE 21 50
-!SET_UNIT 2 55 39 // serf
-!SET_UNIT 2 56 39 // serf
-!SET_UNIT 2 56 40 // serf
 !SET_UNIT 32 44 56 // wagon
 !SET_UNIT_WARE 19 50
-// Groups
-!SET_GROUP 19 40 38 5 3 6
-!SET_GROUP 19 43 58 6 5 5
-!SET_GROUP 18 18 53 1 3 6
-!SET_GROUP 18 42 58 6 5 5
+!SET_UNIT 1 62 38 // blank
+!SET_UNIT 1 61 38 // blank
+!SET_UNIT 1 60 38 // blank
 
-----------
+// Groups
+!SET_GROUP 19 40 38 5 3 6 // axefighter
+!SET_GROUP 19 43 58 6 5 5 // axefighter
+!SET_GROUP 18 18 53 1 3 6 // militia
+!SET_GROUP 18 42 58 6 5 5 // militia
+
+-----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 16738303
+
+// Fog of War
 
 // Goals
 
@@ -185,7 +203,7 @@
 !SET_AI_CHARACTER BUILDERS_COUNT 6
 
 // Dispositions
-!SET_AI_DEFENCE 59 20 4 1 10 -1 6 4
+!SET_AI_DEFENCE 59 20 4 1 10 -1 6 4 // melee
 !SET_AI_DEFENCE_STOCK 19 6 // axefighter
 
 // Alliances
@@ -218,6 +236,9 @@
 !SET_ROAD 54 16 !SET_ROAD 55 16 !SET_ROAD 56 16 !SET_ROAD 57 16
 !SET_ROAD 58 16 !SET_ROAD 59 16 !SET_ROAD 60 16 !SET_ROAD 61 16
 
+// Fences
+
+
 // Units
 !SET_UNIT 32 4 50 // wagon
 !SET_UNIT_WARE 30 50
@@ -225,16 +246,22 @@
 !SET_UNIT 2 57 16 // serf
 !SET_UNIT 2 58 16 // serf
 !SET_UNIT 2 59 16 // serf
-// Groups
-!SET_GROUP 19 53 50 6 4 4
-!SET_GROUP 19 3 54 4 5 10
 
-----------
+// Groups
+!SET_GROUP 19 53 50 6 4 4 // axefighter
+!SET_GROUP 19 3 54 4 5 10 // axefighter
+
+-----Hand3-----
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
+// Fog of War
+
 // Roads and fields
+
+
+// Fences
 
 
 // Units
@@ -242,5 +269,4 @@
 !SET_UNIT_WARE 2 30
 
 
-
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7678 (2019.07.24 19:36)"  on 24.07.2019 19:40:03
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8684 (2020.03.21 11:33)"  on 21.03.2020 11:43:50
