@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2020.3.9 12:56:28" GUID="{799544A4-8B5A-4666-9A62-A5BF1371B63B}" Title="0" Description="1" NodeImg="node.png" PreviewImg="preview.png" NodeSpacing="30">
+  <Campaign Version="2" LastEdited="2020.3.31 18:50:32" GUID="{799544A4-8B5A-4666-9A62-A5BF1371B63B}" Title="0" Description="1" FocusImg="" NodeImg="node.png" PreviewImg="preview.png" NodeSpacing="30">
     <Chapters>
       <id0 Background="background1.png" Title="3" ShortTitle="4"/>
       <id1 Background="background2.png" Title="5" ShortTitle="6"/>

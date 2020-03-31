@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2019.12.6 21:50:19" GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Title="0" Description="1" NodeImg="" PreviewImg="" NodeSpacing="40">
+  <Campaign Version="2" LastEdited="2020.3.31 18:50:59" GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Title="0" Description="1" FocusImg="" NodeImg="" PreviewImg="" NodeSpacing="40">
     <Chapters>
       <id0 Background="background.png" Title="3" ShortTitle="4"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" FlagImgLocked="" FlagImgNormal="wood.png" FlagImgWon=""/>
-      <id1 Chapter="0" FlagX="350" FlagY="100" Folder="2_Stonecutting" Title="12" Briefing="13" FlagImgLocked="" FlagImgNormal="stone.png" FlagImgWon=""/>
-      <id2 Chapter="0" FlagX="500" FlagY="100" Folder="3_Fishing" Title="14" Briefing="15" FlagImgLocked="" FlagImgNormal="fish.png" FlagImgWon=""/>
+      <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="" FlagImgNormal="wood.png" FlagImgWon=""/>
+      <id1 Chapter="0" FlagX="350" FlagY="100" Folder="2_Stonecutting" Title="12" Briefing="13" BriefingAudio="" FlagImgLocked="" FlagImgNormal="stone.png" FlagImgWon=""/>
+      <id2 Chapter="0" FlagX="500" FlagY="100" Folder="3_Fishing" Title="14" Briefing="15" BriefingAudio="" FlagImgLocked="" FlagImgNormal="fish.png" FlagImgWon=""/>
     </Missions>
   </Campaign>
 </Root>
