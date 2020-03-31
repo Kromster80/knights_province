@@ -70,6 +70,7 @@
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
 !SET_HOUSE 37 32 38 0 // cottage
 !SET_HOUSE 27 30 44 1 // tavern
+!SET_HOUSE 17 35 29 0 // tower_arrow
 
 // Roads and fields
 
@@ -115,4 +116,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8711 (2020.03.31 14:25)"  on 31.03.2020 14:39:56
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8711 (2020.03.31 14:53)"  on 31.03.2020 14:55:45
