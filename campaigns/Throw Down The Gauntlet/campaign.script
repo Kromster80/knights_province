@@ -1,5 +1,5 @@
 const
-  MISSION_COUNT = 2;
+  MISSION_COUNT = 3;
 
 procedure OnCampaignMenu;
 var
