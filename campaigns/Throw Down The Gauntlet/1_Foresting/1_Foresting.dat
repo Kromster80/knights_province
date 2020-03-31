@@ -5,16 +5,19 @@
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 41 31
+
+// Fog of War
 !FOW_REVEAL 42 31 8
 !FOW_REVEAL 39 40 8
 
 // Goals
+!ADD_GOAL 0 3 360 1
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -77,9 +80,12 @@
 
 !SET_ROAD 30 24 !SET_ROAD 30 25 !SET_ROAD 31 25 !SET_ROAD 32 25
 !SET_ROAD 33 25 !SET_ROAD 33 26 !SET_ROAD 33 27 !SET_ROAD 33 28
-!SET_ROAD 33 29 !SET_ROAD 40 29 !SET_ROAD 33 30 !SET_ROAD 34 30
-!SET_ROAD 35 30 !SET_ROAD 36 30 !SET_ROAD 37 30 !SET_ROAD 38 30
-!SET_ROAD 39 30 !SET_ROAD 40 30 !SET_ROAD 41 30
+!SET_ROAD 33 29 !SET_ROAD 35 29 !SET_ROAD 40 29 !SET_ROAD 33 30
+!SET_ROAD 34 30 !SET_ROAD 35 30 !SET_ROAD 36 30 !SET_ROAD 37 30
+!SET_ROAD 38 30 !SET_ROAD 39 30 !SET_ROAD 40 30 !SET_ROAD 41 30
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 38 32 // serf
@@ -93,21 +99,25 @@
 !SET_UNIT 2 39 33 // serf
 !SET_UNIT 3 42 31 // builder
 !SET_UNIT 3 42 32 // builder
-// Groups
-!SET_GROUP 25 30 29 4 1 1
 
-----------
+// Groups
+!SET_GROUP 25 30 29 4 1 1 // horsescout
+
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
+// Fog of War
+
 // Roads and fields
+
+
+// Fences
 
 
 // Units
 !SET_UNIT 36 39 45 // wolf
-
-
 
 // Stockpiles
 !SET_STOCKPILE 3 36 34 5
@@ -116,4 +126,5 @@
 !SET_STOCKPILE 1 39 47 5
 !SET_STOCKPILE 1 39 43 5
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7678 (2019.07.24 19:36)"  on 24.07.2019 19:43:09
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8703 (2020.03.30 19:15)"  on 30.03.2020 19:16:28

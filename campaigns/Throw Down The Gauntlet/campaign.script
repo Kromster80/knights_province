@@ -1,0 +1,21 @@
+const
+  MISSION_COUNT = 2;
+
+procedure OnCampaignMenu;
+var
+  cntPlayed: Integer;
+  I: Integer;
+begin
+  cntPlayed := 0;
+  for I := 0 to MISSION_COUNT - 1 do
+  begin
+    // Everything is unlocked
+    Actions.CampaignMissionUnlock(I, True);
+    Actions.CampaignMissionScore(I, IntToStr(CampaignData.Score[I]));
+    
+    if CampaignData.Won[I] then
+      cntPlayed := cntPlayed + 1;
+  end;
+  
+  Actions.CampaignSetup(IntToStr(cntPlayed) + '/' + IntToStr(MISSION_COUNT), '', CampaignData.LastPlayed);
+end;

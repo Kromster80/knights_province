@@ -5,7 +5,8 @@
       <id0 Background="background.png" Title="3" ShortTitle="4"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" FlagImgLocked="" FlagImgNormal="wood.png" FlagImgWon=""/>
+      <id0 Chapter="0" FlagX="350" FlagY="100" Folder="2_Stonecutting" Title="12" Briefing="13" FlagImgLocked="" FlagImgNormal="stone.png" FlagImgWon=""/>
     </Missions>
   </Campaign>
 </Root>

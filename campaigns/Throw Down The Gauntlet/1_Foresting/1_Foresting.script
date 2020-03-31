@@ -1,49 +1,17 @@
-// Knights Province dynamic script.
-// Wiki available at: https://github.com/Kromster80/knights_province/wiki
-
 const
-  HUMAN_PLAYER = 0;
-  PLAYTIME = 30 * 60 * 10;
-  WOOD_NEEDED = 250;
+  MISSION_ID = 0;
+
+procedure OnPlayerVictory(aPlayer: Integer);
 var
-  objWood: Integer;
-  woodProduced: Integer;
-  playerWon: Boolean;
-
-procedure UpdateObjective;
+  cnt: Integer;
 begin
-  woodProduced := States.StatWaresProduced(HUMAN_PLAYER, wtWood);
+  // We've got only one player anyway
 
-  if woodProduced < WOOD_NEEDED then
-    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWood, 'Collect ' + IntToStr(WOOD_NEEDED) + ' wood.|[$00FFFF]' + IntToStr(woodProduced) + ' / ' + IntToStr(WOOD_NEEDED))
-  else
-  begin
-    // Award victory just once
-    if not playerWon then
-    begin
-      Actions.PlayerWin([HUMAN_PLAYER], True);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objWood, osCompleted);
-      Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWood, '[$00E000]' + IntToStr(WOOD_NEEDED) + ' wood collected!');
-      playerWon := True;
-    end;
-  end;
-end;
+  cnt := States.StatWaresBalance(aPlayer, wtWood);
+  if cnt > CampaignData.Score[MISSION_ID] then
+    CampaignData.Score[MISSION_ID] := cnt;
 
-procedure OnMissionStart;
-begin
-  objWood := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
-  playerWon := False;
+  CampaignData.Won[MISSION_ID] := True;
 
-  UpdateObjective;
-
-  Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
-end;
-
-procedure OnTick(aTick: Integer);
-begin
-  if aTick mod 10 = 0 then
-    UpdateObjective;
-
-  //if aTick = PLAYTIME then
-  //  Actions.PlayerWin([HUMAN_PLAYER], True);
+  CampaignData.LastPlayed := MISSION_ID;
 end;

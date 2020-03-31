@@ -1,0 +1,17 @@
+const
+  MISSION_ID = 1;
+
+procedure OnPlayerVictory(aPlayer: Integer);
+var
+  cnt: Integer;
+begin
+  // We've got only one player anyway
+
+  cnt := States.StatWaresBalance(aPlayer, wtStone);
+  if cnt > CampaignData.Score[MISSION_ID] then
+    CampaignData.Score[MISSION_ID] := cnt;
+
+  CampaignData.Won[MISSION_ID] := True;
+
+  CampaignData.LastPlayed := MISSION_ID;
+end;

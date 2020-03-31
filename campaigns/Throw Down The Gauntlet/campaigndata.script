@@ -1,0 +1,5 @@
+record
+  LastPlayed: Integer;
+  Won: array [0..99] of Boolean;
+  Score: array [0..99] of Integer;
+end;
