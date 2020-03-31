@@ -1,21 +1,21 @@
-const
-  MISSION_COUNT = 3;
-
 procedure OnCampaignMenu;
 var
   cntPlayed: Integer;
   I: Integer;
 begin
   cntPlayed := 0;
-  for I := 0 to MISSION_COUNT - 1 do
+  for I := 0 to States.CampaignMissionCount - 1 do
   begin
-    // Everything is unlocked
+    // In this campaign everything is unlocked from the start
     Actions.CampaignMissionUnlock(I, True);
     Actions.CampaignMissionScore(I, IntToStr(CampaignData.Score[I]));
     
-    if CampaignData.Won[I] then
-      cntPlayed := cntPlayed + 1;
+    if States.CampaignMissionWon(I) then
+      Inc(cntPlayed);
   end;
   
-  Actions.CampaignSetup(IntToStr(cntPlayed) + '/' + IntToStr(MISSION_COUNT), '', CampaignData.LastPlayed);
+    if cntPlayed = 0 then 
+      Actions.CampaignProgress('-')
+    else
+      Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
 end;

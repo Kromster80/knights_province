@@ -1,10 +1,25 @@
 procedure OnCampaignMenu;
 var
   I: Integer;
+  cntPlayed: Integer;
 begin
-  for I := 0 to 6 do
-    Actions.CampaignMissionUnlock(I, True);
+  // First mission is always unlocked
+  Actions.CampaignMissionUnlock(0, True);
 
-  if not CampaignData.Won[0] then
-    Actions.CampaignProgress('none');
+  // Everything next mission after won one is unlocked
+  for I := 1 to States.CampaignMissionCount - 1 do
+    Actions.CampaignMissionUnlock(I, States.CampaignMissionWon(I-1));
+
+  // Progress
+  begin
+    cntPlayed := 0;
+    for I := 0 to States.CampaignMissionCount - 1 do
+      if States.CampaignMissionWon(I) then
+        Inc(cntPlayed);
+
+    if cntPlayed = 0 then 
+      Actions.CampaignProgress('-')
+    else
+      Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
+  end;
 end;
