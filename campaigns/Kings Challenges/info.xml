@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2020.3.31 18:50:59" GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Title="0" Description="1" FocusImg="" NodeImg="" PreviewImg="" NodeSpacing="40">
+  <Campaign Version="2" LastEdited="2020.3.31 18:50:59" GUID="{492ABDA8-7190-45D4-8A82-E77A2286500B}" Title="0" Description="1" FocusImg="" NodeImg="" PreviewImg="preview.png" NodeSpacing="40">
     <Chapters>
       <id0 Background="background.png" Title="3" ShortTitle="4"/>
     </Chapters>
