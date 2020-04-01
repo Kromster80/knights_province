@@ -3,13 +3,23 @@ const
 
 procedure OnPlayerVictory(aPlayer: Integer);
 var
-  cnt: Integer;
+  oldCnt, newCnt: Integer;
 begin
   // We've got only one player anyway
 
-  cnt := States.StatWaresBalance(aPlayer, wtWood);
-  if cnt > CampaignData.Score[MISSION_ID] then
-    CampaignData.Score[MISSION_ID] := cnt;
+  oldCnt := CampaignData.Score[MISSION_ID];
+  newCnt := States.StatWaresBalance(aPlayer, wtWood);
+  if oldCnt = 0 then
+  begin
+    CampaignData.Score[MISSION_ID] := newCnt;
+    Actions.PlayerMissionResultString(-1, 'You have set first|record and stocked||' + IntToStr(newCnt) + '|wooden planks!');
+  end else
+  if newCnt > oldCnt then
+  begin
+    CampaignData.Score[MISSION_ID] := newCnt;
+    Actions.PlayerMissionResultString(-1, 'You have beaten|your last record|and stocked||' + IntToStr(newCnt) + '|wooden planks!');
+  end else
+    Actions.PlayerMissionResultString(-1, 'You have stocked|only||' + IntToStr(newCnt) + '||wooden planks this time');
 
   CampaignData.Won[MISSION_ID] := True;
 
