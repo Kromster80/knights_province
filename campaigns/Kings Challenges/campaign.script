@@ -9,13 +9,13 @@ begin
     // In this campaign everything is unlocked from the start
     Actions.CampaignMissionUnlock(I, True);
     Actions.CampaignMissionScore(I, IntToStr(CampaignData.Score[I]));
-    
+
     if States.CampaignMissionWon(I) then
       Inc(cntPlayed);
   end;
-  
-    if cntPlayed = 0 then 
-      Actions.CampaignProgress('-')
-    else
-      Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
+
+  if cntPlayed = 0 then 
+    Actions.CampaignProgress('-')
+  else
+    Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
 end;
