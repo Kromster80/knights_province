@@ -48,6 +48,7 @@ var
   fCinStep,
   fHighl1,
   fHighl2:        Integer;
+  fTickCount: Integer;
 
 procedure DoAnimStep;
 begin
@@ -485,4 +486,16 @@ begin
     DoAnimStep;
     Inc(fCinStep);
   end;
+
+  fTickCount := aTick;
+end;
+
+
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+  if aPlayer = HUMAN_PLAYER then
+    // Best time is ~20min (12000 ticks)
+    // Score is number of seconds remaining before 40min mark
+    // Make sure to not set score to -1, it will cause the game to apply the default score
+    Actions.MissionHighscore(Utils.MaxI(2400 - fTickCount div 10, 0));
 end;
