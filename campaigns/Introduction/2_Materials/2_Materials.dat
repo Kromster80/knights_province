@@ -1,5 +1,7 @@
 !VERSION 3
 
+!HIGHSCORE_READY
+
 // General settings
 !HANDS_COUNT 2
 !HAND_DEFAULT_HUMAN 0

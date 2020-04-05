@@ -4,7 +4,28 @@
 const
   HUMAN_PLAYER = 0;
 
+var
+  tickCount: Integer;
+
 procedure OnMissionStart;
 begin
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  tickCount := aTick;
+end;
+
+
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+  CampaignData.Won[1] := True;
+  
+  if aPlayer = HUMAN_PLAYER then
+    // Best time is ?
+    // Score is number of seconds remaining before 60min mark (3600sec)
+    // Make sure to not set score to -1, it will cause the game to apply the default score
+    Actions.MissionHighscore(Utils.MaxI(3600 - tickCount div 10, 0));  
 end;
