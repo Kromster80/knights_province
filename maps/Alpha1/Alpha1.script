@@ -10,5 +10,5 @@ end;
 
 procedure OnPlayerVictory(aPlayer: Integer);
 begin
-  //Actions.MissionHighscore(States.StatWaresProduced(0, wtStone));
+  Actions.MissionHighscore(States.StatWaresProduced(0, wtStone));
 end;
