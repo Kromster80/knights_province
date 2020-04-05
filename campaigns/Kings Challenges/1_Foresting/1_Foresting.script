@@ -22,6 +22,8 @@ begin
     Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked|only||' + IntToStr(newCnt) + '||' + WARE + '|this time');
 
   CampaignData.LastPlayed := MISSION_ID;
+
+  Actions.MissionHighscore(newCnt);
 end;
 
 procedure OnMissionStart;
