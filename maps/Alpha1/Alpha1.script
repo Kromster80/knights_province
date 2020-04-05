@@ -6,3 +6,9 @@ begin
   Actions.PlayerNameSet(1, '<$5>');
   Actions.PlayerNameSet(2, '<$6>');
 end;
+
+
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+  //Actions.MissionHighscore(States.StatWaresProduced(0, wtStone));
+end;
