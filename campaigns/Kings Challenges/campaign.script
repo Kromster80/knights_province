@@ -8,7 +8,7 @@ begin
   begin
     // In this campaign everything is unlocked from the start
     Actions.CampaignMissionUnlock(I, True);
-    Actions.CampaignMissionScore(I, IntToStr(CampaignData.Score[I]));
+    Actions.CampaignMissionResult(I, IntToStr(CampaignData.Score[I]));
 
     if States.CampaignMissionWon(I) then
       Inc(cntPlayed);
