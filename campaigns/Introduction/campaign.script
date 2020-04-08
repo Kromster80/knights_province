@@ -6,7 +6,7 @@ begin
   // First mission is always unlocked
   Actions.CampaignMissionUnlock(0, True);
 
-  // Everything next mission after won one is unlocked
+  // Every next mission after the won one is unlocked
   for I := 1 to States.CampaignMissionCount - 1 do
     Actions.CampaignMissionUnlock(I, States.CampaignMissionWon(I-1));
 
