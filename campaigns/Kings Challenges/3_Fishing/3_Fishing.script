@@ -7,19 +7,19 @@ procedure OnPlayerVictory(aPlayer: Integer);
 var
   oldCnt, newCnt: Integer;
 begin
-  oldCnt := CampaignData.Score[MISSION_ID];
+  oldCnt := CampaignData.Reslt[MISSION_ID];
   newCnt := States.StatWaresBalance(aPlayer, wtFish);
   if oldCnt = 0 then
   begin
-    CampaignData.Score[MISSION_ID] := newCnt;
+    CampaignData.Reslt[MISSION_ID] := newCnt;
     Actions.PlayerMissionResultString(HUMAN_ID, 'You have set first|record and stocked||' + IntToStr(newCnt) + '|' + WARE + '!');
   end else
   if newCnt > oldCnt then
   begin
-    CampaignData.Score[MISSION_ID] := newCnt;
+    CampaignData.Reslt[MISSION_ID] := newCnt;
     Actions.PlayerMissionResultString(HUMAN_ID, 'You have beaten|your last record|and stocked||' + IntToStr(newCnt) + '|' + WARE + '!');
   end else
-    Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked|only||' + IntToStr(newCnt) + '||' + WARE + '| this time');
+    Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked|only||' + IntToStr(newCnt) + '||' + WARE + '|this time');
 
   CampaignData.LastPlayed := MISSION_ID;
 

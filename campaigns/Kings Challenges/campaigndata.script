@@ -1,5 +1,5 @@
 record
   LastPlayed: Integer;
   Won: array [0..99] of Boolean;
-  Score: array [0..99] of Integer;
+  Reslt: array [0..99] of Integer; // We skip a letter to avoid cross-shadowing with "Result"
 end;
