@@ -1,6 +1,6 @@
 !VERSION 3
 
-!HIGHSCORE_READY
+!RANKING 1 // Min time
 
 // General settings
 !HANDS_COUNT 1

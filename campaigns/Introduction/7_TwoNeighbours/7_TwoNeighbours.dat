@@ -1,16 +1,19 @@
 !VERSION 3
 
 // General settings
+!RANKING 1 // Min time
 !HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 13 108
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 0 0 1 1 1
@@ -71,6 +74,9 @@
 !SET_ROAD 12 108 !SET_ROAD 13 108 !SET_ROAD 14 108 !SET_ROAD 15 108
 !SET_ROAD 16 108
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 10 108 // serf
 !SET_UNIT 2 11 108 // serf
@@ -85,14 +91,15 @@
 !SET_UNIT 2 8 108 // serf
 !SET_UNIT 2 7 108 // serf
 
-
-----------
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 6388031
 !HAND_CENTER_SCREEN 40 42
+
+// Fog of War
 
 // Goals
 
@@ -102,16 +109,16 @@
 !SET_AI_CHARACTER BUILDERS_COUNT 3
 
 // Dispositions
-!SET_AI_DEFENCE 51 83 4 1 10 -1 10 5
-!SET_AI_DEFENCE 45 83 4 1 10 -1 10 5
-!SET_AI_DEFENCE 47 51 4 1 10 -1 9 3
-!SET_AI_DEFENCE 39 49 4 1 10 -1 9 3
-!SET_AI_DEFENCE 43 49 4 1 10 -1 9 3
-!SET_AI_DEFENCE 33 47 4 1 10 -1 9 3
-!SET_AI_DEFENCE 51 52 5 1 10 -1 9 3
-!SET_AI_DEFENCE 53 54 6 1 10 -1 6 3
-!SET_AI_DEFENCE 66 41 4 1 10 -1 8 4
-!SET_AI_DEFENCE 70 39 4 1 10 -1 8 4
+!SET_AI_DEFENCE 51 83 4 1 10 -1 10 5 // melee
+!SET_AI_DEFENCE 45 83 4 1 10 -1 10 5 // melee
+!SET_AI_DEFENCE 47 51 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 39 49 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 43 49 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 33 47 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 51 52 5 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 53 54 6 1 10 -1 6 3 // melee
+!SET_AI_DEFENCE 66 41 4 1 10 -1 8 4 // melee
+!SET_AI_DEFENCE 70 39 4 1 10 -1 8 4 // melee
 
 // Attacks
 !SET_AI_ATTACK TYPE 1
@@ -202,6 +209,9 @@
 !SET_ROAD 56 48 !SET_ROAD 56 49 !SET_ROAD 56 50 !SET_ROAD 56 51
 !SET_ROAD 58 51 !SET_ROAD 56 52 !SET_ROAD 57 52 !SET_ROAD 58 52
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 37 42 // serf
 !SET_UNIT 2 38 42 // serf
@@ -225,16 +235,19 @@
 !SET_UNIT 4 61 8 // woodcutter
 !SET_UNIT 4 64 22 // woodcutter
 !SET_UNIT 4 54 18 // woodcutter
-// Groups
-!SET_GROUP 18 47 50 4 6 40
 
-----------
+// Groups
+!SET_GROUP 18 47 50 4 6 40 // militia
+
+-----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 !HAND_CENTER_SCREEN 11 22
+
+// Fog of War
 
 // Goals
 
@@ -244,14 +257,14 @@
 !SET_AI_CHARACTER BUILDERS_COUNT 3
 
 // Dispositions
-!SET_AI_DEFENCE 42 80 4 1 10 -1 9 3
-!SET_AI_DEFENCE 46 80 4 1 10 -1 9 3
-!SET_AI_DEFENCE 50 80 4 1 10 -1 9 3
-!SET_AI_DEFENCE 54 80 4 1 10 -1 9 3
-!SET_AI_DEFENCE 19 56 3 1 10 -1 9 3
-!SET_AI_DEFENCE 22 51 3 1 10 -1 9 3
-!SET_AI_DEFENCE 18 50 3 1 10 -1 9 3
-!SET_AI_DEFENCE 14 43 0 1 10 -1 9 3
+!SET_AI_DEFENCE 42 80 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 46 80 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 50 80 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 54 80 4 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 19 56 3 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 22 51 3 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 18 50 3 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 14 43 0 1 10 -1 9 3 // melee
 
 // Attacks
 !SET_AI_ATTACK TYPE 1
@@ -345,6 +358,9 @@
 !SET_ROAD 3 54 !SET_ROAD 8 54 !SET_ROAD 3 55 !SET_ROAD 4 55
 !SET_ROAD 5 55 !SET_ROAD 6 55 !SET_ROAD 7 55 !SET_ROAD 8 55
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 8 23 // serf
 !SET_UNIT 2 9 23 // serf
@@ -367,13 +383,16 @@
 !SET_UNIT 9 4 41 // baker
 !SET_UNIT 9 4 37 // baker
 !SET_UNIT 8 11 52 // carpenter
-// Groups
-!SET_GROUP 18 18 52 4 6 40
 
-----------
+// Groups
+!SET_GROUP 18 18 52 4 6 40 // militia
+
+-----Hand3-----
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
+
+// Fog of War
 
 // Houses
 !SET_HOUSE 38 65 96 0 // wolfsden
@@ -381,9 +400,11 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
 !SET_UNIT 36 13 89 // wolf
 
 
-
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7678 (2019.07.24 19:36)"  on 24.07.2019 19:41:38
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:18:43

@@ -1,8 +1,7 @@
 !VERSION 3
 
-!HIGHSCORE_READY
-
 // General settings
+!RANKING 1 // Min time
 !HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
@@ -212,4 +211,4 @@
 !SET_TRIGGER 1 99 66 102 69
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8684 (2020.03.21 11:33)"  on 21.03.2020 11:36:06
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:17:33

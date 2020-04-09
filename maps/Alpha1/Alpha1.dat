@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!HIGHSCORE_READY
+!RANKING 1 // Min time
 !HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
@@ -424,4 +424,4 @@
 !SET_UNIT 45 46 62 // boar
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8785 (2020.04.05 15:51)"  on 05.04.2020 15:52:38
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:17:00
