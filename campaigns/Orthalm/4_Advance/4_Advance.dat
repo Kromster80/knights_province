@@ -1,6 +1,7 @@
 !VERSION 3
 
 // General settings
+!RANKING 1 // Min time
 !MODE_TACTIC
 !HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
