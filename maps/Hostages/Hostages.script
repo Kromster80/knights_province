@@ -1,0 +1,23 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+
+const
+  HUMAN_PLAYER = 0;
+
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(1, '<$5>');
+  Actions.PlayerNameSet(2, '<$6>');
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 10 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);
+
+  if aTick = 8400 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
+end;
