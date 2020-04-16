@@ -41,7 +41,7 @@
 !SET_HOUSE 11 20 25 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
@@ -127,11 +127,11 @@
 // Houses
 !SET_HOUSE 11 80 75 1 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
-!WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 3 9000 // wood
+!WARE_OUT_ADD_TO_LAST 8 1000 // gold
+!WARE_OUT_ADD_TO_LAST 28 9000 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 9000 // cider
 !SET_HOUSE 17 63 91 0 // tower_arrow
 !SET_HOUSE 17 67 62 0 // tower_arrow
 !SET_HOUSE 17 65 85 0 // tower_arrow
@@ -163,7 +163,7 @@
 !WARE_IN_ADD_TO_LAST 12 5 // flour
 !SET_HOUSE 30 75 79 0 // fort
 !WARE_OUT_ADD_TO_LAST 17 100 // shield
-!WARE_OUT_ADD_TO_LAST 19 100 // armor
+!WARE_OUT_ADD_TO_LAST 19 9000 // armor
 !WARE_OUT_ADD_TO_LAST 21 100 // axe
 !WARE_OUT_ADD_TO_LAST 25 100 // bow
 !WARE_OUT_ADD_TO_LAST 27 100 // horse
@@ -335,4 +335,4 @@
 !SET_GROUP 21 23 80 0 2 2 // bowman
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8846 (2020.04.12 20:50)"  on 12.04.2020 20:55:21
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8881 (2020.04.16 16:19)"  on 16.04.2020 18:54:42
