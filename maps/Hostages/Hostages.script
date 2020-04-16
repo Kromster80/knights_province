@@ -15,9 +15,57 @@ end;
 
 procedure OnTick(aTick: Integer);
 begin
-  if aTick = 10 then
+  if aTick = 135 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);
 
   if aTick = 8400 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
+
+  if aTick = 1 then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicBarsShow;
+    Actions.CinematicViewStore;
+    Actions.CinematicViewSetTo(9, 79, -20, 0.05);
+    Actions.CinematicFadeIn(1.5);
+    Actions.CinematicViewMoveTo(19, 84, 10, 0.05, 8);
+  end;
+
+  if aTick = 31 then
+  begin
+    Actions.CinematicSubtitle('Enemy got all of our blanks');
+  end;
+
+  if aTick = 41 then
+  begin
+    Actions.CinematicSpeechBubble(13.5, 79.5, 1.05, 1, 'Help?', 3);
+  end;
+
+  if aTick = 61 then
+  begin
+    Actions.CinematicSubtitle('');
+    Actions.CinematicFadeOut(2);
+  end;
+
+  if aTick = 81 then
+  begin
+    Actions.CinematicText('Now go!', 2);
+  end;
+
+  if aTick = 101 then
+  begin
+    Actions.CinematicBarsHide;
+    Actions.CinematicViewRevert;
+    Actions.CinematicFadeIn(1);
+  end;
+
+  if aTick = 121 then
+  begin
+    Actions.CinematicText('', 1);
+  end;
+
+  if aTick = 126 then
+  begin
+    Actions.CinematicEnd;
+  end;
 end;
