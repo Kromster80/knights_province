@@ -30,10 +30,25 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 5 // GoldMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
+!UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
+!UNIT_BLOCK 20 // swordsman
+!UNIT_BLOCK 22 // arbaletman
+!UNIT_BLOCK 24 // hallebardman
+!UNIT_BLOCK 26 // cavalry
 
 // Block trades
 
@@ -95,13 +110,15 @@
 !SET_AI_DEFENCE_STOCK 25 9 // horsescout
 !SET_AI_DEFENCE 68 66 6 3 30 -1 10 5 // ranged
 !SET_AI_DEFENCE_STOCK 21 10 // bowman
-!SET_AI_DEFENCE 65 89 6 3 30 -1 10 5 // ranged
+!SET_AI_DEFENCE 65 91 6 3 30 -1 10 5 // ranged
 !SET_AI_DEFENCE_STOCK 21 10 // bowman
 !SET_AI_DEFENCE 61 83 6 1 30 -1 10 5 // melee
 !SET_AI_DEFENCE_STOCK 19 10 // axefighter
 !SET_AI_DEFENCE 64 72 6 1 30 -1 10 5 // melee
 !SET_AI_DEFENCE_STOCK 19 10 // axefighter
-!SET_AI_DEFENCE 71 61 6 1 30 -1 10 5 // melee
+!SET_AI_DEFENCE 70 61 6 1 30 -1 10 5 // melee
+!SET_AI_DEFENCE_STOCK 19 10 // axefighter
+!SET_AI_DEFENCE 67 84 6 1 10 -1 10 5 // melee
 !SET_AI_DEFENCE_STOCK 19 10 // axefighter
 
 // Attacks
@@ -117,8 +134,8 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -306,8 +323,8 @@
 !SET_ALLIANCE 1 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -335,4 +352,4 @@
 !SET_GROUP 21 23 80 0 2 2 // bowman
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8881 (2020.04.16 16:19)"  on 16.04.2020 18:54:42
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8885 (2020.04.19 09:44)"  on 19.04.2020 9:46:59
