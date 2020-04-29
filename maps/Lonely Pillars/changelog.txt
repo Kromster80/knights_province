@@ -1,0 +1,16 @@
+Map created by Klassix(Thomas Kozakiewicz)
+
+Changelog:
+
+Version 1.0:
+initial release
+
+Version 1.1:
+
+reduced mapsize greatly
+reduced starting club count
+reduced starting food count greatly
+reduced stone pile count for each player
+added new decals
+changed neutral cart(s) holding item from horses to iron armor
+added line-of-sight area to each corresponding sea and mine area
