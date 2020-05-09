@@ -30,18 +30,18 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 5 // GoldMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // tower2
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -111,12 +111,18 @@
 // Dispositions
 !SET_AI_DEFENCE 51 83 4 1 10 -1 10 5 // melee
 !SET_AI_DEFENCE 45 83 4 1 10 -1 10 5 // melee
-!SET_AI_DEFENCE 47 51 4 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 39 49 4 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 43 49 4 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 33 47 4 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 51 52 5 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 53 54 6 1 10 -1 6 3 // melee
+!SET_AI_DEFENCE 47 51 4 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 39 49 4 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 43 49 4 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 33 47 4 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 51 52 5 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 53 54 6 1 40 -1 6 3 // melee
+!SET_AI_DEFENCE_STOCK 18 6 // militia
 !SET_AI_DEFENCE 66 41 4 1 10 -1 8 4 // melee
 !SET_AI_DEFENCE 70 39 4 1 10 -1 8 4 // melee
 
@@ -134,8 +140,8 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -237,7 +243,6 @@
 !SET_UNIT 4 54 18 // woodcutter
 
 // Groups
-!SET_GROUP 18 47 50 4 6 40 // militia
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -261,10 +266,14 @@
 !SET_AI_DEFENCE 46 80 4 1 10 -1 9 3 // melee
 !SET_AI_DEFENCE 50 80 4 1 10 -1 9 3 // melee
 !SET_AI_DEFENCE 54 80 4 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 19 56 3 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 22 51 3 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 18 50 3 1 10 -1 9 3 // melee
-!SET_AI_DEFENCE 14 43 0 1 10 -1 9 3 // melee
+!SET_AI_DEFENCE 19 56 3 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 22 51 3 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 18 50 3 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
+!SET_AI_DEFENCE 16 45 3 1 40 -1 9 3 // melee
+!SET_AI_DEFENCE_STOCK 18 9 // militia
 
 // Attacks
 !SET_AI_ATTACK TYPE 1
@@ -280,8 +289,8 @@
 !SET_ALLIANCE 1 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -385,7 +394,6 @@
 !SET_UNIT 8 11 52 // carpenter
 
 // Groups
-!SET_GROUP 18 18 52 4 6 40 // militia
 
 -----Hand3-----
 !HAND_CURRENT 3
@@ -407,4 +415,4 @@
 !SET_UNIT 36 13 89 // wolf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:18:43
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8926 (2020.05.09 19:04)"  on 09.05.2020 19:11:05
