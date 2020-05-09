@@ -1,0 +1,175 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!MODE_TACTIC
+!HANDS_COUNT 4
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 13 12
+
+// Fog of War
+!FOW_REVEAL 255
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 26 13 22 2 4 8 // cavalry
+!SET_GROUP 21 13 5 3 3 6 // bowman
+!SET_GROUP 22 11 9 2 3 6 // arbaletman
+!SET_GROUP 20 16 16 2 5 10 // swordsman
+!SET_GROUP 19 13 15 2 5 10 // axefighter
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 25087
+!HAND_CENTER_SCREEN 37 11
+
+// Fog of War
+!FOW_REVEAL 255
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 26 40 18 6 4 8 // cavalry
+!SET_GROUP 21 43 16 7 3 6 // bowman
+!SET_GROUP 22 44 10 6 3 6 // arbaletman
+!SET_GROUP 20 37 7 6 5 10 // swordsman
+!SET_GROUP 19 40 5 6 5 10 // axefighter
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 524287
+!HAND_CENTER_SCREEN 23 14
+
+// Fog of War
+!FOW_REVEAL 255
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 28 18 28 0 // brewery
+!WARE_IN_ADD_TO_LAST 10 5 // grain
+
+// Roads and fields
+
+!SET_ROAD 40 2 !SET_ROAD 44 20 !SET_FIELD 11 28 6 !SET_FIELD 12 28 6
+!SET_FIELD 13 28 6 !SET_FIELD 14 28 6 !SET_ROAD 18 28 !SET_FIELD 11 29 6
+!SET_FIELD 12 29 6 !SET_FIELD 13 29 6 !SET_FIELD 14 29 6 !SET_FIELD 11 30 6
+!SET_FIELD 12 30 6 !SET_FIELD 13 30 6 !SET_FIELD 14 30 6
+
+// Fences
+
+!SET_FENCE_H 14 25 1 !SET_FENCE_H 16 25 1 !SET_FENCE_H 11 28 1 !SET_FENCE_H 12 28 1
+!SET_FENCE_H 13 28 1 !SET_FENCE_H 14 28 1 !SET_FENCE_V 15 28 1 !SET_FENCE_V 11 29 1
+!SET_FENCE_V 15 29 1 !SET_FENCE_V 11 30 1 !SET_FENCE_V 15 30 1
+
+// Units
+!SET_UNIT 12 18 29 // brewer
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 44 3 14 // deer
+
+// Emitters
+!SET_EMITTER 17 9 1
+!SET_EMITTER 17 3 10
+!SET_EMITTER 17 12 11
+!SET_EMITTER 17 21 20
+!SET_EMITTER 17 30 10
+!SET_EMITTER 17 41 23
+!SET_EMITTER 17 43 6
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8926 (2020-05-07 18:05)"  on 2020-05-09 21:22:33

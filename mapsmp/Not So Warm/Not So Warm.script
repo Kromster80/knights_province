@@ -1,0 +1,10 @@
+const
+  PLAYER_SPECTATOR = 2;
+
+procedure OnTick(aTick: Integer);
+begin
+  // FOW is being updated each 2 ticks for humans.
+  // So we have to refresh it this often (until we have proper spectators)
+  if aTick mod 2 = 1 then
+    Actions.FogRevealAll(PLAYER_SPECTATOR);
+end;
