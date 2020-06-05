@@ -37,8 +37,8 @@ begin
   swordsman := States.GroupAt(64, 23);
   camp := States.HouseAt(20, 35);
 
-  objWood  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Recover wood');
-  objSword := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, 'Kill swordsman');
+  objWood  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
+  objSword := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$3>');
   
   UpdateObjectives;
 end;

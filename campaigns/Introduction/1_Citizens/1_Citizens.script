@@ -65,8 +65,8 @@ end;
 
 procedure OnMissionStart;
 begin
-  objDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Kill enemy soldiers');
-  objCottage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, 'Rebuild 3 cottages');
+  objDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$4>');
+  objCottage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$5>');
 end;
 
 
