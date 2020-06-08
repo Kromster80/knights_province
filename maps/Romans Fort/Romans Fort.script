@@ -3,8 +3,6 @@
 // Kroms's Walkers Script  modified by Klassix
 
 
-
-
 const
   HUMAN_PLAYER = 0;
   DESERTERS_PLAYER = 1;
@@ -47,7 +45,7 @@ var
 
 procedure PlayWAV(aPlayer: Integer; const aFilename: string; aVolume: Single);
 begin
-    Actions.PlayWAV(aPlayer, aFilename, aVolume);
+  Actions.PlayWAV(aPlayer, aFilename, aVolume);
 end;
 
 procedure CreateNextWave;
@@ -172,9 +170,9 @@ begin
             Actions.GiveGroup(GAULS_PLAYER, utHallebardman, xcord3, ycord3, 6, waveNumber - 24, waveNumber - 24);
           if tr_type_heavy = 2 then
             Actions.GiveGroup(GAULS_PLAYER, utArbaletman, xcord3, ycord3, 6, waveNumber - 24, waveNumber - 24);
-        Inc(waveGroups);
+            
+          Inc(waveGroups);
         end;
-
 
   // OrderIdleGroups will issue attack orders
 
@@ -214,28 +212,28 @@ begin
 end;
 
 
-
 // Find some random player's unit or house(if no unit alive) and attack it
 procedure AttackRandomUnit(aGroup: Integer);
 var
-  allGroups: array of Integer;
+  allUnits: array of Integer;
+  allHouses: array of Integer;
   I: Integer;
 begin
-  allGroups := States.PlayerGetAllUnits(HUMAN_PLAYER);
-  if Length(allGroups) = 0 then
+  allUnits := States.PlayerGetAllUnits(HUMAN_PLAYER);
+  if Length(allUnits) > 0 then
+  begin
+    I := Utils.RandomI(Length(allUnits));
+    Actions.GroupOrderAttackUnit(aGroup, allUnits[I]);
+  end else
+  begin
+    allHouses := States.PlayerGetAllHouses(HUMAN_PLAYER);
+    if Length(allHouses) > 0 then
     begin
-      allGroups := States.PlayerGetAllHouses(HUMAN_PLAYER);
-      if Length(allGroups) = 0 then Exit;
-      I := Utils.RandomI(Length(allGroups));
-      Actions.GroupOrderAttackHouse(aGroup, allGroups[I]);
-    end
-    else
-    begin
-      I := Utils.RandomI(Length(allGroups));
-      Actions.GroupOrderAttackUnit(aGroup, allGroups[I]);
+      I := Utils.RandomI(Length(allHouses));
+      Actions.GroupOrderAttackHouse(aGroup, allHouses[I]);
     end;
+  end;
 end;
-
 
 
 procedure OrderIdleGroups;
@@ -247,11 +245,8 @@ begin
 
   for I := 0 to High(allGroups) do
   if States.GroupIsIdle(allGroups[I]) then
-    begin
-      AttackRandomUnit(allGroups[I]);
-    end;
+    AttackRandomUnit(allGroups[I]);
 end;
-
 
 
 procedure UpdateObjective;
@@ -288,14 +283,13 @@ begin
     end;
 
   if not attacker_alive then
-    begin
-      Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves2, '<$16>');
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osHidden);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osHidden);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osHidden);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osHidden);
-    end;
-
+  begin
+    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves2, '<$16>');
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osHidden);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osHidden);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osHidden);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osHidden);
+  end;
 end;
 
 
@@ -309,7 +303,6 @@ begin
   waveNumber := 1;
   waveGroups := 0;
 
-
   gametime_obj := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
   objWaves1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '');
   objWaves2 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '');
@@ -319,10 +312,7 @@ begin
   dir_e_obj := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otAdditional, 0, osHidden, 'East!');
   UpdateObjective;
 
-begin
-  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'],['baby.png', 'skull.png'], [1,2], True, True);
-end;
-
+  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'], ['baby.png', 'skull.png'], [1,2], True, True);
 end;
 
 procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
@@ -343,50 +333,41 @@ var
   gametime: String;
 begin
   if waveNumber < 25 then //25
-    begin
+  begin
     if not States.PlayerDefeated(HUMAN_PLAYER) then
-      begin
-        if (aTick mod WAVE_INTERVAL = 0) and not hardmode then
-	        CreateNextWave;
-      end;
-    if (aTick mod WAVE_INTERVAL_HARD = 0) and hardmode then
+      if (aTick mod WAVE_INTERVAL = 0) and not hardmode then
         CreateNextWave;
-    end;
+      
+    if (aTick mod WAVE_INTERVAL_HARD = 0) and hardmode then
+      CreateNextWave;
+  end;
 
   if waveNumber >= 25 then //25
-    begin
+  begin
     if not States.PlayerDefeated(HUMAN_PLAYER) then
-      begin
-        if (aTick mod WAVE_INTERVAL_LATEGAME = 0) and not hardmode then
-	        CreateNextWave;
-      end;
-      if (aTick mod WAVE_INTERVAL_LATEGAME_HARD = 0) and hardmode then
-        CreateNextWave;
-    end;
+      if (aTick mod WAVE_INTERVAL_LATEGAME = 0) and not hardmode then
+	    CreateNextWave;
 
+    if (aTick mod WAVE_INTERVAL_LATEGAME_HARD = 0) and hardmode then
+      CreateNextWave;
+    end;
 
   if aTick mod 10 = 0 then
-    begin
-      gametime := (Utils.TimeToString(aTick));
-      Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, gametime_obj, 'Gametime:' +gametime);
-      CheckAlive;
-    end;
-
+  begin
+    gametime := (Utils.TimeToString(aTick));
+    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, gametime_obj, 'Gametime:' +gametime);
+    CheckAlive;
+  end;
 
   if aTick mod 30 = 0 then
-    begin
-      if not States.PlayerDefeated(HUMAN_PLAYER) then
-  	    OrderIdleGroups;
-    end;
+    if not States.PlayerDefeated(HUMAN_PLAYER) then
+      OrderIdleGroups;
 
   if aTick mod 35 = 0 then
-    begin
-      UpdateObjective;
-    end;
+    UpdateObjective;
 
   // Feed even when defeated
   Feed;
-
 end;
 
 procedure OnPlayerDefeated(aPlayer: Integer);
