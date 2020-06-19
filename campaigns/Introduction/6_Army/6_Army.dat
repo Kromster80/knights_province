@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 2
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -28,18 +28,18 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 5 // GoldMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // tower2
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -163,7 +163,7 @@
 // AI
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 9
-!SET_AI_CHARACTER BUILDERS_COUNT 3
+!SET_AI_CHARACTER BUILDERS_COUNT 4
 !SET_AI_CHARACTER ARMY_EQUIP_RATE 18 30 // militia
 !SET_AI_CHARACTER ARMY_EQUIP_RATE 19 10 // axefighter
 
@@ -195,8 +195,8 @@
 !SET_ALLIANCE 0 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -206,6 +206,7 @@
 !SET_HOUSE 11 8 10 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 100 // stone
 !WARE_OUT_ADD_TO_LAST 3 100 // wood
+!WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 4000 // fish
 !WARE_OUT_ADD_TO_LAST 30 4000 // cider
 !SET_HOUSE 27 15 10 0 // tavern
@@ -321,5 +322,31 @@
 !SET_UNIT 13 3 24 // fisher
 !SET_UNIT 12 3 5 // brewer
 
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:18:32
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r9039 (2020.06.19 12:33)"  on 19.06.2020 12:40:53

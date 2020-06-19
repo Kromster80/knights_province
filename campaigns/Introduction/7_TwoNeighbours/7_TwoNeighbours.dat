@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -150,6 +150,7 @@
 // Houses
 !SET_HOUSE 11 39 41 0 // camp
 !WARE_OUT_ADD_TO_LAST 1 10 // trunk
+!WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 1000 // fish
 !WARE_OUT_ADD_TO_LAST 30 1000 // cider
 !SET_HOUSE 27 45 40 0 // tavern
@@ -242,8 +243,6 @@
 !SET_UNIT 4 64 22 // woodcutter
 !SET_UNIT 4 54 18 // woodcutter
 
-// Groups
-
 -----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_AI
@@ -298,6 +297,7 @@
 
 // Houses
 !SET_HOUSE 11 11 21 0 // camp
+!WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 1000 // fish
 !WARE_OUT_ADD_TO_LAST 30 1000 // cider
 !SET_HOUSE 17 9 32 0 // tower_arrow
@@ -393,10 +393,21 @@
 !SET_UNIT 9 4 37 // baker
 !SET_UNIT 8 11 52 // carpenter
 
-// Groups
-
 -----Hand3-----
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand4-----
+!HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
@@ -415,4 +426,4 @@
 !SET_UNIT 36 13 89 // wolf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8926 (2020.05.09 19:04)"  on 09.05.2020 19:11:05
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r9039 (2020.06.19 12:33)"  on 19.06.2020 12:42:18

@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -30,24 +30,24 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 16
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 20
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 24
-!HOUSE_BLOCK 25
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 30
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 5 // GoldMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattlefarm
+!HOUSE_BLOCK 17 // tower_arrow
+!HOUSE_BLOCK 20 // ArmorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 25 // tannery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 30 // fort
+!HOUSE_BLOCK 31 // tower2
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -117,8 +117,8 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -271,8 +271,8 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -310,10 +310,26 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand4-----
+!HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
 // Fog of War
+
+// Houses
+!SET_HOUSE 38 28 74 0 // wolfsden
 
 // Roads and fields
 
@@ -326,4 +342,4 @@
 !SET_UNIT_WARE 3 50
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:17:57
+// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r9039 (2020.06.19 12:44)"  on 19.06.2020 12:46:40
