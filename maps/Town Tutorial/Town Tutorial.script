@@ -253,7 +253,7 @@ begin
 
     Actions.TerrainHighlightDelete(fHighl1);
     Actions.TerrainHighlightDelete(fHighl2);
-    fHighl1        := Actions.TerrainHighlightLine(40, 25, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Woordcutters
+    fHighl1        := Actions.TerrainHighlightLine(40, 26, 3, 2, 0.25, COLOR_50_PURPLE); // Mark Woordcutters
     fHighl2        := Actions.TerrainHighlightLine(33, 25, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Sawmill
     fCinRunning    := True;
     fActiveCinType := ctWood;
