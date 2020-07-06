@@ -1,0 +1,91 @@
+const
+  HUMAN_ID = 0; // We've got only one player
+  WARE = 'Gold';
+
+var
+  TRANSFER_AVAILABLE:Boolean;
+  MINT_AVAILABLE:Boolean;
+  ENTER_AVAILABLE:Boolean;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+  TRANSFER_AVAILABLE := True;
+  MINT_AVAILABLE:= False;
+  ENTER_AVAILABLE:= False;
+end;
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (States.UnitOwner(aUnit) = HUMAN_ID) and TRANSFER_AVAILABLE then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$3>', True);
+
+    // Transfer neutral camp to player and damage it
+    Actions.HouseOwnerChange(States.HouseAt(49, 56), 0);
+    Actions.HouseAddDamage(States.HouseAt(49, 56), 350);
+    Actions.HouseAddDamage(States.HouseAt(53, 77), 5);
+
+    // Add the wares
+    Actions.HouseWareAdd(States.HouseAt(49, 56), wtStone, 25);
+    Actions.HouseWareAdd(States.HouseAt(49, 56), wtClub, 3);
+
+    TRANSFER_AVAILABLE := False;
+    MINT_AVAILABLE := True;
+  end;
+
+  if (aTriggerId = 2) and (States.UnitOwner(aUnit) = HUMAN_ID) and MINT_AVAILABLE then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$4>', True);
+
+    // Destroy the mint and spawn the gold
+    Actions.HouseAddDamage(States.HouseAt(66, 59), 25);
+    Actions.StockpileAdd(wtGold, 68, 59, 10);
+    Actions.StockpileAdd(wtGold, 67, 60, 10);
+
+    // Spawn serfs
+    Actions.GiveUnit(HUMAN_ID, utSerf, 49, 78, 0);
+    Actions.GiveUnit(HUMAN_ID, utSerf, 50, 78, 0);
+    Actions.GiveUnit(HUMAN_ID, utSerf, 51, 78, 0);
+
+    // Spawn builders
+    Actions.GiveUnit(HUMAN_ID, utBuilder, 49, 79, 0);
+    Actions.GiveUnit(HUMAN_ID, utBuilder, 50, 79, 0);
+    Actions.GiveUnit(HUMAN_ID, utBuilder, 51, 79, 0);
+
+    // Spawn stonemasons
+    Actions.GiveUnit(HUMAN_ID, utStoneCutter, 49, 77, 0);
+    Actions.GiveUnit(HUMAN_ID, utStoneCutter, 50, 77, 0);
+    Actions.GiveUnit(HUMAN_ID, utStoneCutter, 51, 77, 0);
+
+    // Spawn supplies
+    Actions.GiveUnit(HUMAN_ID, utWagon, 49, 80, 0);
+    Actions.UnitCarryGive(States.UnitAt(49, 80), wtWood, 15);
+    Actions.GiveUnit(HUMAN_ID, utWagon, 50, 80, 0);
+    Actions.UnitCarryGive(States.UnitAt(50, 80), wtFish, 40);
+    Actions.GiveUnit(HUMAN_ID, utWagon, 51, 80, 0);
+    Actions.UnitCarryGive(States.UnitAt(51, 80), wtCider, 30);
+
+    // Unlock stonemason
+    Actions.HouseUnlock(HUMAN_ID, htStonecutters);
+    ENTER_AVAILABLE:= True;
+    MINT_AVAILABLE := False;
+  end;
+
+  if (aTriggerId = 3) and (States.UnitOwner(aUnit) = HUMAN_ID) and ENTER_AVAILABLE then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$5>', True);
+    Actions.HouseUnlock(HUMAN_ID, htMint);
+    ENTER_AVAILABLE:= False;
+  end;
+end;
+
+procedure OnPlayerVictory(aPlayer: Integer);
+var
+  oldCnt, newCnt: Integer;
+begin
+  newCnt := States.StatWaresBalance(aPlayer, wtGold);
+  Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked||' + IntToStr(newCnt) + '||' + WARE + '|this time');
+
+  Actions.MissionHighscore(newCnt);
+end;
