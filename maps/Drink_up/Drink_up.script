@@ -1,0 +1,16 @@
+const
+  HUMAN_ID = 0; // We've got only one player
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+end;
+
+procedure OnPlayerVictory(aPlayer: Integer);
+var
+  newCnt: Integer;
+begin
+  newCnt := (States.StatWaresBalance(aPlayer, wtCider) + States.StatWaresBalance(aPlayer, wtAle));
+
+  Actions.MissionHighscore(newCnt);
+end;

@@ -1,0 +1,90 @@
+!VERSION 3
+
+// General settings
+!RANKING 3 // Max score
+!HANDS_COUNT 3
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 31 55
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 0 3 3600 1
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 23 57 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 40 // stone
+!WARE_OUT_ADD_TO_LAST 3 40 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 30 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 40 // cider
+
+// Roads and fields
+
+!SET_ROAD 20 57 !SET_ROAD 23 57 !SET_ROAD 25 57 !SET_ROAD 19 58
+!SET_ROAD 20 58 !SET_ROAD 21 58 !SET_ROAD 22 58 !SET_ROAD 23 58
+!SET_ROAD 24 58 !SET_ROAD 25 58 !SET_ROAD 26 58
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 20 59 // serf
+!SET_UNIT 2 21 59 // serf
+!SET_UNIT 2 22 59 // serf
+!SET_UNIT 3 23 59 // builder
+!SET_UNIT 3 24 59 // builder
+!SET_UNIT 3 25 59 // builder
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 8-7-2020 14:50:25
