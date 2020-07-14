@@ -1,0 +1,191 @@
+const
+  HUMAN_ID = 0; // You're player 1
+
+var
+  // checkpoints
+  ButtonClicked, BrotherAvailable, TownAvailable, SerfAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable: Boolean;
+
+  // Trackers
+  TrainedSerfs, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers: Integer;
+
+  // Obj ID
+  MAIN_OBJ: Integer;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_ID, '<$2>', True); // Message about messages
+  ButtonClicked := False;
+  BrotherAvailable := False;
+  TownAvailable := False;
+  SerfAvailable := False;
+  CiviliansAvailable := False;
+  GroupUpAvailable := False;
+  StorehouseAvailable := False;
+  FinishAvailable := False;
+
+  MAIN_OBJ := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Open the messages and get familiarized with the controls.');
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 2 then
+    Actions.PlayerMessageWithButtons(HUMAN_ID, '<$3>', ['Confirm'], [''], [1], False, False); // Message about controls
+
+  // check if the knights are grouped up
+  if (Length(States.PlayerGetAllGroups(0)) = 1) and GroupUpAvailable then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$6>', True); // Message about the town
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Go to the town.');
+    Actions.HouseDestroy(States.HouseAt(28, 22), True); // remove the watchtower that blocks your path
+    GroupUpAvailable := False;
+    TownAvailable := True;
+  end;
+
+  // final objective check
+  if (aTick mod 10 = 0) and FinishAvailable then
+  begin
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Collect bread ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)) +'/20');
+    if States.StatWaresBalance(HUMAN_ID, wtBread) > 19 then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_ID, MAIN_OBJ, osCompleted);
+      Actions.PlayerWin([HUMAN_ID], True);
+    end;
+  end;
+end;
+
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+begin
+  if (aTag = 1) and (not ButtonClicked) then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$4>', True); // Message about meeting your brother
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Cross the bridge and approach your brother.');
+    ButtonClicked := True;
+    BrotherAvailable := True;
+  end;
+end;
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+var
+  I : Integer;
+  P1_UNITS : Array of Integer;
+  P2_UNITS : Array of Integer;
+  P3_HOUSES : Array of Integer;
+  P4_HOUSES : Array of Integer;
+  THE_CAMP : Integer;
+
+begin
+  // meet the brother
+  if (aTriggerId = 1) and (States.UnitOwner(aUnit) = HUMAN_ID) and BrotherAvailable then
+  begin
+    P2_UNITS := States.PlayerGetAllGroups(1);
+    for I := 0 to (Length(P2_UNITS)-1) do
+    begin
+      Actions.GroupOwnerChange(P2_UNITS[I], HUMAN_ID); // Transfer "brother" to the player
+    end;
+    Actions.PlayerMessage(HUMAN_ID, '<$5>', True); // message about grouping up with brother
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Group up with your brother.');
+    BrotherAvailable := False;
+    GroupUpAvailable := True;
+  end;
+
+  // arrive at the town
+  if (aTriggerId = 2) and (States.UnitOwner(aUnit) = HUMAN_ID) and TownAvailable then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$7>', True); // message about the serfs
+    P1_UNITS := States.PlayerGetAllUnits(HUMAN_ID);
+
+    // set hunger so that the player most likely gets to the point where I explain feeding your troops before they starve
+    for I := 0 to (Length(P1_UNITS)-1) do
+      Actions.UnitHungerSet(P1_UNITS[I], 2700);
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train serfs ' + inttostr(TrainedSerfs) +'/5');
+    P3_HOUSES := States.PlayerGetAllHouses(2);
+    P4_HOUSES := States.PlayerGetAllHouses(3);
+
+    for I := 0 to (Length(P3_HOUSES)-1) do
+      Actions.HouseOwnerChange(P3_HOUSES[I], 0);
+
+    for I := 0 to (Length(P4_HOUSES)-1) do
+      Actions.HouseOwnerChange(P4_HOUSES[I], 0);
+
+    THE_CAMP := States.HouseAt(33, 15);
+    Actions.HouseWareAdd(THE_CAMP, wtGold, 1000);
+    Actions.HouseWareAdd(THE_CAMP, wtFish, 25);
+    Actions.HouseWareAdd(THE_CAMP, wtcider, 15);
+    Actions.HouseWareAdd(THE_CAMP, wtStone, 10);
+    Actions.HouseWareAdd(THE_CAMP, wtWood, 10);
+
+    TownAvailable := False;
+    SerfAvailable := True;
+  end;
+end;
+
+procedure OnUnitTrained(aUnit: Integer);
+begin
+  // track trained units
+  if (States.UnitType(aUnit) = utSerf) and (SerfAvailable) then
+  begin
+    TrainedSerfs := TrainedSerfs + 1;
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train serfs ' + inttostr(TrainedSerfs) +'/5');
+    if (TrainedSerfs > 4) then
+    begin
+      Actions.PlayerMessage(HUMAN_ID, '<$8>', True); // message about the workers
+      Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train a worker for each building.');
+      CiviliansAvailable := True
+      SerfAvailable := False;
+    end;
+  end
+  else
+  if States.UnitType(aUnit) = utStoneCutter then
+    TrainedStonemason := TrainedStonemason + 1
+  else
+  if States.UnitType(aUnit) = utWoodcutter then
+    TrainedWoodcutters := TrainedWoodcutters + 1
+  else
+  if States.UnitType(aUnit) = utCarpenter then
+    TrainedCarpenters := TrainedCarpenters + 1
+  else
+  if States.UnitType(aUnit) = utFarmer then
+    TrainedFarmers := TrainedFarmers + 1
+  else
+  if States.UnitType(aUnit) = utBaker then
+    TrainedBakers := TrainedBakers + 1
+  else
+  if States.UnitType(aUnit) = utBrewer then
+    TrainedBrewers := TrainedBrewers + 1
+  else
+  if States.UnitType(aUnit) = utFisher then
+    TrainedFishers := TrainedFishers + 1;
+
+  if CiviliansAvailable then
+  begin
+    if (TrainedBakers > 1) and
+    (TrainedBrewers > 1) and
+    (TrainedFarmers > 1) and
+    (TrainedFishers > 0) and
+    (TrainedWoodcutters > 0) and
+    (TrainedCarpenters > 0) and
+    (TrainedStonemason > 0) then
+    begin
+      Actions.PlayerMessage(HUMAN_ID, '<$9>', True); // message about the cropfields and the storehouse
+      Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Rebuild the cropfields and build a storage');
+      Actions.HouseAllow(HUMAN_ID, htStore, True);
+      Actions.HouseUnlock(HUMAN_ID, htStore);
+      StorehouseAvailable := True;
+      CiviliansAvailable := False;
+    end;
+  end;
+end;
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+  if (States.HouseType(aHouse) = htStore) and StorehouseAvailable then
+  begin
+    Actions.PlayerMessage(HUMAN_ID, '<$10>', True); // message about the bread, mill, and bakery
+    StorehouseAvailable := False;
+    Actions.HouseAllow(HUMAN_ID, htBakery, True);
+    Actions.HouseUnlock(HUMAN_ID, htBakery);
+    Actions.HouseAllow(HUMAN_ID, htMill, True);
+    Actions.HouseUnlock(HUMAN_ID, htMill);
+    FinishAvailable := True;
+  end;
+end;
