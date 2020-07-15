@@ -3,15 +3,19 @@ const
 
 var
   // checkpoints
-  ButtonClicked, BrotherAvailable, TownAvailable, SerfAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable: Boolean;
+  ButtonClicked, BrotherAvailable, TownAvailable, SerfAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable, BlankRunOut : Boolean;
 
   // Trackers
-  TrainedSerfs, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers: Integer;
+  TrainedSerfs, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers : Integer;
 
   // Obj ID
   MAIN_OBJ: Integer;
 
 procedure OnMissionStart;
+var
+  P1Units : Array of Integer;
+  P2Units : Array of Integer;
+  I : Integer;
 begin
   Actions.PlayerMessage(HUMAN_ID, '<$2>', True); // Message about messages
   ButtonClicked := False;
@@ -22,11 +26,25 @@ begin
   GroupUpAvailable := False;
   StorehouseAvailable := False;
   FinishAvailable := False;
+  BlankRunOut := False;
 
   MAIN_OBJ := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Open the messages and get familiarized with the controls.');
+
+  P1Units := States.PlayerGetAllUnits(HUMAN_ID);
+  P2Units := States.PlayerGetAllGroups(1);
+  for I := 0 to (Length(P1Units)-1) do
+    Actions.UnitHungerSet(P1Units[I], 400);
+  for I := 0 to (Length(P2Units)-1) do
+    Actions.UnitHungerSet(P2Units[I], 400);
 end;
 
 procedure OnTick(aTick: Integer);
+var
+  P1Units : Array of Integer;
+  P2Units : Array of Integer;
+  BlankCount : Integer;
+  I : Integer;
+
 begin
   if aTick = 2 then
     Actions.PlayerMessageWithButtons(HUMAN_ID, '<$3>', ['Confirm'], [''], [1], False, False); // Message about controls
@@ -51,6 +69,37 @@ begin
       Actions.PlayerWin([HUMAN_ID], True);
     end;
   end;
+
+  if (aTick mod 50 = 0) then
+  begin
+    P1Units := States.PlayerGetAllUnits(HUMAN_ID);
+
+    // reset hunger of you and your brother only if you're not in the end phase of the game
+    if (not FinishAvailable) then
+    begin
+      P2Units := States.PlayerGetAllUnits(1);
+      for I := 0 to (Length(P1Units)-1) do
+        if States.UnitType(P1Units[I]) = utCavalry then // only reset hunger of the knight (otherwise shit gets hilarious)
+          Actions.UnitHungerSet(P1Units[I], 400);
+      for I := 0 to (Length(P2Units)-1) do
+        Actions.UnitHungerSet(P2Units[I], 400);
+    end;
+
+    // check if the player ran out of blanks
+    if (SerfAvailable or CiviliansAvailable or StorehouseAvailable or FinishAvailable) and (not BlankRunOut) then
+    begin
+      for I := 0 to (Length(P1Units)-1) do
+      begin
+        if States.UnitType(P1Units[I]) = utBlank then
+          BlankCount := BlankCount + 1;
+      end;
+      if BlankCount = 0 then
+      begin
+        Actions.PlayerMessage(HUMAN_ID, '<$11>', True);
+        BlankRunOut := True;
+      end;
+    end;
+  end;
 end;
 
 procedure OnScriptButtonClick(aPlayer, aTag: Integer);
@@ -67,20 +116,19 @@ end;
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 var
   I : Integer;
-  P1_UNITS : Array of Integer;
-  P2_UNITS : Array of Integer;
-  P3_HOUSES : Array of Integer;
-  P4_HOUSES : Array of Integer;
-  THE_CAMP : Integer;
+  P2Units : Array of Integer;
+  P3Houses : Array of Integer;
+  P4Houses : Array of Integer;
+  TheCamp : Integer;
 
 begin
   // meet the brother
   if (aTriggerId = 1) and (States.UnitOwner(aUnit) = HUMAN_ID) and BrotherAvailable then
   begin
-    P2_UNITS := States.PlayerGetAllGroups(1);
-    for I := 0 to (Length(P2_UNITS)-1) do
+    P2Units := States.PlayerGetAllGroups(1);
+    for I := 0 to (Length(P2Units)-1) do
     begin
-      Actions.GroupOwnerChange(P2_UNITS[I], HUMAN_ID); // Transfer "brother" to the player
+      Actions.GroupOwnerChange(P2Units[I], HUMAN_ID); // Transfer "brother" to the player
     end;
     Actions.PlayerMessage(HUMAN_ID, '<$5>', True); // message about grouping up with brother
     Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Group up with your brother.');
@@ -92,27 +140,22 @@ begin
   if (aTriggerId = 2) and (States.UnitOwner(aUnit) = HUMAN_ID) and TownAvailable then
   begin
     Actions.PlayerMessage(HUMAN_ID, '<$7>', True); // message about the serfs
-    P1_UNITS := States.PlayerGetAllUnits(HUMAN_ID);
-
-    // set hunger so that the player most likely gets to the point where I explain feeding your troops before they starve
-    for I := 0 to (Length(P1_UNITS)-1) do
-      Actions.UnitHungerSet(P1_UNITS[I], 2700);
     Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train serfs ' + inttostr(TrainedSerfs) +'/5');
-    P3_HOUSES := States.PlayerGetAllHouses(2);
-    P4_HOUSES := States.PlayerGetAllHouses(3);
+    P3Houses := States.PlayerGetAllHouses(2);
+    P4Houses := States.PlayerGetAllHouses(3);
 
-    for I := 0 to (Length(P3_HOUSES)-1) do
-      Actions.HouseOwnerChange(P3_HOUSES[I], 0);
+    for I := 0 to (Length(P3Houses)-1) do
+      Actions.HouseOwnerChange(P3Houses[I], 0);
 
-    for I := 0 to (Length(P4_HOUSES)-1) do
-      Actions.HouseOwnerChange(P4_HOUSES[I], 0);
+    for I := 0 to (Length(P4Houses)-1) do
+      Actions.HouseOwnerChange(P4Houses[I], 0);
 
-    THE_CAMP := States.HouseAt(33, 15);
-    Actions.HouseWareAdd(THE_CAMP, wtGold, 1000);
-    Actions.HouseWareAdd(THE_CAMP, wtFish, 25);
-    Actions.HouseWareAdd(THE_CAMP, wtcider, 15);
-    Actions.HouseWareAdd(THE_CAMP, wtStone, 10);
-    Actions.HouseWareAdd(THE_CAMP, wtWood, 10);
+    TheCamp := States.HouseAt(33, 15);
+    Actions.HouseWareAdd(TheCamp, wtGold, 1000);
+    Actions.HouseWareAdd(TheCamp, wtFish, 25);
+    Actions.HouseWareAdd(TheCamp, wtcider, 15);
+    Actions.HouseWareAdd(TheCamp, wtStone, 10);
+    Actions.HouseWareAdd(TheCamp, wtWood, 10);
 
     TownAvailable := False;
     SerfAvailable := True;
