@@ -1,9 +1,23 @@
 const
   HUMAN_ID = 0; // We've got only one player
 
+var
+  CiderObj, AleObj : Integer;
+
 procedure OnMissionStart;
 begin
+  CiderObj := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 0, osActive, 'Cider: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtCider)));
+  AleObj := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 0, osActive, 'Ale: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtAle)));
   Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if (aTick mod 10 = 0) then
+  begin
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, CiderObj, 'Cider: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtCider)));
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, AleObj, 'Ale: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtAle)));
+  end;
 end;
 
 procedure OnPlayerVictory(aPlayer: Integer);

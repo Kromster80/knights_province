@@ -17,7 +17,7 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 3 3600 1
+!ADD_GOAL 0 3 4500 1
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -35,30 +35,32 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 11 23 57 0 // camp
-!WARE_OUT_ADD_TO_LAST 2 40 // stone
-!WARE_OUT_ADD_TO_LAST 3 40 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!SET_HOUSE 11 23 58 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 45 // wood
+!WARE_OUT_ADD_TO_LAST 8 25 // gold
 !WARE_OUT_ADD_TO_LAST 28 30 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 40 // cider
 
 // Roads and fields
 
-!SET_ROAD 20 57 !SET_ROAD 23 57 !SET_ROAD 25 57 !SET_ROAD 19 58
-!SET_ROAD 20 58 !SET_ROAD 21 58 !SET_ROAD 22 58 !SET_ROAD 23 58
-!SET_ROAD 24 58 !SET_ROAD 25 58 !SET_ROAD 26 58
+!SET_ROAD 20 58 !SET_ROAD 23 58 !SET_ROAD 25 58 !SET_ROAD 19 59
+!SET_ROAD 20 59 !SET_ROAD 21 59 !SET_ROAD 22 59 !SET_ROAD 23 59
+!SET_ROAD 24 59 !SET_ROAD 25 59 !SET_ROAD 26 59
 
 // Fences
 
 
 // Units
-!SET_UNIT 2 20 59 // serf
-!SET_UNIT 2 21 59 // serf
-!SET_UNIT 2 22 59 // serf
-!SET_UNIT 3 23 59 // builder
-!SET_UNIT 3 24 59 // builder
-!SET_UNIT 3 25 59 // builder
+!SET_UNIT 2 22 60 // serf
+!SET_UNIT 2 21 60 // serf
+!SET_UNIT 3 24 60 // builder
+!SET_UNIT 3 25 60 // builder
+!SET_UNIT 2 21 61 // serf
+!SET_UNIT 2 22 61 // serf
+!SET_UNIT 3 24 61 // builder
+!SET_UNIT 3 25 61 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -87,4 +89,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 8-7-2020 14:50:25
+// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 19-7-2020 19:59:47

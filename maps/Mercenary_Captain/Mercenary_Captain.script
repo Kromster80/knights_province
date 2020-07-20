@@ -1,0 +1,56 @@
+const
+  HUMAN_ID = 0; // Only 1 player.
+  WARE = 'Gold';
+
+// Wooden weapons 2 gold
+// Wooden shield 1 gold
+// Leather armor 2 gold
+// Iron weapon 4 gold
+// Iron armor 4 gold
+// Horse 2 gold
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+end;
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+var
+  MERC: TKMUnitType;
+  REWARD: Integer;
+
+begin
+  MERC := States.UnitType(aUnit)
+
+  // Melee
+  if MERC = utAxeFighter then REWARD := 5;
+  if MERC = utSwordsman then REWARD := 12;
+
+  // Ranged
+  if MERC = utBowman then REWARD := 4;
+  if MERC = utArbaletman then REWARD := 8;
+
+  // Anti-cav
+  if MERC = utPikeman then REWARD := 4;
+  if MERC = utHallebardman then REWARD := 8;
+
+  // Cav
+  if MERC = utHorseScout then REWARD := 7;
+  if MERC = utCavalry then REWARD := 14;
+
+  if REWARD <> 0 then
+    begin
+      Actions.UnitKill(aUnit, True);
+      Actions.GiveWares(HUMAN_ID, wtGold, REWARD);
+    end;
+end;
+
+procedure OnPlayerVictory(aPlayer: Integer);
+var
+  newCnt: Integer;
+begin
+  newCnt := States.StatWaresBalance(aPlayer, wtGold);
+  Actions.PlayerMissionResultString(HUMAN_ID, 'You have earned||' + IntToStr(newCnt) + '||' + WARE + '|this time');
+
+  Actions.MissionHighscore(newCnt);
+end;

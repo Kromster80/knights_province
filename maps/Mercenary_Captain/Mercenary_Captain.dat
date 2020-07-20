@@ -1,0 +1,143 @@
+!VERSION 3
+
+// General settings
+!RANKING 3 // Max score
+!HANDS_COUNT 3
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 35 68
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 0 3 6300 1
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+
+// Grant/Block houses
+!HOUSE_BLOCK 17 // tower_arrow
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // tower2
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 47 66 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 55 // wood
+!WARE_OUT_ADD_TO_LAST 8 25 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+
+// Roads and fields
+
+!SET_ROAD 44 66 !SET_ROAD 47 66 !SET_ROAD 49 66 !SET_ROAD 43 67
+!SET_ROAD 44 67 !SET_ROAD 45 67 !SET_ROAD 46 67 !SET_ROAD 47 67
+!SET_ROAD 48 67 !SET_ROAD 49 67 !SET_ROAD 50 67 !SET_ROAD 47 68
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 45 67 // serf
+!SET_UNIT 2 46 67 // serf
+!SET_UNIT 2 47 67 // serf
+!SET_UNIT 2 48 67 // serf
+!SET_UNIT 3 45 68 // builder
+!SET_UNIT 3 46 68 // builder
+!SET_UNIT 3 47 68 // builder
+!SET_UNIT 3 48 68 // builder
+!SET_UNIT 2 49 67 // serf
+!SET_UNIT 3 49 68 // builder
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 44 20 93 // deer
+!SET_UNIT 44 79 62 // deer
+!SET_UNIT 44 68 60 // deer
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Houses
+!SET_HOUSE 39 69 36 0 // bearsden
+!SET_HOUSE 38 4 59 0 // wolfsden
+!SET_HOUSE 38 6 91 0 // wolfsden
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 45 29 91 // boar
+!SET_UNIT 45 33 93 // boar
+!SET_UNIT 45 71 61 // boar
+!SET_UNIT 36 72 66 // wolf
+!SET_UNIT 36 11 59 // wolf
+!SET_UNIT 36 17 85 // wolf
+!SET_UNIT 36 4 84 // wolf
+!SET_UNIT 36 7 43 // wolf
+!SET_UNIT 36 15 40 // wolf
+!SET_UNIT 36 7 46 // wolf
+!SET_UNIT 46 82 51 // bear
+!SET_UNIT 46 66 37 // bear
+!SET_UNIT 46 10 37 // bear
+!SET_UNIT 46 59 45 // bear
+!SET_UNIT 46 33 32 // bear
+!SET_UNIT 46 24 27 // bear
+
+// Triggers
+!SET_TRIGGER 1 94 1 94 94
+!SET_TRIGGER 2 0 94 93 94
+!SET_TRIGGER 3 0 0 0 93
+!SET_TRIGGER 4 1 0 94 0
+
+// Emitters
+!SET_EMITTER 17 75 34
+!SET_EMITTER 17 74 37
+!SET_EMITTER 17 93 54
+!SET_EMITTER 17 89 77
+!SET_EMITTER 17 93 82
+!SET_EMITTER 17 31 15
+!SET_EMITTER 17 28 18
+!SET_EMITTER 17 58 8
+!SET_EMITTER 17 46 3
+!SET_EMITTER 17 82 44
+!SET_EMITTER 17 16 34
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 14-7-2020 15:24:16
