@@ -1,17 +1,20 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 3
+!RANKING 0 // Disabled
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 10 86
+
+// Fog of War
 !FOW_REVEAL 10 86 15
 
 // Goals
@@ -28,13 +31,13 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -51,8 +54,11 @@
 
 // Roads and fields
 
-!SET_ROAD 8 87 !SET_ROAD 9 87 !SET_ROAD 10 87 !SET_ROAD 11 87
-!SET_ROAD 12 87 !SET_ROAD 13 87
+!SET_ROAD 10 86 !SET_ROAD 8 87 !SET_ROAD 9 87 !SET_ROAD 10 87
+!SET_ROAD 11 87 !SET_ROAD 12 87 !SET_ROAD 13 87
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 9 87 // serf
@@ -68,14 +74,15 @@
 !SET_UNIT 1 10 87 // blank
 !SET_UNIT 1 10 88 // blank
 
-
-----------
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 16711680
 !HAND_CENTER_SCREEN 68 62
+
+// Fog of War
 !FOW_REVEAL 68 62 15
 
 // Goals
@@ -92,13 +99,13 @@
 !SET_ALLIANCE 0 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -115,8 +122,11 @@
 
 // Roads and fields
 
-!SET_ROAD 66 63 !SET_ROAD 67 63 !SET_ROAD 68 63 !SET_ROAD 69 63
-!SET_ROAD 70 63 !SET_ROAD 71 63
+!SET_ROAD 68 62 !SET_ROAD 66 63 !SET_ROAD 67 63 !SET_ROAD 68 63
+!SET_ROAD 69 63 !SET_ROAD 70 63 !SET_ROAD 71 63
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 67 63 // serf
@@ -132,11 +142,25 @@
 !SET_UNIT 1 68 63 // blank
 !SET_UNIT 1 68 64 // blank
 
-
-----------
+-----Hand2-----
 !HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand3-----
+!HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
+
+// Fog of War
 
 // Houses
 !SET_HOUSE 38 5 13 0 // wolfsden
@@ -145,10 +169,11 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
 !SET_UNIT 36 89 4 // wolf
-
-
 
 // Emitters
 !SET_EMITTER 5 89 4
@@ -168,4 +193,5 @@
 !SET_EMITTER 6 66 93
 !SET_EMITTER 7 24 11
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:34:50
+
+// This mission was made with Map Editor of "Knights Province. Alpha 11.2 wip r9143 (2020.09.10 09:59)"  on 10.09.2020 10:03:17
