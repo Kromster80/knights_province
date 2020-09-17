@@ -53,14 +53,12 @@
 !HOUSE_BLOCK 31 // tower2
 
 // Block units
-!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 6 // breeder
 !UNIT_BLOCK 7 // farmer
 !UNIT_BLOCK 9 // baker
 !UNIT_BLOCK 10 // butcher
 !UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
-!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -139,4 +137,4 @@
 !SET_STOCKPILE 1 39 43 5
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r9064 (2020.07.05 11:06)"  on 05.07.2020 13:05:19
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r9064 (2020.09.17 17:26)"  on 17.09.2020 17:30:03
