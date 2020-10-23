@@ -32,7 +32,7 @@ begin
 
   // Anti-cav
   if MERC = utPikeman then REWARD := 4;
-  if MERC = utHallebardman then REWARD := 8;
+  if MERC = utHalberdier then REWARD := 8;
 
   // Cav
   if MERC = utHorseScout then REWARD := 7;
