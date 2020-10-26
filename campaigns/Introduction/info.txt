@@ -1,3 +1,5 @@
 Campaign map generated with https://azgaar.github.io/Fantasy-Map-Generator/
 
 Seed = 789771277
+
+Countdown 01..10 CC0 from https://freesound.org/people/Saviraz/sounds/521163/

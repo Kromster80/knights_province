@@ -6,13 +6,13 @@
       <id1 Background="background2.png" Title="5" ShortTitle="6"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="417" FlagY="641" Folder="1_Citizens" Title="10" Briefing="30" BriefingAudio="" FlagImgLocked="" FlagImgNormal="cottage.png" FlagImgWon=""/>
-      <id1 Chapter="0" FlagX="617" FlagY="547" Folder="2_Materials" Title="11" Briefing="31" BriefingAudio="" FlagImgLocked="" FlagImgNormal="build.png" FlagImgWon="" NodeAnchors="457;625;457;670;581;491;581;536"/>
-      <id2 Chapter="0" FlagX="670" FlagY="264" Folder="3_Fish" Title="12" Briefing="32" BriefingAudio="" FlagImgLocked="" FlagImgNormal="fish.png" FlagImgWon="" NodeAnchors="616;501;591;421;681;406;671;296"/>
-      <id3 Chapter="1" FlagX="112" FlagY="235" Folder="4_Stolen" Title="13" Briefing="33" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
-      <id4 Chapter="1" FlagX="308" FlagY="190" Folder="5_FightingBack" Title="14" Briefing="34" BriefingAudio="" FlagImgLocked="" FlagImgNormal="swordsman.png" FlagImgWon="" NodeAnchors="151;220;221;220;176;166;271;166"/>
-      <id5 Chapter="1" FlagX="392" FlagY="127" Folder="6_Army" Title="15" Briefing="35" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="356;115;346;105;336;136;326;146"/>
-      <id6 Chapter="1" FlagX="519" FlagY="117" Folder="7_TwoNeighbours" Title="16" Briefing="36" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="395;85;395;50;495;76;495;76"/>
+      <id0 Chapter="0" FlagX="417" FlagY="641" Folder="1_Citizens" Title="10" Briefing="30" BriefingAudio="01" FlagImgLocked="" FlagImgNormal="cottage.png" FlagImgWon=""/>
+      <id1 Chapter="0" FlagX="617" FlagY="547" Folder="2_Materials" Title="11" Briefing="31" BriefingAudio="02" FlagImgLocked="" FlagImgNormal="build.png" FlagImgWon="" NodeAnchors="457;625;457;670;581;491;581;536"/>
+      <id2 Chapter="0" FlagX="670" FlagY="264" Folder="3_Fish" Title="12" Briefing="32" BriefingAudio="03" FlagImgLocked="" FlagImgNormal="fish.png" FlagImgWon="" NodeAnchors="616;501;591;421;681;406;671;296"/>
+      <id3 Chapter="1" FlagX="112" FlagY="235" Folder="4_Stolen" Title="13" Briefing="33" BriefingAudio="04" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id4 Chapter="1" FlagX="308" FlagY="190" Folder="5_FightingBack" Title="14" Briefing="34" BriefingAudio="05" FlagImgLocked="" FlagImgNormal="swordsman.png" FlagImgWon="" NodeAnchors="151;220;221;220;176;166;271;166"/>
+      <id5 Chapter="1" FlagX="392" FlagY="127" Folder="6_Army" Title="15" Briefing="35" BriefingAudio="06" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="356;115;346;105;336;136;326;146"/>
+      <id6 Chapter="1" FlagX="519" FlagY="117" Folder="7_TwoNeighbours" Title="16" Briefing="36" BriefingAudio="07" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="395;85;395;50;495;76;495;76"/>
     </Missions>
   </Campaign>
 </Root>
