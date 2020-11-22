@@ -1,0 +1,23 @@
+﻿// Libx para "El Lobo de Hierro"
+//
+// Aviso:
+//   Este archivo fue creado para referencia y prueba de funciones.
+//   Otros scripters / creadores de mapas pueden usar cualquier código escrito en este archivo con excepción de los bloques completos.
+//   Si se copia un bloque completo, favor dejar un comentario que contenga créditos para el creador original,
+//   ese sería Thimo Braker (Thibmo).
+//
+// Versión actual del mapa: 1.0.18
+// Diseñado para: Knights Province lanzado 1.05-7 ( Especifico )
+//
+
+0:Thibmo (Thimo Braker)
+1:En esta misión necesitarás construir una ciudad más rápido que la IA.
+2:¡Bienvenido al Lobo de Hierro!||¿Puedes vencer a la IA?
+3:¡Casa terminada! Tu %s acaba de terminar la construcción. | ¡Felicitaciones!
+4:Construye una Escuela
+5:Construye dos Canteras
+6:Construye tres Cabañas de leñador
+7:Construye dos Aserraderos
+8:Construye un Fuerte
+9:Construye un Taverna
+10:Construye una Pescadería
