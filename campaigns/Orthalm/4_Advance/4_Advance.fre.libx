@@ -1,18 +1,14 @@
 ﻿0:DarkianMaker
 1:La chute d'Orthalm 04 - Avancée||Votre domaine est à présent sécurisé et les mercenaires Kimiens ont pu repartir. Votre précieux allié, le conté d'Ennever est cependant toujours harcelé par les troupes de Medis. Rassemblez vos troupes et préparez-vous pour un nouvel affrontement.
-
 3:Lord de Seefort
 4:Armée de Medis
 5:[$ff8040]Cavalerie de Medis[]
 6:Pillards de Medis
 7:Mine abandonnée
-
 15:Atteignez le [$80bdff]Comté d'Ennever[]
 16:Détruisez les forces de Medis
-Destroy the Medis forces
 17:Défaites l'[$ff8080]Armée[]
 18:Défaites la [$ff8040]Cavalerie[]
 19:Battez les [$ffff80]Pillards[]
-
 25:Sire,||Des troupes de [$ff8080]Medis[] ont été aperçues non loin d'ici ! Ils ont probablement déjà envahi le [$80bdff]Comté d'Ennever[]. Nous devons cesser notre progression, tant que cette menace est présente.||Capitaine Norman
 26:Sire,||La [$ff8040]cavalerie[] bat en retraite mais l'infanterie ennemie nous bloque la route principale. Je ne suis pas sûr que nous puissions réussir une attaque frontale. Nous devons trouver un autre moyen de traverser les montagnes par une manoeuvre de contournement.||Capitaine Norman
