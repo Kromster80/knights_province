@@ -8,7 +8,6 @@
 //
 0:Thibmo (Thimo Braker)
 1:Esta es una pequeña introduccion a Knights Province.
-
 10:[$EAEAEA]Empecemos construyendo una [$2388EF]Escuela[$EAEAEA].[]
 11:[$EAEAEA]Construyamos dos [$2388EF]Cabañas[$EAEAEA] para incrementar espacio en tu aldea.|Las cabañas generarán nuevas [$2388EF]Unidades sin entrenar[$EAEAEA] hasta que la capacidad máxima sea alcanzada.[]
 12:[$EAEAEA]Coloca dos [$2388EF]Canteros[$EAEAEA] cerca de los yacimientos de piedra en el Este.|Entrena dos [$2388EF]Canteros[$EAEAEA] en la [$2388EF]Escuela[$EAEAEA] mientras los constructores hacen su trabajo.[]
@@ -17,7 +16,6 @@
 15:[$EAEAEA]Empieza a construir una [$2388EF]Pescadería[$EAEAEA] cerca del agua y una [$2388EF]Sidrería[$EAEAEA] en la [$2388EF]Huerta[$EAEAEA](árboles de manzana).[]
 16:[$EAEAEA]Construyamos un [$2388EF]Almacén[$EAEAEA] ahora para completar el tutorial.[]
 17:[$EAEAEA]Haz completado todas las tareas.|¡Felicitaciones!||Puedes salir del tutorial de ciudad.| Para información más profunda sobre las mecánicas de Knights Province, juega el [$2388EF]tutorial de campaña[$EAEAEA].[]
-
 20:[$EAEAEA]Bienvenido al tutorial de Ciudad!|En este tutorial te enseñaremos algunas nociones básicas del juego.||En la [$2BEDFF]Escuela[$EAEAEA] entrenaras las unidades que se necesitan para cada edificio,|[$2BEDFF]Siervos[$EAEAEA] para transportar bienes y [$2BEDFF]Constructores[$EAEAEA] para construir casas.[]
 21:[$EAEAEA]Asombroso, has construido la [$2BEDFF]Escuela[$EAEAEA]!|Para poder entrenar nuevas unidades debes tener[$2BEDFF]Unidades sin Entrenar[$EAEAEA].|[$2BEDFF]Las Unidades sin entrenar[$EAEAEA] no realizan ninguna actividad hasta que se le sea asignada alguna profesión en la [$2BEDFF]Escuela[$EAEAEA].|Sin embargo, necesitan comida.||Para generar nuevas [$2BEDFF]Unidades sin entrenar[$EAEAEA] necesitarás construir [$2BEDFF]Cabañas[$EAEAEA] lo que incrementará tu capacidad de ciudadanos.[]
 22:[$EAEAEA]Excelente, tu ciudad ahora genera nuevas [$2BEDFF]Unidades sin entrenar[$EAEAEA]!|Ahora puedes enfocarte en recursos. Empecemos con [$2BEDFF]Piedras[$EAEAEA].[]
@@ -25,7 +23,6 @@
 24:[$EAEAEA]Ahora que cuentas con [$2BEDFF]Madera[$EAEAEA] la cadena de recursos se establece, empecemos a mirar a la [$2BEDFF]producción de comida[$EAEAEA].||Luego de un tiempo tus ciudadanos tendrán hambre y demandarán comida.| Para prevenir que tus ciudadanos mueran de hambre deberás proveer un lugar para que se alimenten.[]
 25:[$EAEAEA]Genial, tus siervos podrán comer cuando lo necesiten. | Tienes un suministro de comida limitado, deberías empezar a producir comida. |Hay muchas formas de producir comida, pero nos quedaremos con lo básico: [$2BEDFF]Peces[$EAEAEA] y [$2BEDFF]Sidra[$EAEAEA].[]
 26:[$EAEAEA]Sublime!|Nuestra [$2BEDFF]producción de comida[$EAEAEA] parece estar en buena forma para nuestra ciudad.|Estos son los requerimientos fundamentales para mantener la economía básica en tu ciudad.|Para otros productos necesitaras un [$2BEDFF]Almacén[$EAEAEA].[]
-
 30:[$EAEAEA]Construir una [$2388EF]School[]
 31:[$EAEAEA]Construir dos [$2388EF]Cabañas[]
 32:[$EAEAEA]Construir dos [$2388EF]Canteras[]
@@ -35,5 +32,3 @@
 36:[$EAEAEA]Construir una [$2388EF]Pescadería[]
 37:[$EAEAEA]Construir una [$2388EF]Sidrería[]
 38:[$EAEAEA]Construir un [$2388EF]Almacén[]
-
-
