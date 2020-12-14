@@ -61,7 +61,7 @@ begin
 	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCiders, osCompleted);
   end;
   
-  if FarmsRebuilt and LumberjacksRebuilt and CidersRebuilt then
+  if FarmsRebuilt and LumberjacksRebuilt and CidersRebuilt and not States.PlayerDefeated(HUMAN_PLAYER) then
     begin
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjRebuild, osCompleted);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjFarms, osHidden);
@@ -75,7 +75,7 @@ end;
 
 procedure CheckAssaultStatus;
 begin
-  if Enemy2Defeated and Enemy3Defeated then
+  if Enemy2Defeated and Enemy3Defeated and not States.PlayerDefeated(HUMAN_PLAYER) then
     begin
       Actions.PlayerMessage(0, '<$26>', True);
 	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);

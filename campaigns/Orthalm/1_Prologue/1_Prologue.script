@@ -59,14 +59,14 @@ end;
 
 procedure CheckAssaultStatus;
 begin
-  if Enemy2Defeated and Enemy5Defeated then
-    begin
-      Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
-      Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
-      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
-      AssaultDefeated := true;
-    end;
+  if Enemy2Defeated and Enemy5Defeated and not States.PlayerDefeated(HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
+    Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
+    AssaultDefeated := true;
+  end;
 end;
 
 procedure OnTick(aTick: Integer);
