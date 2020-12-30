@@ -77,7 +77,7 @@ begin
   if aTick mod 50 = 0 then
   if not ciderDealShown and (States.StatWaresBalance(HUMAN_PLAYER, wtCider) >= CIDER_NEEDED + CIDER_PACKAGE) then
   begin
-    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], ['', ''], [1,2], True, False);
+    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], ['', ''], [1,2], True, False, False);
     ciderDealShown := True;
   end;
 end;

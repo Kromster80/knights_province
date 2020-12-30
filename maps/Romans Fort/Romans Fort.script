@@ -312,7 +312,7 @@ begin
   dir_e_obj := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otAdditional, 0, osHidden, 'East!');
   UpdateObjective;
 
-  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'], ['baby.png', 'skull.png'], [1,2], True, True);
+  Actions.PlayerMessageWithButtons(-1, '<$11>', ['Normal Mode', 'Hard Mode'], ['baby.png', 'skull.png'], [1,2], True, True, True);
 end;
 
 procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);

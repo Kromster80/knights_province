@@ -44,10 +44,9 @@ var
   P2Units : Array of Integer;
   BlankCount : Integer;
   I : Integer;
-
 begin
   if aTick = 2 then
-    Actions.PlayerMessageWithButtons(HUMAN_ID, '<$3>', ['Confirm'], [''], [1], False, False); // Message about controls
+    Actions.PlayerMessageWithButtons(HUMAN_ID, '<$3>', ['Confirm'], [''], [1], False, False, False); // Message about controls
 
   // check if the knights are grouped up
   if (Length(States.PlayerGetAllGroups(0)) = 1) and GroupUpAvailable then
@@ -120,7 +119,6 @@ var
   P3Houses : Array of Integer;
   P4Houses : Array of Integer;
   TheCamp : Integer;
-
 begin
   // meet the brother
   if (aTriggerId = 1) and (States.UnitOwner(aUnit) = HUMAN_ID) and BrotherAvailable then
