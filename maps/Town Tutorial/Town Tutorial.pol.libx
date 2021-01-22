@@ -1,0 +1,26 @@
+﻿0:Thibmo (Thimo Braker)
+1:Oto małe wprowadzenie do Kinghts Province.
+10:[$EAEAEA]Zacznijmy od zbudowania szkoły[$2388EF]Szkoła[$EAEAEA].[]
+11:[$EAEAEA]Zbudujmy teraz dwa[$2388EF]Domki wiejski[$EAEAEA], aby zwiększyć dostępność jednostek w wiosce.|Domki wygenerują nowe[$2388EF]Puste jednostki[$EAEAEA]aż do osiągnięcia maksymalnej pojemności.[]
+12:[$EAEAEA]Umieść dwóch [$2388EF]Kamieniarzy[$EAEAEA] blisko złóż kamienia na Wschodzie. |Wyszkol dwóch [$2388EF]Kamieniarzy[$EAEAEA] w [$2388EF]szkole[$EAEAEA] podczas gdy budowniczy wykonują swoją pracę.[]
+13:[$EAEAEA]Postaw jedną [$2388EF]Chatkę drwala[$EAEAEA]w pobliżu lasów przy złożach kamienia.|Po zbudowaniu [$2388EF]Chaty drwala[$EAEAEA], zbuduj jeden [$2388EF]Tartak[$EAEAEA] blisko [$2388EF]Chaty drwala[$EAEAEA].|To powinno nam zapewnić wystarczającą ilość [$2388EF]Drewna[$EAEAEA] na ten moment.[]
+14:[$EAEAEA]Zbuduj teraz jedną [$2388EF]Tawernę[$EAEAEA], aby zapewnić swoim obywatelom żywność.[]
+15:[$EAEAEA]Zacznij od zbudowania jednej [$2388EF]Chata rybaka[$EAEAEA] przy wodzie i jednego [$2388EF]Cydru[$EAEAEA] w [$2388EF]Sadzie[$EAEAEA](jabłonie).[]
+16:[$EAEAEA]Zbudujmy teraz [$2388EF]Magazyn[$EAEAEA], aby ukończyć samouczek.[]
+17:[$EAEAEA]Wykonałeś wszystkie zadania.|Gratulacje!||Możesz teraz opuścić samouczek dotyczący budowy miasta.|Aby uzyskać bardziej szczegółowe informacje na temat mechaniki Knights Province, powinieneś zagrać[$2388EF] w kampanię samouczkową [$ EAEAEA]. []
+20:[$EAEAEA]Witaj w samouczku dotyczącym budowy miasta!|W tym samouczku nauczymy Cię kilku podstaw gry.||W [$2BEDFF]Szkole[$EAEAEA] będziesz szkolić jednostki wymagane dla każdego typu budynku,|[$2BEDFF]Robotnicy[$EAEAEA] do transportu towarów i [$2BEDFF]Budowniczy[$EAEAEA] do budowy domów. []
+21:[$EAEAEA]Niesamowite, zbudowałeś[$2BEDFF]Szkołę[$EAEAEA]!|Aby móc szkolić nowe jednostki, musisz posiadać [$2BEDFF]Puste jednostki [$EAEAEA].|[$2BEDFF]Puste jednostki [$EAEAEA] nie wykonuj żadnych zadań, dopóki nie wyszkolisz ich do zawodu[$2BEDFF]w Szkole[$EAEAEA].|Wymagają jednak jedzenia. ||Aby wyprodukować nowe [$2BEDFF]Puste jednostki[$EAEAEA] musisz zbudować [$ 2BEDFF]Domek wiejski[$EAEAEA], który zwiększy limit obywateli.[]
+22:[$EAEAEA]Świetnie, twoje miasto generuje teraz nowe [$2BEDFF]Puste jednostki[$EAEAEA]!|Możesz teraz skupić się na swoich pierwszych zasobach. Zacznijmy od [$2BEDFF]Kamienia[$EAEAEA].[]
+23:[$EAEAEA]Świetna robota! Otrzymasz teraz pierwsze bloki [$2BEDFF]Kamienia[$EAEAEA].|Jednak nadal potrzebujesz [$2BEDFF]Drewna[$EAEAEA].||Po zbudowaniu [$2BEDFF]Chaty Drwala[$EAEAEA] będziesz w stanie zbudować [$2BEDFF]Tartak[$EAEAEA], który wycina [$2BEDFF]kłody[$EAEAEA] na[$2BEDFF]Deski[$EAEAEA].[]
+24:[$EAEAEA]Teraz, gdy masz już stworzony łańcuch zasobów [$2BEDFF]Drewna[$EAEAEA], zacznijmy przyglądać się [$2BEDFF] produkcji żywności[$EAEAEA].||Za chwili Twoi obywatele będą głodni i zaczną żądać jedzenia.|Aby Twoi obywatele nie głodowali, powinieneś zapewnić im miejsca do jedzenia.[]
+25:[$EAEAEA]Wyśmienicie, teraz twoi słudzy mogą jeść, kiedy tego zapragną.|Posiadasz ograniczone zapasy żywności, więc powinieneś zacząć je produkować.|Istnieje wiele sposobów produkcji żywności, ale będziemy trzymać się podstaw: [$2BEDFF]Ryb[$EAEAEA] oraz [$2BEDFF]Cydr[$EAEAEA].[]
+26:[$EAEAEA]Świetnie!|Nasza [$2BEDFF]produkcja żywności[$EAEAEA] wydaje się, być dobrym wyborem dla naszej obecnej wioski.|Są to podstawowe wymagania, aby w Twojej wiosce gospodarka działała prawidłowo.|Do pozostałych produktów będziemy potrzebować [$2BEDFF]Magazyn[$EAEAEA].[]
+30:[$EAEAEA]Zbuduj jedną [$2388EF]Szkołę[]
+31:[$EAEAEA]Zbuduj dwa [$2388EF]Wiejskie domki[]
+32:Zbuduj dwa Kamieniołomy.
+33:Zbuduj Chate Drwala
+34:Zbuduj Tartak
+35:Zbuduj Tawernę
+36:Zbuduj Chate Rybaka
+37:Zbuduj Sad
+38:Zbuduj Magazyn

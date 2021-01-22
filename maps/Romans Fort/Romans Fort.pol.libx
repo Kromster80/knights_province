@@ -1,0 +1,10 @@
+﻿0:Klassix
+1:Przetrwanie |Losowo generowane kierunki ataku. |Losowo generowane oddziały w środkowej i późnej fazie gry. |WAŻNE: Przeczytaj tekst rozpoczęcia misji!
+2:Dezerterów
+3:Galowie
+11:[$00ff00]Tryb Normalny[]: Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]3 minuty[], Ciężka zbroja odrodzenie co [$00ffff]4minuty[]|Jednostki skórzanego pojawiają się o [$00ffff]00:45:00[]; Ciężka zbroja o[$00ffff]01:14:00[]||[$0000ff]Tryb Trudny[]:Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]2,5 min[], Ciężka zbroja odrodzenie co [$00ffff]3,5 min[]|Jednostki skórzanego pojawiają się o [$00ffff]00:37:30[]; Ciężka zbroja co [$00ffff]01:02:00[]||Wybierz swój tryb:
+12:Wybrałeś tryb normalny. Powodzenia i miłej zabawy! WSKAZÓWKA: Nie zapomnij przywieźć naszych wózków z szosy do naszego obozu!
+13:Wybrałeś tryb trudny. Niech bogowie będą z tobą! ||WSKAZÓWKA: w lasach jest mnóstwo łupów, ale uważaj na dzikie zwierzęta i dezerterów!
+14:GG :-)
+15:[0000ff]!! NADCHODZĄCY ATAK !![]
+16:[$00ff00]Nie wykryto najeźdźców[]
