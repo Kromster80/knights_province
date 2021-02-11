@@ -17,9 +17,6 @@ begin
       if States.CampaignMissionWon(I) then
         Inc(cntPlayed);
 
-    if cntPlayed = 0 then 
-      Actions.CampaignProgress('-')
-    else
-      Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
+    Actions.CampaignProgress(IntToStr(cntPlayed / States.CampaignMissionCount * 100) + '%');
   end;
 end;
