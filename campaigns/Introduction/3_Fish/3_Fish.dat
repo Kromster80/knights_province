@@ -16,8 +16,8 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 2 30 75 1
-!ADD_GOAL 0 2 28 200 1
+!ADD_GOAL 0 2 30 65 1
+!ADD_GOAL 0 2 28 150 1
 
 // AI
 !SET_AI_AUTO_REPAIR

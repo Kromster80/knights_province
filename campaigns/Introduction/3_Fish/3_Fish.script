@@ -3,7 +3,7 @@
 
 const
   HUMAN_PLAYER = 0;
-  CIDER_NEEDED = 75;
+  CIDER_NEEDED = 65;
   CIDER_PACKAGE = 10;
   FISH_PACKAGE = 20;
   ownCampX = 18;
