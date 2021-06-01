@@ -109,7 +109,7 @@
 !SET_ALLIANCE 8 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -127,7 +127,7 @@
 // Groups
 !SET_GROUP 20 18 58 2 3 15 // swordsman
 !SET_GROUP 22 6 57 2 3 9 // arbaletman
-!SET_GROUP 24 12 58 2 3 15 // hallebardman
+!SET_GROUP 24 12 58 2 3 15 // halberdier
 !SET_GROUP 26 21 58 2 3 6 // cavalry
 !SET_GROUP 22 2 56 2 3 9 // arbaletman
 
@@ -176,7 +176,7 @@
 !SET_ALLIANCE 8 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -194,8 +194,8 @@
 // Groups
 !SET_GROUP 26 90 62 6 3 9 // cavalry
 !SET_GROUP 26 94 61 6 3 9 // cavalry
-!SET_GROUP 24 104 60 6 3 15 // hallebardman
-!SET_GROUP 24 98 61 6 3 15 // hallebardman
+!SET_GROUP 24 104 60 6 3 15 // halberdier
+!SET_GROUP 24 98 61 6 3 15 // halberdier
 !SET_GROUP 20 83 97 7 3 9 // swordsman
 !SET_GROUP 20 86 100 7 3 9 // swordsman
 !SET_GROUP 20 89 103 7 3 9 // swordsman
@@ -237,7 +237,7 @@
 !SET_ALLIANCE 8 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -303,7 +303,7 @@
 !SET_ALLIANCE 8 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -311,11 +311,11 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 31 38 63 1 // tower2
-!SET_HOUSE 31 38 56 1 // tower2
-!SET_HOUSE 31 52 63 1 // tower2
-!SET_HOUSE 31 52 56 1 // tower2
-!SET_HOUSE 31 43 83 0 // tower2
+!SET_HOUSE 31 38 63 1 // towerBolt
+!SET_HOUSE 31 38 56 1 // towerBolt
+!SET_HOUSE 31 52 63 1 // towerBolt
+!SET_HOUSE 31 52 56 1 // towerBolt
+!SET_HOUSE 31 43 83 0 // towerBolt
 !SET_HOUSE 6 44 89 1 // fishermans
 !SET_HOUSE 37 40 87 0 // cottage
 !SET_HOUSE 27 41 91 0 // tavern
@@ -325,7 +325,7 @@
 !SET_HOUSE 37 22 87 0 // cottage
 !SET_HOUSE 37 22 90 0 // cottage
 !SET_HOUSE 6 27 84 1 // fishermans
-!SET_HOUSE 31 12 80 0 // tower2
+!SET_HOUSE 31 12 80 0 // towerBolt
 !SET_HOUSE 37 18 80 0 // cottage
 !SET_HOUSE 22 2 84 0 // mill
 !WARE_IN_ADD_TO_LAST 10 2 // grain
@@ -354,8 +354,8 @@
 !WARE_IN_ADD_TO_LAST 15 2 // beef
 !SET_HOUSE 24 19 97 0 // butchers
 !WARE_IN_ADD_TO_LAST 15 2 // beef
-!SET_HOUSE 31 23 101 1 // tower2
-!SET_HOUSE 31 23 97 1 // tower2
+!SET_HOUSE 31 23 101 1 // towerBolt
+!SET_HOUSE 31 23 97 1 // towerBolt
 !SET_HOUSE 15 22 94 0 // mint
 !WARE_IN_ADD_TO_LAST 5 2 // goldore
 !SET_HOUSE 25 18 93 0 // tannery
@@ -370,18 +370,18 @@
 !SET_HOUSE 37 18 87 0 // cottage
 !SET_HOUSE 28 18 84 0 // brewery
 !WARE_IN_ADD_TO_LAST 10 2 // grain
-!SET_HOUSE 31 4 80 0 // tower2
+!SET_HOUSE 31 4 80 0 // towerBolt
 !SET_HOUSE 21 44 98 1 // barracks
 !SET_HOUSE 13 44 94 1 // school
-!SET_HOUSE 31 36 101 1 // tower2
-!SET_HOUSE 31 36 97 1 // tower2
-!SET_HOUSE 10 39 95 1 // ArmorSmithy
+!SET_HOUSE 31 36 101 1 // towerBolt
+!SET_HOUSE 31 36 97 1 // towerBolt
+!SET_HOUSE 10 39 95 1 // armorSmithy
 !WARE_IN_ADD_TO_LAST 6 2 // coal
 !WARE_IN_ADD_TO_LAST 7 4 // steel
 !SET_HOUSE 27 44 104 1 // tavern
 !SET_HOUSE 12 39 102 1 // stables
 !WARE_IN_ADD_TO_LAST 10 2 // grain
-!SET_HOUSE 2 39 106 0 // WeaponSmithy
+!SET_HOUSE 2 39 106 0 // weaponSmithy
 !WARE_IN_ADD_TO_LAST 6 2 // coal
 !WARE_IN_ADD_TO_LAST 7 2 // steel
 !SET_HOUSE 6 41 110 1 // fishermans
@@ -705,7 +705,7 @@
 !SET_ALLIANCE 8 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -757,7 +757,7 @@
 !SET_ALLIANCE 8 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -809,7 +809,7 @@
 !SET_ALLIANCE 8 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -879,7 +879,7 @@
 !SET_ALLIANCE 8 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -1039,7 +1039,7 @@
 !SET_ALLIANCE 7 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -1086,4 +1086,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 r9040 (2020.06.20 15:14)"  on 20.06.2020 15:46:18
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:59

@@ -29,20 +29,20 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 28
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 28 // brewery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 
@@ -184,8 +184,8 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -204,8 +204,8 @@
 !SET_HOUSE 7 107 43 1 // bakery
 !SET_HOUSE 8 101 45 0 // farm
 !SET_HOUSE 8 113 48 1 // farm
-!SET_HOUSE 19 119 32 1 // WeaponWorkshop
-!SET_HOUSE 20 118 26 1 // ArmorWorkshop
+!SET_HOUSE 19 119 32 1 // weaponWorkshop
+!SET_HOUSE 20 118 26 1 // armorWorkshop
 !SET_HOUSE 25 118 23 1 // tannery
 !SET_HOUSE 8 107 13 1 // farm
 !SET_HOUSE 8 121 16 0 // farm
@@ -222,9 +222,9 @@
 !WARE_OUT_ADD_TO_LAST 16 10 // cowhide
 !SET_HOUSE 37 102 36 0 // cottage
 !SET_HOUSE 37 116 40 0 // cottage
-!SET_HOUSE 20 114 23 0 // ArmorWorkshop
+!SET_HOUSE 20 114 23 0 // armorWorkshop
 !SET_HOUSE 9 117 54 1 // woodcutters
-!SET_HOUSE 16 116 17 0 // cattlefarm
+!SET_HOUSE 16 116 17 0 // cattleFarm
 !SET_HOUSE 37 111 26 0 // cottage
 !SET_HOUSE 24 104 16 0 // butchers
 !SET_HOUSE 13 107 37 1 // school
@@ -386,8 +386,8 @@
 !SET_ALLIANCE 1 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -408,6 +408,7 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
 !HAND_ACTIVATE
 
 // Fog of War
@@ -466,4 +467,4 @@
 !SET_EMITTER 5 63 4
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8746 (2020.04.01 10:50)"  on 01.04.2020 10:56:15
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:59

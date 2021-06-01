@@ -3,7 +3,7 @@
 // General settings
 !RANKING 1 // Min time
 !MODE_TACTIC
-!HANDS_COUNT 5
+!HANDS_COUNT 7
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -31,8 +31,8 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -115,8 +115,8 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -171,8 +171,8 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -218,8 +218,8 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -262,17 +262,42 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
 // Block trades
 
 // Houses
-!SET_HOUSE 4 4 49 0 // IronMine
+!SET_HOUSE 4 4 49 0 // ironMine
 !SET_HOUSE 9 14 40 1 // woodcutters
-!SET_HOUSE 17 14 34 0 // tower_arrow
+!SET_HOUSE 17 14 34 0 // towerArrow
+
+// Roads and fields
+
+// Fences
+
+
+-----Hand5-----
+!HAND_CURRENT 5
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand6-----
+!HAND_CURRENT 6
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
 
 // Roads and fields
 
@@ -281,4 +306,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8671 (2020.03.13 19:05)"  on 13.03.2020 19:06:26
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:34:00
