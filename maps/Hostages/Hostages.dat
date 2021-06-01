@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 3
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -31,14 +31,14 @@
 
 // Grant/Block houses
 !HOUSE_BLOCK 1 // foundry
-!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 2 // weaponSmithy
 !HOUSE_BLOCK 3 // coalmakers
-!HOUSE_BLOCK 4 // IronMine
-!HOUSE_BLOCK 5 // GoldMine
-!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -47,7 +47,7 @@
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
 !UNIT_BLOCK 22 // arbaletman
-!UNIT_BLOCK 24 // hallebardman
+!UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 26 // cavalry
 
 // Block trades
@@ -134,7 +134,7 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -149,11 +149,11 @@
 !WARE_OUT_ADD_TO_LAST 28 9000 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 9000 // cider
-!SET_HOUSE 17 63 91 0 // tower_arrow
-!SET_HOUSE 17 67 62 0 // tower_arrow
-!SET_HOUSE 17 65 85 0 // tower_arrow
-!SET_HOUSE 31 69 72 0 // tower2
-!SET_HOUSE 31 66 79 0 // tower2
+!SET_HOUSE 17 63 91 0 // towerArrow
+!SET_HOUSE 17 67 62 0 // towerArrow
+!SET_HOUSE 17 65 85 0 // towerArrow
+!SET_HOUSE 31 69 72 0 // towerBolt
+!SET_HOUSE 31 66 79 0 // towerBolt
 !SET_HOUSE 14 89 59 0 // stonecutters
 !WARE_OUT_ADD_TO_LAST 2 5 // stone
 !SET_HOUSE 14 84 59 0 // stonecutters
@@ -189,14 +189,14 @@
 !WARE_IN_ADD_TO_LAST 1 5 // trunk
 !SET_HOUSE 12 75 92 1 // stables
 !WARE_IN_ADD_TO_LAST 10 5 // grain
-!SET_HOUSE 20 74 86 1 // ArmorWorkshop
+!SET_HOUSE 20 74 86 1 // armorWorkshop
 !WARE_IN_ADD_TO_LAST 3 5 // wood
 !WARE_IN_ADD_TO_LAST 13 5 // leather
-!SET_HOUSE 19 72 84 0 // WeaponWorkshop
+!SET_HOUSE 19 72 84 0 // weaponWorkshop
 !WARE_IN_ADD_TO_LAST 3 5 // wood
 !SET_HOUSE 25 102 87 0 // tannery
 !WARE_IN_ADD_TO_LAST 16 5 // cowhide
-!SET_HOUSE 16 108 87 0 // cattlefarm
+!SET_HOUSE 16 108 87 0 // cattleFarm
 !WARE_IN_ADD_TO_LAST 10 5 // grain
 !SET_HOUSE 24 106 92 1 // butchers
 !WARE_IN_ADD_TO_LAST 15 5 // beef
@@ -337,7 +337,7 @@
 !SET_ALLIANCE 1 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -345,7 +345,7 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 17 23 79 0 // tower_arrow
+!SET_HOUSE 17 23 79 0 // towerArrow
 !SET_HOUSE 36 13 75 0 // campfire
 !SET_HOUSE 36 20 79 0 // campfire
 
@@ -365,5 +365,31 @@
 // Groups
 !SET_GROUP 21 23 80 0 2 2 // bowman
 
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8885 (2020.04.19 09:44)"  on 19.04.2020 9:52:34
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:40

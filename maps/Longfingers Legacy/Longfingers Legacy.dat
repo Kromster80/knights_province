@@ -1,17 +1,20 @@
 !VERSION 3
 
 // General settings
+!RANKING 0 // Disabled
 !HANDS_COUNT 8
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 37 28
+
+// Fog of War
 !FOW_REVEAL 37 28 15
 
 // Goals
@@ -32,8 +35,8 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -50,8 +53,11 @@
 
 // Roads and fields
 
-!SET_ROAD 35 29 !SET_ROAD 36 29 !SET_ROAD 37 29 !SET_ROAD 38 29
-!SET_ROAD 39 29 !SET_ROAD 40 29
+!SET_ROAD 37 28 !SET_ROAD 35 29 !SET_ROAD 36 29 !SET_ROAD 37 29
+!SET_ROAD 38 29 !SET_ROAD 39 29 !SET_ROAD 40 29
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 36 29 // serf
@@ -67,14 +73,15 @@
 !SET_UNIT 1 37 29 // blank
 !SET_UNIT 1 37 30 // blank
 
-
-----------
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 37 96
+
+// Fog of War
 !FOW_REVEAL 37 96 15
 
 // Goals
@@ -95,8 +102,8 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -113,8 +120,11 @@
 
 // Roads and fields
 
-!SET_ROAD 35 97 !SET_ROAD 36 97 !SET_ROAD 37 97 !SET_ROAD 38 97
-!SET_ROAD 39 97 !SET_ROAD 40 97
+!SET_ROAD 37 96 !SET_ROAD 35 97 !SET_ROAD 36 97 !SET_ROAD 37 97
+!SET_ROAD 38 97 !SET_ROAD 39 97 !SET_ROAD 40 97
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 36 97 // serf
@@ -130,14 +140,15 @@
 !SET_UNIT 1 37 97 // blank
 !SET_UNIT 1 37 98 // blank
 
-
-----------
+-----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 37 165
+
+// Fog of War
 !FOW_REVEAL 37 165 15
 
 // Goals
@@ -158,8 +169,8 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -176,8 +187,11 @@
 
 // Roads and fields
 
-!SET_ROAD 35 166 !SET_ROAD 36 166 !SET_ROAD 37 166 !SET_ROAD 38 166
-!SET_ROAD 39 166 !SET_ROAD 40 166
+!SET_ROAD 37 165 !SET_ROAD 35 166 !SET_ROAD 36 166 !SET_ROAD 37 166
+!SET_ROAD 38 166 !SET_ROAD 39 166 !SET_ROAD 40 166
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 36 166 // serf
@@ -193,14 +207,15 @@
 !SET_UNIT 1 37 166 // blank
 !SET_UNIT 1 37 167 // blank
 
-
-----------
+-----Hand3-----
 !HAND_CURRENT 3
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 65280
 !HAND_CENTER_SCREEN 218 166
+
+// Fog of War
 !FOW_REVEAL 218 166 15
 
 // Goals
@@ -221,8 +236,8 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -239,8 +254,11 @@
 
 // Roads and fields
 
-!SET_ROAD 216 167 !SET_ROAD 217 167 !SET_ROAD 218 167 !SET_ROAD 219 167
-!SET_ROAD 220 167 !SET_ROAD 221 167
+!SET_ROAD 218 166 !SET_ROAD 216 167 !SET_ROAD 217 167 !SET_ROAD 218 167
+!SET_ROAD 219 167 !SET_ROAD 220 167 !SET_ROAD 221 167
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 217 167 // serf
@@ -256,14 +274,15 @@
 !SET_UNIT 1 218 167 // blank
 !SET_UNIT 1 218 168 // blank
 
-
-----------
+-----Hand4-----
 !HAND_CURRENT 4
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 32768
 !HAND_CENTER_SCREEN 218 96
+
+// Fog of War
 !FOW_REVEAL 218 96 15
 
 // Goals
@@ -284,8 +303,8 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -302,8 +321,11 @@
 
 // Roads and fields
 
-!SET_ROAD 216 97 !SET_ROAD 217 97 !SET_ROAD 218 97 !SET_ROAD 219 97
-!SET_ROAD 220 97 !SET_ROAD 221 97
+!SET_ROAD 218 96 !SET_ROAD 216 97 !SET_ROAD 217 97 !SET_ROAD 218 97
+!SET_ROAD 219 97 !SET_ROAD 220 97 !SET_ROAD 221 97
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 217 97 // serf
@@ -319,14 +341,15 @@
 !SET_UNIT 1 218 97 // blank
 !SET_UNIT 1 218 98 // blank
 
-
-----------
+-----Hand5-----
 !HAND_CURRENT 5
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 32768
 !HAND_CENTER_SCREEN 218 28
+
+// Fog of War
 !FOW_REVEAL 218 28 15
 
 // Goals
@@ -347,8 +370,8 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -365,8 +388,11 @@
 
 // Roads and fields
 
-!SET_ROAD 216 29 !SET_ROAD 217 29 !SET_ROAD 218 29 !SET_ROAD 219 29
-!SET_ROAD 220 29 !SET_ROAD 221 29
+!SET_ROAD 218 28 !SET_ROAD 216 29 !SET_ROAD 217 29 !SET_ROAD 218 29
+!SET_ROAD 219 29 !SET_ROAD 220 29 !SET_ROAD 221 29
+
+// Fences
+
 
 // Units
 !SET_UNIT 2 217 29 // serf
@@ -382,10 +408,12 @@
 !SET_UNIT 1 218 29 // blank
 !SET_UNIT 1 218 30 // blank
 
-
-----------
+-----Hand6-----
 !HAND_CURRENT 6
+!HAND_NEUTRAL_TYPE 0 // Inert
 !HAND_ACTIVATE
+
+// Fog of War
 
 // Roads and fields
 
@@ -701,6 +729,9 @@
 !SET_ROAD 128 189 !SET_ROAD 129 189 !SET_ROAD 125 190 !SET_ROAD 127 190
 !SET_ROAD 129 190
 
+// Fences
+
+
 // Units
 !SET_UNIT 44 197 166 // deer
 !SET_UNIT 44 190 91 // deer
@@ -709,13 +740,17 @@
 !SET_UNIT 44 61 92 // deer
 !SET_UNIT 44 65 164 // deer
 
-
-----------
+-----Hand7-----
 !HAND_CURRENT 7
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
+// Fog of War
+
 // Roads and fields
+
+
+// Fences
 
 
 // Units
@@ -732,8 +767,6 @@
 !SET_UNIT 45 159 30 // boar
 !SET_UNIT 45 91 29 // boar
 !SET_UNIT 46 127 95 // bear
-
-
 
 // Emitters
 !SET_EMITTER 7 16 94
@@ -782,4 +815,5 @@
 !SET_EMITTER 5 159 179
 !SET_EMITTER 5 167 159
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:09)"  on 17.07.2019 20:09:57
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:42
