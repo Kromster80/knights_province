@@ -1,18 +1,21 @@
 !VERSION 3
 
 // General settings
+!RANKING 0 // Disabled
 !MODE_TACTIC
-!HANDS_COUNT 4
+!HANDS_COUNT 6
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 7 40
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 1 1 0 0 1
@@ -42,8 +45,8 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -52,26 +55,32 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
+
 // Groups
-!SET_GROUP 20 5 37 1 4 12
+!SET_GROUP 20 5 37 1 4 12 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 20 11 42 1 3 9
+!SET_GROUP 20 11 42 1 3 9 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 26 8 34 1 3 6
+!SET_GROUP 26 8 34 1 3 6 // cavalry
 !SET_GROUP_FOOD
-!SET_GROUP 22 5 43 1 3 9
+!SET_GROUP 22 5 43 1 3 9 // arbaletman
 !SET_GROUP_FOOD
-!SET_GROUP 24 13 38 1 3 9
+!SET_GROUP 24 13 38 1 3 9 // halberdier
 !SET_GROUP_FOOD
 
-----------
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 38 40
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 1 1 0 1 1
@@ -101,8 +110,8 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -111,26 +120,32 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
+
 // Groups
-!SET_GROUP 22 43 42 7 3 9
+!SET_GROUP 22 43 42 7 3 9 // arbaletman
 !SET_GROUP_FOOD
-!SET_GROUP 20 36 41 7 4 12
+!SET_GROUP 20 36 41 7 4 12 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 20 40 37 7 3 9
+!SET_GROUP 20 40 37 7 3 9 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 26 31 40 7 3 6
+!SET_GROUP 26 31 40 7 3 6 // cavalry
 !SET_GROUP_FOOD
-!SET_GROUP 24 36 35 7 3 9
+!SET_GROUP 24 36 35 7 3 9 // halberdier
 !SET_GROUP_FOOD
 
-----------
+-----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 16711680
 !HAND_CENTER_SCREEN 7 9
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 1 1 0 2 1
@@ -160,8 +175,8 @@
 !SET_ALLIANCE 3 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -170,26 +185,32 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
+
 // Groups
-!SET_GROUP 22 4 4 3 3 9
+!SET_GROUP 22 4 4 3 3 9 // arbaletman
 !SET_GROUP_FOOD
-!SET_GROUP 20 10 5 3 4 12
+!SET_GROUP 20 10 5 3 4 12 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 20 5 9 3 3 9
+!SET_GROUP 20 5 9 3 3 9 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 24 3 14 3 3 9
+!SET_GROUP 24 3 14 3 3 9 // halberdier
 !SET_GROUP_FOOD
-!SET_GROUP 26 10 9 3 3 6
+!SET_GROUP 26 10 9 3 3 6 // cavalry
 !SET_GROUP_FOOD
 
-----------
+-----Hand3-----
 !HAND_CURRENT 3
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 65280
 !HAND_CENTER_SCREEN 39 7
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 1 1 0 3 1
@@ -219,8 +240,8 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -229,18 +250,48 @@
 // Roads and fields
 
 
+// Fences
+
+
 // Units
+
 // Groups
-!SET_GROUP 22 42 4 5 3 9
+!SET_GROUP 22 42 4 5 3 9 // arbaletman
 !SET_GROUP_FOOD
-!SET_GROUP 20 36 5 5 4 12
+!SET_GROUP 20 36 5 5 4 12 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 20 40 9 5 3 9
+!SET_GROUP 20 40 9 5 3 9 // swordsman
 !SET_GROUP_FOOD
-!SET_GROUP 26 38 13 5 3 6
+!SET_GROUP 26 38 13 5 3 6 // cavalry
 !SET_GROUP_FOOD
-!SET_GROUP 24 33 9 5 3 9
+!SET_GROUP 24 33 9 5 3 9 // halberdier
 !SET_GROUP_FOOD
 
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7365 (2019.03.30 12:03)"  on 30.03.2019 12:04:07
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand5-----
+!HAND_CURRENT 5
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:49
