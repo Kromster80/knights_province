@@ -1,16 +1,19 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 2
+!RANKING 0 // Disabled
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 19 29
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 0 0 1 0 0
@@ -25,31 +28,31 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 7
-!HOUSE_BLOCK 8
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 11
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 16
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 19
-!HOUSE_BLOCK 20
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 22
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 24
-!HOUSE_BLOCK 25
-!HOUSE_BLOCK 26
-!HOUSE_BLOCK 28
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 31
-!HOUSE_BLOCK 32
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 7 // bakery
+!HOUSE_BLOCK 8 // farm
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 11 // camp
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 22 // mill
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 25 // tannery
+!HOUSE_BLOCK 26 // store
+!HOUSE_BLOCK 28 // brewery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // towerBolt
+!HOUSE_BLOCK 32 // ciderMaker
 
 // Block units
 
@@ -69,6 +72,9 @@
 !SET_ROAD 17 28 !SET_ROAD 18 28 !SET_ROAD 14 29 !SET_ROAD 15 29
 !SET_ROAD 16 29 !SET_ROAD 17 29 !SET_ROAD 18 29
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 14 29 // serf
 !SET_UNIT 2 15 29 // serf
@@ -78,16 +84,19 @@
 !SET_UNIT 3 15 28 // builder
 !SET_UNIT 3 17 28 // builder
 !SET_UNIT 2 18 29 // serf
-// Groups
-!SET_GROUP 25 22 28 4 1 1
 
-----------
+// Groups
+!SET_GROUP 25 22 28 4 1 1 // horsescout
+
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 8388736
 !HAND_CENTER_SCREEN 63 95
+
+// Fog of War
 
 // Goals
 !ADD_GOAL 0 0 1 0 0
@@ -103,31 +112,31 @@
 !SET_ALLIANCE 0 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 7
-!HOUSE_BLOCK 8
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 11
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 16
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 19
-!HOUSE_BLOCK 20
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 22
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 24
-!HOUSE_BLOCK 25
-!HOUSE_BLOCK 26
-!HOUSE_BLOCK 28
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 31
-!HOUSE_BLOCK 32
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 7 // bakery
+!HOUSE_BLOCK 8 // farm
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 11 // camp
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 22 // mill
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 25 // tannery
+!HOUSE_BLOCK 26 // store
+!HOUSE_BLOCK 28 // brewery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // towerBolt
+!HOUSE_BLOCK 32 // ciderMaker
 
 // Block units
 
@@ -147,6 +156,9 @@
 !SET_ROAD 68 94 !SET_ROAD 69 94 !SET_ROAD 65 95 !SET_ROAD 66 95
 !SET_ROAD 67 95 !SET_ROAD 68 95 !SET_ROAD 69 95
 
+// Fences
+
+
 // Units
 !SET_UNIT 3 66 94 // builder
 !SET_UNIT 3 67 94 // builder
@@ -156,8 +168,35 @@
 !SET_UNIT 2 67 95 // serf
 !SET_UNIT 2 68 95 // serf
 !SET_UNIT 2 69 95 // serf
+
 // Groups
-!SET_GROUP 25 60 94 4 1 1
+!SET_GROUP 25 60 94 4 1 1 // horsescout
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:12
+// Fences
+
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:47

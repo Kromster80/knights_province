@@ -3,7 +3,7 @@
 // General settings
 !RANKING 0 // Disabled
 !MODE_TACTIC
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -30,7 +30,7 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -75,7 +75,7 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -120,7 +120,7 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -149,6 +149,7 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
 !HAND_ACTIVATE
 
 // Fog of War
@@ -162,6 +163,19 @@
 // Units
 !SET_UNIT 44 3 14 // deer
 
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
 // Emitters
 !SET_EMITTER 17 9 1
 !SET_EMITTER 17 3 10
@@ -172,4 +186,4 @@
 !SET_EMITTER 17 43 6
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8926 (2020-05-07 18:05)"  on 2020-05-09 21:22:33
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:45
