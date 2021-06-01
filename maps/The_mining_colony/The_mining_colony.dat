@@ -27,14 +27,12 @@
 // Alliances
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
 // Block trades
-
-// Houses
 
 // Roads and fields
 
@@ -65,33 +63,33 @@
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
-!SET_HOUSE 5 67 53 0 // GoldMine
+!SET_HOUSE 5 67 53 0 // goldMine
 !SET_HOUSE_DAMAGE 250
 !SET_HOUSE 27 44 56 0 // tavern
 !SET_HOUSE_DAMAGE 400
 !SET_HOUSE 7 40 57 0 // bakery
 !SET_HOUSE_DAMAGE 400
-!SET_HOUSE 5 3 53 0 // GoldMine
+!SET_HOUSE 5 3 53 0 // goldMine
 !SET_HOUSE_DAMAGE 250
-!SET_HOUSE 5 12 50 0 // GoldMine
+!SET_HOUSE 5 12 50 0 // goldMine
 !SET_HOUSE_DAMAGE 250
 !SET_HOUSE 37 52 60 1 // cottage
 !SET_HOUSE_DAMAGE 300
-!SET_HOUSE 17 53 77 1 // tower_arrow
+!SET_HOUSE 17 53 77 1 // towerArrow
 !SET_HOUSE_DAMAGE 245
-!SET_HOUSE 5 19 50 0 // GoldMine
+!SET_HOUSE 5 19 50 0 // goldMine
 !SET_HOUSE_DAMAGE 250
 !SET_HOUSE 15 66 59 0 // mint
 !SET_HOUSE_DAMAGE 375
-!SET_HOUSE 5 57 54 0 // GoldMine
+!SET_HOUSE 5 57 54 0 // goldMine
 !SET_HOUSE_DAMAGE 250
 !SET_HOUSE 8 33 62 1 // farm
 !SET_HOUSE_DAMAGE 400
 !SET_HOUSE 8 31 57 0 // farm
 !SET_HOUSE_DAMAGE 400
-!SET_HOUSE 5 26 49 0 // GoldMine
+!SET_HOUSE 5 26 49 0 // goldMine
 !SET_HOUSE_DAMAGE 250
-!SET_HOUSE 5 35 50 0 // GoldMine
+!SET_HOUSE 5 35 50 0 // goldMine
 !SET_HOUSE_DAMAGE 250
 !SET_HOUSE 3 61 58 0 // coalmakers
 !SET_HOUSE_DAMAGE 400
@@ -130,7 +128,7 @@
 // Fog of War
 
 // Houses
-!SET_HOUSE 38 4 77 0 // wolfsden
+!SET_HOUSE 38 4 77 0 // wolfsDen
 
 // Roads and fields
 
@@ -157,4 +155,4 @@
 !SET_TRIGGER 3 43 34 77 40
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 6-7-2020 19:14:07
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:47

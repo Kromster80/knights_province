@@ -27,10 +27,10 @@
 // Alliances
 
 // Grant/Block houses
-!HOUSE_BLOCK 17 // tower_arrow
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
-!HOUSE_BLOCK 31 // tower2
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 
@@ -92,9 +92,9 @@
 // Fog of War
 
 // Houses
-!SET_HOUSE 39 69 36 0 // bearsden
-!SET_HOUSE 38 4 59 0 // wolfsden
-!SET_HOUSE 38 6 91 0 // wolfsden
+!SET_HOUSE 39 69 36 0 // bearsDen
+!SET_HOUSE 38 4 59 0 // wolfsDen
+!SET_HOUSE 38 6 91 0 // wolfsDen
 
 // Roads and fields
 
@@ -140,4 +140,4 @@
 !SET_EMITTER 17 16 34
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 14-7-2020 15:24:16
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:43

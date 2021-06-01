@@ -1,17 +1,20 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 3
+!RANKING 0 // Disabled
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
-----------
+-----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 30 131
+
+// Fog of War
 !FOW_REVEAL 30 131 15
 
 // Goals
@@ -35,8 +38,8 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -55,6 +58,9 @@
 !SET_ROAD 30 131 !SET_ROAD 28 132 !SET_ROAD 29 132 !SET_ROAD 30 132
 !SET_ROAD 31 132 !SET_ROAD 32 132 !SET_ROAD 33 132
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 29 132 // serf
 !SET_UNIT 3 31 132 // builder
@@ -69,14 +75,15 @@
 !SET_UNIT 2 27 133 // serf
 !SET_UNIT 3 33 133 // builder
 
-
-----------
+-----Hand1-----
 !HAND_CURRENT 1
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 114 39
+
+// Fog of War
 !FOW_REVEAL 114 39 15
 
 // Goals
@@ -100,8 +107,8 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -120,6 +127,9 @@
 !SET_ROAD 114 39 !SET_ROAD 112 40 !SET_ROAD 113 40 !SET_ROAD 114 40
 !SET_ROAD 115 40 !SET_ROAD 116 40 !SET_ROAD 117 40
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 113 40 // serf
 !SET_UNIT 3 115 40 // builder
@@ -134,14 +144,15 @@
 !SET_UNIT 2 111 41 // serf
 !SET_UNIT 3 117 41 // builder
 
-
-----------
+-----Hand2-----
 !HAND_CURRENT 2
 !HAND_ALLOW_HUMAN
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 26 23
+
+// Fog of War
 !FOW_REVEAL 26 23 15
 
 // Goals
@@ -165,8 +176,8 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -185,6 +196,9 @@
 !SET_ROAD 26 23 !SET_ROAD 23 24 !SET_ROAD 24 24 !SET_ROAD 25 24
 !SET_ROAD 26 24 !SET_ROAD 27 24 !SET_ROAD 28 24 !SET_ROAD 29 24
 
+// Fences
+
+
 // Units
 !SET_UNIT 2 25 24 // serf
 !SET_UNIT 3 27 24 // builder
@@ -199,6 +213,31 @@
 !SET_UNIT 2 23 25 // serf
 !SET_UNIT 3 29 25 // builder
 
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r7615 (2019.07.17 20:00)"  on 17.07.2019 20:01:12
+// Fences
+
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:46
