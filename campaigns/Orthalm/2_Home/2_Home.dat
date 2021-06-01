@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 5
+!HANDS_COUNT 7
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -31,25 +31,25 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 16
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 20
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 24
-!HOUSE_BLOCK 25
-!HOUSE_BLOCK 28
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 30
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 25 // tannery
+!HOUSE_BLOCK 28 // brewery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 30 // fort
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 
@@ -70,10 +70,10 @@
 !SET_HOUSE 27 17 58 1 // tavern
 !SET_HOUSE 6 13 64 1 // fishermans
 !SET_HOUSE 37 11 55 0 // cottage
-!SET_HOUSE 19 23 61 0 // WeaponWorkshop
+!SET_HOUSE 19 23 61 0 // weaponWorkshop
 !SET_HOUSE 33 14 44 0 // sawmill
 !SET_HOUSE_DAMAGE 50
-!SET_HOUSE 20 24 45 1 // ArmorWorkshop
+!SET_HOUSE 20 24 45 1 // armorWorkshop
 !SET_HOUSE_DAMAGE 400
 !SET_HOUSE 7 28 59 1 // bakery
 !SET_HOUSE_DAMAGE 100
@@ -104,15 +104,15 @@
 !SET_HOUSE_DAMAGE 300
 !SET_HOUSE 32 59 64 1 // ciderMaker
 !SET_HOUSE_DAMAGE 300
-!SET_HOUSE 16 32 48 1 // cattlefarm
+!SET_HOUSE 16 32 48 1 // cattleFarm
 !SET_HOUSE_DAMAGE 150
-!SET_HOUSE 17 19 39 0 // tower_arrow
+!SET_HOUSE 17 19 39 0 // towerArrow
 !SET_HOUSE_DAMAGE 50
-!SET_HOUSE 17 25 40 0 // tower_arrow
+!SET_HOUSE 17 25 40 0 // towerArrow
 !SET_HOUSE_DAMAGE 50
-!SET_HOUSE 17 36 49 1 // tower_arrow
+!SET_HOUSE 17 36 49 1 // towerArrow
 !SET_HOUSE_DAMAGE 50
-!SET_HOUSE 17 37 56 1 // tower_arrow
+!SET_HOUSE 17 37 56 1 // towerArrow
 !SET_HOUSE_DAMAGE 50
 
 // Roads and fields
@@ -281,8 +281,8 @@
 !SET_ALLIANCE 4 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -298,7 +298,7 @@
 !SET_HOUSE 27 58 13 1 // tavern
 !SET_HOUSE 37 48 13 0 // cottage
 !SET_HOUSE 33 51 17 0 // sawmill
-!SET_HOUSE 19 55 18 0 // WeaponWorkshop
+!SET_HOUSE 19 55 18 0 // weaponWorkshop
 !SET_HOUSE 13 59 7 0 // school
 !SET_HOUSE 37 64 12 0 // cottage
 
@@ -361,8 +361,8 @@
 !SET_ALLIANCE 4 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -446,8 +446,8 @@
 !SET_ALLIANCE 4 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -500,8 +500,8 @@
 !SET_ALLIANCE 3 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -520,5 +520,31 @@
 !SET_GROUP 25 44 49 5 3 6 // horsescout
 !SET_GROUP 19 47 51 6 3 6 // axefighter
 
+-----Hand5-----
+!HAND_CURRENT 5
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8746 (2020.04.01 10:50)"  on 01.04.2020 10:53:59
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand6-----
+!HAND_CURRENT 6
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:59
