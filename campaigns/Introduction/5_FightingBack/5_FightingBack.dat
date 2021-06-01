@@ -31,23 +31,23 @@
 
 // Grant/Block houses
 !HOUSE_BLOCK 1 // foundry
-!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 2 // weaponSmithy
 !HOUSE_BLOCK 3 // coalmakers
-!HOUSE_BLOCK 4 // IronMine
-!HOUSE_BLOCK 5 // GoldMine
-!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 12 // stables
 !HOUSE_BLOCK 15 // mint
-!HOUSE_BLOCK 16 // cattlefarm
-!HOUSE_BLOCK 17 // tower_arrow
-!HOUSE_BLOCK 20 // ArmorWorkshop
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
 !HOUSE_BLOCK 25 // tannery
 !HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
-!HOUSE_BLOCK 31 // tower2
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -117,7 +117,7 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -138,7 +138,7 @@
 !SET_HOUSE 33 60 24 0 // sawmill
 !SET_HOUSE 14 57 30 0 // stonecutters
 !SET_HOUSE 14 55 35 0 // stonecutters
-!SET_HOUSE 19 65 36 0 // WeaponWorkshop
+!SET_HOUSE 19 65 36 0 // weaponWorkshop
 !SET_HOUSE 32 68 28 0 // ciderMaker
 !SET_HOUSE 6 55 25 0 // fishermans
 !SET_HOUSE 8 76 38 0 // farm
@@ -146,7 +146,7 @@
 !SET_HOUSE 7 67 42 0 // bakery
 !SET_HOUSE 8 61 35 0 // farm
 !SET_HOUSE 26 76 29 0 // store
-!SET_HOUSE 16 77 33 0 // cattlefarm
+!SET_HOUSE 16 77 33 0 // cattleFarm
 !SET_HOUSE 24 71 32 0 // butchers
 !SET_HOUSE 37 68 16 1 // cottage
 !SET_HOUSE 37 73 45 0 // cottage
@@ -271,7 +271,7 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -321,6 +321,10 @@
 // Fences
 
 
+// Units
+!SET_UNIT 32 30 59 // wagon
+!SET_UNIT_WARE 3 50
+
 -----Hand4-----
 !HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE 1 // Hostile
@@ -329,7 +333,7 @@
 // Fog of War
 
 // Houses
-!SET_HOUSE 38 28 74 0 // wolfsden
+!SET_HOUSE 38 28 74 0 // wolfsDen
 
 // Roads and fields
 
@@ -337,9 +341,5 @@
 // Fences
 
 
-// Units
-!SET_UNIT 32 30 59 // wagon
-!SET_UNIT_WARE 3 50
 
-
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r9039 (2020.06.19 12:44)"  on 19.06.2020 12:46:40
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:57

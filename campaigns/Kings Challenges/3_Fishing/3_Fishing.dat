@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 3 // Max score
-!HANDS_COUNT 2
+!HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -27,23 +27,23 @@
 // Alliances
 
 // Grant/Block houses
-!HOUSE_BLOCK 1
-!HOUSE_BLOCK 2
-!HOUSE_BLOCK 3
-!HOUSE_BLOCK 4
-!HOUSE_BLOCK 5
-!HOUSE_BLOCK 10
-!HOUSE_BLOCK 12
-!HOUSE_BLOCK 15
-!HOUSE_BLOCK 17
-!HOUSE_BLOCK 19
-!HOUSE_BLOCK 20
-!HOUSE_BLOCK 21
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 25
-!HOUSE_BLOCK 29
-!HOUSE_BLOCK 30
-!HOUSE_BLOCK 31
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 25 // tannery
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 30 // fort
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 !UNIT_BLOCK 15 // smith
@@ -53,7 +53,7 @@
 !UNIT_BLOCK 21 // bowman
 !UNIT_BLOCK 22 // arbaletman
 !UNIT_BLOCK 23 // pikeman
-!UNIT_BLOCK 24 // hallebardman
+!UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
@@ -71,7 +71,7 @@
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
 !SET_HOUSE 37 32 38 0 // cottage
 !SET_HOUSE 27 30 44 1 // tavern
-!SET_HOUSE 17 35 29 0 // tower_arrow
+!SET_HOUSE 17 35 29 0 // towerArrow
 
 // Roads and fields
 
@@ -102,13 +102,26 @@
 
 -----Hand1-----
 !HAND_CURRENT 1
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand2-----
+!HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE 1 // Hostile
 !HAND_ACTIVATE
 
 // Fog of War
 
 // Houses
-!SET_HOUSE 38 33 12 0 // wolfsden
+!SET_HOUSE 38 33 12 0 // wolfsDen
 
 // Roads and fields
 
@@ -117,4 +130,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8808 (2020.04.09 12:16)"  on 09.04.2020 12:20:32
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:58

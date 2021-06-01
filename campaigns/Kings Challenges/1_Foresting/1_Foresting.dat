@@ -29,28 +29,28 @@
 
 // Grant/Block houses
 !HOUSE_BLOCK 1 // foundry
-!HOUSE_BLOCK 2 // WeaponSmithy
-!HOUSE_BLOCK 4 // IronMine
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 7 // bakery
 !HOUSE_BLOCK 8 // farm
-!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 11 // camp
 !HOUSE_BLOCK 12 // stables
-!HOUSE_BLOCK 16 // cattlefarm
-!HOUSE_BLOCK 17 // tower_arrow
-!HOUSE_BLOCK 19 // WeaponWorkshop
-!HOUSE_BLOCK 20 // ArmorWorkshop
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 22 // mill
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
 !HOUSE_BLOCK 25 // tannery
 !HOUSE_BLOCK 26 // store
 !HOUSE_BLOCK 28 // brewery
 !HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
-!HOUSE_BLOCK 31 // tower2
+!HOUSE_BLOCK 31 // towerBolt
 
 // Block units
 !UNIT_BLOCK 6 // breeder
@@ -137,4 +137,4 @@
 !SET_STOCKPILE 1 39 43 5
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r9064 (2020.09.17 17:26)"  on 17.09.2020 17:30:03
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:58
