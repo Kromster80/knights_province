@@ -31,27 +31,27 @@
 
 // Grant/Block houses
 !HOUSE_BLOCK 1 // foundry
-!HOUSE_BLOCK 2 // WeaponSmithy
+!HOUSE_BLOCK 2 // weaponSmithy
 !HOUSE_BLOCK 3 // coalmakers
-!HOUSE_BLOCK 4 // IronMine
-!HOUSE_BLOCK 5 // GoldMine
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
 !HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 7 // bakery
 !HOUSE_BLOCK 8 // farm
 !HOUSE_BLOCK 9 // woodcutters
-!HOUSE_BLOCK 10 // ArmorSmithy
+!HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 11 // camp
 !HOUSE_BLOCK 12 // stables
 !HOUSE_BLOCK 13 // school
 !HOUSE_BLOCK 14 // stonecutters
 !HOUSE_BLOCK 15 // mint
-!HOUSE_BLOCK 16 // cattlefarm
-!HOUSE_BLOCK 17 // tower_arrow
-!HOUSE_BLOCK 19 // WeaponWorkshop
-!HOUSE_BLOCK 20 // ArmorWorkshop
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 22 // mill
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
 !HOUSE_BLOCK 25 // tannery
 !HOUSE_BLOCK 26 // store
@@ -59,7 +59,7 @@
 !HOUSE_BLOCK 28 // brewery
 !HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
-!HOUSE_BLOCK 31 // tower2
+!HOUSE_BLOCK 31 // towerBolt
 !HOUSE_BLOCK 32 // ciderMaker
 !HOUSE_BLOCK 33 // sawmill
 !HOUSE_BLOCK 37 // cottage
@@ -76,7 +76,7 @@
 !UNIT_BLOCK 21 // bowman
 !UNIT_BLOCK 22 // arbaletman
 !UNIT_BLOCK 23 // pikeman
-!UNIT_BLOCK 24 // hallebardman
+!UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
@@ -117,7 +117,7 @@
 !SET_ALLIANCE 3 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -158,7 +158,7 @@
 !SET_ALLIANCE 3 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -238,7 +238,7 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // SiegeWorkshop
+!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
@@ -270,7 +270,7 @@
 // Fog of War
 
 // Houses
-!SET_HOUSE 17 28 22 0 // tower_arrow
+!SET_HOUSE 17 28 22 0 // towerArrow
 
 // Roads and fields
 
@@ -296,4 +296,4 @@
 !SET_TRIGGER 2 26 20 31 21
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11.1 r9064 (2020-06-27 10:48)"  on 15-7-2020 09:29:58
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:38
