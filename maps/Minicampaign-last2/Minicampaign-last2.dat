@@ -1,7 +1,8 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 2
+!RANKING 0 // Disabled
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -38,8 +39,8 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -167,8 +168,8 @@
 !SET_ALLIANCE 0 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -194,11 +195,11 @@
 !SET_HOUSE 13 41 20 0 // school
 !SET_HOUSE 37 60 14 0 // cottage
 !SET_HOUSE 27 61 20 0 // tavern
-!SET_HOUSE 17 48 46 0 // tower_arrow
-!SET_HOUSE 17 56 46 0 // tower_arrow
+!SET_HOUSE 17 48 46 0 // towerArrow
+!SET_HOUSE 17 56 46 0 // towerArrow
 !SET_HOUSE 14 28 6 0 // stonecutters
 !SET_HOUSE 8 28 15 0 // farm
-!SET_HOUSE 16 79 16 0 // cattlefarm
+!SET_HOUSE 16 79 16 0 // cattleFarm
 !SET_HOUSE 22 31 10 0 // mill
 !SET_HOUSE 7 28 23 0 // bakery
 !SET_HOUSE 24 78 24 0 // butchers
@@ -300,6 +301,32 @@
 !SET_GROUP 18 33 100 4 3 6 // militia
 !SET_GROUP 18 22 100 4 3 6 // militia
 
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
 // Stockpiles
 !SET_STOCKPILE 14 67 179 10
 !SET_STOCKPILE 21 73 176 10
@@ -323,4 +350,4 @@
 !SET_STOCKPILE 23 29 164 10
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8744 (2020.04.01 10:22)"  on 01.04.2020 10:24:19
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:44
