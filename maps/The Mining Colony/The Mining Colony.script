@@ -1,18 +1,18 @@
 const
   HUMAN_ID = 0; // We've got only one player
-  WARE = 'Gold';
+  WARE_NAME = 'Gold';
 
 var
-  TRANSFER_AVAILABLE:Boolean;
-  MINT_AVAILABLE:Boolean;
-  ENTER_AVAILABLE:Boolean;
+  TRANSFER_AVAILABLE: Boolean;
+  MINT_AVAILABLE: Boolean;
+  ENTER_AVAILABLE: Boolean;
 
 procedure OnMissionStart;
 begin
   Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
   TRANSFER_AVAILABLE := True;
-  MINT_AVAILABLE:= False;
-  ENTER_AVAILABLE:= False;
+  MINT_AVAILABLE := False;
+  ENTER_AVAILABLE := False;
 end;
 
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
@@ -68,7 +68,7 @@ begin
 
     // Unlock stonemason
     Actions.HouseUnlock(HUMAN_ID, htStonecutters);
-    ENTER_AVAILABLE:= True;
+    ENTER_AVAILABLE := True;
     MINT_AVAILABLE := False;
   end;
 
@@ -76,16 +76,16 @@ begin
   begin
     Actions.PlayerMessage(HUMAN_ID, '<$5>', True);
     Actions.HouseUnlock(HUMAN_ID, htMint);
-    ENTER_AVAILABLE:= False;
+    ENTER_AVAILABLE := False;
   end;
 end;
 
 procedure OnPlayerVictory(aPlayer: Integer);
 var
-  oldCnt, newCnt: Integer;
+  goldCnt: Integer;
 begin
-  newCnt := States.StatWaresBalance(aPlayer, wtGold);
-  Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked||' + IntToStr(newCnt) + '||' + WARE + '|this time');
+  goldCnt := States.StatWaresBalance(aPlayer, wtGold);
+  Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked||' + IntToStr(goldCnt) + '||' + WARE_NAME + '|this time');
 
-  Actions.MissionHighscore(newCnt);
+  Actions.MissionHighscore(goldCnt);
 end;
