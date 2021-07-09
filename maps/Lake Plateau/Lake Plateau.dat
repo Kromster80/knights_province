@@ -1,0 +1,219 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!HANDS_COUNT 5
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 658160
+!HAND_CENTER_SCREEN 22 71
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 15 78 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 17 28 57 0 // towerArrow
+
+// Roads and fields
+
+!SET_ROAD 12 74 !SET_ROAD 13 74 !SET_ROAD 14 74 !SET_ROAD 15 74
+!SET_ROAD 16 74 !SET_ROAD 17 74 !SET_ROAD 12 75 !SET_ROAD 17 75
+!SET_ROAD 12 76 !SET_ROAD 17 76 !SET_ROAD 12 77 !SET_ROAD 17 77
+!SET_ROAD 12 78 !SET_ROAD 15 78 !SET_ROAD 17 78 !SET_ROAD 12 79
+!SET_ROAD 13 79 !SET_ROAD 14 79 !SET_ROAD 15 79 !SET_ROAD 16 79
+!SET_ROAD 17 79
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 12 80 // serf
+!SET_UNIT 2 13 80 // serf
+!SET_UNIT 2 12 81 // serf
+!SET_UNIT 3 14 81 // builder
+!SET_UNIT 3 15 81 // builder
+!SET_UNIT 3 15 80 // builder
+!SET_UNIT 2 13 81 // serf
+!SET_UNIT 3 14 80 // builder
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 25087
+!HAND_CENTER_SCREEN 84 48
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 84 48 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 17 66 51 0 // towerArrow
+
+// Roads and fields
+
+!SET_ROAD 81 44 !SET_ROAD 82 44 !SET_ROAD 83 44 !SET_ROAD 84 44
+!SET_ROAD 85 44 !SET_ROAD 86 44 !SET_ROAD 81 45 !SET_ROAD 86 45
+!SET_ROAD 81 46 !SET_ROAD 86 46 !SET_ROAD 81 47 !SET_ROAD 86 47
+!SET_ROAD 81 48 !SET_ROAD 84 48 !SET_ROAD 86 48 !SET_ROAD 81 49
+!SET_ROAD 82 49 !SET_ROAD 83 49 !SET_ROAD 84 49 !SET_ROAD 85 49
+!SET_ROAD 86 49
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 81 50 // serf
+!SET_UNIT 2 82 50 // serf
+!SET_UNIT 2 82 51 // serf
+!SET_UNIT 2 81 51 // serf
+!SET_UNIT 3 83 50 // builder
+!SET_UNIT 3 84 50 // builder
+!SET_UNIT 3 84 51 // builder
+!SET_UNIT 3 83 51 // builder
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 524287
+!HAND_CENTER_SCREEN 30 15
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 30 15 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 17 41 23 1 // towerArrow
+
+// Roads and fields
+
+!SET_ROAD 27 11 !SET_ROAD 28 11 !SET_ROAD 29 11 !SET_ROAD 30 11
+!SET_ROAD 31 11 !SET_ROAD 32 11 !SET_ROAD 27 12 !SET_ROAD 32 12
+!SET_ROAD 27 13 !SET_ROAD 32 13 !SET_ROAD 27 14 !SET_ROAD 32 14
+!SET_ROAD 27 15 !SET_ROAD 30 15 !SET_ROAD 32 15 !SET_ROAD 27 16
+!SET_ROAD 28 16 !SET_ROAD 29 16 !SET_ROAD 30 16 !SET_ROAD 31 16
+!SET_ROAD 32 16
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 28 17 // serf
+!SET_UNIT 2 27 17 // serf
+!SET_UNIT 2 27 18 // serf
+!SET_UNIT 2 28 18 // serf
+!SET_UNIT 3 29 17 // builder
+!SET_UNIT 3 30 17 // builder
+!SET_UNIT 3 30 18 // builder
+!SET_UNIT 3 29 18 // builder
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10345 (2021-07-06 18:45)"  on 9-7-2021 20:18:06
