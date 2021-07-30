@@ -15,9 +15,10 @@
 !HAND_CENTER_SCREEN 35 68
 
 // Fog of War
+!FOW_REVEAL 55 0 12
 
 // Goals
-!ADD_GOAL 0 3 6300 1
+!ADD_GOAL 0 3 9000 1
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -80,9 +81,15 @@
 
 
 // Units
-!SET_UNIT 44 20 93 // deer
+!SET_UNIT 44 16 90 // deer
 !SET_UNIT 44 79 62 // deer
 !SET_UNIT 44 68 60 // deer
+!SET_UNIT 43 72 92 // duck
+!SET_UNIT 47 73 91 // duck2
+!SET_UNIT 47 54 52 // duck2
+!SET_UNIT 43 53 54 // duck
+!SET_UNIT 41 54 92 // waterflower
+!SET_UNIT 42 53 93 // waterleaf
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -117,13 +124,8 @@
 !SET_UNIT 46 66 37 // bear
 !SET_UNIT 46 10 37 // bear
 !SET_UNIT 46 59 45 // bear
-!SET_UNIT 46 33 32 // bear
-!SET_UNIT 46 24 27 // bear
 
 // Triggers
-!SET_TRIGGER 1 94 1 94 94
-!SET_TRIGGER 2 0 94 93 94
-!SET_TRIGGER 3 0 0 0 93
 !SET_TRIGGER 4 1 0 94 0
 
 // Emitters
@@ -140,4 +142,4 @@
 !SET_EMITTER 17 16 34
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:43
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 30-7-2021 19:12:30

@@ -4,9 +4,10 @@ const
 
 // Wooden weapons 2 gold
 // Wooden shield 1 gold
-// Leather armor 2 gold
+// Gambeson armor 2 gold
 // Iron weapon 4 gold
 // Iron armor 4 gold
+// Iron shield
 // Horse 2 gold
 
 procedure OnMissionStart;
