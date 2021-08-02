@@ -30,8 +30,32 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
+!HOUSE_BLOCK 7 // bakery
+!HOUSE_BLOCK 8 // farm
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 22 // mill
 !HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 28 // brewery
 !HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 30 // fort
+!HOUSE_BLOCK 31 // towerBolt
+!HOUSE_BLOCK 32 // ciderMaker
+!HOUSE_BLOCK 34 // sheepyard
+!HOUSE_BLOCK 35 // clothMaker
 
 // Block units
 
@@ -143,12 +167,8 @@
 !SET_HOUSE 36 45 58 0 // campfire
 !SET_HOUSE 30 59 36 0 // fort
 !SET_HOUSE 11 66 36 0 // camp
-!WARE_OUT_ADD_TO_LAST 2 60 // stone
-!WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
-!WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 28 1000 // fish
+!WARE_OUT_ADD_TO_LAST 30 1000 // cider
 !SET_HOUSE 27 63 42 1 // tavern
 
 // Roads and fields
@@ -166,7 +186,7 @@
 !SET_UNIT 32 43 34 // wagon
 !SET_UNIT_WARE 21 15
 !SET_UNIT 32 15 55 // wagon
-!SET_UNIT_WARE 19 20
+!SET_UNIT_WARE 33 20
 !SET_UNIT 32 17 56 // wagon
 !SET_UNIT_WARE 21 15
 !SET_UNIT 32 41 33 // wagon
@@ -176,7 +196,7 @@
 !SET_UNIT 32 45 59 // wagon
 !SET_UNIT_WARE 21 50
 !SET_UNIT 32 44 56 // wagon
-!SET_UNIT_WARE 19 50
+!SET_UNIT_WARE 33 50
 !SET_UNIT 1 62 38 // blank
 !SET_UNIT 1 61 38 // blank
 !SET_UNIT 1 60 38 // blank
@@ -283,4 +303,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:57
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 14:55:44
