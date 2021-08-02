@@ -217,8 +217,8 @@
 !SET_HOUSE 37 6 16 0 // cottage
 !SET_HOUSE 30 23 20 0 // fort
 !WARE_OUT_ADD_TO_LAST 17 1000 // shield
-!WARE_OUT_ADD_TO_LAST 19 1000 // armor
 !WARE_OUT_ADD_TO_LAST 21 1000 // axe
+!WARE_OUT_ADD_TO_LAST 33 1000 // gambeson
 !SET_HOUSE 19 18 19 0 // weaponWorkshop
 !SET_HOUSE 9 28 6 0 // woodcutters
 !SET_HOUSE 9 35 10 0 // woodcutters
@@ -349,4 +349,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:57
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 15:02:21

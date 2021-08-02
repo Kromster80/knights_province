@@ -40,13 +40,10 @@
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 16 // cattleFarm
 !HOUSE_BLOCK 17 // towerArrow
-!HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
-!HOUSE_BLOCK 25 // tannery
 !HOUSE_BLOCK 29 // marketplace
-!HOUSE_BLOCK 30 // fort
 !HOUSE_BLOCK 31 // towerBolt
 
 // Block units
@@ -342,4 +339,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:57
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 15:00:29
