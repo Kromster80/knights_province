@@ -1,0 +1,203 @@
+const
+    // SET NUMBER OF SHRINES HERE
+    NUMBER_OF_SHRINES = 3;
+    //
+
+
+var
+    shrine_entry_area: array of Integer;
+    shrine_exit_areas: array of array of Integer;
+
+    shrine_owner: array of Integer;
+    shrine_occupants: array of array of array of Integer;
+
+    shrine_houses: array of TKMHouseType;
+    shrine_wares: array of TKMWareType;
+
+    resource_modifier: Integer;
+
+
+function ArrayContains(const my_array: array of Integer; const number: Integer): Boolean;
+var
+    i: Integer;
+begin
+    for i := Low(my_array) to High(my_array) do
+        if my_array[i] = number then
+        begin
+            Result := true;
+            Break;
+        end else
+            Result := false;
+end;
+
+
+procedure CheckShrineOwner();
+var
+    player, highest, shrine: Integer;
+begin
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        if shrine_owner[shrine] <> -1 then
+        begin
+            if Length(shrine_occupants[shrine][shrine_owner[shrine]]) = 0 then
+            begin
+                shrine_owner[shrine] := -1;
+                highest := 0;
+                for player := Low(shrine_occupants[shrine]) to High(shrine_occupants[shrine]) do
+                begin
+                    if Length(shrine_occupants[shrine][player]) > highest then
+                    begin
+                        shrine_owner[shrine] := player;
+                        highest := Length(shrine_occupants[shrine][player]);
+                        //Actions.PlayerMessage(0, IntToStr(player) + ' became owner of shrine ' + IntToStr(shrine), True);
+                    end;
+                end;
+            end;
+        end else
+        begin
+            highest := 0;
+            for player := Low(shrine_occupants[shrine]) to High(shrine_occupants[shrine]) do
+            begin
+                if Length(shrine_occupants[shrine][player]) > highest then
+                begin
+                    shrine_owner[shrine] := player;
+                    highest := Length(shrine_occupants[shrine][player]);
+                    //Actions.PlayerMessage(0, IntToStr(player) + ' became owner of shrine ' + IntToStr(shrine), True);
+                end;
+            end;
+        end;
+    end;
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+var
+    u_owner, i, shrine: Integer;
+begin
+    u_owner := States.UnitOwner(aUnit);
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        if (aTriggerId = shrine_entry_area[shrine]) then
+        begin
+            //Actions.PlayerMessage(0, IntToStr(u_owner) + ' stepped on shrine ' + IntToStr(shrine), True);
+            if Not ArrayContains(shrine_occupants[shrine][u_owner], aUnit) then
+            begin
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) + 1);
+                shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])] := aUnit;
+                //Actions.PlayerMessage(0, IntToStr(u_owner) + ' should become owner of shrine ' + IntToStr(shrine), True);
+                CheckShrineOwner();
+            end;
+        end;
+        if ArrayContains(shrine_exit_areas[shrine], aTriggerId) then
+        begin
+            for i := Low(shrine_occupants[shrine][u_owner]) to High(shrine_occupants[shrine][u_owner]) do
+            if shrine_occupants[shrine][u_owner][i] = aUnit then
+            begin
+                shrine_occupants[shrine][u_owner][i] := shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])];
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) - 1);
+                CheckShrineOwner();
+                Break;
+            end;
+        end;
+    end;
+end;
+
+
+procedure OnUnitDied(aUnit: Integer; aKillerOwner: Integer);
+var
+    u_owner, i, shrine: Integer;
+begin
+    u_owner := States.UnitOwner(aUnit);
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        for i := Low(shrine_occupants[shrine][u_owner]) to High(shrine_occupants[shrine][u_owner]) do
+            if shrine_occupants[shrine][u_owner][i] = aUnit then
+            begin
+                shrine_occupants[shrine][u_owner][i] := shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])];
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) - 1);
+                CheckShrineOwner();
+                Break;
+            end;
+    end;
+end;
+
+
+procedure OnMissionStart;
+var
+    houses: array of Integer;
+    house_index, player, shrine: Integer;
+begin
+    SetLength(shrine_entry_area, NUMBER_OF_SHRINES);
+    SetLength(shrine_exit_areas, NUMBER_OF_SHRINES);
+
+    SetLength(shrine_occupants, NUMBER_OF_SHRINES);
+    SetLength(shrine_owner, NUMBER_OF_SHRINES);
+
+    SetLength(shrine_wares, NUMBER_OF_SHRINES);
+    SetLength(shrine_houses, NUMBER_OF_SHRINES);
+
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+        SetLength(shrine_exit_areas[shrine], 4);
+
+    // CHANGE ENTRY AREAS
+    shrine_entry_area[0] := 1;
+    shrine_entry_area[1] := 6;
+    shrine_entry_area[2] := 11;
+    //
+
+    // CHANGE EXIT AREAS
+    shrine_exit_areas[0] := [2, 3, 4, 5];
+    shrine_exit_areas[1] := [7, 8, 9, 10];
+    shrine_exit_areas[2] := [12, 13, 14, 15];
+    //
+
+    // ADD SHRINES
+    shrine_wares[0] := wtGrain;
+    shrine_wares[1] := wtGrain;
+    shrine_wares[2] := wtGrain;
+    shrine_houses[0] := htStore;
+    shrine_houses[1] := htStore;
+    shrine_houses[2] := htStore;
+    //
+
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        shrine_owner[shrine] := -1;
+        SetLength(shrine_occupants[shrine], States.StatPlayerCount());
+    end;
+end;
+
+
+procedure OnTick(aTick: Integer);
+var
+    houses: array of Integer;
+    house, shrine: Integer;
+    ware_type: TKMWareType;
+begin
+    if (aTick mod (300 - resource_modifier) = 0) then
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        if (shrine_owner[shrine] <> -1) then
+        begin
+            houses := States.PlayerGetAllHouses(shrine_owner[shrine]);
+            ware_type := shrine_wares[shrine];
+            for house := 0 to High(houses) do
+            begin
+                if (States.HouseType(houses[house]) = shrine_houses[shrine]) and States.HouseIsComplete(houses[house]) then
+                begin
+                    if (shrine = 2) and (aTick > 12000) then
+                    begin
+                        Actions.HouseWareAdd(houses[house], ware_type, 2);
+                    end else
+                    begin
+                        if aTick > 6000 then
+                            Actions.HouseWareAdd(houses[house], ware_type, 1);
+                    end;
+                    Break;
+                end;
+            end;
+        end;
+    end;
+    if (aTick mod 1200 = 0) and (resource_modifier <= 200) then
+        resource_modifier := resource_modifier + 10
+end;
