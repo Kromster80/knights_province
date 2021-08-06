@@ -35,6 +35,14 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
@@ -70,8 +78,8 @@
 !SET_UNIT 3 29 30 // builder
 !SET_UNIT 2 26 30 // serf
 !SET_UNIT 3 30 30 // builder
-!SET_UNIT 2 25 30 // serf
-!SET_UNIT 3 31 30 // builder
+!SET_UNIT 1 28 29 // blank
+!SET_UNIT 1 28 30 // blank
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -102,6 +110,14 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
@@ -137,8 +153,8 @@
 !SET_UNIT 3 115 30 // builder
 !SET_UNIT 2 112 30 // serf
 !SET_UNIT 3 116 30 // builder
-!SET_UNIT 2 111 30 // serf
-!SET_UNIT 3 117 30 // builder
+!SET_UNIT 1 114 29 // blank
+!SET_UNIT 1 114 30 // blank
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -169,6 +185,14 @@
 !SET_ALLIANCE 3 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
@@ -204,8 +228,8 @@
 !SET_UNIT 3 29 116 // builder
 !SET_UNIT 2 26 116 // serf
 !SET_UNIT 3 30 116 // builder
-!SET_UNIT 2 25 116 // serf
-!SET_UNIT 3 31 116 // builder
+!SET_UNIT 1 28 115 // blank
+!SET_UNIT 1 28 116 // blank
 
 -----Hand3-----
 !HAND_CURRENT 3
@@ -236,6 +260,14 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
@@ -271,8 +303,8 @@
 !SET_UNIT 3 115 116 // builder
 !SET_UNIT 2 112 116 // serf
 !SET_UNIT 3 116 116 // builder
-!SET_UNIT 2 111 116 // serf
-!SET_UNIT 3 117 116 // builder
+!SET_UNIT 1 114 115 // blank
+!SET_UNIT 1 114 116 // blank
 
 -----Hand4-----
 !HAND_CURRENT 4
@@ -309,4 +341,4 @@
 !SET_EMITTER 17 70 72
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:39
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10481 (2021.08.03 14:34)"  on 06.08.2021 10:44:13
