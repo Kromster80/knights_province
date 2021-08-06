@@ -538,6 +538,20 @@
 !SET_UNIT 44 149 137 // deer
 !SET_UNIT 44 5 130 // deer
 !SET_UNIT 44 6 117 // deer
+!SET_UNIT 43 66 115 // duck
+!SET_UNIT 43 84 117 // duck
+!SET_UNIT 43 74 39 // duck
+!SET_UNIT 43 87 39 // duck
+!SET_UNIT 47 79 37 // duck2
+!SET_UNIT 47 75 41 // duck2
+!SET_UNIT 47 72 112 // duck2
+!SET_UNIT 47 78 118 // duck2
+!SET_UNIT 41 61 118 // waterflower
+!SET_UNIT 41 80 113 // waterflower
+!SET_UNIT 41 84 39 // waterflower
+!SET_UNIT 41 78 39 // waterflower
+!SET_UNIT 42 77 63 // waterleaf
+!SET_UNIT 42 79 98 // waterleaf
 
 -----Hand5-----
 !HAND_CURRENT 5
@@ -553,4 +567,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:38
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10481 (2021.08.03 14:34)"  on 06.08.2021 10:34:44
