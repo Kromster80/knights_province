@@ -96,7 +96,7 @@
 !SET_HOUSE 9 64 64 1 // woodcutters
 !SET_HOUSE_DAMAGE 350
 !SET_HOUSE 28 33 57 1 // brewery
-!SET_HOUSE_DAMAGE 400
+!SET_HOUSE_DAMAGE 300
 !SET_HOUSE 22 37 60 1 // mill
 !SET_HOUSE_DAMAGE 400
 
@@ -119,6 +119,11 @@
 
 // Fences
 
+
+// Units
+!SET_UNIT 43 57 69 // duck
+!SET_UNIT 47 59 77 // duck2
+!SET_UNIT 42 58 66 // waterleaf
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -155,4 +160,4 @@
 !SET_TRIGGER 3 43 34 77 40
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:47
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 9-8-2021 12:22:47
