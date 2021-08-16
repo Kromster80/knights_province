@@ -56,7 +56,7 @@
 
 // Houses
 !SET_HOUSE 11 170 158 0 // camp
-!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 2 70 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 5000 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
@@ -346,4 +346,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 15-8-2021 10:23:08
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10513 (2021-08-15 10:54)"  on 15-8-2021 23:33:48

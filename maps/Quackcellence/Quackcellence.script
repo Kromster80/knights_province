@@ -1,42 +1,42 @@
 const
-  HUMAN_ID = 0; // We've got only one player
+    HUMAN_ID = 0; // We've got only one player
 
 var
-  BreadObj, WheatTracker, FlourTracker: Integer;
-  nextQuack: Integer;
+    BreadObj, WheatTracker, FlourTracker: Integer;
+    nextQuack: Integer;
 
 procedure OnMissionStart;
 begin
-  BreadObj := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
-  FlourTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 1, osActive, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
-  WheatTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 2, osActive, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
+    BreadObj := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
+    FlourTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 1, osActive, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
+    WheatTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 2, osActive, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
 
-  nextQuack := 40;
+    nextQuack := 40;
 
-  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+    Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
 end;
 
 procedure OnTick(aTick: Integer);
 begin
-  if (aTick mod 10 = 0) then
-  begin
-    Actions.PlayerObjectiveUpdateText(HUMAN_ID, BreadObj, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
-    Actions.PlayerObjectiveUpdateText(HUMAN_ID, FlourTracker, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
-    Actions.PlayerObjectiveUpdateText(HUMAN_ID, WheatTracker, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
-  end;
-  if (aTick >= nextQuack) then
-  begin
-    Actions.PlayWAV(HUMAN_ID, 'Quack.wav', 1.0);
+    if (aTick mod 10 = 0) then
+    begin
+        Actions.PlayerObjectiveUpdateText(HUMAN_ID, BreadObj, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
+        Actions.PlayerObjectiveUpdateText(HUMAN_ID, FlourTracker, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
+        Actions.PlayerObjectiveUpdateText(HUMAN_ID, WheatTracker, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
+    end;
+    if (aTick >= nextQuack) then
+    begin
+        Actions.PlayWAV(HUMAN_ID, 'Quack.wav', 0.03);
 
-    nextQuack := aTick + 600 + Utils.RandomI(600); // Once every 1-2min
-  end;
+        nextQuack := aTick + 600 + Utils.RandomI(600); // Once every 1-2min
+    end;
 end;
 
 procedure OnPlayerVictory(aPlayer: Integer);
 var
-  newCnt: Integer;
+    newCnt: Integer;
 begin
-  newCnt := States.StatWaresBalance(aPlayer, wtBread);
+    newCnt := States.StatWaresBalance(aPlayer, wtBread);
 
-  Actions.MissionHighscore(newCnt);
+    Actions.MissionHighscore(newCnt);
 end;
