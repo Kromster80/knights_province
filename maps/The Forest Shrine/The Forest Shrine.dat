@@ -1,0 +1,210 @@
+!VERSION 3
+
+// General settings
+!RANKING 3 // Max score
+!HANDS_COUNT 4
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
+!HAND_COLOR 658160
+!HAND_CENTER_SCREEN 31 78
+
+// Fog of War
+!FOW_REVEAL 29 76 20
+
+// Goals
+!ADD_GOAL 0 3 7200 1
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+!HOUSE_BLOCK 31 // towerBolt
+
+// Block units
+!UNIT_BLOCK 20 // swordsman
+!UNIT_BLOCK 21 // bowman
+!UNIT_BLOCK 22 // arbaletman
+!UNIT_BLOCK 24 // halberdier
+!UNIT_BLOCK 26 // cavalry
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 31 78 0 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 40 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 30 70 // cider
+
+// Roads and fields
+
+!SET_ROAD 31 78 !SET_ROAD 29 79 !SET_ROAD 30 79 !SET_ROAD 31 79
+!SET_ROAD 32 79
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 28 80 // serf
+!SET_UNIT 2 29 80 // serf
+!SET_UNIT 2 30 80 // serf
+!SET_UNIT 3 31 80 // builder
+!SET_UNIT 3 32 80 // builder
+!SET_UNIT 3 33 80 // builder
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 25087
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Dispositions
+!SET_AI_DEFENCE 37 24 6 2 10 -1 6 3 // antihorse
+!SET_AI_DEFENCE 42 29 4 2 10 -1 6 3 // antihorse
+!SET_AI_DEFENCE 47 24 2 2 15 -1 6 3 // antihorse
+!SET_AI_DEFENCE 42 19 0 2 15 -1 6 3 // antihorse
+!SET_AI_DEFENCE 18 33 4 1 10 -1 5 5 // melee
+!SET_AI_DEFENCE_STOCK 19 5 // axefighter
+!SET_AI_DEFENCE 28 33 5 1 10 -1 5 5 // melee
+!SET_AI_DEFENCE_STOCK 19 5 // axefighter
+!SET_AI_DEFENCE 22 31 4 1 10 -1 5 5 // melee
+!SET_AI_DEFENCE_STOCK 19 5 // axefighter
+
+// Alliances
+!SET_ALLIANCE 0 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 24 34 24 6 3 6 // halberdier
+!SET_GROUP 24 42 32 4 3 6 // halberdier
+!SET_GROUP 24 50 24 2 3 6 // halberdier
+!SET_GROUP 24 42 16 0 3 6 // halberdier
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 44 16 47 // deer
+!SET_UNIT 44 19 39 // deer
+!SET_UNIT 44 31 46 // deer
+!SET_UNIT 44 44 53 // deer
+!SET_UNIT 44 58 64 // deer
+!SET_UNIT 44 58 77 // deer
+!SET_UNIT 44 55 87 // deer
+!SET_UNIT 44 13 21 // deer
+!SET_UNIT 44 16 15 // deer
+!SET_UNIT 44 7 15 // deer
+!SET_UNIT 44 27 18 // deer
+!SET_UNIT 44 32 32 // deer
+!SET_UNIT 44 9 59 // deer
+!SET_UNIT 41 11 80 // waterflower
+!SET_UNIT 41 9 83 // waterflower
+!SET_UNIT 42 12 89 // waterleaf
+!SET_UNIT 42 8 86 // waterleaf
+!SET_UNIT 42 4 69 // waterleaf
+!SET_UNIT 42 4 71 // waterleaf
+!SET_UNIT 47 8 88 // duck2
+!SET_UNIT 47 6 84 // duck2
+!SET_UNIT 47 3 87 // duck2
+!SET_UNIT 43 2 81 // duck
+!SET_UNIT 43 5 86 // duck
+!SET_UNIT 43 7 90 // duck
+!SET_UNIT 43 10 38 // duck
+!SET_UNIT 43 5 46 // duck
+!SET_UNIT 43 4 50 // duck
+!SET_UNIT 47 7 38 // duck2
+!SET_UNIT 47 5 41 // duck2
+!SET_UNIT 47 2 48 // duck2
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 45 14 51 // boar
+!SET_UNIT 45 19 49 // boar
+!SET_UNIT 45 25 47 // boar
+!SET_UNIT 45 31 51 // boar
+!SET_UNIT 45 37 51 // boar
+!SET_UNIT 45 39 50 // boar
+!SET_UNIT 45 46 53 // boar
+!SET_UNIT 45 56 62 // boar
+!SET_UNIT 45 62 74 // boar
+!SET_UNIT 45 57 88 // boar
+!SET_UNIT 45 21 55 // boar
+!SET_UNIT 45 9 19 // boar
+!SET_UNIT 45 10 15 // boar
+!SET_UNIT 45 21 14 // boar
+
+// Triggers
+!SET_TRIGGER 1 38 20 46 28
+!SET_TRIGGER 2 37 19 37 28
+!SET_TRIGGER 3 37 29 46 29
+!SET_TRIGGER 4 47 20 47 29
+!SET_TRIGGER 5 38 19 47 19
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 1-8-2021 17:42:48

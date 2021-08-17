@@ -1,0 +1,268 @@
+const
+    // SET NUMBER OF SHRINES HERE
+    NUMBER_OF_SHRINES = 4;
+    //
+
+
+var
+    shrine_entry_area: array of Integer;
+    shrine_exit_areas: array of array of Integer;
+
+    shrine_owner: array of Integer;
+    shrine_occupants: array of array of array of Integer;
+
+    player_houses: array of array of array of Integer;
+    player_wares: array of array of array of Integer;
+
+    shrine_houses: array of TKMHouseType;
+    shrine_wares: array of TKMWareType;
+
+    wood_obj: Integer;
+    shrine_message_triggered: Boolean;
+
+
+function ArrayContains(const my_array: array of Integer; const number: Integer): Boolean;
+var
+    i: Integer;
+begin
+    for i := Low(my_array) to High(my_array) do
+        if my_array[i] = number then
+        begin
+            Result := true;
+            Break;
+        end else
+            Result := false;
+end;
+
+
+procedure CheckShrineOwner();
+var
+    player, highest, shrine: Integer;
+begin
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        if shrine_owner[shrine] <> -1 then
+        begin
+            if Length(shrine_occupants[shrine][shrine_owner[shrine]]) = 0 then
+            begin
+                highest := 0;
+                for player := Low(shrine_occupants[shrine]) to High(shrine_occupants[shrine]) do
+                begin
+                    if Length(shrine_occupants[shrine][player]) > highest then
+                    begin
+                        shrine_owner[shrine] := player;
+                        highest := Length(shrine_occupants[shrine][player]);
+                    end;
+                end;
+            end;
+        end else
+        begin
+            highest := 0;
+            for player := Low(shrine_occupants[shrine]) to High(shrine_occupants[shrine]) do
+            begin
+                if Length(shrine_occupants[shrine][player]) > highest then
+                begin
+                    shrine_owner[shrine] := player;
+                    highest := Length(shrine_occupants[shrine][player]);
+                end;
+            end;
+        end;
+    end;
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+var
+    u_owner, i, shrine: Integer;
+begin
+    u_owner := States.UnitOwner(aUnit);
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        if (aTriggerId = shrine_entry_area[shrine]) then
+        begin
+            if Not ArrayContains(shrine_occupants[shrine][u_owner], aUnit) then
+            begin
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) + 1);
+                shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])] := aUnit;
+                CheckShrineOwner();
+            end;
+        end;
+        if ArrayContains(shrine_exit_areas[shrine], aTriggerId) then
+        begin
+            for i := Low(shrine_occupants[shrine][u_owner]) to High(shrine_occupants[shrine][u_owner]) do
+            if shrine_occupants[shrine][u_owner][i] = aUnit then
+            begin
+                shrine_occupants[shrine][u_owner][i] := shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])];
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) - 1);
+                CheckShrineOwner();
+                Break;
+            end;
+        end;
+    end;
+end;
+
+
+procedure OnUnitDied(aUnit: Integer; aKillerOwner: Integer);
+var
+    u_owner, i, shrine: Integer;
+begin
+    u_owner := States.UnitOwner(aUnit);
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        for i := Low(shrine_occupants[shrine][u_owner]) to High(shrine_occupants[shrine][u_owner]) do
+            if shrine_occupants[shrine][u_owner][i] = aUnit then
+            begin
+                shrine_occupants[shrine][u_owner][i] := shrine_occupants[shrine][u_owner][High(shrine_occupants[shrine][u_owner])];
+                SetLength(shrine_occupants[shrine][u_owner], Length(shrine_occupants[shrine][u_owner]) - 1);
+                CheckShrineOwner();
+                Break;
+            end;
+    end;
+end;
+
+
+procedure HouseAdd(aHouse: Integer);
+var
+    h_owner, shrine: Integer;
+    house_type: TKMHouseType;
+begin
+    h_owner := States.HouseOwner(aHouse);
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        house_type := shrine_houses[shrine];
+        if States.HouseType(aHouse) = house_type then
+        begin
+            SetLength(player_houses[shrine][h_owner], Length(player_houses[shrine][h_owner]) + 1);
+            SetLength(player_wares[shrine][h_owner], Length(player_wares[shrine][h_owner]) + 1);
+            player_houses[shrine][h_owner][High(player_houses[shrine][h_owner])] := aHouse;
+            player_wares[shrine][h_owner][High(player_wares[shrine][h_owner])] := 0;
+        end;
+    end;
+end;
+
+
+procedure FeedAI;
+var
+    ai_units: array of Integer;
+    ai_unit: Integer;
+begin
+    ai_units := States.PlayerGetAllUnits(1);
+    for ai_unit := Low(ai_units) to High(ai_units) do
+    begin
+        Actions.UnitHungerSet(ai_units[ai_unit], 2700);
+    end;
+end;
+
+
+procedure OnMissionStart;
+var
+    houses: array of Integer;
+    house_index, player, shrine: Integer;
+begin
+    wood_obj := Actions.PlayerObjectiveAdd(0, otAdditional, 0, osActive, 'Logs: ' + inttostr(States.StatWaresBalance(0, wtTrunk)));
+    Actions.PlayerMessage(0, '<$2>', True);
+    shrine_message_triggered := false;
+    FeedAI();
+
+    SetLength(shrine_entry_area, NUMBER_OF_SHRINES);
+    SetLength(shrine_exit_areas, NUMBER_OF_SHRINES);
+
+    SetLength(shrine_occupants, NUMBER_OF_SHRINES);
+    SetLength(shrine_owner, NUMBER_OF_SHRINES);
+
+    SetLength(player_wares, NUMBER_OF_SHRINES);
+    SetLength(player_houses, NUMBER_OF_SHRINES);
+
+    SetLength(shrine_wares, NUMBER_OF_SHRINES);
+    SetLength(shrine_houses, NUMBER_OF_SHRINES);
+
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+        SetLength(shrine_exit_areas[shrine], 4);
+
+    // CHANGE ENTRY AREAS
+    shrine_entry_area[0] := 1;
+    shrine_entry_area[1] := 1;
+    shrine_entry_area[2] := 1;
+    shrine_entry_area[3] := 1;
+    //
+
+    // CHANGE EXIT AREAS
+    shrine_exit_areas[0] := [2, 3, 4, 5];
+    shrine_exit_areas[1] := [2, 3, 4, 5];
+    shrine_exit_areas[2] := [2, 3, 4, 5];
+    shrine_exit_areas[3] := [2, 3, 4, 5];
+    //
+
+    // ADD SHRINES
+    shrine_wares[0] := wtTrunk;
+    shrine_wares[1] := wtGrain;
+    shrine_wares[2] := wtFish;
+    shrine_wares[3] := wtCider;
+    shrine_houses[0] := htWoodcutters;
+    shrine_houses[1] := htFarm;
+    shrine_houses[2] := htFisherHut;
+    shrine_houses[3] := htCiderMaker;
+    //
+
+    for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+    begin
+        shrine_owner[shrine] := -1;
+        SetLength(player_wares[shrine], States.StatPlayerCount());
+        SetLength(player_houses[shrine], States.StatPlayerCount());
+        SetLength(shrine_occupants[shrine], States.StatPlayerCount());
+    end;
+
+    for player := 0 to (States.StatPlayerCount() - 1) do
+    begin
+        houses := States.PlayerGetAllHouses(player);
+        for house_index := 0 to High(houses) do
+            HouseAdd(houses[house_index]);
+    end;
+end;
+
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+    HouseAdd(aHouse);
+end;
+
+
+procedure OnTick(aTick: Integer);
+var
+    house, newCnt, shrine: Integer;
+    ware_type: TKMWareType;
+begin
+    if (aTick mod 10 = 0) then
+    begin
+        Actions.PlayerObjectiveUpdateText(0, wood_obj, 'Logs: ' + inttostr(States.StatWaresBalance(0, wtTrunk)));
+        for shrine := 0 to (NUMBER_OF_SHRINES - 1) do
+        begin
+            if (shrine_owner[shrine] <> -1) then
+            begin
+                if (shrine_owner[shrine] = 0) and (Not shrine_message_triggered) then
+                begin
+                    Actions.PlayerMessage(0, '<$3>', True);
+                    shrine_message_triggered := True;
+                end;
+                ware_type := shrine_wares[shrine];
+                for house := 0 to High(player_houses[shrine][shrine_owner[shrine]]) do
+                begin
+                    newCnt := States.HouseWareInside(player_houses[shrine][shrine_owner[shrine]][house], ware_type);
+                    if newCnt > player_wares[shrine][shrine_owner[shrine]][house] then
+                    begin
+                        Actions.HouseWareAdd(player_houses[shrine][shrine_owner[shrine]][house], ware_type, 1);
+                        player_wares[shrine][shrine_owner[shrine]][house] := newCnt + 1;
+                    end else
+                        player_wares[shrine][shrine_owner[shrine]][house] := newCnt;
+                end;
+            end;
+        end;
+    end;
+    if (aTick mod 600 = 0) then
+        FeedAI();
+end;
+
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+  Actions.MissionHighscore(States.StatWaresBalance(aPlayer, wtTrunk));
+end;
