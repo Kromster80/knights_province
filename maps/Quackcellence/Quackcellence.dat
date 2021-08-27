@@ -55,31 +55,15 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 11 170 158 0 // camp
-!WARE_OUT_ADD_TO_LAST 2 70 // stone
-!WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 5000 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
-!WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
 
 // Roads and fields
 
-!SET_ROAD 170 158 !SET_ROAD 168 159 !SET_ROAD 169 159 !SET_ROAD 170 159
-!SET_ROAD 171 159
 
 // Fences
 
 
 // Units
 !SET_UNIT 2 168 160 // serf
-!SET_UNIT 2 169 160 // serf
-!SET_UNIT 2 169 161 // serf
-!SET_UNIT 2 168 161 // serf
-!SET_UNIT 3 170 160 // builder
-!SET_UNIT 3 171 160 // builder
-!SET_UNIT 3 171 161 // builder
-!SET_UNIT 3 170 161 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -346,4 +330,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10513 (2021-08-15 10:54)"  on 15-8-2021 23:44:27
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10565 (2021-08-26 19:03)"  on 27-8-2021 18:28:33

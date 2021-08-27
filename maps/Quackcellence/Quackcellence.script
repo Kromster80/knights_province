@@ -4,8 +4,11 @@ const
 var
     BreadObj, WheatTracker, FlourTracker: Integer;
     nextQuack: Integer;
+    player_camp_placed: array of Boolean;
 
 procedure OnMissionStart;
+var
+    i: Integer;
 begin
     BreadObj := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
     FlourTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 1, osActive, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
@@ -14,6 +17,10 @@ begin
     nextQuack := 40;
 
     Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+
+    SetLength(player_camp_placed, States.StatPlayerCount());
+    for i := Low(player_camp_placed) to High(player_camp_placed) do
+        player_camp_placed[i] := False;
 end;
 
 procedure OnTick(aTick: Integer);
@@ -39,4 +46,83 @@ begin
     newCnt := States.StatWaresBalance(aPlayer, wtBread);
 
     Actions.MissionHighscore(newCnt);
+end;
+
+procedure SpawnUnits(aPlayer: Integer; uCount: Integer; aX, aY: Word; uType: TKMUnitType);
+var
+    x_offset, y_offset: Integer;
+    success: Integer;
+begin
+    x_offset := 1;
+    y_offset := 1;
+    success := 0;
+    while uCount > 0 do
+    begin
+        success := Actions.GiveUnit(aPlayer, uType, aX-x_offset, aY+y_offset, 4);
+        if success > 0 then
+        begin
+            uCount := uCount - 1;
+        end;
+        x_offset := x_offset + 1;
+        if x_offset > 3 then
+        begin
+            x_offset := 1;
+            y_offset := y_offset + 1;
+        end;
+    end;
+end;
+
+procedure FillCamp(aHouseID: Integer);
+begin
+    Actions.HouseWareAdd(aHouseID, wtStone, 70);
+    Actions.HouseWareAdd(aHouseID, wtWood, 60);
+    Actions.HouseWareAdd(aHouseID, wtFish, 60);
+    Actions.HouseWareAdd(aHouseID, wtCider, 60);
+    Actions.HouseWareAdd(aHouseID, wtClub, 5);
+    Actions.HouseWareAdd(aHouseID, wtGold, 5000);
+end;
+
+procedure RemoveStartingUnits(aPlayer: Integer);
+var
+    i: Integer;
+    start_units: Array of Integer;
+begin
+    start_units := States.PlayerGetAllUnits(aPlayer);
+    for i := Low(start_units) to High(start_units) do
+    begin
+        Actions.UnitKill(start_units[i], true);
+    end;
+end;
+
+procedure OnHousePlanPlaced(aPlayer: Integer; aX, aY: Word; aType: TKMHouseType; aFace: TKMHouseFace);
+var
+    camp: Integer;
+begin
+    if (aType = htCamp) and not player_camp_placed[aPlayer] then
+    begin
+        Actions.PlanRemove(aPlayer, aX, aY);
+        camp := Actions.GiveHouse(aPlayer, aType, aX, aY, aFace);
+        if camp <> 0 then
+        begin
+            player_camp_placed[aPlayer] := True;
+            if aFace = toSouth then
+            begin
+                Actions.RoadAdd(aX-2, aY+1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX-1, aY+1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX, aY+1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX+1, aY+1, aPlayer); // Camp needs roads below
+            end else
+            if aFace = toWest then
+            begin
+                Actions.RoadAdd(aX-1, aY-2, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX-1, aY-1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX-1, aY, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX-1, aY+1, aPlayer); // Camp needs roads below
+            end;
+            RemoveStartingUnits(aPlayer);
+            SpawnUnits(aPlayer, 4, aX-1, aY, utSerf);
+            SpawnUnits(aPlayer, 4, aX+5, aY, utBuilder);
+            FillCamp(camp);
+        end;
+    end;
 end;
