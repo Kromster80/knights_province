@@ -81,7 +81,7 @@ end;
 
 procedure UpdateObjective;
 begin
-  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves, 'Waves deflected - ' + IntToStr(GetWavesDeflected));
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves, Utils.Format('<$10>', [GetWavesDeflected]));
 end;
 
 
@@ -111,7 +111,7 @@ begin
   // Show the same "waves deflected" number in the objective and in the results
   UpdateObjective;
   
-  Actions.PlayerMissionResultString(HUMAN_PLAYER, 'You have deflected |' + IntToStr(GetWavesDeflected) + ' waves!');
+  Actions.PlayerMissionResultString(HUMAN_PLAYER, Utils.Format('<$11>', [GetWavesDeflected]));
   Actions.MissionHighscore(waveNumber);
 end;
 
