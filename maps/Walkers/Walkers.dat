@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!RANKING 0 // Disabled
+!RANKING 3 // Max score
 !HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
@@ -16,6 +16,7 @@
 // Fog of War
 
 // Goals
+!ADD_GOAL 1 0 0 0 0
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -164,4 +165,4 @@
 !SET_EMITTER 7 58 53
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10581 (2021.08.28 12:04)"  on 29.08.2021 21:20:00
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10582 (2021.08.29 21:24)"  on 29.08.2021 21:36:14

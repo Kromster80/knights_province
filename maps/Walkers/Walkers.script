@@ -68,14 +68,20 @@ begin
 end;
 
 
-procedure UpdateObjective;
+function GetWavesDeflected: Integer;
 var
   allGroups: array of Integer;
 begin
   // Assume that groups never link
   allGroups := States.PlayerGetAllGroups(WALKERS_PLAYER);
 
-  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves, 'Waves deflected - ' + IntToStr(waveGroups - Length(allGroups)));
+  Result := waveGroups - Length(allGroups);
+end;
+
+
+procedure UpdateObjective;
+begin
+  Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves, 'Waves deflected - ' + IntToStr(GetWavesDeflected));
 end;
 
 
@@ -100,6 +106,16 @@ begin
 end;
 
 
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  // Show the same "waves deflected" number in the objective and in the results
+  UpdateObjective;
+  
+  Actions.PlayerMissionResultString(HUMAN_PLAYER, 'You have deflected |' + IntToStr(GetWavesDeflected) + ' waves!');
+  Actions.MissionHighscore(waveNumber);
+end;
+
+
 procedure OnTick(aTick: Integer);
 begin
   if (aTick mod WAVE_INTERVAL = 0) then
@@ -107,7 +123,7 @@ begin
     if not States.PlayerDefeated(HUMAN_PLAYER) then
       CreateNextWave;
 
-    // Feed even when defeated
+    // Feed even after defeat (if player decides to continue watching)
     Feed;
   end;
 
