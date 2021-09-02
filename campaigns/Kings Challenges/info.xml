@@ -8,6 +8,7 @@
       <id0 Chapter="0" FlagX="200" FlagY="100" Folder="1_Foresting" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="" FlagImgNormal="wood.png" FlagImgWon=""/>
       <id1 Chapter="0" FlagX="350" FlagY="100" Folder="2_Stonecutting" Title="12" Briefing="13" BriefingAudio="" FlagImgLocked="" FlagImgNormal="stone.png" FlagImgWon=""/>
       <id2 Chapter="0" FlagX="500" FlagY="100" Folder="3_Fishing" Title="14" Briefing="15" BriefingAudio="" FlagImgLocked="" FlagImgNormal="fish.png" FlagImgWon=""/>
+      <id3 Chapter="0" FlagX="650" FlagY="100" Folder="4_Wool" Title="16" Briefing="17" BriefingAudio="" FlagImgLocked="" FlagImgNormal="sheep.png" FlagImgWon=""/>
     </Missions>
   </Campaign>
 </Root>
