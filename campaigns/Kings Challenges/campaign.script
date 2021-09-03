@@ -14,5 +14,5 @@ begin
       Inc(cntPlayed);
   end;
 
-  Actions.CampaignProgress(IntToStr(cntPlayed / States.CampaignMissionCount * 100) + '%');
+  Actions.CampaignProgress(IntToStr(cntPlayed) + '/' + IntToStr(States.CampaignMissionCount));
 end;
