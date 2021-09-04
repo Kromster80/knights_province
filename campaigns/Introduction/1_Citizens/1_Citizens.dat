@@ -98,12 +98,16 @@
 !SET_HOUSE 13 11 27 0 // school
 !WARE_IN_ADD_TO_LAST 8 5 // gold
 !SET_HOUSE 27 20 29 1 // tavern
+!WARE_IN_ADD_TO_LAST 28 5 // fish
+!WARE_IN_ADD_TO_LAST 30 5 // cider
 !SET_HOUSE 33 18 24 1 // sawmill
 !WARE_IN_ADD_TO_LAST 1 1 // trunk
 !SET_HOUSE 32 18 37 1 // ciderMaker
 !WARE_OUT_ADD_TO_LAST 30 2 // cider
 !SET_HOUSE 30 5 27 0 // fort
+!WARE_OUT_ADD_TO_LAST 17 5 // shield
 !WARE_OUT_ADD_TO_LAST 21 10 // axe
+!WARE_OUT_ADD_TO_LAST 33 5 // gambeson
 
 // Roads and fields
 
@@ -304,4 +308,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 14:52:44
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10618 (2021.09.04 20:59)"  on 04.09.2021 21:06:19
