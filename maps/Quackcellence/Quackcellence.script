@@ -5,6 +5,8 @@ var
     BreadObj, WheatTracker, FlourTracker: Integer;
     nextQuack: Integer;
     player_camp_placed: array of Boolean;
+    houses, wares: array of Integer;
+    modifier_tracker: Integer;
 
 procedure OnMissionStart;
 var
@@ -15,6 +17,7 @@ begin
     WheatTracker := Actions.PlayerObjectiveAdd(HUMAN_ID, otAdditional, 2, osActive, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
 
     nextQuack := 40;
+    modifier_tracker := 0;
 
     Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
 
@@ -24,18 +27,38 @@ begin
 end;
 
 procedure OnTick(aTick: Integer);
+var
+    house, newCnt: Integer;
 begin
     if (aTick mod 10 = 0) then
     begin
         Actions.PlayerObjectiveUpdateText(HUMAN_ID, BreadObj, 'Bread: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtBread)));
         Actions.PlayerObjectiveUpdateText(HUMAN_ID, FlourTracker, 'Flour: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtFlour)));
         Actions.PlayerObjectiveUpdateText(HUMAN_ID, WheatTracker, 'Wheat: ' + inttostr(States.StatWaresBalance(HUMAN_ID, wtGrain)));
+        for house := 0 to High(houses) do
+        begin
+            newCnt := States.HouseWareInside(houses[house], wtFish);
+            if newCnt > wares[house] then
+            begin
+                if modifier_tracker = 1 then
+                begin
+                    Actions.HouseWareAdd(houses[house], wtFish, 1);
+                    wares[house] := newCnt + 1;
+                    modifier_tracker := 0;
+                end else
+                begin
+                    modifier_tracker := modifier_tracker + 1;
+                    wares[house] := newCnt;
+                end;
+            end else
+                wares[house] := newCnt;
+        end;
     end;
     if (aTick >= nextQuack) then
     begin
         Actions.PlayWAV(HUMAN_ID, 'Quack.wav', 0.03);
 
-        nextQuack := aTick + 600 + Utils.RandomI(600); // Once every 1-2min
+        nextQuack := aTick + 1200 + Utils.RandomI(1800); // Once every 2-5min
     end;
 end;
 
@@ -44,7 +67,7 @@ var
     newCnt: Integer;
 begin
     newCnt := States.StatWaresBalance(aPlayer, wtBread);
-
+    Actions.PlayerMissionResultString(HUMAN_ID, 'You have stocked|' + IntToStr(newCnt) + '|bread!');
     Actions.MissionHighscore(newCnt);
 end;
 
@@ -125,4 +148,23 @@ begin
             FillCamp(camp);
         end;
     end;
+end;
+
+procedure HouseAdd(aHouse: Integer);
+var
+    h_owner: Integer;
+begin
+    h_owner := States.HouseOwner(aHouse);
+    if States.HouseType(aHouse) = htFisherHut then
+    begin
+        SetLength(houses, Length(houses) + 1);
+        SetLength(wares, Length(wares) + 1);
+        houses[High(houses)] := aHouse;
+        wares[High(wares)] := 0;
+    end;
+end;
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+    HouseAdd(aHouse);
 end;
