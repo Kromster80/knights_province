@@ -3,11 +3,13 @@
 
 const
   HUMAN_PLAYER = 0;
+  WOOD_IN_WAGON = 50;
+
 var
   objWood, objSword: Integer;
   swordDead: Boolean;
   camp: Integer;
-  swordsman: Integer;
+  swordsmanUnit, swordsmanGroup: Integer;
 
 procedure UpdateObjectives;
 begin
@@ -15,31 +17,35 @@ begin
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objSword, osCompleted);
     objSword := -1;
-    Actions.PlayerWin([HUMAN_PLAYER], True); // Single win condition
   end;
 
-  if (objWood <> -1) and (States.HouseWareInside(camp, wtWood) > 0) then
+  // Compare with wagon value, since wood can also be obtained from destroyed houses
+  if (objWood <> -1) and (States.HouseWareInside(camp, wtWood) >= WOOD_IN_WAGON) then
   begin
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objWood, osCompleted);
     objWood := -1;
   end;
+
+  if (objSword = -1) and (objWood = -1) then
+    Actions.PlayerWin([HUMAN_PLAYER], True);
 end;
 
 procedure OnUnitDied(aUnit: Integer; aKiller: Integer);
 begin
-  if (States.UnitOwner(aUnit) = 2) and (States.UnitType(aUnit) = utSwordsman) then
+  if aUnit = swordsmanUnit then
     swordDead := True;
 end;
 
 procedure OnMissionStart;
 begin
   swordDead := False;
-  swordsman := States.GroupAt(64, 23);
+  swordsmanUnit := States.UnitAt(64, 23);
+  swordsmanGroup := States.GroupAt(64, 23);
   camp := States.HouseAt(20, 35);
 
   objWood  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
   objSword := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$3>');
-  
+
   UpdateObjectives;
 end;
 
@@ -49,6 +55,6 @@ begin
     UpdateObjectives;
 
   // Ensure to stay in place (and not chase Woodcutters and die of hunger)
-  if aTick mod 50 = 0 then
-    Actions.GroupOrderWalk(swordsman, 64, 23, 4);
+  if aTick mod 40 = 0 then
+    Actions.GroupOrderWalk(swordsmanGroup, 64, 23, 4);
 end;
