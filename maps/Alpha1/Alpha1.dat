@@ -261,6 +261,7 @@
 !SET_GROUP 23 20 35 4 1 1 // pikeman
 !SET_GROUP 24 21 35 4 1 1 // halberdier
 !SET_GROUP 19 18 35 4 1 1 // axefighter
+!SET_GROUP 25 59 36 1 1 1 // horsescout
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -341,6 +342,9 @@
 
 // Fences
 
+!SET_FENCE_H 58 35 1 !SET_FENCE_V 58 35 1 !SET_FENCE_H 59 35 1 !SET_FENCE_H 60 35 1
+!SET_FENCE_V 61 35 1 !SET_FENCE_V 58 36 1 !SET_FENCE_V 61 36 1 !SET_FENCE_V 58 37 1
+!SET_FENCE_V 61 37 1 !SET_FENCE_H 58 38 1 !SET_FENCE_H 59 38 1 !SET_FENCE_H 60 38 1
 
 // Units
 !SET_UNIT 2 68 28 // serf
@@ -456,4 +460,4 @@
 !SET_STOCKPILE 10 13 26 5
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10334 (2021.07.04 18:53)"  on 04.07.2021 18:56:55
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10671 (2021.11.15 16:44)"  on 15.11.2021 18:29:54
