@@ -92,8 +92,8 @@ begin
       ShowHouseCompleteMessage(i, 'School');
       objSuccess[i].School:= -1;
       objSuccess[i].isSchoolDone := true;
-      Actions.HouseAllow(i, htStonecutters, true);
-      Actions.HouseAllow(i, htTavern, true);
+      Actions.PlayerHouseBlock(i, htStonecutters, False);
+      Actions.PlayerHouseBlock(i, htTavern, False);
     end;
 
     if (States.StatHouseTypeCount(i, htStonecutters) >= 2) and not objSuccess[i].isStoneDone then
@@ -102,7 +102,7 @@ begin
       ShowHouseCompleteMessage(i, 'Stone-cutter');
       objSuccess[i].Stonecutter:= -1;
       objSuccess[i].isStoneDone := true;
-      Actions.HouseAllow(i, htWoodcutters, true);
+      Actions.PlayerHouseBlock(i, htWoodcutters, False);
     end;
 
     if (States.StatHouseTypeCount(i, htWoodcutters) >= 3) and not objSuccess[i].isWoodDone then
@@ -111,7 +111,7 @@ begin
       ShowHouseCompleteMessage(i, 'Woodcutter');
       objSuccess[i].Woodcutter := -1;
       objSuccess[i].isWoodDone := true;
-      Actions.HouseAllow(i, htSawmill, true);
+      Actions.PlayerHouseBlock(i, htSawmill, False);
     end;
 
     if (States.StatHouseTypeCount(i, htSawmill) >= 2) and not objSuccess[i].isSawDone then
@@ -120,7 +120,7 @@ begin
       ShowHouseCompleteMessage(i, 'Sawmill');
       objSuccess[i].Sawmill := -1;
       objSuccess[i].isSawDone := true;
-      // Actions.HouseAllow(i, htFort, true); // Temp commented out due to AI issue
+      // Actions.PlayerHouseBlock(i, htFort, False); // Temp commented out due to AI issue
     end;
   
     { if (States.StatHouseTypeCount(i, htFort) >= 1) and not objSuccess[i].isFortDone then
@@ -137,8 +137,8 @@ begin
       ShowHouseCompleteMessage(i, 'Tavern');
       objSuccess[i].Tavern := -1;
       objSuccess[i].isTavernDone := true;
-      Actions.HouseUnlock(i, htFisherHut);
-      Actions.HouseAllow(i, htFisherHut, true);
+      Actions.PlayerHouseGrant(i, htFisherHut, True);
+      Actions.PlayerHouseBlock(i, htFisherHut, False);
     end;
 
     if (States.StatHouseTypeCount(i, htFisherHut) >= 1) and not objSuccess[i].isFisheryDone then
@@ -168,12 +168,12 @@ begin
     // Secondary
     objSuccess[i].Tavern := Actions.PlayerObjectiveAdd(i, otAdditional, 0, osHidden, '<$9>');
     objSuccess[i].Fishery := Actions.PlayerObjectiveAdd(i, otAdditional, 1, osHidden, '<$10>');
-    Actions.HouseAllow(i, htFisherHut, false);
-    Actions.HouseAllow(i, htWoodcutters, false);
-    Actions.HouseAllow(i, htStonecutters, false);
-    Actions.HouseAllow(i, htTavern, false);
-    Actions.HouseAllow(i, htFort, false);
-    Actions.HouseAllow(i, htSawmill, false);
+    Actions.PlayerHouseBlock(i, htFisherHut, True);
+    Actions.PlayerHouseBlock(i, htWoodcutters, True);
+    Actions.PlayerHouseBlock(i, htStonecutters, True);
+    Actions.PlayerHouseBlock(i, htTavern, True);
+    Actions.PlayerHouseBlock(i, htFort, True);
+    Actions.PlayerHouseBlock(i, htSawmill, True);
   end;
 
   UpdateObjectivesStatus;

@@ -209,8 +209,8 @@ begin
     begin
       Actions.PlayerMessage(HUMAN_ID, '<$9>', True); // message about the cropfields and the storehouse
       Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Rebuild the cropfields and build a storage');
-      Actions.HouseAllow(HUMAN_ID, htStore, True);
-      Actions.HouseUnlock(HUMAN_ID, htStore);
+      Actions.PlayerHouseBlock(HUMAN_ID, htStore, False);
+      Actions.PlayerHouseGrant(HUMAN_ID, htStore, True);
       StorehouseAvailable := True;
       CiviliansAvailable := False;
     end;
@@ -223,10 +223,10 @@ begin
   begin
     Actions.PlayerMessage(HUMAN_ID, '<$10>', True); // message about the bread, mill, and bakery
     StorehouseAvailable := False;
-    Actions.HouseAllow(HUMAN_ID, htBakery, True);
-    Actions.HouseUnlock(HUMAN_ID, htBakery);
-    Actions.HouseAllow(HUMAN_ID, htMill, True);
-    Actions.HouseUnlock(HUMAN_ID, htMill);
+    Actions.PlayerHouseBlock(HUMAN_ID, htBakery, False);
+    Actions.PlayerHouseGrant(HUMAN_ID, htBakery, True);
+    Actions.PlayerHouseBlock(HUMAN_ID, htMill, False);
+    Actions.PlayerHouseGrant(HUMAN_ID, htMill, True);
     FinishAvailable := True;
   end;
 end;

@@ -49,11 +49,12 @@
 !HOUSE_BLOCK 22 // mill
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
-!HOUSE_BLOCK 25 // tannery
 !HOUSE_BLOCK 28 // brewery
 !HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
 !HOUSE_BLOCK 31 // towerBolt
+!HOUSE_BLOCK 34 // sheepyard
+!HOUSE_BLOCK 35 // clothMaker
 !HOUSE_BLOCK 36 // campfire
 
 // Block units
@@ -173,4 +174,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:48
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10696 (2021.11.19 16:44)"  on 19.11.2021 16:46:05

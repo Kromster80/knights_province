@@ -67,7 +67,7 @@ begin
     Actions.UnitCarryGive(States.UnitAt(51, 80), wtCider, 30);
 
     // Unlock stonemason
-    Actions.HouseUnlock(HUMAN_ID, htStonecutters);
+    Actions.PlayerHouseGrant(HUMAN_ID, htStonecutters, True);
     ENTER_AVAILABLE := True;
     MINT_AVAILABLE := False;
   end;
@@ -75,7 +75,7 @@ begin
   if (aTriggerId = 3) and (States.UnitOwner(aUnit) = HUMAN_ID) and ENTER_AVAILABLE then
   begin
     Actions.PlayerMessage(HUMAN_ID, '<$5>', True);
-    Actions.HouseUnlock(HUMAN_ID, htMint);
+    Actions.PlayerHouseGrant(HUMAN_ID, htMint, True);
     ENTER_AVAILABLE := False;
   end;
 end;

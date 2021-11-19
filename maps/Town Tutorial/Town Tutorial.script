@@ -150,15 +150,15 @@ begin
     Actions.PlayerWin([HUMAN_PLAYER], True);
 
     // Re-enable construction of tutorial buildings
-    Actions.HouseAllow(HUMAN_PLAYER, htSchool,       True);
-    Actions.HouseAllow(HUMAN_PLAYER, htCottage,      True);
-    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, True);
-    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  True);
-    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      True);
-    Actions.HouseAllow(HUMAN_PLAYER, htTavern,       True);
-    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    True);
-    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   True);
-    Actions.HouseAllow(HUMAN_PLAYER, htStore,        True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSchool,       False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCottage,      False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htStonecutters, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htWoodcutters,  False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSawmill,      False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htTavern,       False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htFisherHut,    False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCiderMaker,   False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htStore,        False);
   end;
 end;
 
@@ -222,8 +222,8 @@ begin
     fActiveCinType := ctCottage;
     fCinStep       := 0;
     ShowMessage(11, 21);
-    Actions.HouseAllow(HUMAN_PLAYER, htSchool,  False);
-    Actions.HouseAllow(HUMAN_PLAYER, htCottage, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSchool,  True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCottage, False);
   end;
 
   if (States.StatHouseTypeCount(HUMAN_PLAYER, htCottage) >= 2) and not objSuccess.Cottage.Done then
@@ -240,8 +240,8 @@ begin
     fActiveCinType := ctStone;
     fCinStep       := 0;
     ShowMessage(12, 22);
-    Actions.HouseAllow(HUMAN_PLAYER, htCottage, False);
-    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCottage, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htStonecutters, False);
   end;
 
   // Basic supplies
@@ -259,9 +259,9 @@ begin
     fActiveCinType := ctWood;
     fCinStep       := 0;
     ShowMessage(13, 23);
-    Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, False);
-    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  True);
-    Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htStonecutters, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htWoodcutters,  False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSawmill,      False);
   end;
 
   if (States.StatHouseTypeCount(HUMAN_PLAYER, htWoodcutters) >= 1) and not objSuccess.Wood.Done then
@@ -270,7 +270,7 @@ begin
     objSuccess.Wood.ID   := -1;
     objSuccess.Wood.Done := True;
 
-    Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htWoodcutters, True);
 
     if objSuccess.Planks.Done then
     begin
@@ -281,7 +281,7 @@ begin
       fActiveCinType := ctTavern;
       fCinStep       := 0;
       ShowMessage(14, 24);
-      Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
+      Actions.PlayerHouseBlock(HUMAN_PLAYER, htTavern, False);
     end;
   end;
 
@@ -291,7 +291,7 @@ begin
     objSuccess.Planks.ID   := -1;
     objSuccess.Planks.Done := True;
 
-    Actions.HouseAllow(HUMAN_PLAYER, htSawmill, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSawmill, True);
 
     if objSuccess.Wood.Done then
     begin
@@ -302,7 +302,7 @@ begin
       fActiveCinType := ctTavern;
       fCinStep       := 0;
       ShowMessage(14, 24);
-      Actions.HouseAllow(HUMAN_PLAYER, htTavern, True);
+      Actions.PlayerHouseBlock(HUMAN_PLAYER, htTavern, False);
     end;
   end;
 
@@ -320,11 +320,11 @@ begin
     fActiveCinType := ctFood;
     fCinStep       := 0;
     ShowMessage(15, 25);
-    Actions.HouseAllow(HUMAN_PLAYER, htTavern, False);
-    Actions.HouseUnlock(HUMAN_PLAYER, htFisherHut);
-    Actions.HouseUnlock(HUMAN_PLAYER, htCiderMaker);
-    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut, True);
-    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htTavern, True);
+    Actions.PlayerHouseGrant(HUMAN_PLAYER, htFisherHut, True);
+    Actions.PlayerHouseGrant(HUMAN_PLAYER, htCiderMaker, True);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htFisherHut, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCiderMaker, False);
   end;
 
   if (States.StatHouseTypeCount(HUMAN_PLAYER, htFisherHut) >= 1) and not objSuccess.Fish.Done then
@@ -333,7 +333,7 @@ begin
     objSuccess.Fish.ID   := -1;
     objSuccess.Fish.Done := True;
 
-    Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,  False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htFisherHut,  True);
 
     if objSuccess.Cider.Done then
     begin
@@ -344,7 +344,7 @@ begin
       fActiveCinType := ctStore;
       fCinStep       := 0;
       ShowMessage(16, 26);
-      Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
+      Actions.PlayerHouseBlock(HUMAN_PLAYER, htStore, False);
     end;
   end;
 
@@ -354,7 +354,7 @@ begin
     objSuccess.Cider.ID   := -1;
     objSuccess.Cider.Done := True;
 
-    Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htCiderMaker, True);
 
     if objSuccess.Fish.Done then
     begin
@@ -365,7 +365,7 @@ begin
       fActiveCinType := ctStore;
       fCinStep       := 0;
       ShowMessage(16, 26);
-      Actions.HouseAllow(HUMAN_PLAYER, htStore, True);
+      Actions.PlayerHouseBlock(HUMAN_PLAYER, htStore, False);
     end;
   end;
 
@@ -378,7 +378,7 @@ begin
 
     Actions.TerrainHighlightDelete(fHighl1);
     ShowMessage(17, -1);
-    Actions.HouseAllow(HUMAN_PLAYER, htStore, False);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htStore, True);
   end;
 end;
 
@@ -407,14 +407,14 @@ end;
 // except for the first objective's house
 procedure BlockHouses;
 begin
-  Actions.HouseAllow(HUMAN_PLAYER, htCottage,      false);
-  Actions.HouseAllow(HUMAN_PLAYER, htStonecutters, false);
-  Actions.HouseAllow(HUMAN_PLAYER, htWoodcutters,  false);
-  Actions.HouseAllow(HUMAN_PLAYER, htSawmill,      false);
-  Actions.HouseAllow(HUMAN_PLAYER, htTavern,       false);
-  Actions.HouseAllow(HUMAN_PLAYER, htFisherHut,    false);
-  Actions.HouseAllow(HUMAN_PLAYER, htCiderMaker,   false);
-  Actions.HouseAllow(HUMAN_PLAYER, htStore,        false);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htCottage,      True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htStonecutters, True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htWoodcutters,  True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htSawmill,      True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htTavern,       True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htFisherHut,    True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htCiderMaker,   True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htStore,        True);
 end;
 
 // Initialize the objectives
