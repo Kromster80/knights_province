@@ -1,0 +1,305 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!HANDS_COUNT 5
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 53 26
+
+// Fog of War
+!FOW_REVEAL 122 5 9
+!FOW_REVEAL 86 61 27
+!FOW_REVEAL 255
+
+// Goals
+!ADD_GOAL 1 0 0 0 1
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 11 55 26 1 // camp
+!WARE_OUT_ADD_TO_LAST 2 50 // stone
+!WARE_OUT_ADD_TO_LAST 3 50 // wood
+!WARE_OUT_ADD_TO_LAST 8 40 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 17 87 61 1 // towerArrow
+!SET_HOUSE_DAMAGE 220
+
+// Roads and fields
+
+!SET_ROAD 38 6 !SET_ROAD 54 21 !SET_ROAD 54 22 !SET_ROAD 54 23
+!SET_ROAD 55 23 !SET_ROAD 56 23 !SET_ROAD 57 23 !SET_ROAD 58 23
+!SET_ROAD 59 23 !SET_ROAD 60 23 !SET_ROAD 61 23 !SET_ROAD 54 24
+!SET_ROAD 59 24 !SET_ROAD 54 25 !SET_ROAD 59 25 !SET_ROAD 54 26
+!SET_ROAD 55 26 !SET_ROAD 59 26 !SET_ROAD 54 27 !SET_ROAD 59 27
+!SET_ROAD 54 28 !SET_ROAD 55 28 !SET_ROAD 56 28 !SET_ROAD 57 28
+!SET_ROAD 58 28 !SET_ROAD 59 28
+
+// Fences
+
+
+// Units
+!SET_UNIT 3 53 27 // builder
+!SET_UNIT 3 53 28 // builder
+!SET_UNIT 3 53 29 // builder
+!SET_UNIT 2 53 26 // serf
+!SET_UNIT 2 53 23 // serf
+!SET_UNIT 2 53 25 // serf
+!SET_UNIT 2 53 24 // serf
+!SET_UNIT 1 48 26 // blank
+!SET_UNIT 1 52 26 // blank
+!SET_UNIT 1 51 26 // blank
+!SET_UNIT 1 50 26 // blank
+!SET_UNIT 1 49 26 // blank
+!SET_UNIT 32 125 1 // wagon
+!SET_UNIT_WARE 20 15
+!SET_UNIT 32 121 1 // wagon
+!SET_UNIT_WARE 9 30
+!SET_UNIT 32 123 1 // wagon
+!SET_UNIT_WARE 24 15
+!SET_UNIT 32 117 1 // wagon
+!SET_UNIT_WARE 14 45
+!SET_UNIT 32 119 1 // wagon
+!SET_UNIT_WARE 22 15
+!SET_UNIT 32 125 4 // wagon
+!SET_UNIT_WARE 18 15
+
+// Groups
+!SET_GROUP 19 63 26 2 4 4 // axefighter
+!SET_GROUP_FOOD
+!SET_GROUP 21 61 26 2 3 3 // bowman
+!SET_GROUP_FOOD
+!SET_GROUP 19 52 31 5 1 1 // axefighter
+!SET_GROUP_FOOD
+!SET_GROUP 19 61 31 3 1 1 // axefighter
+!SET_GROUP_FOOD
+!SET_GROUP 23 58 28 4 1 1 // pikeman
+!SET_GROUP 23 55 28 4 1 1 // pikeman
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 25087
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 2 1
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 9 117 117 0 // woodcutters
+!SET_HOUSE 9 116 106 0 // woodcutters
+!SET_HOUSE 9 103 111 0 // woodcutters
+
+// Roads and fields
+
+!SET_ROAD 116 106 !SET_ROAD 103 111 !SET_ROAD 117 117
+
+// Fences
+
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 524287
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 0
+
+// Dispositions
+!SET_AI_DEFENCE 115 12 5 1 10 -1 6 3 // melee
+!SET_AI_DEFENCE 117 10 5 3 15 -1 3 3 // ranged
+!SET_AI_DEFENCE 84 14 5 4 26 -1 1 1 // mounted
+!SET_AI_DEFENCE_STOCK 25 1 // horsescout
+!SET_AI_DEFENCE 86 33 7 4 27 -1 1 1 // mounted
+!SET_AI_DEFENCE_STOCK 25 1 // horsescout
+!SET_AI_DEFENCE 123 4 5 4 10 -1 1 1 // mounted
+!SET_AI_DEFENCE_STOCK 26 1 // cavalry
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 1
+
+// Grant/Block houses
+!HOUSE_BLOCK 23 // siegeWorkshop
+!HOUSE_BLOCK 29 // marketplace
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 36 116 14 0 // campfire
+!SET_HOUSE 36 113 11 0 // campfire
+!SET_HOUSE 36 118 9 0 // campfire
+!SET_HOUSE 36 88 34 0 // campfire
+!SET_HOUSE 36 85 13 0 // campfire
+!SET_HOUSE 36 124 3 0 // campfire
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 20 119 4 4 1 1 // swordsman
+!SET_GROUP 21 119 8 5 3 3 // bowman
+!SET_GROUP 18 115 12 5 2 2 // militia
+!SET_GROUP 19 116 11 5 3 3 // axefighter
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 44 55 41 // deer
+!SET_UNIT 44 33 10 // deer
+!SET_UNIT 44 71 11 // deer
+!SET_UNIT 44 78 16 // deer
+!SET_UNIT 47 113 5 // duck2
+!SET_UNIT 43 120 14 // duck
+!SET_UNIT 43 122 13 // duck
+!SET_UNIT 43 113 6 // duck
+!SET_UNIT 42 113 7 // waterleaf
+!SET_UNIT 43 45 59 // duck
+!SET_UNIT 47 24 50 // duck2
+!SET_UNIT 47 40 58 // duck2
+!SET_UNIT 47 44 53 // duck2
+!SET_UNIT 47 72 55 // duck2
+!SET_UNIT 47 73 55 // duck2
+!SET_UNIT 43 70 55 // duck
+!SET_UNIT 43 82 77 // duck
+!SET_UNIT 43 72 87 // duck
+!SET_UNIT 43 70 83 // duck
+!SET_UNIT 43 79 85 // duck
+!SET_UNIT 47 22 82 // duck2
+!SET_UNIT 47 28 87 // duck2
+!SET_UNIT 47 39 99 // duck2
+!SET_UNIT 47 37 105 // duck2
+!SET_UNIT 47 26 100 // duck2
+!SET_UNIT 43 54 110 // duck
+!SET_UNIT 43 42 108 // duck
+!SET_UNIT 43 40 97 // duck
+!SET_UNIT 43 45 91 // duck
+!SET_UNIT 43 29 103 // duck
+!SET_UNIT 43 27 100 // duck
+!SET_UNIT 43 19 82 // duck
+!SET_UNIT 43 45 80 // duck
+!SET_UNIT 43 43 82 // duck
+!SET_UNIT 41 22 76 // waterflower
+!SET_UNIT 41 19 76 // waterflower
+!SET_UNIT 41 32 92 // waterflower
+!SET_UNIT 41 44 94 // waterflower
+!SET_UNIT 41 47 87 // waterflower
+!SET_UNIT 41 70 86 // waterflower
+!SET_UNIT 41 72 80 // waterflower
+!SET_UNIT 42 73 56 // waterleaf
+!SET_UNIT 42 45 56 // waterleaf
+!SET_UNIT 42 45 57 // waterleaf
+!SET_UNIT 42 44 58 // waterleaf
+!SET_UNIT 42 41 58 // waterleaf
+!SET_UNIT 42 42 59 // waterleaf
+!SET_UNIT 42 22 50 // waterleaf
+!SET_UNIT 42 22 49 // waterleaf
+!SET_UNIT 42 23 50 // waterleaf
+!SET_UNIT 42 24 51 // waterleaf
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Houses
+!SET_HOUSE 38 30 76 0 // wolfsDen
+!SET_HOUSE 38 34 78 1 // wolfsDen
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 45 102 7 // boar
+!SET_UNIT 45 100 6 // boar
+!SET_UNIT 45 16 59 // boar
+!SET_UNIT 45 25 59 // boar
+!SET_UNIT 45 37 63 // boar
+!SET_UNIT 45 79 70 // boar
+!SET_UNIT 45 67 74 // boar
+
+// Stockpiles
+!SET_STOCKPILE 15 126 6 5
+!SET_STOCKPILE 15 125 9 10
+!SET_STOCKPILE 26 31 78 10
+!SET_STOCKPILE 26 32 78 5
+!SET_STOCKPILE 28 31 77 3
+!SET_STOCKPILE 28 33 78 3
+!SET_STOCKPILE 28 32 77 2
+!SET_STOCKPILE 28 33 77 1
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10798 (2021.12.05 09:05)"  on 16.12.2021 22:34:41
