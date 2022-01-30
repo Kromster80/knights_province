@@ -11,7 +11,7 @@
 !HAND_ALLOW_HUMAN
 !HAND_ACTIVATE
 !HAND_COLOR 658160
-!HAND_CENTER_SCREEN 24 57
+!HAND_CENTER_SCREEN 38 56
 
 // Fog of War
 
@@ -25,10 +25,16 @@
 // Alliances
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 29 // marketplace
 
 // Block units
+!UNIT_BLOCK 15 // smith
 
 // Block trades
 
@@ -87,4 +93,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10615 (2021.09.03 10:09)"  on 03.09.2021 10:12:15
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11025 (2022.01.30 21:41)"  on 30.01.2022 22:00:58
