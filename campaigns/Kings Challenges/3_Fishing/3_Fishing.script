@@ -3,6 +3,9 @@ const
   MISSION_ID = 2;
   WARE = 'smoked fishes';
 
+var
+  objFish: Integer;
+
 procedure OnPlayerVictory(aPlayer: Integer);
 var
   oldCnt, newCnt: Integer;
@@ -28,5 +31,12 @@ end;
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+  objFish := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, Utils.Format('<$2>', [States.StatWaresBalance(HUMAN_ID, wtFish)]));
+  Actions.PlayerMessage(HUMAN_ID, '<$3>', True);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 50 = 0 then
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, objFish, Utils.Format('<$2>', [States.StatWaresBalance(HUMAN_ID, wtFish)]));
 end;
