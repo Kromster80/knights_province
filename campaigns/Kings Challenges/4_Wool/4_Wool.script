@@ -3,12 +3,15 @@ const
   MISSION_ID = 3;
   WARE = 'wool';
 
+var
+  objWool: Integer;
+
 procedure OnPlayerVictory(aPlayer: Integer);
 var
   oldCnt, newCnt: Integer;
 begin
   oldCnt := CampaignData.Reslt[MISSION_ID];
-  newCnt := States.StatWaresBalance(aPlayer, wtFish);
+  newCnt := States.StatWaresBalance(aPlayer, wtWool);
   if oldCnt = 0 then
   begin
     CampaignData.Reslt[MISSION_ID] := newCnt;
@@ -28,5 +31,12 @@ end;
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessage(HUMAN_ID, '<$2>', True);
+  objWool := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, Utils.Format('<$2>', [States.StatWaresBalance(HUMAN_ID, wtWool)]));
+  Actions.PlayerMessage(HUMAN_ID, '<$3>', True);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 50 = 0 then
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, objWool, Utils.Format('<$2>', [States.StatWaresBalance(HUMAN_ID, wtWool)]));
 end;

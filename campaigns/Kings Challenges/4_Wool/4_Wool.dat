@@ -16,6 +16,7 @@
 // Fog of War
 
 // Goals
+!ADD_GOAL 0 3 3600 1
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -93,4 +94,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11025 (2022.01.30 21:41)"  on 30.01.2022 22:00:58
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11080 (2022.02.09 10:07)"  on 09.02.2022 10:21:41
