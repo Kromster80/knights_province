@@ -16,8 +16,8 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 1 0
-!ADD_GOAL 0 1 1 1 0
+!ADD_GOAL 0 0 1 1 1
+!ADD_GOAL 0 1 1 1 1
 !ADD_GOAL 1 0 0 0 0
 
 // AI
@@ -395,4 +395,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10943 (2022.01.14 10:32)"  on 14.01.2022 11:31:32
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11109 (2022.02.17 10:38)"  on 17.02.2022 13:37:04
