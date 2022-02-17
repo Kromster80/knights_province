@@ -49,7 +49,7 @@ begin
 
   if aTick = 81 then
   begin
-    Actions.CinematicText('Now go!', 2);
+    Actions.CinematicText('Save them!', 2);
   end;
 
   if aTick = 101 then
