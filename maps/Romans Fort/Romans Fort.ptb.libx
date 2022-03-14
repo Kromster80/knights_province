@@ -1,0 +1,10 @@
+﻿0:Klassix
+1:Mapa de sobrevivência|Direções de ataque geradas aleatoriamente.|Tropas geradas aleatoriamente mais a frente no jogo.|IMPORTANTE: Leia o Texto de Início da Missão!
+2:Desertores
+3:Gauleses
+11:[$00ff00]Modo Normal[]: Tempo de respawn da onda de milícia e unidades em couro: [$00ffff]3 min[];Tropas em Ferro respawnam em [$00ffff]4 min[]|Unidades em couro respawnam em [$00ffff]00:45:00[]; tropas em ferro em [$00ffff]01:14:00[]||[$0000ff]Modo difícil[]:Tempo de respawn da onda de milícia e unidades em couro: [$00ffff]2,5 min[],Tropas em Ferro respawnam em [$00ffff]3,5 min[]|Unidades em couro respawnam em [$00ffff]00:37:30[];Tropas em ferro em [$00ffff]01:02:00[]||Escolha seu modo:
+12:Você escolheu o modo normal. Boa sorte e divirta-se! Dica: Não esqueça de levar nossos recursos da estrada até o acampamento!
+13:Você escolheu o modo difícil. Que os deuses estejam ao seu lado!||Dica: há muitos recursos pela floresta, mas cuidade com os animais selvagens e os desertores!
+14:GG :-)
+15:[$0000ff]!! ATAQUE A CAMINHO !![]
+16:[$00ff00]Não há sinal de invasores[]
