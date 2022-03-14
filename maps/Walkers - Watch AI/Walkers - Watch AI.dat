@@ -21,8 +21,8 @@
 // AI
 !SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
-!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
-!SET_AI_CHARACTER BUILDERS_COUNT 12
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 8
+!SET_AI_CHARACTER BUILDERS_COUNT 15
 !SET_AI_CHARACTER ARMY_EQUIP_RATE 18 60 // militia
 !SET_AI_CHARACTER ARMY_EQUIP_RATE 19 60 // axefighter
 !SET_AI_CHARACTER ARMY_EQUIP_RATE 23 40 // pikeman
@@ -107,12 +107,13 @@
 
 // Houses
 !SET_HOUSE 9 67 20 0 // woodcutters
-!SET_HOUSE 9 59 42 1 // woodcutters
-!SET_HOUSE 9 61 55 1 // woodcutters
+!SET_HOUSE 9 60 42 1 // woodcutters
+!SET_HOUSE 9 62 55 1 // woodcutters
 
 // Roads and fields
 
-!SET_ROAD 67 20 !SET_ROAD 59 42 !SET_ROAD 61 55
+!SET_ROAD 67 20 !SET_ROAD 59 42 !SET_ROAD 60 42 !SET_ROAD 61 55
+!SET_ROAD 62 55
 
 // Fences
 
@@ -185,4 +186,4 @@
 !SET_TRIGGER 1 58 44 60 52
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10214 (2021.06.01 17:28)"  on 01.06.2021 17:33:48
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11025 (2022.01.30 21:41)"  on 30.01.2022 22:09:27
