@@ -103,7 +103,7 @@ begin
 end;
 
 
-procedure OnUnitDied(aUnit: Integer; aKillerOwner: Integer);
+procedure OnUnitBeforeDied(aUnit: Integer; aKillerOwner: Integer);
 var
     u_owner, i, shrine: Integer;
 begin
