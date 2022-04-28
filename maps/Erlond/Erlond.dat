@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 0 // Disabled
-!HANDS_COUNT 5
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -28,8 +28,6 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -92,8 +90,6 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -156,8 +152,6 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -200,7 +194,7 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
-!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -338,18 +332,5 @@
 !SET_UNIT 41 117 103 // waterflower
 !SET_UNIT 41 88 27 // waterflower
 
------Hand4-----
-!HAND_CURRENT 4
-!HAND_NEUTRAL_TYPE 1 // Hostile
-!HAND_ACTIVATE
 
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
-
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10421 (2021-07-16 21:22)"  on 27-7-2021 19:41:37
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:12
