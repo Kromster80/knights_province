@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 0 // Disabled
-!HANDS_COUNT 4
+!HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -34,8 +34,6 @@
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -100,8 +98,6 @@
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -140,20 +136,7 @@
 
 -----Hand2-----
 !HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 0 // Inert
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
------Hand3-----
-!HAND_CURRENT 3
-!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -190,4 +173,4 @@
 !SET_EMITTER 7 24 11
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10546 (2021.08.25 17:39)"  on 25.08.2021 17:40:53
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:31
