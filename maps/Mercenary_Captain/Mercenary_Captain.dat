@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 3 // Max score
-!HANDS_COUNT 3
+!HANDS_COUNT 2
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -29,8 +29,6 @@
 
 // Grant/Block houses
 !HOUSE_BLOCK 17 // towerArrow
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 31 // towerBolt
 
 // Block units
@@ -69,10 +67,15 @@
 
 -----Hand1-----
 !HAND_CURRENT 1
-!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
+
+// Houses
+!SET_HOUSE 39 69 36 0 // bearsDen
+!SET_HOUSE 38 4 59 0 // wolfsDen
+!SET_HOUSE 38 6 91 0 // wolfsDen
 
 // Roads and fields
 
@@ -90,26 +93,6 @@
 !SET_UNIT 43 53 54 // duck
 !SET_UNIT 41 54 92 // waterflower
 !SET_UNIT 42 53 93 // waterleaf
-
------Hand2-----
-!HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 1 // Hostile
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Houses
-!SET_HOUSE 39 69 36 0 // bearsDen
-!SET_HOUSE 38 4 59 0 // wolfsDen
-!SET_HOUSE 38 6 91 0 // wolfsDen
-
-// Roads and fields
-
-
-// Fences
-
-
-// Units
 !SET_UNIT 45 29 91 // boar
 !SET_UNIT 45 33 93 // boar
 !SET_UNIT 45 71 61 // boar
@@ -142,4 +125,4 @@
 !SET_EMITTER 17 16 34
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 30-7-2021 19:12:30
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:19
