@@ -1,6 +1,7 @@
 !VERSION 3
 
 // General settings
+!RANKING 0 // Disabled
 !HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
@@ -28,8 +29,6 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
 
 // Block units
 
@@ -43,9 +42,9 @@
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 2 // club
 !WARE_OUT_ADD_TO_LAST 30 70 // cider
-!SET_HOUSE 17 67 67 0 // tower_arrow
+!SET_HOUSE 17 67 67 0 // towerArrow
 !SET_HOUSE_DAMAGE 215
-!SET_HOUSE 17 75 67 0 // tower_arrow
+!SET_HOUSE 17 75 67 0 // towerArrow
 !SET_HOUSE_DAMAGE 220
 
 // Roads and fields
@@ -186,8 +185,6 @@
 !SET_ALLIANCE 2 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
 
 // Block units
 
@@ -243,8 +240,6 @@
 !SET_ALLIANCE 1 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23
-!HOUSE_BLOCK 29
 
 // Block units
 
@@ -268,12 +263,12 @@
 // Fog of War
 
 // Houses
-!SET_HOUSE 38 31 42 0 // wolfsden
-!SET_HOUSE 38 109 44 0 // wolfsden
-!SET_HOUSE 39 34 106 0 // bearsden
-!SET_HOUSE 39 102 108 0 // bearsden
-!SET_HOUSE 39 132 13 0 // bearsden
-!SET_HOUSE 39 11 16 0 // bearsden
+!SET_HOUSE 38 31 42 0 // wolfsDen
+!SET_HOUSE 38 109 44 0 // wolfsDen
+!SET_HOUSE 39 34 106 0 // bearsDen
+!SET_HOUSE 39 102 108 0 // bearsDen
+!SET_HOUSE 39 132 13 0 // bearsDen
+!SET_HOUSE 39 11 16 0 // bearsDen
 
 // Roads and fields
 
@@ -350,4 +345,4 @@
 !SET_EMITTER 7 14 126
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 11 wip r8744 (2020.04.01 10:27)"  on 01.04.2020 10:28:09
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 19:04:28
