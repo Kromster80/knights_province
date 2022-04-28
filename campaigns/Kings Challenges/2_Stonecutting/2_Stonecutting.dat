@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 3 // Max score
-!HANDS_COUNT 3
+!HANDS_COUNT 2
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -39,8 +39,6 @@
 !HOUSE_BLOCK 19 // weaponWorkshop
 !HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
 !HOUSE_BLOCK 31 // towerBolt
 !HOUSE_BLOCK 34 // sheepyard
@@ -98,20 +96,7 @@
 
 -----Hand1-----
 !HAND_CURRENT 1
-!HAND_NEUTRAL_TYPE 0 // Inert
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
------Hand2-----
-!HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -123,4 +108,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 15:09:38
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:25
