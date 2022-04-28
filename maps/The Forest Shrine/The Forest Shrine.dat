@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 3 // Max score
-!HANDS_COUNT 4
+!HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -34,8 +34,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 17 // towerArrow
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 31 // towerBolt
 
 // Block units
@@ -103,8 +101,6 @@
 !SET_ALLIANCE 0 0
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -126,7 +122,7 @@
 
 -----Hand2-----
 !HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 0 // Inert
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -169,21 +165,6 @@
 !SET_UNIT 47 7 38 // duck2
 !SET_UNIT 47 5 41 // duck2
 !SET_UNIT 47 2 48 // duck2
-
------Hand3-----
-!HAND_CURRENT 3
-!HAND_NEUTRAL_TYPE 1 // Hostile
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
-// Units
 !SET_UNIT 45 14 51 // boar
 !SET_UNIT 45 19 49 // boar
 !SET_UNIT 45 25 47 // boar
@@ -207,4 +188,4 @@
 !SET_TRIGGER 5 38 19 47 19
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10463 (2021-07-29 16:20)"  on 1-8-2021 17:42:48
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:27

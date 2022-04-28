@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 0 // Disabled
-!HANDS_COUNT 10
+!HANDS_COUNT 9
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -43,8 +43,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -125,8 +123,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -207,8 +203,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -289,8 +283,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -371,8 +363,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -453,8 +443,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -535,8 +523,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -617,8 +603,6 @@
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 !UNIT_BLOCK 5 // miner
@@ -664,20 +648,7 @@
 
 -----Hand8-----
 !HAND_CURRENT 8
-!HAND_NEUTRAL_TYPE 0 // Inert
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
------Hand9-----
-!HAND_CURRENT 9
-!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -689,4 +660,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10546 (2021.08.25 17:39)"  on 25.08.2021 17:41:38
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:30
