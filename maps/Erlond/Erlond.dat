@@ -19,6 +19,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -81,6 +82,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -143,6 +145,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -227,15 +230,14 @@
 !SET_UNIT 42 123 167 // waterleaf
 !SET_UNIT 42 124 166 // waterleaf
 !SET_UNIT 42 121 167 // waterleaf
-!SET_UNIT 42 131 165 // waterleaf
 !SET_UNIT 42 135 160 // waterleaf
 !SET_UNIT 42 13 150 // waterleaf
-!SET_UNIT 42 18 154 // waterleaf
-!SET_UNIT 42 20 160 // waterleaf
-!SET_UNIT 42 17 153 // waterleaf
-!SET_UNIT 42 13 152 // waterleaf
-!SET_UNIT 42 19 160 // waterleaf
 !SET_UNIT 42 19 155 // waterleaf
+!SET_UNIT 42 20 159 // waterleaf
+!SET_UNIT 42 16 154 // waterleaf
+!SET_UNIT 42 13 152 // waterleaf
+!SET_UNIT 42 19 159 // waterleaf
+!SET_UNIT 42 19 156 // waterleaf
 !SET_UNIT 43 24 114 // duck
 !SET_UNIT 43 45 114 // duck
 !SET_UNIT 47 23 115 // duck2
@@ -244,8 +246,8 @@
 !SET_UNIT 43 66 86 // duck
 !SET_UNIT 43 83 55 // duck
 !SET_UNIT 47 84 56 // duck2
-!SET_UNIT 47 98 28 // duck2
-!SET_UNIT 43 97 29 // duck
+!SET_UNIT 47 97 29 // duck2
+!SET_UNIT 43 97 28 // duck
 !SET_UNIT 43 41 6 // duck
 !SET_UNIT 47 48 6 // duck2
 !SET_UNIT 47 143 153 // duck2
@@ -325,7 +327,7 @@
 !SET_UNIT 42 159 145 // waterleaf
 !SET_UNIT 42 167 134 // waterleaf
 !SET_UNIT 42 118 96 // waterleaf
-!SET_UNIT 42 114 93 // waterleaf
+!SET_UNIT 42 115 94 // waterleaf
 !SET_UNIT 42 112 91 // waterleaf
 !SET_UNIT 42 107 87 // waterleaf
 !SET_UNIT 41 108 90 // waterflower
@@ -333,4 +335,4 @@
 !SET_UNIT 41 88 27 // waterflower
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:12
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11308 (2022.04.28 21:06)"  on 28.04.2022 21:06:54
