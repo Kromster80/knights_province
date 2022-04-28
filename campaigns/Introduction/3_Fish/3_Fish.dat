@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 4
+!HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -43,11 +43,9 @@
 !HOUSE_BLOCK 20 // armorWorkshop
 !HOUSE_BLOCK 21 // barracks
 !HOUSE_BLOCK 22 // mill
-!HOUSE_BLOCK 23 // siegeWorkshop
 !HOUSE_BLOCK 24 // butchers
 !HOUSE_BLOCK 26 // store
 !HOUSE_BLOCK 28 // brewery
-!HOUSE_BLOCK 29 // marketplace
 !HOUSE_BLOCK 30 // fort
 !HOUSE_BLOCK 31 // towerBolt
 !HOUSE_BLOCK 34 // sheepyard
@@ -122,8 +120,6 @@
 !SET_ALLIANCE 0 1
 
 // Grant/Block houses
-!HOUSE_BLOCK 23 // siegeWorkshop
-!HOUSE_BLOCK 29 // marketplace
 
 // Block units
 
@@ -194,20 +190,7 @@
 
 -----Hand2-----
 !HAND_CURRENT 2
-!HAND_NEUTRAL_TYPE 0 // Inert
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
------Hand3-----
-!HAND_CURRENT 3
-!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -226,4 +209,4 @@
 !SET_TRIGGER 1 99 66 102 69
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r10476 (2021.08.02 14:46)"  on 02.08.2021 14:53:11
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:23
