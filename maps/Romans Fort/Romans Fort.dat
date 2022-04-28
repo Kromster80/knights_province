@@ -1,7 +1,7 @@
 !VERSION 3
 
 // General settings
-!HANDS_COUNT 5
+!HANDS_COUNT 4
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -262,24 +262,7 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
-!HAND_ACTIVATE
-
-// Fog of War
-
-// Roads and fields
-
-
-// Fences
-
-
-// Units
-!SET_UNIT 44 74 86 // deer
-!SET_UNIT 44 94 54 // deer
-!SET_UNIT 44 93 79 // deer
-
------Hand4-----
-!HAND_CURRENT 4
-!HAND_NEUTRAL_TYPE 1 // Hostile
+!HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
@@ -299,6 +282,9 @@
 
 
 // Units
+!SET_UNIT 44 74 86 // deer
+!SET_UNIT 44 94 54 // deer
+!SET_UNIT 44 93 79 // deer
 !SET_UNIT 36 134 113 // wolf
 !SET_UNIT 36 129 118 // wolf
 !SET_UNIT 36 132 126 // wolf
