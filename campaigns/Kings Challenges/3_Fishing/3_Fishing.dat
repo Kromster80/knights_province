@@ -9,7 +9,6 @@
 -----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
-!HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 28 38
@@ -117,4 +116,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:25
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:36:28
