@@ -9,7 +9,6 @@
 -----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
-!HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 35 68
@@ -28,6 +27,8 @@
 // Alliances
 
 // Grant/Block houses
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 17 // towerArrow
 !HOUSE_BLOCK 31 // towerBolt
 
@@ -125,4 +126,4 @@
 !SET_EMITTER 17 16 34
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:19
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:38:28
