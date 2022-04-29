@@ -61,6 +61,7 @@
 !UNIT_BLOCK 7 // farmer
 !UNIT_BLOCK 9 // baker
 !UNIT_BLOCK 10 // butcher
+!UNIT_BLOCK 11 // tailor
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 18 // militia
@@ -159,4 +160,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:28
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:39:39
