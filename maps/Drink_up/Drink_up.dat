@@ -9,7 +9,6 @@
 -----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
-!HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 31 55
@@ -27,8 +26,14 @@
 // Alliances
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 15 // smith
 
 // Block trades
 
@@ -74,4 +79,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:11
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 7:35:49
