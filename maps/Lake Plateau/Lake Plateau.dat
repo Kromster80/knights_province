@@ -19,6 +19,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -28,8 +29,14 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 15 // smith
 
 // Block trades
 
@@ -78,6 +85,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -87,8 +95,14 @@
 !SET_ALLIANCE 2 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 15 // smith
 
 // Block trades
 
@@ -137,6 +151,7 @@
 // Goals
 
 // AI
+!SET_AI_AUTO_DEFEND
 !SET_AI_AUTO_REPAIR
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
@@ -146,8 +161,14 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 15 // smith
 
 // Block trades
 
@@ -197,4 +218,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:16
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:24:31
