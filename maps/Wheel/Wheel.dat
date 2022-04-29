@@ -40,12 +40,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -120,12 +122,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -200,12 +204,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -280,12 +286,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -360,12 +368,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -440,12 +450,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -520,12 +532,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -600,12 +614,14 @@
 !HOUSE_BLOCK 3 // coalmakers
 !HOUSE_BLOCK 4 // ironMine
 !HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 !UNIT_BLOCK 20 // swordsman
@@ -660,4 +676,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:30
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:32:57

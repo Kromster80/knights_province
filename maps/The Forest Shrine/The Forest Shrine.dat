@@ -37,6 +37,7 @@
 !HOUSE_BLOCK 31 // towerBolt
 
 // Block units
+!UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 20 // swordsman
 !UNIT_BLOCK 21 // bowman
 !UNIT_BLOCK 22 // arbaletman
@@ -188,4 +189,4 @@
 !SET_TRIGGER 5 38 19 47 19
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:27
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:31:18
