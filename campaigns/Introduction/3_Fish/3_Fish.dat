@@ -105,6 +105,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 25087
+!HAND_NAME 5
 !HAND_CENTER_SCREEN 92 106
 
 // Fog of War
@@ -209,4 +210,4 @@
 !SET_TRIGGER 1 99 66 102 69
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:23
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11381 (2022.05.12 17:43)"  on 12.05.2022 17:44:03
