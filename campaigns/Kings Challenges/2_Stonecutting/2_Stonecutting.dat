@@ -45,6 +45,7 @@
 !HOUSE_BLOCK 35 // clothMaker
 
 // Block units
+!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 11 // tailor
 !UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
@@ -108,4 +109,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:25
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 08:56)"  on 13.05.2022 9:20:14
