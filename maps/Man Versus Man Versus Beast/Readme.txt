@@ -13,4 +13,4 @@ Now, here you are, in the middle of a snowstorm, crossing the mountain to find a
 
 What you didn't know was that the enemy king across the mountain caught word of your expedition, and sent the cavalry to crush you. When scouts come back and alert you, many men are already spread across the narrow trail, making their way across the snowy valley. 
 
-Great. So now  you are facing a much better equipped army, trying to make a clumsy retreat with a ragtag army amid the wolves and the snow. And still no sign of the deserters... you start to think that maybe you should have joined them after all.
+Great. So now you are facing a much better equipped army, trying to make a clumsy retreat with a ragtag army amid the wolves and the snow. And still no sign of the deserters... you start to think that maybe you should have joined them after all.
