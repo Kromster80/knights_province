@@ -45,7 +45,9 @@
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -119,7 +121,9 @@
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -193,7 +197,9 @@
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -267,7 +273,9 @@
 !HOUSE_BLOCK 21 // barracks
 
 // Block units
+!UNIT_BLOCK 5 // miner
 !UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -324,4 +332,4 @@
 !SET_EMITTER 17 70 72
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 7:40:24
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 08:56)"  on 13.05.2022 8:57:18
