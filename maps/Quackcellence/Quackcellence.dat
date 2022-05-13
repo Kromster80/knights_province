@@ -9,7 +9,6 @@
 -----Hand0-----
 !HAND_CURRENT 0
 !HAND_ALLOW_HUMAN
-!HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 170 158
@@ -49,6 +48,12 @@
 !HOUSE_BLOCK 35 // clothMaker
 
 // Block units
+!UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 6 // breeder
+!UNIT_BLOCK 10 // butcher
+!UNIT_BLOCK 11 // tailor
+!UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
 
 // Block trades
 
@@ -313,4 +318,4 @@
 !SET_UNIT 42 246 122 // waterleaf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:24
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 09:28)"  on 13.05.2022 9:31:44
