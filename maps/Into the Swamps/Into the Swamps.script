@@ -2,8 +2,6 @@
 // Wiki available at: https://github.com/Kromster80/knights_province/wiki
 
 
-
-
 const
   HUMAN_PLAYER = 0;
   WALKERS_PLAYER = 1;
@@ -33,23 +31,23 @@ procedure CreateNextWave;
 begin
   Actions.GiveGroup(WALKERS_PLAYER, utMilitia, 81, 109, 6, waveNumber, waveNumber);
   Inc(waveGroups);
-  
+
   if waveNumber >= 15 then
   begin
     Actions.GiveGroup(WALKERS_PLAYER, utAxeFighter, 99, 99, 6, waveNumber - 14, waveNumber - 14);
-	Inc(waveGroups);
-  end;	
+    Inc(waveGroups);
+  end;
   
   if waveNumber >= 26 then 
   begin
     Actions.GiveGroup(WALKERS_PLAYER, utHorseScout, 11, 118, 6, waveNumber - 25, waveNumber - 25);
-	Inc(waveGroups);
+    Inc(waveGroups);
   end;
 	
   // OrderIdleGroups will issue attack orders
 
   // Next wave will be tougher
-Inc(waveNumber);
+  Inc(waveNumber);
 end;
 
 
@@ -98,20 +96,14 @@ end;
 
 
 procedure OnMissionStart;
-begin
-  Actions.PlayerNameSet(WALKERS_PLAYER, '<$2>');
-  Actions.PlayerNameSet(BANDITS_PLAYER, '<$3>');
-  
+begin  
   waveNumber := 1;
   waveGroups := 0;
 
   objWaves := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '');
   UpdateObjective;
 
-begin
- Actions.PlayerMessage(0, '<$11>', True);
-end;
-
+  Actions.PlayerMessage(0, '<$11>', True);
 end;
 
 
@@ -122,14 +114,14 @@ begin
 	if not States.PlayerDefeated(HUMAN_PLAYER) then
 	  CreateNextWave;
 
-	// Feed even when defeated
+    // Feed even when defeated
     Feed;
   end;
 
   if aTick mod 30 = 0 then
 	if not States.PlayerDefeated(HUMAN_PLAYER) then
 	  OrderIdleGroups;
-	  
+
   if aTick mod 30 = 0 then
     UpdateObjective;
 end;
