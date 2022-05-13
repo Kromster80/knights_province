@@ -3,8 +3,7 @@
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerNameSet(1, '<$5>');
-  Actions.PlayerNameSet(2, '<$6>');
+
 end;
 
 

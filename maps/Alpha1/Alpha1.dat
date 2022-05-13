@@ -275,6 +275,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
+!HAND_NAME 5
 
 // Fog of War
 
@@ -375,6 +376,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 524287
+!HAND_NAME 6
 
 // Fog of War
 
@@ -458,4 +460,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:07
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11381 (2022.05.12 17:37)"  on 12.05.2022 17:38:13
