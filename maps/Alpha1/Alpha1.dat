@@ -14,6 +14,7 @@
 !HAND_CENTER_SCREEN 29 72
 
 // Fog of War
+!FOW_REVEAL 84 95 8
 
 // Goals
 !ADD_GOAL 1 0 0 0 0
@@ -73,6 +74,12 @@
 !SET_HOUSE 3 7 98 0 // coalmakers
 !SET_HOUSE 9 7 93 0 // woodcutters
 !SET_HOUSE 21 21 95 0 // barracks
+!WARE_OUT_ADD_TO_LAST 18 10 // metalshield
+!WARE_OUT_ADD_TO_LAST 20 10 // metalarmor
+!WARE_OUT_ADD_TO_LAST 22 10 // sword
+!WARE_OUT_ADD_TO_LAST 24 10 // halberd
+!WARE_OUT_ADD_TO_LAST 26 10 // arbalet
+!WARE_OUT_ADD_TO_LAST 27 50 // horse
 !SET_HOUSE 4 5 104 0 // ironMine
 !SET_HOUSE 7 18 76 0 // bakery
 !SET_HOUSE 30 42 72 0 // fort
@@ -81,6 +88,7 @@
 !WARE_OUT_ADD_TO_LAST 23 100 // pike
 !WARE_OUT_ADD_TO_LAST 25 100 // bow
 !WARE_OUT_ADD_TO_LAST 27 50 // horse
+!WARE_OUT_ADD_TO_LAST 33 100 // gambeson
 !SET_HOUSE 1 15 102 0 // foundry
 !SET_HOUSE 26 45 76 1 // store
 !SET_HOUSE 37 28 88 1 // cottage
@@ -460,4 +468,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11381 (2022.05.12 17:37)"  on 12.05.2022 17:38:13
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11492 (2022.07.06 12:48)"  on 07.07.2022 15:36:46
