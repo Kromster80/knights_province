@@ -1,18 +1,15 @@
-0:DuckingDuke
+﻿0:DuckingDuke
 1:Fall of Orthalm 06 - Advance||With your holdings all secured again and the [$7f407f]Kimian mercenaries[] gone it seems like it is time to march northwards to Ennever County. You gather your army and march onwards to help your allies in Ennever County and turn the tide against the [$ff8080]Medis forces.[] You can't shake this weird feeling though...
-
 3:Lord of Seefort
 4:Medis Army
 5:[$ff8040]Medis Cavalry[]
 6:Medis Raiders
 7:Kimian Mercenaries
-
 15:Travel to [$80bdff]Ennever County[]
 16:Destroy the Medis forces
 17:Defeat the [$ff8080]Army[]
 18:Defeat the [$ff8040]Cavalry[]
 19:Defeat the [$ffff80]Raiders[]
 20:Defeat the [$7f407f]Kimian Mercenaries[]
-
 25:Sir,||[$ff8080]Medis[] forces have been spotted! They have likely overrun [$80bdff]Ennever County[] already, we can't move on as long as this threat is present.||Captain Norman
 26:Sir,||The [$ff8040]cavalry[] charge has been beaten back but the enemy [$ff8080]infantry[] has occupied the other side of the pass and I'm not sure if our current forces are able to take the pass in a direct assault. We must look for another way past the mountain range for a flanking manoeuvre.||Captain Norman
