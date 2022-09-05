@@ -96,10 +96,13 @@ end;
 procedure OnTick(aTick: Integer);
 begin
   if AssaultDefeated = false then CheckAssaultStatus;
-  if (AssaultDefeated = true) and (aTick mod 20 = 0) then
-	Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+
+  if (AssaultDefeated = true) and (aTick mod 10 = 0) then
+    Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+
   if BridgeLost = true then
     Actions.PlayerWin([ENEMY_1,ENEMY_2,ENEMY_3,ENEMY_4,ENEMY_5], True);
+
   if KingKilled = true then
     CheckWinCondition;
 end;
