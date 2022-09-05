@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2019.12.6 21:49:27" GUID="{00741C65-9EEA-4740-9088-3CFB994D2199}" Title="0" Description="1" NodeImg="" PreviewImg="" NodeSpacing="40">
+  <Campaign Version="2" LastEdited="2020.4.9 15:51:18" GUID="{00741C65-9EEA-4740-9088-3CFB994D2199}" Title="0" Description="1" FocusImg="" NodeImg="" PreviewImg="" NodeSpacing="40">
     <Chapters>
-      <id0 Background="background.png" Title="3" ShortTitle="4"/>
+      <id0 Background="background_prologue.png" Title="3" ShortTitle="4"/>
+      <id1 Background="background_act1.png" Title="5" ShortTitle="6"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="50" FlagY="400" Folder="1_Prologue" Title="10" Briefing="14" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
-      <id1 Chapter="0" FlagX="625" FlagY="525" Folder="2_Home" Title="11" Briefing="15" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
-      <id2 Chapter="0" FlagX="550" FlagY="510" Folder="3_First_Step" Title="12" Briefing="16" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
-      <id3 Chapter="0" FlagX="520" FlagY="480" Folder="4_Advance" Title="13" Briefing="17" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id0 Chapter="0" FlagX="50" FlagY="400" Folder="0_1_Prologue" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id1 Chapter="1" FlagX="622" FlagY="630" Folder="1_1_Home" Title="20" Briefing="21" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id2 Chapter="1" FlagX="675" FlagY="468" Folder="1_2_Assistance" Title="22" Briefing="23" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id3 Chapter="1" FlagX="449" FlagY="592" Folder="1_3_First_Step" Title="24" Briefing="25" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id4 Chapter="1" FlagX="312" FlagY="516" Folder="1_4_Coinage" Title="26" Briefing="27" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
+      <id5 Chapter="1" FlagX="289" FlagY="245" Folder="1_6_Advance" Title="30" Briefing="31" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon=""/>
     </Missions>
   </Campaign>
 </Root>

@@ -1,0 +1,19 @@
+0:DuckingDuke
+1:Fall of Orthalm 03 - First Step||You have pushed back the enemy assault and liberated the remains of Lorken. Even though you are victorious in this battle your troubles are far from over, your holdings need to be repaired and new troops have to be trained. It is as you are working with your Steward on organizing these tasks a week later when a messenger arrives from a small Hamlet not too far from your Estate. The messenger tells you with great urgency that the [$ff8080]Medis Army[] has taken over the nearby town of Kamme and has turned it into a staging ground for a renewed attack on your holdings.||You waste no time and rush there with what troops you can muster to halt any enemy advances and to destroy their base.
+
+3:Lord of Seefort
+4:Medis Army
+5:Medis Raiders
+
+15:Kill the [$ffff80]Raiders[]
+16:Build a Fort
+17:Destroy the [$ff8080]Medis Army[]'s camp
+18:To Seefort, 5km
+
+25:My Lord,||I will remain in the Estate and will work on reinforcing it as we have discussed. At the moment we barely have enough troops to even hold this place against another attack, so what troops you took with you are what you'll have to work with for now. May I suggest you set up a Fort as soon as you're able? It will allow you to levy better troops in the area than just Militia.||Oh, and I told the road construction crew to follow your orders, may they serve you well in the construction of a new village.||Your steward,|Edward Krabbe
+26:Your Lordship,||I am Powell and I wish to thank you for saving our little Hamlet! We have ample supplies to support you ever since the [$7f407f]Kimians[] just up and left without their plunder. We were planning on cutting some wood up on the mountain, but I fear wolves may reside up there. Please be careful my liege.||Powell the Carpenter
+27:My Liege,||One of the hunters reported to me that you've built a Fort now. May I remind you that you need to make leather from cow hides before you can start producing leather armors for your troops?||Your steward, Edward Krabbe
+28:My Lord,||All is well over here thanks to your efforts to stay the invader's hand. I have sent some troops your way that I have trained in surplus, I hope they may serve you well.||Your steward, Edward Krabbe
+29:My Lord,||Things could be better back here in Seefort. I often have to use the garrison to fight with raiding parties coming from the East, as such I cannot spare much in the form of reinforcements for your efforts. I am sincerely sorry my Lord.||Your steward, Edward Krabbe
+30:My Lord,||Me and some of the lads have come from Rivenaud to aid you in retaking Kamme, seemed like the right thing to do y'know? Just point us at the enemy but do send in your own forces as well, it'd be a shame if we came to your aid just to die fruitlessly y'know?||Derreck, Pikemen sergeant
+31:My Lord,||Things are quite horrible back here in Seefort. What remains of the garrison is constantly occupied in skirmishes with raiding parties, and with the farms not restored I am also facing a potential famine if I don't use all remaining manpower to rebuild the farmlands with all haste. I am unable to send aid at this time or any time this year.||Your steward, Edward Krabbe

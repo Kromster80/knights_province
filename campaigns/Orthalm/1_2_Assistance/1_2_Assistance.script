@@ -1,0 +1,61 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Script made by DuckingDuke
+
+const
+  HUMAN_PLAYER = 0;
+  ALLY_1 = 1;
+  ENEMY_1 = 2;
+  ENEMY_2 = 3;
+var
+  ObjDefend, ObjKillEnemy1, ObjKillEnemy2: Integer;
+  
+  ObjDefendDone, ObjKillEnemy1Done, ObjKillEnemy2Done, RivenaudFallen: Boolean;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(HUMAN_PLAYER, '<$3>');
+  Actions.PlayerNameSet(ALLY_1, '<$4>');
+  Actions.PlayerNameSet(ENEMY_1, '<$5>');
+  Actions.PlayerNameSet(ENEMY_2, '<$6>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
+  ObjDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$15>');
+  ObjKillEnemy1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$16>');
+  ObjKillEnemy2 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '<$17>');
+end;
+
+procedure CheckVictoryStatus;
+begin
+  if ObjKillEnemy1Done and ObjKillEnemy2Done then
+  begin
+    if (RivenaudFallen = false) then
+	begin
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osCompleted);
+	  CampaignData.RivenaudSaved := true;
+	  Actions.PlayerWin([HUMAN_PLAYER], True);
+	end;
+  end;
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  if aPlayer = ALLY_1 then
+    begin
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefend, osFailed);
+	  RivenaudFallen := true;
+	  Actions.PlayerWin([ENEMY_1,ENEMY_2],True);
+	end;
+  if aPlayer = ENEMY_1 then
+    begin
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjKillEnemy1, osCompleted);
+	  ObjKillEnemy1Done := true;
+	  CheckVictoryStatus;
+	end;
+  
+  if aPlayer = ENEMY_2 then
+    begin
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjKillEnemy2, osCompleted);
+	  ObjKillEnemy2Done := true;
+	  CheckVictoryStatus;
+	end;
+end;

@@ -1,0 +1,105 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Script made by DuckingDuke
+
+const
+  HUMAN_PLAYER = 0;
+  ALLY_1 = 3;
+  ALLY_2 = 6;
+  ALLY_3 = 7;
+  ENEMY_1 = 1;
+  ENEMY_2 = 2;
+  ENEMY_3 = 4;
+  ENEMY_4 = 5;
+  ENEMY_5 = 8;
+var
+  objective1: Integer;
+  objective2: Integer;
+  objective3: Integer;
+  
+  Enemy2Defeated, Enemy5Defeated, AssaultDefeated, BridgeLost, KingKilled, BridgeHeld: Boolean;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(HUMAN_PLAYER, '<$5>');
+  Actions.PlayerNameSet(ENEMY_1, '<$6>');
+  Actions.PlayerNameSet(ENEMY_2, '<$7>');
+  Actions.PlayerNameSet(ALLY_1, '<$8>');
+  Actions.PlayerNameSet(ENEMY_3, '<$9>');
+  Actions.PlayerNameSet(ENEMY_4, '<$10>');
+  Actions.PlayerNameSet(ALLY_2, '<$11>');
+  Actions.PlayerNameSet(ALLY_3, '<$12>');
+  Actions.PlayerNameSet(ENEMY_5, '<$13>');
+  Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_1, true, true);
+  Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_2, true, true);
+  Actions.PlayerAllianceChange(HUMAN_PLAYER, ALLY_3, true, true);
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$14>', True);
+  Actions.PlayerColorChange(ENEMY_5, 200+200*256+0*65536);
+  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$17>');
+  objective2 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$18>');
+  objective3 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$19>');
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  if aPlayer = ENEMY_1 then
+    begin
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$15>', True);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective1, osCompleted);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osActive);
+	  BridgeHeld := true;
+	end;
+  if aPlayer = ENEMY_2 then Enemy2Defeated := true;
+  if aPlayer = ENEMY_3 then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osCompleted);
+	  KingKilled := true;
+	end;
+  if aPlayer = ENEMY_5 then Enemy5Defeated := true;
+end;
+
+procedure CheckAssaultStatus;
+begin
+  if Enemy2Defeated and Enemy5Defeated then
+    begin
+      Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
+      Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective2, osCompleted);
+	  if (KingKilled = false) then
+	    begin
+          Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective3, osActive);
+		end;
+      AssaultDefeated := true;
+    end;
+end;
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (States.UnitOwner(aUnit) = ENEMY_1) then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective1, osFailed);
+	  BridgeLost := true
+	end;
+  if (aTriggerId = 1) and (States.UnitOwner(aUnit) = ENEMY_5) then
+    begin
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objective1, osFailed);
+	  BridgeLost := true
+	end;
+end;
+
+procedure CheckWinCondition;
+begin
+  if BridgeHeld and AssaultDefeated and KingKilled then
+    Actions.PlayerWin([HUMAN_PLAYER,ALLY_1,ALLY_2,ALLY_3], True);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if AssaultDefeated = false then CheckAssaultStatus;
+  if (AssaultDefeated = true) and (aTick mod 20 = 0) then
+	Actions.FogRevealCircle(HUMAN_PLAYER,95,59,5);
+  if BridgeLost = true then
+    Actions.PlayerWin([ENEMY_1,ENEMY_2,ENEMY_3,ENEMY_4,ENEMY_5], True);
+  if KingKilled = true then
+    CheckWinCondition;
+end;

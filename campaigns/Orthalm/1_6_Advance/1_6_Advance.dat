@@ -1,0 +1,363 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!MODE_TACTIC
+!HANDS_COUNT 6
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 24 85
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 0 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 0
+!SET_ALLIANCE 3 0
+!SET_ALLIANCE 4 0
+
+// Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 3 // coalmakers
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
+!HOUSE_BLOCK 6 // fishermans
+!HOUSE_BLOCK 7 // bakery
+!HOUSE_BLOCK 8 // farm
+!HOUSE_BLOCK 9 // woodcutters
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 11 // camp
+!HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 13 // school
+!HOUSE_BLOCK 14 // stonecutters
+!HOUSE_BLOCK 15 // mint
+!HOUSE_BLOCK 16 // cattleFarm
+!HOUSE_BLOCK 17 // towerArrow
+!HOUSE_BLOCK 19 // weaponWorkshop
+!HOUSE_BLOCK 20 // armorWorkshop
+!HOUSE_BLOCK 21 // barracks
+!HOUSE_BLOCK 22 // mill
+!HOUSE_BLOCK 24 // butchers
+!HOUSE_BLOCK 26 // store
+!HOUSE_BLOCK 27 // tavern
+!HOUSE_BLOCK 28 // brewery
+!HOUSE_BLOCK 30 // fort
+!HOUSE_BLOCK 31 // towerBolt
+!HOUSE_BLOCK 32 // ciderMaker
+!HOUSE_BLOCK 33 // sawmill
+!HOUSE_BLOCK 37 // cottage
+
+// Block units
+!UNIT_BLOCK 1 // blank
+!UNIT_BLOCK 2 // serf
+!UNIT_BLOCK 3 // builder
+!UNIT_BLOCK 4 // woodcutter
+!UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 6 // breeder
+!UNIT_BLOCK 7 // farmer
+!UNIT_BLOCK 8 // carpenter
+!UNIT_BLOCK 9 // baker
+!UNIT_BLOCK 10 // butcher
+!UNIT_BLOCK 12 // brewer
+!UNIT_BLOCK 13 // fisher
+!UNIT_BLOCK 14 // stonecutter
+!UNIT_BLOCK 15 // smith
+!UNIT_BLOCK 16 // metallurg
+!UNIT_BLOCK 18 // militia
+!UNIT_BLOCK 19 // axefighter
+!UNIT_BLOCK 20 // swordsman
+!UNIT_BLOCK 21 // bowman
+!UNIT_BLOCK 22 // arbaletman
+!UNIT_BLOCK 23 // pikeman
+!UNIT_BLOCK 24 // halberdier
+!UNIT_BLOCK 25 // horsescout
+!UNIT_BLOCK 26 // cavalry
+!UNIT_BLOCK 32 // wagon
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 19 19 97 0 3 9 // axefighter
+!SEND_GROUP 29 78 0
+!SET_GROUP 19 22 89 0 3 15 // axefighter
+!SEND_GROUP 34 68 1
+!SET_GROUP 25 31 73 0 3 9 // horsescout
+!SEND_GROUP 36 54 0
+!SET_GROUP 23 25 85 1 3 9 // pikeman
+!SEND_GROUP 35 65 0
+!SET_GROUP 23 29 76 0 3 12 // pikeman
+!SEND_GROUP 36 57 0
+!SET_GROUP 19 28 80 1 3 12 // axefighter
+!SEND_GROUP 35 61 0
+!SET_GROUP 21 17 100 0 3 12 // bowman
+!SEND_GROUP 27 81 0
+!SET_GROUP 21 20 94 0 3 9 // bowman
+!SEND_GROUP 30 75 0
+!SET_GROUP 25 14 97 0 1 1 // horsescout
+!SEND_GROUP 24 77 0
+!SET_GROUP 25 19 79 1 1 1 // horsescout
+!SEND_GROUP 30 65 0
+!SET_GROUP 25 26 101 0 1 1 // horsescout
+!SEND_GROUP 34 84 0
+!SET_GROUP 25 35 85 0 1 1 // horsescout
+!SEND_GROUP 42 66 0
+!SET_GROUP 25 35 67 0 1 1 // horsescout
+!SEND_GROUP 35 23 0
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 16711680
+!HAND_CENTER_SCREEN 37 32
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 1 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Dispositions
+!SET_AI_DEFENCE 32 42 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 36 42 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 40 42 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 33 37 4 3 10 -1 9 3 // ranged
+!SET_AI_DEFENCE 37 37 4 3 10 -1 9 3 // ranged
+!SET_AI_DEFENCE 41 37 4 3 10 -1 9 3 // ranged
+
+// Attacks
+!SET_AI_ATTACK TYPE 1
+!SET_AI_ATTACK DELAY 3000
+!SET_AI_ATTACK INTERVAL 0
+!SET_AI_ATTACK MEN_PERCENTAGE 100
+!SET_AI_ATTACK TARGET 0
+!ADD_AI_ATTACK
+
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 2 1
+!SET_ALLIANCE 3 1
+!SET_ALLIANCE 4 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 19 37 6 4 3 12 // axefighter
+!SET_GROUP 19 40 6 4 3 12 // axefighter
+!SET_GROUP 19 34 6 4 3 12 // axefighter
+!SET_GROUP 21 37 2 4 3 9 // bowman
+!SET_GROUP 21 34 2 4 3 9 // bowman
+!SET_GROUP 21 40 2 4 3 9 // bowman
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 16711680
+!HAND_CENTER_SCREEN 37 33
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 2 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Attacks
+!SET_AI_ATTACK TYPE 1
+!SET_AI_ATTACK DELAY 0
+!SET_AI_ATTACK INTERVAL 0
+!SET_AI_ATTACK MEN_PERCENTAGE 100
+!SET_AI_ATTACK TARGET 0
+!ADD_AI_ATTACK
+
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 1
+!SET_ALLIANCE 3 1
+!SET_ALLIANCE 4 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 25 55 12 5 3 9 // horsescout
+!SET_GROUP 25 50 7 5 3 9 // horsescout
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 14924635
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 3 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Dispositions
+!SET_AI_DEFENCE 10 36 3 1 10 -1 6 3 // melee
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 1
+!SET_ALLIANCE 2 1
+!SET_ALLIANCE 4 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 36 11 37 0 // campfire
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 18 10 35 4 3 6 // militia
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 8388736
+!HAND_CENTER_SCREEN 37 34
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 4 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Attacks
+!SET_AI_ATTACK TYPE 1
+!SET_AI_ATTACK DELAY 1800
+!SET_AI_ATTACK INTERVAL 0
+!SET_AI_ATTACK MEN_PERCENTAGE 100
+!SET_AI_ATTACK TARGET 0
+!ADD_AI_ATTACK
+
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 1
+!SET_ALLIANCE 2 1
+!SET_ALLIANCE 3 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 25 57 6 5 3 6 // horsescout
+
+-----Hand5-----
+!HAND_CURRENT 5
+!HAND_NEUTRAL_TYPE
+!HAND_ACTIVATE
+
+// Fog of War
+
+// Houses
+!SET_HOUSE 17 14 34 0 // towerArrow
+!SET_HOUSE 9 15 40 1 // woodcutters
+!SET_HOUSE 4 4 49 0 // ironMine
+
+// Roads and fields
+
+!SET_ROAD 15 40 !SET_ROAD 4 49
+
+// Fences
+
+
+// Units
+!SET_UNIT 43 1 1 // duck
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11521 (2022/07/20 10:50)"  on 02/09/2022 13:51:51

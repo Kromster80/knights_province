@@ -1,0 +1,7 @@
+record
+  Won: array [0..6] of Boolean;
+  OuterSeefortRebuilt: Boolean;
+  RivenaudSaved: Boolean;
+  BanditsEmployedMinor: Boolean;
+  BanditsEmployedMajor: Boolean;
+end;

@@ -1,0 +1,92 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Script made by DuckingDuke
+
+const
+  HUMAN_PLAYER = 0;
+  ENEMY_1 = 1;
+  ENEMY_2 = 2;
+  ENEMY_3 = 3;
+  ENEMY_4 = 4;
+  MESSAGE = 100;
+var
+  ObjArmy, ObjCavalry, ObjRaider, ObjMerc, ObjWin, ObjTravel: Integer;
+  MessageReceived, ArmyDefeat, CavalryDefeat, RaiderDefeat, MercDefeat: Boolean;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerNameSet(HUMAN_PLAYER, '<$3>');
+  Actions.PlayerNameSet(ENEMY_1, '<$4>');
+  Actions.PlayerNameSet(ENEMY_2, '<$5>');
+  Actions.PlayerNameSet(ENEMY_3, '<$6>');
+  Actions.PlayerNameSet(ENEMY_4, '<$7>');
+  Actions.PlayerColorChange(ENEMY_2, 64+128*256+255*65536);
+  ObjTravel := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$15>');
+  ObjWin := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '<$16>');
+  ObjArmy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$17>');
+  ObjCavalry := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 3, osHidden, '<$18>');
+  ObjRaider := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 4, osHidden, '<$19>');
+  ObjMerc := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 5, osHidden, '<$20>');
+  if CampaignData.RivenaudSaved = true then
+	begin
+	  Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 13, 101, 0, 9, 3);
+	  Actions.GiveGroup(HUMAN_PLAYER, utPikeman, 21, 101, 0, 9, 3);
+	end;
+end;
+
+procedure CheckVictoryStatus;
+begin
+  if ArmyDefeat and CavalryDefeat and RaiderDefeat and MercDefeat then
+    begin  
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjWin, osCompleted);
+      Actions.PlayerWin([HUMAN_PLAYER], True);
+	end;
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+  if aPlayer = ENEMY_1 then
+  begin
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjArmy, osCompleted);
+    ArmyDefeat := true;
+	CheckVictoryStatus;
+  end;
+  
+  if aPlayer = ENEMY_2 then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCavalry, osCompleted);
+	Actions.PlayerMessage(HUMAN_PLAYER, '<$26>', True);
+    CavalryDefeat := true;
+	CheckVictoryStatus;
+  end;
+  if aPlayer = ENEMY_3 then
+  begin
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjRaider, osCompleted);
+	RaiderDefeat := true;
+	CheckVictoryStatus;
+  end;
+  if aPlayer = ENEMY_4 then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMerc, osCompleted);
+	MercDefeat := true;
+	CheckVictoryStatus;
+  end;
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if (aTick mod MESSAGE = 0) then
+  begin
+	if MessageReceived = false then
+	begin
+	  MessageReceived := true;
+	  Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjTravel, osFailed);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjWin, osActive);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjArmy, osActive);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCavalry, osActive);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjRaider, osActive);
+	  Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMerc, osActive);
+	end;
+  end;
+end;

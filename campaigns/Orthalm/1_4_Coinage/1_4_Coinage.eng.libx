@@ -1,0 +1,24 @@
+0:DuckingDuke
+1:Fall of Orthalm 1_4 - Coinage||After you've liberated Kamme from the [$ff8080]Medis Army[] you have some time to catch your breath as your loyal man-at-arms scour the nearby countryside for any remaining Medis stragglers. It is at this moment that you are informed by a merchant from Kamme that the nearby gold mining town of Binnenhau has laid abandoned ever since the [$7f407f]Kimian mercenaries[] ransacked it and then left for unknown reasons. It would be prudent to rebuild this town as the gold would surely prove useful on your campaign and it would help the local economy recover from all the raids.||Be wary of the woods though...
+
+3:Lord of Seefort
+4:Medis Raiders
+5:Bandits
+
+15:Acquire 200 gold
+16:Kill the [$ff8080]Raiders[]
+17:Deal with the Bandits
+
+25:Drath, I should've known, there's Bandits in these woods. These opportunists prey on the weak and the vulnerable, do not trust them. We should train more Militia to deal with these ruffians, my Lord.||Pikeman Johann
+26:A messenger from the Bandits has arrived with a proposal:||In exchange for 10 gold the Bandits will promise to not raise weapons against you and your people, for the time being...
+27:The Bandit messenger had quite a grin when we gave him the gold to bring back to his leader and told us that there might be business opportunities in the near future.
+28:The Bandit messenger looked at us with quite some confusion when we agreed to pay whilst not having the necessary gold. He mentioned before he left that if we are this poor they might as well just do us a favor and kill us.
+29:The Bandit messenger looked annoyed when we rejected his leader's offer and told us that we'd regret that decision down the road.
+30:The Bandit messenger has returned with a new offer, this time their leader wants to get a payment of 30 gold and in exchange he will take up arms against the Medis Raiders that are in the area.||With luck it will leave one enemy weakened and the other one destroyed. What should we do, my Lord?
+31:The Bandit messenger looked really happy after we gave him all the gold they had asked for and promised we would not regret it. They have left barely moments ago and now we can already hear horns in the distance, it won't be long before battle is joined.
+32:The Bandit messenger looked disappointed at us when we agreed to their terms but didn't have the gold to fulfil said terms. He left whilst muttering something about them coming back soon and taking whatever we have. Horns can be heard in the distance, are they coming for us?
+33:The Messenger spat on the floor and with an agitated tone remarked that we have made a bad mistake before leaving. Now we can hear horns in the distance, they are coming for us now for sure.
+34:The Bandit messenger is back although looking worse for wear, they have defeated the Medis Raiders and now have one final request for us. If we give them 20 gold they will give up their banditry in our lands and instead focus on becoming a thorn in Medis' side.||We could squash them now, but if they stay true to their word then they will be useful in the campaigns ahead, no?
+35:The messenger smiles and promises us we will not regret it. They will be in the area for a while longer to recuperate from the battle but they look forward to future cooperation.
+36:The messenger just sighs as we make a promise we cannot keep as our gold supply is too low to pay them. As he wanders off he remarks that they will instead take the mining town from our hands, willingly or not. Ready our forces!
+37:The messenger's face gets red and he just storms off without a word. Seems like we can expect the Bandits to come after us now, prepare yourself.
