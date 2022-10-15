@@ -1,14 +1,11 @@
-0:DuckingDuke
+﻿0:DuckingDuke
 1:Fall of Orthalm 1_4 - Coinage||After you've liberated Kamme from the [$ff8080]Medis Army[] you have some time to catch your breath as your loyal man-at-arms scour the nearby countryside for any remaining Medis stragglers. It is at this moment that you are informed by a merchant from Kamme that the nearby gold mining town of Binnenhau has laid abandoned ever since the [$7f407f]Kimian mercenaries[] ransacked it and then left for unknown reasons. It would be prudent to rebuild this town as the gold would surely prove useful on your campaign and it would help the local economy recover from all the raids.||Be wary of the woods though...
-
 3:Lord of Seefort
 4:Medis Raiders
 5:Bandits
-
 15:Acquire 200 gold
 16:Kill the [$ff8080]Raiders[]
 17:Deal with the Bandits
-
 25:Drath, I should've known, there's Bandits in these woods. These opportunists prey on the weak and the vulnerable, do not trust them. We should train more Militia to deal with these ruffians, my Lord.||Pikeman Johann
 26:A messenger from the Bandits has arrived with a proposal:||In exchange for 10 gold the Bandits will promise to not raise weapons against you and your people, for the time being...
 27:The Bandit messenger had quite a grin when we gave him the gold to bring back to his leader and told us that there might be business opportunities in the near future.
