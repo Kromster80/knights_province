@@ -1,3 +1,0 @@
-record
-  Won: array [0..99] of Boolean;
-end;

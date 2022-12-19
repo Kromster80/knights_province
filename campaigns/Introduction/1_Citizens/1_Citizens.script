@@ -70,12 +70,6 @@ begin
 end;
 
 
-procedure OnPlayerVictory(aPlayer: Integer);
-begin
-  CampaignData.Won[0] := True;
-end;
-
-
 procedure OnTick(aTick: Integer);
 begin
   if aTick mod 10 = 3 then

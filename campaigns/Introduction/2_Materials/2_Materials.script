@@ -8,9 +8,3 @@ procedure OnMissionStart;
 begin
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
-
-
-procedure OnPlayerVictory(aPlayer: Integer);
-begin
-  CampaignData.Won[1] := True;
-end;

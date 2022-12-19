@@ -10,7 +10,7 @@ begin
   for I := 1 to States.CampaignMissionCount - 1 do
     Actions.CampaignMissionUnlock(I, States.CampaignMissionWon(I-1));
 
-  // Progress
+  // Display progress as percentage instead of xx/xx
   begin
     cntPlayed := 0;
     for I := 0 to States.CampaignMissionCount - 1 do
