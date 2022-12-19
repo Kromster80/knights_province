@@ -187,7 +187,6 @@
 !SET_UNIT 2 102 74 // serf
 !SET_UNIT 2 101 74 // serf
 !SET_UNIT 2 103 74 // serf
-!SET_UNIT 32 100 69 // wagon
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -206,8 +205,5 @@
 // Fences
 
 
-// Triggers
-!SET_TRIGGER 1 99 66 102 69
 
-
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11648 (2022.10.02 20:11)"  on 02.10.2022 20:16:32
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12053 (2022.12.19 17:36)"  on 19.12.2022 17:39:10

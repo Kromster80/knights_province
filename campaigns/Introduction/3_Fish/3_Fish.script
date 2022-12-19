@@ -8,16 +8,17 @@ const
   FISH_PACKAGE = 20;
   ownCampX = 18;
   ownCampY = 90;
-  allyCampUnloadX = 101;
-  allyCampUnloadY = 68;
+  allyCampX = 101;
+  allyCampY = 73;
 
 var
-  ownCamp: Integer;
+  ownCamp, allyCamp: Integer;
   ciderDealShown: Boolean;
 
 procedure OnMissionStart;
 begin
   ownCamp := States.HouseAt(ownCampX, ownCampY);
+  allyCamp := States.HouseAt(allyCampX, allyCampY);
 
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
@@ -39,7 +40,7 @@ begin
         begin
           Actions.HouseWareRemove(ownCamp, wtCider, CIDER_PACKAGE);
           Actions.UnitCarryGive(wagon, wtCider, CIDER_PACKAGE);
-          Actions.UnitOrderWalk(wagon, allyCampUnloadX, allyCampUnloadY);
+          Actions.UnitWagonOrderEnterHouse(wagon, allyCamp);
           Break;
         end;
       end;    
@@ -47,24 +48,21 @@ begin
 end;
 
 
-procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+procedure OnUnitWagonEnteredHouse(aUnit: Integer; aHouse: Integer);
 var
   I: Integer;
   wagon: Integer;
 begin
-  if (aTriggerId = 1) and (States.UnitType(aUnit) = utWagon) and (States.UnitCarryType(aUnit) = wtCider)  then
+  if (States.UnitCarryType(aUnit) = wtCider) and (aHouse = allyCamp) then
   begin
-    // Destroy wagon
-    Actions.UnitKill(aUnit, True);
-  
     // Create new wagon
-    for I := -2 to 2 do
+    for I := -3 to 3 do
     begin
-      wagon := Actions.GiveUnit(HUMAN_PLAYER, utWagon, allyCampUnloadX + I, allyCampUnloadY - 5, 1);
+      wagon := Actions.GiveUnit(HUMAN_PLAYER, utWagon, allyCampX + I, allyCampY - 5, 1);
       if wagon <> 0 then
       begin
         Actions.UnitCarryGive(wagon, wtFish, FISH_PACKAGE);
-        Actions.UnitOrderWalk(wagon, ownCampX, ownCampY);
+        Actions.UnitWagonOrderEnterHouse(wagon, ownCamp);
         Break;
       end;
     end;
