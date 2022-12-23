@@ -2,7 +2,7 @@
 
 // General settings
 !RANKING 1 // Min time
-!HANDS_COUNT 4
+!HANDS_COUNT 5
 !HAND_DEFAULT_HUMAN 0
 
 // Hands
@@ -31,6 +31,7 @@
 // Alliances
 !SET_ALLIANCE 1 0
 !SET_ALLIANCE 2 0
+!SET_ALLIANCE 3 1
 
 // Grant/Block houses
 
@@ -301,6 +302,7 @@
 // Alliances
 !SET_ALLIANCE 0 0
 !SET_ALLIANCE 2 1
+!SET_ALLIANCE 3 0
 
 // Grant/Block houses
 
@@ -383,7 +385,7 @@
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
-!HAND_COLOR 524287
+!HAND_COLOR 6388031
 !HAND_NAME 6
 
 // Fog of War
@@ -401,6 +403,7 @@
 // Alliances
 !SET_ALLIANCE 0 0
 !SET_ALLIANCE 1 1
+!SET_ALLIANCE 3 0
 
 // Grant/Block houses
 
@@ -429,13 +432,75 @@
 
 -----Hand3-----
 !HAND_CURRENT 3
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 25087
+!HAND_CENTER_SCREEN 89 100
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Alliances
+!SET_ALLIANCE 0 1
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 0
+
+// Grant/Block houses
+
+// Block units
+
+// Block trades
+
+// Houses
+!SET_HOUSE 6 79 105 0 // fishermans
+!SET_HOUSE 11 89 100 1 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 29 5 // club
+!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!SET_HOUSE 37 87 103 2 // cottage
+!SET_HOUSE 27 86 98 0 // tavern
+
+// Roads and fields
+
+!SET_ROAD 86 98 !SET_ROAD 86 99 !SET_ROAD 87 99 !SET_ROAD 88 99
+!SET_ROAD 86 100 !SET_ROAD 87 100 !SET_ROAD 88 100 !SET_ROAD 89 100
+!SET_ROAD 80 101 !SET_ROAD 81 101 !SET_ROAD 82 101 !SET_ROAD 83 101
+!SET_ROAD 84 101 !SET_ROAD 85 101 !SET_ROAD 86 101 !SET_ROAD 87 101
+!SET_ROAD 88 101 !SET_ROAD 80 102 !SET_ROAD 86 102 !SET_ROAD 87 102
+!SET_ROAD 80 103 !SET_ROAD 87 103 !SET_ROAD 80 104 !SET_ROAD 79 105
+!SET_ROAD 80 105 !SET_ROAD 79 106 !SET_ROAD 80 106
+
+// Fences
+
+
+// Units
+!SET_UNIT 2 86 99 // serf
+!SET_UNIT 2 87 99 // serf
+!SET_UNIT 13 79 106 // fisher
+
+-----Hand4-----
+!HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 
 // Fog of War
 
+// Houses
+!SET_HOUSE 37 91 94 0 // cottage
+
 // Roads and fields
 
+!SET_ROAD 91 94
 
 // Fences
 
@@ -468,4 +533,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11492 (2022.07.06 12:48)"  on 07.07.2022 15:36:46
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12072 (2022.12.21 21:16)"  on 21.12.2022 21:19:44

@@ -1,6 +1,7 @@
 ﻿0:Krom
 1:Test-map
-5:Blue AI
-6:Yellow AI
+5:Blue enemy
+6:Teal enemy
+7:Orange ally
 9:Nothing on the right
 10:Nothing on the left
