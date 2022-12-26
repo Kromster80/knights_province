@@ -81,7 +81,8 @@
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
-!HAND_COLOR 14924635
+!HAND_COLOR 6388031
+!HAND_NAME 5
 !HAND_CENTER_SCREEN 67 20
 
 // Fog of War
@@ -104,12 +105,13 @@
 
 // Houses
 !SET_HOUSE 9 67 20 0 // woodcutters
-!SET_HOUSE 9 59 42 1 // woodcutters
-!SET_HOUSE 9 61 55 1 // woodcutters
+!SET_HOUSE 9 60 42 1 // woodcutters
+!SET_HOUSE 9 62 55 1 // woodcutters
 
 // Roads and fields
 
-!SET_ROAD 67 20 !SET_ROAD 59 42 !SET_ROAD 61 55
+!SET_ROAD 67 20 !SET_ROAD 59 42 !SET_ROAD 60 42 !SET_ROAD 61 55
+!SET_ROAD 62 55
 
 // Fences
 
@@ -148,4 +150,4 @@
 !SET_EMITTER 7 58 53
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:29
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12101 (2022.12.26 23:03)"  on 26.12.2022 23:05:27
