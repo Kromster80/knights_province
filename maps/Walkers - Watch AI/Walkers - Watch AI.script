@@ -89,9 +89,6 @@ end;
 
 procedure OnMissionStart;
 begin
-  // Name Walkers
-  Actions.PlayerNameSet(WALKERS_PLAYER, '<$5>');
-  
   waveNumber := 1;
   waveGroups := 0;
 

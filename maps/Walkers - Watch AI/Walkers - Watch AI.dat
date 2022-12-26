@@ -80,6 +80,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
+!HAND_NAME 5
 !HAND_CENTER_SCREEN 67 20
 
 // Fog of War
@@ -141,11 +142,11 @@
 // Block trades
 
 // Houses
-!SET_HOUSE 11 3 77 0 // camp
+!SET_HOUSE 11 4 74 0 // camp
 
 // Roads and fields
 
-!SET_ROAD 3 77 !SET_ROAD 2 78 !SET_ROAD 3 78 !SET_ROAD 4 78
+!SET_ROAD 4 74 !SET_ROAD 3 75 !SET_ROAD 4 75 !SET_ROAD 5 75
 
 // Fences
 
@@ -167,4 +168,4 @@
 !SET_TRIGGER 1 58 44 60 52
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:29
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12101 (2022.12.26 23:10)"  on 26.12.2022 23:11:19
