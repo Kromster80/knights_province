@@ -1,7 +1,7 @@
-﻿0:Fall and Rise of Orthalm |Kampania fabularna
-1:Królestwo Orthalm[$8080ff] stoi na skraju całkowitego upadku, czy możesz je uratować i uczynić go większym niż kiedykolwiek wcześniej? || Autor: Auke „DuckingDuke” Bartelink
+﻿0:Upadek i powstanie Orthalm |Kampania fabularna
+1:[$8080ff]Królestwo Orthalm[] stoi na skraju całkowitego upadku! Tylko ty możesz je uratować i przywrócić mu dawną świetność. || Autor: Auke „DuckingDuke” Bartelink
 2:
-3:
+3:Prolog:
 4:O
 5:Rozdział I
 6:I
@@ -9,7 +9,7 @@
 8:
 9:
 10:Prolog
-11:Wczesna wiosna 1170, Medis, [$ff8080] Republika Medis[]. ||Nadchodzi świt nad obozem [$ff8080] generała Antimusa[], jego siły strzegą ostatniego mostu pomiędzy atakami [$ff8080] wojsk Orthalm's[] i stoliy [$ffff80] Medis[]. Tego ranka przybył jeździec i ostrzegł przed [$8080ff] Armią Orthalm[] pod dowództwem [$007aff] Króla Rodewic[], przywództwo nadchodzi ze wsparciem dla [$80ffff] Północnych Klanów[], do Broni!
+11:Wczesna wiosna 1170, Medis, [$ff8080] Republika Medis [].||Świt wstaje nad obozem [$ff8080]generała Antimusa[] i jego ludzi, który wraz ze swoimi wojskami utrzymuje most pomiędzy atakującą armią [$8080ff]Orthalm[] a stolicą [$ffff80]Medis[]. Tego ranka do obozu przybywa wyczerpany jeździec i ostrzega przed armią [$8080ff]Orthalm[], która pod dowództwem [$007aff]Króla Rodewica[] i wspierana przez [$80ffff]Klany z Północy[], wkrótce do nas dotrą. Do broni!
 12:
 13:
 14:
@@ -18,15 +18,15 @@
 17:
 18:
 19:
-20:Początek
-21:Wiosna 1170, Seefort, [$8080ff] Królestwo Orthalm[]. ||Nawet jeśli nie byłeś spokrewniony z Królem Rodewiciem, nie mogłeś się powstrzymać od poczucia smutku po jego śmierci. Minął zaledwie miesiąc od porażki w pobliżu [$ff8080] Medis[], teraz nawet Twoja posiadłość jest zagrożona przez [$ff8080] Armię Medis[] i ich [$7f407f] najemników Kimian[], jak również reszta kraj. W nocy zrujnowane zostały zewnętrzne posiadłości a pobliskie ziemie oblegane. Musisz chronić siebie i swoich ludzi, zanim zaczniesz myśleć o wyjściu i pomaganiu swojemu krajowi.
-22:
-23:
-24:Pierwszy krok
-25:Wiosna 1170, niedaleko Seefort, [8080ff] Królestwa Orthalm[]. ||Odepchnąłeś atak wroga i uwolniłeś pozostałości Lorkena. Nawet jeśli odniesiesz zwycięstwo w tej bitwie, twoje kłopoty są dalekie od zakończenia, twoje posiadłości wymagają naprawy i szkolenia nowych żołnierzy. To tak, jak pracujesz ze swoim zarządcą nad organizacją tych zadań tydzień później, po przybyciu posłańca z małego Hamleta niedaleko twojego Posiadłości. Posłaniec informuje, że pobliskie miasto Kamme zostało przejęte przez [$ff8080] Armię Medis[] i zamienione w obóz dla ponownego ataku na twoje posiadłości. ||Nie marnuj czasu, pędź tam swoimi żołnierzami, które zdołasz zebrać, powstrzymaj wszelkie ataki wroga i zniszczyć ich bazę.
-26:
-27:
+20:Ojczyzna
+21:Wiosna 1170, Seefort, [$8080ff]Królestwo Orthalm[].||Nawet jeśli nie jesteś spokrewniony z królem Rodewic, byłeś zszokowany wiadomością o jego śmierci. Niecały miesiąc minął od klęski w pobliżu [$ff8080]Medis[], a wojska [$ff8080]Armii Medis[] i [7f407f]Najemnicy Kilian[] ponownie zagrażają twojemu krajowi i reszcie imperium. Zeszłej nocy spalili zagrody w twojej posiadłości i oblegają ich część. Uratuj życie swoje i swoich seniorów. Kiedy najeźdźcy zostaną wypędzeni z twojej ziemi, powstań i pomóż swojemu krajowi!
+22:Wsparcie
+23:Wiosna 1170 r., niedaleko Seefort, [$8080ff]Królestwo Orthalm[].||Gdy odpierasz atak na swoje bezpośrednie posiadłości i eliminujesz Najeźdźców, którzy rozbili obóz w Lorken, na horyzoncie wciąż widać zbliżające się kłopoty. Niedaleko jednak dostrzec można [$80bdff]Miasto Rivenaud[], które wciąż jest ci wierne i przygotowuje się do pełnej obrony. Powinieneś się pospieszyć i chronić swoich wiernych ludzi!
+24:Pierwsze kroki
+25:Wiosna 1170 r., niedaleko Seefort, [8080ff]Królestwo Orthalm[].||Odparłeś atak wroga i wyzwoliłeś to, co zostało z Lorken. Nawet jeśli odniosłeś zwycięstwo w bitwie, twoje kłopoty jeszcze się nie skończyły. Twoje posiadłości zostały poważnie zniszczone i wymagają naprawy oraz rekrutacji nowych żołnierzy. Jesteś w trakcie rozwiązywania tych zadań ze swoim zarządca, gdy kilka dni później przybywa posłaniec z małej wioski niedaleko twojej posiadłości. Zdyszany posłaniec donosi, że liczy się każda sekunda, ponieważ pobliskie miasto Kamme zostało przejęte przez [$ff8080]Armie Medis[] i stamtąd przygotowywane są dalsze ataki na twój kraj.||Nie marnuj czasu i pospiesz ze wszystkimi Mężczyznami, których możesz zebrać, powstrzymać natarcie wroga i zniszczyć jego obóz.
+26:Waluta
+27:Wiosna 1170, niedaleko Seefort, [$8080ff]Królestwo Orthalmu[].||Po wyzwoleniu Kamme od [$ff8080]Armii Medis[] masz trochę czasu na złapanie oddechu, jako lojalny sługa przeszukaj pobliską okolicę w poszukiwaniu pozostałych zbrodniarzy Medis. |W tym momencie zostajesz poinformowany przez kupca z Kamme, że pobliskie miasto Binnenhau, w którym wydobywano złoto, jest opuszczone od czasu, gdy [$7f407f]najemnicy Kimian[] splądrowali je, a następnie opuścili z nieznanych powodów. Rozsądnie byłoby odbudować to miasto, ponieważ znajdujące się tam złoto z pewnością przydałoby się w twojej kampanii i pomogłoby lokalnej gospodarce odbudować się po wszystkich najazdach.||Uważaj jednak na lasy...
 28:
 29:
-30:Zaawansowane
-31:Wiosna 1170, północny zachód od Kamme, [$8080ff] Królestwo Orthalm[]. ||Po odzyskaniu wszystkich posiadłości i zniknięciu [7f407f] najemników Kimian[], nadszedł czas, aby maszerować na zachód do hrabstwa Ennever. Zgromadź armię i maszerujesz dalej, aby pomóc swoim sojusznikom w hrabstwie Ennever. Musimy odwrócić los [$ff8080] Medis.[] Nie możesz jednak pozbyć się tego dziwnego uczucia ...
+30:Kontynuacja
+31:Wiosna 1170, na północny-zachód od Kamme, [$8080ff]Królestwo Orthalm[].||Teraz, gdy twoje posiadłości i ziemie są ponownie zabezpieczone, a [$7f407f]najemnicy Kimian[] odeszli, wydaje się, że nadszedł czas, aby kierować się na zachód, do hrabstwa Ennever. Zbierasz armię, a wtedy udaj się, by wesprzeć sojuszników w hrabstwie i odwrócić szalę zwycięstwa przeciwko [$ff8080]Armii Medis[]. Jednak masz dziwne uczucie, które nie chce zniknąć...

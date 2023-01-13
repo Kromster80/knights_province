@@ -1,15 +1,15 @@
 ﻿0:DuckingDuke
-1:Upadek Orthalmu 04 - Zaawansowany atak na twoje posiadłości.
+1:Upadek Orthalm 06 - Natarcie ||Po ponownym zabezpieczeniu wszystkich posiadłości i odejściu [$7f407f]najemników Kimian[] wydaje się, że nadszedł czas, aby wymaszerować na północ do hrabstwa Ennever. Zbierasz armię i pójdź dalej, aby pomóc swoim sojusznikom w hrabstwie Ennever i odwrócić szalę zwycięstwa przeciwko siłom [$ff8080]Medis.[] Nie możesz jednak pozbyć się tego dziwnego uczucia...
 3:Władca Seefort
 4:Armia Medis
 5:[$ff8040]Kawaleria Medis[]
 6:Jeźdźcy Medis
-7:Opuszczona kopalnia
-15:Podróż do [$80bdff] Hrabstwa Ennever[]
+7:Najemnicy Kimian
+15:Podążaj do [$80bdff]Hrabstwa Ennever[]
 16:Zniszcz siły Medis
 17:Pokonaj [$ff8080]Armię[]
 18:Pokonaj [$ff8080]Kawalerię[]
 19:Pokonaj [$ff8080]Najeźdźców[]
-20:
-25:Panie, ||[$ff8080] Wojska Medis[]zostały zauważone! Prawdopodobnie zajęli już[$80bdff]hrabstwo Ennever[], nie możemy pójść dalej, dopóki istnieje to zagrożenie. ||Kapitan Norman
-26:Panie, ||Szarża [$ff8040]kawalerii[] została odparta, lecz wrogia[$ ff8080]piechota[] zajęła drugą stronę przełęczy i nie jesteśmy pewni, czy nasze obecne siły są w stanie przetrzymać bezpośredni atak. Musimy odszukać drogę górską i przejść potajemnie pasmem, aby wykonać manewr oskrzydlający. ||Kapitan Norman
+20:Pokonaj [$7f407f]najemników Kimian[]
+25:Panie, ||wojska [$ff8080]Medis[]zostały zauważone! Prawdopodobnie zajęli już [$80bdff] hrabstwo Ennever[], dopóki istnieje zagrożenie, nie możemy pójść dalej. ||Kapitan Norman
+26:Panie, ||Szarża [$ff8040]kawalerii[] została odparta, lecz wrogia[$ff8080]piechota[] zajęła drugą stronę przełęczy i nie jesteśmy pewni, czy nasze obecne siły są w stanie przetrzymać bezpośredni atak. Musimy odszukać drogę górską i przejść potajemnie pasmem, aby wykonać manewr oskrzydlający. ||Kapitan Norman
