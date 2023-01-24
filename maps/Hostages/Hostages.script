@@ -25,9 +25,9 @@ begin
     Actions.CinematicBegin;
     Actions.CinematicBarsShow;
     Actions.CinematicViewStore;
-    Actions.CinematicViewSetTo(9, 79, -20, 0.05);
+    Actions.CinematicViewSetTo(9, 79, 20.0, 0.05);
     Actions.CinematicFadeIn(1.5);
-    Actions.CinematicViewMoveTo(19, 84, 10, 0.05, 8);
+    Actions.CinematicViewMoveTo(19, 84, -10.0, 0.05, 8);
   end;
 
   if aTick = 31 then

@@ -57,13 +57,13 @@ begin
     if fCinStep = 2 then
     begin
       Actions.CinematicFadeIn(3);
-      Actions.CinematicViewMoveTo(28, 16, -20.0, 0.05, 3);
+      Actions.CinematicViewMoveTo(28, 16, 20.0, 0.05, 3);
     end else if fCinStep = 3 then
     begin
       Actions.CinematicText('<$25>', 1);
     end else if fCinStep = 11 then
     begin
-      Actions.CinematicViewMoveTo(16, 25, -20.0, 0.05, 3);
+      Actions.CinematicViewMoveTo(16, 25, 20.0, 0.05, 3);
     end else if fCinStep = 19 then
     begin
       Actions.CinematicText('', 1);
@@ -86,12 +86,12 @@ begin
   begin
     Actions.CinematicFadeIn(3);
     case fActiveCinType of
-      ctSchool:  Actions.CinematicViewMoveTo(11, 18, -20.0, 0.05, 3);
-      ctCottage: Actions.CinematicViewMoveTo(6, 16, -20.0, 0.05, 3);
-      ctStone:   Actions.CinematicViewMoveTo(39, 22, -20.0, 0.05, 3);
-      ctWood:    Actions.CinematicViewMoveTo(38, 28, -20.0, 0.05, 3);
-      ctTavern:  Actions.CinematicViewMoveTo(22, 18, -20.0, 0.05, 3);
-      ctStore:   Actions.CinematicViewMoveTo(22, 23, -20.0, 0.05, 3);
+      ctSchool:  Actions.CinematicViewMoveTo(11, 18, 20.0, 0.05, 3);
+      ctCottage: Actions.CinematicViewMoveTo(6, 16, 20.0, 0.05, 3);
+      ctStone:   Actions.CinematicViewMoveTo(39, 22, 20.0, 0.05, 3);
+      ctWood:    Actions.CinematicViewMoveTo(38, 28, 20.0, 0.05, 3);
+      ctTavern:  Actions.CinematicViewMoveTo(22, 18, 20.0, 0.05, 3);
+      ctStore:   Actions.CinematicViewMoveTo(22, 23, 20.0, 0.05, 3);
     end;
   end else if fCinStep = 3 then
   begin

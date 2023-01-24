@@ -41,8 +41,8 @@ begin
     Actions.CinematicViewStore;
     Actions.CinematicBarsShow;
     Actions.CinematicFadeIn(3);
-    Actions.CinematicViewSetTo(28, 13, -30, 0.06);
-    Actions.CinematicViewMoveTo(33, 23, -20.0, 0.05, 4.5);
+    Actions.CinematicViewSetTo(28, 13, 30.0, 0.06);
+    Actions.CinematicViewMoveTo(33, 23, 20.0, 0.05, 4.5);
   end;
 
   if aTick = 50 then
