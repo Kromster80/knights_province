@@ -7,7 +7,7 @@ const
 // Gambeson armor 2 gold
 // Iron weapon 4 gold
 // Iron armor 4 gold
-// Iron shield
+// Iron shield 4 gold
 // Horse 2 gold
 
 procedure OnMissionStart;
@@ -19,11 +19,11 @@ procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 var
   MERC: TKMUnitType;
   REWARD: Integer;
-
 begin
-  MERC := States.UnitType(aUnit)
+  MERC := States.UnitType(aUnit);
 
   // Melee
+  // no militia ?
   if MERC = utAxeFighter then REWARD := 5;
   if MERC = utSwordsman then REWARD := 12;
 
@@ -40,10 +40,10 @@ begin
   if MERC = utCavalry then REWARD := 14;
 
   if REWARD <> 0 then
-    begin
-      Actions.UnitKill(aUnit, True);
-      Actions.GiveWares(HUMAN_ID, wtGold, REWARD);
-    end;
+  begin
+    Actions.UnitKill(aUnit, True);
+    Actions.GiveWares(HUMAN_ID, wtGold, REWARD);
+  end;
 end;
 
 procedure OnPlayerVictory(aPlayer: Integer);
