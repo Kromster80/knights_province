@@ -109,7 +109,7 @@ begin
   UpdateObjective;
   
   Actions.PlayerMissionResultString(HUMAN_PLAYER, Utils.Format('<$11>', [GetWavesDeflected]));
-  Actions.MissionHighscore(waveNumber);
+  Actions.MissionHighscore(GetWavesDeflected);
 end;
 
 

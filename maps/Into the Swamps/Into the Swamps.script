@@ -118,7 +118,7 @@ begin
 
   Actions.PlayerMessage(HUMAN_PLAYER, '<$12>', True);
 
-  Actions.MissionHighscore(waveNumber);
+  Actions.MissionHighscore(GetWavesDeflected);
 end;
 
 
