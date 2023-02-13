@@ -13,109 +13,104 @@
 const
   HUMAN_PLAYER = 0;
 
-  ctSchool  = 0;
-  ctCottage = 1;
-  ctStone   = 2;
-  ctWood    = 3;
-  ctTavern  = 4;
-  ctFood    = 5;
-  ctStore   = 6;
-
   // As we're used to colors are 'ABGR' hex codes sent as cardinal
   COLOR_50_PURPLE = $80FF00B2;
 
-type TObjectiveStates = record
-  Done: Boolean;
-  ID:   Integer;
-end;
+type
+  TCinematicType = (ctSchool, ctCottage, ctStone, ctWood, ctTavern, ctFood, ctStore);
 
-type TObjectiveSuccess = record
-  // Units
-  School, Cottage,
-  // Basic supplies
-  Stone, Wood, Planks,
-  // Food
-  Tavern, Fish, Cider,
-  // Store
-  Store:               TObjectiveStates;
-end;
+  TObjectiveStates = record
+    Done: Boolean;
+    ID:   Integer;
+  end;
+
+  TObjectiveSuccess = record
+    // Units
+    School, Cottage,
+    // Basic supplies
+    Stone, Wood, Planks,
+    // Food
+    Tavern, Fish, Cider,
+    // Store
+    Store: TObjectiveStates;
+  end;
 
 var
-  objSuccess:     TObjectiveSuccess;
-  fDiscovered,
-  fCinRunning:    Boolean;
-  fActiveCinType,
-  fCinStep,
-  fHighl1,
-  fHighl2:        Integer;
+  objSuccess: TObjectiveSuccess;
+  fDiscovered: Boolean;
+  fCinRunning: Boolean;
+  fActiveCinType: TCinematicType;
+  fCinStep: Integer;
+  fHighl1: Integer;
+  fHighl2: Integer;
   fTickCount: Integer;
 
 procedure DoAnimStep;
 begin
   if fActiveCinType = ctFood then
   begin
-    if fCinStep = 2 then
-    begin
-      Actions.CinematicFadeIn(3);
-      Actions.CinematicViewMoveTo(28, 16, 20.0, 0.05, 3);
-    end else if fCinStep = 3 then
-    begin
-      Actions.CinematicText('<$25>', 1);
-    end else if fCinStep = 11 then
-    begin
-      Actions.CinematicViewMoveTo(16, 25, 20.0, 0.05, 3);
-    end else if fCinStep = 19 then
-    begin
-      Actions.CinematicText('', 1);
-      Actions.CinematicFadeOut(2);
-    end else if fCinStep = 21 then
-    begin
-      Actions.CinematicBarsHide;
-      Actions.CinematicViewRevert;
-      Actions.CinematicFadeIn(2);
-    end else if fCinStep = 23 then
-    begin
-      Actions.CinematicEnd;
-      fCinRunning := False;
+    case fCinStep of
+      2:  begin
+            Actions.CinematicFadeIn(3);
+            Actions.CinematicViewMoveTo(28, 16, 20.0, 0.05, 3);
+          end;
+      3:  begin
+            Actions.CinematicText('<$25>', 1);
+          end;
+      11: begin
+            Actions.CinematicViewMoveTo(16, 25, 20.0, 0.05, 3);
+          end;
+      19: begin
+            Actions.CinematicText('', 1);
+            Actions.CinematicFadeOut(2);
+          end;
+      21: begin
+            Actions.CinematicBarsHide;
+            Actions.CinematicViewRevert;
+            Actions.CinematicFadeIn(2);
+          end;
+      23: begin
+            Actions.CinematicEnd;
+            fCinRunning := False;
+          end;
     end;
 
-    exit;
+    Exit;
   end;
 
-  if fCinStep = 2 then
-  begin
-    Actions.CinematicFadeIn(3);
-    case fActiveCinType of
-      ctSchool:  Actions.CinematicViewMoveTo(11, 18, 20.0, 0.05, 3);
-      ctCottage: Actions.CinematicViewMoveTo(6, 16, 20.0, 0.05, 3);
-      ctStone:   Actions.CinematicViewMoveTo(39, 22, 20.0, 0.05, 3);
-      ctWood:    Actions.CinematicViewMoveTo(38, 28, 20.0, 0.05, 3);
-      ctTavern:  Actions.CinematicViewMoveTo(22, 18, 20.0, 0.05, 3);
-      ctStore:   Actions.CinematicViewMoveTo(22, 23, 20.0, 0.05, 3);
-    end;
-  end else if fCinStep = 3 then
-  begin
-    case fActiveCinType of
-      ctSchool:  Actions.CinematicText('<$20>', 1);
-      ctCottage: Actions.CinematicText('<$21>', 1);
-      ctStone:   Actions.CinematicText('<$22>', 1);
-      ctWood:    Actions.CinematicText('<$23>', 1);
-      ctTavern:  Actions.CinematicText('<$24>', 1);
-      ctStore:   Actions.CinematicText('<$26>', 1);
-    end;
-  end else if fCinStep = 11 then
-  begin
-    Actions.CinematicText('', 1);
-    Actions.CinematicFadeOut(2);
-  end else if fCinStep = 13 then
-  begin
-    Actions.CinematicBarsHide;
-    Actions.CinematicViewRevert;
-    Actions.CinematicFadeIn(2);
-  end else if fCinStep = 15 then
-  begin
-    Actions.CinematicEnd;
-    fCinRunning := False;
+  case fCinStep of
+    2:  begin
+          Actions.CinematicFadeIn(3);
+          case fActiveCinType of
+            ctSchool:  Actions.CinematicViewMoveTo(11, 18, 20.0, 0.05, 3);
+            ctCottage: Actions.CinematicViewMoveTo(6, 16, 20.0, 0.05, 3);
+            ctStone:   Actions.CinematicViewMoveTo(39, 22, 20.0, 0.05, 3);
+            ctWood:    Actions.CinematicViewMoveTo(38, 28, 20.0, 0.05, 3);
+            ctTavern:  Actions.CinematicViewMoveTo(22, 18, 20.0, 0.05, 3);
+            ctStore:   Actions.CinematicViewMoveTo(22, 23, 20.0, 0.05, 3);
+          end;
+        end;
+    3:  case fActiveCinType of
+          ctSchool:  Actions.CinematicText('<$20>', 1);
+          ctCottage: Actions.CinematicText('<$21>', 1);
+          ctStone:   Actions.CinematicText('<$22>', 1);
+          ctWood:    Actions.CinematicText('<$23>', 1);
+          ctTavern:  Actions.CinematicText('<$24>', 1);
+          ctStore:   Actions.CinematicText('<$26>', 1);
+        end;
+    11: begin
+          Actions.CinematicText('', 1);
+          Actions.CinematicFadeOut(2);
+        end;
+    13: begin
+          Actions.CinematicBarsHide;
+          Actions.CinematicViewRevert;
+          Actions.CinematicFadeIn(2);
+        end;
+    15: begin
+          Actions.CinematicEnd;
+          fCinRunning := False;
+        end;
   end;
 end;
 
@@ -385,16 +380,16 @@ end;
 procedure CheckSquare;
 begin
   if not fDiscovered then
-    if (States.UnitAt(61, 61) > 0) or
-       (States.UnitAt(62, 61) > 0) or
-       (States.UnitAt(61, 62) > 0) or
-       (States.UnitAt(62, 62) > 0) then
+    if (States.UnitAt(61, 61) > 0)
+    or (States.UnitAt(62, 61) > 0)
+    or (States.UnitAt(61, 62) > 0)
+    or (States.UnitAt(62, 62) > 0) then
       ShowMessage(100, -1);
 end;
 
 procedure FeedUnits;
 var
-  I:               Integer;
+  I: Integer;
   PlayerUnitArray: array of Integer;
 begin
   PlayerUnitArray := States.PlayerGetAllUnits(HUMAN_PLAYER);
