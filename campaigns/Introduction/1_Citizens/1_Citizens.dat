@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 15 29
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -75,6 +76,8 @@
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
+
+// Block orders
 
 // Block trades
 
@@ -154,20 +157,20 @@
 !SET_FENCE_V 38 34 1
 
 // Units
-!SET_UNIT 2 14 18 // serf
-!SET_UNIT 2 15 18 // serf
-!SET_UNIT 2 15 19 // serf
-!SET_UNIT 2 14 19 // serf
-!SET_UNIT 4 11 13 // woodcutter
-!SET_UNIT 8 17 24 // carpenter
-!SET_UNIT 14 22 13 // stonecutter
-!SET_UNIT 12 16 37 // brewer
-!SET_UNIT 2 18 19 // serf
-!SET_UNIT 2 18 18 // serf
-!SET_UNIT 2 17 18 // serf
-!SET_UNIT 2 17 19 // serf
-!SET_UNIT 3 4 28 // builder
-!SET_UNIT 3 4 29 // builder
+!SET_UNIT 2 14 18 4 // serf
+!SET_UNIT 2 15 18 4 // serf
+!SET_UNIT 2 15 19 4 // serf
+!SET_UNIT 2 14 19 4 // serf
+!SET_UNIT 4 11 13 4 // woodcutter
+!SET_UNIT 8 17 24 4 // carpenter
+!SET_UNIT 14 22 13 4 // stonecutter
+!SET_UNIT 12 16 37 4 // brewer
+!SET_UNIT 2 18 19 4 // serf
+!SET_UNIT 2 18 18 4 // serf
+!SET_UNIT 2 17 18 4 // serf
+!SET_UNIT 2 17 19 4 // serf
+!SET_UNIT 3 4 28 4 // builder
+!SET_UNIT 3 4 29 4 // builder
 
 // Groups
 !SET_GROUP 19 13 34 2 4 12 // axefighter
@@ -179,6 +182,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 !HAND_NAME 6
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -202,6 +206,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -232,6 +238,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 !HAND_NAME 6
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -259,6 +266,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -281,6 +290,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -291,4 +301,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:25)"  on 28.04.2022 18:26:22
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12389 (2023.02.13 23:24)"  on 13.02.2023 23:33:41
