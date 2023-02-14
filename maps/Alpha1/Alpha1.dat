@@ -330,6 +330,7 @@
 !SET_HOUSE 37 59 25 0 // cottage
 !SET_HOUSE 9 74 34 1 // woodcutters
 !SET_HOUSE 33 59 31 3 // sawmill
+!SET_HOUSE 17 29 6 0 // towerArrow
 
 // Roads and fields
 
@@ -540,4 +541,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12392 (2023.02.14 10:55)"  on 14.02.2023 10:57:17
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12392 (2023.02.14 10:55)"  on 14.02.2023 10:58:25
