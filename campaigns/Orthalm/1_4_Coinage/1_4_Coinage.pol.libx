@@ -1,0 +1,21 @@
+﻿0:DuckingDuke
+1:Upadek Orthalm 05 - Złoto ||Po wyzwoleniu Kamme z rąk [$ff8080]Armii Medis[] masz trochę czasu na złapanie oddechu, podczas gdy twoi lojalni zbrojni przeczesują pobliskie tereny w poszukiwaniu pozostałych przybłędów Medis. W tym momencie zostajesz poinformowany przez kupca z Kamme, że pobliskie miasto Binnenhau, w którym wydobywano złoto, jest opuszczone od czasu, gdy [$7f407f]najemnicy Kimian[] splądrowali je, a następnie opuścili z nieznanych powodów. Rozsądnie byłoby odbudować to miasto, ponieważ złoto z pewnością przydałoby się w twojej kampanii i pomogłoby lokalnej gospodarce odbudować się po wszystkich najazdach.||Uważaj jednak na lasy...
+3:Władca Seefort
+4:Jeźdźcy Medis
+5:Bandyci
+15:Zgromadź 200 sztuk złota
+16:Zabij [$ff8080]Najeźdźców[]
+17:Rozpraw się z bandytami
+25:Drath, powinienem był wiedzieć, że w tych lasach grasują bandyci. Ci oportuniści żerują tylko na słabych i bezbronnych, nie ufaj im! |Mój Panie, powinniśmy wyszkolić więcej żołdaków, by rozprawić się z tymi bandytami. ||Pikinier Johann
+26:Przybył posłaniec Bandytów z propozycją: ||W zamian za 10 sztuk złota Bandyci obiecują, że nie podniosą broni przeciwko tobie i ani twoim ludziom...
+27:Posłaniec Bandytów mocno się uśmiechnął, kiedy daliśmy mu złoto, które dostarczy swojemu przywódcy. Na koniec rzekł, że w najbliższej przyszłości mogą pojawić się możliwości biznesowe.
+28:Posłaniec Bandytów spojrzał na nas z pewnym zakłopotaniem, kiedy zgodziliśmy się zapłacić, nie mając potrzebnego złota. Przed wyjazdem wspomniał, że jeśli jesteśmy tak biedni, równie dobrze mogą wyświadczyć nam przysługę i nas zabić.\n
+29:Posłaniec bandytów wyglądał na zirytowanego, gdy odrzuciliśmy ofertę jego przywódcy, wtedy rzekł, że pożałujemy tej decyzji.
+30:Posłaniec bandytów powrócił z nową propozycją, tym razem ich przywódca chce otrzymać zapłatę w wysokości 30 sztuk złota, a w zamian podejmie walkę z najeźdźcami Medis, którzy przebywają w okolicy. ||Przy odrobinie szczęścia pozostawi jednego wroga osłabionego a drugi zniszczony. Co powinniśmy zrobić, mój Panie?
+31:Posłaniec Bandytów wyglądał na naprawdę szczęśliwego po tym, jak daliśmy mu całe złoto, o które prosili i obiecaliśmy, że nie będziemy tego żałować. Ledwie wyruszył, a już w oddali słychać dźwięk z rogów, gdzie niedługo rozpocznie się bitwa.
+32:Posłaniec Bandytów spojrzał na nas z rozczarowaniem, kiedy zgodziliśmy się na ich warunki, ale nie mieliśmy złota, aby je spełnić. Wyszedł, mamrocząc coś o tym, że wkrótce wrócą i zabiorą wszystko, co mamy. |W oddali słychać rogi, czyżby szli na nas?
+33:Wysłannik splunął na podłogę i głośnym tonem rzekł, iż popełniliśmy poważny błąd. W niedalekiej oddali  słychać wyjące rogi, teraz na pewno idą na nas.
+34:Posłaniec bandytów powrócił, choć wygląda źle, udało im się pokonać najeźdźców z Medis, teraz to oni mają prośbę. Jeśli podarujemy im 20 sztuk złota, zrezygnują z bandytyzmu na naszych ziemiach i zamiast tego skupią się na byciu cierniem w boku Medis. ||Moglibyśmy ich teraz zgnieść, ale jeśli dotrzymają słowa, mogą okazać się przydatni w przyszłej kampanii.
+35:Posłaniec uśmiecha się i obiecuje, że nie pożałujemy tego. |Pozostaną jednak w okolicy jeszcze przez jakiś czas, aby zregenerować siły po bitwie, już teraz nie mogą się doczekać przyszłej współpracy.
+36:Posłaniec tylko wzdycha, gdy składamy obietnicę, której nie możemy dotrzymać, ponieważ nasze zapasy złota są zbyt niskie, aby im zapłacić. Odchodząc, zaznacza, że zamiast zapłaty odbiorą nam górnicze miasto, dobrowolnie lub nie. Przygotować wojska!
+37:Posłaniec się wściekł i wybiegł bez słowa. Wygląda na to, że niebawem bandyci zawitają do nas, przygotuj się.
