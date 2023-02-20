@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Campaign Version="2" LastEdited="2023.2.19 9:52:40" GUID="{97C4FE16-A746-41F5-AB01-B6049756ED13}" Title="1" Description="2" FocusImg="" NodeImg="node.png" PreviewImg="CampaignMap.png" NodeSpacing="10">
+    <Chapters>
+      <id0 Background="Chapter1.png" Title="7" ShortTitle="8"/>
+      <id1 Background="Chapter2.png" Title="30" ShortTitle="31"/>
+      <id2 Background="Chapter3.png" Title="47" ShortTitle="48"/>
+    </Chapters>
+    <Missions>
+      <id0 Chapter="0" FlagX="249" FlagY="439" Folder="1_Glory_to_the_King" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="" FlagImgNormal="1.png" FlagImgWon="1.png" NodeAnchors="239;523;239;523;236;546;236;546"/>
+      <id1 Chapter="0" FlagX="268" FlagY="579" Folder="2_Dangerous_Wolves" Title="13" Briefing="14" BriefingAudio="" FlagImgLocked="" FlagImgNormal="2.png" FlagImgWon="2.png" NodeAnchors="239;523;219;578;266;581;266;581"/>
+      <id2 Chapter="0" FlagX="680" FlagY="494" Folder="3_The_Boy" Title="16" Briefing="17" BriefingAudio="" FlagImgLocked="" FlagImgNormal="3.png" FlagImgWon="3.png" NodeAnchors="266;581;536;591;621;486;666;501"/>
+      <id3 Chapter="0" FlagX="805" FlagY="303" Folder="4_Mysterious_Letter" Title="19" Briefing="20" BriefingAudio="" FlagImgLocked="" FlagImgNormal="4.png" FlagImgWon="4.png" NodeAnchors="689;501;1009;521;729;406;804;311"/>
+      <id4 Chapter="0" FlagX="623" FlagY="35" Folder="5_Secret_Find" Title="22" Briefing="23" BriefingAudio="" FlagImgLocked="" FlagImgNormal="5.png" FlagImgWon="5.png" NodeAnchors="796;306;284;451;621;196;636;126"/>
+      <id5 Chapter="0" FlagX="948" FlagY="109" Folder="6_New_Enemy" Title="25" Briefing="26" BriefingAudio="" FlagImgLocked="" FlagImgNormal="6.png" FlagImgWon="6.png" NodeAnchors="656;111;701;-54;931;106;931;106"/>
+      <id6 Chapter="1" FlagX="681" FlagY="441" Folder="7_The_Destiny" Title="33" Briefing="34" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="1;1;1;1;1;1;1;1"/>
+      <id7 Chapter="1" FlagX="881" FlagY="657" Folder="To be continued..." Title="36" Briefing="37" BriefingAudio="" FlagImgLocked="" FlagImgNormal="" FlagImgWon="" NodeAnchors="1;1;1;1;1;1;1;1"/>
+    </Missions>
+  </Campaign>
+</Root>

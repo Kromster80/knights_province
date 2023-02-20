@@ -1,0 +1,15 @@
+﻿0:Kinghts Dzapan
+1:Król rozkazał sprowadzenie Chłopca, musimy odszukać i sprowadzić go z powrotem.
+3:Porozmawiaj z Chłopcem stojącym przy moście na wschodzie. 
+4:Witaj Chłopcze. ||[$ff8080]Sługa:[] Czemu uciekłeś tak z nagła? |[$8080ff]Chłopiec:[] bo przestraszyłem się Króla |[$ff8080]Sługa:[] Króla... dlaczego? |[$8080ff]Chłopiec:[] ... |[$8080ff]Chłopiec:[] Lepiej, jeżeli Król sam odnajdzie i przeczyta list z butelki |[$ff8080]Sługa:[] Jaka butelka... jaki List... o czym ty prawisz chłopcze |[$8080ff]Chłopiec:[] Z fosy zamku wyłowiona butelka ze starym listem |[$ff8080]Sługa:[] Starym listem... czy mógłbyś mi przekazać ten list? |[$8080ff]Chłopiec:[] nie mogę. List został ukryty i nie ma prawa ujrzeć świata dziennego! |[$ff8080]Sługa:[] Chłopcze, zdradź mi, proszę gdzie go znajdę |[$8080ff]Chłopiec:[] Nie wiem, został ukryty gdzieś w górach... |[$ff8080]Sługa:[] hm... odnajdźmy ten list.|||Znajdź butelkę z Listem, ukrytą gdzieś w górach.
+5:Odnaleźliśmy list!
+
+6:Wilcza Jaskinia - to tutaj chowaliśmy się, gdy musieliśmy uciekać z miasta.
+7:Śnieżna góra - pamiętam, jak za dzieciaka wspinaliśmy się na sam szczyt.
+8:Stara Kopalnia - aż strach pomyśleć jak mogliśmy się bawić w tak przerażającym miejscu.
+9:Upss - chyba się zgubiliśmy...
+
+10:[$ffff00]Znajdź list ukryty w pniu, gdzieś w górach[]
+
+11:Góry Timan - aż wracają wspomnienia z dzieciństwa.
+12:Znaleźliśmy pień, niestety nic nie ma w środku. |Szukajmy dalej.

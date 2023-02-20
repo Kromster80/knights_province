@@ -1,0 +1,110 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+  PLAYER_HAND = 0;
+
+var
+  trigger1Showed: Boolean; // Global variable on script top (defaults to False)
+  trigger2Showed: Boolean;
+
+  trigger4Showed: Boolean;
+  trigger5Showed: Boolean;
+  trigger6Showed: Boolean; 
+  trigger7Showed: Boolean; 
+  trigger8Showed: Boolean;
+  trigger9Showed: Boolean;
+  
+  triggerFound: Boolean;
+  victoryTick: Integer;
+  objective1: Integer;
+  
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
+  trigger1Showed := True;
+end;
+
+begin
+if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$5>', True);
+  triggerFound := True;
+end;
+
+begin
+if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$6>', True);
+  trigger7Showed := True;
+end;
+
+begin
+if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
+  trigger4Showed := True;
+end;
+
+begin
+if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$8>', True);
+  trigger5Showed := True;
+end;
+
+begin
+if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$9>', True);
+  trigger6Showed := True;
+end;
+
+begin
+if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$11>', True);
+  trigger8Showed := True;
+end;
+
+begin
+if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$12>', True);
+  trigger9Showed := True;
+end;
+end;
+end;
+end;
+end;
+end;
+end;
+end;
+end;
+
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+ 
+  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$10>');
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  // Unless trigger is found victory will always be postponed into the future
+  if not triggerFound then
+    victoryTick := aTick + 30;
+
+  if victoryTick = aTick then
+    Actions.PlayerWin([PLAYER_HAND], True);
+	
+	if aTick = 100 then Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
+end;
+

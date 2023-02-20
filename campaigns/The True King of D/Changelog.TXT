@@ -1,0 +1,32 @@
+****************************************************
+**************|  Campaign version:  |***************
+****************************************************
+*********************|  1.0  |**********************
+****************************************************
+
+18-02-2023
+-----------
+
+Mission 1
+* change water/terrain edges.
+
+Mission 2
+* change water/terrain edges
+
+Mission 3
+* change water high by castle
+* add some new story text info after arrive special places in mountains
+* fixed objectives radius when arrived the boy
+* add new object in the mountains
+* change water/terrain edges
+
+Mission 4
+* AI3 (ally) add grain field - was missing
+* AI3 add missing fence
+* AI3 delete trained citizen without work-houses
+
+Mission 7
+* add mission 7
+
+Others:
+* fixed some texts in Campaign history

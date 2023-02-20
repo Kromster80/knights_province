@@ -1,0 +1,37 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+  ENEMY_1 = 1;
+
+
+var
+  objective1: Integer;
+  
+  
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+
+	 
+  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '<$10>');
+
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 60 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
+	
+	  if aTick = 600 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$4>', True);
+	
+		  if aTick = 3600 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
+
+end;
+
+

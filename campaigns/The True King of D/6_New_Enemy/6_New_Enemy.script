@@ -1,0 +1,16 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+end;
+
+
+
+

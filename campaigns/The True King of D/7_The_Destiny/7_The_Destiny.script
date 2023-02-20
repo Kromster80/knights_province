@@ -1,0 +1,117 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+  ALLY_PLAYER = 1;
+  PLAYER_HAND = 0;
+
+var
+  trigger1Showed: Boolean;  //Nidgard => End Mission
+  trigger2Showed: Boolean;  //Old graves
+  trigger3Showed: Boolean;  //village 1 Hanzy
+  trigger4Showed: Boolean;  //village 2 Wenze
+  trigger5Showed: Boolean;  //Old Fishman
+  trigger6Showed: Boolean;  //Mountain Bandits
+  trigger7Showed: Boolean;  //Arrived Nidgard
+  
+  victoryTick: Integer;
+  objective1: Integer;
+  triggerFound: Boolean;
+
+  
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);                     //Triger 1 :Nidgard => End Mission
+begin
+if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$9>', True);
+  trigger1Showed := True;
+end;
+
+begin
+if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 2 => Old graves 
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$3>', True);
+  trigger2Showed := True;
+end;
+
+begin
+if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 3 => village 1 Hanzy
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$5>', True);
+  trigger3Showed := True;
+end;
+
+begin
+if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 4 => village 2 Wenze
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$6>', True);
+  trigger4Showed := True;
+end;
+
+begin
+if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 5 =>  Old Fishman
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
+  trigger5Showed := True;
+end;
+
+begin
+if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 6 =>  Mountain Bandits
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$8>', True);
+  trigger6Showed := True;
+end;
+
+begin
+if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 6 =>  //Arrived Nidgard
+begin
+  Actions.PlayerMessage(PLAYER_HAND, '<$10>', True);
+  trigger7Showed := True;
+end;
+end;
+end;
+end;
+end;
+end;
+end;
+end;
+
+
+procedure OnMissionStart;
+begin
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+  
+  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 8, osActive, '<$12>');
+end;
+
+
+procedure Feed;
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(ALLY_PLAYER);
+
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 5000 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+	
+	// Unless trigger is found victory will always be postponed into the future
+  if not trigger1Showed then
+    victoryTick := aTick + 30;
+
+  if victoryTick = aTick then
+    Actions.PlayerWin([PLAYER_HAND], True);
+
+  if aTick mod 9000 = 0 then Feed;
+end;
+
