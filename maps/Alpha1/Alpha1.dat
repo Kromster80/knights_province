@@ -505,6 +505,7 @@
 
 // Houses
 !SET_HOUSE 37 91 94 0 // cottage
+!SET_HOUSE 17 32 24 0 // towerArrow
 
 // Roads and fields
 
@@ -526,6 +527,12 @@
 !SET_UNIT 36 45 58 4 // wolf
 !SET_UNIT 46 48 61 4 // bear
 !SET_UNIT 45 46 62 4 // boar
+!SET_UNIT 3 34 25 5 // builder
+!SET_UNIT 3 34 26 5 // builder
+
+// Groups
+!SET_GROUP 21 31 25 5 1 1 // bowman
+!SET_GROUP 21 32 25 5 1 1 // bowman
 
 // Stockpiles
 !SET_STOCKPILE 1 12 25 5
@@ -541,4 +548,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12392 (2023.02.14 10:55)"  on 14.02.2023 10:58:25
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12452 (2023.02.23 00:43)"  on 23.02.2023 0:44:19
