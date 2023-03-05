@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 89 21
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -52,16 +53,16 @@
 
 
 // Units
-!SET_UNIT 1 83 20 // blank
-!SET_UNIT 1 83 19 // blank
-!SET_UNIT 1 82 19 // blank
-!SET_UNIT 1 82 20 // blank
-!SET_UNIT 2 83 22 // serf
-!SET_UNIT 2 83 23 // serf
-!SET_UNIT 2 83 24 // serf
-!SET_UNIT 3 82 22 // builder
-!SET_UNIT 3 82 23 // builder
-!SET_UNIT 3 82 24 // builder
+!SET_UNIT 1 83 20 4 // blank
+!SET_UNIT 1 83 19 4 // blank
+!SET_UNIT 1 82 19 4 // blank
+!SET_UNIT 1 82 20 4 // blank
+!SET_UNIT 2 83 22 4 // serf
+!SET_UNIT 2 83 23 4 // serf
+!SET_UNIT 2 83 24 4 // serf
+!SET_UNIT 3 82 22 4 // builder
+!SET_UNIT 3 82 23 4 // builder
+!SET_UNIT 3 82 24 4 // builder
 
 // Groups
 !SET_GROUP 25 81 21 4 1 1 // horsescout
@@ -73,6 +74,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 101 77
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -112,16 +114,16 @@
 
 
 // Units
-!SET_UNIT 1 99 74 // blank
-!SET_UNIT 1 99 75 // blank
-!SET_UNIT 1 98 75 // blank
-!SET_UNIT 1 98 74 // blank
-!SET_UNIT 2 99 77 // serf
-!SET_UNIT 2 99 78 // serf
-!SET_UNIT 2 99 79 // serf
-!SET_UNIT 3 98 77 // builder
-!SET_UNIT 3 98 78 // builder
-!SET_UNIT 3 98 79 // builder
+!SET_UNIT 1 99 74 4 // blank
+!SET_UNIT 1 99 75 4 // blank
+!SET_UNIT 1 98 75 4 // blank
+!SET_UNIT 1 98 74 4 // blank
+!SET_UNIT 2 99 77 4 // serf
+!SET_UNIT 2 99 78 4 // serf
+!SET_UNIT 2 99 79 4 // serf
+!SET_UNIT 3 98 77 4 // builder
+!SET_UNIT 3 98 78 4 // builder
+!SET_UNIT 3 98 79 4 // builder
 
 // Groups
 !SET_GROUP 25 97 76 4 1 1 // horsescout
@@ -133,6 +135,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 32768
 !HAND_CENTER_SCREEN 12 48
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -172,16 +175,16 @@
 
 
 // Units
-!SET_UNIT 1 10 50 // blank
-!SET_UNIT 1 11 50 // blank
-!SET_UNIT 1 11 51 // blank
-!SET_UNIT 1 10 51 // blank
-!SET_UNIT 2 13 50 // serf
-!SET_UNIT 2 13 51 // serf
-!SET_UNIT 2 13 52 // serf
-!SET_UNIT 3 14 50 // builder
-!SET_UNIT 3 14 51 // builder
-!SET_UNIT 3 14 52 // builder
+!SET_UNIT 1 10 50 4 // blank
+!SET_UNIT 1 11 50 4 // blank
+!SET_UNIT 1 11 51 4 // blank
+!SET_UNIT 1 10 51 4 // blank
+!SET_UNIT 2 13 50 4 // serf
+!SET_UNIT 2 13 51 4 // serf
+!SET_UNIT 2 13 52 4 // serf
+!SET_UNIT 3 14 50 4 // builder
+!SET_UNIT 3 14 51 4 // builder
+!SET_UNIT 3 14 52 4 // builder
 
 // Groups
 !SET_GROUP 25 11 53 4 1 1 // horsescout
@@ -190,6 +193,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -200,4 +204,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:07
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12545 (2023.03.05 17:19)"  on 05.03.2023 17:19:37
