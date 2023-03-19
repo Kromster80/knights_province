@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 59 77
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -47,6 +48,8 @@
 !UNIT_BLOCK 22 // arbaletman
 !UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 26 // cavalry
+
+// Block orders
 
 // Block trades
 
@@ -124,24 +127,24 @@
 
 
 // Units
-!SET_UNIT 2 58 77 // serf
-!SET_UNIT 2 57 76 // serf
-!SET_UNIT 2 58 76 // serf
-!SET_UNIT 2 57 77 // serf
-!SET_UNIT 2 58 78 // serf
-!SET_UNIT 2 57 78 // serf
-!SET_UNIT 3 60 76 // builder
-!SET_UNIT 3 60 77 // builder
-!SET_UNIT 3 60 78 // builder
-!SET_UNIT 14 70 73 // stonecutter
-!SET_UNIT 9 62 69 // baker
-!SET_UNIT 9 55 69 // baker
-!SET_UNIT 7 58 59 // farmer
-!SET_UNIT 7 58 64 // farmer
-!SET_UNIT 13 69 91 // fisher
-!SET_UNIT 8 51 82 // carpenter
-!SET_UNIT 4 36 90 // woodcutter
-!SET_UNIT 4 43 86 // woodcutter
+!SET_UNIT 2 58 77 4 // serf
+!SET_UNIT 2 57 76 4 // serf
+!SET_UNIT 2 58 76 4 // serf
+!SET_UNIT 2 57 77 4 // serf
+!SET_UNIT 2 58 78 4 // serf
+!SET_UNIT 2 57 78 4 // serf
+!SET_UNIT 3 60 76 4 // builder
+!SET_UNIT 3 60 77 4 // builder
+!SET_UNIT 3 60 78 4 // builder
+!SET_UNIT 14 70 73 4 // stonecutter
+!SET_UNIT 9 62 69 4 // baker
+!SET_UNIT 9 55 69 4 // baker
+!SET_UNIT 7 58 59 4 // farmer
+!SET_UNIT 7 58 64 4 // farmer
+!SET_UNIT 13 69 91 4 // fisher
+!SET_UNIT 8 51 82 4 // carpenter
+!SET_UNIT 4 36 90 4 // woodcutter
+!SET_UNIT 4 43 86 4 // woodcutter
 
 // Groups
 !SET_GROUP 18 55 55 7 3 6 // militia
@@ -154,6 +157,7 @@
 !HAND_COLOR 524287
 !HAND_NAME 4
 !HAND_CENTER_SCREEN 10 12
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -196,6 +200,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -301,28 +307,29 @@
 
 
 // Units
-!SET_UNIT 2 7 11 // serf
-!SET_UNIT 2 7 12 // serf
-!SET_UNIT 2 8 12 // serf
-!SET_UNIT 2 8 11 // serf
-!SET_UNIT 2 6 11 // serf
-!SET_UNIT 2 6 12 // serf
-!SET_UNIT 2 5 11 // serf
-!SET_UNIT 2 5 12 // serf
-!SET_UNIT 2 4 11 // serf
-!SET_UNIT 2 4 12 // serf
-!SET_UNIT 4 28 7 // woodcutter
-!SET_UNIT 4 35 11 // woodcutter
-!SET_UNIT 4 40 4 // woodcutter
-!SET_UNIT 8 22 10 // carpenter
-!SET_UNIT 8 17 20 // carpenter
-!SET_UNIT 13 3 24 // fisher
-!SET_UNIT 12 3 5 // brewer
+!SET_UNIT 2 7 11 4 // serf
+!SET_UNIT 2 7 12 4 // serf
+!SET_UNIT 2 8 12 4 // serf
+!SET_UNIT 2 8 11 4 // serf
+!SET_UNIT 2 6 11 4 // serf
+!SET_UNIT 2 6 12 4 // serf
+!SET_UNIT 2 5 11 4 // serf
+!SET_UNIT 2 5 12 4 // serf
+!SET_UNIT 2 4 11 4 // serf
+!SET_UNIT 2 4 12 4 // serf
+!SET_UNIT 4 28 7 4 // woodcutter
+!SET_UNIT 4 35 11 4 // woodcutter
+!SET_UNIT 4 40 4 4 // woodcutter
+!SET_UNIT 8 22 10 4 // carpenter
+!SET_UNIT 8 17 20 4 // carpenter
+!SET_UNIT 13 3 24 4 // fisher
+!SET_UNIT 12 3 5 4 // brewer
 
 -----Hand2-----
 !HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -333,4 +340,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11648 (2022.10.02 20:11)"  on 02.10.2022 20:18:27
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 18:18:46
