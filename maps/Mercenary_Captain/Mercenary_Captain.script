@@ -1,14 +1,6 @@
 const
-  HUMAN_ID = 0; // Only 1 player.
-  WARE = 'Gold';
-
-// Wooden weapons 2 gold
-// Wooden shield 1 gold
-// Gambeson armor 2 gold
-// Iron weapon 4 gold
-// Iron armor 4 gold
-// Iron shield 4 gold
-// Horse 2 gold
+  HUMAN_ID = 0; // Only 1 player
+  WARE_NAME = 'Gold';
 
 procedure OnMissionStart;
 begin
@@ -17,32 +9,40 @@ end;
 
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 var
-  MERC: TKMUnitType;
-  REWARD: Integer;
+  warriorType: TKMUnitType;
+  reward: Integer;
 begin
-  MERC := States.UnitType(aUnit);
+  warriorType := States.UnitType(aUnit);
+
+  // Wooden weapons - 2 gold
+  // Wooden shield  - 1 gold
+  // Gambeson armor - 2 gold
+  // Iron weapon    - 4 gold
+  // Iron armor     - 4 gold
+  // Iron shield    - 4 gold
+  // Horse          - 2 gold
 
   // Melee
-  // no militia ?
-  if MERC = utAxeFighter then REWARD := 5;
-  if MERC = utSwordsman then REWARD := 12;
+  if warriorType = utMilitia then reward := 2;
+  if warriorType = utAxeFighter then reward := 5;
+  if warriorType = utSwordsman then reward := 12;
 
   // Ranged
-  if MERC = utBowman then REWARD := 4;
-  if MERC = utArbaletman then REWARD := 8;
+  if warriorType = utBowman then reward := 4;
+  if warriorType = utArbaletman then reward := 8;
 
   // Anti-cav
-  if MERC = utPikeman then REWARD := 4;
-  if MERC = utHalberdier then REWARD := 8;
+  if warriorType = utPikeman then reward := 4;
+  if warriorType = utHalberdier then reward := 8;
 
   // Cav
-  if MERC = utHorseScout then REWARD := 7;
-  if MERC = utCavalry then REWARD := 14;
+  if warriorType = utHorseScout then reward := 7;
+  if warriorType = utCavalry then reward := 14;
 
-  if REWARD <> 0 then
+  if reward <> 0 then
   begin
     Actions.UnitKill(aUnit, True);
-    Actions.GiveWares(HUMAN_ID, wtGold, REWARD);
+    Actions.GiveWares(HUMAN_ID, wtGold, reward);
   end;
 end;
 
@@ -51,7 +51,7 @@ var
   newCnt: Integer;
 begin
   newCnt := States.StatWaresBalance(aPlayer, wtGold);
-  Actions.PlayerMissionResultString(HUMAN_ID, 'You have earned||' + IntToStr(newCnt) + '||' + WARE + '|this time');
+  Actions.PlayerMissionResultString(HUMAN_ID, 'You have earned||' + IntToStr(newCnt) + '||' + WARE_NAME + '|this time');
 
   Actions.MissionHighscore(newCnt);
 end;

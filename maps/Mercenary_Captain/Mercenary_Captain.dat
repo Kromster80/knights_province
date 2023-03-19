@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 35 68
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 55 0 12
@@ -34,6 +35,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -55,21 +58,22 @@
 
 
 // Units
-!SET_UNIT 2 45 67 // serf
-!SET_UNIT 2 46 67 // serf
-!SET_UNIT 2 47 67 // serf
-!SET_UNIT 2 48 67 // serf
-!SET_UNIT 3 45 68 // builder
-!SET_UNIT 3 46 68 // builder
-!SET_UNIT 3 47 68 // builder
-!SET_UNIT 3 48 68 // builder
-!SET_UNIT 2 49 67 // serf
-!SET_UNIT 3 49 68 // builder
+!SET_UNIT 2 45 67 4 // serf
+!SET_UNIT 2 46 67 4 // serf
+!SET_UNIT 2 47 67 4 // serf
+!SET_UNIT 2 48 67 4 // serf
+!SET_UNIT 3 45 68 4 // builder
+!SET_UNIT 3 46 68 4 // builder
+!SET_UNIT 3 47 68 4 // builder
+!SET_UNIT 3 48 68 4 // builder
+!SET_UNIT 2 49 67 4 // serf
+!SET_UNIT 3 49 68 4 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -85,32 +89,32 @@
 
 
 // Units
-!SET_UNIT 44 16 90 // deer
-!SET_UNIT 44 79 62 // deer
-!SET_UNIT 44 68 60 // deer
-!SET_UNIT 43 72 92 // duck
-!SET_UNIT 47 73 91 // duck2
-!SET_UNIT 47 54 52 // duck2
-!SET_UNIT 43 53 54 // duck
-!SET_UNIT 41 54 92 // waterflower
-!SET_UNIT 42 53 93 // waterleaf
-!SET_UNIT 45 29 91 // boar
-!SET_UNIT 45 33 93 // boar
-!SET_UNIT 45 71 61 // boar
-!SET_UNIT 36 72 66 // wolf
-!SET_UNIT 36 11 59 // wolf
-!SET_UNIT 36 17 85 // wolf
-!SET_UNIT 36 4 84 // wolf
-!SET_UNIT 36 7 43 // wolf
-!SET_UNIT 36 15 40 // wolf
-!SET_UNIT 36 7 46 // wolf
-!SET_UNIT 46 82 51 // bear
-!SET_UNIT 46 66 37 // bear
-!SET_UNIT 46 10 37 // bear
-!SET_UNIT 46 59 45 // bear
+!SET_UNIT 44 16 90 4 // deer
+!SET_UNIT 44 79 62 4 // deer
+!SET_UNIT 44 68 60 4 // deer
+!SET_UNIT 43 72 92 4 // duck
+!SET_UNIT 47 73 91 4 // duck2
+!SET_UNIT 47 54 52 4 // duck2
+!SET_UNIT 43 53 54 4 // duck
+!SET_UNIT 41 54 92 4 // waterflower
+!SET_UNIT 42 53 93 4 // waterleaf
+!SET_UNIT 45 29 91 4 // boar
+!SET_UNIT 45 33 93 4 // boar
+!SET_UNIT 45 71 61 4 // boar
+!SET_UNIT 36 72 66 4 // wolf
+!SET_UNIT 36 11 59 4 // wolf
+!SET_UNIT 36 17 85 4 // wolf
+!SET_UNIT 36 4 84 4 // wolf
+!SET_UNIT 36 7 43 4 // wolf
+!SET_UNIT 36 15 40 4 // wolf
+!SET_UNIT 36 7 46 4 // wolf
+!SET_UNIT 46 82 51 4 // bear
+!SET_UNIT 46 66 37 4 // bear
+!SET_UNIT 46 10 37 4 // bear
+!SET_UNIT 46 59 45 4 // bear
 
 // Triggers
-!SET_TRIGGER 4 1 0 94 0
+!SET_TRIGGER 4 48 0 63 1
 
 // Emitters
 !SET_EMITTER 17 75 34
@@ -126,4 +130,4 @@
 !SET_EMITTER 17 16 34
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:38:28
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:09:14
