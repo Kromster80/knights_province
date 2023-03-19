@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 24 85
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -35,6 +36,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -109,6 +112,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 16711680
 !HAND_NAME 1
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -146,6 +150,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -172,6 +178,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 16711680
 !HAND_NAME 1
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -201,6 +208,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -225,6 +234,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 !HAND_NAME 2
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -247,6 +257,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -288,18 +300,18 @@
 
 
 // Units
-!SET_UNIT 1 14 35 // blank
-!SET_UNIT 1 8 34 // blank
-!SET_UNIT 4 13 36 // woodcutter
-!SET_UNIT 2 5 32 // serf
-!SET_UNIT 2 6 32 // serf
-!SET_UNIT 2 7 32 // serf
-!SET_UNIT 2 8 32 // serf
-!SET_UNIT 2 5 33 // serf
-!SET_UNIT 2 6 33 // serf
-!SET_UNIT 2 7 33 // serf
-!SET_UNIT 2 8 33 // serf
-!SET_UNIT 12 5 34 // brewer
+!SET_UNIT 1 14 35 4 // blank
+!SET_UNIT 1 8 34 4 // blank
+!SET_UNIT 4 13 36 4 // woodcutter
+!SET_UNIT 2 5 32 4 // serf
+!SET_UNIT 2 6 32 4 // serf
+!SET_UNIT 2 7 32 4 // serf
+!SET_UNIT 2 8 32 4 // serf
+!SET_UNIT 2 5 33 4 // serf
+!SET_UNIT 2 6 33 4 // serf
+!SET_UNIT 2 7 33 4 // serf
+!SET_UNIT 2 8 33 4 // serf
+!SET_UNIT 12 5 34 4 // brewer
 
 // Groups
 !SET_GROUP 18 10 35 4 4 8 // militia
@@ -311,6 +323,7 @@
 !HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -354,245 +367,245 @@
 
 
 // Units
-!SET_UNIT 44 13 38 // deer
-!SET_UNIT 44 37 32 // deer
-!SET_UNIT 44 16 29 // deer
-!SET_UNIT 44 18 17 // deer
-!SET_UNIT 44 47 23 // deer
-!SET_UNIT 44 57 44 // deer
-!SET_UNIT 44 63 1 // deer
-!SET_UNIT 44 27 2 // deer
-!SET_UNIT 44 60 81 // deer
-!SET_UNIT 44 47 94 // deer
-!SET_UNIT 44 60 100 // deer
-!SET_UNIT 44 2 102 // deer
-!SET_UNIT 44 15 75 // deer
-!SET_UNIT 44 36 97 // deer
-!SET_UNIT 44 40 100 // deer
-!SET_UNIT 44 44 103 // deer
-!SET_UNIT 44 45 98 // deer
-!SET_UNIT 44 48 97 // deer
-!SET_UNIT 44 31 98 // deer
-!SET_UNIT 44 32 100 // deer
-!SET_UNIT 44 36 89 // deer
-!SET_UNIT 44 40 89 // deer
-!SET_UNIT 44 42 90 // deer
-!SET_UNIT 44 38 47 // deer
-!SET_UNIT 44 42 45 // deer
-!SET_UNIT 44 33 36 // deer
-!SET_UNIT 36 19 25 // wolf
-!SET_UNIT 36 36 47 // wolf
-!SET_UNIT 36 31 46 // wolf
-!SET_UNIT 36 10 46 // wolf
-!SET_UNIT 36 9 49 // wolf
-!SET_UNIT 36 8 53 // wolf
-!SET_UNIT 36 12 56 // wolf
-!SET_UNIT 36 42 64 // wolf
-!SET_UNIT 36 40 68 // wolf
-!SET_UNIT 36 43 57 // wolf
-!SET_UNIT 36 30 35 // wolf
-!SET_UNIT 36 24 62 // wolf
-!SET_UNIT 36 19 81 // wolf
-!SET_UNIT 36 13 89 // wolf
-!SET_UNIT 36 4 83 // wolf
-!SET_UNIT 36 60 86 // wolf
-!SET_UNIT 36 54 72 // wolf
-!SET_UNIT 36 40 32 // wolf
-!SET_UNIT 36 31 26 // wolf
-!SET_UNIT 36 42 12 // wolf
-!SET_UNIT 36 30 10 // wolf
-!SET_UNIT 36 24 36 // wolf
-!SET_UNIT 36 22 37 // wolf
-!SET_UNIT 46 3 67 // bear
-!SET_UNIT 46 10 86 // bear
-!SET_UNIT 46 12 91 // bear
-!SET_UNIT 46 9 68 // bear
-!SET_UNIT 46 7 73 // bear
-!SET_UNIT 46 50 89 // bear
-!SET_UNIT 46 52 99 // bear
-!SET_UNIT 46 57 98 // bear
-!SET_UNIT 46 52 103 // bear
-!SET_UNIT 46 40 75 // bear
-!SET_UNIT 46 43 79 // bear
-!SET_UNIT 46 49 73 // bear
-!SET_UNIT 46 47 72 // bear
-!SET_UNIT 46 51 36 // bear
-!SET_UNIT 46 56 28 // bear
-!SET_UNIT 46 60 29 // bear
-!SET_UNIT 46 62 36 // bear
-!SET_UNIT 46 57 39 // bear
-!SET_UNIT 45 21 71 // boar
-!SET_UNIT 45 24 71 // boar
-!SET_UNIT 45 45 91 // boar
-!SET_UNIT 36 3 49 // wolf
-!SET_UNIT 36 5 53 // wolf
-!SET_UNIT 36 8 51 // wolf
-!SET_UNIT 36 11 44 // wolf
-!SET_UNIT 36 17 35 // wolf
-!SET_UNIT 36 16 32 // wolf
-!SET_UNIT 36 13 30 // wolf
-!SET_UNIT 36 11 29 // wolf
-!SET_UNIT 36 13 24 // wolf
-!SET_UNIT 36 20 32 // wolf
-!SET_UNIT 46 35 54 // bear
-!SET_UNIT 46 42 47 // bear
-!SET_UNIT 46 43 50 // bear
-!SET_UNIT 46 42 53 // bear
-!SET_UNIT 46 42 55 // bear
-!SET_UNIT 46 43 71 // bear
-!SET_UNIT 46 46 76 // bear
-!SET_UNIT 46 43 77 // bear
-!SET_UNIT 46 41 73 // bear
-!SET_UNIT 46 47 76 // bear
-!SET_UNIT 46 51 88 // bear
-!SET_UNIT 46 46 90 // bear
-!SET_UNIT 46 46 93 // bear
-!SET_UNIT 36 22 61 // wolf
-!SET_UNIT 36 22 63 // wolf
-!SET_UNIT 36 20 57 // wolf
-!SET_UNIT 36 18 57 // wolf
-!SET_UNIT 36 19 62 // wolf
-!SET_UNIT 36 7 53 // wolf
-!SET_UNIT 36 19 61 // wolf
-!SET_UNIT 36 11 66 // wolf
-!SET_UNIT 36 13 68 // wolf
-!SET_UNIT 36 39 45 // wolf
-!SET_UNIT 36 45 37 // wolf
-!SET_UNIT 36 47 37 // wolf
-!SET_UNIT 36 46 39 // wolf
-!SET_UNIT 36 43 41 // wolf
-!SET_UNIT 36 34 32 // wolf
-!SET_UNIT 36 35 33 // wolf
-!SET_UNIT 36 44 20 // wolf
-!SET_UNIT 36 44 23 // wolf
-!SET_UNIT 36 39 24 // wolf
-!SET_UNIT 36 36 26 // wolf
-!SET_UNIT 36 31 22 // wolf
-!SET_UNIT 36 33 17 // wolf
-!SET_UNIT 36 31 19 // wolf
-!SET_UNIT 36 30 22 // wolf
-!SET_UNIT 36 28 23 // wolf
-!SET_UNIT 36 29 25 // wolf
-!SET_UNIT 36 32 28 // wolf
-!SET_UNIT 36 44 35 // wolf
-!SET_UNIT 36 48 36 // wolf
-!SET_UNIT 36 44 39 // wolf
-!SET_UNIT 36 42 30 // wolf
-!SET_UNIT 36 26 64 // wolf
-!SET_UNIT 36 23 64 // wolf
-!SET_UNIT 36 10 101 // wolf
-!SET_UNIT 36 54 22 // wolf
-!SET_UNIT 36 51 25 // wolf
-!SET_UNIT 36 49 26 // wolf
-!SET_UNIT 36 49 27 // wolf
-!SET_UNIT 36 57 27 // wolf
-!SET_UNIT 36 60 24 // wolf
-!SET_UNIT 36 62 23 // wolf
-!SET_UNIT 36 22 10 // wolf
-!SET_UNIT 36 21 15 // wolf
-!SET_UNIT 36 21 17 // wolf
-!SET_UNIT 36 24 18 // wolf
-!SET_UNIT 36 42 37 // wolf
-!SET_UNIT 36 42 38 // wolf
-!SET_UNIT 36 49 39 // wolf
-!SET_UNIT 36 50 38 // wolf
-!SET_UNIT 36 52 35 // wolf
-!SET_UNIT 36 53 33 // wolf
-!SET_UNIT 36 32 23 // wolf
-!SET_UNIT 36 31 24 // wolf
-!SET_UNIT 36 32 25 // wolf
-!SET_UNIT 36 31 27 // wolf
-!SET_UNIT 36 26 20 // wolf
-!SET_UNIT 36 51 41 // wolf
-!SET_UNIT 36 50 41 // wolf
-!SET_UNIT 36 49 40 // wolf
-!SET_UNIT 36 50 40 // wolf
-!SET_UNIT 36 55 41 // wolf
-!SET_UNIT 36 55 40 // wolf
-!SET_UNIT 36 42 43 // wolf
-!SET_UNIT 36 41 44 // wolf
-!SET_UNIT 36 40 43 // wolf
-!SET_UNIT 36 41 38 // wolf
-!SET_UNIT 36 48 31 // wolf
-!SET_UNIT 36 45 33 // wolf
-!SET_UNIT 45 37 44 // boar
-!SET_UNIT 45 39 50 // boar
-!SET_UNIT 45 34 50 // boar
-!SET_UNIT 45 34 39 // boar
-!SET_UNIT 45 23 69 // boar
-!SET_UNIT 45 40 58 // boar
-!SET_UNIT 45 39 61 // boar
-!SET_UNIT 45 44 65 // boar
-!SET_UNIT 45 46 66 // boar
-!SET_UNIT 45 35 48 // boar
-!SET_UNIT 45 38 49 // boar
-!SET_UNIT 45 40 48 // boar
-!SET_UNIT 46 36 45 // bear
-!SET_UNIT 46 42 32 // bear
-!SET_UNIT 46 39 26 // bear
-!SET_UNIT 46 39 64 // bear
-!SET_UNIT 46 26 31 // bear
-!SET_UNIT 36 16 57 // wolf
-!SET_UNIT 36 11 56 // wolf
-!SET_UNIT 36 19 64 // wolf
-!SET_UNIT 36 20 67 // wolf
-!SET_UNIT 36 17 67 // wolf
-!SET_UNIT 36 15 69 // wolf
-!SET_UNIT 36 16 63 // wolf
-!SET_UNIT 36 20 60 // wolf
-!SET_UNIT 36 22 59 // wolf
-!SET_UNIT 36 18 49 // wolf
-!SET_UNIT 36 17 51 // wolf
-!SET_UNIT 36 3 68 // wolf
-!SET_UNIT 36 1 72 // wolf
-!SET_UNIT 36 16 48 // wolf
-!SET_UNIT 46 14 70 // bear
-!SET_UNIT 46 9 75 // bear
-!SET_UNIT 45 8 77 // boar
-!SET_UNIT 45 6 78 // boar
-!SET_UNIT 45 23 66 // boar
-!SET_UNIT 45 16 73 // boar
-!SET_UNIT 45 36 57 // boar
-!SET_UNIT 45 36 59 // boar
-!SET_UNIT 45 36 60 // boar
-!SET_UNIT 45 34 54 // boar
-!SET_UNIT 45 38 43 // boar
-!SET_UNIT 45 47 24 // boar
-!SET_UNIT 45 47 26 // boar
-!SET_UNIT 45 49 23 // boar
-!SET_UNIT 45 48 21 // boar
-!SET_UNIT 45 33 30 // boar
-!SET_UNIT 45 31 32 // boar
-!SET_UNIT 36 44 100 // wolf
-!SET_UNIT 36 41 96 // wolf
-!SET_UNIT 36 41 93 // wolf
-!SET_UNIT 36 39 92 // wolf
-!SET_UNIT 36 38 92 // wolf
-!SET_UNIT 36 37 91 // wolf
-!SET_UNIT 46 39 97 // bear
-!SET_UNIT 46 41 100 // bear
-!SET_UNIT 46 40 103 // bear
-!SET_UNIT 46 35 96 // bear
-!SET_UNIT 46 38 96 // bear
-!SET_UNIT 46 36 92 // bear
-!SET_UNIT 46 40 95 // bear
-!SET_UNIT 46 30 87 // bear
-!SET_UNIT 46 42 91 // bear
-!SET_UNIT 46 39 93 // bear
-!SET_UNIT 36 31 103 // wolf
-!SET_UNIT 36 34 103 // wolf
-!SET_UNIT 36 37 103 // wolf
-!SET_UNIT 46 42 49 // bear
-!SET_UNIT 46 38 52 // bear
-!SET_UNIT 45 38 50 // boar
-!SET_UNIT 45 37 52 // boar
-!SET_UNIT 36 33 94 // wolf
-!SET_UNIT 36 30 95 // wolf
-!SET_UNIT 36 34 91 // wolf
-!SET_UNIT 36 33 87 // wolf
-!SET_UNIT 36 38 87 // wolf
-!SET_UNIT 36 35 97 // wolf
-!SET_UNIT 36 30 101 // wolf
+!SET_UNIT 44 13 38 4 // deer
+!SET_UNIT 44 37 32 4 // deer
+!SET_UNIT 44 16 29 4 // deer
+!SET_UNIT 44 18 17 4 // deer
+!SET_UNIT 44 47 23 4 // deer
+!SET_UNIT 44 57 44 4 // deer
+!SET_UNIT 44 63 1 4 // deer
+!SET_UNIT 44 27 2 4 // deer
+!SET_UNIT 44 60 81 4 // deer
+!SET_UNIT 44 47 94 4 // deer
+!SET_UNIT 44 60 100 4 // deer
+!SET_UNIT 44 2 102 4 // deer
+!SET_UNIT 44 15 75 4 // deer
+!SET_UNIT 44 36 97 4 // deer
+!SET_UNIT 44 40 100 4 // deer
+!SET_UNIT 44 44 103 4 // deer
+!SET_UNIT 44 45 98 4 // deer
+!SET_UNIT 44 48 97 4 // deer
+!SET_UNIT 44 31 98 4 // deer
+!SET_UNIT 44 32 100 4 // deer
+!SET_UNIT 44 36 89 4 // deer
+!SET_UNIT 44 40 89 4 // deer
+!SET_UNIT 44 42 90 4 // deer
+!SET_UNIT 44 38 47 4 // deer
+!SET_UNIT 44 42 45 4 // deer
+!SET_UNIT 44 33 36 4 // deer
+!SET_UNIT 36 19 25 4 // wolf
+!SET_UNIT 36 36 47 4 // wolf
+!SET_UNIT 36 31 46 4 // wolf
+!SET_UNIT 36 10 46 4 // wolf
+!SET_UNIT 36 9 49 4 // wolf
+!SET_UNIT 36 8 53 4 // wolf
+!SET_UNIT 36 12 56 4 // wolf
+!SET_UNIT 36 42 64 4 // wolf
+!SET_UNIT 36 40 68 4 // wolf
+!SET_UNIT 36 43 57 4 // wolf
+!SET_UNIT 36 30 35 4 // wolf
+!SET_UNIT 36 24 62 4 // wolf
+!SET_UNIT 36 19 81 4 // wolf
+!SET_UNIT 36 13 89 4 // wolf
+!SET_UNIT 36 4 83 4 // wolf
+!SET_UNIT 36 60 86 4 // wolf
+!SET_UNIT 36 54 72 4 // wolf
+!SET_UNIT 36 40 32 4 // wolf
+!SET_UNIT 36 31 26 4 // wolf
+!SET_UNIT 36 42 12 4 // wolf
+!SET_UNIT 36 30 10 4 // wolf
+!SET_UNIT 36 24 36 4 // wolf
+!SET_UNIT 36 22 37 4 // wolf
+!SET_UNIT 46 3 67 4 // bear
+!SET_UNIT 46 10 86 4 // bear
+!SET_UNIT 46 12 91 4 // bear
+!SET_UNIT 46 9 68 4 // bear
+!SET_UNIT 46 7 73 4 // bear
+!SET_UNIT 46 50 89 4 // bear
+!SET_UNIT 46 52 99 4 // bear
+!SET_UNIT 46 57 98 4 // bear
+!SET_UNIT 46 52 103 4 // bear
+!SET_UNIT 46 40 75 4 // bear
+!SET_UNIT 46 43 79 4 // bear
+!SET_UNIT 46 49 73 4 // bear
+!SET_UNIT 46 47 72 4 // bear
+!SET_UNIT 46 51 36 4 // bear
+!SET_UNIT 46 56 28 4 // bear
+!SET_UNIT 46 60 29 4 // bear
+!SET_UNIT 46 62 36 4 // bear
+!SET_UNIT 46 57 39 4 // bear
+!SET_UNIT 45 21 71 4 // boar
+!SET_UNIT 45 24 71 4 // boar
+!SET_UNIT 45 45 91 4 // boar
+!SET_UNIT 36 3 49 4 // wolf
+!SET_UNIT 36 5 53 4 // wolf
+!SET_UNIT 36 8 51 4 // wolf
+!SET_UNIT 36 11 44 4 // wolf
+!SET_UNIT 36 17 35 4 // wolf
+!SET_UNIT 36 16 32 4 // wolf
+!SET_UNIT 36 13 30 4 // wolf
+!SET_UNIT 36 11 29 4 // wolf
+!SET_UNIT 36 13 24 4 // wolf
+!SET_UNIT 36 20 32 4 // wolf
+!SET_UNIT 46 35 54 4 // bear
+!SET_UNIT 46 42 47 4 // bear
+!SET_UNIT 46 43 50 4 // bear
+!SET_UNIT 46 42 53 4 // bear
+!SET_UNIT 46 42 55 4 // bear
+!SET_UNIT 46 43 71 4 // bear
+!SET_UNIT 46 46 76 4 // bear
+!SET_UNIT 46 43 77 4 // bear
+!SET_UNIT 46 41 73 4 // bear
+!SET_UNIT 46 47 76 4 // bear
+!SET_UNIT 46 51 88 4 // bear
+!SET_UNIT 46 46 90 4 // bear
+!SET_UNIT 46 46 93 4 // bear
+!SET_UNIT 36 22 61 4 // wolf
+!SET_UNIT 36 22 63 4 // wolf
+!SET_UNIT 36 20 57 4 // wolf
+!SET_UNIT 36 18 57 4 // wolf
+!SET_UNIT 36 19 62 4 // wolf
+!SET_UNIT 36 7 53 4 // wolf
+!SET_UNIT 36 19 61 4 // wolf
+!SET_UNIT 36 11 66 4 // wolf
+!SET_UNIT 36 13 68 4 // wolf
+!SET_UNIT 36 39 45 4 // wolf
+!SET_UNIT 36 45 37 4 // wolf
+!SET_UNIT 36 47 37 4 // wolf
+!SET_UNIT 36 46 39 4 // wolf
+!SET_UNIT 36 43 41 4 // wolf
+!SET_UNIT 36 34 32 4 // wolf
+!SET_UNIT 36 35 33 4 // wolf
+!SET_UNIT 36 44 20 4 // wolf
+!SET_UNIT 36 44 23 4 // wolf
+!SET_UNIT 36 39 24 4 // wolf
+!SET_UNIT 36 36 26 4 // wolf
+!SET_UNIT 36 31 22 4 // wolf
+!SET_UNIT 36 33 17 4 // wolf
+!SET_UNIT 36 31 19 4 // wolf
+!SET_UNIT 36 30 22 4 // wolf
+!SET_UNIT 36 28 23 4 // wolf
+!SET_UNIT 36 29 25 4 // wolf
+!SET_UNIT 36 32 28 4 // wolf
+!SET_UNIT 36 44 35 4 // wolf
+!SET_UNIT 36 48 36 4 // wolf
+!SET_UNIT 36 44 39 4 // wolf
+!SET_UNIT 36 42 30 4 // wolf
+!SET_UNIT 36 26 64 4 // wolf
+!SET_UNIT 36 23 64 4 // wolf
+!SET_UNIT 36 10 101 4 // wolf
+!SET_UNIT 36 54 22 4 // wolf
+!SET_UNIT 36 51 25 4 // wolf
+!SET_UNIT 36 49 26 4 // wolf
+!SET_UNIT 36 49 27 4 // wolf
+!SET_UNIT 36 57 27 4 // wolf
+!SET_UNIT 36 60 24 4 // wolf
+!SET_UNIT 36 62 23 4 // wolf
+!SET_UNIT 36 22 10 4 // wolf
+!SET_UNIT 36 21 15 4 // wolf
+!SET_UNIT 36 21 17 4 // wolf
+!SET_UNIT 36 24 18 4 // wolf
+!SET_UNIT 36 42 37 4 // wolf
+!SET_UNIT 36 42 38 4 // wolf
+!SET_UNIT 36 49 39 4 // wolf
+!SET_UNIT 36 50 38 4 // wolf
+!SET_UNIT 36 52 35 4 // wolf
+!SET_UNIT 36 53 33 4 // wolf
+!SET_UNIT 36 32 23 4 // wolf
+!SET_UNIT 36 31 24 4 // wolf
+!SET_UNIT 36 32 25 4 // wolf
+!SET_UNIT 36 31 27 4 // wolf
+!SET_UNIT 36 26 20 4 // wolf
+!SET_UNIT 36 51 41 4 // wolf
+!SET_UNIT 36 50 41 4 // wolf
+!SET_UNIT 36 49 40 4 // wolf
+!SET_UNIT 36 50 40 4 // wolf
+!SET_UNIT 36 55 41 4 // wolf
+!SET_UNIT 36 55 40 4 // wolf
+!SET_UNIT 36 42 43 4 // wolf
+!SET_UNIT 36 41 44 4 // wolf
+!SET_UNIT 36 40 43 4 // wolf
+!SET_UNIT 36 41 38 4 // wolf
+!SET_UNIT 36 48 31 4 // wolf
+!SET_UNIT 36 45 33 4 // wolf
+!SET_UNIT 45 37 44 4 // boar
+!SET_UNIT 45 39 50 4 // boar
+!SET_UNIT 45 34 50 4 // boar
+!SET_UNIT 45 34 39 4 // boar
+!SET_UNIT 45 23 69 4 // boar
+!SET_UNIT 45 40 58 4 // boar
+!SET_UNIT 45 39 61 4 // boar
+!SET_UNIT 45 44 65 4 // boar
+!SET_UNIT 45 46 66 4 // boar
+!SET_UNIT 45 35 48 4 // boar
+!SET_UNIT 45 38 49 4 // boar
+!SET_UNIT 45 40 48 4 // boar
+!SET_UNIT 46 36 45 4 // bear
+!SET_UNIT 46 42 32 4 // bear
+!SET_UNIT 46 39 26 4 // bear
+!SET_UNIT 46 39 64 4 // bear
+!SET_UNIT 46 26 31 4 // bear
+!SET_UNIT 36 16 57 4 // wolf
+!SET_UNIT 36 11 56 4 // wolf
+!SET_UNIT 36 19 64 4 // wolf
+!SET_UNIT 36 20 67 4 // wolf
+!SET_UNIT 36 17 67 4 // wolf
+!SET_UNIT 36 15 69 4 // wolf
+!SET_UNIT 36 16 63 4 // wolf
+!SET_UNIT 36 20 60 4 // wolf
+!SET_UNIT 36 22 59 4 // wolf
+!SET_UNIT 36 18 49 4 // wolf
+!SET_UNIT 36 17 51 4 // wolf
+!SET_UNIT 36 3 68 4 // wolf
+!SET_UNIT 36 1 72 4 // wolf
+!SET_UNIT 36 16 48 4 // wolf
+!SET_UNIT 46 14 70 4 // bear
+!SET_UNIT 46 9 75 4 // bear
+!SET_UNIT 45 8 77 4 // boar
+!SET_UNIT 45 6 78 4 // boar
+!SET_UNIT 45 23 66 4 // boar
+!SET_UNIT 45 16 73 4 // boar
+!SET_UNIT 45 36 57 4 // boar
+!SET_UNIT 45 36 59 4 // boar
+!SET_UNIT 45 36 60 4 // boar
+!SET_UNIT 45 34 54 4 // boar
+!SET_UNIT 45 38 43 4 // boar
+!SET_UNIT 45 47 24 4 // boar
+!SET_UNIT 45 47 26 4 // boar
+!SET_UNIT 45 49 23 4 // boar
+!SET_UNIT 45 48 21 4 // boar
+!SET_UNIT 45 33 30 4 // boar
+!SET_UNIT 45 31 32 4 // boar
+!SET_UNIT 36 44 100 4 // wolf
+!SET_UNIT 36 41 96 4 // wolf
+!SET_UNIT 36 41 93 4 // wolf
+!SET_UNIT 36 39 92 4 // wolf
+!SET_UNIT 36 38 92 4 // wolf
+!SET_UNIT 36 37 91 4 // wolf
+!SET_UNIT 46 39 97 4 // bear
+!SET_UNIT 46 41 100 4 // bear
+!SET_UNIT 46 40 103 4 // bear
+!SET_UNIT 46 35 96 4 // bear
+!SET_UNIT 46 38 96 4 // bear
+!SET_UNIT 46 36 92 4 // bear
+!SET_UNIT 46 40 95 4 // bear
+!SET_UNIT 46 30 87 4 // bear
+!SET_UNIT 46 42 91 4 // bear
+!SET_UNIT 46 39 93 4 // bear
+!SET_UNIT 36 31 103 4 // wolf
+!SET_UNIT 36 34 103 4 // wolf
+!SET_UNIT 36 37 103 4 // wolf
+!SET_UNIT 46 42 49 4 // bear
+!SET_UNIT 46 38 52 4 // bear
+!SET_UNIT 45 38 50 4 // boar
+!SET_UNIT 45 37 52 4 // boar
+!SET_UNIT 36 33 94 4 // wolf
+!SET_UNIT 36 30 95 4 // wolf
+!SET_UNIT 36 34 91 4 // wolf
+!SET_UNIT 36 33 87 4 // wolf
+!SET_UNIT 36 38 87 4 // wolf
+!SET_UNIT 36 35 97 4 // wolf
+!SET_UNIT 36 30 101 4 // wolf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 09:28)"  on 13.05.2022 9:30:11
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:14:24
