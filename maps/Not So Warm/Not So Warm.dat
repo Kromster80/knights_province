@@ -14,6 +14,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 13 12
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 255
@@ -32,6 +33,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -57,6 +60,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 37 11
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 255
@@ -75,6 +79,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -100,6 +106,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 23 14
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 255
@@ -118,6 +125,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -139,12 +148,13 @@
 !SET_FENCE_V 15 29 1 !SET_FENCE_V 11 30 1 !SET_FENCE_V 15 30 1
 
 // Units
-!SET_UNIT 12 18 29 // brewer
+!SET_UNIT 12 18 29 4 // brewer
 
 -----Hand3-----
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -155,16 +165,16 @@
 
 
 // Units
-!SET_UNIT 44 3 14 // deer
+!SET_UNIT 44 3 14 4 // deer
 
 // Emitters
-!SET_EMITTER 17 9 1
-!SET_EMITTER 17 3 10
-!SET_EMITTER 17 12 11
-!SET_EMITTER 17 21 20
-!SET_EMITTER 17 30 10
-!SET_EMITTER 17 41 23
-!SET_EMITTER 17 43 6
+!SET_EMITTER 19 9 1 // snow_12
+!SET_EMITTER 19 3 10 // snow_12
+!SET_EMITTER 19 12 11 // snow_12
+!SET_EMITTER 19 21 20 // snow_12
+!SET_EMITTER 19 30 10 // snow_12
+!SET_EMITTER 19 41 23 // snow_12
+!SET_EMITTER 19 43 6 // snow_12
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:22
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:34:18
