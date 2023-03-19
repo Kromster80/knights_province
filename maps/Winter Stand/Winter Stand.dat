@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 10 86
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 10 86 15
@@ -38,6 +39,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -58,18 +61,18 @@
 
 
 // Units
-!SET_UNIT 2 9 87 // serf
-!SET_UNIT 3 11 87 // builder
-!SET_UNIT 2 8 87 // serf
-!SET_UNIT 3 12 87 // builder
-!SET_UNIT 2 7 87 // serf
-!SET_UNIT 3 13 87 // builder
-!SET_UNIT 2 9 88 // serf
-!SET_UNIT 3 11 88 // builder
-!SET_UNIT 2 8 88 // serf
-!SET_UNIT 3 12 88 // builder
-!SET_UNIT 1 10 87 // blank
-!SET_UNIT 1 10 88 // blank
+!SET_UNIT 2 9 87 4 // serf
+!SET_UNIT 3 11 87 4 // builder
+!SET_UNIT 2 8 87 4 // serf
+!SET_UNIT 3 12 87 4 // builder
+!SET_UNIT 2 7 87 4 // serf
+!SET_UNIT 3 13 87 4 // builder
+!SET_UNIT 2 9 88 4 // serf
+!SET_UNIT 3 11 88 4 // builder
+!SET_UNIT 2 8 88 4 // serf
+!SET_UNIT 3 12 88 4 // builder
+!SET_UNIT 1 10 87 4 // blank
+!SET_UNIT 1 10 88 4 // blank
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -78,6 +81,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 16711680
 !HAND_CENTER_SCREEN 68 62
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 68 62 15
@@ -103,6 +107,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -123,23 +129,24 @@
 
 
 // Units
-!SET_UNIT 2 67 63 // serf
-!SET_UNIT 3 69 63 // builder
-!SET_UNIT 2 66 63 // serf
-!SET_UNIT 3 70 63 // builder
-!SET_UNIT 2 65 63 // serf
-!SET_UNIT 3 71 63 // builder
-!SET_UNIT 2 67 64 // serf
-!SET_UNIT 3 69 64 // builder
-!SET_UNIT 2 66 64 // serf
-!SET_UNIT 3 70 64 // builder
-!SET_UNIT 1 68 63 // blank
-!SET_UNIT 1 68 64 // blank
+!SET_UNIT 2 67 63 4 // serf
+!SET_UNIT 3 69 63 4 // builder
+!SET_UNIT 2 66 63 4 // serf
+!SET_UNIT 3 70 63 4 // builder
+!SET_UNIT 2 65 63 4 // serf
+!SET_UNIT 3 71 63 4 // builder
+!SET_UNIT 2 67 64 4 // serf
+!SET_UNIT 3 69 64 4 // builder
+!SET_UNIT 2 66 64 4 // serf
+!SET_UNIT 3 70 64 4 // builder
+!SET_UNIT 1 68 63 4 // blank
+!SET_UNIT 1 68 64 4 // blank
 
 -----Hand2-----
 !HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -154,25 +161,25 @@
 
 
 // Units
-!SET_UNIT 36 89 4 // wolf
+!SET_UNIT 36 89 4 4 // wolf
 
 // Emitters
-!SET_EMITTER 5 89 4
-!SET_EMITTER 5 86 3
-!SET_EMITTER 5 85 7
-!SET_EMITTER 5 91 7
-!SET_EMITTER 5 93 1
-!SET_EMITTER 5 82 11
-!SET_EMITTER 5 80 15
-!SET_EMITTER 5 75 17
-!SET_EMITTER 5 70 20
-!SET_EMITTER 5 72 21
-!SET_EMITTER 5 88 0
-!SET_EMITTER 3 85 0
-!SET_EMITTER 5 94 5
-!SET_EMITTER 6 63 93
-!SET_EMITTER 6 66 93
-!SET_EMITTER 7 24 11
+!SET_EMITTER 5 89 4 // terrain_mist_large
+!SET_EMITTER 5 86 3 // terrain_mist_large
+!SET_EMITTER 5 85 7 // terrain_mist_large
+!SET_EMITTER 5 91 7 // terrain_mist_large
+!SET_EMITTER 5 93 1 // terrain_mist_large
+!SET_EMITTER 5 82 11 // terrain_mist_large
+!SET_EMITTER 5 80 15 // terrain_mist_large
+!SET_EMITTER 5 75 17 // terrain_mist_large
+!SET_EMITTER 5 70 20 // terrain_mist_large
+!SET_EMITTER 5 72 21 // terrain_mist_large
+!SET_EMITTER 5 88 0 // terrain_mist_large
+!SET_EMITTER 3 85 0 // terrain_mist_small
+!SET_EMITTER 5 94 5 // terrain_mist_large
+!SET_EMITTER 6 63 93 // terrain_wall_of_fog
+!SET_EMITTER 6 66 93 // terrain_wall_of_fog
+!SET_EMITTER 7 24 11 // terrain_smokestack
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:33:54
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 18:01:25
