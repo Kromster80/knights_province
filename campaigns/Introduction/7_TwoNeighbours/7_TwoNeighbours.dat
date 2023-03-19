@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 13 108
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -51,6 +52,8 @@
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -76,18 +79,18 @@
 
 
 // Units
-!SET_UNIT 2 10 108 // serf
-!SET_UNIT 2 11 108 // serf
-!SET_UNIT 2 12 108 // serf
-!SET_UNIT 3 14 108 // builder
-!SET_UNIT 3 15 108 // builder
-!SET_UNIT 3 16 108 // builder
-!SET_UNIT 3 17 108 // builder
-!SET_UNIT 3 18 108 // builder
-!SET_UNIT 3 19 108 // builder
-!SET_UNIT 2 9 108 // serf
-!SET_UNIT 2 8 108 // serf
-!SET_UNIT 2 7 108 // serf
+!SET_UNIT 2 10 108 4 // serf
+!SET_UNIT 2 11 108 4 // serf
+!SET_UNIT 2 12 108 4 // serf
+!SET_UNIT 3 14 108 4 // builder
+!SET_UNIT 3 15 108 4 // builder
+!SET_UNIT 3 16 108 4 // builder
+!SET_UNIT 3 17 108 4 // builder
+!SET_UNIT 3 18 108 4 // builder
+!SET_UNIT 3 19 108 4 // builder
+!SET_UNIT 2 9 108 4 // serf
+!SET_UNIT 2 8 108 4 // serf
+!SET_UNIT 2 7 108 4 // serf
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -97,6 +100,7 @@
 !HAND_COLOR 6388031
 !HAND_NAME 1
 !HAND_CENTER_SCREEN 40 42
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -141,6 +145,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -217,28 +223,28 @@
 
 
 // Units
-!SET_UNIT 2 37 42 // serf
-!SET_UNIT 2 38 42 // serf
-!SET_UNIT 2 38 43 // serf
-!SET_UNIT 2 37 43 // serf
-!SET_UNIT 2 37 44 // serf
-!SET_UNIT 2 38 44 // serf
-!SET_UNIT 2 38 45 // serf
-!SET_UNIT 2 37 45 // serf
-!SET_UNIT 3 40 43 // builder
-!SET_UNIT 3 41 43 // builder
-!SET_UNIT 3 40 44 // builder
-!SET_UNIT 9 54 46 // baker
-!SET_UNIT 9 58 46 // baker
-!SET_UNIT 7 61 39 // farmer
-!SET_UNIT 6 63 35 // breeder
-!SET_UNIT 8 66 47 // carpenter
-!SET_UNIT 8 54 34 // carpenter
-!SET_UNIT 8 55 30 // carpenter
-!SET_UNIT 4 51 7 // woodcutter
-!SET_UNIT 4 61 8 // woodcutter
-!SET_UNIT 4 64 22 // woodcutter
-!SET_UNIT 4 54 18 // woodcutter
+!SET_UNIT 2 37 42 4 // serf
+!SET_UNIT 2 38 42 4 // serf
+!SET_UNIT 2 38 43 4 // serf
+!SET_UNIT 2 37 43 4 // serf
+!SET_UNIT 2 37 44 4 // serf
+!SET_UNIT 2 38 44 4 // serf
+!SET_UNIT 2 38 45 4 // serf
+!SET_UNIT 2 37 45 4 // serf
+!SET_UNIT 3 40 43 4 // builder
+!SET_UNIT 3 41 43 4 // builder
+!SET_UNIT 3 40 44 4 // builder
+!SET_UNIT 9 54 46 4 // baker
+!SET_UNIT 9 58 46 4 // baker
+!SET_UNIT 7 61 39 4 // farmer
+!SET_UNIT 6 63 35 4 // breeder
+!SET_UNIT 8 66 47 4 // carpenter
+!SET_UNIT 8 54 34 4 // carpenter
+!SET_UNIT 8 55 30 4 // carpenter
+!SET_UNIT 4 51 7 4 // woodcutter
+!SET_UNIT 4 61 8 4 // woodcutter
+!SET_UNIT 4 64 22 4 // woodcutter
+!SET_UNIT 4 54 18 4 // woodcutter
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -248,6 +254,7 @@
 !HAND_COLOR 14924635
 !HAND_NAME 2
 !HAND_CENTER_SCREEN 11 22
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -288,6 +295,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -366,32 +375,33 @@
 
 
 // Units
-!SET_UNIT 2 8 23 // serf
-!SET_UNIT 2 9 23 // serf
-!SET_UNIT 2 10 23 // serf
-!SET_UNIT 2 9 24 // serf
-!SET_UNIT 2 8 24 // serf
-!SET_UNIT 2 7 23 // serf
-!SET_UNIT 2 7 24 // serf
-!SET_UNIT 3 12 23 // builder
-!SET_UNIT 3 12 24 // builder
-!SET_UNIT 3 12 25 // builder
-!SET_UNIT 4 3 16 // woodcutter
-!SET_UNIT 4 5 9 // woodcutter
-!SET_UNIT 4 12 5 // woodcutter
-!SET_UNIT 4 18 9 // woodcutter
-!SET_UNIT 8 7 17 // carpenter
-!SET_UNIT 8 3 22 // carpenter
-!SET_UNIT 7 4 45 // farmer
-!SET_UNIT 7 9 45 // farmer
-!SET_UNIT 9 4 41 // baker
-!SET_UNIT 9 4 37 // baker
-!SET_UNIT 8 11 52 // carpenter
+!SET_UNIT 2 8 23 4 // serf
+!SET_UNIT 2 9 23 4 // serf
+!SET_UNIT 2 10 23 4 // serf
+!SET_UNIT 2 9 24 4 // serf
+!SET_UNIT 2 8 24 4 // serf
+!SET_UNIT 2 7 23 4 // serf
+!SET_UNIT 2 7 24 4 // serf
+!SET_UNIT 3 12 23 4 // builder
+!SET_UNIT 3 12 24 4 // builder
+!SET_UNIT 3 12 25 4 // builder
+!SET_UNIT 4 3 16 4 // woodcutter
+!SET_UNIT 4 5 9 4 // woodcutter
+!SET_UNIT 4 12 5 4 // woodcutter
+!SET_UNIT 4 18 9 4 // woodcutter
+!SET_UNIT 8 7 17 4 // carpenter
+!SET_UNIT 8 3 22 4 // carpenter
+!SET_UNIT 7 4 45 4 // farmer
+!SET_UNIT 7 9 45 4 // farmer
+!SET_UNIT 9 4 41 4 // baker
+!SET_UNIT 9 4 37 4 // baker
+!SET_UNIT 8 11 52 4 // carpenter
 
 -----Hand3-----
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -405,7 +415,20 @@
 
 
 // Units
-!SET_UNIT 36 13 89 // wolf
+!SET_UNIT 36 13 89 4 // wolf
+!SET_UNIT 42 26 81 5 // waterleaf
+!SET_UNIT 42 24 86 5 // waterleaf
+!SET_UNIT 42 30 84 5 // waterleaf
+!SET_UNIT 42 33 83 5 // waterleaf
+!SET_UNIT 42 27 89 5 // waterleaf
+!SET_UNIT 41 26 85 5 // waterflower
+!SET_UNIT 41 30 79 5 // waterflower
+!SET_UNIT 41 33 86 5 // waterflower
+!SET_UNIT 41 22 74 5 // waterflower
+!SET_UNIT 43 23 78 5 // duck
+!SET_UNIT 43 26 73 5 // duck
+!SET_UNIT 47 19 70 5 // duck2
+!SET_UNIT 47 29 87 5 // duck2
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11648 (2022.10.02 20:11)"  on 02.10.2022 20:19:17
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 22:05:40
