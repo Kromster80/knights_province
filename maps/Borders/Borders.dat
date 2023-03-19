@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 33 36
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 33 36 15
@@ -33,6 +34,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -82,18 +85,18 @@
 
 
 // Units
-!SET_UNIT 2 32 37 // serf
-!SET_UNIT 3 34 37 // builder
-!SET_UNIT 2 31 37 // serf
-!SET_UNIT 3 35 37 // builder
-!SET_UNIT 2 30 37 // serf
-!SET_UNIT 3 36 37 // builder
-!SET_UNIT 2 32 38 // serf
-!SET_UNIT 3 34 38 // builder
-!SET_UNIT 2 31 38 // serf
-!SET_UNIT 3 35 38 // builder
-!SET_UNIT 2 30 38 // serf
-!SET_UNIT 3 36 38 // builder
+!SET_UNIT 2 32 37 4 // serf
+!SET_UNIT 3 34 37 4 // builder
+!SET_UNIT 2 31 37 4 // serf
+!SET_UNIT 3 35 37 4 // builder
+!SET_UNIT 2 30 37 4 // serf
+!SET_UNIT 3 36 37 4 // builder
+!SET_UNIT 2 32 38 4 // serf
+!SET_UNIT 3 34 38 4 // builder
+!SET_UNIT 2 31 38 4 // serf
+!SET_UNIT 3 35 38 4 // builder
+!SET_UNIT 2 30 38 4 // serf
+!SET_UNIT 3 36 38 4 // builder
 
 // Groups
 !SET_GROUP 25 33 40 4 1 1 // horsescout
@@ -106,6 +109,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 125 36
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 125 36 15
@@ -126,6 +130,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -205,18 +211,18 @@
 
 
 // Units
-!SET_UNIT 2 123 37 // serf
-!SET_UNIT 3 128 37 // builder
-!SET_UNIT 2 122 37 // serf
-!SET_UNIT 3 126 37 // builder
-!SET_UNIT 2 124 38 // serf
-!SET_UNIT 3 127 37 // builder
-!SET_UNIT 2 123 38 // serf
-!SET_UNIT 3 128 38 // builder
-!SET_UNIT 2 122 38 // serf
-!SET_UNIT 3 126 38 // builder
-!SET_UNIT 2 124 37 // serf
-!SET_UNIT 3 127 38 // builder
+!SET_UNIT 2 123 37 4 // serf
+!SET_UNIT 3 128 37 4 // builder
+!SET_UNIT 2 122 37 4 // serf
+!SET_UNIT 3 126 37 4 // builder
+!SET_UNIT 2 124 38 4 // serf
+!SET_UNIT 3 127 37 4 // builder
+!SET_UNIT 2 123 38 4 // serf
+!SET_UNIT 3 128 38 4 // builder
+!SET_UNIT 2 122 38 4 // serf
+!SET_UNIT 3 126 38 4 // builder
+!SET_UNIT 2 124 37 4 // serf
+!SET_UNIT 3 127 38 4 // builder
 
 // Groups
 !SET_GROUP 25 125 40 4 1 1 // horsescout
@@ -229,6 +235,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 29 124
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 29 124 15
@@ -249,6 +256,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -324,18 +333,18 @@
 
 
 // Units
-!SET_UNIT 2 28 125 // serf
-!SET_UNIT 3 30 125 // builder
-!SET_UNIT 2 27 125 // serf
-!SET_UNIT 3 31 125 // builder
-!SET_UNIT 2 26 125 // serf
-!SET_UNIT 3 32 125 // builder
-!SET_UNIT 2 28 126 // serf
-!SET_UNIT 3 30 126 // builder
-!SET_UNIT 2 27 126 // serf
-!SET_UNIT 3 31 126 // builder
-!SET_UNIT 2 26 126 // serf
-!SET_UNIT 3 32 126 // builder
+!SET_UNIT 2 28 125 4 // serf
+!SET_UNIT 3 30 125 4 // builder
+!SET_UNIT 2 27 125 4 // serf
+!SET_UNIT 3 31 125 4 // builder
+!SET_UNIT 2 26 125 4 // serf
+!SET_UNIT 3 32 125 4 // builder
+!SET_UNIT 2 28 126 4 // serf
+!SET_UNIT 3 30 126 4 // builder
+!SET_UNIT 2 27 126 4 // serf
+!SET_UNIT 3 31 126 4 // builder
+!SET_UNIT 2 26 126 4 // serf
+!SET_UNIT 3 32 126 4 // builder
 
 // Groups
 !SET_GROUP 25 29 128 4 1 1 // horsescout
@@ -348,6 +357,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 123 126
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 123 126 15
@@ -368,6 +378,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -476,18 +488,18 @@
 
 
 // Units
-!SET_UNIT 2 121 127 // serf
-!SET_UNIT 3 124 127 // builder
-!SET_UNIT 2 122 128 // serf
-!SET_UNIT 3 125 127 // builder
-!SET_UNIT 2 120 128 // serf
-!SET_UNIT 3 126 127 // builder
-!SET_UNIT 2 122 127 // serf
-!SET_UNIT 3 124 128 // builder
-!SET_UNIT 2 120 127 // serf
-!SET_UNIT 3 125 128 // builder
-!SET_UNIT 2 121 128 // serf
-!SET_UNIT 3 126 128 // builder
+!SET_UNIT 2 121 127 4 // serf
+!SET_UNIT 3 124 127 4 // builder
+!SET_UNIT 2 122 128 4 // serf
+!SET_UNIT 3 125 127 4 // builder
+!SET_UNIT 2 120 128 4 // serf
+!SET_UNIT 3 126 127 4 // builder
+!SET_UNIT 2 122 127 4 // serf
+!SET_UNIT 3 124 128 4 // builder
+!SET_UNIT 2 120 127 4 // serf
+!SET_UNIT 3 125 128 4 // builder
+!SET_UNIT 2 121 128 4 // serf
+!SET_UNIT 3 126 128 4 // builder
 
 // Groups
 !SET_GROUP 25 123 130 4 1 1 // horsescout
@@ -497,6 +509,7 @@
 !HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -507,27 +520,27 @@
 
 
 // Units
-!SET_UNIT 44 3 34 // deer
-!SET_UNIT 44 147 39 // deer
-!SET_UNIT 44 143 30 // deer
-!SET_UNIT 44 150 123 // deer
-!SET_UNIT 44 149 137 // deer
-!SET_UNIT 44 5 130 // deer
-!SET_UNIT 44 6 117 // deer
-!SET_UNIT 43 66 115 // duck
-!SET_UNIT 43 84 117 // duck
-!SET_UNIT 43 74 39 // duck
-!SET_UNIT 43 87 39 // duck
-!SET_UNIT 47 79 37 // duck2
-!SET_UNIT 47 75 41 // duck2
-!SET_UNIT 47 72 112 // duck2
-!SET_UNIT 47 78 118 // duck2
-!SET_UNIT 41 61 118 // waterflower
-!SET_UNIT 41 80 113 // waterflower
-!SET_UNIT 41 84 39 // waterflower
-!SET_UNIT 41 78 39 // waterflower
-!SET_UNIT 42 77 63 // waterleaf
-!SET_UNIT 42 79 98 // waterleaf
+!SET_UNIT 44 3 34 4 // deer
+!SET_UNIT 44 147 39 4 // deer
+!SET_UNIT 44 143 30 4 // deer
+!SET_UNIT 44 150 123 4 // deer
+!SET_UNIT 44 149 137 4 // deer
+!SET_UNIT 44 5 130 4 // deer
+!SET_UNIT 44 6 117 4 // deer
+!SET_UNIT 43 66 115 4 // duck
+!SET_UNIT 43 84 117 4 // duck
+!SET_UNIT 43 74 39 4 // duck
+!SET_UNIT 43 87 39 4 // duck
+!SET_UNIT 47 79 37 4 // duck2
+!SET_UNIT 47 75 41 4 // duck2
+!SET_UNIT 47 72 112 4 // duck2
+!SET_UNIT 47 78 118 4 // duck2
+!SET_UNIT 41 61 118 4 // waterflower
+!SET_UNIT 41 80 113 4 // waterflower
+!SET_UNIT 41 84 39 4 // waterflower
+!SET_UNIT 41 78 39 4 // waterflower
+!SET_UNIT 42 77 63 4 // waterleaf
+!SET_UNIT 42 79 98 4 // waterleaf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:10
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:23:33
