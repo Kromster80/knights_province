@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 36 38
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 27 16 8
@@ -34,6 +35,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -59,18 +62,18 @@
 
 
 // Units
-!SET_UNIT 3 34 39 // builder
-!SET_UNIT 3 34 40 // builder
-!SET_UNIT 3 34 41 // builder
-!SET_UNIT 3 33 41 // builder
-!SET_UNIT 3 33 40 // builder
-!SET_UNIT 3 33 39 // builder
-!SET_UNIT 2 34 37 // serf
-!SET_UNIT 2 34 36 // serf
-!SET_UNIT 2 34 35 // serf
-!SET_UNIT 2 33 36 // serf
-!SET_UNIT 2 33 37 // serf
-!SET_UNIT 2 33 35 // serf
+!SET_UNIT 3 34 39 4 // builder
+!SET_UNIT 3 34 40 4 // builder
+!SET_UNIT 3 34 41 4 // builder
+!SET_UNIT 3 33 41 4 // builder
+!SET_UNIT 3 33 40 4 // builder
+!SET_UNIT 3 33 39 4 // builder
+!SET_UNIT 2 34 37 4 // serf
+!SET_UNIT 2 34 36 4 // serf
+!SET_UNIT 2 34 35 4 // serf
+!SET_UNIT 2 33 36 4 // serf
+!SET_UNIT 2 33 37 4 // serf
+!SET_UNIT 2 33 35 4 // serf
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -79,6 +82,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 36 89
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 12 77 8
@@ -100,6 +104,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -124,18 +130,18 @@
 
 
 // Units
-!SET_UNIT 2 34 88 // serf
-!SET_UNIT 2 34 87 // serf
-!SET_UNIT 2 34 86 // serf
-!SET_UNIT 2 33 86 // serf
-!SET_UNIT 2 33 87 // serf
-!SET_UNIT 2 33 88 // serf
-!SET_UNIT 3 34 90 // builder
-!SET_UNIT 3 34 91 // builder
-!SET_UNIT 3 34 92 // builder
-!SET_UNIT 3 33 92 // builder
-!SET_UNIT 3 33 91 // builder
-!SET_UNIT 3 33 90 // builder
+!SET_UNIT 2 34 88 4 // serf
+!SET_UNIT 2 34 87 4 // serf
+!SET_UNIT 2 34 86 4 // serf
+!SET_UNIT 2 33 86 4 // serf
+!SET_UNIT 2 33 87 4 // serf
+!SET_UNIT 2 33 88 4 // serf
+!SET_UNIT 3 34 90 4 // builder
+!SET_UNIT 3 34 91 4 // builder
+!SET_UNIT 3 34 92 4 // builder
+!SET_UNIT 3 33 92 4 // builder
+!SET_UNIT 3 33 91 4 // builder
+!SET_UNIT 3 33 90 4 // builder
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -144,6 +150,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 100 37
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 113 21 8
@@ -165,6 +172,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -190,18 +199,18 @@
 
 
 // Units
-!SET_UNIT 3 103 39 // builder
-!SET_UNIT 3 102 39 // builder
-!SET_UNIT 3 101 39 // builder
-!SET_UNIT 3 101 40 // builder
-!SET_UNIT 3 102 40 // builder
-!SET_UNIT 3 103 40 // builder
-!SET_UNIT 2 99 39 // serf
-!SET_UNIT 2 98 39 // serf
-!SET_UNIT 2 97 39 // serf
-!SET_UNIT 2 97 40 // serf
-!SET_UNIT 2 98 40 // serf
-!SET_UNIT 2 99 40 // serf
+!SET_UNIT 3 103 39 4 // builder
+!SET_UNIT 3 102 39 4 // builder
+!SET_UNIT 3 101 39 4 // builder
+!SET_UNIT 3 101 40 4 // builder
+!SET_UNIT 3 102 40 4 // builder
+!SET_UNIT 3 103 40 4 // builder
+!SET_UNIT 2 99 39 4 // serf
+!SET_UNIT 2 98 39 4 // serf
+!SET_UNIT 2 97 39 4 // serf
+!SET_UNIT 2 97 40 4 // serf
+!SET_UNIT 2 98 40 4 // serf
+!SET_UNIT 2 99 40 4 // serf
 
 -----Hand3-----
 !HAND_CURRENT 3
@@ -210,6 +219,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 100 87
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 127 78 8
@@ -231,6 +241,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -256,23 +268,24 @@
 
 
 // Units
-!SET_UNIT 3 102 89 // builder
-!SET_UNIT 3 101 89 // builder
-!SET_UNIT 3 103 89 // builder
-!SET_UNIT 3 102 90 // builder
-!SET_UNIT 3 103 90 // builder
-!SET_UNIT 3 101 90 // builder
-!SET_UNIT 2 99 89 // serf
-!SET_UNIT 2 98 89 // serf
-!SET_UNIT 2 97 89 // serf
-!SET_UNIT 2 97 90 // serf
-!SET_UNIT 2 98 90 // serf
-!SET_UNIT 2 99 90 // serf
+!SET_UNIT 3 102 89 4 // builder
+!SET_UNIT 3 101 89 4 // builder
+!SET_UNIT 3 103 89 4 // builder
+!SET_UNIT 3 102 90 4 // builder
+!SET_UNIT 3 103 90 4 // builder
+!SET_UNIT 3 101 90 4 // builder
+!SET_UNIT 2 99 89 4 // serf
+!SET_UNIT 2 98 89 4 // serf
+!SET_UNIT 2 97 89 4 // serf
+!SET_UNIT 2 97 90 4 // serf
+!SET_UNIT 2 98 90 4 // serf
+!SET_UNIT 2 99 90 4 // serf
 
 -----Hand4-----
 !HAND_CURRENT 4
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -291,10 +304,10 @@
 
 
 // Units
-!SET_UNIT 32 70 93 // wagon
+!SET_UNIT 32 70 93 4 // wagon
 !SET_UNIT_WARE 20 6
-!SET_UNIT 32 71 35 // wagon
+!SET_UNIT 32 71 35 4 // wagon
 !SET_UNIT_WARE 20 6
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:17
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:07:09
