@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 22 107
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -30,6 +31,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -58,12 +61,12 @@
 
 
 // Units
-!SET_UNIT 3 19 108 // builder
-!SET_UNIT 3 20 108 // builder
-!SET_UNIT 3 21 108 // builder
-!SET_UNIT 2 22 108 // serf
-!SET_UNIT 2 23 108 // serf
-!SET_UNIT 2 24 108 // serf
+!SET_UNIT 3 19 108 4 // builder
+!SET_UNIT 3 20 108 4 // builder
+!SET_UNIT 3 21 108 4 // builder
+!SET_UNIT 2 22 108 4 // serf
+!SET_UNIT 2 23 108 4 // serf
+!SET_UNIT 2 24 108 4 // serf
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -72,6 +75,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 110 19
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -89,6 +93,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -117,17 +123,18 @@
 
 
 // Units
-!SET_UNIT 2 107 21 // serf
-!SET_UNIT 2 108 21 // serf
-!SET_UNIT 2 109 21 // serf
-!SET_UNIT 3 110 21 // builder
-!SET_UNIT 3 111 21 // builder
-!SET_UNIT 3 112 21 // builder
+!SET_UNIT 2 107 21 4 // serf
+!SET_UNIT 2 108 21 4 // serf
+!SET_UNIT 2 109 21 4 // serf
+!SET_UNIT 3 110 21 4 // builder
+!SET_UNIT 3 111 21 4 // builder
+!SET_UNIT 3 112 21 4 // builder
 
 -----Hand2-----
 !HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -136,6 +143,26 @@
 
 // Fences
 
+
+// Units
+!SET_UNIT 43 122 5 5 // duck
+!SET_UNIT 47 123 10 5 // duck2
+!SET_UNIT 47 2 120 5 // duck2
+!SET_UNIT 43 3 122 5 // duck
+!SET_UNIT 41 2 113 5 // waterflower
+!SET_UNIT 41 9 122 5 // waterflower
+!SET_UNIT 42 7 118 5 // waterleaf
+!SET_UNIT 42 2 122 5 // waterleaf
+!SET_UNIT 42 123 8 5 // waterleaf
+!SET_UNIT 42 124 18 5 // waterleaf
+!SET_UNIT 41 121 15 5 // waterflower
+!SET_UNIT 41 124 11 5 // waterflower
+!SET_UNIT 41 108 121 5 // waterflower
+!SET_UNIT 41 116 116 5 // waterflower
+!SET_UNIT 42 109 122 5 // waterleaf
+!SET_UNIT 42 117 119 5 // waterleaf
+!SET_UNIT 43 111 118 5 // duck
+!SET_UNIT 47 113 122 5 // duck2
 
 // Emitters
 !SET_EMITTER 5 32 21
@@ -220,4 +247,4 @@
 !SET_EMITTER 5 99 97
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11400 (2022-05-13 15:05)"  on 2022-05-15 9:49:05 PM
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:26:04
