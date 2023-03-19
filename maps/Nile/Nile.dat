@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 17 79
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -36,6 +37,8 @@
 // Block units
 !UNIT_BLOCK 7 // farmer
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -56,14 +59,14 @@
 
 
 // Units
-!SET_UNIT 2 15 80 // serf
-!SET_UNIT 2 16 80 // serf
-!SET_UNIT 2 15 81 // serf
-!SET_UNIT 2 16 81 // serf
-!SET_UNIT 3 18 80 // builder
-!SET_UNIT 3 19 80 // builder
-!SET_UNIT 3 19 81 // builder
-!SET_UNIT 3 18 81 // builder
+!SET_UNIT 2 15 80 4 // serf
+!SET_UNIT 2 16 80 4 // serf
+!SET_UNIT 2 15 81 4 // serf
+!SET_UNIT 2 16 81 4 // serf
+!SET_UNIT 3 18 80 4 // builder
+!SET_UNIT 3 19 80 4 // builder
+!SET_UNIT 3 19 81 4 // builder
+!SET_UNIT 3 18 81 4 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -72,6 +75,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 112 76
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -95,6 +99,8 @@
 // Block units
 !UNIT_BLOCK 7 // farmer
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -115,19 +121,20 @@
 
 
 // Units
-!SET_UNIT 2 110 77 // serf
-!SET_UNIT 2 111 78 // serf
-!SET_UNIT 2 111 77 // serf
-!SET_UNIT 2 110 78 // serf
-!SET_UNIT 3 113 77 // builder
-!SET_UNIT 3 114 77 // builder
-!SET_UNIT 3 114 78 // builder
-!SET_UNIT 3 113 78 // builder
+!SET_UNIT 2 110 77 4 // serf
+!SET_UNIT 2 111 78 4 // serf
+!SET_UNIT 2 111 77 4 // serf
+!SET_UNIT 2 110 78 4 // serf
+!SET_UNIT 3 113 77 4 // builder
+!SET_UNIT 3 114 77 4 // builder
+!SET_UNIT 3 114 78 4 // builder
+!SET_UNIT 3 113 78 4 // builder
 
 -----Hand2-----
 !HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -155,4 +162,4 @@
 !SET_TRIGGER 15 62 42 62 51
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:27:33
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:35:28
