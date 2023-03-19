@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 129 41
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -31,6 +32,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -56,18 +59,18 @@
 
 
 // Units
-!SET_UNIT 2 126 43 // serf
-!SET_UNIT 2 127 43 // serf
-!SET_UNIT 2 128 43 // serf
-!SET_UNIT 2 126 44 // serf
-!SET_UNIT 2 127 44 // serf
-!SET_UNIT 2 128 44 // serf
-!SET_UNIT 3 129 43 // builder
-!SET_UNIT 3 130 43 // builder
-!SET_UNIT 3 131 43 // builder
-!SET_UNIT 3 131 44 // builder
-!SET_UNIT 3 130 44 // builder
-!SET_UNIT 3 129 44 // builder
+!SET_UNIT 2 126 43 4 // serf
+!SET_UNIT 2 127 43 4 // serf
+!SET_UNIT 2 128 43 4 // serf
+!SET_UNIT 2 126 44 4 // serf
+!SET_UNIT 2 127 44 4 // serf
+!SET_UNIT 2 128 44 4 // serf
+!SET_UNIT 3 129 43 4 // builder
+!SET_UNIT 3 130 43 4 // builder
+!SET_UNIT 3 131 43 4 // builder
+!SET_UNIT 3 131 44 4 // builder
+!SET_UNIT 3 130 44 4 // builder
+!SET_UNIT 3 129 44 4 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -76,6 +79,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 81 151
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -94,6 +98,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -119,18 +125,18 @@
 
 
 // Units
-!SET_UNIT 3 81 153 // builder
-!SET_UNIT 3 82 153 // builder
-!SET_UNIT 3 83 153 // builder
-!SET_UNIT 3 83 154 // builder
-!SET_UNIT 3 82 154 // builder
-!SET_UNIT 3 81 154 // builder
-!SET_UNIT 2 78 153 // serf
-!SET_UNIT 2 79 153 // serf
-!SET_UNIT 2 80 153 // serf
-!SET_UNIT 2 80 154 // serf
-!SET_UNIT 2 79 154 // serf
-!SET_UNIT 2 78 154 // serf
+!SET_UNIT 3 81 153 4 // builder
+!SET_UNIT 3 82 153 4 // builder
+!SET_UNIT 3 83 153 4 // builder
+!SET_UNIT 3 83 154 4 // builder
+!SET_UNIT 3 82 154 4 // builder
+!SET_UNIT 3 81 154 4 // builder
+!SET_UNIT 2 78 153 4 // serf
+!SET_UNIT 2 79 153 4 // serf
+!SET_UNIT 2 80 153 4 // serf
+!SET_UNIT 2 80 154 4 // serf
+!SET_UNIT 2 79 154 4 // serf
+!SET_UNIT 2 78 154 4 // serf
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -139,6 +145,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 24 49
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -157,6 +164,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -182,23 +191,24 @@
 
 
 // Units
-!SET_UNIT 2 21 51 // serf
-!SET_UNIT 2 22 51 // serf
-!SET_UNIT 2 23 51 // serf
-!SET_UNIT 2 23 52 // serf
-!SET_UNIT 2 22 52 // serf
-!SET_UNIT 2 21 52 // serf
-!SET_UNIT 3 24 51 // builder
-!SET_UNIT 3 25 51 // builder
-!SET_UNIT 3 26 51 // builder
-!SET_UNIT 3 24 52 // builder
-!SET_UNIT 3 25 52 // builder
-!SET_UNIT 3 26 52 // builder
+!SET_UNIT 2 21 51 4 // serf
+!SET_UNIT 2 22 51 4 // serf
+!SET_UNIT 2 23 51 4 // serf
+!SET_UNIT 2 23 52 4 // serf
+!SET_UNIT 2 22 52 4 // serf
+!SET_UNIT 2 21 52 4 // serf
+!SET_UNIT 3 24 51 4 // builder
+!SET_UNIT 3 25 51 4 // builder
+!SET_UNIT 3 26 51 4 // builder
+!SET_UNIT 3 24 52 4 // builder
+!SET_UNIT 3 25 52 4 // builder
+!SET_UNIT 3 26 52 4 // builder
 
 -----Hand3-----
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -209,130 +219,130 @@
 
 
 // Units
-!SET_UNIT 44 35 113 // deer
-!SET_UNIT 44 5 98 // deer
-!SET_UNIT 44 21 105 // deer
-!SET_UNIT 44 33 126 // deer
-!SET_UNIT 44 31 143 // deer
-!SET_UNIT 44 24 148 // deer
-!SET_UNIT 44 31 156 // deer
-!SET_UNIT 44 46 125 // deer
-!SET_UNIT 44 70 111 // deer
-!SET_UNIT 44 83 110 // deer
-!SET_UNIT 44 80 86 // deer
-!SET_UNIT 44 71 75 // deer
-!SET_UNIT 44 89 70 // deer
-!SET_UNIT 44 69 65 // deer
-!SET_UNIT 44 96 75 // deer
-!SET_UNIT 41 118 167 // waterflower
-!SET_UNIT 41 125 167 // waterflower
-!SET_UNIT 42 119 167 // waterleaf
-!SET_UNIT 42 123 167 // waterleaf
-!SET_UNIT 42 124 166 // waterleaf
-!SET_UNIT 42 121 167 // waterleaf
-!SET_UNIT 42 135 160 // waterleaf
-!SET_UNIT 42 13 150 // waterleaf
-!SET_UNIT 42 19 155 // waterleaf
-!SET_UNIT 42 20 159 // waterleaf
-!SET_UNIT 42 16 154 // waterleaf
-!SET_UNIT 42 13 152 // waterleaf
-!SET_UNIT 42 19 159 // waterleaf
-!SET_UNIT 42 19 156 // waterleaf
-!SET_UNIT 43 24 114 // duck
-!SET_UNIT 43 45 114 // duck
-!SET_UNIT 47 23 115 // duck2
-!SET_UNIT 47 47 113 // duck2
-!SET_UNIT 47 65 84 // duck2
-!SET_UNIT 43 66 86 // duck
-!SET_UNIT 43 83 55 // duck
-!SET_UNIT 47 84 56 // duck2
-!SET_UNIT 47 97 29 // duck2
-!SET_UNIT 43 97 28 // duck
-!SET_UNIT 43 41 6 // duck
-!SET_UNIT 47 48 6 // duck2
-!SET_UNIT 47 143 153 // duck2
-!SET_UNIT 47 147 154 // duck2
-!SET_UNIT 47 149 163 // duck2
-!SET_UNIT 43 143 158 // duck
-!SET_UNIT 43 146 161 // duck
-!SET_UNIT 43 102 88 // duck
-!SET_UNIT 43 112 99 // duck
-!SET_UNIT 47 109 93 // duck2
-!SET_UNIT 47 93 101 // duck2
-!SET_UNIT 47 14 153 // duck2
-!SET_UNIT 43 11 157 // duck
-!SET_UNIT 44 139 98 // deer
-!SET_UNIT 44 154 93 // deer
-!SET_UNIT 44 158 99 // deer
-!SET_UNIT 44 161 31 // deer
-!SET_UNIT 44 111 29 // deer
-!SET_UNIT 44 160 19 // deer
-!SET_UNIT 44 19 103 // deer
-!SET_UNIT 44 73 110 // deer
-!SET_UNIT 44 79 92 // deer
-!SET_UNIT 44 75 72 // deer
-!SET_UNIT 44 93 71 // deer
-!SET_UNIT 44 51 36 // deer
-!SET_UNIT 44 18 21 // deer
-!SET_UNIT 44 16 4 // deer
-!SET_UNIT 41 41 115 // waterflower
-!SET_UNIT 42 52 112 // waterleaf
-!SET_UNIT 42 58 105 // waterleaf
-!SET_UNIT 42 66 98 // waterleaf
-!SET_UNIT 42 64 89 // waterleaf
-!SET_UNIT 42 65 82 // waterleaf
-!SET_UNIT 42 91 91 // waterleaf
-!SET_UNIT 42 92 97 // waterleaf
-!SET_UNIT 42 91 101 // waterleaf
-!SET_UNIT 42 92 104 // waterleaf
-!SET_UNIT 42 98 78 // waterleaf
-!SET_UNIT 42 99 82 // waterleaf
-!SET_UNIT 42 97 81 // waterleaf
-!SET_UNIT 42 75 62 // waterleaf
-!SET_UNIT 42 75 64 // waterleaf
-!SET_UNIT 42 77 65 // waterleaf
-!SET_UNIT 42 94 22 // waterleaf
-!SET_UNIT 42 83 20 // waterleaf
-!SET_UNIT 42 80 21 // waterleaf
-!SET_UNIT 42 86 33 // waterleaf
-!SET_UNIT 42 87 39 // waterleaf
-!SET_UNIT 42 71 26 // waterleaf
-!SET_UNIT 42 72 25 // waterleaf
-!SET_UNIT 42 74 29 // waterleaf
-!SET_UNIT 41 73 28 // waterflower
-!SET_UNIT 41 72 26 // waterflower
-!SET_UNIT 42 48 9 // waterleaf
-!SET_UNIT 42 43 8 // waterleaf
-!SET_UNIT 42 36 5 // waterleaf
-!SET_UNIT 42 35 5 // waterleaf
-!SET_UNIT 41 44 8 // waterflower
-!SET_UNIT 41 50 6 // waterflower
-!SET_UNIT 41 23 114 // waterflower
-!SET_UNIT 42 1 105 // waterleaf
-!SET_UNIT 42 10 110 // waterleaf
-!SET_UNIT 42 16 113 // waterleaf
-!SET_UNIT 42 21 115 // waterleaf
-!SET_UNIT 42 20 117 // waterleaf
-!SET_UNIT 42 11 122 // waterleaf
-!SET_UNIT 42 5 125 // waterleaf
-!SET_UNIT 42 4 124 // waterleaf
-!SET_UNIT 42 2 112 // waterleaf
-!SET_UNIT 42 11 116 // waterleaf
-!SET_UNIT 42 6 120 // waterleaf
-!SET_UNIT 42 5 157 // waterleaf
-!SET_UNIT 42 7 161 // waterleaf
-!SET_UNIT 42 12 162 // waterleaf
-!SET_UNIT 42 140 157 // waterleaf
-!SET_UNIT 42 142 163 // waterleaf
-!SET_UNIT 42 159 145 // waterleaf
-!SET_UNIT 42 167 134 // waterleaf
-!SET_UNIT 42 118 96 // waterleaf
-!SET_UNIT 42 115 94 // waterleaf
-!SET_UNIT 42 112 91 // waterleaf
-!SET_UNIT 42 107 87 // waterleaf
-!SET_UNIT 41 108 90 // waterflower
-!SET_UNIT 41 117 103 // waterflower
-!SET_UNIT 41 88 27 // waterflower
+!SET_UNIT 44 35 113 4 // deer
+!SET_UNIT 44 5 98 4 // deer
+!SET_UNIT 44 21 105 4 // deer
+!SET_UNIT 44 33 126 4 // deer
+!SET_UNIT 44 31 143 4 // deer
+!SET_UNIT 44 24 148 4 // deer
+!SET_UNIT 44 31 156 4 // deer
+!SET_UNIT 44 46 125 4 // deer
+!SET_UNIT 44 70 111 4 // deer
+!SET_UNIT 44 83 110 4 // deer
+!SET_UNIT 44 80 86 4 // deer
+!SET_UNIT 44 71 75 4 // deer
+!SET_UNIT 44 89 70 4 // deer
+!SET_UNIT 44 69 65 4 // deer
+!SET_UNIT 44 96 75 4 // deer
+!SET_UNIT 41 118 167 4 // waterflower
+!SET_UNIT 41 125 167 4 // waterflower
+!SET_UNIT 42 119 167 4 // waterleaf
+!SET_UNIT 42 123 167 4 // waterleaf
+!SET_UNIT 42 124 166 4 // waterleaf
+!SET_UNIT 42 121 167 4 // waterleaf
+!SET_UNIT 42 135 160 4 // waterleaf
+!SET_UNIT 42 13 150 4 // waterleaf
+!SET_UNIT 42 19 155 4 // waterleaf
+!SET_UNIT 42 20 159 4 // waterleaf
+!SET_UNIT 42 16 154 4 // waterleaf
+!SET_UNIT 42 13 152 4 // waterleaf
+!SET_UNIT 42 19 159 4 // waterleaf
+!SET_UNIT 42 19 156 4 // waterleaf
+!SET_UNIT 43 24 114 4 // duck
+!SET_UNIT 43 45 114 4 // duck
+!SET_UNIT 47 23 115 4 // duck2
+!SET_UNIT 47 47 113 4 // duck2
+!SET_UNIT 47 65 84 4 // duck2
+!SET_UNIT 43 66 86 4 // duck
+!SET_UNIT 43 83 55 4 // duck
+!SET_UNIT 47 84 56 4 // duck2
+!SET_UNIT 47 97 29 4 // duck2
+!SET_UNIT 43 97 28 4 // duck
+!SET_UNIT 43 41 6 4 // duck
+!SET_UNIT 47 48 6 4 // duck2
+!SET_UNIT 47 143 153 4 // duck2
+!SET_UNIT 47 147 154 4 // duck2
+!SET_UNIT 47 149 163 4 // duck2
+!SET_UNIT 43 143 158 4 // duck
+!SET_UNIT 43 146 161 4 // duck
+!SET_UNIT 43 102 88 4 // duck
+!SET_UNIT 43 112 99 4 // duck
+!SET_UNIT 47 109 93 4 // duck2
+!SET_UNIT 47 93 101 4 // duck2
+!SET_UNIT 47 14 153 4 // duck2
+!SET_UNIT 43 11 157 4 // duck
+!SET_UNIT 44 139 98 4 // deer
+!SET_UNIT 44 154 93 4 // deer
+!SET_UNIT 44 158 99 4 // deer
+!SET_UNIT 44 161 31 4 // deer
+!SET_UNIT 44 111 29 4 // deer
+!SET_UNIT 44 160 19 4 // deer
+!SET_UNIT 44 19 103 4 // deer
+!SET_UNIT 44 73 110 4 // deer
+!SET_UNIT 44 79 92 4 // deer
+!SET_UNIT 44 75 72 4 // deer
+!SET_UNIT 44 93 71 4 // deer
+!SET_UNIT 44 51 36 4 // deer
+!SET_UNIT 44 18 21 4 // deer
+!SET_UNIT 44 16 4 4 // deer
+!SET_UNIT 41 41 115 4 // waterflower
+!SET_UNIT 42 52 112 4 // waterleaf
+!SET_UNIT 42 58 105 4 // waterleaf
+!SET_UNIT 42 66 98 4 // waterleaf
+!SET_UNIT 42 64 89 4 // waterleaf
+!SET_UNIT 42 65 82 4 // waterleaf
+!SET_UNIT 42 91 91 4 // waterleaf
+!SET_UNIT 42 92 97 4 // waterleaf
+!SET_UNIT 42 91 101 4 // waterleaf
+!SET_UNIT 42 92 104 4 // waterleaf
+!SET_UNIT 42 98 78 4 // waterleaf
+!SET_UNIT 42 99 82 4 // waterleaf
+!SET_UNIT 42 97 81 4 // waterleaf
+!SET_UNIT 42 75 62 4 // waterleaf
+!SET_UNIT 42 75 64 4 // waterleaf
+!SET_UNIT 42 77 65 4 // waterleaf
+!SET_UNIT 42 94 22 4 // waterleaf
+!SET_UNIT 42 83 20 4 // waterleaf
+!SET_UNIT 42 80 21 4 // waterleaf
+!SET_UNIT 42 86 33 4 // waterleaf
+!SET_UNIT 42 87 39 4 // waterleaf
+!SET_UNIT 42 71 26 4 // waterleaf
+!SET_UNIT 42 72 25 4 // waterleaf
+!SET_UNIT 42 74 29 4 // waterleaf
+!SET_UNIT 41 73 28 4 // waterflower
+!SET_UNIT 41 72 26 4 // waterflower
+!SET_UNIT 42 48 9 4 // waterleaf
+!SET_UNIT 42 43 8 4 // waterleaf
+!SET_UNIT 42 36 5 4 // waterleaf
+!SET_UNIT 42 35 5 4 // waterleaf
+!SET_UNIT 41 44 8 4 // waterflower
+!SET_UNIT 41 50 6 4 // waterflower
+!SET_UNIT 41 23 114 4 // waterflower
+!SET_UNIT 42 1 105 4 // waterleaf
+!SET_UNIT 42 10 110 4 // waterleaf
+!SET_UNIT 42 16 113 4 // waterleaf
+!SET_UNIT 42 21 115 4 // waterleaf
+!SET_UNIT 42 20 117 4 // waterleaf
+!SET_UNIT 42 11 122 4 // waterleaf
+!SET_UNIT 42 5 125 4 // waterleaf
+!SET_UNIT 42 4 124 4 // waterleaf
+!SET_UNIT 42 2 112 4 // waterleaf
+!SET_UNIT 42 11 116 4 // waterleaf
+!SET_UNIT 42 6 120 4 // waterleaf
+!SET_UNIT 42 5 157 4 // waterleaf
+!SET_UNIT 42 7 161 4 // waterleaf
+!SET_UNIT 42 12 162 4 // waterleaf
+!SET_UNIT 42 140 157 4 // waterleaf
+!SET_UNIT 42 142 163 4 // waterleaf
+!SET_UNIT 42 159 145 4 // waterleaf
+!SET_UNIT 42 167 134 4 // waterleaf
+!SET_UNIT 42 118 96 4 // waterleaf
+!SET_UNIT 42 115 94 4 // waterleaf
+!SET_UNIT 42 112 91 4 // waterleaf
+!SET_UNIT 42 107 87 4 // waterleaf
+!SET_UNIT 41 108 90 4 // waterflower
+!SET_UNIT 41 117 103 4 // waterflower
+!SET_UNIT 41 88 27 4 // waterflower
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11308 (2022.04.28 21:06)"  on 28.04.2022 21:06:54
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:35:24
