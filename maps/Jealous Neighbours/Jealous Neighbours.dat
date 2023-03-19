@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 50 16
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -32,13 +33,15 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
 !SET_HOUSE 11 50 16 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 50 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
@@ -52,19 +55,19 @@
 
 
 // Units
-!SET_UNIT 1 47 16 // blank
-!SET_UNIT 1 47 15 // blank
-!SET_UNIT 1 46 15 // blank
-!SET_UNIT 1 46 16 // blank
-!SET_UNIT 3 49 18 // builder
-!SET_UNIT 3 49 19 // builder
-!SET_UNIT 3 49 20 // builder
-!SET_UNIT 1 50 18 // blank
-!SET_UNIT 1 50 19 // blank
-!SET_UNIT 1 50 20 // blank
-!SET_UNIT 5 48 18 // miner
-!SET_UNIT 16 47 18 // metallurg
-!SET_UNIT 8 48 19 // carpenter
+!SET_UNIT 1 47 16 4 // blank
+!SET_UNIT 1 47 15 4 // blank
+!SET_UNIT 1 46 15 4 // blank
+!SET_UNIT 1 46 16 4 // blank
+!SET_UNIT 3 49 18 4 // builder
+!SET_UNIT 3 49 19 4 // builder
+!SET_UNIT 3 49 20 4 // builder
+!SET_UNIT 1 50 18 4 // blank
+!SET_UNIT 1 50 19 4 // blank
+!SET_UNIT 1 50 20 4 // blank
+!SET_UNIT 5 48 18 4 // miner
+!SET_UNIT 16 47 18 4 // metallurg
+!SET_UNIT 8 48 19 4 // carpenter
 
 // Groups
 !SET_GROUP 21 47 20 4 1 1 // bowman
@@ -77,6 +80,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 65280
 !HAND_CENTER_SCREEN 67 81
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -96,13 +100,15 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
 !SET_HOUSE 11 67 81 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
@@ -116,20 +122,20 @@
 
 
 // Units
-!SET_UNIT 1 64 82 // blank
-!SET_UNIT 1 63 82 // blank
-!SET_UNIT 1 63 81 // blank
-!SET_UNIT 1 64 81 // blank
-!SET_UNIT 2 66 83 // serf
-!SET_UNIT 2 66 84 // serf
-!SET_UNIT 2 66 85 // serf
-!SET_UNIT 3 67 83 // builder
-!SET_UNIT 3 67 84 // builder
-!SET_UNIT 3 67 85 // builder
-!SET_UNIT 6 63 83 // breeder
-!SET_UNIT 6 64 83 // breeder
-!SET_UNIT 6 63 84 // breeder
-!SET_UNIT 11 64 84 // tailor
+!SET_UNIT 1 64 82 4 // blank
+!SET_UNIT 1 63 82 4 // blank
+!SET_UNIT 1 63 81 4 // blank
+!SET_UNIT 1 64 81 4 // blank
+!SET_UNIT 2 66 83 4 // serf
+!SET_UNIT 2 66 84 4 // serf
+!SET_UNIT 2 66 85 4 // serf
+!SET_UNIT 3 67 83 4 // builder
+!SET_UNIT 3 67 84 4 // builder
+!SET_UNIT 3 67 85 4 // builder
+!SET_UNIT 6 63 83 4 // breeder
+!SET_UNIT 6 64 83 4 // breeder
+!SET_UNIT 6 63 84 4 // breeder
+!SET_UNIT 11 64 84 4 // tailor
 
 // Groups
 !SET_GROUP 25 64 85 4 1 1 // horsescout
@@ -141,6 +147,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 15732752
 !HAND_CENTER_SCREEN 27 35
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -160,13 +167,15 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
 !SET_HOUSE 11 28 35 1 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
@@ -180,20 +189,20 @@
 
 
 // Units
-!SET_UNIT 1 27 32 // blank
-!SET_UNIT 1 28 32 // blank
-!SET_UNIT 1 28 31 // blank
-!SET_UNIT 1 27 31 // blank
-!SET_UNIT 3 26 35 // builder
-!SET_UNIT 3 25 35 // builder
-!SET_UNIT 3 24 35 // builder
-!SET_UNIT 2 26 36 // serf
-!SET_UNIT 2 25 36 // serf
-!SET_UNIT 2 24 36 // serf
-!SET_UNIT 5 26 31 // miner
-!SET_UNIT 16 26 32 // metallurg
-!SET_UNIT 15 25 31 // smith
-!SET_UNIT 15 25 32 // smith
+!SET_UNIT 1 27 32 4 // blank
+!SET_UNIT 1 28 32 4 // blank
+!SET_UNIT 1 28 31 4 // blank
+!SET_UNIT 1 27 31 4 // blank
+!SET_UNIT 3 26 35 4 // builder
+!SET_UNIT 3 25 35 4 // builder
+!SET_UNIT 3 24 35 4 // builder
+!SET_UNIT 2 26 36 4 // serf
+!SET_UNIT 2 25 36 4 // serf
+!SET_UNIT 2 24 36 4 // serf
+!SET_UNIT 5 26 31 4 // miner
+!SET_UNIT 16 26 32 4 // metallurg
+!SET_UNIT 15 25 31 4 // smith
+!SET_UNIT 15 25 32 4 // smith
 
 // Groups
 !SET_GROUP 20 23 34 4 1 1 // swordsman
@@ -202,6 +211,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -260,4 +270,4 @@
 !SET_EMITTER 5 41 66
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:16
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:04:49
