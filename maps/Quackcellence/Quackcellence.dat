@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 170 158
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 255
@@ -55,6 +56,8 @@
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -64,12 +67,13 @@
 
 
 // Units
-!SET_UNIT 2 168 160 // serf
+!SET_UNIT 2 168 160 4 // serf
 
 -----Hand1-----
 !HAND_CURRENT 1
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -80,242 +84,242 @@
 
 
 // Units
-!SET_UNIT 43 184 191 // duck
-!SET_UNIT 43 170 196 // duck
-!SET_UNIT 43 191 182 // duck
-!SET_UNIT 43 209 174 // duck
-!SET_UNIT 43 237 179 // duck
-!SET_UNIT 43 244 163 // duck
-!SET_UNIT 43 248 153 // duck
-!SET_UNIT 43 250 140 // duck
-!SET_UNIT 43 249 119 // duck
-!SET_UNIT 43 245 112 // duck
-!SET_UNIT 43 239 109 // duck
-!SET_UNIT 43 225 96 // duck
-!SET_UNIT 43 215 90 // duck
-!SET_UNIT 43 202 87 // duck
-!SET_UNIT 43 183 81 // duck
-!SET_UNIT 43 171 70 // duck
-!SET_UNIT 43 156 65 // duck
-!SET_UNIT 43 145 64 // duck
-!SET_UNIT 43 135 64 // duck
-!SET_UNIT 43 127 65 // duck
-!SET_UNIT 43 119 65 // duck
-!SET_UNIT 43 111 63 // duck
-!SET_UNIT 43 103 55 // duck
-!SET_UNIT 43 99 43 // duck
-!SET_UNIT 43 94 30 // duck
-!SET_UNIT 43 85 17 // duck
-!SET_UNIT 43 76 7 // duck
-!SET_UNIT 43 66 4 // duck
-!SET_UNIT 43 57 5 // duck
-!SET_UNIT 43 43 6 // duck
-!SET_UNIT 43 34 14 // duck
-!SET_UNIT 43 27 22 // duck
-!SET_UNIT 43 24 34 // duck
-!SET_UNIT 43 24 42 // duck
-!SET_UNIT 43 13 50 // duck
-!SET_UNIT 43 6 57 // duck
-!SET_UNIT 43 5 65 // duck
-!SET_UNIT 43 5 77 // duck
-!SET_UNIT 43 15 76 // duck
-!SET_UNIT 43 28 71 // duck
-!SET_UNIT 43 41 65 // duck
-!SET_UNIT 43 52 62 // duck
-!SET_UNIT 43 55 70 // duck
-!SET_UNIT 43 48 78 // duck
-!SET_UNIT 43 42 90 // duck
-!SET_UNIT 43 42 98 // duck
-!SET_UNIT 43 39 109 // duck
-!SET_UNIT 43 37 119 // duck
-!SET_UNIT 43 34 131 // duck
-!SET_UNIT 43 34 138 // duck
-!SET_UNIT 43 35 148 // duck
-!SET_UNIT 43 37 156 // duck
-!SET_UNIT 43 46 163 // duck
-!SET_UNIT 43 53 170 // duck
-!SET_UNIT 43 61 178 // duck
-!SET_UNIT 43 69 186 // duck
-!SET_UNIT 43 79 194 // duck
-!SET_UNIT 43 89 197 // duck
-!SET_UNIT 43 104 196 // duck
-!SET_UNIT 43 114 197 // duck
-!SET_UNIT 43 105 205 // duck
-!SET_UNIT 43 96 204 // duck
-!SET_UNIT 43 84 206 // duck
-!SET_UNIT 43 76 206 // duck
-!SET_UNIT 43 66 207 // duck
-!SET_UNIT 43 59 207 // duck
-!SET_UNIT 43 48 207 // duck
-!SET_UNIT 43 39 207 // duck
-!SET_UNIT 43 29 208 // duck
-!SET_UNIT 43 21 208 // duck
-!SET_UNIT 43 16 206 // duck
-!SET_UNIT 43 13 200 // duck
-!SET_UNIT 43 17 191 // duck
-!SET_UNIT 43 24 190 // duck
-!SET_UNIT 43 39 191 // duck
-!SET_UNIT 43 49 193 // duck
-!SET_UNIT 43 62 197 // duck
-!SET_UNIT 43 75 200 // duck
-!SET_UNIT 43 71 194 // duck
-!SET_UNIT 43 56 184 // duck
-!SET_UNIT 43 44 176 // duck
-!SET_UNIT 43 26 168 // duck
-!SET_UNIT 43 16 161 // duck
-!SET_UNIT 43 19 146 // duck
-!SET_UNIT 43 26 137 // duck
-!SET_UNIT 43 21 125 // duck
-!SET_UNIT 43 8 118 // duck
-!SET_UNIT 43 19 107 // duck
-!SET_UNIT 43 29 100 // duck
-!SET_UNIT 43 28 91 // duck
-!SET_UNIT 43 13 85 // duck
-!SET_UNIT 43 8 47 // duck
-!SET_UNIT 43 15 33 // duck
-!SET_UNIT 43 11 23 // duck
-!SET_UNIT 43 4 17 // duck
-!SET_UNIT 43 16 2 // duck
-!SET_UNIT 43 26 0 // duck
-!SET_UNIT 43 29 9 // duck
-!SET_UNIT 43 85 2 // duck
-!SET_UNIT 43 97 9 // duck
-!SET_UNIT 43 105 17 // duck
-!SET_UNIT 43 109 27 // duck
-!SET_UNIT 43 111 36 // duck
-!SET_UNIT 43 116 46 // duck
-!SET_UNIT 43 124 55 // duck
-!SET_UNIT 43 138 47 // duck
-!SET_UNIT 43 144 40 // duck
-!SET_UNIT 43 121 9 // duck
-!SET_UNIT 43 129 31 // duck
-!SET_UNIT 43 138 11 // duck
-!SET_UNIT 43 147 34 // duck
-!SET_UNIT 43 147 4 // duck
-!SET_UNIT 43 162 28 // duck
-!SET_UNIT 43 170 20 // duck
-!SET_UNIT 43 159 49 // duck
-!SET_UNIT 43 179 35 // duck
-!SET_UNIT 43 179 56 // duck
-!SET_UNIT 43 192 54 // duck
-!SET_UNIT 43 193 65 // duck
-!SET_UNIT 43 210 58 // duck
-!SET_UNIT 43 210 70 // duck
-!SET_UNIT 43 228 56 // duck
-!SET_UNIT 43 226 77 // duck
-!SET_UNIT 43 241 65 // duck
-!SET_UNIT 43 238 89 // duck
-!SET_UNIT 43 250 85 // duck
-!SET_UNIT 43 254 103 // duck
-!SET_UNIT 43 249 104 // duck
-!SET_UNIT 43 254 150 // duck
-!SET_UNIT 43 253 169 // duck
-!SET_UNIT 43 247 184 // duck
-!SET_UNIT 43 242 193 // duck
-!SET_UNIT 43 235 200 // duck
-!SET_UNIT 43 218 188 // duck
-!SET_UNIT 43 208 194 // duck
-!SET_UNIT 43 193 206 // duck
-!SET_UNIT 43 181 205 // duck
-!SET_UNIT 47 140 205 // duck2
-!SET_UNIT 47 152 195 // duck2
-!SET_UNIT 47 166 191 // duck2
-!SET_UNIT 47 170 199 // duck2
-!SET_UNIT 47 197 190 // duck2
-!SET_UNIT 47 212 184 // duck2
-!SET_UNIT 47 217 179 // duck2
-!SET_UNIT 47 231 190 // duck2
-!SET_UNIT 47 221 190 // duck2
-!SET_UNIT 47 241 186 // duck2
-!SET_UNIT 47 241 168 // duck2
-!SET_UNIT 47 251 158 // duck2
-!SET_UNIT 47 251 145 // duck2
-!SET_UNIT 47 252 135 // duck2
-!SET_UNIT 47 251 118 // duck2
-!SET_UNIT 47 241 112 // duck2
-!SET_UNIT 47 250 100 // duck2
-!SET_UNIT 47 235 96 // duck2
-!SET_UNIT 47 240 85 // duck2
-!SET_UNIT 47 220 90 // duck2
-!SET_UNIT 47 234 78 // duck2
-!SET_UNIT 47 211 87 // duck2
-!SET_UNIT 47 214 72 // duck2
-!SET_UNIT 47 197 80 // duck2
-!SET_UNIT 47 197 68 // duck2
-!SET_UNIT 47 181 78 // duck2
-!SET_UNIT 47 181 64 // duck2
-!SET_UNIT 47 169 73 // duck2
-!SET_UNIT 47 177 53 // duck2
-!SET_UNIT 47 157 62 // duck2
-!SET_UNIT 47 158 50 // duck2
-!SET_UNIT 47 138 63 // duck2
-!SET_UNIT 47 145 44 // duck2
-!SET_UNIT 47 122 60 // duck2
-!SET_UNIT 47 132 43 // duck2
-!SET_UNIT 47 114 61 // duck2
-!SET_UNIT 47 122 44 // duck2
-!SET_UNIT 47 113 37 // duck2
-!SET_UNIT 47 105 36 // duck2
-!SET_UNIT 47 103 26 // duck2
-!SET_UNIT 47 94 24 // duck2
-!SET_UNIT 47 97 15 // duck2
-!SET_UNIT 47 87 11 // duck2
-!SET_UNIT 47 68 9 // duck2
-!SET_UNIT 47 78 3 // duck2
-!SET_UNIT 47 36 5 // duck2
-!SET_UNIT 47 60 6 // duck2
-!SET_UNIT 47 16 10 // duck2
-!SET_UNIT 47 33 2 // duck2
-!SET_UNIT 47 16 4 // duck2
-!SET_UNIT 47 15 5 // duck2
-!SET_UNIT 47 31 12 // duck2
-!SET_UNIT 47 12 25 // duck2
-!SET_UNIT 47 22 31 // duck2
-!SET_UNIT 47 9 38 // duck2
-!SET_UNIT 47 27 34 // duck2
-!SET_UNIT 47 0 49 // duck2
-!SET_UNIT 47 14 42 // duck2
-!SET_UNIT 47 3 65 // duck2
-!SET_UNIT 47 6 84 // duck2
-!SET_UNIT 47 29 72 // duck2
-!SET_UNIT 47 47 69 // duck2
-!SET_UNIT 47 52 76 // duck2
-!SET_UNIT 47 40 94 // duck2
-!SET_UNIT 47 23 89 // duck2
-!SET_UNIT 47 15 101 // duck2
-!SET_UNIT 47 18 114 // duck2
-!SET_UNIT 47 44 93 // duck2
-!SET_UNIT 47 33 109 // duck2
-!SET_UNIT 47 22 117 // duck2
-!SET_UNIT 47 13 121 // duck2
-!SET_UNIT 47 28 137 // duck2
-!SET_UNIT 47 30 143 // duck2
-!SET_UNIT 47 23 157 // duck2
-!SET_UNIT 47 14 160 // duck2
-!SET_UNIT 47 40 165 // duck2
-!SET_UNIT 47 43 167 // duck2
-!SET_UNIT 47 53 179 // duck2
-!SET_UNIT 47 63 184 // duck2
-!SET_UNIT 47 71 190 // duck2
-!SET_UNIT 47 76 197 // duck2
-!SET_UNIT 47 60 202 // duck2
-!SET_UNIT 47 36 206 // duck2
-!SET_UNIT 47 18 208 // duck2
-!SET_UNIT 47 15 205 // duck2
-!SET_UNIT 47 29 203 // duck2
-!SET_UNIT 47 51 203 // duck2
-!SET_UNIT 47 71 201 // duck2
-!SET_UNIT 47 87 197 // duck2
-!SET_UNIT 47 99 204 // duck2
-!SET_UNIT 47 105 203 // duck2
-!SET_UNIT 47 112 200 // duck2
-!SET_UNIT 42 221 119 // waterleaf
-!SET_UNIT 42 228 123 // waterleaf
-!SET_UNIT 42 236 124 // waterleaf
-!SET_UNIT 42 238 125 // waterleaf
-!SET_UNIT 42 234 113 // waterleaf
-!SET_UNIT 42 240 123 // waterleaf
-!SET_UNIT 42 246 122 // waterleaf
+!SET_UNIT 43 184 191 4 // duck
+!SET_UNIT 43 170 196 4 // duck
+!SET_UNIT 43 191 182 4 // duck
+!SET_UNIT 43 209 174 4 // duck
+!SET_UNIT 43 237 179 4 // duck
+!SET_UNIT 43 244 163 4 // duck
+!SET_UNIT 43 248 153 4 // duck
+!SET_UNIT 43 250 140 4 // duck
+!SET_UNIT 43 249 119 4 // duck
+!SET_UNIT 43 245 112 4 // duck
+!SET_UNIT 43 239 109 4 // duck
+!SET_UNIT 43 225 96 4 // duck
+!SET_UNIT 43 215 90 4 // duck
+!SET_UNIT 43 202 87 4 // duck
+!SET_UNIT 43 183 81 4 // duck
+!SET_UNIT 43 171 70 4 // duck
+!SET_UNIT 43 156 65 4 // duck
+!SET_UNIT 43 145 64 4 // duck
+!SET_UNIT 43 135 64 4 // duck
+!SET_UNIT 43 127 65 4 // duck
+!SET_UNIT 43 119 65 4 // duck
+!SET_UNIT 43 111 63 4 // duck
+!SET_UNIT 43 103 55 4 // duck
+!SET_UNIT 43 99 43 4 // duck
+!SET_UNIT 43 94 30 4 // duck
+!SET_UNIT 43 85 17 4 // duck
+!SET_UNIT 43 76 7 4 // duck
+!SET_UNIT 43 66 4 4 // duck
+!SET_UNIT 43 57 5 4 // duck
+!SET_UNIT 43 43 6 4 // duck
+!SET_UNIT 43 34 14 4 // duck
+!SET_UNIT 43 27 22 4 // duck
+!SET_UNIT 43 24 34 4 // duck
+!SET_UNIT 43 24 42 4 // duck
+!SET_UNIT 43 13 50 4 // duck
+!SET_UNIT 43 6 57 4 // duck
+!SET_UNIT 43 5 65 4 // duck
+!SET_UNIT 43 5 77 4 // duck
+!SET_UNIT 43 15 76 4 // duck
+!SET_UNIT 43 28 71 4 // duck
+!SET_UNIT 43 41 65 4 // duck
+!SET_UNIT 43 52 62 4 // duck
+!SET_UNIT 43 55 70 4 // duck
+!SET_UNIT 43 48 78 4 // duck
+!SET_UNIT 43 42 90 4 // duck
+!SET_UNIT 43 42 98 4 // duck
+!SET_UNIT 43 39 109 4 // duck
+!SET_UNIT 43 37 119 4 // duck
+!SET_UNIT 43 34 131 4 // duck
+!SET_UNIT 43 34 138 4 // duck
+!SET_UNIT 43 35 148 4 // duck
+!SET_UNIT 43 37 156 4 // duck
+!SET_UNIT 43 46 163 4 // duck
+!SET_UNIT 43 53 170 4 // duck
+!SET_UNIT 43 61 178 4 // duck
+!SET_UNIT 43 69 186 4 // duck
+!SET_UNIT 43 79 194 4 // duck
+!SET_UNIT 43 89 197 4 // duck
+!SET_UNIT 43 104 196 4 // duck
+!SET_UNIT 43 114 197 4 // duck
+!SET_UNIT 43 105 205 4 // duck
+!SET_UNIT 43 96 204 4 // duck
+!SET_UNIT 43 84 206 4 // duck
+!SET_UNIT 43 76 206 4 // duck
+!SET_UNIT 43 66 207 4 // duck
+!SET_UNIT 43 59 207 4 // duck
+!SET_UNIT 43 48 207 4 // duck
+!SET_UNIT 43 39 207 4 // duck
+!SET_UNIT 43 29 208 4 // duck
+!SET_UNIT 43 21 208 4 // duck
+!SET_UNIT 43 16 206 4 // duck
+!SET_UNIT 43 13 200 4 // duck
+!SET_UNIT 43 17 191 4 // duck
+!SET_UNIT 43 24 190 4 // duck
+!SET_UNIT 43 39 191 4 // duck
+!SET_UNIT 43 49 193 4 // duck
+!SET_UNIT 43 62 197 4 // duck
+!SET_UNIT 43 75 200 4 // duck
+!SET_UNIT 43 71 194 4 // duck
+!SET_UNIT 43 56 184 4 // duck
+!SET_UNIT 43 44 176 4 // duck
+!SET_UNIT 43 26 168 4 // duck
+!SET_UNIT 43 16 161 4 // duck
+!SET_UNIT 43 19 146 4 // duck
+!SET_UNIT 43 26 137 4 // duck
+!SET_UNIT 43 21 125 4 // duck
+!SET_UNIT 43 8 118 4 // duck
+!SET_UNIT 43 19 107 4 // duck
+!SET_UNIT 43 29 100 4 // duck
+!SET_UNIT 43 28 91 4 // duck
+!SET_UNIT 43 13 85 4 // duck
+!SET_UNIT 43 8 47 4 // duck
+!SET_UNIT 43 15 33 4 // duck
+!SET_UNIT 43 11 23 4 // duck
+!SET_UNIT 43 4 17 4 // duck
+!SET_UNIT 43 16 2 4 // duck
+!SET_UNIT 43 26 0 4 // duck
+!SET_UNIT 43 29 9 4 // duck
+!SET_UNIT 43 85 2 4 // duck
+!SET_UNIT 43 97 9 4 // duck
+!SET_UNIT 43 105 17 4 // duck
+!SET_UNIT 43 109 27 4 // duck
+!SET_UNIT 43 111 36 4 // duck
+!SET_UNIT 43 116 46 4 // duck
+!SET_UNIT 43 124 55 4 // duck
+!SET_UNIT 43 138 47 4 // duck
+!SET_UNIT 43 144 40 4 // duck
+!SET_UNIT 43 121 9 4 // duck
+!SET_UNIT 43 129 31 4 // duck
+!SET_UNIT 43 138 11 4 // duck
+!SET_UNIT 43 147 34 4 // duck
+!SET_UNIT 43 147 4 4 // duck
+!SET_UNIT 43 162 28 4 // duck
+!SET_UNIT 43 170 20 4 // duck
+!SET_UNIT 43 159 49 4 // duck
+!SET_UNIT 43 179 35 4 // duck
+!SET_UNIT 43 179 56 4 // duck
+!SET_UNIT 43 192 54 4 // duck
+!SET_UNIT 43 193 65 4 // duck
+!SET_UNIT 43 210 58 4 // duck
+!SET_UNIT 43 210 70 4 // duck
+!SET_UNIT 43 228 56 4 // duck
+!SET_UNIT 43 226 77 4 // duck
+!SET_UNIT 43 241 65 4 // duck
+!SET_UNIT 43 238 89 4 // duck
+!SET_UNIT 43 250 85 4 // duck
+!SET_UNIT 43 254 103 4 // duck
+!SET_UNIT 43 249 104 4 // duck
+!SET_UNIT 43 254 150 4 // duck
+!SET_UNIT 43 253 169 4 // duck
+!SET_UNIT 43 247 184 4 // duck
+!SET_UNIT 43 242 193 4 // duck
+!SET_UNIT 43 235 200 4 // duck
+!SET_UNIT 43 218 188 4 // duck
+!SET_UNIT 43 208 194 4 // duck
+!SET_UNIT 43 193 206 4 // duck
+!SET_UNIT 43 181 205 4 // duck
+!SET_UNIT 47 140 205 4 // duck2
+!SET_UNIT 47 152 195 4 // duck2
+!SET_UNIT 47 166 191 4 // duck2
+!SET_UNIT 47 170 199 4 // duck2
+!SET_UNIT 47 197 190 4 // duck2
+!SET_UNIT 47 212 184 4 // duck2
+!SET_UNIT 47 217 179 4 // duck2
+!SET_UNIT 47 231 190 4 // duck2
+!SET_UNIT 47 221 190 4 // duck2
+!SET_UNIT 47 241 186 4 // duck2
+!SET_UNIT 47 241 168 4 // duck2
+!SET_UNIT 47 251 158 4 // duck2
+!SET_UNIT 47 251 145 4 // duck2
+!SET_UNIT 47 252 135 4 // duck2
+!SET_UNIT 47 251 118 4 // duck2
+!SET_UNIT 47 241 112 4 // duck2
+!SET_UNIT 47 250 100 4 // duck2
+!SET_UNIT 47 235 96 4 // duck2
+!SET_UNIT 47 240 85 4 // duck2
+!SET_UNIT 47 220 90 4 // duck2
+!SET_UNIT 47 234 78 4 // duck2
+!SET_UNIT 47 211 87 4 // duck2
+!SET_UNIT 47 214 72 4 // duck2
+!SET_UNIT 47 197 80 4 // duck2
+!SET_UNIT 47 197 68 4 // duck2
+!SET_UNIT 47 181 78 4 // duck2
+!SET_UNIT 47 181 64 4 // duck2
+!SET_UNIT 47 169 73 4 // duck2
+!SET_UNIT 47 177 53 4 // duck2
+!SET_UNIT 47 157 62 4 // duck2
+!SET_UNIT 47 158 50 4 // duck2
+!SET_UNIT 47 138 63 4 // duck2
+!SET_UNIT 47 145 44 4 // duck2
+!SET_UNIT 47 122 60 4 // duck2
+!SET_UNIT 47 132 43 4 // duck2
+!SET_UNIT 47 114 61 4 // duck2
+!SET_UNIT 47 122 44 4 // duck2
+!SET_UNIT 47 113 37 4 // duck2
+!SET_UNIT 47 105 36 4 // duck2
+!SET_UNIT 47 103 26 4 // duck2
+!SET_UNIT 47 94 24 4 // duck2
+!SET_UNIT 47 97 15 4 // duck2
+!SET_UNIT 47 87 11 4 // duck2
+!SET_UNIT 47 68 9 4 // duck2
+!SET_UNIT 47 78 3 4 // duck2
+!SET_UNIT 47 36 5 4 // duck2
+!SET_UNIT 47 60 6 4 // duck2
+!SET_UNIT 47 16 10 4 // duck2
+!SET_UNIT 47 33 2 4 // duck2
+!SET_UNIT 47 16 4 4 // duck2
+!SET_UNIT 47 15 5 4 // duck2
+!SET_UNIT 47 31 12 4 // duck2
+!SET_UNIT 47 12 25 4 // duck2
+!SET_UNIT 47 22 31 4 // duck2
+!SET_UNIT 47 9 38 4 // duck2
+!SET_UNIT 47 27 34 4 // duck2
+!SET_UNIT 47 0 49 4 // duck2
+!SET_UNIT 47 14 42 4 // duck2
+!SET_UNIT 47 3 65 4 // duck2
+!SET_UNIT 47 6 84 4 // duck2
+!SET_UNIT 47 29 72 4 // duck2
+!SET_UNIT 47 47 69 4 // duck2
+!SET_UNIT 47 52 76 4 // duck2
+!SET_UNIT 47 40 94 4 // duck2
+!SET_UNIT 47 23 89 4 // duck2
+!SET_UNIT 47 15 101 4 // duck2
+!SET_UNIT 47 18 114 4 // duck2
+!SET_UNIT 47 44 93 4 // duck2
+!SET_UNIT 47 33 109 4 // duck2
+!SET_UNIT 47 22 117 4 // duck2
+!SET_UNIT 47 13 121 4 // duck2
+!SET_UNIT 47 28 137 4 // duck2
+!SET_UNIT 47 30 143 4 // duck2
+!SET_UNIT 47 23 157 4 // duck2
+!SET_UNIT 47 14 160 4 // duck2
+!SET_UNIT 47 40 165 4 // duck2
+!SET_UNIT 47 43 167 4 // duck2
+!SET_UNIT 47 53 179 4 // duck2
+!SET_UNIT 47 63 184 4 // duck2
+!SET_UNIT 47 71 190 4 // duck2
+!SET_UNIT 47 76 197 4 // duck2
+!SET_UNIT 47 60 202 4 // duck2
+!SET_UNIT 47 36 206 4 // duck2
+!SET_UNIT 47 18 208 4 // duck2
+!SET_UNIT 47 15 205 4 // duck2
+!SET_UNIT 47 29 203 4 // duck2
+!SET_UNIT 47 51 203 4 // duck2
+!SET_UNIT 47 71 201 4 // duck2
+!SET_UNIT 47 87 197 4 // duck2
+!SET_UNIT 47 99 204 4 // duck2
+!SET_UNIT 47 105 203 4 // duck2
+!SET_UNIT 47 112 200 4 // duck2
+!SET_UNIT 42 221 119 4 // waterleaf
+!SET_UNIT 42 228 123 4 // waterleaf
+!SET_UNIT 42 236 124 4 // waterleaf
+!SET_UNIT 42 238 125 4 // waterleaf
+!SET_UNIT 42 234 113 4 // waterleaf
+!SET_UNIT 42 240 123 4 // waterleaf
+!SET_UNIT 42 246 122 4 // waterleaf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 09:28)"  on 13.05.2022 9:31:44
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:47:53
