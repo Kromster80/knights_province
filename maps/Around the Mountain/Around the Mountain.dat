@@ -13,6 +13,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 658160
 !HAND_CENTER_SCREEN 18 99
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -39,6 +40,8 @@
 
 // Block units
 !UNIT_BLOCK 15 // smith
+
+// Block orders
 
 // Block trades
 
@@ -60,14 +63,14 @@
 
 
 // Units
-!SET_UNIT 1 15 100 // blank
-!SET_UNIT 1 15 99 // blank
-!SET_UNIT 1 14 99 // blank
-!SET_UNIT 1 14 100 // blank
-!SET_UNIT 2 17 101 // serf
-!SET_UNIT 2 17 102 // serf
-!SET_UNIT 3 18 101 // builder
-!SET_UNIT 3 18 102 // builder
+!SET_UNIT 1 15 100 4 // blank
+!SET_UNIT 1 15 99 4 // blank
+!SET_UNIT 1 14 99 4 // blank
+!SET_UNIT 1 14 100 4 // blank
+!SET_UNIT 2 17 101 4 // serf
+!SET_UNIT 2 17 102 4 // serf
+!SET_UNIT 3 18 101 4 // builder
+!SET_UNIT 3 18 102 4 // builder
 
 // Groups
 !SET_GROUP 25 20 101 4 1 1 // horsescout
@@ -79,6 +82,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 25087
 !HAND_CENTER_SCREEN 17 48
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -105,6 +109,8 @@
 
 // Block units
 !UNIT_BLOCK 15 // smith
+
+// Block orders
 
 // Block trades
 
@@ -126,14 +132,14 @@
 
 
 // Units
-!SET_UNIT 1 14 48 // blank
-!SET_UNIT 1 14 49 // blank
-!SET_UNIT 1 13 49 // blank
-!SET_UNIT 1 13 48 // blank
-!SET_UNIT 2 16 50 // serf
-!SET_UNIT 2 16 51 // serf
-!SET_UNIT 3 17 50 // builder
-!SET_UNIT 3 17 51 // builder
+!SET_UNIT 1 14 48 4 // blank
+!SET_UNIT 1 14 49 4 // blank
+!SET_UNIT 1 13 49 4 // blank
+!SET_UNIT 1 13 48 4 // blank
+!SET_UNIT 2 16 50 4 // serf
+!SET_UNIT 2 16 51 4 // serf
+!SET_UNIT 3 17 50 4 // builder
+!SET_UNIT 3 17 51 4 // builder
 
 // Groups
 !SET_GROUP 25 19 50 4 1 1 // horsescout
@@ -145,6 +151,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 64 16
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -171,6 +178,8 @@
 
 // Block units
 !UNIT_BLOCK 15 // smith
+
+// Block orders
 
 // Block trades
 
@@ -192,14 +201,14 @@
 
 
 // Units
-!SET_UNIT 1 63 13 // blank
-!SET_UNIT 1 64 13 // blank
-!SET_UNIT 1 64 12 // blank
-!SET_UNIT 1 63 12 // blank
-!SET_UNIT 2 62 15 // serf
-!SET_UNIT 2 61 15 // serf
-!SET_UNIT 3 62 16 // builder
-!SET_UNIT 3 61 16 // builder
+!SET_UNIT 1 63 13 4 // blank
+!SET_UNIT 1 64 13 4 // blank
+!SET_UNIT 1 64 12 4 // blank
+!SET_UNIT 1 63 12 4 // blank
+!SET_UNIT 2 62 15 4 // serf
+!SET_UNIT 2 61 15 4 // serf
+!SET_UNIT 3 62 16 4 // builder
+!SET_UNIT 3 61 16 4 // builder
 
 // Groups
 !SET_GROUP 25 62 18 4 1 1 // horsescout
@@ -211,6 +220,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 54440
 !HAND_CENTER_SCREEN 106 62
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -238,6 +248,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -258,14 +270,14 @@
 
 
 // Units
-!SET_UNIT 1 105 59 // blank
-!SET_UNIT 1 106 59 // blank
-!SET_UNIT 1 106 58 // blank
-!SET_UNIT 1 105 58 // blank
-!SET_UNIT 2 104 61 // serf
-!SET_UNIT 2 103 61 // serf
-!SET_UNIT 3 104 62 // builder
-!SET_UNIT 3 103 62 // builder
+!SET_UNIT 1 105 59 4 // blank
+!SET_UNIT 1 106 59 4 // blank
+!SET_UNIT 1 106 58 4 // blank
+!SET_UNIT 1 105 58 4 // blank
+!SET_UNIT 2 104 61 4 // serf
+!SET_UNIT 2 103 61 4 // serf
+!SET_UNIT 3 104 62 4 // builder
+!SET_UNIT 3 103 62 4 // builder
 
 // Groups
 !SET_GROUP 25 104 64 4 1 1 // horsescout
@@ -277,6 +289,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 65280
 !HAND_CENTER_SCREEN 78 118
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -304,6 +317,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -324,14 +339,14 @@
 
 
 // Units
-!SET_UNIT 1 75 119 // blank
-!SET_UNIT 1 75 118 // blank
-!SET_UNIT 1 74 118 // blank
-!SET_UNIT 1 74 119 // blank
-!SET_UNIT 2 77 120 // serf
-!SET_UNIT 2 77 121 // serf
-!SET_UNIT 3 78 120 // builder
-!SET_UNIT 3 78 121 // builder
+!SET_UNIT 1 75 119 4 // blank
+!SET_UNIT 1 75 118 4 // blank
+!SET_UNIT 1 74 118 4 // blank
+!SET_UNIT 1 74 119 4 // blank
+!SET_UNIT 2 77 120 4 // serf
+!SET_UNIT 2 77 121 4 // serf
+!SET_UNIT 3 78 120 4 // builder
+!SET_UNIT 3 78 121 4 // builder
 
 // Groups
 !SET_GROUP 25 80 120 4 1 1 // horsescout
@@ -340,6 +355,7 @@
 !HAND_CURRENT 5
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -373,4 +389,4 @@
 !SET_EMITTER 19 72 70
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11308 (2022.04.28 21:06)"  on 28.04.2022 21:19:43
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:21:23
