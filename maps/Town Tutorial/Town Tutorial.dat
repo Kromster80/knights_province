@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 16 20
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 18 10 15
@@ -75,6 +76,8 @@
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -127,20 +130,20 @@
 
 
 // Units
-!SET_UNIT 3 15 19 // builder
-!SET_UNIT 3 16 19 // builder
-!SET_UNIT 3 17 19 // builder
-!SET_UNIT 2 14 20 // serf
-!SET_UNIT 2 15 20 // serf
-!SET_UNIT 2 16 20 // serf
-!SET_UNIT 2 18 20 // serf
-!SET_UNIT 2 17 20 // serf
-!SET_UNIT 3 14 19 // builder
-!SET_UNIT 3 18 19 // builder
-!SET_UNIT 2 13 19 // serf
-!SET_UNIT 2 19 19 // serf
-!SET_UNIT 2 12 19 // serf
-!SET_UNIT 2 20 19 // serf
+!SET_UNIT 3 15 19 4 // builder
+!SET_UNIT 3 16 19 4 // builder
+!SET_UNIT 3 17 19 4 // builder
+!SET_UNIT 2 14 20 4 // serf
+!SET_UNIT 2 15 20 4 // serf
+!SET_UNIT 2 16 20 4 // serf
+!SET_UNIT 2 18 20 4 // serf
+!SET_UNIT 2 17 20 4 // serf
+!SET_UNIT 3 14 19 4 // builder
+!SET_UNIT 3 18 19 4 // builder
+!SET_UNIT 2 13 19 4 // serf
+!SET_UNIT 2 19 19 4 // serf
+!SET_UNIT 2 12 19 4 // serf
+!SET_UNIT 2 20 19 4 // serf
 
 // Groups
 !SET_GROUP 25 19 26 4 1 1 // horsescout
@@ -150,6 +153,7 @@
 !HAND_CURRENT 1
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -160,4 +164,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:39:39
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:54:57
