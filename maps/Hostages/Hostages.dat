@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 20 27
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -48,13 +49,15 @@
 !UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 26 // cavalry
 
+// Block orders
+
 // Block trades
 
 // Houses
 !SET_HOUSE 11 20 25 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 100 // gold
+!WARE_OUT_ADD_TO_LAST 8 150 // gold
 !WARE_OUT_ADD_TO_LAST 28 60 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 60 // cider
@@ -67,14 +70,14 @@
 
 
 // Units
-!SET_UNIT 1 15 79 // blank
-!SET_UNIT 1 14 79 // blank
-!SET_UNIT 1 13 79 // blank
-!SET_UNIT 1 12 79 // blank
-!SET_UNIT 1 12 80 // blank
-!SET_UNIT 1 13 80 // blank
-!SET_UNIT 1 14 80 // blank
-!SET_UNIT 1 15 80 // blank
+!SET_UNIT 1 15 79 4 // blank
+!SET_UNIT 1 14 79 4 // blank
+!SET_UNIT 1 13 79 4 // blank
+!SET_UNIT 1 12 79 4 // blank
+!SET_UNIT 1 12 80 4 // blank
+!SET_UNIT 1 13 80 4 // blank
+!SET_UNIT 1 14 80 4 // blank
+!SET_UNIT 1 15 80 4 // blank
 
 // Groups
 !SET_GROUP 19 25 23 4 4 8 // axefighter
@@ -89,6 +92,7 @@
 !HAND_COLOR 524287
 !HAND_NAME 5
 !HAND_CENTER_SCREEN 80 75
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -135,6 +139,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -285,16 +291,16 @@
 !SET_FENCE_V 100 84 1 !SET_FENCE_V 104 84 1
 
 // Units
-!SET_UNIT 2 79 73 // serf
-!SET_UNIT 2 79 74 // serf
-!SET_UNIT 2 79 76 // serf
-!SET_UNIT 2 79 77 // serf
-!SET_UNIT 2 79 75 // serf
-!SET_UNIT 2 78 73 // serf
-!SET_UNIT 2 78 74 // serf
-!SET_UNIT 2 78 75 // serf
-!SET_UNIT 2 78 76 // serf
-!SET_UNIT 2 78 77 // serf
+!SET_UNIT 2 79 73 4 // serf
+!SET_UNIT 2 79 74 4 // serf
+!SET_UNIT 2 79 76 4 // serf
+!SET_UNIT 2 79 77 4 // serf
+!SET_UNIT 2 79 75 4 // serf
+!SET_UNIT 2 78 73 4 // serf
+!SET_UNIT 2 78 74 4 // serf
+!SET_UNIT 2 78 75 4 // serf
+!SET_UNIT 2 78 76 4 // serf
+!SET_UNIT 2 78 77 4 // serf
 
 // Groups
 !SET_GROUP 21 68 61 4 1 1 // bowman
@@ -317,6 +323,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 54440
 !HAND_NAME 6
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -340,6 +347,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -368,6 +377,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -378,4 +388,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11526 (2022.07.21 22:25)"  on 02.08.2022 9:27:26
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 21:56:48
