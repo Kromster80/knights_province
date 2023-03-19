@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 50 62
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -35,6 +36,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -55,6 +58,7 @@
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
 !HAND_CENTER_SCREEN 50 62
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -125,15 +129,15 @@
 
 
 // Units
-!SET_UNIT 43 57 69 // duck
-!SET_UNIT 47 59 77 // duck2
-!SET_UNIT 42 58 66 // waterleaf
-!SET_UNIT 36 77 68 // wolf
-!SET_UNIT 36 7 75 // wolf
-!SET_UNIT 36 4 72 // wolf
-!SET_UNIT 46 87 72 // bear
-!SET_UNIT 46 84 65 // bear
-!SET_UNIT 46 79 77 // bear
+!SET_UNIT 43 57 69 4 // duck
+!SET_UNIT 47 59 77 4 // duck2
+!SET_UNIT 42 58 66 4 // waterleaf
+!SET_UNIT 36 77 68 4 // wolf
+!SET_UNIT 36 7 75 4 // wolf
+!SET_UNIT 36 4 72 4 // wolf
+!SET_UNIT 46 87 72 4 // bear
+!SET_UNIT 46 84 65 4 // bear
+!SET_UNIT 46 79 77 4 // bear
 
 // Stockpiles
 !SET_STOCKPILE 5 54 31 2
@@ -146,4 +150,4 @@
 !SET_TRIGGER 3 43 34 77 40
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11313 (2022.04.28 21:39)"  on 28.04.2022 21:39:45
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:56:04
