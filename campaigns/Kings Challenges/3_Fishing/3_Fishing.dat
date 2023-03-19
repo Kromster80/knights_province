@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 28 38
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -58,6 +59,8 @@
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -92,18 +95,19 @@
 
 
 // Units
-!SET_UNIT 2 26 38 // serf
-!SET_UNIT 2 26 37 // serf
-!SET_UNIT 2 27 37 // serf
-!SET_UNIT 2 27 38 // serf
-!SET_UNIT 3 29 37 // builder
-!SET_UNIT 3 29 38 // builder
-!SET_UNIT 3 30 37 // builder
+!SET_UNIT 2 26 38 4 // serf
+!SET_UNIT 2 26 37 4 // serf
+!SET_UNIT 2 27 37 4 // serf
+!SET_UNIT 2 27 38 4 // serf
+!SET_UNIT 3 29 37 4 // builder
+!SET_UNIT 3 29 38 4 // builder
+!SET_UNIT 3 30 37 4 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -117,4 +121,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11385 (2022.05.13 08:56)"  on 13.05.2022 9:20:27
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 22:14:28
