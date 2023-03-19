@@ -12,14 +12,14 @@ begin
   if States.CampaignMissionWon(1) then
   begin
     Actions.CampaignMissionUnlock(2, True);
-	Actions.CampaignMissionUnlock(3, True);
+    Actions.CampaignMissionUnlock(3, True);
   end;
   
   // Mission 3 unlocks Mission 4 and 5
   if States.CampaignMissionWon(3) then
   begin
     Actions.CampaignMissionUnlock(4, True);
-	Actions.CampaignMissionUnlock(5, True);
+    Actions.CampaignMissionUnlock(5, True);
   end;
 
   // Do the rest

@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 22 52
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -37,6 +38,7 @@
 !HOUSE_BLOCK 5 // goldMine
 !HOUSE_BLOCK 10 // armorSmithy
 !HOUSE_BLOCK 12 // stables
+!HOUSE_BLOCK 14 // stonecutters
 !HOUSE_BLOCK 15 // mint
 !HOUSE_BLOCK 16 // cattleFarm
 !HOUSE_BLOCK 17 // towerArrow
@@ -60,6 +62,8 @@
 !UNIT_BLOCK 24 // halberdier
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
+
+// Block orders
 
 // Block trades
 
@@ -218,32 +222,32 @@
 !SET_FENCE_V 55 65 1 !SET_FENCE_H 55 66 1 !SET_FENCE_H 56 66 1 !SET_FENCE_H 57 66 1
 
 // Units
-!SET_UNIT 8 14 45 // carpenter
-!SET_UNIT 8 22 62 // carpenter
-!SET_UNIT 13 12 64 // fisher
-!SET_UNIT 2 13 58 // serf
-!SET_UNIT 2 12 58 // serf
-!SET_UNIT 3 18 54 // builder
-!SET_UNIT 3 18 53 // builder
-!SET_UNIT 3 18 52 // builder
-!SET_UNIT 2 13 59 // serf
-!SET_UNIT 2 13 54 // serf
-!SET_UNIT 2 14 50 // serf
-!SET_UNIT 2 16 58 // serf
-!SET_UNIT 2 16 59 // serf
-!SET_UNIT 2 21 62 // serf
-!SET_UNIT 2 27 59 // serf
-!SET_UNIT 2 33 61 // serf
-!SET_UNIT 2 32 58 // serf
-!SET_UNIT 2 31 53 // serf
-!SET_UNIT 2 31 54 // serf
-!SET_UNIT 2 31 52 // serf
-!SET_UNIT 2 15 45 // serf
-!SET_UNIT 2 17 48 // serf
-!SET_UNIT 2 17 47 // serf
-!SET_UNIT 2 17 46 // serf
-!SET_UNIT 2 18 43 // serf
-!SET_UNIT 2 30 50 // serf
+!SET_UNIT 8 14 45 4 // carpenter
+!SET_UNIT 8 22 62 4 // carpenter
+!SET_UNIT 13 12 64 4 // fisher
+!SET_UNIT 2 13 58 4 // serf
+!SET_UNIT 2 12 58 4 // serf
+!SET_UNIT 3 18 54 4 // builder
+!SET_UNIT 3 18 53 4 // builder
+!SET_UNIT 3 18 52 4 // builder
+!SET_UNIT 2 13 59 4 // serf
+!SET_UNIT 2 13 54 4 // serf
+!SET_UNIT 2 14 50 4 // serf
+!SET_UNIT 2 16 58 4 // serf
+!SET_UNIT 2 16 59 4 // serf
+!SET_UNIT 2 21 62 4 // serf
+!SET_UNIT 2 27 59 4 // serf
+!SET_UNIT 2 33 61 4 // serf
+!SET_UNIT 2 32 58 4 // serf
+!SET_UNIT 2 31 53 4 // serf
+!SET_UNIT 2 31 54 4 // serf
+!SET_UNIT 2 31 52 4 // serf
+!SET_UNIT 2 15 45 4 // serf
+!SET_UNIT 2 17 48 4 // serf
+!SET_UNIT 2 17 47 4 // serf
+!SET_UNIT 2 17 46 4 // serf
+!SET_UNIT 2 18 43 4 // serf
+!SET_UNIT 2 30 50 4 // serf
 
 // Groups
 !SET_GROUP 21 21 53 6 3 6 // bowman
@@ -262,6 +266,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 14924635
 !HAND_CENTER_SCREEN 54 11
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -302,6 +307,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -388,18 +395,18 @@
 !SET_FENCE_H 59 28 1 !SET_FENCE_H 60 28 1 !SET_FENCE_H 61 28 1
 
 // Units
-!SET_UNIT 2 52 11 // serf
-!SET_UNIT 2 52 12 // serf
-!SET_UNIT 2 53 12 // serf
-!SET_UNIT 2 54 12 // serf
-!SET_UNIT 2 55 12 // serf
-!SET_UNIT 2 56 12 // serf
-!SET_UNIT 2 56 11 // serf
-!SET_UNIT 2 55 11 // serf
-!SET_UNIT 2 54 11 // serf
-!SET_UNIT 2 53 11 // serf
-!SET_UNIT 8 51 18 // carpenter
-!SET_UNIT 8 54 19 // carpenter
+!SET_UNIT 2 52 11 4 // serf
+!SET_UNIT 2 52 12 4 // serf
+!SET_UNIT 2 53 12 4 // serf
+!SET_UNIT 2 54 12 4 // serf
+!SET_UNIT 2 55 12 4 // serf
+!SET_UNIT 2 56 12 4 // serf
+!SET_UNIT 2 56 11 4 // serf
+!SET_UNIT 2 55 11 4 // serf
+!SET_UNIT 2 54 11 4 // serf
+!SET_UNIT 2 53 11 4 // serf
+!SET_UNIT 8 51 18 4 // carpenter
+!SET_UNIT 8 54 19 4 // carpenter
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -407,6 +414,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 25087
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -426,6 +434,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -489,6 +499,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 16711680
 !HAND_CENTER_SCREEN 22 30
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -519,6 +530,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -542,6 +555,7 @@
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 8388736
 !HAND_CENTER_SCREEN 45 51
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -572,6 +586,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -591,6 +607,7 @@
 !HAND_CURRENT 5
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -601,15 +618,15 @@
 
 
 // Units
-!SET_UNIT 43 34 39 // duck
-!SET_UNIT 44 73 49 // deer
-!SET_UNIT 44 75 23 // deer
-!SET_UNIT 44 73 5 // deer
-!SET_UNIT 44 37 5 // deer
-!SET_UNIT 44 20 18 // deer
-!SET_UNIT 40 8 5 // crab
-!SET_UNIT 40 10 26 // crab
-!SET_UNIT 40 6 57 // crab
+!SET_UNIT 43 34 39 4 // duck
+!SET_UNIT 44 73 49 4 // deer
+!SET_UNIT 44 75 23 4 // deer
+!SET_UNIT 44 73 5 4 // deer
+!SET_UNIT 44 37 5 4 // deer
+!SET_UNIT 44 20 18 4 // deer
+!SET_UNIT 40 8 5 4 // crab
+!SET_UNIT 40 10 26 4 // crab
+!SET_UNIT 40 6 57 4 // crab
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11521 (2022/07/20 10:50)"  on 02/09/2022 13:24:19
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 23:31)"  on 19.03.2023 23:33:47
