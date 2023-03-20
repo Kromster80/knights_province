@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 71 72
+!HAND_VIEW_DIR 30
 
 // Fog of War
 !FOW_REVEAL 255
@@ -31,6 +32,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -135,20 +138,20 @@
 
 
 // Units
-!SET_UNIT 3 70 66 // builder
-!SET_UNIT 3 66 70 // builder
-!SET_UNIT 3 70 75 // builder
-!SET_UNIT 3 75 70 // builder
-!SET_UNIT 2 74 71 // serf
-!SET_UNIT 2 68 72 // serf
-!SET_UNIT 2 72 73 // serf
-!SET_UNIT 2 69 73 // serf
-!SET_UNIT 2 73 72 // serf
-!SET_UNIT 32 71 109 // wagon
+!SET_UNIT 3 70 66 4 // builder
+!SET_UNIT 3 66 70 4 // builder
+!SET_UNIT 3 70 75 4 // builder
+!SET_UNIT 3 75 70 4 // builder
+!SET_UNIT 2 74 71 4 // serf
+!SET_UNIT 2 68 72 4 // serf
+!SET_UNIT 2 72 73 4 // serf
+!SET_UNIT 2 69 73 4 // serf
+!SET_UNIT 2 73 72 4 // serf
+!SET_UNIT 32 71 109 4 // wagon
 !SET_UNIT_WARE 3 5
-!SET_UNIT 32 70 29 // wagon
+!SET_UNIT 32 70 29 4 // wagon
 !SET_UNIT_WARE 2 10
-!SET_UNIT 2 67 71 // serf
+!SET_UNIT 2 67 71 4 // serf
 
 // Groups
 !SET_GROUP 21 70 107 0 1 1 // bowman
@@ -170,6 +173,8 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 0
+!HAND_NAME 2
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -188,6 +193,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -202,11 +209,11 @@
 
 
 // Units
-!SET_UNIT 32 12 125 // wagon
+!SET_UNIT 32 12 125 4 // wagon
 !SET_UNIT_WARE 22 15
-!SET_UNIT 32 15 127 // wagon
+!SET_UNIT 32 15 127 4 // wagon
 !SET_UNIT_WARE 20 15
-!SET_UNIT 32 12 128 // wagon
+!SET_UNIT 32 12 128 4 // wagon
 !SET_UNIT_WARE 18 15
 
 // Groups
@@ -225,6 +232,8 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 0
+!HAND_NAME 3
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -243,6 +252,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -259,6 +270,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -277,18 +289,18 @@
 
 
 // Units
-!SET_UNIT 44 74 86 // deer
-!SET_UNIT 44 94 54 // deer
-!SET_UNIT 44 93 79 // deer
-!SET_UNIT 36 134 113 // wolf
-!SET_UNIT 36 129 118 // wolf
-!SET_UNIT 36 132 126 // wolf
-!SET_UNIT 36 137 121 // wolf
-!SET_UNIT 36 132 138 // wolf
-!SET_UNIT 36 127 141 // wolf
-!SET_UNIT 36 137 130 // wolf
-!SET_UNIT 36 122 120 // wolf
-!SET_UNIT 36 113 140 // wolf
+!SET_UNIT 44 74 86 4 // deer
+!SET_UNIT 44 94 54 4 // deer
+!SET_UNIT 44 93 79 4 // deer
+!SET_UNIT 36 134 113 4 // wolf
+!SET_UNIT 36 129 118 4 // wolf
+!SET_UNIT 36 132 126 4 // wolf
+!SET_UNIT 36 137 121 4 // wolf
+!SET_UNIT 36 132 138 4 // wolf
+!SET_UNIT 36 127 141 4 // wolf
+!SET_UNIT 36 137 130 4 // wolf
+!SET_UNIT 36 122 120 4 // wolf
+!SET_UNIT 36 113 140 4 // wolf
 
 // Stockpiles
 !SET_STOCKPILE 18 104 108 5
@@ -332,17 +344,17 @@
 !SET_STOCKPILE 2 82 68 1
 
 // Emitters
-!SET_EMITTER 5 79 38
-!SET_EMITTER 5 79 33
-!SET_EMITTER 5 89 37
-!SET_EMITTER 5 78 40
-!SET_EMITTER 5 89 78
-!SET_EMITTER 4 88 78
-!SET_EMITTER 4 69 24
-!SET_EMITTER 5 57 32
-!SET_EMITTER 5 61 33
-!SET_EMITTER 7 66 75
-!SET_EMITTER 7 14 126
+!SET_EMITTER 5 79 38 // terrain_mist_large
+!SET_EMITTER 5 79 33 // terrain_mist_large
+!SET_EMITTER 5 89 37 // terrain_mist_large
+!SET_EMITTER 5 78 40 // terrain_mist_large
+!SET_EMITTER 5 89 78 // terrain_mist_large
+!SET_EMITTER 4 88 78 // terrain_mist_medium
+!SET_EMITTER 4 69 24 // terrain_mist_medium
+!SET_EMITTER 5 57 32 // terrain_mist_large
+!SET_EMITTER 5 61 33 // terrain_mist_large
+!SET_EMITTER 7 66 75 // terrain_smokestack
+!SET_EMITTER 7 14 126 // terrain_smokestack
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11314 (2022.04.28 21:51)"  on 29.04.2022 8:42:09
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12717 (2023.03.20 12:12)"  on 20.03.2023 12:28:26

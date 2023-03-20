@@ -295,9 +295,6 @@ end;
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerNameSet(DESERTERS_PLAYER, '<$2>');
-  Actions.PlayerNameSet(GAULS_PLAYER, '<$3>');
-
   //Actions.FogRevealAll(HUMAN_PLAYER)
 
   waveNumber := 1;
