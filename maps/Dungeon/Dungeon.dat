@@ -1,0 +1,81 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!MODE_TACTIC
+!HANDS_COUNT 2
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ACTIVATE
+!HAND_COLOR 460799
+!HAND_CENTER_SCREEN 21 25
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
+!SET_AI_CHARACTER BUILDERS_COUNT 12
+
+// Alliances
+
+// Grant/Block houses
+
+// Block units
+
+// Block orders
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 20 21 24 1 1 1 // swordsman
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_NEUTRAL_TYPE
+!HAND_ACTIVATE
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 36 38 1 5 // wolf
+
+// Stockpiles
+!SET_STOCKPILE 30 20 36 1
+
+// Triggers
+!SET_TRIGGER 1 21 19 23 19
+!SET_TRIGGER 2 26 37 27 39
+!SET_TRIGGER 3 20 36 20 36
+!SET_TRIGGER 4 34 36 34 37
+!SET_TRIGGER 5 44 35 45 39
+!SET_TRIGGER 6 42 19 45 19
+!SET_TRIGGER 7 41 11 44 11
+!SET_TRIGGER 8 43 5 46 5
+!SET_TRIGGER 9 27 2 27 5
+!SET_TRIGGER 10 23 2 23 4
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12776 (2023.03.24 16:40)"  on 24.03.2023 16:46:50

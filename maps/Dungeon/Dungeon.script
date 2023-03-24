@@ -1,0 +1,126 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+const
+  HAND_PLAYER = 0;
+  HAND_NEUTRAL = 1;
+  
+var
+  Hero: Integer;
+  Wolf: Integer;
+  Cider: Integer;
+
+  fTick: Integer;
+  fMumble: Integer;
+  
+  CiderDiscovered: Boolean;
+  CiderDiscoveryPrompt: Integer;
+  CiderPickedUp: Boolean;
+  WolfDiscovered: Boolean;
+  WolfKilled: Boolean;
+  WolfKilledPrompt: Integer;
+  StoryEnded: Boolean;
+  
+function GetMumble: string;
+begin
+  // Iterate through mumble0.wav - mumble2.wav
+  fMumble := (fMumble + 1) mod 3;
+  Result := 'mumble' + IntToStr(fMumble) + '.wav';
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if aUnit <> Hero then Exit;
+
+  case aTriggerId of
+    1:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Says something about ancient times and secrets ..|Who wrote this?', 5);
+    2:  begin
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Look what''s here, a bath!', 3);
+          CiderDiscovered := True;
+          CiderDiscoveryPrompt := fTick + 35;
+          Actions.TerrainTriggerDelete(2);
+        end;
+    3:  begin
+          Actions.StockpileSetCount(Cider, 0);
+          Actions.TerrainTriggerDelete(3);
+          Actions.CinematicTalkingHead('miner.png', 'Oh, thanks mate! Let''s move on, shall we?', GetMumble);
+          CiderPickedUp := True;
+        end;
+    4:  if CiderDiscovered and not CiderPickedUp then
+        begin
+          Actions.CinematicTalkingHead('miner.png', 'The cider, mate! Would you pick it up for me please?', GetMumble);
+        end;
+    5:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Those caves smell funny .. Better not go in there', 4);
+    6:  begin
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Did you hear a howl?', 3);
+          Actions.TerrainTriggerDelete(6);
+        end;
+    7:  begin
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'What a lovely view .. my eyes hurt', 4);
+          Actions.TerrainTriggerDelete(7);
+        end;
+    8:  begin
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Oh, great, a wild wolf!', 3);
+          Actions.TerrainTriggerDelete(8);
+          WolfDiscovered := True;
+        end;
+    9:  begin
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Here we go dungeoning again. Jeremy, where are you?', 4);
+          Actions.TerrainTriggerDelete(9);
+        end;
+    10: begin
+          Actions.CinematicTalkingHead('brewer.png', 'Our short story ends here', GetMumble);
+          StoryEnded := True;
+        end;
+  end;
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  fTick := aTick;
+  
+  if aTick = 21 then
+  begin
+    Actions.CinematicTalkingHead('miner.png', 'Welcome to the dungeon, lad!', GetMumble);
+    Actions.CinematicTalkingHead('miner.png', 'Haven''t seen one yet?', GetMumble);
+    Actions.CinematicTalkingHead('miner.png', 'It has always been here ..', GetMumble);
+    Actions.CinematicTalkingHead('miner.png', 'My name''s Jeremy and we are going to walk through it. Let''s go!', GetMumble);
+  end;
+
+  if aTick = 31 then
+    Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Dungeon .. huh?', 3);
+
+  if aTick = CiderDiscoveryPrompt then
+  begin
+    Actions.CinematicTalkingHead('miner.png', 'Oh, so that''s where I left my bottle of cider!', GetMumble);
+    Actions.CinematicTalkingHead('miner.png', 'Would you be a good lad and pick it up for me', GetMumble);
+  end;
+
+  if WolfDiscovered and not WolfKilled then
+  begin
+    WolfKilled := States.UnitDead(Wolf);
+    WolfKilledPrompt := fTick + 20;
+  end;
+
+  if aTick = WolfKilledPrompt then
+    Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Why did it have a collar on it though?', 3);;
+
+  if StoryEnded then
+    Actions.PlayerWin([HAND_PLAYER], True);
+end;
+
+
+procedure OnMissionStart;
+var
+  units: array of Integer;
+begin
+  units := States.PlayerGetAllUnits(HAND_PLAYER);
+  Hero := units[0];
+
+  units := States.PlayerGetAllUnits(HAND_NEUTRAL);
+  Wolf := units[0];
+
+  Cider := Actions.StockpileAt(20, 36);
+end;
