@@ -54,6 +54,7 @@ begin
     5:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Those caves smell funny .. Better not go in there', 4);
     6:  begin
           Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Did you hear a howl?', 3);
+          Actions.PlayWAVAtLocation(HAND_PLAYER, 'wolf.wav', 1.0, 43, 11);
           Actions.TerrainTriggerDelete(6);
         end;
     7:  begin
