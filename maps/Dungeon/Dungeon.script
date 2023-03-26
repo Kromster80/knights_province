@@ -34,7 +34,7 @@ begin
   if aUnit <> Hero then Exit;
 
   case aTriggerId of
-    1:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Says something about ancient times and secrets ..|Who wrote this?', 5);
+    1:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Says something about ancient times and secrets ..|Who wrote this?', 6);
     2:  begin
           Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Look what''s here, a bath!', 3);
           CiderDiscovered := True;
@@ -51,7 +51,7 @@ begin
         begin
           Actions.CinematicTalkingHead('miner.png', 'The cider, mate! Would you pick it up for me please?', GetMumble);
         end;
-    5:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Those caves smell funny .. Better not go in there', 4);
+    5:  Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Those caves smell funny .. Better not go in there', 5);
     6:  begin
           Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Did you hear a howl?', 3);
           Actions.PlayWAVAtLocation(HAND_PLAYER, 'wolf.wav', 1.0, 43, 11);
@@ -67,10 +67,27 @@ begin
           WolfDiscovered := True;
         end;
     9:  begin
-          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Here we go dungeoning again. Jeremy, where are you?', 4);
+          Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Here we go dungeoning again. Jeremy, where are you?', 5);
           Actions.TerrainTriggerDelete(9);
         end;
-    10: begin
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    99: begin
           Actions.CinematicTalkingHead('brewer.png', 'Our short story ends here', GetMumble);
           StoryEnded := True;
         end;
@@ -106,7 +123,7 @@ begin
   end;
 
   if aTick = WolfKilledPrompt then
-    Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Why did it have a collar on it though?', 3);;
+    Actions.CinematicSpeechBubbleUnit(Hero, 1, 'Why did it have a collar on it though?', 4);
 
   if StoryEnded then
     Actions.PlayerWin([HAND_PLAYER], True);

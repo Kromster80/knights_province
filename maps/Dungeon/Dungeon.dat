@@ -60,14 +60,14 @@
 
 
 // Units
-!SET_UNIT 36 38 1 5 // wolf
+!SET_UNIT 36 37 1 4 // wolf
 
 // Stockpiles
 !SET_STOCKPILE 30 20 36 1
 
 // Triggers
 !SET_TRIGGER 1 21 19 23 19
-!SET_TRIGGER 2 26 37 27 39
+!SET_TRIGGER 2 27 37 27 39
 !SET_TRIGGER 3 20 36 20 36
 !SET_TRIGGER 4 34 36 34 37
 !SET_TRIGGER 5 44 35 45 39
@@ -75,7 +75,7 @@
 !SET_TRIGGER 7 41 11 44 11
 !SET_TRIGGER 8 43 5 46 5
 !SET_TRIGGER 9 27 2 27 5
-!SET_TRIGGER 10 23 2 23 4
+!SET_TRIGGER 99 23 2 23 4
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12776 (2023.03.24 16:40)"  on 24.03.2023 16:46:50
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12784 (2023.03.25 14:46)"  on 25.03.2023 15:01:03
