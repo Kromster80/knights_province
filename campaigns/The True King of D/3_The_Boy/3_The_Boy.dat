@@ -33,6 +33,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -70,6 +72,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -152,92 +156,92 @@
 !SET_TRIGGER 9 148 38 151 41
 
 // Emitters
-!SET_EMITTER 7 9 21
-!SET_EMITTER 7 7 21
-!SET_EMITTER 7 11 21
-!SET_EMITTER 7 11 20
-!SET_EMITTER 7 10 20
-!SET_EMITTER 7 9 20
-!SET_EMITTER 7 8 20
-!SET_EMITTER 7 12 21
-!SET_EMITTER 7 8 22
-!SET_EMITTER 7 5 21
-!SET_EMITTER 7 7 22
-!SET_EMITTER 5 79 24
-!SET_EMITTER 5 79 25
-!SET_EMITTER 5 80 20
-!SET_EMITTER 5 81 20
-!SET_EMITTER 5 80 21
-!SET_EMITTER 7 115 7
-!SET_EMITTER 7 114 9
-!SET_EMITTER 7 115 9
-!SET_EMITTER 7 115 8
-!SET_EMITTER 7 114 8
-!SET_EMITTER 7 114 7
-!SET_EMITTER 7 112 2
-!SET_EMITTER 7 111 2
-!SET_EMITTER 7 112 3
-!SET_EMITTER 7 111 3
-!SET_EMITTER 7 104 8
-!SET_EMITTER 7 105 8
-!SET_EMITTER 7 101 4
-!SET_EMITTER 7 101 3
-!SET_EMITTER 7 100 4
-!SET_EMITTER 4 151 16
-!SET_EMITTER 4 151 15
-!SET_EMITTER 4 147 11
-!SET_EMITTER 4 149 12
-!SET_EMITTER 5 156 10
-!SET_EMITTER 5 155 9
-!SET_EMITTER 5 154 5
-!SET_EMITTER 5 154 10
-!SET_EMITTER 3 149 21
-!SET_EMITTER 3 147 28
-!SET_EMITTER 3 146 25
-!SET_EMITTER 3 141 23
-!SET_EMITTER 3 140 15
-!SET_EMITTER 3 136 11
-!SET_EMITTER 3 131 22
-!SET_EMITTER 3 134 26
-!SET_EMITTER 3 122 23
-!SET_EMITTER 3 125 21
-!SET_EMITTER 3 119 13
-!SET_EMITTER 3 127 7
-!SET_EMITTER 3 128 4
-!SET_EMITTER 3 120 2
-!SET_EMITTER 3 110 6
-!SET_EMITTER 3 105 14
-!SET_EMITTER 3 117 29
-!SET_EMITTER 3 103 17
-!SET_EMITTER 4 97 23
-!SET_EMITTER 4 102 26
-!SET_EMITTER 4 99 27
-!SET_EMITTER 4 90 24
-!SET_EMITTER 4 89 12
-!SET_EMITTER 4 97 9
-!SET_EMITTER 4 101 7
-!SET_EMITTER 4 86 25
-!SET_EMITTER 5 116 31
-!SET_EMITTER 5 116 32
-!SET_EMITTER 5 116 28
-!SET_EMITTER 5 116 29
-!SET_EMITTER 5 116 33
-!SET_EMITTER 5 118 31
-!SET_EMITTER 5 117 31
-!SET_EMITTER 5 119 29
-!SET_EMITTER 6 101 56
-!SET_EMITTER 6 101 57
-!SET_EMITTER 6 105 52
-!SET_EMITTER 6 115 52
-!SET_EMITTER 6 115 53
-!SET_EMITTER 6 112 58
-!SET_EMITTER 6 111 58
-!SET_EMITTER 6 149 58
-!SET_EMITTER 6 148 58
-!SET_EMITTER 6 149 59
-!SET_EMITTER 6 150 59
-!SET_EMITTER 6 150 58
-!SET_EMITTER 19 116 30
+!SET_EMITTER 7 9 21 // terrain_smokestack
+!SET_EMITTER 7 7 21 // terrain_smokestack
+!SET_EMITTER 7 11 21 // terrain_smokestack
+!SET_EMITTER 7 11 20 // terrain_smokestack
+!SET_EMITTER 7 10 20 // terrain_smokestack
+!SET_EMITTER 7 9 20 // terrain_smokestack
+!SET_EMITTER 7 8 20 // terrain_smokestack
+!SET_EMITTER 7 12 21 // terrain_smokestack
+!SET_EMITTER 7 8 22 // terrain_smokestack
+!SET_EMITTER 7 5 21 // terrain_smokestack
+!SET_EMITTER 7 7 22 // terrain_smokestack
+!SET_EMITTER 5 79 24 // terrain_mist_large
+!SET_EMITTER 5 79 25 // terrain_mist_large
+!SET_EMITTER 5 80 20 // terrain_mist_large
+!SET_EMITTER 5 81 20 // terrain_mist_large
+!SET_EMITTER 5 80 21 // terrain_mist_large
+!SET_EMITTER 7 115 7 // terrain_smokestack
+!SET_EMITTER 7 114 9 // terrain_smokestack
+!SET_EMITTER 7 115 9 // terrain_smokestack
+!SET_EMITTER 7 115 8 // terrain_smokestack
+!SET_EMITTER 7 114 8 // terrain_smokestack
+!SET_EMITTER 7 114 7 // terrain_smokestack
+!SET_EMITTER 7 112 2 // terrain_smokestack
+!SET_EMITTER 7 111 2 // terrain_smokestack
+!SET_EMITTER 7 112 3 // terrain_smokestack
+!SET_EMITTER 7 111 3 // terrain_smokestack
+!SET_EMITTER 7 104 8 // terrain_smokestack
+!SET_EMITTER 7 105 8 // terrain_smokestack
+!SET_EMITTER 7 101 4 // terrain_smokestack
+!SET_EMITTER 7 101 3 // terrain_smokestack
+!SET_EMITTER 7 100 4 // terrain_smokestack
+!SET_EMITTER 4 151 16 // terrain_mist_medium
+!SET_EMITTER 4 151 15 // terrain_mist_medium
+!SET_EMITTER 4 147 11 // terrain_mist_medium
+!SET_EMITTER 4 149 12 // terrain_mist_medium
+!SET_EMITTER 5 156 10 // terrain_mist_large
+!SET_EMITTER 5 155 9 // terrain_mist_large
+!SET_EMITTER 5 154 5 // terrain_mist_large
+!SET_EMITTER 5 154 10 // terrain_mist_large
+!SET_EMITTER 3 149 21 // terrain_mist_small
+!SET_EMITTER 3 147 28 // terrain_mist_small
+!SET_EMITTER 3 146 25 // terrain_mist_small
+!SET_EMITTER 3 141 23 // terrain_mist_small
+!SET_EMITTER 3 140 15 // terrain_mist_small
+!SET_EMITTER 3 136 11 // terrain_mist_small
+!SET_EMITTER 3 131 22 // terrain_mist_small
+!SET_EMITTER 3 134 26 // terrain_mist_small
+!SET_EMITTER 3 122 23 // terrain_mist_small
+!SET_EMITTER 3 125 21 // terrain_mist_small
+!SET_EMITTER 3 119 13 // terrain_mist_small
+!SET_EMITTER 3 127 7 // terrain_mist_small
+!SET_EMITTER 3 128 4 // terrain_mist_small
+!SET_EMITTER 3 120 2 // terrain_mist_small
+!SET_EMITTER 3 110 6 // terrain_mist_small
+!SET_EMITTER 3 105 14 // terrain_mist_small
+!SET_EMITTER 3 117 29 // terrain_mist_small
+!SET_EMITTER 3 103 17 // terrain_mist_small
+!SET_EMITTER 4 97 23 // terrain_mist_medium
+!SET_EMITTER 4 102 26 // terrain_mist_medium
+!SET_EMITTER 4 99 27 // terrain_mist_medium
+!SET_EMITTER 4 90 24 // terrain_mist_medium
+!SET_EMITTER 4 89 12 // terrain_mist_medium
+!SET_EMITTER 4 97 9 // terrain_mist_medium
+!SET_EMITTER 4 101 7 // terrain_mist_medium
+!SET_EMITTER 4 86 25 // terrain_mist_medium
+!SET_EMITTER 5 116 31 // terrain_mist_large
+!SET_EMITTER 5 116 32 // terrain_mist_large
+!SET_EMITTER 5 116 28 // terrain_mist_large
+!SET_EMITTER 5 116 29 // terrain_mist_large
+!SET_EMITTER 5 116 33 // terrain_mist_large
+!SET_EMITTER 5 118 31 // terrain_mist_large
+!SET_EMITTER 5 117 31 // terrain_mist_large
+!SET_EMITTER 5 119 29 // terrain_mist_large
+!SET_EMITTER 6 101 56 // terrain_wall_of_fog
+!SET_EMITTER 6 101 57 // terrain_wall_of_fog
+!SET_EMITTER 6 105 52 // terrain_wall_of_fog
+!SET_EMITTER 6 115 52 // terrain_wall_of_fog
+!SET_EMITTER 6 115 53 // terrain_wall_of_fog
+!SET_EMITTER 6 112 58 // terrain_wall_of_fog
+!SET_EMITTER 6 111 58 // terrain_wall_of_fog
+!SET_EMITTER 6 149 58 // terrain_wall_of_fog
+!SET_EMITTER 6 148 58 // terrain_wall_of_fog
+!SET_EMITTER 6 149 59 // terrain_wall_of_fog
+!SET_EMITTER 6 150 59 // terrain_wall_of_fog
+!SET_EMITTER 6 150 58 // terrain_wall_of_fog
+!SET_EMITTER 19 116 30 // snow_12
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12334 (2023.02.09 17:58)"  on 11.02.2023 16:42:06
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12779 (2023.03.24 12:53)"  on 27.03.2023 20:27:59

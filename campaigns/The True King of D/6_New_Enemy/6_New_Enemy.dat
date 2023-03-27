@@ -32,6 +32,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -80,6 +82,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Roads and fields
@@ -100,7 +104,7 @@
 !SET_GROUP 19 24 3 4 4 6 // axefighter
 !SEND_GROUP 9 23 7
 !SET_GROUP 22 48 8 4 5 8 // arbaletman
-!SEND_GROUP 30 32 4
+!SEND_GROUP 30 34 4
 !SET_GROUP 25 64 4 5 3 9 // horsescout
 !SEND_GROUP 34 28 4
 !SET_GROUP 23 49 46 5 3 9 // pikeman
@@ -131,85 +135,85 @@
 
 
 // Units
-!SET_UNIT 41 45 82 // waterflower
-!SET_UNIT 41 52 83 // waterflower
-!SET_UNIT 41 54 82 // waterflower
-!SET_UNIT 41 63 93 // waterflower
-!SET_UNIT 41 66 94 // waterflower
-!SET_UNIT 43 62 94 // duck
-!SET_UNIT 43 64 91 // duck
-!SET_UNIT 43 49 80 // duck
-!SET_UNIT 43 52 85 // duck
-!SET_UNIT 42 46 81 // waterleaf
-!SET_UNIT 42 52 82 // waterleaf
-!SET_UNIT 42 61 93 // waterleaf
-!SET_UNIT 44 25 87 // deer
-!SET_UNIT 44 22 88 // deer
-!SET_UNIT 44 11 58 // deer
-!SET_UNIT 44 16 13 // deer
-!SET_UNIT 44 16 9 // deer
-!SET_UNIT 48 43 1 // horse
-!SET_UNIT 48 55 0 // horse
-!SET_UNIT 48 60 11 // horse
-!SET_UNIT 44 58 15 // deer
-!SET_UNIT 44 56 40 // deer
-!SET_UNIT 44 61 45 // deer
-!SET_UNIT 44 59 86 // deer
-!SET_UNIT 44 48 90 // deer
+!SET_UNIT 41 45 82 4 // waterflower
+!SET_UNIT 41 52 83 4 // waterflower
+!SET_UNIT 41 54 82 4 // waterflower
+!SET_UNIT 41 63 93 4 // waterflower
+!SET_UNIT 41 66 94 4 // waterflower
+!SET_UNIT 43 62 94 4 // duck
+!SET_UNIT 43 64 91 4 // duck
+!SET_UNIT 43 49 80 4 // duck
+!SET_UNIT 43 52 85 4 // duck
+!SET_UNIT 42 46 81 4 // waterleaf
+!SET_UNIT 42 52 82 4 // waterleaf
+!SET_UNIT 42 61 93 4 // waterleaf
+!SET_UNIT 44 25 87 4 // deer
+!SET_UNIT 44 22 88 4 // deer
+!SET_UNIT 44 11 58 4 // deer
+!SET_UNIT 44 16 13 4 // deer
+!SET_UNIT 44 16 9 4 // deer
+!SET_UNIT 48 43 1 4 // horse
+!SET_UNIT 48 55 0 4 // horse
+!SET_UNIT 48 60 11 4 // horse
+!SET_UNIT 44 58 15 4 // deer
+!SET_UNIT 44 56 40 4 // deer
+!SET_UNIT 44 61 45 4 // deer
+!SET_UNIT 44 59 86 4 // deer
+!SET_UNIT 44 48 90 4 // deer
 
 // Emitters
-!SET_EMITTER 5 44 82
-!SET_EMITTER 5 50 80
-!SET_EMITTER 5 56 78
-!SET_EMITTER 5 55 84
-!SET_EMITTER 5 51 86
-!SET_EMITTER 5 56 92
-!SET_EMITTER 5 65 89
-!SET_EMITTER 5 66 90
-!SET_EMITTER 5 68 89
-!SET_EMITTER 5 60 75
-!SET_EMITTER 5 66 83
-!SET_EMITTER 5 41 69
-!SET_EMITTER 5 39 70
-!SET_EMITTER 5 41 72
-!SET_EMITTER 5 22 74
-!SET_EMITTER 5 19 74
-!SET_EMITTER 5 19 78
-!SET_EMITTER 5 25 80
-!SET_EMITTER 5 26 78
-!SET_EMITTER 5 23 51
-!SET_EMITTER 5 22 54
-!SET_EMITTER 5 9 57
-!SET_EMITTER 5 9 59
-!SET_EMITTER 5 37 39
-!SET_EMITTER 5 37 43
-!SET_EMITTER 5 47 23
-!SET_EMITTER 5 44 25
-!SET_EMITTER 5 56 25
-!SET_EMITTER 5 54 28
-!SET_EMITTER 5 31 10
-!SET_EMITTER 5 26 11
-!SET_EMITTER 5 26 14
-!SET_EMITTER 5 30 18
-!SET_EMITTER 5 32 18
-!SET_EMITTER 5 31 12
-!SET_EMITTER 5 29 12
-!SET_EMITTER 5 28 15
-!SET_EMITTER 5 28 16
-!SET_EMITTER 5 20 29
-!SET_EMITTER 5 23 30
-!SET_EMITTER 5 23 35
-!SET_EMITTER 5 11 34
-!SET_EMITTER 5 13 38
-!SET_EMITTER 5 66 64
-!SET_EMITTER 5 67 64
-!SET_EMITTER 5 55 56
-!SET_EMITTER 5 51 56
-!SET_EMITTER 5 50 62
-!SET_EMITTER 6 23 88
-!SET_EMITTER 6 16 15
-!SET_EMITTER 6 17 6
-!SET_EMITTER 6 2 17
+!SET_EMITTER 5 44 82 // terrain_mist_large
+!SET_EMITTER 5 50 80 // terrain_mist_large
+!SET_EMITTER 5 56 78 // terrain_mist_large
+!SET_EMITTER 5 55 84 // terrain_mist_large
+!SET_EMITTER 5 51 86 // terrain_mist_large
+!SET_EMITTER 5 56 92 // terrain_mist_large
+!SET_EMITTER 5 65 89 // terrain_mist_large
+!SET_EMITTER 5 66 90 // terrain_mist_large
+!SET_EMITTER 5 68 89 // terrain_mist_large
+!SET_EMITTER 5 60 75 // terrain_mist_large
+!SET_EMITTER 5 66 83 // terrain_mist_large
+!SET_EMITTER 5 41 69 // terrain_mist_large
+!SET_EMITTER 5 39 70 // terrain_mist_large
+!SET_EMITTER 5 41 72 // terrain_mist_large
+!SET_EMITTER 5 22 74 // terrain_mist_large
+!SET_EMITTER 5 19 74 // terrain_mist_large
+!SET_EMITTER 5 19 78 // terrain_mist_large
+!SET_EMITTER 5 25 80 // terrain_mist_large
+!SET_EMITTER 5 26 78 // terrain_mist_large
+!SET_EMITTER 5 23 51 // terrain_mist_large
+!SET_EMITTER 5 22 54 // terrain_mist_large
+!SET_EMITTER 5 9 57 // terrain_mist_large
+!SET_EMITTER 5 9 59 // terrain_mist_large
+!SET_EMITTER 5 37 39 // terrain_mist_large
+!SET_EMITTER 5 37 43 // terrain_mist_large
+!SET_EMITTER 5 47 23 // terrain_mist_large
+!SET_EMITTER 5 44 25 // terrain_mist_large
+!SET_EMITTER 5 56 25 // terrain_mist_large
+!SET_EMITTER 5 54 28 // terrain_mist_large
+!SET_EMITTER 5 31 10 // terrain_mist_large
+!SET_EMITTER 5 26 11 // terrain_mist_large
+!SET_EMITTER 5 26 14 // terrain_mist_large
+!SET_EMITTER 5 30 18 // terrain_mist_large
+!SET_EMITTER 5 32 18 // terrain_mist_large
+!SET_EMITTER 5 31 12 // terrain_mist_large
+!SET_EMITTER 5 29 12 // terrain_mist_large
+!SET_EMITTER 5 28 15 // terrain_mist_large
+!SET_EMITTER 5 28 16 // terrain_mist_large
+!SET_EMITTER 5 20 29 // terrain_mist_large
+!SET_EMITTER 5 23 30 // terrain_mist_large
+!SET_EMITTER 5 23 35 // terrain_mist_large
+!SET_EMITTER 5 11 34 // terrain_mist_large
+!SET_EMITTER 5 13 38 // terrain_mist_large
+!SET_EMITTER 5 66 64 // terrain_mist_large
+!SET_EMITTER 5 67 64 // terrain_mist_large
+!SET_EMITTER 5 55 56 // terrain_mist_large
+!SET_EMITTER 5 51 56 // terrain_mist_large
+!SET_EMITTER 5 50 62 // terrain_mist_large
+!SET_EMITTER 6 23 88 // terrain_wall_of_fog
+!SET_EMITTER 6 16 15 // terrain_wall_of_fog
+!SET_EMITTER 6 17 6 // terrain_wall_of_fog
+!SET_EMITTER 6 2 17 // terrain_wall_of_fog
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12238 (2023.01.27 11:58)"  on 01.02.2023 17:28:32
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12779 (2023.03.24 12:53)"  on 27.03.2023 20:30:21
