@@ -366,27 +366,27 @@
 
 
 // Emitters
-!SET_EMITTER 5 51 65
-!SET_EMITTER 5 63 77
-!SET_EMITTER 5 55 76
-!SET_EMITTER 5 51 72
-!SET_EMITTER 5 62 60
-!SET_EMITTER 5 63 62
-!SET_EMITTER 5 52 59
-!SET_EMITTER 19 60 62
-!SET_EMITTER 19 68 64
-!SET_EMITTER 19 64 73
-!SET_EMITTER 19 61 78
-!SET_EMITTER 19 53 70
-!SET_EMITTER 19 55 60
-!SET_EMITTER 5 69 64
-!SET_EMITTER 5 73 65
-!SET_EMITTER 5 68 74
-!SET_EMITTER 5 49 70
-!SET_EMITTER 5 56 59
-!SET_EMITTER 5 74 69
-!SET_EMITTER 5 74 73
-!SET_EMITTER 19 72 70
+!SET_EMITTER 5 51 65 // terrain_mist_large
+!SET_EMITTER 5 63 77 // terrain_mist_large
+!SET_EMITTER 5 55 76 // terrain_mist_large
+!SET_EMITTER 5 51 72 // terrain_mist_large
+!SET_EMITTER 5 62 60 // terrain_mist_large
+!SET_EMITTER 5 63 62 // terrain_mist_large
+!SET_EMITTER 5 52 59 // terrain_mist_large
+!SET_EMITTER 19 60 62 // snow_12
+!SET_EMITTER 19 68 64 // snow_12
+!SET_EMITTER 19 64 73 // snow_12
+!SET_EMITTER 19 61 78 // snow_12
+!SET_EMITTER 19 53 70 // snow_12
+!SET_EMITTER 19 55 60 // snow_12
+!SET_EMITTER 5 69 64 // terrain_mist_large
+!SET_EMITTER 5 73 65 // terrain_mist_large
+!SET_EMITTER 5 68 74 // terrain_mist_large
+!SET_EMITTER 5 49 70 // terrain_mist_large
+!SET_EMITTER 5 56 59 // terrain_mist_large
+!SET_EMITTER 5 74 69 // terrain_mist_large
+!SET_EMITTER 5 74 73 // terrain_mist_large
+!SET_EMITTER 19 72 70 // snow_12
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:21:23
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12838 (2023.03.28 21:01)"  on 29.03.2023 1:54:37
