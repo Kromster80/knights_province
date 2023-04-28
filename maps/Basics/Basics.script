@@ -3,10 +3,10 @@ const
 
 var
   // checkpoints
-  ButtonClicked, BrotherAvailable, TownAvailable, SerfAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable, BlankRunOut : Boolean;
+  ButtonClicked, BrotherAvailable, TownAvailable, PorterAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable, BlankRunOut : Boolean;
 
   // Trackers
-  TrainedSerfs, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers : Integer;
+  TrainedPorters, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers : Integer;
 
   // Obj ID
   MAIN_OBJ: Integer;
@@ -21,7 +21,7 @@ begin
   ButtonClicked := False;
   BrotherAvailable := False;
   TownAvailable := False;
-  SerfAvailable := False;
+  PorterAvailable := False;
   CiviliansAvailable := False;
   GroupUpAvailable := False;
   StorehouseAvailable := False;
@@ -85,7 +85,7 @@ begin
     end;
 
     // check if the player ran out of blanks
-    if (SerfAvailable or CiviliansAvailable or StorehouseAvailable or FinishAvailable) and (not BlankRunOut) then
+    if (PorterAvailable or CiviliansAvailable or StorehouseAvailable or FinishAvailable) and (not BlankRunOut) then
     begin
       for I := 0 to (Length(P1Units)-1) do
       begin
@@ -137,8 +137,8 @@ begin
   // arrive at the town
   if (aTriggerId = 2) and (States.UnitOwner(aUnit) = HUMAN_ID) and TownAvailable then
   begin
-    Actions.PlayerMessage(HUMAN_ID, '<$7>', True); // message about the serfs
-    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train serfs ' + inttostr(TrainedSerfs) +'/5');
+    Actions.PlayerMessage(HUMAN_ID, '<$7>', True); // message about the Porters
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train Porters ' + inttostr(TrainedPorters) +'/5');
     P3Houses := States.PlayerGetAllHouses(2);
     P4Houses := States.PlayerGetAllHouses(3);
 
@@ -156,23 +156,23 @@ begin
     Actions.HouseWareAdd(TheCamp, wtWood, 10);
 
     TownAvailable := False;
-    SerfAvailable := True;
+    PorterAvailable := True;
   end;
 end;
 
 procedure OnUnitTrained(aUnit: Integer);
 begin
   // track trained units
-  if (States.UnitType(aUnit) = utSerf) and (SerfAvailable) then
+  if (States.UnitType(aUnit) = utPorter) and (PorterAvailable) then
   begin
-    TrainedSerfs := TrainedSerfs + 1;
-    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train serfs ' + inttostr(TrainedSerfs) +'/5');
-    if (TrainedSerfs > 4) then
+    TrainedPorters := TrainedPorters + 1;
+    Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train Porters ' + inttostr(TrainedPorters) +'/5');
+    if (TrainedPorters > 4) then
     begin
       Actions.PlayerMessage(HUMAN_ID, '<$8>', True); // message about the workers
       Actions.PlayerObjectiveUpdateText(HUMAN_ID, MAIN_OBJ, 'Train a worker for each building.');
       CiviliansAvailable := True
-      SerfAvailable := False;
+      PorterAvailable := False;
     end;
   end
   else

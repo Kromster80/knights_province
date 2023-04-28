@@ -143,7 +143,7 @@ begin
                 Actions.RoadAdd(aX-1, aY+1, aPlayer); // Camp needs roads below
             end;
             RemoveStartingUnits(aPlayer);
-            SpawnUnits(aPlayer, 4, aX-1, aY, utSerf);
+            SpawnUnits(aPlayer, 4, aX-1, aY, utPorter);
             SpawnUnits(aPlayer, 4, aX+5, aY, utBuilder);
             FillCamp(camp);
         end;

@@ -43,10 +43,10 @@ begin
     Actions.StockpileAdd(wtGold, 68, 59, 10);
     Actions.StockpileAdd(wtGold, 67, 60, 10);
 
-    // Spawn serfs
-    Actions.GiveUnit(HUMAN_ID, utSerf, 49, 78, 0);
-    Actions.GiveUnit(HUMAN_ID, utSerf, 50, 78, 0);
-    Actions.GiveUnit(HUMAN_ID, utSerf, 51, 78, 0);
+    // Spawn Porters
+    Actions.GiveUnit(HUMAN_ID, utPorter, 49, 78, 0);
+    Actions.GiveUnit(HUMAN_ID, utPorter, 50, 78, 0);
+    Actions.GiveUnit(HUMAN_ID, utPorter, 51, 78, 0);
 
     // Spawn builders
     Actions.GiveUnit(HUMAN_ID, utBuilder, 49, 79, 0);

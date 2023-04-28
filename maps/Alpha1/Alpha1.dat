@@ -412,10 +412,15 @@
 !SET_HOUSE 36 91 69 0 // campfire
 !SET_HOUSE 13 11 18 0 // school
 !SET_HOUSE_DAMAGE 300
+!SET_HOUSE 17 89 70 0 // towerArrow
 
 // Roads and fields
 
-!SET_ROAD 11 18
+!SET_ROAD 11 18 !SET_ROAD 92 67 !SET_ROAD 90 68 !SET_ROAD 91 68
+!SET_ROAD 92 68 !SET_ROAD 90 69 !SET_ROAD 92 69 !SET_ROAD 90 70
+!SET_ROAD 92 70 !SET_ROAD 92 71 !SET_ROAD 92 72 !SET_ROAD 92 73
+!SET_ROAD 88 74 !SET_ROAD 89 74 !SET_ROAD 90 74 !SET_ROAD 91 74
+!SET_ROAD 92 74 !SET_ROAD 93 74 !SET_ROAD 94 74 !SET_ROAD 94 75
 
 // Fences
 
@@ -547,4 +552,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12452 (2023.02.23 00:43)"  on 23.02.2023 0:44:19
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12857 (2023.03.31 16:49)"  on 31.03.2023 16:53:44
