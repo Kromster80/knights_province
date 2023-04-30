@@ -3,7 +3,7 @@ const
 
 var
   // checkpoints
-  ButtonClicked, BrotherAvailable, TownAvailable, PorterAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable, BlankRunOut : Boolean;
+  ButtonClicked, BrotherAvailable, TownAvailable, PorterAvailable, CiviliansAvailable, GroupUpAvailable, StorehouseAvailable, FinishAvailable, PeasantRunOut : Boolean;
 
   // Trackers
   TrainedPorters, TrainedBuilders, TrainedStonemason, TrainedWoodcutters, TrainedCarpenters, TrainedFishers, TrainedFarmers, TrainedBakers, TrainedBrewers : Integer;
@@ -26,7 +26,7 @@ begin
   GroupUpAvailable := False;
   StorehouseAvailable := False;
   FinishAvailable := False;
-  BlankRunOut := False;
+  PeasantRunOut := False;
 
   MAIN_OBJ := Actions.PlayerObjectiveAdd(HUMAN_ID, otMain, 0, osActive, 'Open the messages and get familiarized with the controls.');
 
@@ -42,7 +42,7 @@ procedure OnTick(aTick: Integer);
 var
   P1Units : Array of Integer;
   P2Units : Array of Integer;
-  BlankCount : Integer;
+  PeasantCount : Integer;
   I : Integer;
 begin
   if aTick = 2 then
@@ -85,17 +85,17 @@ begin
     end;
 
     // check if the player ran out of blanks
-    if (PorterAvailable or CiviliansAvailable or StorehouseAvailable or FinishAvailable) and (not BlankRunOut) then
+    if (PorterAvailable or CiviliansAvailable or StorehouseAvailable or FinishAvailable) and (not PeasantRunOut) then
     begin
       for I := 0 to (Length(P1Units)-1) do
       begin
-        if States.UnitType(P1Units[I]) = utBlank then
-          BlankCount := BlankCount + 1;
+        if States.UnitType(P1Units[I]) = utPeasant then
+          PeasantCount := PeasantCount + 1;
       end;
-      if BlankCount = 0 then
+      if PeasantCount = 0 then
       begin
         Actions.PlayerMessage(HUMAN_ID, '<$11>', True);
-        BlankRunOut := True;
+        PeasantRunOut := True;
       end;
     end;
   end;

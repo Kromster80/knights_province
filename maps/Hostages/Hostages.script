@@ -32,7 +32,7 @@ begin
 
   if aTick = 31 then
   begin
-    Actions.CinematicSubtitle('Enemy got all of our blanks');
+    Actions.CinematicSubtitle('Enemy got all of our peasants');
   end;
 
   if aTick = 41 then
