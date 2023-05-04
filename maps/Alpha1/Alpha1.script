@@ -1,9 +1,31 @@
 // Knights Province dynamic script.
 // Wiki available at: https://github.com/Kromster80/knights_province/wiki
 
+var
+  marker1, marker2: Integer;
+
+procedure OnTick(aTick: Integer);
+begin
+  //Actions.CinematicTalkingHeadWithButtons('', 'Some text?', '', ['Yay', 'Nay'], [101, 102]);
+  Actions.InteractionMarkerUpdate(marker1, $808090, True, 0.5 + Sin(Single(aTick mod 10) / 10 * 3.14) * 0.25);
+  Actions.InteractionMarkerUpdate(marker2, -1, True, 0.5 - Sin(Single(aTick mod 10) / 10 * 3.14) * 0.25);
+end;
+
+
 procedure OnMissionStart;
 begin
+  marker1 := Actions.InteractionMarkerAdd(itInfo, 26, 75);
+  marker2 := Actions.InteractionMarkerAdd(itExclamation, 27, 76);
+end;
 
+
+procedure OnScriptMarkerClick(aPlayer: Integer; aMarkerId: Integer);
+begin
+  if aMarkerId = marker1 then
+    Actions.CinematicTalkingHead('', 'Yay, Ok', '');
+
+  if aMarkerId = marker2 then
+    Actions.CinematicTalkingHead('', 'Nope, Ok', '');
 end;
 
 

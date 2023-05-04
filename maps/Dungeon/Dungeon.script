@@ -10,6 +10,9 @@ var
   Wolf: Integer;
   Cider: Integer;
 
+  marker1, marker2, marker3, marker4: Integer;
+  marker4Animate: Boolean;
+
   fTick: Integer;
   fMumble: Integer;
   
@@ -98,7 +101,10 @@ end;
 procedure OnTick(aTick: Integer);
 begin
   fTick := aTick;
-  
+
+  if marker4Animate then
+    Actions.InteractionMarkerUpdate(marker4, $80FFFF, True, 1.5 + Sin(Single(aTick mod 10) / 10 * 6.28) * 0.5);
+
   if aTick = 21 then
   begin
     Actions.CinematicTalkingHead('miner.png', 'Welcome to the dungeon, lad!', GetMumble);
@@ -130,6 +136,38 @@ begin
 end;
 
 
+procedure OnScriptMarkerClick(aPlayer: Integer; aMarkerId: Integer);
+begin
+  if aMarkerId = marker1 then
+  begin
+    Actions.CinematicTalkingHead('', 'Marker 1 will be removed', '');
+    Actions.InteractionMarkerRemove(marker1);
+  end;
+
+  if aMarkerId = marker2 then
+  begin
+    Actions.CinematicSpeechBubble(23.5, 23.5, 2.0, 1, 'Marker 2 is grayed', 3.0);
+    Actions.InteractionMarkerUpdate(marker2, $808080, False, -1);
+  end;
+
+  if aMarkerId = marker3 then
+    Actions.CinematicTalkingHeadWithButtons('', 'Choose Marker 3 color', '', ['[$80FF80]Green[]', '[$FF80FF]Purple[]'], [101, 102]);
+
+  if aMarkerId = marker4 then
+    marker4Animate := True;
+end;
+
+
+procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
+begin
+  if aTag = 101 then
+    Actions.InteractionMarkerUpdate(marker3, $80FF80, True, -1);
+
+  if aTag = 102 then
+    Actions.InteractionMarkerUpdate(marker3, $FF80FF, True, -1);
+end;
+
+
 procedure OnMissionStart;
 var
   units: array of Integer;
@@ -141,4 +179,9 @@ begin
   Wolf := units[0];
 
   Cider := Actions.StockpileAt(20, 36);
+
+  marker1 := Actions.InteractionMarkerAdd(itInfo, 20.5, 23.5);
+  marker2 := Actions.InteractionMarkerAdd(itInfo, 23.5, 23.5);
+  marker3 := Actions.InteractionMarkerAdd(itInfo, 20.5, 26.5);
+  marker4 := Actions.InteractionMarkerAdd(itInfo, 23.5, 26.5);
 end;
