@@ -13,7 +13,16 @@ end;
 
 
 procedure OnMissionStart;
+var
+  I: Integer;
+  U: Integer;
 begin
+  for I := 0 to 20 do
+  begin
+    U := Actions.GiveUnit(4, utSheep, 60, 80, 4);
+    Actions.UnitAnimalSteer(U, 10, 80, 5, 8);
+  end;
+ 
   marker1 := Actions.InteractionMarkerAdd(itInfo, 26, 75);
   marker2 := Actions.InteractionMarkerAdd(itExclamation, 27, 76);
 end;
