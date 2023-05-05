@@ -12,6 +12,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 21 231
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -42,6 +43,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -60,7 +63,7 @@
 !SET_HOUSE 13 20 235 0 // school
 !SET_HOUSE 30 25 235 0 // fort
 !WARE_OUT_ADD_TO_LAST 17 30 // shield
-!WARE_OUT_ADD_TO_LAST 19 60 // armor
+!WARE_OUT_ADD_TO_LAST 33 60 // gambeson
 !WARE_OUT_ADD_TO_LAST 21 20 // axe
 !WARE_OUT_ADD_TO_LAST 25 20 // bow
 !SET_HOUSE 14 16 222 0 // stonecutters
@@ -103,19 +106,19 @@
 
 
 // Units
-!SET_UNIT 4 18 236 // woodcutter
-!SET_UNIT 8 17 236 // carpenter
-!SET_UNIT 14 19 227 // stonecutter
-!SET_UNIT 2 22 230 // serf
-!SET_UNIT 2 21 230 // serf
-!SET_UNIT 2 20 230 // serf
-!SET_UNIT 2 19 230 // serf
-!SET_UNIT 2 18 230 // serf
-!SET_UNIT 2 17 230 // serf
-!SET_UNIT 3 20 236 // builder
-!SET_UNIT 3 21 236 // builder
-!SET_UNIT 3 22 236 // builder
-!SET_UNIT 3 23 236 // builder
+!SET_UNIT 4 18 236 4 // woodcutter
+!SET_UNIT 8 17 236 4 // carpenter
+!SET_UNIT 14 19 227 4 // stonecutter
+!SET_UNIT 2 22 230 4 // porter
+!SET_UNIT 2 21 230 4 // porter
+!SET_UNIT 2 20 230 4 // porter
+!SET_UNIT 2 19 230 4 // porter
+!SET_UNIT 2 18 230 4 // porter
+!SET_UNIT 2 17 230 4 // porter
+!SET_UNIT 3 20 236 4 // builder
+!SET_UNIT 3 21 236 4 // builder
+!SET_UNIT 3 22 236 4 // builder
+!SET_UNIT 3 23 236 4 // builder
 
 // Groups
 !SET_GROUP 19 41 244 2 5 10 // axefighter
@@ -129,6 +132,7 @@
 !HAND_ACTIVATE
 !HAND_AI_CHARACTER 0
 !HAND_COLOR 25087
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -169,6 +173,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -179,7 +185,7 @@
 !WARE_OUT_ADD_TO_LAST 28 20 // fish
 !WARE_OUT_ADD_TO_LAST 30 20 // cider
 !SET_HOUSE 30 40 6 0 // fort
-!WARE_OUT_ADD_TO_LAST 19 10 // armor
+!WARE_OUT_ADD_TO_LAST 33 10 // gambeson
 !WARE_OUT_ADD_TO_LAST 21 10 // axe
 !WARE_OUT_ADD_TO_LAST 25 10 // bow
 !SET_HOUSE 21 61 6 0 // barracks
@@ -266,17 +272,17 @@
 
 
 // Units
-!SET_UNIT 2 50 8 // serf
-!SET_UNIT 2 51 8 // serf
-!SET_UNIT 2 52 8 // serf
-!SET_UNIT 2 53 8 // serf
-!SET_UNIT 2 54 8 // serf
-!SET_UNIT 3 51 9 // builder
-!SET_UNIT 3 52 9 // builder
-!SET_UNIT 3 54 9 // builder
-!SET_UNIT 3 53 9 // builder
-!SET_UNIT 4 37 7 // woodcutter
-!SET_UNIT 14 37 9 // stonecutter
+!SET_UNIT 2 50 8 4 // porter
+!SET_UNIT 2 51 8 4 // porter
+!SET_UNIT 2 52 8 4 // porter
+!SET_UNIT 2 53 8 4 // porter
+!SET_UNIT 2 54 8 4 // porter
+!SET_UNIT 3 51 9 4 // builder
+!SET_UNIT 3 52 9 4 // builder
+!SET_UNIT 3 54 9 4 // builder
+!SET_UNIT 3 53 9 4 // builder
+!SET_UNIT 4 37 7 4 // woodcutter
+!SET_UNIT 14 37 9 4 // stonecutter
 
 // Groups
 !SET_GROUP 19 82 129 4 12 12 // axefighter
@@ -301,6 +307,7 @@
 !HAND_CURRENT 2
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -315,13 +322,13 @@
 !SET_STOCKPILE 21 73 176 10
 !SET_STOCKPILE 23 74 176 10
 !SET_STOCKPILE 14 73 175 10
-!SET_STOCKPILE 19 30 160 10
-!SET_STOCKPILE 19 30 161 10
-!SET_STOCKPILE 19 29 160 10
-!SET_STOCKPILE 19 29 161 10
-!SET_STOCKPILE 19 31 161 10
-!SET_STOCKPILE 19 31 160 10
-!SET_STOCKPILE 19 32 160 10
+!SET_STOCKPILE 33 30 160 10
+!SET_STOCKPILE 33 30 161 10
+!SET_STOCKPILE 33 29 160 10
+!SET_STOCKPILE 33 29 161 10
+!SET_STOCKPILE 33 31 161 10
+!SET_STOCKPILE 33 31 160 10
+!SET_STOCKPILE 33 32 160 10
 !SET_STOCKPILE 25 29 163 10
 !SET_STOCKPILE 25 30 163 10
 !SET_STOCKPILE 25 31 163 10
@@ -333,4 +340,4 @@
 !SET_STOCKPILE 23 29 164 10
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r11306 (2022.04.28 18:46)"  on 28.04.2022 18:47:20
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12972 (2023.05.05 18:55)"  on 05.05.2023 19:03:42
