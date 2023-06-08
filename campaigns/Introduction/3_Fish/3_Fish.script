@@ -3,9 +3,9 @@
 
 const
   HUMAN_PLAYER = 0;
-  CIDER_NEEDED = 65;
   CIDER_PACKAGE = 10;
   FISH_PACKAGE = 20;
+  TALKING_HEAD_IMAGE = 'head.png';
   ownCampX = 18;
   ownCampY = 90;
   allyCampX = 101;
@@ -13,14 +13,59 @@ const
 
 var
   ownCamp, allyCamp: Integer;
-  ciderDealShown: Boolean;
+  dealMarker: Integer;
+  dealExplained: Boolean;
+
+function EnoughCider: Boolean;
+begin
+  Result := States.HouseWareInside(ownCamp, wtCider) >= CIDER_PACKAGE;
+end;
+
+
+procedure RefreshMarker;
+var
+  markerColor: Integer;
+begin
+  if not dealExplained then
+    markerColor := -1
+  else if EnoughCider then
+    markerColor := $00E0FF
+  else
+    markerColor := $808080;
+
+  Actions.InteractionMarkerUpdate(dealMarker, markerColor, not dealExplained or EnoughCider, 1.5);
+end;
+
 
 procedure OnMissionStart;
 begin
   ownCamp := States.HouseAt(ownCampX, ownCampY);
   allyCamp := States.HouseAt(allyCampX, allyCampY);
+  dealMarker := Actions.InteractionMarkerAdd(itInfo, ownCampX + 0.5, ownCampY + 0.5);
+
+  RefreshMarker;
 
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+end;
+
+
+procedure OnScriptMarkerClick(aPlayer, aTag: Integer);
+begin
+  if (aPlayer = HUMAN_PLAYER) and (aTag = dealMarker) then
+  begin
+    if not dealExplained then
+    begin
+      Actions.CinematicTalkingHead(TALKING_HEAD_IMAGE, '<$3>', '');
+      dealExplained := True;
+    end;
+
+    if EnoughCider then
+      Actions.CinematicTalkingHeadWithButtons(TALKING_HEAD_IMAGE, '<$4>', '', ['<$5>', '<$6>'], [1, 2])
+    else
+      Actions.CinematicTalkingHead(TALKING_HEAD_IMAGE, '<$7>', '');
+  end;
+
+  RefreshMarker;
 end;
 
 
@@ -30,7 +75,7 @@ var
   wagon: Integer;
 begin
   if (aPlayer = HUMAN_PLAYER) and (aTag = 1) then
-    if States.HouseWareInside(ownCamp, wtCider) >= CIDER_PACKAGE then
+    if EnoughCider then
     begin
       // Create a wagon
       for I := -2 to 8 do
@@ -43,8 +88,10 @@ begin
           Actions.UnitWagonOrderEnterHouse(wagon, allyCamp);
           Break;
         end;
-      end;    
+      end;
     end;
+
+  RefreshMarker;
 end;
 
 
@@ -72,10 +119,6 @@ end;
 
 procedure OnTick(aTick: Integer);
 begin
-  if aTick mod 50 = 0 then
-  if not ciderDealShown and (States.StatWaresBalance(HUMAN_PLAYER, wtCider) >= CIDER_NEEDED + CIDER_PACKAGE) then
-  begin
-    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$4>', ['Yes', 'No'], ['', ''], [1,2], True, False, False);
-    ciderDealShown := True;
-  end;
+  if (aTick = 1) or (aTick mod 10 = 0) then
+    RefreshMarker;
 end;

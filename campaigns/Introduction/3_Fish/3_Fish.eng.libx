@@ -1,6 +1,10 @@
 ﻿0:Krom
 1:
-2:We need food supply. Collect fish and cider.
-3:There's a fishermens village nearby. They are tired of same diet and desperately ask us for some cider. They offer a deal - for every 10 cider we sent them they send us back 20 fish.
-4:We have accumulated 10 extra cider. Should we send it to the fishermens village to exchange for 20 fish now?||Feel free to reopen the message and repeat the exchange command as needed!
-5:Fishers
+2:We need to secure our food supply. Stockpile some fish and cider.
+3:There's a fishermens village nearby. They are tired of the same diet and desperately ask us for some cider. They offer a deal - for every 10 cider we sent them they will send us back 20 fish.
+4:We have accumulated 10 extra cider. Should we send it to the fishermens village to exchange for 20 fish now?
+5:Send it
+6:Not now
+7:We need at least 10 cider in our Camp to load up a wagon for the fishermens village.
+10:Fishers
+11:Fishermen village - 1.5miles.||Beware of wolves, traveller!
