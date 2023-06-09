@@ -1,6 +1,41 @@
 ****************************************************
 **************|  Campaign version:  |***************
+*********************|  1.1  |**********************
 ****************************************************
+
+09-06-2023
+-----------
+Mission 3
+* add a dialog with avatar between Boy and the Servant
+
+Mission 4
+* add a Cinematic talk with avatar 
+
+Mission 5
+* fixed bug, it was possible to go in Base AI3 and destroy it on mission begin.
+* add a Cinematic talk with avatar about leter
+
+Mission 6
+* correcting crossbowmen position
+* change briefing on mission start
+* add a Cinematic talk with avatar
+
+Mission 7
+* add a Cinematic talk with avatar
+
+Mission 8
+* add new mission 8
+
+Mission 9
+* add new mission 9
+
+Others:
+* fixed some texts in Campaign history
+
+
+
+****************************************************
+**************|  Campaign version:  |***************
 *********************|  1.0  |**********************
 ****************************************************
 
@@ -27,6 +62,3 @@ Mission 4
 
 Mission 7
 * add mission 7
-
-Others:
-* fixed some texts in Campaign history

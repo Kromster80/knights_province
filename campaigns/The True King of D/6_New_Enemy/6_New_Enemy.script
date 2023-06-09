@@ -8,7 +8,7 @@ const
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+  Actions.CinematicTalkingHead('Servant3.png', '<$1>', '');           //Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
 end;
 
 

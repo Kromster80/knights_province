@@ -1,15 +1,23 @@
 ﻿0:Kinghts Dzapan
 1:The King has ordered to bring the Boy, we must find him and bring him back.
 3:Talk to the Boy standing by the bridge in the east. 
-4:Hello boy.||[$ff8080]Servant:[] Why did you run away so suddenly?|[$8080ff]Boy:[] because I was scared of the King|[$ff8080]Servant:[] King... why?|[$8080ff]Boy:[] ...|[$8080ff]Boy:[] It's better if the King finds and reads the letter from the bottle himself|[$ff8080]Servant:[] What a bottle... what a Letter... what are you talking about boy|[$8080ff]Boy:[] A bottle with an old letter is fished out of the moat of the castle|[$ff8080]Servant:[] Old letter... could you give me this letter?|[$8080ff]Boy:[] I can't. The letter has been hidden and is not allowed to see the daylight!|[$ff8080]Servant:[] Boy, please tell me where I can find him|[$8080ff]Boy:[] I don't know, it's hidden somewhere in the mountains...|[$ff8080]Servant:[] um... let's find this letter.|||Find the bottle with the Letter, hidden somewhere in the mountains.
 5:We found it!
-
 6:Wolf's Cave - this is where we used to hide, when we had to flee from the city.
 7:Snow mountain - I remember when we were kids climbing to the top.
 8:Old Mine - it's scary to think how we could play in such a terrifying place.
 9:Oops - I think we got lost...
-
 10:[$ffff00]Find a letter hidden in a trunk somewhere in the mountains[]
-
 11:Timan Mountains - it's brings memories back as i was a child. 
 12:We found a trunk, unfortunately there's nothing inside. |Let's go find the another one.
+
+14:Hello boy |Why did you run away so suddenly?
+15:because..., because I was scared of the King
+16:King... why?
+17:...|...|It's better if the King finds and reads the letter from the bottle himself
+18:What a bottle... what a Letter... what are you talking about boy
+19:A bottle with an old letter is fished out of the moat of the castle
+20:Old letter... could you give me this letter?
+21:... I can't. |The letter has been hidden and is not allowed to see the daylight!
+22:Boy, please tell me where I can find him
+23:I don't know, it's hidden somewhere in the mountains...
+24:hm... let's find this letter.||Find the bottle with the Letter, hidden somewhere in the mountains.

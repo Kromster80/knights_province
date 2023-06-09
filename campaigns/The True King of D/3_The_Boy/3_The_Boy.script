@@ -26,7 +26,19 @@ procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 begin
 if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
 begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
+  Actions.CinematicTalkingHead('servant.png', '<$14>', ''); 
+  Actions.CinematicTalkingHead('TheBoy.png', '<$15>', '');
+  Actions.CinematicTalkingHead('servant.png', '<$16>', '');
+  Actions.CinematicTalkingHead('TheBoy.png', '<$17>', '');
+  Actions.CinematicTalkingHead('servant.png', '<$18>', '');
+  Actions.CinematicTalkingHead('TheBoy.png', '<$19>', '');
+  Actions.CinematicTalkingHead('servant.png', '<$20>', '');
+  Actions.CinematicTalkingHead('TheBoy.png', '<$21>', '');
+  Actions.CinematicTalkingHead('servant.png', '<$22>', '');  
+  Actions.CinematicTalkingHead('TheBoy.png', '<$23>', '');
+  Actions.CinematicTalkingHead('servant.png', '<$24>', ''); 
+  
+  
   trigger1Showed := True;
 end;
 

@@ -33,7 +33,7 @@ end;
 begin
 if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 2 => Old graves 
 begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$3>', True);
+  Actions.CinematicTalkingHead('gravery.png', '<$3>', '');             ///Actions.PlayerMessage(PLAYER_HAND, '<$3>', True);
   trigger2Showed := True;
 end;
 
@@ -54,7 +54,7 @@ end;
 begin
 if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 5 =>  Old Fishman
 begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
+  Actions.CinematicTalkingHead('Old_fisher.png', '<$7>', '');                  //Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
   trigger5Showed := True;
 end;
 

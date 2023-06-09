@@ -35,6 +35,16 @@ begin                                            	//Original files => Mission 8-
   Actions.CampaignMissionUnlock(7, True);
   end;
 
+  if States.CampaignMissionWon(7) then			//Mission 7 unlocks Mission 8
+  begin
+  Actions.CampaignMissionUnlock(8, True);
+  end;
+
+  if States.CampaignMissionWon(8) then			//Mission 8 unlocks Mission 9
+  begin
+  Actions.CampaignMissionUnlock(9, True);
+  end;
+
 
 
   { if States.CampaignMissionWon(7) then			//Mission 7 unlocks Mission 8

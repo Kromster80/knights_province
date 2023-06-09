@@ -87,7 +87,7 @@
 
 
 // Units
-!SET_UNIT 2 74 36 7 // serf
+!SET_UNIT 2 74 36 7 // porter
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -244,4 +244,4 @@
 !SET_EMITTER 19 116 30 // snow_12
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12779 (2023.03.24 12:53)"  on 27.03.2023 20:27:59
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12946 (2023.04.30 16:14)"  on 30.04.2023 22:18:40

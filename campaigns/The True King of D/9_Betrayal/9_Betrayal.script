@@ -1,0 +1,268 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+
+var
+    BulidCamp: array of Boolean;
+	DestroyKingCities, BuildFort, KingUnits, PlayerCamp, GoldAmount: Integer;
+    houses, wares: array of Integer;
+    FortBuilt, ObjBuildDone, BuildFortDone: Boolean;  
+	currentTick: Integer;
+    horseToAddOnTick: array of Integer;
+    Trigger1Showed: Boolean;                             //Triger 1 : Go back and build Fort
+	Trigger2Showed: Boolean;                             //Triger 2 : Buy Horses
+	Trigger3Showed: Boolean;                             //Triger 3 : Mountain village - Terrorist village
+
+	
+	
+procedure OnMissionStart;
+var
+  i: Integer;
+begin
+  SetLength(BulidCamp, States.StatPlayerCount());
+  for i := Low(BulidCamp) to High(BulidCamp) do
+  BulidCamp[i] := False;
+  KingUnits := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then      //Triger 1
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
+    trigger1Showed := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, KingUnits, osCompleted);
+    BuildFort := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$4>');
+  end; 
+    
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then      //Triger 2
+  begin
+  DestroyKingCities := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 3, osActive, '<$13>');        //Destroy Kings cities
+  
+    Actions.PlayerMessageWithButtons(HUMAN_PLAYER, '<$7>', ['<$14>'], [''], [1], True, False, True);  //Trade horse
+    trigger2Showed := True;
+  end;
+
+if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then        //Triger 3
+  begin
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$17>', True);
+  trigger3Showed := True;  
+   end;
+    end;
+
+
+
+procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
+var
+  I: Integer;
+  allCamps: array of Integer;
+  exchangeInitiated: Boolean;
+begin
+  // Ignore anything we dont need
+  if (aPlayer <> HUMAN_PLAYER) or (aTag <> 1) then Exit;
+
+  // Check if player has Fort
+  if States.StatHouseTypeCount(HUMAN_PLAYER, htFort) < 1 then
+  begin
+    Actions.CinematicTalkingHead('breeder.png', '<$8>', '');                                            //Player have no Fort
+    Exit;
+  end;
+
+  // Check if player has Gold
+  exchangeInitiated := False;
+  allCamps := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
+  for I := 0 to High(allCamps) do
+  if States.HouseWareInside(allCamps[I], wtGold) >= 10 then
+  begin
+    // Take the gold
+    Actions.HouseWareRemove(allCamps[I], wtGold, 5);
+
+    // Schedule Horse to be added
+    SetLength(horseToAddOnTick, Length(horseToAddOnTick) + 1);
+    horseToAddOnTick[High(horseToAddOnTick)] := currentTick + 150;
+    
+    Actions.CinematicTalkingHead('breeder.png', '<$9>', '');                                            //Horse purchase successful -> transport to Player Fort
+
+    exchangeInitiated := True;
+    Break;
+  end;
+
+  if not exchangeInitiated then
+    Actions.CinematicTalkingHead('breeder.png', '<$10>', '');                                           //Not enough Gold
+end;
+
+
+procedure AddScheduledHorses;
+var
+  I: Integer;
+  allForts: array of Integer;
+begin
+  // Add scheduled horses
+  for I := High(horseToAddOnTick) downto 0 do
+  if horseToAddOnTick[I] <= currentTick then
+  begin
+    horseToAddOnTick[I] := horseToAddOnTick[High(horseToAddOnTick)];
+    SetLength(horseToAddOnTick, Length(horseToAddOnTick) - 1);
+
+    allForts := States.PlayerGetHouses(HUMAN_PLAYER, htFort, True);
+    if Length(allForts) < 1 then
+    begin
+      Actions.CinematicTalkingHead('breeder.png', '<$11>', '');                                          //You have bo Fort -> HORSE LOST
+      Exit;
+    end;
+    
+    Actions.HouseWareAdd(allForts[0], wtHorse, 1);
+    Actions.CinematicTalkingHead('breeder.png', '<$12>', '');                                            //HORSE DELIVERED
+  end;
+end;
+
+
+procedure CheckBuildingProgress;
+begin
+  if (States.StatHouseTypeCount(HUMAN_PLAYER, htCamp) >= 1) then
+  begin
+    FortBuilt := true;
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, BuildFort, osCompleted);
+	Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
+	ObjBuildDone := true;
+  end;
+end;
+
+	
+procedure SpawnUnits(aPlayer: Integer; uCount: Integer; aX, aY: Word; uType: TKMUnitType);
+var
+    x_offset, y_offset: Integer;
+    success: Integer;
+begin
+    x_offset := 1;
+    y_offset := 1;
+    success := 0;
+    while uCount > 0 do
+    begin
+        success := Actions.GiveUnit(aPlayer, uType, aX-x_offset, aY+y_offset, 4);
+        if success > 0 then
+        begin
+            uCount := uCount - 1;
+        end;
+        x_offset := x_offset + 1;
+        if x_offset > 3 then
+        begin
+            x_offset := 1;
+            y_offset := y_offset + 1;
+        end;
+    end;
+end;
+
+
+procedure FillCamp(aHouseID: Integer);
+   begin
+    Actions.HouseWareAdd(aHouseID, wtStone, 75);
+     Actions.HouseWareAdd(aHouseID, wtWood, 65);
+      Actions.HouseWareAdd(aHouseID, wtFish, 80);
+       Actions.HouseWareAdd(aHouseID, wtCider, 60);
+        Actions.HouseWareAdd(aHouseID, wtGold, 60);
+         end;
+
+
+procedure OnHousePlanPlaced(aPlayer: Integer; aX, aY: Word; aType: TKMHouseType; aFace: TKMHouseFace);
+var
+    camp: Integer;
+begin
+    if (aType = htCamp) and not BulidCamp[aPlayer] then
+    begin
+        Actions.PlanRemove(aPlayer, aX, aY);
+        camp := Actions.GiveHouse(aPlayer, aType, aX, aY, aFace);
+        if camp <> 0 then
+        begin
+            BulidCamp[aPlayer] := True;
+            if aFace = toSouth then
+            begin
+                Actions.RoadAdd(aX-2, aY+1, aPlayer);           //=> Camp needs roads 4x2 !
+                 Actions.RoadAdd(aX-1, aY+1, aPlayer); 
+                  Actions.RoadAdd(aX, aY+1, aPlayer); 
+                   Actions.RoadAdd(aX+1, aY+1, aPlayer); 
+                    Actions.RoadAdd(aX-2, aY+2, aPlayer);       
+                     Actions.RoadAdd(aX-1, aY+2, aPlayer); 
+                      Actions.RoadAdd(aX, aY+2, aPlayer); 
+                       Actions.RoadAdd(aX+1, aY+2, aPlayer);
+                    end else
+            if aFace = toWest then
+             begin
+                Actions.RoadAdd(aX-1, aY-2, aPlayer); 
+                 Actions.RoadAdd(aX-1, aY-1, aPlayer); 
+                  Actions.RoadAdd(aX-1, aY, aPlayer); 
+                   Actions.RoadAdd(aX-1, aY+1, aPlayer); 
+				    Actions.RoadAdd(aX-2, aY-2, aPlayer); 
+                     Actions.RoadAdd(aX-2, aY-1, aPlayer); 
+                      Actions.RoadAdd(aX-2, aY, aPlayer); 
+                       Actions.RoadAdd(aX-2, aY+1, aPlayer);
+                    end else
+			if aFace = toEast then
+             begin
+                Actions.RoadAdd(aX+1, aY, aPlayer); 
+				 Actions.RoadAdd(aX+1, aY +1, aPlayer); 
+				  Actions.RoadAdd(aX+1, aY -1, aPlayer); 
+				   Actions.RoadAdd(aX+1, aY+2, aPlayer); 
+				    Actions.RoadAdd(aX+2, aY, aPlayer); 
+				     Actions.RoadAdd(aX+2, aY +1, aPlayer); 
+				      Actions.RoadAdd(aX+2, aY -1, aPlayer); 
+				       Actions.RoadAdd(aX+2, aY+2, aPlayer); 
+                    end else
+			if aFace = toNorth then
+            begin
+                Actions.RoadAdd(aX-1, aY-1, aPlayer); 
+                 Actions.RoadAdd(aX, aY-1, aPlayer); 
+				  Actions.RoadAdd(aX+1, aY-1, aPlayer); 
+				   Actions.RoadAdd(aX+2, aY-1, aPlayer); 
+				    Actions.RoadAdd(aX-1, aY-2, aPlayer); 
+                     Actions.RoadAdd(aX, aY-2, aPlayer); 
+				      Actions.RoadAdd(aX+1, aY-2, aPlayer); 
+				       Actions.RoadAdd(aX+2, aY-2, aPlayer); 
+                    end;
+
+            SpawnUnits(aPlayer, 4, aX-1, aY, utPorter);
+            SpawnUnits(aPlayer, 6, aX+5, aY, utBuilder);
+            FillCamp(camp);
+        end;
+    end;
+end;
+
+procedure HouseAdd(aHouse: Integer);
+var
+    h_owner: Integer;
+begin
+    h_owner := States.HouseOwner(aHouse);
+    if States.HouseType(aHouse) = htFisherHut then
+    begin
+        SetLength(houses, Length(houses) + 1);
+        SetLength(wares, Length(wares) + 1);
+        houses[High(houses)] := aHouse;
+        wares[High(wares)] := 0;
+    end;
+end;
+
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+    HouseAdd(aHouse);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  currentTick := aTick;
+
+  AddScheduledHorses;
+
+  if FortBuilt = false then CheckBuildingProgress;
+  
+  if aTick = 30 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+	
+end;
+

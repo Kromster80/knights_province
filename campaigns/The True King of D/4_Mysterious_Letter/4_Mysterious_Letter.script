@@ -14,7 +14,7 @@ var
   
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+  Actions.CinematicTalkingHead('servant2.png', '<$1>', '');    //Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
 
 	 
   objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osActive, '<$10>');
