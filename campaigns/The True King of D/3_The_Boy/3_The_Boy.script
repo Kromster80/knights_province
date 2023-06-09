@@ -4,7 +4,6 @@
 
 
 const
-  HUMAN_PLAYER = 0;
   PLAYER_HAND = 0;
 
 var
@@ -17,94 +16,78 @@ var
   trigger7Showed: Boolean; 
   trigger8Showed: Boolean;
   trigger9Showed: Boolean;
-  
+
   triggerFound: Boolean;
   victoryTick: Integer;
   objective1: Integer;
-  
+
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 begin
-if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.CinematicTalkingHead('servant.png', '<$14>', ''); 
-  Actions.CinematicTalkingHead('TheBoy.png', '<$15>', '');
-  Actions.CinematicTalkingHead('servant.png', '<$16>', '');
-  Actions.CinematicTalkingHead('TheBoy.png', '<$17>', '');
-  Actions.CinematicTalkingHead('servant.png', '<$18>', '');
-  Actions.CinematicTalkingHead('TheBoy.png', '<$19>', '');
-  Actions.CinematicTalkingHead('servant.png', '<$20>', '');
-  Actions.CinematicTalkingHead('TheBoy.png', '<$21>', '');
-  Actions.CinematicTalkingHead('servant.png', '<$22>', '');  
-  Actions.CinematicTalkingHead('TheBoy.png', '<$23>', '');
-  Actions.CinematicTalkingHead('servant.png', '<$24>', ''); 
-  
-  
-  trigger1Showed := True;
-end;
+  if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.CinematicTalkingHead('servant.png', '<$14>', ''); 
+    Actions.CinematicTalkingHead('TheBoy.png', '<$15>', '');
+    Actions.CinematicTalkingHead('servant.png', '<$16>', '');
+    Actions.CinematicTalkingHead('TheBoy.png', '<$17>', '');
+    Actions.CinematicTalkingHead('servant.png', '<$18>', '');
+    Actions.CinematicTalkingHead('TheBoy.png', '<$19>', '');
+    Actions.CinematicTalkingHead('servant.png', '<$20>', '');
+    Actions.CinematicTalkingHead('TheBoy.png', '<$21>', '');
+    Actions.CinematicTalkingHead('servant.png', '<$22>', '');  
+    Actions.CinematicTalkingHead('TheBoy.png', '<$23>', '');
+    Actions.CinematicTalkingHead('servant.png', '<$24>', ''); 
+    trigger1Showed := True;
+  end;
 
-begin
-if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$5>', True);
-  triggerFound := True;
-end;
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$5>', True);
+    triggerFound := True;
+  end;
 
-begin
-if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$6>', True);
-  trigger7Showed := True;
-end;
+  if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$6>', True);
+    trigger7Showed := True;
+  end;
 
-begin
-if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
-  trigger4Showed := True;
-end;
+  if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$7>', True);
+    trigger4Showed := True;
+  end;
 
-begin
-if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$8>', True);
-  trigger5Showed := True;
-end;
+  if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$8>', True);
+    trigger5Showed := True;
+  end;
 
-begin
-if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$9>', True);
-  trigger6Showed := True;
-end;
+  if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$9>', True);
+    trigger6Showed := True;
+  end;
 
-begin
-if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$11>', True);
-  trigger8Showed := True;
-end;
+  if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$11>', True);
+    trigger8Showed := True;
+  end;
 
-begin
-if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
-begin
-  Actions.PlayerMessage(PLAYER_HAND, '<$12>', True);
-  trigger9Showed := True;
-end;
-end;
-end;
-end;
-end;
-end;
-end;
-end;
+  if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
+  begin
+    Actions.PlayerMessage(PLAYER_HAND, '<$12>', True);
+    trigger9Showed := True;
+  end;
 end;
 
 
 procedure OnMissionStart;
 begin
-  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+  Actions.PlayerMessage(PLAYER_HAND, '<$1>', True);
  
-  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$10>');
+  objective1 := Actions.PlayerObjectiveAdd(PLAYER_HAND, otMain, 0, osActive, '<$10>');
 end;
 
 
@@ -116,7 +99,7 @@ begin
 
   if victoryTick = aTick then
     Actions.PlayerWin([PLAYER_HAND], True);
-	
-	if aTick = 100 then Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
-end;
 
+  if aTick = 100 then
+    Actions.PlayerMessage(PLAYER_HAND, '<$3>', True);
+end;
