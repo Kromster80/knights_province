@@ -70,14 +70,14 @@
 
 
 // Units
-!SET_UNIT 1 15 79 4 // blank
-!SET_UNIT 1 14 79 4 // blank
-!SET_UNIT 1 13 79 4 // blank
-!SET_UNIT 1 12 79 4 // blank
-!SET_UNIT 1 12 80 4 // blank
-!SET_UNIT 1 13 80 4 // blank
-!SET_UNIT 1 14 80 4 // blank
-!SET_UNIT 1 15 80 4 // blank
+!SET_UNIT 1 15 79 4 // peasant
+!SET_UNIT 1 14 79 4 // peasant
+!SET_UNIT 1 13 79 4 // peasant
+!SET_UNIT 1 12 79 4 // peasant
+!SET_UNIT 1 12 80 4 // peasant
+!SET_UNIT 1 13 80 4 // peasant
+!SET_UNIT 1 14 80 4 // peasant
+!SET_UNIT 1 15 80 4 // peasant
 
 // Groups
 !SET_GROUP 19 25 23 4 4 8 // axefighter
@@ -291,16 +291,16 @@
 !SET_FENCE_V 100 84 1 !SET_FENCE_V 104 84 1
 
 // Units
-!SET_UNIT 2 79 73 4 // serf
-!SET_UNIT 2 79 74 4 // serf
-!SET_UNIT 2 79 76 4 // serf
-!SET_UNIT 2 79 77 4 // serf
-!SET_UNIT 2 79 75 4 // serf
-!SET_UNIT 2 78 73 4 // serf
-!SET_UNIT 2 78 74 4 // serf
-!SET_UNIT 2 78 75 4 // serf
-!SET_UNIT 2 78 76 4 // serf
-!SET_UNIT 2 78 77 4 // serf
+!SET_UNIT 2 79 73 4 // porter
+!SET_UNIT 2 79 74 4 // porter
+!SET_UNIT 2 79 76 4 // porter
+!SET_UNIT 2 79 77 4 // porter
+!SET_UNIT 2 79 75 4 // porter
+!SET_UNIT 2 78 73 4 // porter
+!SET_UNIT 2 78 74 4 // porter
+!SET_UNIT 2 78 75 4 // porter
+!SET_UNIT 2 78 76 4 // porter
+!SET_UNIT 2 78 77 4 // porter
 
 // Groups
 !SET_GROUP 21 68 61 4 1 1 // bowman
@@ -388,4 +388,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 21:56:48
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13004 (2023.05.12 12:30)"  on 12.05.2023 12:57:24
