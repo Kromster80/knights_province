@@ -1,0 +1,177 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+
+const
+  HUMAN_PLAYER = 0;
+  ALLY_PLAYER = 1;
+  ADVISOR_IMAGE = 'advisor.png';
+  ALLY_IMAGE = 'ally.png';
+  CLOTH_GOAL = 20;
+  GAMBESONS_GOAL = 25;
+  WARRIORS_GOAL = 30;
+
+var
+  objContactAlly, objBuildSheep, objMakeCloth, objMakeGambesons, objBuildFort, objHelpAlly: Integer;
+  allyContacted, sheepyardsBuilt, clothMade, fortBuilt, gambesonsMade, helpExplained, victoryAchieved: Boolean;
+  warriorsSent: Integer;
+
+procedure OnMissionStart;
+begin
+  objContactAlly   := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$11>');
+  objBuildSheep    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$25>');
+  objMakeCloth     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, Utils.Format('<$32>', [CLOTH_GOAL]));
+  objBuildFort     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$41>');
+  objMakeGambesons := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, Utils.Format('<$42>', [GAMBESONS_GOAL]));
+  objHelpAlly      := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, Utils.Format('<$51>', [warriorsSent, WARRIORS_GOAL]));
+
+  // Will be unlocked when player hits the corresponding objectives
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htSheepyard, True);
+  Actions.PlayerHouseBlock(HUMAN_PLAYER, htFort, True);
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+var
+  group: Integer;
+  memberCount: Integer;
+begin
+  if (aTriggerId = 2) and not allyContacted then
+  if States.UnitOwner(aUnit) = HUMAN_PLAYER then
+  begin
+    allyContacted := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objContactAlly, osCompleted);
+    Actions.CinematicTalkingHead(ALLY_IMAGE, '<$20>', '');
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$21>', '');
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$22>', '');
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$23>', '');
+    Actions.CinematicTalkingHead(ALLY_IMAGE, '<$24>', '');
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildSheep, osActive);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSheepyard, False);
+  end;
+
+  if (aTriggerId = 2) and helpExplained then
+  if States.UnitOwner(aUnit) = HUMAN_PLAYER then
+  if States.UnitType(aUnit) = utAxeFighter then
+  begin
+    group := States.UnitGroup(aUnit);
+
+    memberCount := States.GroupMemberCount(group);
+
+    Actions.GroupOwnerChange(group, ALLY_PLAYER);
+
+    warriorsSent := warriorsSent + memberCount;
+
+    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objHelpAlly, Utils.Format('<$51>', [warriorsSent, WARRIORS_GOAL]));
+
+    if warriorsSent >= WARRIORS_GOAL then
+    begin
+      Actions.CinematicTalkingHead(ALLY_IMAGE, '<$60>', '');
+      Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$61>', '');
+      victoryAchieved := True;
+    end;
+  end;
+end;
+
+
+procedure CheckSheepyards;
+var
+  houses: array of Integer;
+  I: Integer;
+  countPastures: Integer;
+begin
+  if sheepyardsBuilt then Exit;
+
+  houses := States.PlayerGetHouses(HUMAN_PLAYER, htSheepyard, True);
+
+  if Length(houses) < 2 then Exit;
+
+  countPastures := 0;
+  for I := 0 to High(houses) do
+  if States.HouseSheepyardHasPasture(houses[I]) then
+    Inc(countPastures);
+
+  if countPastures >= 2 then
+  begin
+    sheepyardsBuilt := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildSheep, osCompleted);
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$30>', '');
+    Actions.CinematicTalkingHead(ALLY_IMAGE, '<$31>', '');
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objMakeCloth, osActive);
+  end;
+end;
+
+
+procedure CheckCloth;
+begin
+  if clothMade then Exit;
+
+  if States.StatWaresBalance(HUMAN_PLAYER, wtCloth) >= CLOTH_GOAL then
+  begin
+    clothMade := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objMakeCloth, osCompleted);
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$40>', '');
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildFort, osActive);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objMakeGambesons, osActive);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htFort, False);
+  end;
+end;
+
+
+procedure CheckFort;
+begin
+  if fortBuilt then Exit;
+
+  if States.StatHouseTypeCount(HUMAN_PLAYER, htFort) > 0 then
+  begin
+    fortBuilt := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildFort, osCompleted);
+  end;
+end;
+
+
+procedure CheckGambesons;
+begin
+  if gambesonsMade then Exit;
+
+  if States.StatWaresBalance(HUMAN_PLAYER, wtGambeson) >= GAMBESONS_GOAL then
+  begin
+    gambesonsMade := True;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objMakeGambesons, osCompleted);
+  end;
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 40 then
+  begin
+    Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$10>', '');
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objContactAlly, osActive);
+  end;
+
+  if aTick mod 30 = 0 then
+  begin
+    if allyContacted then
+      CheckSheepyards;
+
+    if sheepyardsBuilt then
+      CheckCloth;
+
+    if clothMade then
+    begin
+      CheckGambesons;
+      CheckFort;
+    end;
+
+    if fortBuilt and gambesonsMade and not helpExplained then
+    begin
+      helpExplained := True;
+      Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$50>', '');
+      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objHelpAlly, osActive);
+    end;
+
+    if victoryAchieved then
+      Actions.PlayerWin([HUMAN_PLAYER], True);
+  end;
+end;

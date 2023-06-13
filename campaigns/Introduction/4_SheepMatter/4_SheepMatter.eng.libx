@@ -1,0 +1,26 @@
+2:Ally
+3:Bandits
+
+10:We should send someone to our ally on the North.
+11:Send a man to the ally
+
+20:Greetings!|News about your deeds have been reaching us for weeks now. Our humble town, located nearby, has been building pastures and herding sheep for decades. We wish to share this technology with you. In return, we kindly ask your aid in defending against bandit raids that have been plaguing us.
+21:This is a great opportunity!|By assisting the Town, we can establish a new lasting alliance.
+22:Not to overlook, sheep herding can provide us with a sustainable source of wool for gambeson production.|See, gambesons are what real warriors use! But I'm getting ahead of myself.
+23:Let's have first things first - let's build sheepyards and pastures!
+24:Tis a bit tricky - you need to build a Sheepyard first. Then fence off an area of 20ish tiles for the pasture behind its backdoor. Sheep look docile, but they will happily run away if the fence is broken.
+25:Build 2 sheepyards with pastures
+
+30:Excellent!|With the pastures built, Breeders can now start breeding sheep. They will provide us with a steady supply of wool. Wool needs to be processed into cloth before becoming Gambesons.
+31:Now that you have pastures it is time to give you another bit of advice.|Sheep need something to graze off. Even if a pasture is built on a grassy terrain, sheep will still benefit from additional grain fed to them.
+32:Produce %d cloth
+
+40:Perfect!|Now that we have the necessary infrastructure and supplies in place, we can produce gambesons in the Armor Workshop. Our infantry will benefit greatly from this specialized armor. Finally we will be able to properly train our men in a Fort knowing they will be protected in combat.
+41:Build a Fort
+42:Produce %d gambesons
+
+50:We need to do our end of the deal now. Let's send some reinforcements to the ally.
+51:Sent %d/%d Axefighters to the ally
+
+60:Thank you for your assistance! With your help, we will repell future bandit raids and keep our town safe.
+61:Feels my heart with joy to see how our alliance grows stronger!
