@@ -5,7 +5,7 @@ const
   HUMAN_PLAYER = 0;
   CIDER_PACKAGE = 10;
   FISH_PACKAGE = 20;
-  TALKING_HEAD_IMAGE = 'head.png';
+  TALKING_HEAD_IMAGE = 'advisor.png';
   ownCampX = 18;
   ownCampY = 90;
   allyCampX = 101;

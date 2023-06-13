@@ -71,6 +71,9 @@
 !UNIT_BLOCK 26 // cavalry
 
 // Block orders
+!ORDER_BLOCK 21 // axe
+!ORDER_BLOCK 23 // pike
+!ORDER_BLOCK 25 // bow
 
 // Block trades
 
@@ -218,4 +221,4 @@
 !SET_OBJECT_CAPTION 21 90 0 11 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13096 (2023.06.08 12:52)"  on 08.06.2023 13:07:32
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13134 (2023.06.13 12:56)"  on 13.06.2023 13:28:42
