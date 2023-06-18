@@ -13,13 +13,13 @@ const
 
 var
   objContactAlly, objBuildSheep, objMakeCloth, objMakeGambesons, objBuildFort, objHelpAlly: Integer;
-  allyContacted, sheepyardsBuilt, clothMade, fortBuilt, gambesonsMade, helpExplained, victoryAchieved: Boolean;
+  allyContacted, goalSet, sheepyardsBuilt, clothMade, fortBuilt, gambesonsMade, helpExplained, victoryAchieved: Boolean;
   warriorsSent: Integer;
 
 procedure OnMissionStart;
 begin
   objContactAlly   := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$11>');
-  objBuildSheep    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$25>');
+  objBuildSheep    := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$26>');
   objMakeCloth     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, Utils.Format('<$32>', [CLOTH_GOAL]));
   objBuildFort     := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '<$41>');
   objMakeGambesons := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, Utils.Format('<$42>', [GAMBESONS_GOAL]));
@@ -46,8 +46,6 @@ begin
     Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$22>', '');
     Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$23>', '');
     Actions.CinematicTalkingHead(ALLY_IMAGE, '<$24>', '');
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildSheep, osActive);
-    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSheepyard, False);
   end;
 
   if (aTriggerId = 2) and helpExplained then
@@ -148,6 +146,15 @@ begin
   begin
     Actions.CinematicTalkingHead(ADVISOR_IMAGE, '<$10>', '');
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objContactAlly, osActive);
+  end;
+  
+  // Show the goal and the manual immediately after the contact
+  if allyContacted and not goalSet then
+  begin
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, objBuildSheep, osActive);
+    Actions.PlayerHouseBlock(HUMAN_PLAYER, htSheepyard, False);
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$25>', True);
+    goalSet := True;
   end;
 
   if aTick mod 30 = 0 then
