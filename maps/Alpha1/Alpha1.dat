@@ -19,9 +19,9 @@
 
 // Goals
 !ADD_GOAL 1 0 0 0 0
-!ADD_GOAL 0 0 1 1 1
-!ADD_GOAL 0 1 1 1 1
-!ADD_GOAL 0 1 1 2 1
+!ADD_GOAL 0 0 0 1 1
+!ADD_GOAL 0 1 0 1 1
+!ADD_GOAL 0 1 0 2 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -215,12 +215,12 @@
 !SET_FENCE_H 38 93 1 !SET_FENCE_H 15 94 1 !SET_FENCE_H 16 94 1 !SET_FENCE_H 17 94 1
 
 // Units
-!SET_UNIT 2 26 73 4 // serf
-!SET_UNIT 2 27 73 4 // serf
-!SET_UNIT 2 28 73 4 // serf
-!SET_UNIT 2 28 74 4 // serf
-!SET_UNIT 2 27 74 4 // serf
-!SET_UNIT 2 26 74 4 // serf
+!SET_UNIT 2 26 73 4 // porter
+!SET_UNIT 2 27 73 4 // porter
+!SET_UNIT 2 28 73 4 // porter
+!SET_UNIT 2 28 74 4 // porter
+!SET_UNIT 2 27 74 4 // porter
+!SET_UNIT 2 26 74 4 // porter
 !SET_UNIT 14 22 69 4 // stonecutter
 !SET_UNIT 4 7 67 4 // woodcutter
 !SET_UNIT 8 12 71 4 // carpenter
@@ -249,16 +249,16 @@
 !SET_UNIT 5 5 105 4 // miner
 !SET_UNIT 5 11 80 4 // miner
 !SET_UNIT 6 37 73 4 // breeder
-!SET_UNIT 2 28 75 4 // serf
-!SET_UNIT 2 27 75 4 // serf
-!SET_UNIT 2 26 75 4 // serf
-!SET_UNIT 2 26 76 4 // serf
-!SET_UNIT 2 27 76 4 // serf
-!SET_UNIT 2 25 73 4 // serf
-!SET_UNIT 2 25 74 4 // serf
-!SET_UNIT 2 25 75 4 // serf
-!SET_UNIT 2 25 76 4 // serf
-!SET_UNIT 2 28 76 4 // serf
+!SET_UNIT 2 28 75 4 // porter
+!SET_UNIT 2 27 75 4 // porter
+!SET_UNIT 2 26 75 4 // porter
+!SET_UNIT 2 26 76 4 // porter
+!SET_UNIT 2 27 76 4 // porter
+!SET_UNIT 2 25 73 4 // porter
+!SET_UNIT 2 25 74 4 // porter
+!SET_UNIT 2 25 75 4 // porter
+!SET_UNIT 2 25 76 4 // porter
+!SET_UNIT 2 28 76 4 // porter
 !SET_UNIT 8 19 86 4 // carpenter
 !SET_UNIT 32 30 52 4 // wagon
 !SET_UNIT_WARE 4 15
@@ -356,12 +356,12 @@
 !SET_FENCE_V 61 37 1 !SET_FENCE_H 58 38 1 !SET_FENCE_H 59 38 1 !SET_FENCE_H 60 38 1
 
 // Units
-!SET_UNIT 2 68 28 4 // serf
-!SET_UNIT 2 67 28 4 // serf
-!SET_UNIT 2 66 28 4 // serf
-!SET_UNIT 2 68 29 4 // serf
-!SET_UNIT 2 67 29 4 // serf
-!SET_UNIT 2 66 29 4 // serf
+!SET_UNIT 2 68 28 4 // porter
+!SET_UNIT 2 67 28 4 // porter
+!SET_UNIT 2 66 28 4 // porter
+!SET_UNIT 2 68 29 4 // porter
+!SET_UNIT 2 67 29 4 // porter
+!SET_UNIT 2 66 29 4 // porter
 !SET_UNIT 3 61 28 4 // builder
 !SET_UNIT 3 62 28 4 // builder
 !SET_UNIT 3 63 28 4 // builder
@@ -495,8 +495,8 @@
 
 
 // Units
-!SET_UNIT 2 86 99 4 // serf
-!SET_UNIT 2 87 99 4 // serf
+!SET_UNIT 2 86 99 4 // porter
+!SET_UNIT 2 87 99 4 // porter
 !SET_UNIT 13 79 106 4 // fisher
 
 -----Hand4-----
@@ -552,4 +552,4 @@
 !SET_OBJECT_CAPTION 27 77 0 10 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12857 (2023.03.31 16:49)"  on 31.03.2023 16:53:44
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13169 (2023.06.18 23:17)"  on 18.06.2023 23:17:30

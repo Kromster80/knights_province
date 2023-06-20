@@ -17,8 +17,8 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 1 1
-!ADD_GOAL 0 1 1 1 1
+!ADD_GOAL 0 0 0 1 1
+!ADD_GOAL 0 1 0 1 1
 !ADD_GOAL 1 0 0 0 0
 
 // AI
@@ -147,6 +147,7 @@
 // Houses
 !SET_HOUSE 11 80 75 1 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_BLOCK_LAST 2 1 // stone
 !WARE_OUT_ADD_TO_LAST 3 9000 // wood
 !WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 9000 // fish
@@ -388,4 +389,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13004 (2023.05.12 12:30)"  on 12.05.2023 12:57:24
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13173 (2023.06.20 21:36)"  on 20.06.2023 21:38:43

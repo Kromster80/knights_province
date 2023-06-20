@@ -78,12 +78,12 @@
 
 
 // Units
-!SET_UNIT 2 2 74 4 // serf
-!SET_UNIT 2 3 74 4 // serf
-!SET_UNIT 2 4 74 4 // serf
-!SET_UNIT 2 4 75 4 // serf
-!SET_UNIT 2 3 75 4 // serf
-!SET_UNIT 2 2 75 4 // serf
+!SET_UNIT 2 2 74 4 // porter
+!SET_UNIT 2 3 74 4 // porter
+!SET_UNIT 2 4 74 4 // porter
+!SET_UNIT 2 4 75 4 // porter
+!SET_UNIT 2 3 75 4 // porter
+!SET_UNIT 2 2 75 4 // porter
 !SET_UNIT 3 6 74 4 // builder
 !SET_UNIT 3 7 74 4 // builder
 !SET_UNIT 3 8 74 4 // builder
@@ -126,6 +126,7 @@
 
 // Houses
 !SET_HOUSE 11 70 23 0 // camp
+!WARE_BLOCK_LAST 2 1 // stone
 !WARE_OUT_ADD_TO_LAST 3 1000 // wood
 !WARE_OUT_ADD_TO_LAST 8 1000 // gold
 !WARE_OUT_ADD_TO_LAST 28 2000 // fish
@@ -215,16 +216,16 @@
 
 
 // Units
-!SET_UNIT 2 68 25 4 // serf
-!SET_UNIT 2 68 24 4 // serf
-!SET_UNIT 2 69 24 4 // serf
-!SET_UNIT 2 69 25 4 // serf
-!SET_UNIT 2 70 25 4 // serf
-!SET_UNIT 2 70 24 4 // serf
-!SET_UNIT 2 71 24 4 // serf
-!SET_UNIT 2 71 25 4 // serf
-!SET_UNIT 2 72 24 4 // serf
-!SET_UNIT 2 72 25 4 // serf
+!SET_UNIT 2 68 25 4 // porter
+!SET_UNIT 2 68 24 4 // porter
+!SET_UNIT 2 69 24 4 // porter
+!SET_UNIT 2 69 25 4 // porter
+!SET_UNIT 2 70 25 4 // porter
+!SET_UNIT 2 70 24 4 // porter
+!SET_UNIT 2 71 24 4 // porter
+!SET_UNIT 2 71 25 4 // porter
+!SET_UNIT 2 72 24 4 // porter
+!SET_UNIT 2 72 25 4 // porter
 !SET_UNIT 13 55 26 4 // fisher
 !SET_UNIT 12 68 30 4 // brewer
 !SET_UNIT 4 66 18 4 // woodcutter
@@ -238,14 +239,14 @@
 !SET_UNIT 9 70 39 4 // baker
 !SET_UNIT 6 75 34 4 // breeder
 !SET_UNIT 7 76 39 4 // farmer
-!SET_UNIT 2 59 39 4 // serf
-!SET_UNIT 2 60 39 4 // serf
-!SET_UNIT 2 61 39 4 // serf
-!SET_UNIT 2 62 39 4 // serf
-!SET_UNIT 2 62 40 4 // serf
-!SET_UNIT 2 61 40 4 // serf
-!SET_UNIT 2 59 40 4 // serf
-!SET_UNIT 2 60 40 4 // serf
+!SET_UNIT 2 59 39 4 // porter
+!SET_UNIT 2 60 39 4 // porter
+!SET_UNIT 2 61 39 4 // porter
+!SET_UNIT 2 62 39 4 // porter
+!SET_UNIT 2 62 40 4 // porter
+!SET_UNIT 2 61 40 4 // porter
+!SET_UNIT 2 59 40 4 // porter
+!SET_UNIT 2 60 40 4 // porter
 !SET_UNIT 3 60 41 4 // builder
 !SET_UNIT 3 61 41 4 // builder
 !SET_UNIT 3 62 41 4 // builder
@@ -332,4 +333,4 @@
 !SET_UNIT_WARE 3 50
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 18:17:00
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13173 (2023.06.20 21:36)"  on 20.06.2023 21:37:22
