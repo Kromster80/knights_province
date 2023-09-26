@@ -11,7 +11,6 @@ var
   Cider: Integer;
 
   marker1, marker2, marker3, marker4: Integer;
-  marker4Animate: Boolean;
 
   fTick: Integer;
   fMumble: Integer;
@@ -102,9 +101,6 @@ procedure OnTick(aTick: Integer);
 begin
   fTick := aTick;
 
-  if marker4Animate then
-    Actions.InteractionMarkerUpdate(marker4, $80FFFF, True, 1.5 + Sin(Single(aTick mod 10) / 10 * 6.28) * 0.5);
-
   if aTick = 21 then
   begin
     Actions.CinematicTalkingHead('miner.png', 'Welcome to the dungeon, lad!', GetMumble);
@@ -154,7 +150,10 @@ begin
     Actions.CinematicTalkingHeadWithButtons('', 'Choose Marker 3 color', '', ['[$80FF80]Green[]', '[$FF80FF]Purple[]'], [101, 102]);
 
   if aMarkerId = marker4 then
-    marker4Animate := True;
+  begin
+    Actions.InteractionMarkerBob(marker4, False);
+    Actions.InteractionMarkerUpdate(marker4, $808080, False, -1);
+  end;
 end;
 
 
@@ -184,4 +183,5 @@ begin
   marker2 := Actions.InteractionMarkerAdd(itInfo, 23.5, 23.5);
   marker3 := Actions.InteractionMarkerAdd(itInfo, 20.5, 26.5);
   marker4 := Actions.InteractionMarkerAdd(itInfo, 23.5, 26.5);
+  Actions.InteractionMarkerBob(marker4, True);
 end;
