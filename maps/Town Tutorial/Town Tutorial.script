@@ -310,7 +310,7 @@ begin
 
     Actions.TerrainHighlightDelete(fHighl1);
     fHighl1        := Actions.TerrainHighlightLine(26, 14, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Fish
-    fHighl2        := Actions.TerrainHighlightLine(13, 23, 4, 3, 0.25, COLOR_50_PURPLE); // Mark Cider
+    fHighl2        := Actions.TerrainHighlightLine(14, 23, 3, 3, 0.25, COLOR_50_PURPLE); // Mark Cider
     fCinRunning    := True;
     fActiveCinType := ctFood;
     fCinStep       := 0;
