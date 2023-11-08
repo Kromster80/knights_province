@@ -29,15 +29,10 @@ var
 
 procedure GiveAllUnits(aPlayer: Integer; aX, aY: Integer);
 var
-  I, K: Integer;
+  I: Integer;
   lastCitizen: Integer;
 begin
   lastCitizen := 16; // utMetallurgist
-
-  // Citizens are given one by one
-  for I := 0 to lastCitizen do
-    for K := 0 to CampaignData.MissionOneUnitsTrained[I] - 1 do
-      Actions.GiveUnit(aPlayer, TKMUnitType(I), 208, 24, 0); // Game will place units around the location
 
   // Warriors are given in groups
   for I := lastCitizen + 1 to High(CampaignData.MissionOneUnitsTrained) do
@@ -135,8 +130,10 @@ end;
 procedure OnPlayerDefeated(aPlayer: Integer);
 begin
   if aPlayer = AI8_Ennemy then
-  TheKingAppears;
-  UnitsToDefead;
+  begin
+    TheKingAppears;
+    UnitsToDefead;
+  end;
 end;
 
 
