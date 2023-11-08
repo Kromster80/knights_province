@@ -19,7 +19,7 @@ const
   allyCampY = 24;
 
 var
-  trigger1Showed: Boolean;  //Triger 1 : Found Statue 
+  trigger1Showed: Boolean;  //Triger 1 : Found Statue
   trigger2Showed: Boolean;  //Triger 2 : Fisher House
   ObjTarget, ownCamp, allyCamp: Integer;
   ciderDealShown: Boolean;
@@ -29,7 +29,7 @@ procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 begin
   if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then      //Triger 1 : Found Statue
   begin
-    Actions.CinematicTalkingHead('servant5.png', '<$4>', '');					   //Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
+    Actions.CinematicTalkingHead('servant5.png', '<$4>', '');                       //Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
     Actions.CinematicTalkingHead('TheD.png', '<$41>', '');
     Actions.CinematicTalkingHead('servant5.png', '<$42>', '');
     trigger1Showed := True;
@@ -132,14 +132,12 @@ begin
   end;
 
   if aTick = 25 then
-  begin
     Actions.CinematicEnd;
-  end;
 
   if aTick = 27 then
   begin
     Actions.CinematicTalkingHead('Allysoldier.png', '<$1>','');
-    Actions.CinematicTalkingHead('OldLetter.png', '<$21>','');       				   //Message - Short cinema/ ally leter
+    Actions.CinematicTalkingHead('OldLetter.png', '<$21>','');                          //Message - Short cinema/ ally leter
     Actions.CinematicTalkingHead('TheD.png', '<$2>','');
     Actions.CinematicTalkingHead('servant5.png', '<$3>','');
   end;
@@ -153,7 +151,7 @@ begin
   if aTick = 66000 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);                                            //Message - Wagon tour 3
 
-  if aTick = 33000 then 
+  if aTick = 33000 then
     Actions.GiveGroup(Player5, utPikeman, 250, 5, 4, 8, 4);
 
   if aTick = 66000 then

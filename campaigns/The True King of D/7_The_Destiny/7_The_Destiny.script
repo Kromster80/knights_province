@@ -21,7 +21,7 @@ var
   objective1: Integer;
   triggerFound: Boolean;
 
-  
+
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);                     //Triger 1 :Nidgard => End Mission
 begin
   if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then
@@ -30,7 +30,7 @@ begin
     trigger1Showed := True;
   end;
 
-  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 2 => Old graves 
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then     //Triger 2 => Old graves
   begin
     Actions.CinematicTalkingHead('gravery.png', '<$3>', '');             ///Actions.PlayerMessage(PLAYER_HAND, '<$3>', True);
     trigger2Showed := True;

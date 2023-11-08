@@ -128,7 +128,7 @@ end;
 
 procedure UnitsToDefead;
 begin
-  Actions.UnitKill( States.UnitAt(190, 200), false)                                                 //Kill Units that hold the mission running
+  Actions.UnitKill(States.UnitAt(190, 200), false)                                                 //Kill Units that hold the mission running
 end;
 
 

@@ -23,8 +23,8 @@ var
   patrolDirection: array [0..PATROL_COUNT-1] of Integer;         // Direction to look at at each waypoint
   patrolPoints2: array [0..PATROL_COUNT_2-1] of TKMPoint;        // Waypoints
   patrolDirection2: array [0..PATROL_COUNT_2-1] of Integer;      // Direction to look at at each waypoint
-  trigger1Showed: Boolean;                                       // 
-  trigger2Showed: Boolean;                                       // Attack after cross the stone 
+  trigger1Showed: Boolean;                                       //
+  trigger2Showed: Boolean;                                       // Attack after cross the stone
   trigger3Showed: Boolean;
   trigger4Showed: Boolean;
   trigger5Showed: Boolean;
@@ -44,12 +44,12 @@ begin
   // Advance to next waypoint (in a loop)
   patrolTarget := (patrolTarget + 1) mod PATROL_COUNT;
   patrolTarget2 := (patrolTarget2 + 1) mod PATROL_COUNT_2;
-  
+
   P := patrolPoints[patrolTarget];
   D := patrolDirection[patrolTarget];
   P2 := patrolPoints2[patrolTarget2];
   D2 := patrolDirection2[patrolTarget2];
-  
+
   Actions.GroupOrderWalk(patrolGroup, P.X, P.Y, D);
   Actions.GroupOrderWalk(patrolGroup2, P2.X, P2.Y, D2);
 end;
@@ -67,65 +67,65 @@ begin
 
   // Get the group
   patrolGroup := States.GroupAt(243, 72);                         // Initialize waypoints
-  patrolPoints[0].X := 243; 
+  patrolPoints[0].X := 243;
   patrolPoints[0].Y := 72;
-  patrolDirection[0] := 4; 
+  patrolDirection[0] := 4;
 
-  patrolPoints[1].X := 220; 
+  patrolPoints[1].X := 220;
   patrolPoints[1].Y := 117;
-  patrolDirection[1] := 4; 
+  patrolDirection[1] := 4;
 
-  patrolPoints[2].X := 175; 
+  patrolPoints[2].X := 175;
   patrolPoints[2].Y := 130;
-  patrolDirection[2] := 4; 
+  patrolDirection[2] := 4;
 
-  patrolPoints[3].X := 150; 
+  patrolPoints[3].X := 150;
   patrolPoints[3].Y := 64;
   patrolDirection[3] := 4;
 
-  patrolPoints[4].X := 176; 
+  patrolPoints[4].X := 176;
   patrolPoints[4].Y := 39;
-  patrolDirection[4] := 4; 
+  patrolDirection[4] := 4;
 
 
 
   patrolGroup2 := States.GroupAt(45, 105);                        // Initialize waypoints
-  patrolPoints2[0].X := 45; 
+  patrolPoints2[0].X := 45;
   patrolPoints2[0].Y := 105;
-  patrolDirection2[0] := 0; 
-  
-  patrolPoints2[1].X := 14; 
-  patrolPoints2[1].Y := 89;
-  patrolDirection2[1] := 0; 
+  patrolDirection2[0] := 0;
 
-  patrolPoints2[2].X := 21; 
+  patrolPoints2[1].X := 14;
+  patrolPoints2[1].Y := 89;
+  patrolDirection2[1] := 0;
+
+  patrolPoints2[2].X := 21;
   patrolPoints2[2].Y := 28;
-  patrolDirection2[2] := 2; 
-  
-  patrolPoints2[3].X := 35; 
+  patrolDirection2[2] := 2;
+
+  patrolPoints2[3].X := 35;
   patrolPoints2[3].Y := 19;
-  patrolDirection2[3] := 3; 
-  
-  patrolPoints2[4].X := 39; 
+  patrolDirection2[3] := 3;
+
+  patrolPoints2[4].X := 39;
   patrolPoints2[4].Y := 74;
   patrolDirection2[4] := 0;
 
-  patrolPoints2[5].X := 52; 
+  patrolPoints2[5].X := 52;
   patrolPoints2[5].Y := 50;
-  patrolDirection2[5] := 1; 
-  
-  patrolPoints2[6].X := 136; 
+  patrolDirection2[5] := 1;
+
+  patrolPoints2[6].X := 136;
   patrolPoints2[6].Y := 43;
-  patrolDirection2[6] := 3; 
-  
-  patrolPoints2[7].X := 115; 
+  patrolDirection2[6] := 3;
+
+  patrolPoints2[7].X := 115;
   patrolPoints2[7].Y := 44;
-  patrolDirection2[7] := 2; 
-  
-  patrolPoints2[8].X := 67; 
+  patrolDirection2[7] := 2;
+
+  patrolPoints2[8].X := 67;
   patrolPoints2[8].Y := 42;
   patrolDirection2[8] := 2;
-  
+
   PlayerCamp := States.HouseAt(152, 12);
 end;
 
@@ -184,7 +184,7 @@ begin
   if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
   begin
     Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjLastEnnemy, osHidden);  
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjLastEnnemy, osHidden);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjSmallVillage, osActive);
     trigger7Showed := True;
   end;
@@ -237,7 +237,7 @@ var
   allUnits: array of Integer;
   I: Integer;
 begin
-  allUnits := States.PlayerGetAllUnits(Player9_HorseScout);  
+  allUnits := States.PlayerGetAllUnits(Player9_HorseScout);
   for I := 0 to High(allUnits) do
     Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
 end;
@@ -245,34 +245,34 @@ end;
 
 procedure OnTick(aTick: Integer);
 begin
-  if aTick = 9000 then                                                               //15min 
+  if aTick = 9000 then                                                               //15min
     Actions.GiveGroup(Player8_HideAtack, utHorsescout, 250, 139, 5, 6, 3);           //Attack Scout
 
-  if aTick = 18000 then                                                              //30min 
+  if aTick = 18000 then                                                              //30min
     Actions.GiveGroup(Player8_HideAtack, utAxeFighter, 156, 173, 2, 6, 3);           //Attack Landing troops
 
-  if aTick = 27000 then                                                              //45min 
+  if aTick = 27000 then                                                              //45min
     Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);              //Attack Bowman's
-   
-  if aTick = 36000 then                                                              //60min 
+
+  if aTick = 36000 then                                                              //60min
     Actions.GiveGroup(Player8_HideAtack, utPikeman, 250, 200, 5, 12, 4);             //Attack Pikeman
-   
-  if aTick = 48000 then                                                              //1:20h 
+
+  if aTick = 48000 then                                                              //1:20h
     Actions.GiveGroup(Player8_HideAtack, utAxeFighter, 156, 173, 2, 9, 3);           //Attack Landing troops
 
-  if aTick = 54000 then                                                              //1:30h 
+  if aTick = 54000 then                                                              //1:30h
     Actions.GiveGroup(Player8_HideAtack, utHorsescout, 250, 139, 5, 9, 3);           //Attack Scout
-  
-  if aTick = 63000 then                                                              //1:45h 
+
+  if aTick = 63000 then                                                              //1:45h
     Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);              //Attack Bowman's
 
-  if aTick = 72000 then                                                              //2h 
+  if aTick = 72000 then                                                              //2h
   begin
     Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);              //Attack Bowman's
     Actions.GiveGroup(Player8_HideAtack, utPikeman, 250, 200, 5, 12, 4);             //Attack Pikeman
   end;
 
-  if aTick = 84000 then                                                              //2:20h 
+  if aTick = 84000 then                                                              //2:20h
     Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);              //Attack Bowman's
 
   if aTick = 108000 then                                                             //3h

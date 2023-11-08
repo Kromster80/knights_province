@@ -10,7 +10,7 @@ var
   BulidCamp: array of Boolean;
   DestroyKingCities, BuildFort, KingUnits, PlayerCamp, GoldAmount: Integer;
   houses, wares: array of Integer;
-  FortBuilt, ObjBuildDone, BuildFortDone: Boolean;  
+  FortBuilt, ObjBuildDone, BuildFortDone: Boolean;
   currentTick: Integer;
   horseToAddOnTick: array of Integer;
   Trigger1Showed: Boolean;                             //Triger 1 : Go back and build Fort
@@ -49,7 +49,7 @@ begin
   if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then        //Triger 3
   begin
     Actions.PlayerMessage(HUMAN_PLAYER, '<$17>', True);
-    trigger3Showed := True;  
+    trigger3Showed := True;
   end;
 end;
 
@@ -260,7 +260,7 @@ begin
 
   if FortBuilt = false then
     CheckBuildingProgress;
-  
+
   if aTick = 30 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
 end;

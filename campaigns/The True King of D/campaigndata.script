@@ -1,7 +1,4 @@
 record
-  LastPlayed: Integer;
-  Won: array [0..99] of Boolean;
-  Reslt: array [0..99] of Integer; // We skip a letter to avoid cross-shadowing with "Result"
-MissionOneUnitsTrained: array of Integer; // Hold unit count for each type we want to carry over
+  MissionOneUnitsTrained: array of Integer; // Hold unit count for each type we want to carry over
 end;
 
