@@ -3,19 +3,19 @@
 // Kinghts Dzapan
 
 const
-  PLAYER_HAND = 0;
-  NEUTRAL_HAND = 1;
   HUMAN_PLAYER = 0;
-
+  NEUTRAL_HAND = 1;
 
 var
   objective1: Integer;
+
+
 procedure OnMissionStart;
 begin
- 
-   Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
-     objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$10>');
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+  objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$10>');
 end;
+
 
 procedure CheckVictory;
 var
@@ -24,7 +24,7 @@ var
 begin
   allNeutralHouses := States.PlayerGetAllHouses(NEUTRAL_HAND);
   allNeutralUnits := States.PlayerGetAllUnits(NEUTRAL_HAND);
-  
+
   for I := 0 to High(allNeutralHouses) do
     if States.HouseType(allNeutralHouses[I]) = htWolfsDen then
       Exit;
@@ -33,7 +33,7 @@ begin
     if States.UnitType(allNeutralUnits[I]) = utWolf then
       Exit;
 
-  Actions.PlayerWin([PLAYER_HAND], True);
+  Actions.PlayerWin([HUMAN_PLAYER], True);
 end;
 
 
@@ -41,6 +41,7 @@ procedure OnTick(aTick: Integer);
 begin
   if aTick mod 10 = 0 then
     CheckVictory;
-	
-	if aTick = 9600 then Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+
+  if aTick = 9600 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 end;
