@@ -8,42 +8,41 @@ const
   ALLY_PLAYER = 1;
   PLAYER_HAND = 0;
   Player5 = 4;
- 
+
   TREE_NEEDED = 10;
   TREE_TRUNKS = 10;
   CLUB = 10;
- 
+
   ownCampX = 209;
   ownCampY = 99;
   allyCampX = 170;
   allyCampY = 24;
-  
+
 var
   trigger1Showed: Boolean;  //Triger 1 : Found Statue 
   trigger2Showed: Boolean;  //Triger 2 : Fisher House
   ObjTarget, ownCamp, allyCamp: Integer;
   ciderDealShown: Boolean;
 
+
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 begin
-if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then      //Triger 1 : Found Statue
-begin
-  Actions.CinematicTalkingHead('servant5.png', '<$4>', '');					   //Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
-  Actions.CinematicTalkingHead('TheD.png', '<$41>', '');
-  Actions.CinematicTalkingHead('servant5.png', '<$42>', '');
-  trigger1Showed := True;
-end;
+  if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then      //Triger 1 : Found Statue
+  begin
+    Actions.CinematicTalkingHead('servant5.png', '<$4>', '');					   //Actions.PlayerMessage(PLAYER_HAND, '<$4>', True);
+    Actions.CinematicTalkingHead('TheD.png', '<$41>', '');
+    Actions.CinematicTalkingHead('servant5.png', '<$42>', '');
+    trigger1Showed := True;
+  end;
 
-begin
-if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then      //Triger 2 : Fisher House
-begin
-   Actions.CinematicBegin;
-  Actions.CinematicViewSetTo(177, 27, 320, 0.15);
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = PLAYER_HAND) then      //Triger 2 : Fisher House
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewSetTo(177, 27, 320, 0.15);
     Actions.CinematicEnd;
-   Actions.CinematicTalkingHead('Fishermans2.png', '<$6>', '');
-  trigger2Showed := True;
-end;
-end;
+    Actions.CinematicTalkingHead('Fishermans2.png', '<$6>', '');
+    trigger2Showed := True;
+  end;
 end;
 
 
@@ -51,10 +50,10 @@ procedure OnMissionStart;
 begin
   ownCamp := States.HouseAt(ownCampX, ownCampY);
   allyCamp := States.HouseAt(allyCampX, allyCampY);
-  
-  ObjTarget := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '[$00FFFF]<$22>');
 
+  ObjTarget := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '[$00FFFF]<$22>');
 end;
+
 
 procedure OnScriptButtonClick(aPlayer, aTag: Integer);
 var
@@ -75,10 +74,8 @@ begin
           Actions.UnitWagonOrderEnterHouse(wagon, allyCamp);
           Break;
         end;
-      end;    
+      end;
     end;
-	
-	
 end;
 
 
@@ -97,7 +94,7 @@ begin
       begin
         Actions.UnitCarryGive(wagon, wtClub, CLUB);
         Actions.UnitWagonOrderEnterHouse(wagon, ownCamp);
-		Actions.PlayerMessage(HUMAN_PLAYER, '<$8>', True);                                        //Message - about Wagon tour 1
+        Actions.PlayerMessage(HUMAN_PLAYER, '<$8>', True);                                        //Message - about Wagon tour 1
         Break;
       end;
     end;
@@ -105,63 +102,62 @@ begin
 end;
 
 
-
 procedure OnTick(aTick: Integer);
 begin
-if aTick = 10 then
-begin
-Actions.CinematicBegin;
-  Actions.CinematicViewSetTo(214, 149, 220, 0.00);
-end;
+  if aTick = 10 then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewSetTo(214, 149, 220, 0.00);
+  end;
 
-if aTick = 45 then
-begin
- Actions.CinematicBegin;
-  Actions.CinematicViewSetTo(209, 99, 320, 0.15);
+  if aTick = 45 then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewSetTo(209, 99, 320, 0.15);
     Actions.CinematicEnd;
-	end;
+  end;
 
-if aTick = 60 then
-begin
- Actions.CinematicBegin;
-  Actions.CinematicViewSetTo(177, 27, 320, 0.15);
+  if aTick = 60 then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewSetTo(177, 27, 320, 0.15);
     Actions.CinematicEnd;
-	end;
-	
-	if aTick = 75 then
-begin
- Actions.CinematicBegin;
-  Actions.CinematicViewSetTo(209, 99, 320, 0.15);
-    Actions.CinematicEnd;
-	end;
+  end;
 
-if aTick = 25 then
-begin
+  if aTick = 75 then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewSetTo(209, 99, 320, 0.15);
     Actions.CinematicEnd;
-end;
+  end;
 
- if aTick = 27 then
- begin
+  if aTick = 25 then
+  begin
+    Actions.CinematicEnd;
+  end;
+
+  if aTick = 27 then
+  begin
     Actions.CinematicTalkingHead('Allysoldier.png', '<$1>','');
     Actions.CinematicTalkingHead('OldLetter.png', '<$21>','');       				   //Message - Short cinema/ ally leter
     Actions.CinematicTalkingHead('TheD.png', '<$2>','');
     Actions.CinematicTalkingHead('servant5.png', '<$3>','');
-end;
+  end;
+
   if aTick = 6000 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$14>', True);                                            //Message - Ennemy towers
-	
+
   if aTick = 27000 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);                                             //Message - Wagon tour 2
-	 
+
   if aTick = 66000 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);                                            //Message - Wagon tour 3
 
-	
-	  if aTick = 33000 then 
-		    Actions.GiveGroup(Player5, utPikeman, 250, 5, 4, 8, 4);
-			
-	  if aTick = 66000 then
-		    Actions.GiveGroup(Player5, utAxeFighter, 142, 5, 4, 10, 5);
+  if aTick = 33000 then 
+    Actions.GiveGroup(Player5, utPikeman, 250, 5, 4, 8, 4);
+
+  if aTick = 66000 then
+    Actions.GiveGroup(Player5, utAxeFighter, 142, 5, 4, 10, 5);
 
 
   if aTick mod 50 = 0 then
