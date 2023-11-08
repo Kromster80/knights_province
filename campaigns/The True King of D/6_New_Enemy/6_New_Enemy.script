@@ -10,7 +10,3 @@ procedure OnMissionStart;
 begin
   Actions.CinematicTalkingHead('Servant3.png', '<$1>', '');           //Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
 end;
-
-
-
-
