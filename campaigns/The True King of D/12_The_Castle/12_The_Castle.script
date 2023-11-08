@@ -14,8 +14,8 @@ const
   AI9_Ally = 8;
   AI10_Ally = 9;
   AI11_EnnemyKing = 10;
-  
-  
+
+
 var
   trigger1Showed, trigger2Showed, trigger3Showed, trigger4Showed: Boolean;
   trigger5Showed, trigger6Showed, trigger7Showed, trigger8Showed: Boolean;
@@ -45,99 +45,98 @@ begin
 end;
 
 
-
 procedure OnUnitDied(aUnit: Integer; aKiller: Integer);
 begin
-if aUnit = GuardUnit_1 then
-	begin
-	     //Remove wall
- 	    Actions.TerrainObjectRemoveTile(232, 87);	
- 	    Actions.TerrainObjectRemoveTile(231, 87);	
- 	    Actions.TerrainObjectRemoveTile(230, 87);	
- 	    Actions.TerrainObjectRemoveTile(229, 87);
- 	    Actions.TerrainObjectRemoveTile(228, 87);		        
-		 //Add Left gate
-        Actions.TerrainObjectSet(233, 89, 1, 51); 
-        Actions.TerrainObjectSet(233, 90, 1, 51); 
-        Actions.TerrainObjectSet(233, 91, 1, 51);          
-		  //Add Right gate
-        Actions.TerrainObjectSet(227, 89, 1, 51); 
-        Actions.TerrainObjectSet(227, 90, 1, 51); 
-        Actions.TerrainObjectSet(227, 91, 1, 51);    	   
-	    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  		   	
-        Actions.InteractionMarkerRemove(marker1);
-	    Actions.InteractionMarkerRemove(marker2);
-	end;	
-if aUnit = CastleGuard_1 then	
-    begin
-	      //Remove wall
- 	    Actions.TerrainObjectRemoveTile(107, 158);	
- 	    Actions.TerrainObjectRemoveTile(108, 158);	
- 	    Actions.TerrainObjectRemoveTile(109, 158);		       
-		  //Add 
-        Actions.TerrainObjectSet(106, 154, 1, 51); 
-        Actions.TerrainObjectSet(106, 155, 1, 51); 
-        Actions.TerrainObjectSet(106, 156, 1, 51);     	   
-	    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  	   	
-		Actions.InteractionMarkerRemove(marker7);
-	end;
-if aUnit = CastleGuard_2 then	
-    begin
-	      //Remove wall
- 	    Actions.TerrainObjectRemoveTile(110, 158);	
- 	    Actions.TerrainObjectRemoveTile(111, 158);	
- 	    Actions.TerrainObjectRemoveTile(112, 158);		       
-		  //Add 
-        Actions.TerrainObjectSet(113, 154, 1, 51); 
-        Actions.TerrainObjectSet(113, 155, 1, 51); 
-        Actions.TerrainObjectSet(113, 156, 1, 51);    	   
-	    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  	   	
-		Actions.InteractionMarkerRemove(marker8);
-	end;	
-if aUnit = CastleGuard_3 then	
-    begin
-	      //Remove wall
- 	    Actions.TerrainObjectRemoveTile(107, 147);	
- 	    Actions.TerrainObjectRemoveTile(108, 146);	
- 	    Actions.TerrainObjectRemoveTile(109, 144);		         	   
-	    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  	   	
-		Actions.InteractionMarkerRemove(marker9);
-	end;	
-if aUnit = CastleGuard_4 then	
-    begin
-	      //Remove wall
- 	    Actions.TerrainObjectRemoveTile(112, 147);	
- 	    Actions.TerrainObjectRemoveTile(111, 146);	
- 	    Actions.TerrainObjectRemoveTile(110, 144);		         	   
-	    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  	   	
-		Actions.InteractionMarkerRemove(marker10);
-	end;
+  if aUnit = GuardUnit_1 then
+  begin
+    //Remove wall
+    Actions.TerrainObjectRemoveTile(232, 87);
+    Actions.TerrainObjectRemoveTile(231, 87);
+    Actions.TerrainObjectRemoveTile(230, 87);
+    Actions.TerrainObjectRemoveTile(229, 87);
+    Actions.TerrainObjectRemoveTile(228, 87);
+    //Add Left gate
+    Actions.TerrainObjectSet(233, 89, 1, 51);
+    Actions.TerrainObjectSet(233, 90, 1, 51);
+    Actions.TerrainObjectSet(233, 91, 1, 51);
+    //Add Right gate
+    Actions.TerrainObjectSet(227, 89, 1, 51);
+    Actions.TerrainObjectSet(227, 90, 1, 51);
+    Actions.TerrainObjectSet(227, 91, 1, 51);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    Actions.InteractionMarkerRemove(marker1);
+    Actions.InteractionMarkerRemove(marker2);
+  end;
+  if aUnit = CastleGuard_1 then
+  begin
+    //Remove wall
+    Actions.TerrainObjectRemoveTile(107, 158);
+    Actions.TerrainObjectRemoveTile(108, 158);
+    Actions.TerrainObjectRemoveTile(109, 158);
+    //Add
+    Actions.TerrainObjectSet(106, 154, 1, 51);
+    Actions.TerrainObjectSet(106, 155, 1, 51);
+    Actions.TerrainObjectSet(106, 156, 1, 51);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    Actions.InteractionMarkerRemove(marker7);
+  end;
+  if aUnit = CastleGuard_2 then
+  begin
+    //Remove wall
+    Actions.TerrainObjectRemoveTile(110, 158);
+    Actions.TerrainObjectRemoveTile(111, 158);
+    Actions.TerrainObjectRemoveTile(112, 158);
+    //Add
+    Actions.TerrainObjectSet(113, 154, 1, 51);
+    Actions.TerrainObjectSet(113, 155, 1, 51);
+    Actions.TerrainObjectSet(113, 156, 1, 51);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    Actions.InteractionMarkerRemove(marker8);
+  end;
+  if aUnit = CastleGuard_3 then
+  begin
+    //Remove wall
+    Actions.TerrainObjectRemoveTile(107, 147);
+    Actions.TerrainObjectRemoveTile(108, 146);
+    Actions.TerrainObjectRemoveTile(109, 144);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    Actions.InteractionMarkerRemove(marker9);
+  end;
+  if aUnit = CastleGuard_4 then
+  begin
+    //Remove wall
+    Actions.TerrainObjectRemoveTile(112, 147);
+    Actions.TerrainObjectRemoveTile(111, 146);
+    Actions.TerrainObjectRemoveTile(110, 144);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    Actions.InteractionMarkerRemove(marker10);
+  end;
 end;
 
-Procedure TheKingAppears;
+procedure TheKingAppears;
 begin
-	   Actions.PlayerMessage(HUMAN_PLAYER, '<$19>', True);
-       Actions.GiveUnit(AI11_EnnemyKing, utSwordsman, 110, 143, 4);
-	   Actions.CinematicBegin;
-	   Actions.CinematicViewStore;
-       Actions.CinematicViewSetTo(110, 143, 30, 0.1);
-       Actions.CinematicEnd;
-       marker11 := Actions.InteractionMarkerAdd(itExclamation, 110.5, 143.5);	 
-       Actions.CinematicTalkingHead('KinghtsDzapan.png', '<$20>', '');                                  //The END
+  Actions.PlayerMessage(HUMAN_PLAYER, '<$19>', True);
+  Actions.GiveUnit(AI11_EnnemyKing, utSwordsman, 110, 143, 4);
+  Actions.CinematicBegin;
+  Actions.CinematicViewStore;
+  Actions.CinematicViewSetTo(110, 143, 30, 0.1);
+  Actions.CinematicEnd;
+  marker11 := Actions.InteractionMarkerAdd(itExclamation, 110.5, 143.5);
+  Actions.CinematicTalkingHead('KinghtsDzapan.png', '<$20>', '');                                  //The END
 end;
 
 
-Procedure UnitsToDefead; 	                                                          
- begin
-	  Actions.UnitKill( States.UnitAt(190, 200), false)                                                 //Kill Units that hold the mission running
- end;	   
-		  
+procedure UnitsToDefead;
+begin
+  Actions.UnitKill( States.UnitAt(190, 200), false)                                                 //Kill Units that hold the mission running
+end;
+
 
 procedure OnPlayerDefeated(aPlayer: Integer);
 begin
-     if aPlayer = AI8_Ennemy then
-     TheKingAppears;
-     UnitsToDefead;
+  if aPlayer = AI8_Ennemy then
+  TheKingAppears;
+  UnitsToDefead;
 end;
 
 
@@ -155,266 +154,281 @@ end;
 
 procedure GateLeft_Open;                                                                              //Right side will Open Left Gate
 begin;
-     //Remove wall
- 	Actions.TerrainObjectRemoveTile(121, 59);	
- 	Actions.TerrainObjectRemoveTile(121, 60);	
- 	Actions.TerrainObjectRemoveTile(121, 61);		        
-	 //Open Left side
-    Actions.TerrainObjectSet(118, 62, 0, 51); 
-    Actions.TerrainObjectSet(119, 62, 0, 51);         
-	 //Open Right side
-    Actions.TerrainObjectSet(118, 58, 0, 51); 
-    Actions.TerrainObjectSet(119, 58, 0, 51); 
-	Actions.FogRevealCircle(HUMAN_PLAYER, 121, 60, 2);
-	marker5 := Actions.InteractionMarkerAdd(itExclamation, 121.5, 60.5);
-    Actions.InteractionMarkerUpdate(marker5, $0000FF, True, 2);		
-end; 
+  //Remove wall
+  Actions.TerrainObjectRemoveTile(121, 59);
+  Actions.TerrainObjectRemoveTile(121, 60);
+  Actions.TerrainObjectRemoveTile(121, 61);
+  //Open Left side
+  Actions.TerrainObjectSet(118, 62, 0, 51);
+  Actions.TerrainObjectSet(119, 62, 0, 51);
+  //Open Right side
+  Actions.TerrainObjectSet(118, 58, 0, 51);
+  Actions.TerrainObjectSet(119, 58, 0, 51);
+  Actions.FogRevealCircle(HUMAN_PLAYER, 121, 60, 2);
+  marker5 := Actions.InteractionMarkerAdd(itExclamation, 121.5, 60.5);
+  Actions.InteractionMarkerUpdate(marker5, $0000FF, True, 2);
+end;
 
 procedure GateRight_Open;                                                                              //Left side will Open Right Gate
 begin;
-     //Remove wall
- 	Actions.TerrainObjectRemoveTile(121, 28);	
- 	Actions.TerrainObjectRemoveTile(121, 29);	
- 	Actions.TerrainObjectRemoveTile(121, 30);		        
-	 //Open Left side
-    Actions.TerrainObjectSet(118, 31, 0, 51); 
-    Actions.TerrainObjectSet(119, 31, 0, 51);         
-	 //Open Right side
-    Actions.TerrainObjectSet(118, 27, 0, 51); 
-    Actions.TerrainObjectSet(119, 27, 0, 51); 
-	Actions.FogRevealCircle(HUMAN_PLAYER, 121, 28, 2);
-    marker6 := Actions.InteractionMarkerAdd(itExclamation, 121.5, 29.5);
- 	Actions.InteractionMarkerUpdate(marker6, $0000FF, True, 2);  
-end; 
- 
- 
- procedure WoodenBridgeBlockade_Open;                                                                   //Open the entry on the wooden bridge
-  begin;
- 	Actions.TerrainObjectRemoveTile(230, 210);	
- 	Actions.TerrainObjectRemoveTile(231, 210);	
- 	Actions.TerrainObjectRemoveTile(232, 210);	
- 	Actions.TerrainObjectRemoveTile(233, 210);	
- 	Actions.TerrainObjectRemoveTile(234, 210);	
-  end; 
-
-
- 
-procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
-begin  
-if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-     FeedPlayer(HUMAN_PLAYER);
-   end;                                                                    
-  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-      Actions.PlayerMessage(HUMAN_PLAYER, '<$8>', True);
-	  Actions.FogRevealCircle(HUMAN_PLAYER, 232, 149, 2);
-      trigger2Showed := True;
-   end;    
-  if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-   	Actions.PlayWAV(HUMAN_PLAYER, 'HorseRun.wav', 0.2);	                                  
-    trigger3Showed := True;
-   end;    
-   if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.PlayerMessage(HUMAN_PLAYER, '<$6>', True);                                  
-    trigger4Showed := True;
-   end;    
-   if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.PlayerMessage(HUMAN_PLAYER, '<$7>', True);    
-    Actions.FogRevealCircle(HUMAN_PLAYER, 235, 92, 1);		
-	Actions.FogRevealCircle(HUMAN_PLAYER, 225, 92, 1);
-    trigger5Showed := True;
-   end;   
-if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
-	trigger6Showed := True;
-   end;  
- if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-   	Actions.InteractionMarkerRemove(marker3);
-	Actions.InteractionMarkerRemove(marker4);	
-	  Actions.GiveGroup(AI4_Ennemy, utCavalry, 174, 84, 4, 15, 5);
-	  Actions.GiveGroup(AI4_Ennemy, utSwordsman, 178, 78, 4, 12, 4);
-	  Actions.GiveGroup(AI4_Ennemy, utArbaletman, 175, 77, 4, 9, 3);
-	  Actions.GiveGroup(AI4_Ennemy, utHalberdier, 171, 78, 4, 12, 4);		  
-	trigger7Showed := True;
-   end;  
- if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.FogRevealCircle(HUMAN_PLAYER, 173, 108, 2);		
-	Actions.FogRevealCircle(HUMAN_PLAYER, 182, 106, 2);
-    Actions.PlayWAV(HUMAN_PLAYER, 'WarSignal.wav', 1.00);		
-      Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);
-	trigger8Showed := True;
-   end;
- if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    GateLeft_Open;	   	   
-    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
-	trigger9Showed := True;
-   end;
- if (aTriggerId = 10) and (not trigger10Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    GateRight_Open;	   	   
-    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
-	trigger10Showed := True;
-   end;
- if (aTriggerId = 11) and (not trigger11Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	Actions.InteractionMarkerRemove(marker6);
-	trigger11Showed := True;
-   end;
- if (aTriggerId = 12) and (not trigger12Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	Actions.InteractionMarkerRemove(marker5);
-	trigger12Showed := True;
-   end; 
-  if (aTriggerId = 13) and (not trigger13Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
-	trigger13Showed := True;
-   end;   
- if (aTriggerId = 14) and (not trigger14Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Actions.CinematicTalkingHeadWithButtons('vilage.png', '<$12>', '', ['<$13>[]', '<$14>[]'], [1, 2]);
-	trigger14Showed := True;
-   end; 
- if (aTriggerId = 15) and (not trigger15Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.PlayerAllianceChange(HUMAN_PLAYER, AI10_Ally, true, true);
-        Actions.PlayerAllianceChange(HUMAN_PLAYER, AI9_Ally, true, true);
-        Actions.GiveGroup(AI9_Ally, utMilitia, 246, 239, 6, 56, 8);	
-        Actions.GiveGroup(AI9_Ally, utMilitia, 229, 239, 6, 56, 8);	
-		Actions.GiveGroup(AI10_Ally, utMilitia, 131, 248, 0, 40, 7);	
-		Actions.GiveGroup(AI10_Ally, utMilitia, 132, 235, 0, 21, 3);		
-	    Actions.CinematicBegin;
-		Actions.CinematicViewStore;
-	    Actions.CinematicViewSetTo(249, 237, 100, 0.4);
-	    Actions.CinematicEnd;
-		Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
-	trigger15Showed := True;
-   end; 
- if (aTriggerId = 16) and (not trigger16Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	    Actions.CinematicBegin;
-		Actions.CinematicViewStore;
-		Actions.FogRevealCircle(HUMAN_PLAYER, 232, 210, 3);
-	    Actions.CinematicViewSetTo(232, 210, 200, 0.1);
-		WoodenBridgeBlockade_Open
-	    Actions.CinematicEnd;
-		Actions.PlayerMessage(HUMAN_PLAYER, '<$17>', True);
-		
-		Actions.GiveGroup(AI9_Ally, utMilitia, 128, 199, 7, 15, 5);
-		Actions.GiveGroup(AI9_Ally, utBowman, 131, 201, 7, 10, 5);
-		Actions.GiveGroup(AI10_Ally, utMilitia, 108, 201, 0, 15, 5);
-		Actions.GiveGroup(AI10_Ally, utBowman, 108, 207, 0, 10, 5);		
-	trigger16Showed := True;
-   end; 
- if (aTriggerId = 17) and (not trigger17Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.GiveGroup(AI9_Ally, utBowman, 95, 164, 0, 9, 9);
-		Actions.GiveGroup(AI10_Ally, utBowman, 123, 164, 0, 9, 9);
-		Actions.PlayerMessage(HUMAN_PLAYER, '<$21>', True);		
-	trigger17Showed := True;
-   end; 
- if (aTriggerId = 18) and (not trigger18Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	    Actions.FogRevealCircle(HUMAN_PLAYER, 104, 154, 1);	
-	    Actions.FogRevealCircle(HUMAN_PLAYER, 115, 154, 1);			
-	trigger18Showed := True;
-   end; 
- if (aTriggerId = 19) and (not trigger19Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	    Actions.FogRevealCircle(HUMAN_PLAYER, 107, 144, 1);	
-	    Actions.FogRevealCircle(HUMAN_PLAYER, 112, 144, 1);			
-	trigger19Showed := True;
-   end; 
-  if (aTriggerId = 20) and (not trigger20Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.GiveGroup(AI9_Ally, utBowman, 138, 142, 4, 8, 5);	
-	trigger20Showed := True;
-   end;   
-  if (aTriggerId = 21) and (not trigger21Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.GiveGroup(AI9_Ally, utBowman, 122, 120, 4, 8, 5);	
-	trigger21Showed := True;
-   end;       
-   if (aTriggerId = 22) and (not trigger22Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.GiveGroup(AI10_Ally, utBowman, 84, 150, 4, 8, 5);	
-	trigger22Showed := True;
-   end;    
-    if (aTriggerId = 23) and (not trigger23Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-		Actions.GiveGroup(AI10_Ally, utBowman, 99, 120, 4, 8, 5);	
-	trigger23Showed := True;
-   end;      
- if (aTriggerId = 24) and (not trigger24Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-	    Actions.CinematicTalkingHead('Servant8.png', '<$18>', ''); 		
-		Actions.InteractionMarkerRemove(marker9);
-	    Actions.InteractionMarkerRemove(marker10);
-	    Actions.GiveUnit(AI11_EnnemyKing, utSwordsman, 190, 200, 4);		                                    //Add Units to hold mission running
-	trigger24Showed := True;
-   end; 
+  //Remove wall
+  Actions.TerrainObjectRemoveTile(121, 28);
+  Actions.TerrainObjectRemoveTile(121, 29);
+  Actions.TerrainObjectRemoveTile(121, 30);
+  //Open Left side
+  Actions.TerrainObjectSet(118, 31, 0, 51);
+  Actions.TerrainObjectSet(119, 31, 0, 51);
+  //Open Right side
+  Actions.TerrainObjectSet(118, 27, 0, 51);
+  Actions.TerrainObjectSet(119, 27, 0, 51);
+  Actions.FogRevealCircle(HUMAN_PLAYER, 121, 28, 2);
+  marker6 := Actions.InteractionMarkerAdd(itExclamation, 121.5, 29.5);
+  Actions.InteractionMarkerUpdate(marker6, $0000FF, True, 2);
 end;
 
-		   
-		   
+
+procedure WoodenBridgeBlockade_Open;                                                                   //Open the entry on the wooden bridge
+begin;
+  Actions.TerrainObjectRemoveTile(230, 210);
+  Actions.TerrainObjectRemoveTile(231, 210);
+  Actions.TerrainObjectRemoveTile(232, 210);
+  Actions.TerrainObjectRemoveTile(233, 210);
+  Actions.TerrainObjectRemoveTile(234, 210);
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+    FeedPlayer(HUMAN_PLAYER);
+
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$8>', True);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 232, 149, 2);
+    trigger2Showed := True;
+  end;
+
+  if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayWAV(HUMAN_PLAYER, 'HorseRun.wav', 0.2);
+    trigger3Showed := True;
+  end;
+
+  if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$6>', True);
+    trigger4Showed := True;
+  end;
+
+  if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$7>', True);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 235, 92, 1);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 225, 92, 1);
+    trigger5Showed := True;
+  end;
+
+  if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
+    trigger6Showed := True;
+  end;
+
+  if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.InteractionMarkerRemove(marker3);
+    Actions.InteractionMarkerRemove(marker4);
+    Actions.GiveGroup(AI4_Ennemy, utCavalry, 174, 84, 4, 15, 5);
+    Actions.GiveGroup(AI4_Ennemy, utSwordsman, 178, 78, 4, 12, 4);
+    Actions.GiveGroup(AI4_Ennemy, utArbaletman, 175, 77, 4, 9, 3);
+    Actions.GiveGroup(AI4_Ennemy, utHalberdier, 171, 78, 4, 12, 4);
+    trigger7Showed := True;
+  end;
+
+  if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.FogRevealCircle(HUMAN_PLAYER, 173, 108, 2);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 182, 106, 2);
+    Actions.PlayWAV(HUMAN_PLAYER, 'WarSignal.wav', 1.00);
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$10>', True);
+    trigger8Showed := True;
+  end;
+
+  if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    GateLeft_Open;
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    trigger9Showed := True;
+  end;
+
+  if (aTriggerId = 10) and (not trigger10Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    GateRight_Open;
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+    trigger10Showed := True;
+  end;
+
+  if (aTriggerId = 11) and (not trigger11Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.InteractionMarkerRemove(marker6);
+    trigger11Showed := True;
+  end;
+
+  if (aTriggerId = 12) and (not trigger12Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.InteractionMarkerRemove(marker5);
+    trigger12Showed := True;
+  end;
+
+  if (aTriggerId = 13) and (not trigger13Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
+    trigger13Showed := True;
+  end;
+
+  if (aTriggerId = 14) and (not trigger14Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.CinematicTalkingHeadWithButtons('vilage.png', '<$12>', '', ['<$13>[]', '<$14>[]'], [1, 2]);
+    trigger14Showed := True;
+  end;
+
+  if (aTriggerId = 15) and (not trigger15Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerAllianceChange(HUMAN_PLAYER, AI10_Ally, true, true);
+    Actions.PlayerAllianceChange(HUMAN_PLAYER, AI9_Ally, true, true);
+    Actions.GiveGroup(AI9_Ally, utMilitia, 246, 239, 6, 56, 8);
+    Actions.GiveGroup(AI9_Ally, utMilitia, 229, 239, 6, 56, 8);
+    Actions.GiveGroup(AI10_Ally, utMilitia, 131, 248, 0, 40, 7);
+    Actions.GiveGroup(AI10_Ally, utMilitia, 132, 235, 0, 21, 3);
+    Actions.CinematicBegin;
+    Actions.CinematicViewStore;
+    Actions.CinematicViewSetTo(249, 237, 100, 0.4);
+    Actions.CinematicEnd;
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$16>', True);
+    trigger15Showed := True;
+  end;
+
+  if (aTriggerId = 16) and (not trigger16Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.CinematicBegin;
+    Actions.CinematicViewStore;
+    Actions.FogRevealCircle(HUMAN_PLAYER, 232, 210, 3);
+    Actions.CinematicViewSetTo(232, 210, 200, 0.1);
+    WoodenBridgeBlockade_Open
+    Actions.CinematicEnd;
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$17>', True);
+
+    Actions.GiveGroup(AI9_Ally, utMilitia, 128, 199, 7, 15, 5);
+    Actions.GiveGroup(AI9_Ally, utBowman, 131, 201, 7, 10, 5);
+    Actions.GiveGroup(AI10_Ally, utMilitia, 108, 201, 0, 15, 5);
+    Actions.GiveGroup(AI10_Ally, utBowman, 108, 207, 0, 10, 5);
+    trigger16Showed := True;
+  end;
+
+  if (aTriggerId = 17) and (not trigger17Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.GiveGroup(AI9_Ally, utBowman, 95, 164, 0, 9, 9);
+    Actions.GiveGroup(AI10_Ally, utBowman, 123, 164, 0, 9, 9);
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$21>', True);
+    trigger17Showed := True;
+  end;
+
+  if (aTriggerId = 18) and (not trigger18Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.FogRevealCircle(HUMAN_PLAYER, 104, 154, 1);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 115, 154, 1);
+    trigger18Showed := True;
+  end;
+
+  if (aTriggerId = 19) and (not trigger19Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.FogRevealCircle(HUMAN_PLAYER, 107, 144, 1);
+    Actions.FogRevealCircle(HUMAN_PLAYER, 112, 144, 1);
+    trigger19Showed := True;
+  end;
+
+  if (aTriggerId = 20) and (not trigger20Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.GiveGroup(AI9_Ally, utBowman, 138, 142, 4, 8, 5);
+    trigger20Showed := True;
+  end;
+
+  if (aTriggerId = 21) and (not trigger21Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.GiveGroup(AI9_Ally, utBowman, 122, 120, 4, 8, 5);
+    trigger21Showed := True;
+  end;
+
+   if (aTriggerId = 22) and (not trigger22Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+   begin
+        Actions.GiveGroup(AI10_Ally, utBowman, 84, 150, 4, 8, 5);
+    trigger22Showed := True;
+   end;
+
+  if (aTriggerId = 23) and (not trigger23Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.GiveGroup(AI10_Ally, utBowman, 99, 120, 4, 8, 5);
+    trigger23Showed := True;
+  end;
+
+  if (aTriggerId = 24) and (not trigger24Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.CinematicTalkingHead('Servant8.png', '<$18>', '');
+    Actions.InteractionMarkerRemove(marker9);
+    Actions.InteractionMarkerRemove(marker10);
+    Actions.GiveUnit(AI11_EnnemyKing, utSwordsman, 190, 200, 4);                                            //Add Units to hold mission running
+    trigger24Showed := True;
+  end;
+end;
+
+
 procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
- var
- I: Integer;
+var
+  I: Integer;
   PlayerCamp: array of Integer;
   exchangeInitiated: Boolean;
 begin
   if aTag = 1 then                                                                                             //Aliance NOO --> attack on player
-   begin
-   Actions.PlayerAllianceChange(HUMAN_PLAYER, AI5_Vilage, false, true);
-   end;
-   
-  if aTag = 2 then                                                                                             //Aliance YES 
-   begin
-   Actions.PlayerAllianceChange(HUMAN_PLAYER, AI5_Vilage, true, true);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI9_Ally, true, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI10_Ally, true, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI2_Ennemy, false, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI3_Ennemy, false, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI4_Ennemy, false, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI6_Ennemy, false, false);     
-   Actions.PlayerAllianceChange(AI5_Vilage, AI7_Ennemy, false, false);  
-   Actions.PlayerAllianceChange(AI5_Vilage, AI8_Ennemy, false, false);
-   Actions.PlayerAllianceChange(AI5_Vilage, AI11_EnnemyKing, false, false);
-   Actions.CinematicTalkingHead('vilage.png', '<$15>', '');  
-   end;
+    Actions.PlayerAllianceChange(HUMAN_PLAYER, AI5_Vilage, false, true);
+
+  if aTag = 2 then                                                                                             //Aliance YES
+  begin
+    Actions.PlayerAllianceChange(HUMAN_PLAYER, AI5_Vilage, true, true);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI9_Ally, true, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI10_Ally, true, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI2_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI3_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI4_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI6_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI7_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI8_Ennemy, false, false);
+    Actions.PlayerAllianceChange(AI5_Vilage, AI11_EnnemyKing, false, false);
+    Actions.CinematicTalkingHead('vilage.png', '<$15>', '');
+  end;
 end;
 
 
-
- procedure OnMissionStart(aPlayer, aX, aY :Integer);
+procedure OnMissionStart(aPlayer, aX, aY :Integer);
 begin
- GiveAllUnits(HUMAN_PLAYER, 208, 24);
+  GiveAllUnits(HUMAN_PLAYER, 208, 24);
   GuardUnit_1 := States.UnitAt(235, 92);
   CastleGuard_1 := States.UnitAt(104, 154);                                                                   //On the bridge Left Guard
   CastleGuard_2 := States.UnitAt(115, 154);                                                                   //On the bridge Right Guard
-  CastleGuard_3 := States.UnitAt(107, 144);                                                                   //Inside the castle Left Guard  
+  CastleGuard_3 := States.UnitAt(107, 144);                                                                   //Inside the castle Left Guard
   CastleGuard_4 := States.UnitAt(112, 144);                                                                   //Inside the castle Right Guard
 
-  
   Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, AI5_Vilage, true, false);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, AI10_Ally, true, false);
   Actions.PlayerAllianceChange(HUMAN_PLAYER, AI9_Ally, true, false);
   Actions.PlayerAllianceChange(AI5_Vilage, AI2_Ennemy, true, false);
-  Actions.PlayerAllianceChange(AI5_Vilage, AI3_Ennemy, true, false);  
-  Actions.PlayerAllianceChange(AI5_Vilage, AI4_Ennemy, true, false);     
+  Actions.PlayerAllianceChange(AI5_Vilage, AI3_Ennemy, true, false);
+  Actions.PlayerAllianceChange(AI5_Vilage, AI4_Ennemy, true, false);
   Actions.PlayerAllianceChange(AI5_Vilage, AI6_Ennemy, true, false);
-  Actions.PlayerAllianceChange(AI5_Vilage, AI7_Ennemy, true, false);  
+  Actions.PlayerAllianceChange(AI5_Vilage, AI7_Ennemy, true, false);
   Actions.PlayerAllianceChange(AI5_Vilage, AI8_Ennemy, true, false);
-  Actions.PlayerAllianceChange(AI5_Vilage, AI11_EnnemyKing, true, false); 
+  Actions.PlayerAllianceChange(AI5_Vilage, AI11_EnnemyKing, true, false);
   marker1 := Actions.InteractionMarkerAdd(itExclamation, 235.5, 92.5);
   marker2 := Actions.InteractionMarkerAdd(itExclamation, 225.5, 92.5);
   marker3 := Actions.InteractionMarkerAdd(itExclamation, 173.5, 108.5);
@@ -423,11 +437,10 @@ begin
   marker8 := Actions.InteractionMarkerAdd(itExclamation, 115.5, 154.5);
   marker9 := Actions.InteractionMarkerAdd(itExclamation, 107.5, 144.5);
   marker10 := Actions.InteractionMarkerAdd(itExclamation, 112.5, 144.5);
- end; 
+end;
 
- 
- 
- procedure CheckCinematic(aTick: Integer);
+
+procedure CheckCinematic(aTick: Integer);
 begin
   if aTick = 5 then
   begin
@@ -440,21 +453,21 @@ begin
   end;
 
   if aTick = 10 then
-	Actions.CinematicSubtitle('<$2>');
+    Actions.CinematicSubtitle('<$2>');
 
   if aTick = 70 then
-	Actions.CinematicSubtitle('<$3>');
+    Actions.CinematicSubtitle('<$3>');
 
   if aTick = 100 then
-	Actions.CinematicSubtitle('<$4>');	
+    Actions.CinematicSubtitle('<$4>');
 
   if aTick = 120 then
-  	Actions.PlayWAV(HUMAN_PLAYER, 'ToVictory.wav', 1.0);	
-		
+    Actions.PlayWAV(HUMAN_PLAYER, 'ToVictory.wav', 1.0);
+
   if aTick = 160 then
     Actions.CinematicFadeOut(0.2);
 
-  if aTick = 170  then
+  if aTick = 170 then
   begin
     Actions.CinematicBarsHide;
     Actions.CinematicViewRevert;
@@ -462,36 +475,37 @@ begin
   end;
 
   if aTick = 180 then
-  begin
     Actions.CinematicEnd;
-  end;
 end;
 
 
 procedure OnTick(aTick: Integer);
 begin
-	CheckCinematic(aTick);  
-	  
-	if aTick = 100 then 
-    Actions.InteractionMarkerUpdate(marker1, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker2, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker3, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker4, $0000FF, True, 1.8);
-    Actions.InteractionMarkerUpdate(marker7, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker8, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker9, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker10, $0000FF, True, 1.8);
+  CheckCinematic(aTick);
 
- if aTick mod 9000 = 0 then
-   FeedPlayer(AI2_Ennemy);
-   FeedPlayer(AI3_Ennemy);
-   FeedPlayer(AI4_Ennemy);
-   FeedPlayer(AI5_Vilage);
-   FeedPlayer(AI6_Ennemy);
-   FeedPlayer(AI7_Ennemy);   
-   FeedPlayer(AI8_Ennemy);
-   FeedPlayer(AI9_Ally);
-   FeedPlayer(AI10_Ally);   
-   FeedPlayer(AI11_EnnemyKing); 
-  
+  if aTick = 100 then
+  begin
+    Actions.InteractionMarkerUpdate(marker1, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker2, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker3, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker4, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker7, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker8, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker9, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker10, $0000FF, True, 1.8);
+  end;
+
+  if aTick mod 9000 = 0 then
+  begin
+    FeedPlayer(AI2_Ennemy);
+    FeedPlayer(AI3_Ennemy);
+    FeedPlayer(AI4_Ennemy);
+    FeedPlayer(AI5_Vilage);
+    FeedPlayer(AI6_Ennemy);
+    FeedPlayer(AI7_Ennemy);
+    FeedPlayer(AI8_Ennemy);
+    FeedPlayer(AI9_Ally);
+    FeedPlayer(AI10_Ally);
+    FeedPlayer(AI11_EnnemyKing);
+  end;
 end;
