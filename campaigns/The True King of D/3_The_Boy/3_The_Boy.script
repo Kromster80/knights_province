@@ -12,14 +12,15 @@ var
 
   trigger4Showed: Boolean;
   trigger5Showed: Boolean;
-  trigger6Showed: Boolean; 
-  trigger7Showed: Boolean; 
+  trigger6Showed: Boolean;
+  trigger7Showed: Boolean;
   trigger8Showed: Boolean;
   trigger9Showed: Boolean;
 
   triggerFound: Boolean;
   victoryTick: Integer;
   objective1: Integer;
+
 
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
 begin
@@ -86,7 +87,6 @@ end;
 procedure OnMissionStart;
 begin
   Actions.PlayerMessage(PLAYER_HAND, '<$1>', True);
- 
   objective1 := Actions.PlayerObjectiveAdd(PLAYER_HAND, otMain, 0, osActive, '<$10>');
 end;
 
