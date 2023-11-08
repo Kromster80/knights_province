@@ -1,5 +1,55 @@
 ****************************************************
 **************|  Campaign version:  |***************
+*********************|  1.2  |**********************
+****************************************************
+
+07-11-2023
+-----------
+Mission 1 
+* breeder was allowed for training - now his Blocked 
+* fixed message on mission start (Loaves + Ale)
+
+Mission 2
+* add new icon on campaign map (wolf)
+* change objectives colour from blue to yellow
+
+Mission 3
+* change objectives colour from blue to yellow
+
+Mission 4
+* add a new mission Goal (the mission will be lost if the Player is defeated)
+* add names for AI 2/3/4
+* add new objectives texts
+
+Mission 6
+* goldMine was available - now his Blocked 
+* ironMine was available - now his Blocked 
+
+Mission 7
+* add defence positions for AI7
+
+Mission 8
+* add objectives for win conditions
+* add names for AI 2/3/4/5
+
+Mission 9
+* made the mission a bit easier. Two Units Groups have been added for the player
+* add names for AI 2/3/4/5/6/7/8/9/10
+* change objectives colour to yellow
+* fixed objectives Active/Hidden
+
+Mission 10
+* add new mission 10
+
+Mission 11
+* add new mission 11
+
+Mission 12
+* add new mission 12
+
+
+****************************************************
+**************|  Campaign version:  |***************
 *********************|  1.1  |**********************
 ****************************************************
 

@@ -1,0 +1,200 @@
+﻿0:Kinghts Dzapan
+1:We are nearing the Royal Capital. |The most fertile lands are concentrated here and also there are mountains rich of resources. |These lands are the most dangerous place in the whole kingdom and many enemy towns are situated near, so be wary and cautious.
+2:Somewhere in the northwest is a small village with mercenaries, who can do anything for the right ammount of gold. |We should look for it, so we might have a chance to recruit a few of their soldiers.
+3:find the village with mercenaries
+4:Village of the mercenaries
+5:It's time to think about the decisive battle. Send a spy, so he can draw a map for the next mission.
+6:A spy has been sent
+7:Our spy has returned with the maps and knowledge of surroudings near the castle. |From this information we conclude that the next mission is completely dependent on the outcome of this mission! |All of the resources in the lands around the Royal Castle are completely depleted. |To win in the next battle we need a huge Army, which we can make using the richness of these lands. ||Gather and train a great Army, with which we will march on to the next mission.
+8:Train an Army before the end of this mission.
+9:Traps! |We found ourselves in the field full of traps, from which we must get out of as fast as we can.
+10:You scumbag! |You think that you, you can defeat me...
+11:We found some of the enemy supplies. Let's take them to our base.
+12:Defeat all enemies
+13:Enemy
+14:Nalgene D.Jabr
+
+
+WATERFALL - General Kowalik
+----------------------------
+30:Welcome!
+31:Hmm... something/someone is there.
+32:We waited for you... long, very long time!
+33:Who are you?
+34:We are a secret formation of the chieftain Nalgene Stein. |We were hiding in that waterfall for a very long time, awaitng your arrival.
+35:My father's military formation?
+36:Yes.|| We hid and protected your father. |My name is General Kwalik. |After his death we stayed in the shadow of the world, awaitng your coming with hope. |Now our soldiers belong to you. Service by your side is a gift, my Lord.
+37:Should we trust them? Maybe it's a trap? ||Trust them?
+38:YES
+39:In the name of true king!||To battle!
+40:NO
+41:Your decision saddens us deeply, but we will fulfill your will. ||Farewell my lord.
+
+
+MERCENAR VILLAGE - General Malkowski
+-------------------------------------
+50:Welcome adventurer, what brings you to our small village? I hope you are not looking for trouble?
+51:I look for soldiers eager to fight.
+52:Eager to fight you say... |Those are plenty over here, just look around the village and ask the folk people, of course only if you have something valuable to offer ha ha ha...
+
+55:Hello stranger, will your drink some beer with us?
+56:Hello there, beer hmm...
+57:Drink some
+58:For those like you giving beer is a waste. Get lost!
+59:No thanks
+60:In that case piss off!
+
+64:10 gold
+65:Welcome, |You look like a warrior, would you like to join my Army?
+66:Hi! |Your Army? And where is that army? I don't see any army here...
+67:The Army awaits beside the gates of my town. |I look for warriors just like you, will you join us?
+68:Maybe yes, maybe no, it all depends on what you have to offer
+69:I can offer you 10 gold!
+70:Ok, I'll take it, but the choice is yours to make. |||Pay:
+71:10 gold! You fool, you really thought we would let you march into our lands?
+72:Just kidding, no one from my vassals will join your wicked "Army". |I will take that gold of yours as a payment for entry into our town. |You've got 5 min and after that you better be gone!
+73:We didn't receive your gold, you traitor! |I suspected you want to cheat me, now prepare to die!
+74:20 gold
+
+75:Stop, hold right there! |What is a scumbag like you doing in our quarters?
+76:I am looking for allies to fight with my enemy
+77:With your enemy... And who is your enemy?
+78:It's the present king, a traitor and murderer...
+79:Our beloved king. ||It just so happens that our biggest donator is the king himself.
+80:...
+81:So... ||You are lucky I'm a fair man. |If you pay us 50 gold, we will let you go. If not, then you are coming out of here in a bag.
+82:Don't pay
+83:Die!
+84:Pay 50 gold
+85:Farewell.
+86:We didn't receive your gold, sod off!
+
+90:Salut young soldier
+91:Hello |You look like a veteran
+92:Yes, I was serving for a good purpose, but those are days of the past.
+93:Would you like to help us in a fight against the Tyran?
+94:Tyran... Haven't heard in a long time about any tyran, who is it?
+95:It's the King!
+96:King you say... |I don't understand, can you tell me more about it?
+97:I guess I have nothing to loose. |I will tell you something that only a few know about! |Long, long time ago, royal family killed the rightfull heir and took over the control over the kingdom, also making sure that this whole story is erased from memory.
+98:Silence!
+99:...?
+100:Say nothing more. ||"whisper" Listen boy, I am one of the three generals of your father.
+101:You are what...?
+102:You heard that right, me and other two generals hid in these lands after the death of your father.
+103:Why here?
+104:These village is the best hiding spot in all of the kingdom. |You remember the old saying, "In jaws...
+105:...of a bear no one ever looks"
+106:I'll tell you a secret, but promise that you won't tell anyone about it. |I, General Małkowski, was the right hand of your Father and with me, commanding two other formations, were the generals Kwalik and Slew.
+107:I didn't know that Father possesed such forces.
+108:Now, when you know the whole truth, me and my loyal soldiers will be under your command. |Please, take us with you.
+109:OK
+
+
+
+MYSTERIOUS FOREST - Gen. Slew 
+-------------------------------------
+110:Welcome traveler, do you realise that you came to one of the oldest and most mysterious places in this country, the Forest of Suicides? |It is the last natural and primordial forest on this continent, that has remained unchanged for thousands of years. ||Anyone who enters it, never returns.
+111:I need to study this place.
+112:I'll tell you a secret. To survive and make it through, you need to solve some riddles.
+113:Riddles? What are you talking about?
+114:Hahaha... ||Good luck
+
+120:Hello weirdo.
+121:Weirdo is who you are! |Get out of my way
+122:Riddle, just a small riddle...
+123:Whats this all about... I said, get out of my way!
+124:You came to a forest full of riddles, so it's time to play. Solve the riddle and... ||Riddle number I ||It always comes, but it won't come today. What is it?
+125:Forest
+126:Bad answer, your adventure ends here, you can't go any further.
+127:Tomorrow
+128:Yes, this is the right answer, you can pass
+129:Soldier
+130:Wrong answer, the path remains blocked.
+
+135:Hey, hey stranger, you can be heard from miles away. Why are you so loud?
+136:Me loud... Another whiner.
+137:Riddle, just a small riddle... ||How will you call a certain wizard, who uses flame to connect the iron?
+138:Carpenter
+139:Wrong answer - turn around!
+140:Miner
+141:You were close, but... Go away!
+142:Builder
+143:Wrong answer, the path remains blocked
+144:Smith
+145:This is the right answer, you can pass.
+
+150:Stop! I am the guardian of this forest, who are you?
+151:It's none of your bussiness.
+152:None of my bussiness you say? Then you give me no choice! You can't go any further.
+153:Explorer
+154:In that case find some other places to "Explore"
+157:Future King
+158:Future king? There were plenty of that kind here. |You don't seem to me like a person, who could rule a kingdom.
+159:I ventured whole country to get to this little corner of the earth. If you don't want to believe me then don't.
+160:Alright. I don't know why, but my intuition tells me I can trust you. |I just need you to answer my last question. If your answer will be correct, then the way ahead will be open for you. ||What was the name of the Hero and General, who fought for protection of every civilian?
+163:Gen. Sasin
+164:Sasin... |The murdered and rapist! Begone with you.
+165:Gen. Prex
+166:This is wrong answer. |I can't let you go any further.
+167:Gen. Slew
+168:Yes! |Let the strengh and wisdom always be with you.
+169:Gen. Tion
+170:General by that name never existed. |I was wrong about you, leave our forest immediately.
+171:Adieu young one
+
+175:Who are you and how did you get here? |Speak fast or else my sword will taste your blood!
+176:I am... |Hmm... Is there even any sense in answering that...
+177:Disregard
+178:In that case you'll feel the sharpness of my sword!
+179:Answer
+180:Good! |My name is Nalgene D.Jabr, I am the son of Nalgene D.Stein, the rightful ruler of the kingdom.
+181:You said D... are you aware of what you just said?
+182:Yes, I know the meaning of that.
+183:I can't believe, this is impossible... |Are you him? Truly him... son of Master Stein?
+184:Yes, it is who I am.
+185:Unbelievable, at last!
+186:Ok now, so what your plan, why did you came here?
+187:I came here because:
+188:I wanted to explore this forest
+189:I understand. Remember, the future of the kingdom is in your hands!
+190:I look for allies
+191:Hmm... |Do you know what were the last words of your father? ||"Friends, I leave you, but hope shall never leave you. Await my son, he will come and lead you"
+192:Friends? Who was he talking about?
+193:Your father said this to us: |- General Kowalik |- General Małkowski |and me - General Slew
+194:For a very, very long time we hid in this forest, but now is the time to finally make our move. |From now on our forces will be under your command. Let's fight!
+195:Let's fight!
+
+
+CEMETERY 
+-------------------------------------
+200:Cementery of banished souls
+201:Cementery of banished souls. ||In this place are the graves of forgotten soldiers. The story goes that to this day this souls haunt their murderers. ||Let's visit and honor the fallen troops.
+203:                              R.I.P ||* Viceadmiral Gonig ...        ||* Commander of the III Army          ||* Died in the battle for Aros    |||''Man with a heart made from stone, rest in peace''
+204:                              R.I.P ||* Colonel Drong ...          ||* Commander of the II regiment          ||* Died at Gedor           |||''...''
+205:                              R.I.P ||* Private Brin               ||* ...                       ||* Died at battle for Aros
+206:                              R.I.P ||* Unknown soldier            ||* ...                       ||* Died in the battle for Brillon
+207:                              R.I.P ||* commander-in-chief       ||* ...                       ||* ...                       |||''A man truly devoted to the army'
+208:                              R.I.P ||* Unknown soldier            ||* Commander of the IV regiment          ||
+209:                              R.I.P ||* ... Weg                      ||* ...                       ||* Died at Gedor
+210:                              R.I.P ||* Private Fed ...            ||* ...
+211:                              R.I.P ||* Private First Class Gordon ... ||* ...                       ||* ...                       |||''Gord – rest in peace.''
+212:                              R.I.P ||* Private Dock ...           ||* ...                       ||* Died in the battle for Brillon |||''Known as the elusive Eagle''
+213:                              R.I.P ||* Private First Class Fant ...   ||* ...                       ||* Died at Net             |||''The fate of man is unknown''
+214:                              R.I.P ||* Private Mei                ||* Soldier of the II Army
+215:                              R.I.P ||* Lieutenant Down               ||* Soldier of the II Army
+216:                              R.I.P ||* Lieutenant Moddel             ||* Soldier of the III Army
+217:                              R.I.P ||* Private First Class Kluster    ||* Soldier of the II Army
+218:                              R.I.P ||* Private Dard               ||* Soldier of the II Army
+219:                              R.I.P ||* Colonel Serowsky           ||* Soldier of the I Army
+220:                              R.I.P ||* Vice General Fish             ||* ...                       ||* Died at Aros             ||''I found my peace''
+221:                              R.I.P ||* Second Lieutenant Haber           ||* Soldier of the I Army
+222:                              R.I.P ||* Major Faroc                  ||* Soldier of the III Army         ||* Died at the battle for Brillon
+223:                              R.I.P ||* Lieutenant Colonel Ribor           ||* Commander of the I regiment           ||* Died at the battle for Aros
+224:                              R.I.P ||* Private First Class Spak       ||* Soldier of the III Army
+225:                              R.I.P ||* Captain Pinsen               ||* Soldier of the III Army         ||* Died at the battle for Brillon
+226:                              R.I.P ||* Private Dorsten            ||* ...
+227:                              R.I.P ||* Corporal Mozyl                 ||* Soldier of the III Army         ||* Died at the battle for Gedor
+228:                              R.I.P ||* Private First Class Hux        ||* Soldier of the I Army           ||* Died at the battle for Gedor
+229:                              R.I.P ||* Sergeant Swap                ||* Soldier of the III Army         ||* Died at the battle for Brillon
+230:                              R.I.P ||* Sergeant Ward                ||* ...

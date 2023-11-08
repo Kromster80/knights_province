@@ -5,22 +5,33 @@
 
 const
   HUMAN_PLAYER = 0;
+  ENEMY_1 = 1;
 
+
+var
+  objEnemyArmy, objEnemyCity, objAllyVilage: Integer;
+  
+  
 procedure OnMissionStart;
 begin
-  Actions.CinematicTalkingHead('servant2.png', '<$1>', '');
+  Actions.CinematicTalkingHead('servant2.png', '<$1>', '');    //Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+
+  objEnemyArmy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$6>');	 
+  objEnemyCity := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$7>');
+  objAllyVilage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$8>');
 end;
 
 procedure OnTick(aTick: Integer);
 begin
   if aTick = 60 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
-
-  if aTick = 600 then
+	
+	  if aTick = 600 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$4>', True);
-
-  if aTick = 3600 then
+	
+		  if aTick = 3600 then
     Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
+
 end;
 
 

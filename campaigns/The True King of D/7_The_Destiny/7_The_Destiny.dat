@@ -233,7 +233,7 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 0 0
+!ADD_GOAL 0 0 0 0 0
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -693,6 +693,9 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
 !SET_AI_CHARACTER BUILDERS_COUNT 3
 
+// Dispositions
+!SET_AI_DEFENCE 111 3 0 1 10 -1 9 3 // melee
+
 // Alliances
 !SET_ALLIANCE 0 0
 !SET_ALLIANCE 1 1
@@ -1034,4 +1037,4 @@
 !SET_OBJECT_CAPTION 67 132 0 3 1
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12946 (2023.04.30 16:14)"  on 01.05.2023 23:00:26
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r13944 (2023.10.31 17:22)"  on 06.11.2023 21:05:45

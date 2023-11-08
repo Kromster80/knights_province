@@ -17,9 +17,10 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 1 1
-!ADD_GOAL 0 1 1 1 1
-!ADD_GOAL 1 0 0 2 1
+!ADD_GOAL 0 0 0 1 0
+!ADD_GOAL 0 1 0 1 0
+!ADD_GOAL 1 0 0 2 0
+!ADD_GOAL 1 0 0 0 0
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -91,8 +92,8 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 0 0
-!ADD_GOAL 0 0 1 2 0
+!ADD_GOAL 0 0 0 0 0
+!ADD_GOAL 0 0 0 2 0
 
 // AI
 !SET_AI_AUTO_REPAIR
@@ -771,4 +772,4 @@
 !SET_EMITTER 6 51 108 // terrain_wall_of_fog
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r13116 (2023.06.10 18:40)"  on 10.06.2023 19:01:30
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r13944 (2023.10.31 17:22)"  on 07.11.2023 19:00:43

@@ -1,0 +1,81 @@
+﻿0:Kinghts Dzapan
+1:We have reached the final act of our Story. |Ahead of us are huge fortifications and the treacherous troops of the false King. |The walls have never been breached by any Army of the World! |This feat is almost impossible... and fortified positions are guarded by the traitor's best troops. ||In the face of challenges, we must count on a real miracle.
+2:Soldiers, I am Nalgene D.Jabr, the long-awaited time has come to rid the country of tyranny!
+3:May your heart, strength and faith be with you.
+4:to Attack!
+5:
+6:The first fortified enemy position is ahead of us.
+7:We need to find a way to open this gate.|It looks like the guards are keeping the gate closed.
+8:Loros Bridge |you can clearly see that the thug's soldiers are guarding something. |Let's check it out!
+9:Royal Granary! |The entire country's supplies are located in this place. |Let's use food supplies to feed our troops.
+10:Enemy observation post |Let's quickly destroy their positions so that they won't be able to call in reinforcements.
+11:Defensive wall with towers. |This looks very suspicious, you can sense some kind of ambush here.
+*the gate opens if we stand on the left position aX -> the right one opens and vice versa. (The center does not open at all)
+12:Stop! We want to offer you an alliance.
+13:Reject the alliance
+14:Accept an alliance
+15:It's time to deal with the bastard! |Soldiers to Fight!
+16:People from all over the kingdom have come to help us! |At this time more than ever, we need their help. |Rush and support them to break the enemy's position.
+17:The Peasants have erected a blockade connecting the bridge to the Royal Granary! Let's take advantage of this and feed our troops again before the decisive attack.
+18:The king has barricaded himself in his chamber |Let destroy first all the troops on the walls and castle, when we have squandered them, then we will deal with the cowardly traitor! ||The Day of Judgment has come.
+19:Finally, this coward and villain has appeared, it's time to change the History. |Kill the traitor and regain your family's honour!
+20:The lousy king came out of his hole! |[$00ffff]This is the end of our adventure, I hope you had a nice time playing the campaign.[] ||[$808080]Special thanks to:[] [$00ff00]Krom[] |[$808080]Campaign Creator: [] [$00ff00]Kinghts Dzapan[] |[$808080]Scripts:[] [$00ff00]Kinghts Dzapan, Krom[] |[$808080]Translations:[] |[$00ff00]ENG - Kinghts Dzapan, Mantades[] |[$00ff00]PL - Kinghts Dzapan[] |[$808080]World Map:[] [$00ff00]Kinghts Dzapan[] |[$808080]Dialogue graphics:[] [$00ff00]Kinghts Dzapan[] ||[$808080]The scenario for the campaign was written in 2019 |The campaign was created from January 2021 to December 2023. |Personally, I had a lot of fun creating campaigns for KP.[] |||[$0000ff]Be well, soldier![]
+21:Unfortunately, the tyrant managed to rebuild the fortress, which will make our task more difficult, remember, hope dies last.
+22:Enemy
+23:Nalgene D.Jabr
+24:Peasants
+
+100:Loros Bridge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************************************************************
+***********************************************************************************************************************************************
+*********                                                                                                                            **********
+*********  To complete this mission, we must collect minimum 200 crossbowmen and about 100-150 heavy units in the previous mission.  **********
+*********                                                                                                                            **********
+***********************************************************************************************************************************************
+***********************************************************************************************************************************************

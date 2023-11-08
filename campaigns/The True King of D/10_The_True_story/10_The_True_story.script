@@ -1,0 +1,305 @@
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+// Kinghts Dzapan
+
+
+const
+  HUMAN_PLAYER = 0;
+  Player7_HorseScout = 6;
+  Player8_HideAtack = 7;
+  Player9_HorseScout = 8;
+  Player10_HideAtack = 9;
+  ENEMY_1 = 1;
+  PATROL_COUNT = 5;                                              // Number of waypoints in patrol route
+  PATROL_COUNT_2 = 9;                                            // Number of waypoints in patrol route
+  
+var
+  PlayerCamp, ObjMine, ObjDestroy, ObjMineComplet: Integer;
+  ObjCheckBridge, ObjFight, ObjLastEnnemy: Integer;
+  ObjSmallVillage: Integer;
+  patrolGroup, patrolGroup2: Integer;                            // Group that will do the patroling
+  patrolTarget, patrolTarget2: Integer;                          // Current patrol waypoint
+  patrolPoints: array [0..PATROL_COUNT-1] of TKMPoint;           // Waypoints
+  patrolDirection: array [0..PATROL_COUNT-1] of Integer;         // Direction to look at at each waypoint
+  patrolPoints2: array [0..PATROL_COUNT_2-1] of TKMPoint;        // Waypoints
+  patrolDirection2: array [0..PATROL_COUNT_2-1] of Integer;      // Direction to look at at each waypoint
+  trigger1Showed: Boolean;                                       // 
+  trigger2Showed: Boolean;                                       // Attack after cross the stone 
+  trigger3Showed: Boolean;
+  trigger4Showed: Boolean;                                        
+  trigger5Showed: Boolean;
+  trigger6Showed: Boolean;
+  trigger7Showed: Boolean;
+  trigger8Showed: Boolean;                                        
+  trigger9Showed: Boolean;
+  trigger10Showed: Boolean;
+  trigger11Showed: Boolean;
+
+
+
+
+procedure PatrolToNextPoint;                                       //Patrol Units 1 + 2
+var
+  P,P2: TKMPoint;
+  D,D2: Integer;
+begin
+  // Advance to next waypoint (in a loop)
+  patrolTarget := (patrolTarget + 1) mod PATROL_COUNT;
+  patrolTarget2 := (patrolTarget2 + 1) mod PATROL_COUNT_2;
+  
+  P := patrolPoints[patrolTarget];
+  D := patrolDirection[patrolTarget];
+  P2 := patrolPoints2[patrolTarget2];
+  D2 := patrolDirection2[patrolTarget2];
+  
+  Actions.GroupOrderWalk(patrolGroup, P.X, P.Y, D);
+  Actions.GroupOrderWalk(patrolGroup2, P2.X, P2.Y, D2);
+end;
+  
+  
+procedure OnMissionStart;
+begin
+  ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$31>');
+  ObjMine := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$32>');
+  ObjMineComplet := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$33>');
+  ObjCheckBridge := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 3, osHidden, '<$34>');
+  ObjFight := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 4, osHidden, '<$35>');
+  ObjLastEnnemy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 5, osHidden, '<$36>');
+  ObjSmallVillage := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 6, osHidden, '<$37>');
+
+  // Get the group
+  patrolGroup := States.GroupAt(243, 72);                         // Initialize waypoints
+  patrolPoints[0].X := 243; 
+  patrolPoints[0].Y := 72;
+  patrolDirection[0] := 4; 
+
+  patrolPoints[1].X := 220; 
+  patrolPoints[1].Y := 117;
+  patrolDirection[1] := 4; 
+
+  patrolPoints[2].X := 175; 
+  patrolPoints[2].Y := 130;
+  patrolDirection[2] := 4; 
+
+  patrolPoints[3].X := 150; 
+  patrolPoints[3].Y := 64;
+  patrolDirection[3] := 4;
+
+  patrolPoints[4].X := 176; 
+  patrolPoints[4].Y := 39;
+  patrolDirection[4] := 4; 
+
+
+
+  patrolGroup2 := States.GroupAt(45, 105);                        // Initialize waypoints
+  patrolPoints2[0].X := 45; 
+  patrolPoints2[0].Y := 105;
+  patrolDirection2[0] := 0; 
+  
+  patrolPoints2[1].X := 14; 
+  patrolPoints2[1].Y := 89;
+  patrolDirection2[1] := 0; 
+
+  patrolPoints2[2].X := 21; 
+  patrolPoints2[2].Y := 28;
+  patrolDirection2[2] := 2; 
+  
+  patrolPoints2[3].X := 35; 
+  patrolPoints2[3].Y := 19;
+  patrolDirection2[3] := 3; 
+  
+  patrolPoints2[4].X := 39; 
+  patrolPoints2[4].Y := 74;
+  patrolDirection2[4] := 0;
+
+  patrolPoints2[5].X := 52; 
+  patrolPoints2[5].Y := 50;
+  patrolDirection2[5] := 1; 
+  
+  patrolPoints2[6].X := 136; 
+  patrolPoints2[6].Y := 43;
+  patrolDirection2[6] := 3; 
+  
+  patrolPoints2[7].X := 115; 
+  patrolPoints2[7].Y := 44;
+  patrolDirection2[7] := 2; 
+  
+  patrolPoints2[8].X := 67; 
+  patrolPoints2[8].Y := 42;
+  patrolDirection2[8] := 2;
+  
+  PlayerCamp := States.HouseAt(152, 12);
+end;
+
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (not trigger1Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
+     trigger1Showed := True;
+end;
+
+  if (aTriggerId = 2) and (not trigger2Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.GiveGroup(Player8_HideAtack, utCavalry, 67, 40, 2, 9, 3);
+    Actions.GiveGroup(Player8_HideAtack, utCavalry, 67, 45, 2, 9, 3);
+	Actions.GiveGroup(Player8_HideAtack, utCavalry, 63, 42, 2, 9, 3);
+	Actions.GiveGroup(Player8_HideAtack, utSwordsman, 58, 40, 2, 9, 3);
+	Actions.GiveGroup(Player8_HideAtack, utHalberdier, 58, 45, 2, 9, 3);
+	Actions.GiveGroup(Player8_HideAtack, utArbaletman, 43, 36, 2, 10, 5);
+    Actions.GiveGroup(Player8_HideAtack, utArbaletman, 51, 47, 2, 10, 5);
+	trigger2Showed := True;
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osCompleted);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osHidden);
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMine, osHidden);
+end;
+
+  if (aTriggerId = 3) and (not trigger3Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$7>', True);
+     trigger3Showed := True;
+end;
+
+  if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osHidden);
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCheckBridge, osActive);
+	trigger4Showed := True;
+end;
+
+  if (aTriggerId = 5) and (not trigger5Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCheckBridge, osHidden);
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjFight, osActive);
+     trigger5Showed := True;
+end;
+
+  if (aTriggerId = 6) and (not trigger6Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+   Actions.PlayerMessage(HUMAN_PLAYER, '<$8>', True);
+   Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjFight, osHidden);
+   Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjLastEnnemy, osActive);
+    trigger6Showed := True;
+end;
+
+  if (aTriggerId = 7) and (not trigger7Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+   Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
+   Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjLastEnnemy, osHidden);  
+   Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjSmallVillage, osActive);
+    trigger7Showed := True;
+end;
+
+  if (aTriggerId = 8) and (not trigger8Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.CinematicTalkingHead('Metalarmor.png', '<$13>', '');
+	Actions.CinematicTalkingHead('servant6.png', '<$14>', '');
+     trigger8Showed := True;
+end;
+
+  if (aTriggerId = 9) and (not trigger9Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.CinematicTalkingHead('Sword.png', '<$15>', '');
+     trigger9Showed := True;
+end;
+
+  if (aTriggerId = 10) and (not trigger10Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.CinematicTalkingHead('Metalarmor2.png', '<$16>', '');
+     trigger10Showed := True;
+end;
+
+  if (aTriggerId = 11) and (not trigger11Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+begin
+    Actions.CinematicTalkingHead('Arbalet.png', '<$17>', '');
+	Actions.CinematicTalkingHead('servant6.png', '<$18>', '');
+     trigger11Showed := True;
+end;
+ end;
+
+
+
+procedure OnHouseDestroyed(aHouse: Integer; aDestroyerIndex: Integer);
+begin
+ if aHouse = PlayerCamp then
+   begin
+	 Actions.CinematicBegin;
+      Actions.CinematicViewSetTo(132, 55, 320, 0.15)
+       Actions.CinematicEnd;
+        Actions.PlayerMessage(HUMAN_PLAYER, '<$6>', True);
+         Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osCompleted);
+	      Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMine, osCompleted);
+		   Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osActive);
+         end;
+end;
+
+	   
+
+procedure Feed;
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(Player9_HorseScout);  
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin  
+   
+  if aTick = 9000 then                                                               //15min 
+   Actions.GiveGroup(Player8_HideAtack, utHorsescout, 250, 139, 5, 6, 3);            //Attack Scout
+	
+  if aTick = 18000 then                                                              //30min 
+   Actions.GiveGroup(Player8_HideAtack, utAxeFighter, 156, 173, 2, 6, 3);            //Attack Landing troops
+
+  if aTick = 27000 then                                                              //45min 
+   Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);               //Attack Bowman's
+   
+  if aTick = 36000 then                                                              //60min 
+   Actions.GiveGroup(Player8_HideAtack, utPikeman, 250, 200, 5, 12, 4);              //Attack Pikeman
+   
+  if aTick = 48000 then                                                              //1:20h 
+   Actions.GiveGroup(Player8_HideAtack, utAxeFighter, 156, 173, 2, 9, 3);            //Attack Landing troops
+
+  if aTick = 54000 then                                                              //1:30h 
+   Actions.GiveGroup(Player8_HideAtack, utHorsescout, 250, 139, 5, 9, 3);            //Attack Scout
+  
+  if aTick = 63000 then                                                              //1:45h 
+   Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);               //Attack Bowman's
+   
+  if aTick = 72000 then begin                                                        //2h 
+   Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);               //Attack Bowman's
+    Actions.GiveGroup(Player8_HideAtack, utPikeman, 250, 200, 5, 12, 4);             //Attack Pikeman
+	  end;
+	  
+  if aTick = 84000 then                                                              //2:20h 
+   Actions.GiveGroup(Player10_HideAtack, utBowman, 250, 152, 5, 9, 6);               //Attack Bowman's
+   
+  if aTick = 108000 then begin                                                       //3h
+   Actions.GiveGroup(Player8_HideAtack, utHorsescout, 250, 139, 5, 9, 3);            //Attack Scout
+    Actions.GiveGroup(Player8_HideAtack, utAxeFighter, 156, 173, 2, 8, 4);           //Attack Landing troops
+     Actions.GiveGroup(Player8_HideAtack, utBowman, 170, 183, 2, 9, 6);              //Attack Bowman's
+	  Actions.GiveGroup(Player8_HideAtack, utPikeman, 250, 200, 5, 12, 4);           //Attack Pikeman
+	   end;
+	 
+  if aTick = 18000 then begin                                                        //30min Attack Landing troops
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$4>', True);
+	 Actions.CinematicBegin;
+      Actions.CinematicViewSetTo(156, 173, 240, 0.10)
+       Actions.CinematicEnd;
+	   end;
+	   
+	   
+  
+  if aTick mod 1200 = 1 then                                                         // Every 2 min switch to next waypoint
+    PatrolToNextPoint;
+
+  if aTick mod 9000 = 0 then Feed;
+  
+end;
+

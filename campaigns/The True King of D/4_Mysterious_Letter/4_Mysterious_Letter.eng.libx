@@ -2,8 +2,13 @@
 1:Enemy... what enemy?|What this is about?|What does the ''[$ff8080]D[]'' mean?|Why is our Family on this list?||Athnur... why is Great-Great-Grandfather's Name on this leaves...|Hmm... I do not know what to think about it...
 
 3:This is an Attack!
-4:Protect the neighbouring village on the West.
+4:Protect the neighbouring villag in west.
 5:Bandits are on the northern hill, we can't let him get close to the Castle. |Use the resources of our fertile lands and then destroy the enemy.
 
+6:[$FF00FF]Destroy the Bandit city[]
+7:[$FF00FF]Destroy the Bandit troops[]
+8:[$00ffff]Protect the village in west[]
+
 9:Bandits
-10:The Village
+10:Ally
+

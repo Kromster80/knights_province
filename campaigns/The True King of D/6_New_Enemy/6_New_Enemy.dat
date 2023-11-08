@@ -17,7 +17,7 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 1 1 1 1
+!ADD_GOAL 0 1 0 1 1
 !ADD_GOAL 1 1 0 0 0
 
 // AI
@@ -29,8 +29,12 @@
 !SET_ALLIANCE 1 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 5 // goldMine
 
 // Block units
+!UNIT_BLOCK 5 // miner
 
 // Block orders
 
@@ -216,4 +220,4 @@
 !SET_EMITTER 6 2 17 // terrain_wall_of_fog
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12946 (2023.04.30 16:14)"  on 01.05.2023 21:35:30
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r13944 (2023.10.31 17:22)"  on 06.11.2023 20:59:07

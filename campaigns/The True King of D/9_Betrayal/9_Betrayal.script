@@ -36,7 +36,7 @@ begin
   begin
     Actions.PlayerMessage(HUMAN_PLAYER, '<$3>', True);
     trigger1Showed := True;
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, KingUnits, osCompleted);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, KingUnits, osHidden);
     BuildFort := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$4>');
   end; 
     
@@ -127,7 +127,7 @@ begin
   if (States.StatHouseTypeCount(HUMAN_PLAYER, htCamp) >= 1) then
   begin
     FortBuilt := true;
-	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, BuildFort, osCompleted);
+	Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, BuildFort, osHidden);
 	Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
 	ObjBuildDone := true;
   end;

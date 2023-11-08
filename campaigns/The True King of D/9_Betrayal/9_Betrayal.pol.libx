@@ -1,8 +1,8 @@
-﻿0:<==
+﻿0:Kinghts Dzapan
 1:Królewskie oddziały w natarciu! |Twoi żołnierze pozostały ci wierne i stoją ramie w ramię z nami. |Dziwnym trafem, wojska z sąsiednich rejonów postanowili przyłączyć się do nas.
-2:[$ff0000]Zniszcz Królewskie wojska []
+2:[$00FFFF]Zniszcz Królewskie wojska []
 3:Odwrót! ||Przybyły posiłki Króla, niestety nie jesteśmy w stanie przełamać obrony. ||Wycofaj się na bezpieczną pozycję, a następnie zbuduj osadę, która zapewni ci żołnierzy do przełamania wroga. |Za wszelką cenę chroń swoich żołnierzy, ich utrata oznacza przegraną w wojnie.
-4:[$ff0000]Zbuduj Obóz []
+4:[$00FFFF]Zbuduj Obóz []
 5:Nieopodal znajduje się Hodowla, która oferuje sprzedaż najszybszych koni w całym królestwie. ||Porozmawiaj z Hodowcą stojącym przy Hodowli.
 6:Dzika Hodowla koni.
 7:|Witaj, |oferuję sprzedaż najszybszych koni w całym królestwie |za jedyne 5 złota. ||| Czy jesteś otwarty na Handel? |||||[$C0C0C0]Handel można powtórzyć, otwierając ponownie list.[]
@@ -11,7 +11,7 @@
 10:Niestety, zapasy twojego złota są zbyt małe.
 11:Nie posiadasz Fortu, Koń uciekł!
 12:Zlecenie zakończone, Koń został dostarczony do Fortu.
-13:Zniszcz Królewskie osady
+13:[$00FFFF]Zniszcz Królewskie osady[]
 14:Handluj
 
 17:Górska wioska poddana Królowi ||Bandyci ci, są znani ze strasznych okrucieństw. Król, wysługując się barbarzyńską ludnością, terroryzuje ludzi w całym, królestwie żądając, haraczy. ||Pokonaj barbarzyńskich najemników, spal doszczętnie ich wioskę, a wtedy ludność zazna spokoju.

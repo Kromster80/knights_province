@@ -1,8 +1,8 @@
 ﻿0:Kinghts Dzapan
 1:Royal troops on the move! |Your soldiers have remained loyal to you and stand shoulder to shoulder with us. |By a strange coincidence, troops from neighbouring villages decided to join us.
-2:[$ff0000]Destroy Royal troops []
+2:[$00FFFF]Destroy Royal troops []
 3:Retreat! ||The King's reinforcements have arrived, unfortunately we are unable to break the defence. ||Retreat to a safe position, then build a settlement that will provide you with troops to break through the enemy defence. |Protect your soldiers at all costs, losing them means losing the war.
-4:[$ff0000]Build Camp []
+4:[$00FFFF]Build Camp []
 5:Somewhere nearby there is a Kennel that sells the fastest horses in the whole kingdom. ||Talk to the Breeder standing next to the Breeding.
 6:Wild Horse Breeding.
 7:|Hello, |I'm selling the fastest horses in the whole kingdom |for only 5 gold. ||| Are you open to Trade? |||||[$C0C0C0]The trade can be repeated by reopening the letter.[]
@@ -12,7 +12,7 @@
 10:Unfortunately, your gold supply is too low.
 11:You don't have a Fort, the Horse ran away!
 12:The order is completed, the Horse has been delivered to the Fort.
-13:Destroy the Royal Settlements
+13:[$00FFFF]Destroy the Royal Settlements[]
 14:Trade
 
 17:Mountain village surrendered to the King ||These bandits are known for their terrible atrocities. The king, using the barbarian population, terrorizes people throughout the kingdom, demanding tribute. ||Defeat the barbarian mercenaries, burn their village to the ground, and then the people will find peace.

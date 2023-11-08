@@ -21,7 +21,7 @@ const
 var
   trigger1Showed: Boolean;  //Triger 1 : Found Statue 
   trigger2Showed: Boolean;  //Triger 2 : Fisher House
-  ownCamp, allyCamp: Integer;
+  ObjTarget, ownCamp, allyCamp: Integer;
   ciderDealShown: Boolean;
 
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
@@ -51,6 +51,9 @@ procedure OnMissionStart;
 begin
   ownCamp := States.HouseAt(ownCampX, ownCampY);
   allyCamp := States.HouseAt(allyCampX, allyCampY);
+  
+  ObjTarget := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '[$00FFFF]<$22>');
+
 end;
 
 procedure OnScriptButtonClick(aPlayer, aTag: Integer);

@@ -1,8 +1,7 @@
 procedure OnCampaignMenu;
 var
   I: Integer;
-begin                                            	//Original files => Mission 8-12 Disable. 
-  
+begin                                       
   Actions.CampaignMissionUnlock(0, True);		//First mission of act 1 is always unlocked	
 				
   if States.CampaignMissionWon(1) then			//Mission 1 unlocks Mission 2
@@ -45,60 +44,18 @@ begin                                            	//Original files => Mission 8-
   Actions.CampaignMissionUnlock(9, True);
   end;
 
-
-
-  { if States.CampaignMissionWon(7) then			//Mission 7 unlocks Mission 8
-    begin
-    Actions.CampaignMissionUnlock(8, True);
-    end;
-
-    if States.CampaignMissionWon(8) then			//Mission 8 unlocks Mission 9
-    begin
-    Actions.CampaignMissionUnlock(9, True);
-    end;
-
-    if States.CampaignMissionWon(9) then			//Mission 9 unlocks Mission 10
-    begin
-    Actions.CampaignMissionUnlock(10, True);
-    end;
-
-    if States.CampaignMissionWon(10) then			//Mission 10 unlocks Mission 11
-    begin
-    Actions.CampaignMissionUnlock(11, True);
-    end;
-
-    if States.CampaignMissionWon(11) then			//Mission 11 unlocks Mission 12
-    begin
-    Actions.CampaignMissionUnlock(12, True);
-    end; }
-
-end;
-
-
-{begin                                             //Only for test
-
-  Actions.CampaignMissionUnlock(0, True);
-
-  Actions.CampaignMissionUnlock(1, True);
-  
-  Actions.CampaignMissionUnlock(2, True);
-  
-  Actions.CampaignMissionUnlock(3, True);
-
-  Actions.CampaignMissionUnlock(4, True);
-  
-  Actions.CampaignMissionUnlock(5, True);
-  
-  Actions.CampaignMissionUnlock(6, True);
-
-  Actions.CampaignMissionUnlock(7, True);
-
-  Actions.CampaignMissionUnlock(8, True);
-  
-  Actions.CampaignMissionUnlock(9, True);
-  
+  if States.CampaignMissionWon(9) then			//Mission 9 unlocks Mission 10
+  begin
   Actions.CampaignMissionUnlock(10, True);
-	
+  end;
+
+  if States.CampaignMissionWon(10) then			//Mission 10 unlocks Mission 11
+  begin
   Actions.CampaignMissionUnlock(11, True);
-  
-end;}
+  end;
+
+  if States.CampaignMissionWon(11) then			//Mission 11 unlocks Mission 12
+  begin
+  Actions.CampaignMissionUnlock(12, True);
+  end; 
+end;

@@ -1,21 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2023.6.8 23:26:14" GUID="{97C4FE16-A746-41F5-AB01-B6049756ED13}" Title="1" Description="2" FocusImg="" NodeImg="node.png" PreviewImg="CampaignMap.png" NodeSpacing="10">
+  <Campaign Version="2" LastEdited="2023.11.5 9:52:47" GUID="{97C4FE16-A746-41F5-AB01-B6049756ED13}" Title="1" Description="2" FocusImg="" NodeImg="node.png" PreviewImg="CampaignMap.png" NodeSpacing="10">
     <Chapters>
       <id0 Background="Chapter1.png" Title="7" ShortTitle="8"/>
       <id1 Background="Chapter2.png" Title="30" ShortTitle="31"/>
+      <id2 Background="Chapter3.png" Title="47" ShortTitle="48"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="249" FlagY="439" Folder="1_Glory_to_the_King" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="" FlagImgNormal="1_Glory_to_the_King.png" FlagImgWon="1_Glory_to_the_King.png" NodeAnchors="239;523;239;523;236;546;236;546"/>
-      <id1 Chapter="0" FlagX="268" FlagY="579" Folder="2_Dangerous_Wolves" Title="13" Briefing="14" BriefingAudio="" FlagImgLocked="" FlagImgNormal="2_Dangerous_Wolves.png" FlagImgWon="2_Dangerous_Wolves.png" NodeAnchors="239;523;219;578;266;581;266;581"/>
-      <id2 Chapter="0" FlagX="680" FlagY="494" Folder="3_The_Boy" Title="16" Briefing="17" BriefingAudio="" FlagImgLocked="" FlagImgNormal="3_The_Boy.png" FlagImgWon="3_The_Boy.png" NodeAnchors="266;581;536;591;621;486;666;501"/>
-      <id3 Chapter="0" FlagX="805" FlagY="303" Folder="4_Mysterious_Letter" Title="19" Briefing="20" BriefingAudio="" FlagImgLocked="" FlagImgNormal="4_Mysterious_Letter.png" FlagImgWon="4_Mysterious_Letter.png" NodeAnchors="689;501;1009;521;729;406;804;311"/>
-      <id4 Chapter="0" FlagX="623" FlagY="35" Folder="5_Secret_Find" Title="22" Briefing="23" BriefingAudio="" FlagImgLocked="" FlagImgNormal="5_Secret_Find.png" FlagImgWon="5_Secret_Find.png" NodeAnchors="796;306;284;451;621;196;636;126"/>
-      <id5 Chapter="0" FlagX="948" FlagY="109" Folder="6_New_Enemy" Title="25" Briefing="26" BriefingAudio="" FlagImgLocked="" FlagImgNormal="6_New_Enemy.png" FlagImgWon="6_New_Enemy.png" NodeAnchors="656;111;701;-54;931;106;931;106"/>
-      <id6 Chapter="1" FlagX="490" FlagY="483" Folder="7_The_Destiny" Title="33" Briefing="34" BriefingAudio="" FlagImgLocked="" FlagImgNormal="7_The_Destiny.png" FlagImgWon="7_The_Destiny.png" NodeAnchors="101;741;1045;584;431;526;391;421"/>
-      <id7 Chapter="1" FlagX="315" FlagY="262" Folder="8_The_Dymo_Family" Title="36" Briefing="37" BriefingAudio="" FlagImgLocked="" FlagImgNormal="8_The_Dymo_Family.png" FlagImgWon="8_The_Dymo_Family.png" NodeAnchors="636;506;1016;96;351;266;1;291"/>
-      <id8 Chapter="1" FlagX="713" FlagY="233" Folder="9_Betrayal" Title="39" Briefing="40" BriefingAudio="" FlagImgLocked="" FlagImgNormal="9_Betrayal.png" FlagImgWon="9_Betrayal.png" NodeAnchors="231;301;556;146;349;326;706;211"/>
-      <id9 Chapter="1" FlagX="229" FlagY="132" Folder="To be continued..." Title="41" Briefing="42" BriefingAudio="" FlagImgLocked="" FlagImgNormal="10_To be continued.png" FlagImgWon="10_To be continued.png" NodeAnchors="1;1;1;1;1;1;1;1"/>
+      <id0 Chapter="0" FlagX="250" FlagY="439" Folder="1_Glory_to_the_King" Title="10" Briefing="11" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="1_Glory_to_the_King.png" FlagImgWon="Mission_Won.png" NodeAnchors="239;523;239;523;236;546;236;546"/>
+      <id1 Chapter="0" FlagX="268" FlagY="581" Folder="2_Dangerous_Wolves" Title="13" Briefing="14" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="2_Dangerous_Wolves.png" FlagImgWon="Mission_Won.png" NodeAnchors="239;523;219;578;266;581;266;581"/>
+      <id2 Chapter="0" FlagX="680" FlagY="494" Folder="3_The_Boy" Title="16" Briefing="17" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="3_The_Boy.png" FlagImgWon="Mission_Won.png" NodeAnchors="266;581;536;591;621;486;666;501"/>
+      <id3 Chapter="0" FlagX="805" FlagY="303" Folder="4_Mysterious_Letter" Title="19" Briefing="20" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="4_Mysterious_Letter.png" FlagImgWon="Mission_Won.png" NodeAnchors="689;501;1007;528;734;405;804;311"/>
+      <id4 Chapter="0" FlagX="623" FlagY="35" Folder="5_Secret_Find" Title="22" Briefing="23" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="5_Secret_Find.png" FlagImgWon="Mission_Won.png" NodeAnchors="795;305;415;434;458;314;637;127"/>
+      <id5 Chapter="0" FlagX="948" FlagY="109" Folder="6_New_Enemy" Title="25" Briefing="26" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="6_New_Enemy.png" FlagImgWon="Mission_Won.png" NodeAnchors="656;111;701;-54;931;106;931;106"/>
+      <id6 Chapter="1" FlagX="490" FlagY="483" Folder="7_The_Destiny" Title="33" Briefing="34" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="7_The_Destiny.png" FlagImgWon="Mission_Won.png" NodeAnchors="111;748;834;628;599;551;497;498"/>
+      <id7 Chapter="1" FlagX="315" FlagY="262" Folder="8_The_Dymo_Family" Title="36" Briefing="37" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="8_The_Dymo_Family.png" FlagImgWon="Mission_Won.png" NodeAnchors="636;506;1016;96;367;258;1;291"/>
+      <id8 Chapter="1" FlagX="713" FlagY="233" Folder="9_Betrayal" Title="39" Briefing="40" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="9_Betrayal.png" FlagImgWon="Mission_Won.png" NodeAnchors="231;301;556;146;349;326;706;211"/>
+      <id9 Chapter="1" FlagX="404" FlagY="411" Folder="10_The_True_story" Title="42" Briefing="43" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="10_The_True_story.png" FlagImgWon="Mission_Won.png" NodeAnchors="376;411;494;306;355;331;685;221"/>
+      <id10 Chapter="2" FlagX="797" FlagY="329" Folder="11_Power_Country" Title="50" Briefing="51" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="11_Power_Country.png" FlagImgWon="Mission_Won.png" NodeAnchors="1024;98;754;122;801;317;812;305"/>
+      <id11 Chapter="2" FlagX="347" FlagY="609" Folder="12_The_Castle" Title="53" Briefing="54" BriefingAudio="" FlagImgLocked="Mission_Locked.png" FlagImgNormal="12_The_Castle.png" FlagImgWon="Mission_Won.png" NodeAnchors="707;338;534;488;391;429;354;577"/>
     </Missions>
   </Campaign>
 </Root>

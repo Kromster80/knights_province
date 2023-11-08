@@ -62,6 +62,7 @@
 
 // Block units
 !UNIT_BLOCK 5 // miner
+!UNIT_BLOCK 6 // breeder
 !UNIT_BLOCK 10 // butcher
 !UNIT_BLOCK 11 // tailor
 !UNIT_BLOCK 15 // smith
@@ -168,11 +169,11 @@
 !SET_FENCE_H 39 32 1 !SET_FENCE_V 39 32 1 !SET_FENCE_V 41 32 1
 
 // Units
-!SET_UNIT 2 38 25 4 // serf
-!SET_UNIT 2 39 25 4 // serf
-!SET_UNIT 2 41 26 4 // serf
-!SET_UNIT 2 39 26 4 // serf
-!SET_UNIT 2 40 25 4 // serf
+!SET_UNIT 2 38 25 4 // porter
+!SET_UNIT 2 39 25 4 // porter
+!SET_UNIT 2 41 26 4 // porter
+!SET_UNIT 2 39 26 4 // porter
+!SET_UNIT 2 40 25 4 // porter
 !SET_UNIT 3 40 26 4 // builder
 !SET_UNIT 3 41 25 4 // builder
 !SET_UNIT 3 40 27 4 // builder
@@ -220,21 +221,21 @@
 !SET_STOCKPILE 28 60 71 2
 
 // Emitters
-!SET_EMITTER 6 6 43
-!SET_EMITTER 6 9 37
-!SET_EMITTER 4 8 52
-!SET_EMITTER 4 6 50
-!SET_EMITTER 4 20 50
-!SET_EMITTER 4 18 14
-!SET_EMITTER 5 22 43
-!SET_EMITTER 7 33 57
-!SET_EMITTER 7 33 56
-!SET_EMITTER 7 30 56
-!SET_EMITTER 7 31 56
-!SET_EMITTER 7 29 56
-!SET_EMITTER 7 28 57
-!SET_EMITTER 7 29 58
-!SET_EMITTER 7 31 58
+!SET_EMITTER 6 6 43 // terrain_wall_of_fog
+!SET_EMITTER 6 9 37 // terrain_wall_of_fog
+!SET_EMITTER 4 8 52 // terrain_mist_medium
+!SET_EMITTER 4 6 50 // terrain_mist_medium
+!SET_EMITTER 4 20 50 // terrain_mist_medium
+!SET_EMITTER 4 18 14 // terrain_mist_medium
+!SET_EMITTER 5 22 43 // terrain_mist_large
+!SET_EMITTER 7 33 57 // terrain_smokestack
+!SET_EMITTER 7 33 56 // terrain_smokestack
+!SET_EMITTER 7 30 56 // terrain_smokestack
+!SET_EMITTER 7 31 56 // terrain_smokestack
+!SET_EMITTER 7 29 56 // terrain_smokestack
+!SET_EMITTER 7 28 57 // terrain_smokestack
+!SET_EMITTER 7 29 58 // terrain_smokestack
+!SET_EMITTER 7 31 58 // terrain_smokestack
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12370 (2023.02.12 15:58)"  on 18.02.2023 10:54:27
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r13944 (2023.10.31 17:22)"  on 06.11.2023 20:56:17

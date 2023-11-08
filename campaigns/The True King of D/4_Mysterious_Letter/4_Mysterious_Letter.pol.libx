@@ -1,9 +1,14 @@
-﻿0:<==
+﻿0:Kinghts Dzapan
 1:Wróg... jaki wróg?|O co tu chodzi?|Co znaczy to ‘’[$ff8080]D[]’’?|Dlaczego nasza Rodzina znajduje się w tym liście?||Athnur... dlaczego Imie Prapradziadka znajduje się na tym liście...|Hmm... sam nie wiem co mam o tym sądzić...
 
-3:To Atak!
+3:To Atak! 
 4:Chroń wioskę na wschodzie.
 5:Bandyci ulokowali się na północym wzgórzu, nie możemy pozwolić, aby zbliżył się do Zamku. |Wykorzystaj drogocenne surowce naszych żyznych ziem i zgładź nieprzyjaciela.
 
+6:[$FF00FF]Zniszcz miasto Bandytów[]
+7:[$FF00FF]Zniszcz wojska Bandytów[]
+8:[$00ffff]Chroń wioskę na zachodzie[]
+
 9:Bandyci
 10:Sojusznik
+

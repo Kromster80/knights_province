@@ -1,12 +1,12 @@
-﻿0:<==
+﻿0:Kinghts Dzapan
 1:Król rozkazał sprowadzenie Chłopca, musimy odszukać i sprowadzić go z powrotem.
-3:Porozmawiaj z Chłopcem stojącym przy moście na wschodzie.
+3:Porozmawiaj z Chłopcem stojącym przy moście na wschodzie. 
 5:Odnaleźliśmy list!
 6:Wilcza Jaskinia - to tutaj chowaliśmy się, gdy musieliśmy uciekać z miasta.
 7:Śnieżna góra - pamiętam, jak za dzieciaka wspinaliśmy się na sam szczyt.
 8:Stara Kopalnia - aż strach pomyśleć jak mogliśmy się bawić w tak przerażającym miejscu.
 9:Upss - chyba się zgubiliśmy...
-10:[$ffff00]Znajdź list ukryty w pniu, gdzieś w górach[]
+10:[$00FFFF]Znajdź list ukryty w pniu, gdzieś w górach[]
 11:Góry Timan - aż wracają wspomnienia z dzieciństwa.
 12:Znaleźliśmy pień, niestety nic nie ma w środku. |Szukajmy dalej.
 
@@ -22,4 +22,4 @@
 23:Nie wiem, został ukryty gdzieś w górach...
 24:hm... odnajdźmy ten list. ||Znajdźmy butelkę z Listem, ukrytą gdzieś w górach.
 
-26:Chłopcze
+26:Chłopiec
