@@ -12,7 +12,7 @@ const
   PlayerAI_6_Feed = 5;
   PlayerAI_N_Feed = 11;
   PlayerAI9 = 8;
-  
+
 var
   ObjTheSpy, ObjUnitsForEndMission, ObjDefeatAllEnemies: Integer;
   marker1, marker2, marker3, marker4, marker5: Integer;
@@ -24,7 +24,7 @@ var
   trigger68Showed, trigger69Showed, trigger70Showed, trigger71Showed: Boolean;
   trigger72Showed, trigger73Showed, trigger74Showed, trigger75Showed: Boolean;
   trigger76Showed, trigger77Showed: Boolean;
-  
+
   triggerDead_1,  triggerDead_2,  triggerDead_3,  triggerDead_4,  triggerDead_5,  triggerDead_6: Boolean;
   triggerDead_7,  triggerDead_8,  triggerDead_9,  triggerDead_10, triggerDead_11, triggerDead_12: Boolean;
   triggerDead_13, triggerDead_14, triggerDead_15, triggerDead_16, triggerDead_17, triggerDead_18: Boolean;
@@ -34,7 +34,8 @@ var
   triggerDead_37, triggerDead_38, triggerDead_39, triggerDead_40, triggerDead_41, triggerDead_42: Boolean;
   triggerDead_43, triggerDead_44, triggerDead_45, triggerDead_46, triggerDead_47, triggerDead_48: Boolean;
   triggerDead_49, triggerDead_50, triggerDead_51, triggerDead_52: Boolean;
-  
+
+
 procedure PatrolToNextPoint;                                                                             //Patrol Units 1
 var
   P: TKMPoint;
@@ -42,18 +43,19 @@ var
 begin
   // Advance to next waypoint (in a loop)
   patrolTarget := (patrolTarget + 1) mod PATROL_COUNT;
-  
+
   P := patrolPoints[patrolTarget];
   D := patrolDirection[patrolTarget];
-  
+
   Actions.GroupOrderWalk(patrolGroup, P.X, P.Y, D);
 end;
 
-Procedure Play_Trap_Dead;
- begin
- 	Actions.PlayWAV(HUMAN_PLAYER, 'Traps.wav', 0.4);
-    Actions.PlayWAV(HUMAN_PLAYER, 'Dead1.wav', 0.4);
- end;
+
+procedure Play_Trap_Dead;
+begin
+  Actions.PlayWAV(HUMAN_PLAYER, 'Traps.wav', 0.4);
+  Actions.PlayWAV(HUMAN_PLAYER, 'Dead1.wav', 0.4);
+end;
 
 
 procedure OnMissionStart;
@@ -63,780 +65,748 @@ begin
   PlayerCamp := States.HouseAt(124,145);
 
   ObjTheSpy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osHidden, '[$C0C0C0]<$6>');
-  ObjDefeatAllEnemies := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '[$00FFFF]<$12>'); 
+  ObjDefeatAllEnemies := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osHidden, '[$00FFFF]<$12>');
   ObjUnitsForEndMission := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '[$00FFFF]<$8>');
 
-   
+
   marker1 := Actions.InteractionMarkerAdd(itExclamation, 193.5, 145.5);
   marker2 := Actions.InteractionMarkerAdd(itExclamation, 189.5, 158.5);
   marker3 := Actions.InteractionMarkerAdd(itExclamation, 195.5, 182.5);
   marker4 := Actions.InteractionMarkerAdd(itExclamation, 198.5, 205.5);
   marker5 := Actions.InteractionMarkerAdd(itExclamation, 2.5, 82.5);
-  
+
 
   // Get the group
   patrolGroup := States.GroupAt(237, 45);                         // Initialize waypoints
-  patrolPoints[0].X := 240; 
+  patrolPoints[0].X := 240;
   patrolPoints[0].Y := 80;
-  patrolDirection[0] := 6; 
+  patrolDirection[0] := 6;
 
-  patrolPoints[1].X := 188; 
+  patrolPoints[1].X := 188;
   patrolPoints[1].Y := 82;
-  patrolDirection[1] := 6; 
+  patrolDirection[1] := 6;
 
-  patrolPoints[2].X := 184; 
+  patrolPoints[2].X := 184;
   patrolPoints[2].Y := 47;
-  patrolDirection[2] := 6; 
+  patrolDirection[2] := 6;
 
-  patrolPoints[3].X := 195; 
+  patrolPoints[3].X := 195;
   patrolPoints[3].Y := 14;
   patrolDirection[3] := 5;
 
-  patrolPoints[4].X := 236; 
+  patrolPoints[4].X := 236;
   patrolPoints[4].Y := 10;
-  patrolDirection[4] := 6; 
+  patrolDirection[4] := 6;
 end;
-  
+
+
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
-begin                                                                           
- 
+begin
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 //!!!!!!!!!!!!!!!!!! TRAPS ,TRAPS, TRAPS !!!!!!!!!!!!!!!!!!//
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
- if (aTriggerId = 1) and (not triggerDead_1) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  if (aTriggerId = 1) and (not triggerDead_1) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_1 := True;
-   end;
- if (aTriggerId = 2) and (not triggerDead_2) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 2) and (not triggerDead_2) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_2 := True;
-   end;
- if (aTriggerId = 3) and (not triggerDead_3) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 3) and (not triggerDead_3) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_3 := True;
-   end;
- if (aTriggerId = 4) and (not triggerDead_4) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 4) and (not triggerDead_4) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_4 := True;
-   end;
- if (aTriggerId = 5) and (not triggerDead_5) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 5) and (not triggerDead_5) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_5 := True;
-   end;
- if (aTriggerId = 6) and (not triggerDead_6) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 6) and (not triggerDead_6) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_6 := True;
-   end;
- if (aTriggerId = 7) and (not triggerDead_7) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 7) and (not triggerDead_7) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_7 := True;
-   end;
- if (aTriggerId = 8) and (not triggerDead_8) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 8) and (not triggerDead_8) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_8 := True;
-   end;
- if (aTriggerId = 9) and (not triggerDead_9) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 9) and (not triggerDead_9) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_9 := True;
-   end;
- if (aTriggerId = 10) and (not triggerDead_10) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 10) and (not triggerDead_10) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_10 := True;
-   end;
- if (aTriggerId = 11) and (not triggerDead_11) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 11) and (not triggerDead_11) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_11 := True;
-   end;
- if (aTriggerId = 12) and (not triggerDead_12) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 12) and (not triggerDead_12) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_12 := True;
-   end;
- if (aTriggerId = 13) and (not triggerDead_13) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 13) and (not triggerDead_13) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_13 := True;
-   end;
- if (aTriggerId = 14) and (not triggerDead_14) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 14) and (not triggerDead_14) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_14 := True;
-   end;
- if (aTriggerId = 15) and (not triggerDead_15) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 15) and (not triggerDead_15) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_15 := True;
-   end;
- if (aTriggerId = 16) and (not triggerDead_16) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 16) and (not triggerDead_16) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_16 := True;
-   end;
- if (aTriggerId = 17) and (not triggerDead_17) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 17) and (not triggerDead_17) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_17 := True;
-   end;
- if (aTriggerId = 18) and (not triggerDead_18) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 18) and (not triggerDead_18) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_18 := True;
-   end;
- if (aTriggerId = 19) and (not triggerDead_19) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 19) and (not triggerDead_19) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_19 := True;
-   end;
- if (aTriggerId = 20) and (not triggerDead_20) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 20) and (not triggerDead_20) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_20 := True;
-   end;
- if (aTriggerId = 21) and (not triggerDead_21) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 21) and (not triggerDead_21) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_21 := True;
-   end;
- if (aTriggerId = 22) and (not triggerDead_22) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 22) and (not triggerDead_22) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_22 := True;
-   end;
- if (aTriggerId = 23) and (not triggerDead_23) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 23) and (not triggerDead_23) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_23 := True;
-   end;
- if (aTriggerId = 24) and (not triggerDead_24) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 24) and (not triggerDead_24) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_24 := True;
-   end;
- if (aTriggerId = 25) and (not triggerDead_25) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 25) and (not triggerDead_25) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_25 := True;
-   end;
- if (aTriggerId = 26) and (not triggerDead_26) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 26) and (not triggerDead_26) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_26 := True;
-   end;
- if (aTriggerId = 27) and (not triggerDead_27) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 27) and (not triggerDead_27) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_27 := True;
-   end;
- if (aTriggerId = 28) and (not triggerDead_28) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 28) and (not triggerDead_28) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_28 := True;
-   end;
- if (aTriggerId = 29) and (not triggerDead_29) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 29) and (not triggerDead_29) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_29 := True;
-   end;
- if (aTriggerId = 30) and (not triggerDead_30) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 30) and (not triggerDead_30) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_30 := True;
-   end;
- if (aTriggerId = 31) and (not triggerDead_31) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 31) and (not triggerDead_31) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_31 := True;
-   end;
- if (aTriggerId = 32) and (not triggerDead_32) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 32) and (not triggerDead_32) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_32 := True;
-   end;
- if (aTriggerId = 33) and (not triggerDead_33) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 33) and (not triggerDead_33) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_33 := True;
-   end;
- if (aTriggerId = 34) and (not triggerDead_34) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 34) and (not triggerDead_34) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_34 := True;
-   end;
- if (aTriggerId = 35) and (not triggerDead_35) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 35) and (not triggerDead_35) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_35 := True;
-   end;
- if (aTriggerId = 36) and (not triggerDead_36) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 36) and (not triggerDead_36) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_36 := True;
-   end;
- if (aTriggerId = 37) and (not triggerDead_37) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 37) and (not triggerDead_37) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_37 := True;
-   end;
- if (aTriggerId = 38) and (not triggerDead_38) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 38) and (not triggerDead_38) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_38 := True;
-   end;
- if (aTriggerId = 39) and (not triggerDead_39) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 39) and (not triggerDead_39) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_39 := True;
-   end;
- if (aTriggerId = 40) and (not triggerDead_40) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 40) and (not triggerDead_40) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_40 := True;
-   end;
- if (aTriggerId = 41) and (not triggerDead_41) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 41) and (not triggerDead_41) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_41 := True;
-   end;
- if (aTriggerId = 42) and (not triggerDead_42) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 42) and (not triggerDead_42) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_42 := True;
-   end;
- if (aTriggerId = 43) and (not triggerDead_43) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 43) and (not triggerDead_43) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_43 := True;
-   end;
- if (aTriggerId = 44) and (not triggerDead_44) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 44) and (not triggerDead_44) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_44 := True;
-   end;
- if (aTriggerId = 45) and (not triggerDead_45) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 45) and (not triggerDead_45) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_45 := True;
-   end;
- if (aTriggerId = 46) and (not triggerDead_46) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 46) and (not triggerDead_46) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_46 := True;
-   end;
- if (aTriggerId = 47) and (not triggerDead_47) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 47) and (not triggerDead_47) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_47 := True;
-   end;
- if (aTriggerId = 48) and (not triggerDead_48) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 48) and (not triggerDead_48) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_48 := True;
-   end;
- if (aTriggerId = 49) and (not triggerDead_49) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 49) and (not triggerDead_49) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_49 := True;
-   end;
- if (aTriggerId = 50) and (not triggerDead_50) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 50) and (not triggerDead_50) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_50 := True;
-   end;   
+  end;
   if (aTriggerId = 51) and (not triggerDead_51) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_51 := True;
-   end;
- if (aTriggerId = 52) and (not triggerDead_52) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-    Play_Trap_Dead
-	Actions.UnitKill(aUnit, False);
+  end;
+  if (aTriggerId = 52) and (not triggerDead_52) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Play_Trap_Dead;
+    Actions.UnitKill(aUnit, False);
     triggerDead_52 := True;
-   end;
+  end;
 
 
 
-   if Utils.InRangeI(aTriggerId, 54, 58) and (not trigger54_58Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
-       trigger54_58Showed := True;
-   end;
+  if Utils.InRangeI(aTriggerId, 54, 58) and (not trigger54_58Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$9>', True);
+    trigger54_58Showed := True;
+  end;
 
-   if Utils.InRangeI(aTriggerId, 59, 61) and (not trigger59_61Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Rat.png', '<$10>', '');
-       trigger59_61Showed := True;
-   end;
+  if Utils.InRangeI(aTriggerId, 59, 61) and (not trigger59_61Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.CinematicTalkingHead('Rat.png', '<$10>', '');
+    trigger59_61Showed := True;
+  end;
 
   if (aTriggerId = 62) and (not trigger62Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-      Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
-      trigger62Showed := True;
-   end;
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$11>', True);
+    trigger62Showed := True;
+  end;
 
 //***************************//
 //WATERFALL - General Kowalik//
 //***************************//
   if (aTriggerId = 63) and (not trigger63Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('General_Kwalik.png', '<$30>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$31>', '');      
-       Actions.CinematicTalkingHead('General_Kwalik.png', '<$32>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$33>', '');
-       Actions.CinematicTalkingHead('General_Kwalik.png', '<$34>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$35>', '');
-       Actions.CinematicTalkingHead('General_Kwalik.png', '<$36>', '');
-       Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$37>', '', ['<$38>[]', '<$40>[]'], [1, 2]);
-	   Actions.InteractionMarkerRemove(marker5);
-       trigger63Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('General_Kwalik.png', '<$30>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$31>', '');
+    Actions.CinematicTalkingHead('General_Kwalik.png', '<$32>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$33>', '');
+    Actions.CinematicTalkingHead('General_Kwalik.png', '<$34>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$35>', '');
+    Actions.CinematicTalkingHead('General_Kwalik.png', '<$36>', '');
+    Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$37>', '', ['<$38>[]', '<$40>[]'], [1, 2]);
+    Actions.InteractionMarkerRemove(marker5);
+    trigger63Showed := True;
+  end;
 
 //************************************//
 //MERCENAR VILLAGE - General Malkowski//
 //************************************//
   if (aTriggerId = 64) and (not trigger64Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Person1.png', '<$50>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$51>', '');      
-       Actions.CinematicTalkingHead('Person1.png', '<$52>', '');
-       trigger64Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('Person1.png', '<$50>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$51>', '');
+    Actions.CinematicTalkingHead('Person1.png', '<$52>', '');
+    trigger64Showed := True;
+  end;
 
   if (aTriggerId = 65) and (not trigger65Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('BeerPerson.png', '<$55>', '');
-       Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$56>', '', ['<$57>[]', '<$59>[]'], [3, 4]);
-       trigger65Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('BeerPerson.png', '<$55>', '');
+    Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$56>', '', ['<$57>[]', '<$59>[]'], [3, 4]);
+    trigger65Showed := True;
+  end;
 
   if (aTriggerId = 66) and (not trigger66Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Servant7.png', '<$65>', '');
-       Actions.CinematicTalkingHead('Sentry.png', '<$66>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$67>', '');
-       Actions.CinematicTalkingHead('Sentry.png', '<$68>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$69>', '');
-       Actions.CinematicTalkingHeadWithButtons('Sentry.png', '<$70>', '', ['<$64>[]', '<$74>[]'], [5, 6]);
-       trigger66Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('Servant7.png', '<$65>', '');
+    Actions.CinematicTalkingHead('Sentry.png', '<$66>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$67>', '');
+    Actions.CinematicTalkingHead('Sentry.png', '<$68>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$69>', '');
+    Actions.CinematicTalkingHeadWithButtons('Sentry.png', '<$70>', '', ['<$64>[]', '<$74>[]'], [5, 6]);
+    trigger66Showed := True;
+  end;
 
   if (aTriggerId = 67) and (not trigger67Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('guard.png', '<$75>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$76>', '');
-       Actions.CinematicTalkingHead('guard.png', '<$77>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$78>', '');
-       Actions.CinematicTalkingHead('guard.png', '<$79>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$80>', '');
-       Actions.CinematicTalkingHeadWithButtons('guard.png', '<$81>', '', ['<$82>[]', '<$84>[]'], [7, 8]);
-       trigger67Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('guard.png', '<$75>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$76>', '');
+    Actions.CinematicTalkingHead('guard.png', '<$77>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$78>', '');
+    Actions.CinematicTalkingHead('guard.png', '<$79>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$80>', '');
+    Actions.CinematicTalkingHeadWithButtons('guard.png', '<$81>', '', ['<$82>[]', '<$84>[]'], [7, 8]);
+    trigger67Showed := True;
+  end;
 
   if (aTriggerId = 68) and (not trigger68Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$90>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$91>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$92>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$93>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$94>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$95>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$96>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$97>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$98>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$99>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$100>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$101>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$102>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$103>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$104>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$105>', '');
-       Actions.CinematicTalkingHead('General_Malkowski.png', '<$106>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$107>', '');
-	   Actions.CinematicTalkingHeadWithButtons('General_Malkowski.png', '<$108>', '', ['<$109>[]'], [130]);
-       trigger68Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$90>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$91>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$92>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$93>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$94>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$95>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$96>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$97>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$98>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$99>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$100>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$101>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$102>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$103>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$104>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$105>', '');
+    Actions.CinematicTalkingHead('General_Malkowski.png', '<$106>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$107>', '');
+    Actions.CinematicTalkingHeadWithButtons('General_Malkowski.png', '<$108>', '', ['<$109>[]'], [130]);
+    trigger68Showed := True;
+  end;
 
 
 //******************************//
 //MYSTERIOUS FOREST - Gen. Slew //
 //******************************//
   if (aTriggerId = 69) and (not trigger69Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Person2.png', '<$110>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$111>', '');
-       Actions.CinematicTalkingHead('Person2.png', '<$112>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$113>', '');
-       Actions.CinematicTalkingHead('Person2.png', '<$114>', '');
-       trigger69Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('Person2.png', '<$110>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$111>', '');
+    Actions.CinematicTalkingHead('Person2.png', '<$112>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$113>', '');
+    Actions.CinematicTalkingHead('Person2.png', '<$114>', '');
+    trigger69Showed := True;
+  end;
 
   if (aTriggerId = 70) and (not trigger70Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Person3.png', '<$120>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$121>', '');
-       Actions.CinematicTalkingHead('Person3.png', '<$122>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$123>', '');
-       Actions.CinematicTalkingHeadWithButtons('Person3.png', '<$124>', '', ['<$125>[]', '<$127>[]', '<$129>[]'], [9, 10, 11]);
-       trigger70Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('Person3.png', '<$120>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$121>', '');
+    Actions.CinematicTalkingHead('Person3.png', '<$122>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$123>', '');
+    Actions.CinematicTalkingHeadWithButtons('Person3.png', '<$124>', '', ['<$125>[]', '<$127>[]', '<$129>[]'], [9, 10, 11]);
+    trigger70Showed := True;
+  end;
 
   if (aTriggerId = 71) and (not trigger71Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('Person4.png', '<$135>', '');
-       Actions.CinematicTalkingHead('Servant7.png', '<$136>', '');
-       Actions.CinematicTalkingHeadWithButtons('Person4.png', '<$137>', '', ['<$138>[]', '<$140>[]', '<$142>[]', '<$144>[]'], [12, 13, 14, 15]);
-	   Actions.InteractionMarkerRemove(marker2);	   
-       trigger71Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHead('Person4.png', '<$135>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$136>', '');
+    Actions.CinematicTalkingHeadWithButtons('Person4.png', '<$137>', '', ['<$138>[]', '<$140>[]', '<$142>[]', '<$144>[]'], [12, 13, 14, 15]);
+    Actions.InteractionMarkerRemove(marker2);
+    trigger71Showed := True;
+  end;
 
   if (aTriggerId = 72) and (not trigger72Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHeadWithButtons('Person5.png', '<$150>', '', ['<$151>[]', '<$153>[]', '<$157>[]'], [16, 17, 19]);      
-       trigger72Showed := True;
-	   Actions.InteractionMarkerRemove(marker3);	   
-   end;
-                                                                                                             
-     if (aTriggerId = 73) and (not trigger73Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then              //AI9 added 2 units of crossbowmen as player reach a position then a counterattack on the walls                            
-   begin
-	   Actions.GiveGroup(PlayerAI9, utArbaletman, 166, 228, 3, 8, 4);
-   	   Actions.GiveGroup(PlayerAI9, utArbaletman, 174, 236, 7, 8, 4);
-       trigger73Showed := True;
-   end;
+  begin
+    Actions.CinematicTalkingHeadWithButtons('Person5.png', '<$150>', '', ['<$151>[]', '<$153>[]', '<$157>[]'], [16, 17, 19]);
+    trigger72Showed := True;
+    Actions.InteractionMarkerRemove(marker3);
+  end;
 
-     if (aTriggerId = 74) and (not trigger74Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.CinematicTalkingHead('General_Slew.png', '<$175>', '');
-       Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$176>', '', ['<$177>[]', '<$179>[]'], [25, 26]);   
-       Actions.InteractionMarkerRemove(marker4);	   
-       trigger74Showed := True;
-   end;
+  if (aTriggerId = 73) and (not trigger73Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then              //AI9 added 2 units of crossbowmen as player reach a position then a counterattack on the walls
+  begin
+    Actions.GiveGroup(PlayerAI9, utArbaletman, 166, 228, 3, 8, 4);
+    Actions.GiveGroup(PlayerAI9, utArbaletman, 174, 236, 7, 8, 4);
+    trigger73Showed := True;
+  end;
 
-     if (aTriggerId = 75) and (not trigger75Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.PlayerMessage(HUMAN_PLAYER, '<$201>', True);
-	   Actions.PlayWAV(HUMAN_PLAYER, 'Wind.wav', 0.2);
-       trigger75Showed := True;
-   end;
+  if (aTriggerId = 74) and (not trigger74Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.CinematicTalkingHead('General_Slew.png', '<$175>', '');
+    Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$176>', '', ['<$177>[]', '<$179>[]'], [25, 26]);
+    Actions.InteractionMarkerRemove(marker4);
+    trigger74Showed := True;
+  end;
 
-     if (aTriggerId = 76) and (not trigger76Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-       Actions.PlayWAV(HUMAN_PLAYER, 'Wind.wav', 0.2);
-       trigger76Showed := True;
-   end;
+  if (aTriggerId = 75) and (not trigger75Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$201>', True);
+    Actions.PlayWAV(HUMAN_PLAYER, 'Wind.wav', 0.2);
+    trigger75Showed := True;
+  end;
 
-     if (aTriggerId = 77) and (not trigger77Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
-   begin
-      Actions.PlayWAVAtLocation(HUMAN_PLAYER, 'fish.wav', 1.0, 156, 94);
-       trigger77Showed := True;
-   end;
+  if (aTriggerId = 76) and (not trigger76Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayWAV(HUMAN_PLAYER, 'Wind.wav', 0.2);
+    trigger76Showed := True;
+  end;
 
-
+  if (aTriggerId = 77) and (not trigger77Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
+  begin
+    Actions.PlayWAVAtLocation(HUMAN_PLAYER, 'fish.wav', 1.0, 156, 94);
+    trigger77Showed := True;
+  end;
 end;
 
- 
+
 procedure OnScriptButtonClick(aPlayer: Integer; aTag: Integer);
- var
- I: Integer;
+var
+  I: Integer;
   PlayerCamp: array of Integer;
   exchangeInitiated: Boolean;
 begin
-  
   if aTag = 1 then
-   begin
+  begin
     Actions.CinematicTalkingHead('General_Kwalik.png', '<$39>', '');
-	Actions.GiveGroup(HUMAN_PLAYER, utSwordsman, 15, 84, 2, 20, 5)
-   end;
-   
-  if aTag = 2 then
-    begin
-	 Actions.CinematicTalkingHead('General_Kwalik.png', '<$41>', '');
-    end;
-	
-  if aTag = 3 then
-    begin 
-	 Actions.CinematicTalkingHead('BeerPerson.png', '<$58>', '');
-    end;
-	
-  if aTag = 4 then
-    begin
-	 Actions.CinematicTalkingHead('BeerPerson.png', '<$60>', '');
-    end;
-	
-  if aTag = 5 then
-     begin
-	      exchangeInitiated := False;
-          PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
-          for I := 0 to High(PlayerCamp) do
-          if States.HouseWareInside(PlayerCamp[I], wtGold) >= 10 then
-          begin                                                   
-           Actions.HouseWareRemove(PlayerCamp[I], wtGold, 10);		   
-		   Actions.CinematicTalkingHead('Sentry.png', '<$71>', '');
-           Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5);     
-           exchangeInitiated := True; 
-		   Break;	   
-          end;   
-  
-            if not exchangeInitiated then
-			begin
-	         Actions.CinematicTalkingHead('Sentry.png', '<$73>', '');                  //NO Gold in Camp
-             Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5)  	   
-			end;
-	 end;
+    Actions.GiveGroup(HUMAN_PLAYER, utSwordsman, 15, 84, 2, 20, 5)
+  end;
 
-   if aTag = 6 then 
-     begin
-	      exchangeInitiated := False;
-          PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
-          for I := 0 to High(PlayerCamp) do
-          if States.HouseWareInside(PlayerCamp[I], wtGold) >= 20 then
-          begin                                                   
-           Actions.HouseWareRemove(PlayerCamp[I], wtGold, 20);	
-           Actions.CinematicTalkingHead('Sentry.png', '<$72>', '');	       
-           exchangeInitiated := True; 
-		   Break;	   
-          end;   
-	   
-            if not exchangeInitiated then
-		    begin
-	         Actions.CinematicTalkingHead('Sentry.png', '<$73>', '');                  //NO Gold in Camp
-             Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5)  	   
-			end;
-	 end;
+  if aTag = 2 then
+    Actions.CinematicTalkingHead('General_Kwalik.png', '<$41>', '');
+
+  if aTag = 3 then
+    Actions.CinematicTalkingHead('BeerPerson.png', '<$58>', '');
+
+  if aTag = 4 then
+    Actions.CinematicTalkingHead('BeerPerson.png', '<$60>', '');
+
+  if aTag = 5 then
+  begin
+    exchangeInitiated := False;
+    PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
+    for I := 0 to High(PlayerCamp) do
+    if States.HouseWareInside(PlayerCamp[I], wtGold) >= 10 then
+    begin
+      Actions.HouseWareRemove(PlayerCamp[I], wtGold, 10);
+      Actions.CinematicTalkingHead('Sentry.png', '<$71>', '');
+      Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5);
+      exchangeInitiated := True;
+      Break;
+    end;
+
+    if not exchangeInitiated then
+    begin
+      Actions.CinematicTalkingHead('Sentry.png', '<$73>', '');                  //NO Gold in Camp
+      Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5)
+    end;
+  end;
+
+  if aTag = 6 then
+  begin
+    exchangeInitiated := False;
+    PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
+    for I := 0 to High(PlayerCamp) do
+    if States.HouseWareInside(PlayerCamp[I], wtGold) >= 20 then
+    begin
+      Actions.HouseWareRemove(PlayerCamp[I], wtGold, 20);
+      Actions.CinematicTalkingHead('Sentry.png', '<$72>', '');
+      exchangeInitiated := True;
+      Break;
+    end;
+
+    if not exchangeInitiated then
+    begin
+      Actions.CinematicTalkingHead('Sentry.png', '<$73>', '');                  //NO Gold in Camp
+      Actions.GiveGroup(Player6_Traps, utHalberdier, 16, 229, 2, 20, 5)
+    end;
+  end;
 
   if aTag = 7 then
-      begin
-	   Actions.CinematicTalkingHead('guard.png', '<$83>', '');
-       Actions.GiveGroup(Player6_Traps, utSwordsman, 10, 235, 0, 15, 5);                                    
-       Actions.GiveGroup(Player6_Traps, utHalberdier, 24, 221, 2, 20, 5);              //Atk on player camp  
-      end;
+  begin
+    Actions.CinematicTalkingHead('guard.png', '<$83>', '');
+    Actions.GiveGroup(Player6_Traps, utSwordsman, 10, 235, 0, 15, 5);
+    Actions.GiveGroup(Player6_Traps, utHalberdier, 24, 221, 2, 20, 5);              //Atk on player camp
+  end;
 
 
-  if aTag = 8 then 
-      begin
-	      exchangeInitiated := False;
-          PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
-          for I := 0 to High(PlayerCamp) do
-          if States.HouseWareInside(PlayerCamp[I], wtGold) >= 50 then
-          begin                                                   
-           Actions.HouseWareRemove(PlayerCamp[I], wtGold, 50);	
-           Actions.CinematicTalkingHead('guard.png', '<$85>', '');	       
-           exchangeInitiated := True; 
-		   Break;	   
-          end;   
-	   
-            if not exchangeInitiated then
-		    begin
-             Actions.CinematicTalkingHead('guard.png', '<$86>', '');                       //NO Gold in Camp
-             Actions.GiveGroup(Player6_Traps, utSwordsman, 10, 235, 0, 15, 5);  	   
-			end;
-	 end;
+  if aTag = 8 then
+  begin
+    exchangeInitiated := False;
+    PlayerCamp := States.PlayerGetHouses(HUMAN_PLAYER, htCamp, True);
+    for I := 0 to High(PlayerCamp) do
+    if States.HouseWareInside(PlayerCamp[I], wtGold) >= 50 then
+    begin
+      Actions.HouseWareRemove(PlayerCamp[I], wtGold, 50);
+      Actions.CinematicTalkingHead('guard.png', '<$85>', '');
+      exchangeInitiated := True;
+      Break;
+    end;
+
+    if not exchangeInitiated then
+    begin
+      Actions.CinematicTalkingHead('guard.png', '<$86>', '');                       //NO Gold in Camp
+      Actions.GiveGroup(Player6_Traps, utSwordsman, 10, 235, 0, 15, 5);
+    end;
+  end;
 
   if aTag = 130 then
-     begin
-	   Actions.GiveGroup(HUMAN_PLAYER, utSwordsman, 10, 234, 0, 20, 5);
+    Actions.GiveGroup(HUMAN_PLAYER, utSwordsman, 10, 234, 0, 20, 5);
 
-     end;  
-	   
   if aTag = 9 then
-     begin
- 	  Actions.CinematicTalkingHead('Person3.png', '<$126>', '');                            //ENTRY BLOCKD
-	  Actions.InteractionMarkerRemove(marker1);
-     end;
-	 
+  begin
+    Actions.CinematicTalkingHead('Person3.png', '<$126>', '');                            //ENTRY BLOCKD
+    Actions.InteractionMarkerRemove(marker1);
+  end;
+
   if aTag = 10 then
-     begin
-       Actions.CinematicTalkingHead('Person3.png', '<$128>', '');
-	    Actions.TerrainObjectRemoveTile(195, 141);	  	 
-	    Actions.TerrainObjectRemoveTile(195, 142);
-		 Actions.TerrainObjectSet(195, 143, 0, 41);
-         Actions.TerrainObjectSet(195, 140, 1, 41); 
-	   Actions.InteractionMarkerRemove(marker1);
-   	   Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);	
-     end;
-	 
+  begin
+    Actions.CinematicTalkingHead('Person3.png', '<$128>', '');
+    Actions.TerrainObjectRemoveTile(195, 141);
+    Actions.TerrainObjectRemoveTile(195, 142);
+    Actions.TerrainObjectSet(195, 143, 0, 41);
+    Actions.TerrainObjectSet(195, 140, 1, 41);
+    Actions.InteractionMarkerRemove(marker1);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+  end;
+
   if aTag = 11 then
-     begin
- 	  Actions.CinematicTalkingHead('Person3.png', '<$130>', '');                             //ENTRY BLOCKD 
-	  Actions.InteractionMarkerRemove(marker1);	  
-	 end;
+  begin
+    Actions.CinematicTalkingHead('Person3.png', '<$130>', '');                             //ENTRY BLOCKD
+    Actions.InteractionMarkerRemove(marker1);
+  end;
 
   if aTag = 12 then
-     begin
-	  Actions.CinematicTalkingHead('Person4.png', '<$139>', '');                             //ENTRY BLOCKD 
-	 end;
+    Actions.CinematicTalkingHead('Person4.png', '<$139>', '');                             //ENTRY BLOCKD
 
   if aTag = 13 then
-      begin
-       Actions.CinematicTalkingHead('Person4.png', '<$141>', '');                            //ENTRY BLOCKD 
-	 end;
+    Actions.CinematicTalkingHead('Person4.png', '<$141>', '');                            //ENTRY BLOCKD
 
   if aTag = 14 then
-      begin
-       Actions.CinematicTalkingHead('Person4.png', '<$143>', '');                            //ENTRY BLOCKD 
-	 end;
+    Actions.CinematicTalkingHead('Person4.png', '<$143>', '');                            //ENTRY BLOCKD
 
   if aTag = 15 then
-     begin
-  	  Actions.CinematicTalkingHead('Person4.png', '<$145>', '');
-	  	Actions.TerrainObjectRemoveTile(184, 155);	  	 		
-		 Actions.TerrainObjectSet(185, 156, 1, 42);
-		 Actions.TerrainObjectSet(183, 156, 1, 42);
-         Actions.TerrainObjectSet(185, 155, 3, 41); 
-         Actions.TerrainObjectSet(183, 155, 0, 41); 
-      Actions.InteractionMarkerRemove(marker2);	
-	  Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);		  
-		 
-	  end;
+  begin
+    Actions.CinematicTalkingHead('Person4.png', '<$145>', '');
+    Actions.TerrainObjectRemoveTile(184, 155);
+    Actions.TerrainObjectSet(185, 156, 1, 42);
+    Actions.TerrainObjectSet(183, 156, 1, 42);
+    Actions.TerrainObjectSet(185, 155, 3, 41);
+    Actions.TerrainObjectSet(183, 155, 0, 41);
+    Actions.InteractionMarkerRemove(marker2);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+  end;
 
   if aTag = 16 then
-    begin
-     Actions.CinematicTalkingHead('Person5.png', '<$152>', '');                             //ENTRY BLOCKD 
-	end;
+    Actions.CinematicTalkingHead('Person5.png', '<$152>', '');                             //ENTRY BLOCKD
 
   if aTag = 17 then
-    begin
-     Actions.CinematicTalkingHead('Person5.png', '<$154>', '');
-	end;
+    Actions.CinematicTalkingHead('Person5.png', '<$154>', '');
 
   if aTag = 19 then
-     begin
-      Actions.CinematicTalkingHead('Person5.png', '<$158>', '');
-      Actions.CinematicTalkingHead('Servant7.png', '<$159>', ''); 
-      Actions.CinematicTalkingHeadWithButtons('Person5.png', '<$160>', '', ['<$163>[]', '<$165>[]', '<$167>[]', '<$169>[]'], [21, 22, 23, 24]);
-	 end;
+  begin
+    Actions.CinematicTalkingHead('Person5.png', '<$158>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$159>', '');
+    Actions.CinematicTalkingHeadWithButtons('Person5.png', '<$160>', '', ['<$163>[]', '<$165>[]', '<$167>[]', '<$169>[]'], [21, 22, 23, 24]);
+  end;
 
   if aTag = 21 then
-     begin
-	  Actions.CinematicTalkingHead('Person5.png', '<$164>', '');
-	 end;
+    Actions.CinematicTalkingHead('Person5.png', '<$164>', '');
 
   if aTag = 22 then
-     begin
-	  Actions.CinematicTalkingHead('Person5.png', '<$166>', '');
-	 end;
+    Actions.CinematicTalkingHead('Person5.png', '<$166>', '');
 
   if aTag = 23 then
-     begin
-	  Actions.CinematicTalkingHead('Person5.png', '<$168>', '');
-      Actions.CinematicTalkingHead('Person5.png', '<$171>', '');  
-	  	Actions.TerrainObjectRemoveTile(200, 180);	  
-	  	Actions.TerrainObjectRemoveTile(201, 180);	  			
-		 Actions.TerrainObjectSet(199, 180, 0, 41);
-		 Actions.TerrainObjectSet(202, 180, 3, 41);
-         Actions.TerrainObjectSet(202, 181, 1, 42); 
-         Actions.TerrainObjectSet(199, 181, 1, 42); 	  
-         Actions.InteractionMarkerRemove(marker3);	
-	     Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);	
-	 end;
+  begin
+    Actions.CinematicTalkingHead('Person5.png', '<$168>', '');
+    Actions.CinematicTalkingHead('Person5.png', '<$171>', '');
+    Actions.TerrainObjectRemoveTile(200, 180);
+    Actions.TerrainObjectRemoveTile(201, 180);
+    Actions.TerrainObjectSet(199, 180, 0, 41);
+    Actions.TerrainObjectSet(202, 180, 3, 41);
+    Actions.TerrainObjectSet(202, 181, 1, 42);
+    Actions.TerrainObjectSet(199, 181, 1, 42);
+    Actions.InteractionMarkerRemove(marker3);
+    Actions.PlayWAV(HUMAN_PLAYER, 'GateOpen.wav', 1.0);
+  end;
 
   if aTag = 24 then
-     begin
-	  Actions.CinematicTalkingHead('Person5.png', '<$170>', '');
-	 end;
-	 
+    Actions.CinematicTalkingHead('Person5.png', '<$170>', '');
+
   if aTag = 25 then
-     begin
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$178>', '');
-      Actions.GiveGroup(Player6_Traps, utCavalry, 187, 197, 3, 15, 5);
-      Actions.GiveGroup(Player6_Traps, utCavalry, 196, 206, 0, 15, 5);	  
-	 end;
+  begin
+    Actions.CinematicTalkingHead('General_Slew.png', '<$178>', '');
+    Actions.GiveGroup(Player6_Traps, utCavalry, 187, 197, 3, 15, 5);
+    Actions.GiveGroup(Player6_Traps, utCavalry, 196, 206, 0, 15, 5);
+  end;
 
   if aTag = 26 then
-     begin
-	  Actions.CinematicTalkingHead('Servant7.png', '<$180>', '');
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$181>', '');	 
-	  Actions.CinematicTalkingHead('Servant7.png', '<$182>', '');
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$183>', '');	 
-	  Actions.CinematicTalkingHead('Servant7.png', '<$184>', '');
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$185>', '');	 
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$186>', '');	
-      Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$187>', '', ['<$188>[]', '<$190>[]'], [27, 28]);      	  
-	 end;
-	 
+  begin
+    Actions.CinematicTalkingHead('Servant7.png', '<$180>', '');
+    Actions.CinematicTalkingHead('General_Slew.png', '<$181>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$182>', '');
+    Actions.CinematicTalkingHead('General_Slew.png', '<$183>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$184>', '');
+    Actions.CinematicTalkingHead('General_Slew.png', '<$185>', '');
+    Actions.CinematicTalkingHead('General_Slew.png', '<$186>', '');
+    Actions.CinematicTalkingHeadWithButtons('Servant7.png', '<$187>', '', ['<$188>[]', '<$190>[]'], [27, 28]);
+  end;
+
   if aTag = 27 then
-     begin
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$189>', '');	 
-	 end;
-	 
+    Actions.CinematicTalkingHead('General_Slew.png', '<$189>', '');
+
   if aTag = 28 then
-     begin
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$191>', '');	 
-	  Actions.CinematicTalkingHead('Servant7.png', '<$192>', '');
-	  Actions.CinematicTalkingHead('General_Slew.png', '<$193>', '');
-      Actions.CinematicTalkingHeadWithButtons('General_Slew.png', '<$194>', '', ['<$195>[]'], [29]);  	    
-	 end;
+  begin
+    Actions.CinematicTalkingHead('General_Slew.png', '<$191>', '');
+    Actions.CinematicTalkingHead('Servant7.png', '<$192>', '');
+    Actions.CinematicTalkingHead('General_Slew.png', '<$193>', '');
+    Actions.CinematicTalkingHeadWithButtons('General_Slew.png', '<$194>', '', ['<$195>[]'], [29]);
+  end;
 
- if aTag = 29 then
-     begin 
-      Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 197, 207, 0, 15, 5);
-      Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 203, 200, 6, 15, 5);
-      Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 190, 205, 0, 15, 5);	  
-	 end;
-
+  if aTag = 29 then
+  begin
+    Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 197, 207, 0, 15, 5);
+    Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 203, 200, 6, 15, 5);
+    Actions.GiveGroup(HUMAN_PLAYER, utCavalry, 190, 205, 0, 15, 5);
+  end;
 end;
- 
+
 
 procedure FeedPlayer(aHand: Integer);
 var
@@ -856,7 +826,6 @@ var
   ut: TKMUnitType;
   K: Integer;
 begin
-
   // Clear any old data
   SetLength(CampaignData.MissionOneUnitsTrained, 0);
   SetLength(CampaignData.MissionOneUnitsTrained, Ord(High(utWagon))); // We dont need storage past Wagon
@@ -869,74 +838,58 @@ begin
   begin
     ut := States.UnitType(allUnits[K]);
     // Check unit type (we skip some)
-    if 
-	(ut >= utPorter)      and 
-	(ut >= utPeasant)     and
-    (ut >= utBuilder)     and 
-	(ut >= utWoodcutter)  and 
-    (ut >= utMiner)       and 
-	(ut >= utBreeder)     and 	
-	(ut >= utFarmer)      and 	
-	(ut >= utCarpenter)   and 
-	(ut >= utBaker)       and 
-	(ut >= utButcher)     and 	
-	(ut >= utTailor)      and 	
-	(ut >= utBrewer)      and 	
-	(ut >= utFisher)      and 
-	(ut >= utStonecutter) and 	
-	(ut >= utSmith)       and 	
-	(ut >= utMetallurgist)and 
-	(ut >= utRecruit)     and 
-    (ut <= utCavalry)     then 
+    if (ut >= utRecruit) and (ut <= utCavalry) then
       Inc(CampaignData.MissionOneUnitsTrained[Ord(ut)]);
   end;
 end;
 
 
-Procedure OnPlayerVictory(aPlayer : Integer);
+procedure OnPlayerVictory(aPlayer : Integer);
 begin
-    SaveAllUnits(HUMAN_PLAYER);
+  SaveAllUnits(HUMAN_PLAYER);
 end;
 
 
-procedure OnTick(aTick: Integer); 
-begin  
-  if aTick = 100 then 
+procedure OnTick(aTick: Integer);
+begin
+  if aTick = 100 then
+  begin
     Actions.InteractionMarkerUpdate(marker1, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker2, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker3, $0000FF, True, 1.8);
-	Actions.InteractionMarkerUpdate(marker4, $0000FF, True, 1.6);		
-	Actions.InteractionMarkerUpdate(marker5, $0000FF, True, 1.8);
-	
- if aTick = 100 then                                                         
-  Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
- 
-  if aTick = 15000 then                                                        
-   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+    Actions.InteractionMarkerUpdate(marker2, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker3, $0000FF, True, 1.8);
+    Actions.InteractionMarkerUpdate(marker4, $0000FF, True, 1.6);
+    Actions.InteractionMarkerUpdate(marker5, $0000FF, True, 1.8);
+  end;
+
+  if aTick = 100 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
+
+  if aTick = 15000 then
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
 
   if aTick = 33000 then                                                                            //55min
-	begin                                                       
-     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefeatAllEnemies, osActive);
-    end;
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDefeatAllEnemies, osActive);
 
   if aTick = 45000 then                                                                             //75min
-   begin                                                       
+  begin
     Actions.PlayerMessage(HUMAN_PLAYER, '<$5>', True);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjTheSpy, osActive);
   end;
 
   if aTick = 66000 then                                                                            //110min
-	begin                                                       
-     Actions.PlayerMessage(HUMAN_PLAYER, '<$7>', True);
-     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjUnitsForEndMission, osActive);
-     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjTheSpy, osHidden);
-   end;
-	
- if aTick mod 600 = 1 then                                                                            // Every 2 min switch to next waypoint
+  begin
+    Actions.PlayerMessage(HUMAN_PLAYER, '<$7>', True);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjUnitsForEndMission, osActive);
+    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjTheSpy, osHidden);
+  end;
+
+  if aTick mod 600 = 1 then                                                                            // Every 2 min switch to next waypoint
     PatrolToNextPoint;
 
- if aTick mod 9000 = 0 then
-   FeedPlayer(PlayerAI_6_Feed);
-   FeedPlayer(PlayerAI_N_Feed);
+  if aTick mod 9000 = 0 then
+  begin
+    FeedPlayer(PlayerAI_6_Feed);
+    FeedPlayer(PlayerAI_N_Feed);
+  end;
 end;
 
