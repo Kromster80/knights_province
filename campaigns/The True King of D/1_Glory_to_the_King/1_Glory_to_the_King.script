@@ -5,13 +5,12 @@
 
 const
   HUMAN_PLAYER = 0;
-  
+
 var
   objective1: Integer;
-  
+
 procedure OnMissionStart;
 begin
   Actions.PlayerMessage(HUMAN_PLAYER, '<$1>', True);
   objective1 := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, -1, osActive, '<$10>');
-	   
 end;
