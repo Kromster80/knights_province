@@ -1,15 +1,14 @@
 ﻿0:Kinghts Dzapan
 1:The King has ordered to bring the Boy, we must find him and bring him back.
-3:Talk to the Boy standing by the bridge in the east. 
+3:Talk to the Boy standing by the bridge in the east.
 5:We found it!
 6:Wolf's Cave - this is where we used to hide, when we had to flee from the city.
 7:Snow mountain - I remember when we were kids climbing to the top.
 8:Old Mine - it's scary to think how we could play in such a terrifying place.
 9:Oops - I think we got lost...
 10:[$00FFFF]Find a letter hidden in a trunk somewhere in the mountains[]
-11:Timan Mountains - it's brings memories back as i was a child. 
+11:Timan Mountains - it's brings memories back as i was a child.
 12:We found a trunk, unfortunately there's nothing inside. |Let's go find the another one.
-
 14:Hello boy |Why did you run away so suddenly?
 15:because..., because I was scared of the King
 16:King... why?
@@ -21,5 +20,4 @@
 22:Boy, please tell me where I can find him
 23:I don't know, it's hidden somewhere in the mountains...
 24:hm... let's find this letter.||Find the bottle with the Letter, hidden somewhere in the mountains.
-
 26:The Boy
