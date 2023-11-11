@@ -1,0 +1,244 @@
+!VERSION 3
+
+// General settings
+!RANKING 0 // Disabled
+!HANDS_COUNT 3
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 658160
+!HAND_CENTER_SCREEN 22 43
+!HAND_VIEW_DIR 180
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 0 0
+!ADD_GOAL 0 1 0 1 1
+
+// AI
+!SET_AI_AUTO_DEFEND
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Alliances
+!SET_ALLIANCE 1 0
+
+// Grant/Block houses
+
+// Block units
+
+// Block orders
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 21 26 49 4 2 6 // bowman
+!SET_GROUP 21 17 49 4 5 10 // bowman
+!SET_GROUP 21 32 51 5 7 20 // bowman
+!SET_GROUP 21 10 50 3 5 15 // bowman
+!SET_GROUP 19 16 42 4 6 11 // axefighter
+!SET_GROUP 24 20 47 4 6 18 // halberdier
+!SET_GROUP 22 21 43 4 4 8 // arbaletman
+!SET_GROUP 23 14 40 4 2 10 // pikeman
+!SET_GROUP 23 16 52 4 4 8 // pikeman
+!SET_GROUP 23 29 53 5 4 8 // pikeman
+!SET_GROUP 21 28 45 4 2 6 // bowman
+!SET_GROUP 21 14 44 4 3 6 // bowman
+!SET_GROUP 21 31 59 5 4 12 // bowman
+!SET_GROUP 21 25 41 4 4 12 // bowman
+!SET_GROUP 24 30 41 5 4 8 // halberdier
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 15732752
+!HAND_CENTER_SCREEN 25 90
+!HAND_VIEW_DIR 0
+
+// Fog of War
+!FOW_REVEAL 20 70 8
+!FOW_REVEAL 30 70 8
+!FOW_REVEAL 23 57 8
+
+// Goals
+!ADD_GOAL 0 1 0 0 1
+!ADD_GOAL 1 1 0 1 0
+
+// AI
+!SET_AI_AUTO_DEFEND
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Alliances
+!SET_ALLIANCE 0 0
+
+// Grant/Block houses
+
+// Block units
+
+// Block orders
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 26 29 94 0 5 20 // cavalry
+!ATTACK_POSITION 14 0
+!SET_GROUP 26 28 98 0 4 12 // cavalry
+!ATTACK_POSITION 14 0
+!SET_GROUP 25 22 92 0 4 16 // horsescout
+!ATTACK_POSITION 22 0
+!SET_GROUP 25 22 96 0 4 16 // horsescout
+!ATTACK_POSITION 21 0
+!SET_GROUP 22 27 102 0 3 24 // arbaletman
+!ATTACK_POSITION 18 0
+!SET_GROUP 20 22 101 0 3 21 // swordsman
+!ATTACK_POSITION 21 0
+!SET_GROUP 26 29 88 0 5 25 // cavalry
+!ATTACK_POSITION 7 0
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_NEUTRAL_TYPE
+!HAND_ACTIVATE
+!HAND_CENTER_SCREEN 14 31
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Houses
+!SET_HOUSE 36 17 44 1 // campfire
+!SET_HOUSE 36 31 45 1 // campfire
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 41 29 65 5 // waterflower
+!SET_UNIT 41 29 66 5 // waterflower
+!SET_UNIT 41 27 65 5 // waterflower
+!SET_UNIT 42 15 64 5 // waterleaf
+!SET_UNIT 42 18 61 5 // waterleaf
+!SET_UNIT 42 16 59 5 // waterleaf
+!SET_UNIT 42 34 76 5 // waterleaf
+!SET_UNIT 42 37 80 7 // waterleaf
+!SET_UNIT 41 36 79 7 // waterflower
+!SET_UNIT 47 31 74 7 // duck2
+!SET_UNIT 47 32 74 7 // duck2
+!SET_UNIT 43 30 66 7 // duck
+!SET_UNIT 43 43 89 7 // duck
+!SET_UNIT 43 16 61 7 // duck
+!SET_UNIT 47 16 63 7 // duck2
+!SET_UNIT 44 41 43 7 // deer
+!SET_UNIT 44 41 45 7 // deer
+!SET_UNIT 44 33 26 7 // deer
+!SET_UNIT 44 38 17 7 // deer
+!SET_UNIT 44 4 13 7 // deer
+!SET_UNIT 44 3 6 7 // deer
+!SET_UNIT 44 2 32 7 // deer
+!SET_UNIT 44 6 91 7 // deer
+!SET_UNIT 44 1 100 7 // deer
+!SET_UNIT 44 38 102 7 // deer
+!SET_UNIT 44 43 106 7 // deer
+!SET_UNIT 40 37 78 4 // crab
+!SET_UNIT 40 40 82 4 // crab
+!SET_UNIT 40 40 83 4 // crab
+!SET_UNIT 45 2 21 4 // boar
+!SET_UNIT 45 39 15 4 // boar
+!SET_UNIT 45 44 39 4 // boar
+!SET_UNIT 45 3 102 4 // boar
+!SET_UNIT 45 44 109 4 // boar
+
+// Stockpiles
+!SET_STOCKPILE 9 28 35 5
+!SET_STOCKPILE 9 14 34 5
+!SET_STOCKPILE 14 36 34 5
+!SET_STOCKPILE 30 15 34 5
+!SET_STOCKPILE 30 27 35 5
+
+// Emitters
+!SET_EMITTER 19 41 66 // snow_12
+!SET_EMITTER 19 41 76 // snow_12
+!SET_EMITTER 6 16 61 // terrain_wall_of_fog
+!SET_EMITTER 6 18 58 // terrain_wall_of_fog
+!SET_EMITTER 6 15 64 // terrain_wall_of_fog
+!SET_EMITTER 6 26 62 // terrain_wall_of_fog
+!SET_EMITTER 6 28 67 // terrain_wall_of_fog
+!SET_EMITTER 6 32 71 // terrain_wall_of_fog
+!SET_EMITTER 6 22 61 // terrain_wall_of_fog
+!SET_EMITTER 6 24 57 // terrain_wall_of_fog
+!SET_EMITTER 6 23 51 // terrain_wall_of_fog
+!SET_EMITTER 6 19 63 // terrain_wall_of_fog
+!SET_EMITTER 6 23 66 // terrain_wall_of_fog
+!SET_EMITTER 6 11 65 // terrain_wall_of_fog
+!SET_EMITTER 6 12 59 // terrain_wall_of_fog
+!SET_EMITTER 6 31 62 // terrain_wall_of_fog
+!SET_EMITTER 6 28 73 // terrain_wall_of_fog
+!SET_EMITTER 5 42 85 // terrain_mist_large
+!SET_EMITTER 5 40 89 // terrain_mist_large
+!SET_EMITTER 5 44 90 // terrain_mist_large
+!SET_EMITTER 5 45 91 // terrain_mist_large
+!SET_EMITTER 5 39 82 // terrain_mist_large
+!SET_EMITTER 5 35 79 // terrain_mist_large
+!SET_EMITTER 3 39 86 // terrain_mist_small
+!SET_EMITTER 3 43 87 // terrain_mist_small
+!SET_EMITTER 3 40 90 // terrain_mist_small
+!SET_EMITTER 3 42 91 // terrain_mist_small
+!SET_EMITTER 3 44 91 // terrain_mist_small
+!SET_EMITTER 3 42 89 // terrain_mist_small
+!SET_EMITTER 3 38 88 // terrain_mist_small
+!SET_EMITTER 3 44 94 // terrain_mist_small
+!SET_EMITTER 7 17 44 // terrain_smokestack
+!SET_EMITTER 7 31 45 // terrain_smokestack
+!SET_EMITTER 7 28 44 // terrain_smokestack
+!SET_EMITTER 7 27 44 // terrain_smokestack
+!SET_EMITTER 7 18 43 // terrain_smokestack
+!SET_EMITTER 6 20 58 // terrain_wall_of_fog
+!SET_EMITTER 6 19 59 // terrain_wall_of_fog
+!SET_EMITTER 6 17 60 // terrain_wall_of_fog
+!SET_EMITTER 6 17 63 // terrain_wall_of_fog
+!SET_EMITTER 6 17 62 // terrain_wall_of_fog
+!SET_EMITTER 6 17 61 // terrain_wall_of_fog
+!SET_EMITTER 6 27 64 // terrain_wall_of_fog
+!SET_EMITTER 6 28 63 // terrain_wall_of_fog
+!SET_EMITTER 6 29 66 // terrain_wall_of_fog
+!SET_EMITTER 6 28 65 // terrain_wall_of_fog
+!SET_EMITTER 6 28 66 // terrain_wall_of_fog
+!SET_EMITTER 6 14 61 // terrain_wall_of_fog
+!SET_EMITTER 6 14 62 // terrain_wall_of_fog
+!SET_EMITTER 6 16 56 // terrain_wall_of_fog
+!SET_EMITTER 6 30 69 // terrain_wall_of_fog
+!SET_EMITTER 6 31 68 // terrain_wall_of_fog
+!SET_EMITTER 6 23 53 // terrain_wall_of_fog
+!SET_EMITTER 6 22 53 // terrain_wall_of_fog
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r13944 (2023 10 31 17:22)"  on 10 lis 2023 22:49:58
