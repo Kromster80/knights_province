@@ -13,10 +13,9 @@
 12:Defeat all enemies
 13:Enemy
 14:Nalgene D.Jabr
-
-
-WATERFALL - General Kowalik
-----------------------------
+15:
+16:WATERFALL - General Kowalik
+17:----------------------------
 30:Welcome!
 31:Hmm... something/someone is there.
 32:We waited for you... long, very long time!
@@ -29,21 +28,20 @@ WATERFALL - General Kowalik
 39:In the name of true king!||To battle!
 40:NO
 41:Your decision saddens us deeply, but we will fulfill your will. ||Farewell my lord.
-
-
-MERCENAR VILLAGE - General Malkowski
--------------------------------------
+42:
+43:MERCENAR VILLAGE - General Malkowski
+44:-------------------------------------
 50:Welcome adventurer, what brings you to our small village? I hope you are not looking for trouble?
 51:I look for soldiers eager to fight.
 52:Eager to fight you say... |Those are plenty over here, just look around the village and ask the folk people, of course only if you have something valuable to offer ha ha ha...
-
+53:
 55:Hello stranger, will your drink some beer with us?
 56:Hello there, beer hmm...
 57:Drink some
 58:For those like you giving beer is a waste. Get lost!
 59:No thanks
 60:In that case piss off!
-
+61:
 64:10 gold
 65:Welcome, |You look like a warrior, would you like to join my Army?
 66:Hi! |Your Army? And where is that army? I don't see any army here...
@@ -68,7 +66,7 @@ MERCENAR VILLAGE - General Malkowski
 84:Pay 50 gold
 85:Farewell.
 86:We didn't receive your gold, sod off!
-
+87:
 90:Salut young soldier
 91:Hello |You look like a veteran
 92:Yes, I was serving for a good purpose, but those are days of the past.
@@ -90,8 +88,6 @@ MERCENAR VILLAGE - General Malkowski
 108:Now, when you know the whole truth, me and my loyal soldiers will be under your command. |Please, take us with you.
 109:OK
 
-
-
 MYSTERIOUS FOREST - Gen. Slew 
 -------------------------------------
 110:Welcome traveler, do you realise that you came to one of the oldest and most mysterious places in this country, the Forest of Suicides? |It is the last natural and primordial forest on this continent, that has remained unchanged for thousands of years. ||Anyone who enters it, never returns.
@@ -99,7 +95,7 @@ MYSTERIOUS FOREST - Gen. Slew
 112:I'll tell you a secret. To survive and make it through, you need to solve some riddles.
 113:Riddles? What are you talking about?
 114:Hahaha... ||Good luck
-
+115:
 120:Hello weirdo.
 121:Weirdo is who you are! |Get out of my way
 122:Riddle, just a small riddle...
@@ -111,7 +107,7 @@ MYSTERIOUS FOREST - Gen. Slew
 128:Yes, this is the right answer, you can pass
 129:Soldier
 130:Wrong answer, the path remains blocked.
-
+131:
 135:Hey, hey stranger, you can be heard from miles away. Why are you so loud?
 136:Me loud... Another whiner.
 137:Riddle, just a small riddle... ||How will you call a certain wizard, who uses flame to connect the iron?
@@ -123,7 +119,7 @@ MYSTERIOUS FOREST - Gen. Slew
 143:Wrong answer, the path remains blocked
 144:Smith
 145:This is the right answer, you can pass.
-
+146:
 150:Stop! I am the guardian of this forest, who are you?
 151:It's none of your bussiness.
 152:None of my bussiness you say? Then you give me no choice! You can't go any further.
@@ -142,7 +138,7 @@ MYSTERIOUS FOREST - Gen. Slew
 169:Gen. Tion
 170:General by that name never existed. |I was wrong about you, leave our forest immediately.
 171:Adieu young one
-
+172:
 175:Who are you and how did you get here? |Speak fast or else my sword will taste your blood!
 176:I am... |Hmm... Is there even any sense in answering that...
 177:Disregard
@@ -164,10 +160,9 @@ MYSTERIOUS FOREST - Gen. Slew
 193:Your father said this to us: |- General Kowalik |- General Małkowski |and me - General Slew
 194:For a very, very long time we hid in this forest, but now is the time to finally make our move. |From now on our forces will be under your command. Let's fight!
 195:Let's fight!
-
-
-CEMETERY 
--------------------------------------
+196:
+197:CEMETERY 
+198:-------------------------------------
 200:Cementery of banished souls
 201:Cementery of banished souls. ||In this place are the graves of forgotten soldiers. The story goes that to this day this souls haunt their murderers. ||Let's visit and honor the fallen troops.
 203:                              R.I.P ||* Viceadmiral Gonig ...        ||* Commander of the III Army          ||* Died in the battle for Aros    |||''Man with a heart made from stone, rest in peace''

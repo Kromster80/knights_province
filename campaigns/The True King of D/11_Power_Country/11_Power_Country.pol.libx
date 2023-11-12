@@ -1,5 +1,4 @@
 ﻿0:Kinghts Dzapan
-
 1:Zbliżamy się do Królewskiej stolicy. |Skumulowane są tutaj najbardziej żyzne ziemie, jak i góry o bogatych surowcach. |Tereny te są najniebezpieczniejsze w całym kraju, znajduje się tu mnóstwo osad wroga, strzeż się i bądź przezorny.
 2:Gdzieś na północnym zachodzie znajduje się mała wioska z najemnikami, którzy za złoto zrobią wszystko. |Powinniśmy rozejrzeć się za nią, może uda nam się przekupić kilku żołnierzy.
 3:znajdź wioskę z najemnikami
@@ -10,13 +9,13 @@
 8:Wyszkol Wojska przed końcem misji.
 9:Pułapki! |Znaleźliśmy się, na polu pełnych pułapek, musimy szybko przedostać się przez nie.
 10:Szumowino jedna! |Myślisz, że ty, ty, podołasz mnie zniszczyć...
-11:Pozyskaliśmy zapasy wroga, sprowadźmy je do bazy. 
+11:Pozyskaliśmy zapasy wroga, sprowadźmy je do bazy.
 12:Pokonaj wszystkich wrogów
 13:Wróg
 14:Nalgene D.Jabr
-
-WATERFALL - General Kowalik
-----------------------------
+15:
+16:WATERFALL - General Kowalik
+17:----------------------------
 30:Witaj!
 31:Hmm... coś/ktoś tam jest.
 32:Czekaliśmy na ciebie... długo, tak bardzo długo!
@@ -24,26 +23,25 @@ WATERFALL - General Kowalik
 34:Jesteśmy tajną formacją wodza Nalgene Stein. |Ukrywaliśmy się, w tym wodospadzie bardzo długo, oczekując waszego przybycia.
 35:Formacja wojskowa mojego Ojca?
 36:Tak.||Ukrywaliśmy i chroniliśmy twego ojca. |Nazywam się Generał Kwalik |Od jego śmierci, byliśmy w cieniu świata, oczekując z nadzieją, że przybędziesz. |Teraz nasze wojska należą do was, służba u twego boku to dar mój Panie.
-37:Czy powinniśmy im zaufać, może to zasadzka? ||Zaufać im? 
+37:Czy powinniśmy im zaufać, może to zasadzka? ||Zaufać im?
 38:TAK
 39:W imie prawdziwego króla!||Do boju!
 40:NIE
 41:Bardzo ubolewamy twoją decyzję, oczywiście spełnimy twoją wolę. ||Żegnaj Panie.
-
-
-MERCENAR VILLAGE - General Malkowski
--------------------------------------
+42:
+43:MERCENAR VILLAGE - General Malkowski
+44:-------------------------------------
 50:Witaj wędrowniku, co cię sprowadza do naszej osady, mam nadzieję, że nie szukasz problemów?
 51:Poszukuję żołnierzy gotowych do poświęceń.
 52:Do poświeceń powiadasz... |Takich jest tutaj pełno, wystarczy rozejrzeć się po wiosce i popytać mieszkańców, oczywiście, jeżeli posiadasz coś cennego do zaoferowania ha,ha,ha...
-
+53:
 55:Czołem nieznany, napijesz się z nami piwa?
 56:Witam, piwo hm...
 57:Napij się
 58:Dla takich jak ty szkoda piwa, spadaj stąd!
 59:Nie dziękuje
 60:W takim razie spieprzaj!
-
+61:
 64:10 Złota
 65:Witam Cię, |Wyglądasz na wojownika, czy chciałbyś dołączyć do mojej Armii?
 66:Serwus! |Twojej Armii, a co to za Armia, nie widzę tu żadnej Armii...
@@ -51,7 +49,7 @@ MERCENAR VILLAGE - General Malkowski
 68:Może tak, może nie, wszystko zależy, co masz do zaoferowania
 69:Jestem w stanie zaoferować ci 10 złota!
 70:Chcę raz tyle, ale wybór należy do Ciebie. |||Wyślij:
-71:10 złota! Chojraku, chyba nie myślałeś, że pozwolimy ci maszerować po naszych terenach. 
+71:10 złota! Chojraku, chyba nie myślałeś, że pozwolimy ci maszerować po naszych terenach.
 72:Żartowałem, nikt z moich wasali nie przystąpi do twej nikczemnej ''Armii''. |Potraktuję twe złoto jako zapłatę za wstęp do naszej osady. |Masz 5 min, a po tym czasie ma cię tu nie być!
 73:Nie otrzymaliśmy twojego złota zdrajco! |Spodziewałem się, że chcesz, mnie oszukać a teraz giń!
 74:20 Złota
@@ -68,7 +66,7 @@ MERCENAR VILLAGE - General Malkowski
 84:Zapłać 50 złota
 85:Bywaj.
 86:Nie otrzymaliśmy twojego złota, zawijaj się stąd!
-
+87:
 90:Salut młody żołnierzu
 91:Czołem |wyglądasz na weterana
 92:Tak, kiedyś służyłem w dobrym celu, lecz te czasy to przeszłość.
@@ -90,8 +88,6 @@ MERCENAR VILLAGE - General Malkowski
 108:Teraz gdy znasz całą prawdę, ja i moi wierni żołnierze będziemy ci służyć. |Proszę, zabierz nas ze sobą.
 109:OK
 
-
-
 MYSTERIOUS FOREST - Gen. Slew 
 -------------------------------------
 110:Witaj wędrowcu, czy zdajesz sobie sprawę, że dotarłeś w jedno z najstarszych i najbardziej tajemniczych miejsc w tym kraju, Las Samobójców. |Jest to ostatni naturalny las pierwotny na kontynencie, który zachował się w niemal niezmienionym stanie od tysięcy lat. ||Kto raz zawita, nigdy nie wraca.
@@ -104,14 +100,14 @@ MYSTERIOUS FOREST - Gen. Slew
 121:Sam jesteś dziwakiem! |Zejdź mi z drogi
 122:Zagadka, zagadeczka...
 123:O co tutaj chodzi... powiedziałem, zejdź mi z drogi!
-124:Dotarłeś do lasu pełnego zagadek, czas na zabawę. Rozwiąż próby a ... ||Zagadka numer I ||Zawsze przyjdzie, ale nigdy nie przyjdzie dzisiaj. Co to takiego? 
+124:Dotarłeś do lasu pełnego zagadek, czas na zabawę. Rozwiąż próby a ... ||Zagadka numer I ||Zawsze przyjdzie, ale nigdy nie przyjdzie dzisiaj. Co to takiego?
 125:Las
 126:Zła odpowiedź, twoja przygoda się tu kończy, nie przejdziesz dalej.
 127:Jutro
 128:Tak, to prawidłowa odpowiedź, możesz pójść dalej
 129:Żołnierz
 130:Zła odpowiedź, przejście zablokowane.
-
+131:
 135:Hoł, hoł cudzoziemcu, słychać Cię z daleka, czemu jesteś tak głośny?
 136:Ja, głośny... kolejny ważniak się znalazł.
 137:Zagadka, zagadeczka... ||Jak nazwiesz takiego czarodzieja, który płomieniem żelazo skleja?
@@ -123,10 +119,10 @@ MYSTERIOUS FOREST - Gen. Slew
 143:Zła odpowiedź, przejście zablokowane
 144:Kowal
 145:To prawidłowa odpowiedź, możesz pójść dalej.
-
+146:
 150:Stop! Jestem strażnikiem tego lasu, mów kim jesteś!
 151:Nic ci do tego.
-152:Nic mi do tego powiadasz, w takim razie, nie dajesz mi wyboru! Nie przejdziesz dalej. 
+152:Nic mi do tego powiadasz, w takim razie, nie dajesz mi wyboru! Nie przejdziesz dalej.
 153:Odkrywcą
 154:W takim razie, znajdź siebie inne miejsca do ‘’Odkrywania’’
 157:Przyszłym Królem
@@ -142,7 +138,7 @@ MYSTERIOUS FOREST - Gen. Slew
 169:Gen. Tion
 170:Generał o takim imieniu nigdy nie istniał. |Jednak myliłem się co do ciebie, opuść nasz Las.
 171:Adieu młody
-
+172:
 175:Kim jesteś, jak się tu znalazłeś! |Mów i to już! W innym przypadku mój miecz zasmakuje twej krwi.
 176:Jestem... |hm... czy jest sens odpowiadać...
 177:Zlekceważ
@@ -164,10 +160,9 @@ MYSTERIOUS FOREST - Gen. Slew
 193:Twój Ojciec rzekł to do nas: |- Generała Kowalik |- Generała Małkowski |oraz mnie - Generała Slew
 194:Od bardzo, bardzo dawna ukrywaliśmy się w tym lesie, nadszedł czas, aby wykonać nasz ruch. |Od teraz nasze wojska są do twojej dyspozycji. Do boju!
 195:Do boju!
-
-
-CEMETERY 
--------------------------------------
+196:
+197:CEMETERY 
+198:-------------------------------------
 200:Cmentarz dusz wygnanych
 201:Cmentarz dusz wygnanych. ||W miejscu tym znajdują się groby zapomnianych żołnierzy, historia powiada, iż dusze do dnia, dzisiejszego prześladują swych morderców.||Odwiedźmy i złóżmy hołd poległym żołnierza.
 203:                              R.I.P ||* Wiceadmirał Gonig ...        ||* Dowódca III Armi          ||* Zginął w walkach o Aros    |||''Człowiek o sercu z kamienia, spoczywaj w spokoju''
@@ -181,13 +176,13 @@ CEMETERY
 211:                              R.I.P ||* Starszy Szeregowy Gordon ... ||* ...                       ||* ...                       |||''Gord – spoczywaj w spokoju.''
 212:                              R.I.P ||* Szeregowy Dock ...           ||* ...                       ||* Zginął w walkach o Brillon |||''Znany jako nieuchwytny Orzeł''
 213:                              R.I.P ||* Starszy Szeregowy Fant ...   ||* ...                       ||* Zginął pod Net             |||''Nieznany jest los człowieka''
-214:                              R.I.P ||* Szeregowy Mei                ||* Żołnierz II Armi                  
+214:                              R.I.P ||* Szeregowy Mei                ||* Żołnierz II Armi
 215:                              R.I.P ||* Porucznik Down               ||* Żołnierz II Armi
 216:                              R.I.P ||* Porucznik Moddel             ||* Żołnierz III Armi
 217:                              R.I.P ||* Starszy Szeregowy Kluster    ||* Żołnierz II Armi
 218:                              R.I.P ||* Szeregowy Dard               ||* Żołnierz II Armi
 219:                              R.I.P ||* Pułkownik Serowsky           ||* Żołnierz I Armi
-220:                              R.I.P ||* Wicegenerał Fish             ||* ...                       ||* Zginął pod Aros             |||''Odnalazłem mój spokój''                           
+220:                              R.I.P ||* Wicegenerał Fish             ||* ...                       ||* Zginął pod Aros             |||''Odnalazłem mój spokój''
 221:                              R.I.P ||* Podporucznik Haber           ||* Żołnierz I Armi
 222:                              R.I.P ||* Major Faroc                  ||* Żołnierz III Armi         ||* Zginął w walkach o Brillon
 223:                              R.I.P ||* Podpułkownik Ribor           ||* Dowódca I pułku           ||* Zginął pod Aros
@@ -198,14 +193,3 @@ CEMETERY
 228:                              R.I.P ||* Starszy Szeregowy Hux        ||* Żołnierz I Armi           ||* Zginął pod Gedor
 229:                              R.I.P ||* Sierżant Swap                ||* Żołnierz III Armi         ||* Zginął w walkach o Brillon
 230:                              R.I.P ||* Sierżant Ward                ||* ...
-
-
-
-
-
-
-
-
-
-
-
