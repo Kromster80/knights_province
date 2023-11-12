@@ -10,7 +10,6 @@
 9:Królewski Spichlerz! |Zapasy całego kraju usytuowane są w tym miejscu. |Wykorzystajmy zapasy jedzenia, aby nakarmić nasze Wojska.
 10:Punkt obserwacyjny wroga |Zniszczmy szybko ich stanowiska, by nie zdołali zwołać posiłków.
 11:Mur obronny z wysuniętymi wieżami. |Wygląda to bardzo podejrzenie, można wyczuwać tu jakąś zasadzkę.
-*brama się otwiera, jeżeli staniemy na aX lewej pozycji -> prawa się otwiera i wice versa. (Środek w ogóle się nie otwiera)
 12:Zatrzymajcie się! |Chcemy zaproponować wam sojusz.
 13:Odrzuć sojusz
 14:Przyjmij sojusz
@@ -19,67 +18,9 @@
 17:Wieśniacy wznieśli blokadę łączącą most z Królewskim Spichlerzem! |Wykorzystajmy to i nakarmmy, ponownie nasze odziały przed decydującym atakiem.
 18:Król zabarykadował się w swojej komnacie |Zniszczmy najpierw wszystkie wojska znajdujące się na murach obronnych i w zamku, a kiedy już je roztrwonimy, wtedy zajmiemy się tchórzliwym zdrajcą! ||Dzień sądu nastąpił.
 19:Nareszcie pojawił się ten tchórz i nikczemnik, czas odmienić bieg Historii. |Zabij zdrajcę i odzyskaj honor swojej rodziny!
-20:Parszywy Król wyszedł ze swojej nory! |[$00ffff]To już koniec naszej przygody, mam nadzieję, że spędziłeś/aś miły czas podczas gry.[] ||[$808080]Specjalne podziękowania dla:[] [$00ff00]Krom[] |[$808080]Twórca Kampanii:[] [$00ff00]Kinghts Dzapan[] |[$808080]Skrypty:[] [$00ff00]Kinghts Dzapan, Krom[] |[$808080]Tłumaczenia:[] |[$00ff00]ENG - Kinghts Dzapan, Mantades[] |[$00ff00]PL - Kinghts Dzapan[] |[$808080]Mapa Świata:[] [$00ff00]Kinghts Dzapan[] |[$808080]Grafiki do dialogów:[] [$00ff00]Kinghts Dzapan[] ||[$808080]Scenariusz do kampani napisan został w 2019r |Kampania tworzona była od Stycznia 2021 do Grudnia 2023r. |Osobiście przyznam, iż świetnie się bawiłem, tworząc kampanie do KP.[] |||[$0000ff]Bywaj żołnierzu![] 
+20:Parszywy Król wyszedł ze swojej nory! |[$00ffff]To już koniec naszej przygody, mam nadzieję, że spędziłeś/aś miły czas podczas gry.[] ||[$808080]Specjalne podziękowania dla:[] [$00ff00]Krom[] |[$808080]Twórca Kampanii:[] [$00ff00]Kinghts Dzapan[] |[$808080]Skrypty:[] [$00ff00]Kinghts Dzapan, Krom[] |[$808080]Tłumaczenia:[] |[$00ff00]ENG - Kinghts Dzapan, Mantades[] |[$00ff00]PL - Kinghts Dzapan[] |[$808080]Mapa Świata:[] [$00ff00]Kinghts Dzapan[] |[$808080]Grafiki do dialogów:[] [$00ff00]Kinghts Dzapan[] ||[$808080]Scenariusz do kampani napisan został w 2019r |Kampania tworzona była od Stycznia 2021 do Grudnia 2023r. |Osobiście przyznam, iż świetnie się bawiłem, tworząc kampanie do KP.[] |||[$0000ff]Bywaj żołnierzu![]
 21:Niestety, tyran zdołał odbudować fortecę, co utrudni nam zadanie, pamiętaj, nadzieja umiera ostatnia.
 22:Wróg
 23:Nalgene D.Jabr
 24:Chłopi
-
 100:Most Loros
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*********************************************************************************************************************************************
-*********************************************************************************************************************************************
-*********                                                                                                                         ***********
-*********  Aby, przejść tę misję musisz zgromadzić w poprzedniej misji minimum 200 kuszników i około 100-150 ciężkich jednostek.  ***********
-*********                                                                                                                         ***********
-*********************************************************************************************************************************************
-*********************************************************************************************************************************************
