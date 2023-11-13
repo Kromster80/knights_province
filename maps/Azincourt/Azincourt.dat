@@ -2,6 +2,7 @@
 
 // General settings
 !RANKING 0 // Disabled
+!MODE_TACTIC
 !HANDS_COUNT 3
 !HAND_DEFAULT_HUMAN 0
 
@@ -247,4 +248,4 @@
 !SET_OBJECT_CAPTION 20 107 0 21 0
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 r14028 (2023.11.11 19:33)"  on 11.11.2023 19:41:25
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r14046 (2023.11.13 12:38)"  on 13.11.2023 12:40:04
