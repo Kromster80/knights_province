@@ -1,7 +1,6 @@
 Digging Rush is created by Amaroth. Contact - Discord: Amaroth#9907. Distributed under CC BY license. 2022-07-25
 
 2023-11-20 (Krom)
-- Slightly changed water tint
 - Added more starting food (to help AI not starve)
 
 ### Abstract

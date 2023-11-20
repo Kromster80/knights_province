@@ -42,9 +42,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 80 // cider
 
 // Roads and fields
 
@@ -109,9 +109,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 100 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 80 // cider
 
 // Roads and fields
 
@@ -176,9 +176,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 100 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 80 // cider
 
 // Roads and fields
 
