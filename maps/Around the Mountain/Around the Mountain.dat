@@ -50,9 +50,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 
 // Roads and fields
 
@@ -63,12 +63,12 @@
 
 
 // Units
-!SET_UNIT 1 15 100 4 // blank
-!SET_UNIT 1 15 99 4 // blank
-!SET_UNIT 1 14 99 4 // blank
-!SET_UNIT 1 14 100 4 // blank
-!SET_UNIT 2 17 101 4 // serf
-!SET_UNIT 2 17 102 4 // serf
+!SET_UNIT 1 15 100 4 // peasant
+!SET_UNIT 1 15 99 4 // peasant
+!SET_UNIT 1 14 99 4 // peasant
+!SET_UNIT 1 14 100 4 // peasant
+!SET_UNIT 2 17 101 4 // porter
+!SET_UNIT 2 17 102 4 // porter
 !SET_UNIT 3 18 101 4 // builder
 !SET_UNIT 3 18 102 4 // builder
 
@@ -119,9 +119,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 
 // Roads and fields
 
@@ -132,12 +132,12 @@
 
 
 // Units
-!SET_UNIT 1 14 48 4 // blank
-!SET_UNIT 1 14 49 4 // blank
-!SET_UNIT 1 13 49 4 // blank
-!SET_UNIT 1 13 48 4 // blank
-!SET_UNIT 2 16 50 4 // serf
-!SET_UNIT 2 16 51 4 // serf
+!SET_UNIT 1 14 48 4 // peasant
+!SET_UNIT 1 14 49 4 // peasant
+!SET_UNIT 1 13 49 4 // peasant
+!SET_UNIT 1 13 48 4 // peasant
+!SET_UNIT 2 16 50 4 // porter
+!SET_UNIT 2 16 51 4 // porter
 !SET_UNIT 3 17 50 4 // builder
 !SET_UNIT 3 17 51 4 // builder
 
@@ -188,9 +188,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 
 // Roads and fields
 
@@ -201,12 +201,12 @@
 
 
 // Units
-!SET_UNIT 1 63 13 4 // blank
-!SET_UNIT 1 64 13 4 // blank
-!SET_UNIT 1 64 12 4 // blank
-!SET_UNIT 1 63 12 4 // blank
-!SET_UNIT 2 62 15 4 // serf
-!SET_UNIT 2 61 15 4 // serf
+!SET_UNIT 1 63 13 4 // peasant
+!SET_UNIT 1 64 13 4 // peasant
+!SET_UNIT 1 64 12 4 // peasant
+!SET_UNIT 1 63 12 4 // peasant
+!SET_UNIT 2 62 15 4 // porter
+!SET_UNIT 2 61 15 4 // porter
 !SET_UNIT 3 62 16 4 // builder
 !SET_UNIT 3 61 16 4 // builder
 
@@ -257,9 +257,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 
 // Roads and fields
 
@@ -270,12 +270,12 @@
 
 
 // Units
-!SET_UNIT 1 105 59 4 // blank
-!SET_UNIT 1 106 59 4 // blank
-!SET_UNIT 1 106 58 4 // blank
-!SET_UNIT 1 105 58 4 // blank
-!SET_UNIT 2 104 61 4 // serf
-!SET_UNIT 2 103 61 4 // serf
+!SET_UNIT 1 105 59 4 // peasant
+!SET_UNIT 1 106 59 4 // peasant
+!SET_UNIT 1 106 58 4 // peasant
+!SET_UNIT 1 105 58 4 // peasant
+!SET_UNIT 2 104 61 4 // porter
+!SET_UNIT 2 103 61 4 // porter
 !SET_UNIT 3 104 62 4 // builder
 !SET_UNIT 3 103 62 4 // builder
 
@@ -326,9 +326,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 
 // Roads and fields
 
@@ -339,12 +339,12 @@
 
 
 // Units
-!SET_UNIT 1 75 119 4 // blank
-!SET_UNIT 1 75 118 4 // blank
-!SET_UNIT 1 74 118 4 // blank
-!SET_UNIT 1 74 119 4 // blank
-!SET_UNIT 2 77 120 4 // serf
-!SET_UNIT 2 77 121 4 // serf
+!SET_UNIT 1 75 119 4 // peasant
+!SET_UNIT 1 75 118 4 // peasant
+!SET_UNIT 1 74 118 4 // peasant
+!SET_UNIT 1 74 119 4 // peasant
+!SET_UNIT 2 77 120 4 // porter
+!SET_UNIT 2 77 121 4 // porter
 !SET_UNIT 3 78 120 4 // builder
 !SET_UNIT 3 78 121 4 // builder
 
@@ -389,4 +389,4 @@
 !SET_EMITTER 19 72 70 // snow_12
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12838 (2023.03.28 21:01)"  on 29.03.2023 1:54:37
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r14103 (2023.11.20 13:46)"  on 20.11.2023 14:32:00
