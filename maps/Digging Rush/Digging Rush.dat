@@ -49,9 +49,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -62,9 +62,9 @@
 
 
 // Units
-!SET_UNIT 2 27 230 4 // porter
-!SET_UNIT 2 26 230 4 // porter
-!SET_UNIT 2 25 230 4 // porter
+!SET_UNIT 2 27 230 4 // serf
+!SET_UNIT 2 26 230 4 // serf
+!SET_UNIT 2 25 230 4 // serf
 !SET_UNIT 3 28 230 4 // builder
 !SET_UNIT 3 29 230 4 // builder
 !SET_UNIT 3 30 230 4 // builder
@@ -112,9 +112,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -125,9 +125,9 @@
 
 
 // Units
-!SET_UNIT 2 127 222 4 // porter
-!SET_UNIT 2 126 222 4 // porter
-!SET_UNIT 2 125 222 4 // porter
+!SET_UNIT 2 127 222 4 // serf
+!SET_UNIT 2 126 222 4 // serf
+!SET_UNIT 2 125 222 4 // serf
 !SET_UNIT 3 128 222 4 // builder
 !SET_UNIT 3 129 222 4 // builder
 !SET_UNIT 3 130 222 4 // builder
@@ -175,9 +175,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -188,9 +188,9 @@
 
 
 // Units
-!SET_UNIT 2 227 230 4 // porter
-!SET_UNIT 2 226 230 4 // porter
-!SET_UNIT 2 225 230 4 // porter
+!SET_UNIT 2 227 230 4 // serf
+!SET_UNIT 2 226 230 4 // serf
+!SET_UNIT 2 225 230 4 // serf
 !SET_UNIT 3 228 230 4 // builder
 !SET_UNIT 3 229 230 4 // builder
 !SET_UNIT 3 230 230 4 // builder
@@ -238,9 +238,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -251,9 +251,9 @@
 
 
 // Units
-!SET_UNIT 2 27 158 4 // porter
-!SET_UNIT 2 26 158 4 // porter
-!SET_UNIT 2 25 158 4 // porter
+!SET_UNIT 2 27 158 4 // serf
+!SET_UNIT 2 26 158 4 // serf
+!SET_UNIT 2 25 158 4 // serf
 !SET_UNIT 3 28 158 4 // builder
 !SET_UNIT 3 29 158 4 // builder
 !SET_UNIT 3 30 158 4 // builder
@@ -301,9 +301,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -314,9 +314,9 @@
 
 
 // Units
-!SET_UNIT 2 235 150 4 // porter
-!SET_UNIT 2 234 150 4 // porter
-!SET_UNIT 2 233 150 4 // porter
+!SET_UNIT 2 235 150 4 // serf
+!SET_UNIT 2 234 150 4 // serf
+!SET_UNIT 2 233 150 4 // serf
 !SET_UNIT 3 236 150 4 // builder
 !SET_UNIT 3 237 150 4 // builder
 !SET_UNIT 3 238 150 4 // builder
@@ -364,9 +364,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -377,9 +377,9 @@
 
 
 // Units
-!SET_UNIT 2 27 30 4 // porter
-!SET_UNIT 2 26 30 4 // porter
-!SET_UNIT 2 25 30 4 // porter
+!SET_UNIT 2 27 30 4 // serf
+!SET_UNIT 2 26 30 4 // serf
+!SET_UNIT 2 25 30 4 // serf
 !SET_UNIT 3 28 30 4 // builder
 !SET_UNIT 3 29 30 4 // builder
 !SET_UNIT 3 30 30 4 // builder
@@ -427,9 +427,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -440,9 +440,9 @@
 
 
 // Units
-!SET_UNIT 2 127 38 4 // porter
-!SET_UNIT 2 126 38 4 // porter
-!SET_UNIT 2 125 38 4 // porter
+!SET_UNIT 2 127 38 4 // serf
+!SET_UNIT 2 126 38 4 // serf
+!SET_UNIT 2 125 38 4 // serf
 !SET_UNIT 3 128 38 4 // builder
 !SET_UNIT 3 129 38 4 // builder
 !SET_UNIT 3 130 38 4 // builder
@@ -490,9 +490,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -503,9 +503,9 @@
 
 
 // Units
-!SET_UNIT 2 227 30 4 // porter
-!SET_UNIT 2 226 30 4 // porter
-!SET_UNIT 2 225 30 4 // porter
+!SET_UNIT 2 227 30 4 // serf
+!SET_UNIT 2 226 30 4 // serf
+!SET_UNIT 2 225 30 4 // serf
 !SET_UNIT 3 228 30 4 // builder
 !SET_UNIT 3 229 30 4 // builder
 !SET_UNIT 3 230 30 4 // builder
@@ -553,9 +553,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -566,9 +566,9 @@
 
 
 // Units
-!SET_UNIT 2 19 110 4 // porter
-!SET_UNIT 2 18 110 4 // porter
-!SET_UNIT 2 17 110 4 // porter
+!SET_UNIT 2 19 110 4 // serf
+!SET_UNIT 2 18 110 4 // serf
+!SET_UNIT 2 17 110 4 // serf
 !SET_UNIT 3 20 110 4 // builder
 !SET_UNIT 3 21 110 4 // builder
 !SET_UNIT 3 22 110 4 // builder
@@ -616,9 +616,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 50 // gold
-!WARE_OUT_ADD_TO_LAST 28 120 // fish
+!WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 120 // cider
+!WARE_OUT_ADD_TO_LAST 30 90 // cider
 
 // Roads and fields
 
@@ -629,9 +629,9 @@
 
 
 // Units
-!SET_UNIT 2 227 102 4 // porter
-!SET_UNIT 2 226 102 4 // porter
-!SET_UNIT 2 225 102 4 // porter
+!SET_UNIT 2 227 102 4 // serf
+!SET_UNIT 2 226 102 4 // serf
+!SET_UNIT 2 225 102 4 // serf
 !SET_UNIT 3 228 102 4 // builder
 !SET_UNIT 3 229 102 4 // builder
 !SET_UNIT 3 230 102 4 // builder
@@ -685,4 +685,4 @@
 !SET_UNIT 42 68 104 4 // waterleaf
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 r14103 (2023.11.20 13:46)"  on 20.11.2023 14:37:02
+// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 11:28:07
