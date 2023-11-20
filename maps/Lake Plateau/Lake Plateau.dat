@@ -12,7 +12,7 @@
 !HAND_ALLOW_AI
 !HAND_ACTIVATE
 !HAND_COLOR 658160
-!HAND_CENTER_SCREEN 22 71
+!HAND_CENTER_SCREEN 15 78
 !HAND_VIEW_DIR 30
 
 // Fog of War
@@ -48,9 +48,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 !SET_HOUSE 17 28 57 0 // towerArrow
 
 // Roads and fields
@@ -66,13 +66,13 @@
 
 
 // Units
-!SET_UNIT 2 12 80 4 // serf
-!SET_UNIT 2 13 80 4 // serf
-!SET_UNIT 2 12 81 4 // serf
+!SET_UNIT 2 12 80 4 // porter
+!SET_UNIT 2 13 80 4 // porter
+!SET_UNIT 2 12 81 4 // porter
 !SET_UNIT 3 14 81 4 // builder
 !SET_UNIT 3 15 81 4 // builder
 !SET_UNIT 3 15 80 4 // builder
-!SET_UNIT 2 13 81 4 // serf
+!SET_UNIT 2 13 81 4 // porter
 !SET_UNIT 3 14 80 4 // builder
 
 -----Hand1-----
@@ -117,9 +117,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 !SET_HOUSE 17 66 51 0 // towerArrow
 
 // Roads and fields
@@ -135,10 +135,10 @@
 
 
 // Units
-!SET_UNIT 2 81 50 4 // serf
-!SET_UNIT 2 82 50 4 // serf
-!SET_UNIT 2 82 51 4 // serf
-!SET_UNIT 2 81 51 4 // serf
+!SET_UNIT 2 81 50 4 // porter
+!SET_UNIT 2 82 50 4 // porter
+!SET_UNIT 2 82 51 4 // porter
+!SET_UNIT 2 81 51 4 // porter
 !SET_UNIT 3 83 50 4 // builder
 !SET_UNIT 3 84 50 4 // builder
 !SET_UNIT 3 84 51 4 // builder
@@ -186,9 +186,9 @@
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
 !WARE_OUT_ADD_TO_LAST 8 30 // gold
-!WARE_OUT_ADD_TO_LAST 28 60 // fish
+!WARE_OUT_ADD_TO_LAST 28 120 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
-!WARE_OUT_ADD_TO_LAST 30 60 // cider
+!WARE_OUT_ADD_TO_LAST 30 120 // cider
 !SET_HOUSE 17 41 23 1 // towerArrow
 
 // Roads and fields
@@ -204,10 +204,10 @@
 
 
 // Units
-!SET_UNIT 2 28 17 4 // serf
-!SET_UNIT 2 27 17 4 // serf
-!SET_UNIT 2 27 18 4 // serf
-!SET_UNIT 2 28 18 4 // serf
+!SET_UNIT 2 28 17 4 // porter
+!SET_UNIT 2 27 17 4 // porter
+!SET_UNIT 2 27 18 4 // porter
+!SET_UNIT 2 28 18 4 // porter
 !SET_UNIT 3 29 17 4 // builder
 !SET_UNIT 3 30 17 4 // builder
 !SET_UNIT 3 30 18 4 // builder
@@ -228,4 +228,4 @@
 
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:06:13
+// This mission was made with Map Editor of "Knights Province. Alpha 12 r14103 (2023.11.20 13:46)"  on 20.11.2023 13:57:56
