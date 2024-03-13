@@ -67,7 +67,7 @@
 
 
 // Units
-!SET_UNIT 2 168 160 4 // serf
+!SET_UNIT 2 168 160 4 // porter
 
 -----Hand1-----
 !HAND_CURRENT 1

@@ -54,14 +54,14 @@
 
 
 // Units
-!SET_UNIT 2 28 68 4 // serf
-!SET_UNIT 2 27 68 4 // serf
-!SET_UNIT 2 26 68 4 // serf
-!SET_UNIT 2 25 68 4 // serf
+!SET_UNIT 2 28 68 4 // porter
+!SET_UNIT 2 27 68 4 // porter
+!SET_UNIT 2 26 68 4 // porter
+!SET_UNIT 2 25 68 4 // porter
 !SET_UNIT 3 28 67 4 // builder
 !SET_UNIT 3 27 67 4 // builder
 !SET_UNIT 3 26 67 4 // builder
-!SET_UNIT 2 24 68 4 // serf
+!SET_UNIT 2 24 68 4 // porter
 !SET_UNIT 3 25 67 4 // builder
 
 // Groups
@@ -115,15 +115,15 @@
 
 
 // Units
-!SET_UNIT 2 110 93 4 // serf
-!SET_UNIT 2 109 93 4 // serf
-!SET_UNIT 2 108 93 4 // serf
-!SET_UNIT 2 107 93 4 // serf
+!SET_UNIT 2 110 93 4 // porter
+!SET_UNIT 2 109 93 4 // porter
+!SET_UNIT 2 108 93 4 // porter
+!SET_UNIT 2 107 93 4 // porter
 !SET_UNIT 3 110 94 4 // builder
 !SET_UNIT 3 109 94 4 // builder
 !SET_UNIT 3 108 94 4 // builder
 !SET_UNIT 3 107 94 4 // builder
-!SET_UNIT 2 106 93 4 // serf
+!SET_UNIT 2 106 93 4 // porter
 
 // Groups
 !SET_GROUP 25 117 95 4 1 1 // horsescout
@@ -143,10 +143,10 @@
 
 
 // Emitters
-!SET_EMITTER 3 70 76
-!SET_EMITTER 5 70 74
-!SET_EMITTER 5 74 72
-!SET_EMITTER 5 72 77
+!SET_EMITTER 3 70 76 // terrain_mist_small
+!SET_EMITTER 5 70 74 // terrain_mist_large
+!SET_EMITTER 5 74 72 // terrain_mist_large
+!SET_EMITTER 5 72 77 // terrain_mist_large
 
 
 // This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:22:39

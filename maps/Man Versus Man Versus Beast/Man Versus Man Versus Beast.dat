@@ -300,17 +300,17 @@
 
 
 // Units
-!SET_UNIT 1 14 35 4 // blank
-!SET_UNIT 1 8 34 4 // blank
+!SET_UNIT 1 14 35 4 // peasant
+!SET_UNIT 1 8 34 4 // peasant
 !SET_UNIT 4 13 36 4 // woodcutter
-!SET_UNIT 2 5 32 4 // serf
-!SET_UNIT 2 6 32 4 // serf
-!SET_UNIT 2 7 32 4 // serf
-!SET_UNIT 2 8 32 4 // serf
-!SET_UNIT 2 5 33 4 // serf
-!SET_UNIT 2 6 33 4 // serf
-!SET_UNIT 2 7 33 4 // serf
-!SET_UNIT 2 8 33 4 // serf
+!SET_UNIT 2 5 32 4 // porter
+!SET_UNIT 2 6 32 4 // porter
+!SET_UNIT 2 7 32 4 // porter
+!SET_UNIT 2 8 32 4 // porter
+!SET_UNIT 2 5 33 4 // porter
+!SET_UNIT 2 6 33 4 // porter
+!SET_UNIT 2 7 33 4 // porter
+!SET_UNIT 2 8 33 4 // porter
 !SET_UNIT 12 5 34 4 // brewer
 
 // Groups
