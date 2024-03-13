@@ -66,6 +66,8 @@
 !UNIT_BLOCK 15 // smith
 !UNIT_BLOCK 16 // metallurg
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -120,16 +122,16 @@
 
 
 // Units
-!SET_UNIT 2 14 27 // serf
-!SET_UNIT 2 16 27 // serf
-!SET_UNIT 2 16 20 // serf
-!SET_UNIT 2 21 32 // serf
-!SET_UNIT 2 11 27 // serf
-!SET_UNIT 2 19 27 // serf
-!SET_UNIT 13 3 22 // fisher
-!SET_UNIT 13 9 19 // fisher
-!SET_UNIT 4 3 30 // woodcutter
-!SET_UNIT 8 8 28 // carpenter
+!SET_UNIT 2 14 27 4 // porter
+!SET_UNIT 2 16 27 4 // porter
+!SET_UNIT 2 16 20 4 // porter
+!SET_UNIT 2 21 32 4 // porter
+!SET_UNIT 2 11 27 4 // porter
+!SET_UNIT 2 19 27 4 // porter
+!SET_UNIT 13 3 22 4 // fisher
+!SET_UNIT 13 9 19 4 // fisher
+!SET_UNIT 4 3 30 4 // woodcutter
+!SET_UNIT 8 8 28 4 // carpenter
 
 // Groups
 !SET_GROUP 19 25 38 4 4 8 // axefighter
@@ -165,6 +167,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -189,23 +193,23 @@
 
 
 // Units
-!SET_UNIT 32 43 34 // wagon
+!SET_UNIT 32 43 34 4 // wagon
 !SET_UNIT_WARE 21 15
-!SET_UNIT 32 15 55 // wagon
+!SET_UNIT 32 15 55 4 // wagon
 !SET_UNIT_WARE 33 20
-!SET_UNIT 32 17 56 // wagon
+!SET_UNIT 32 17 56 4 // wagon
 !SET_UNIT_WARE 21 15
-!SET_UNIT 32 41 33 // wagon
+!SET_UNIT 32 41 33 4 // wagon
 !SET_UNIT_WARE 17 20
-!SET_UNIT 32 46 57 // wagon
+!SET_UNIT 32 46 57 4 // wagon
 !SET_UNIT_WARE 17 50
-!SET_UNIT 32 45 59 // wagon
+!SET_UNIT 32 45 59 4 // wagon
 !SET_UNIT_WARE 21 50
-!SET_UNIT 32 44 56 // wagon
+!SET_UNIT 32 44 56 4 // wagon
 !SET_UNIT_WARE 33 50
-!SET_UNIT 1 62 38 // blank
-!SET_UNIT 1 61 38 // blank
-!SET_UNIT 1 60 38 // blank
+!SET_UNIT 1 62 38 4 // peasant
+!SET_UNIT 1 61 38 4 // peasant
+!SET_UNIT 1 60 38 4 // peasant
 
 // Groups
 !SET_GROUP 19 40 38 5 3 6 // axefighter
@@ -242,6 +246,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -266,12 +272,12 @@
 
 
 // Units
-!SET_UNIT 32 4 50 // wagon
+!SET_UNIT 32 4 50 4 // wagon
 !SET_UNIT_WARE 30 50
-!SET_UNIT 2 56 16 // serf
-!SET_UNIT 2 57 16 // serf
-!SET_UNIT 2 58 16 // serf
-!SET_UNIT 2 59 16 // serf
+!SET_UNIT 2 56 16 4 // porter
+!SET_UNIT 2 57 16 4 // porter
+!SET_UNIT 2 58 16 4 // porter
+!SET_UNIT 2 59 16 4 // porter
 
 // Groups
 !SET_GROUP 19 53 50 6 4 4 // axefighter
@@ -291,7 +297,7 @@
 
 
 // Units
-!SET_UNIT 32 35 3 // wagon
+!SET_UNIT 32 35 3 4 // wagon
 !SET_UNIT_WARE 2 30
 
 

@@ -88,15 +88,15 @@
 
 
 // Units
-!SET_UNIT 2 38 32 4 // serf
+!SET_UNIT 2 38 32 4 // porter
 !SET_UNIT 3 41 32 4 // builder
 !SET_UNIT 3 41 31 4 // builder
-!SET_UNIT 2 39 32 4 // serf
-!SET_UNIT 2 39 31 4 // serf
-!SET_UNIT 2 38 31 4 // serf
+!SET_UNIT 2 39 32 4 // porter
+!SET_UNIT 2 39 31 4 // porter
+!SET_UNIT 2 38 31 4 // porter
 !SET_UNIT 4 36 30 4 // woodcutter
-!SET_UNIT 2 38 33 4 // serf
-!SET_UNIT 2 39 33 4 // serf
+!SET_UNIT 2 38 33 4 // porter
+!SET_UNIT 2 39 33 4 // porter
 !SET_UNIT 3 42 31 4 // builder
 !SET_UNIT 3 42 32 4 // builder
 

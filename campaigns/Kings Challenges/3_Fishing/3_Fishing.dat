@@ -95,10 +95,10 @@
 
 
 // Units
-!SET_UNIT 2 26 38 4 // serf
-!SET_UNIT 2 26 37 4 // serf
-!SET_UNIT 2 27 37 4 // serf
-!SET_UNIT 2 27 38 4 // serf
+!SET_UNIT 2 26 38 4 // porter
+!SET_UNIT 2 26 37 4 // porter
+!SET_UNIT 2 27 37 4 // porter
+!SET_UNIT 2 27 38 4 // porter
 !SET_UNIT 3 29 37 4 // builder
 !SET_UNIT 3 29 38 4 // builder
 !SET_UNIT 3 30 37 4 // builder

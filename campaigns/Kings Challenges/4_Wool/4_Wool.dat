@@ -57,16 +57,16 @@
 
 
 // Units
-!SET_UNIT 2 37 56 4 // serf
-!SET_UNIT 2 36 56 4 // serf
-!SET_UNIT 2 36 57 4 // serf
-!SET_UNIT 2 37 57 4 // serf
+!SET_UNIT 2 37 56 4 // porter
+!SET_UNIT 2 36 56 4 // porter
+!SET_UNIT 2 36 57 4 // porter
+!SET_UNIT 2 37 57 4 // porter
 !SET_UNIT 3 39 56 4 // builder
 !SET_UNIT 3 39 57 4 // builder
 !SET_UNIT 3 40 57 4 // builder
 !SET_UNIT 3 40 56 4 // builder
-!SET_UNIT 1 38 56 4 // blank
-!SET_UNIT 1 38 57 4 // blank
+!SET_UNIT 1 38 56 4 // peasant
+!SET_UNIT 1 38 57 4 // peasant
 
 -----Hand1-----
 !HAND_CURRENT 1

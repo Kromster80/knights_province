@@ -127,12 +127,12 @@
 
 
 // Units
-!SET_UNIT 2 58 77 4 // serf
-!SET_UNIT 2 57 76 4 // serf
-!SET_UNIT 2 58 76 4 // serf
-!SET_UNIT 2 57 77 4 // serf
-!SET_UNIT 2 58 78 4 // serf
-!SET_UNIT 2 57 78 4 // serf
+!SET_UNIT 2 58 77 4 // porter
+!SET_UNIT 2 57 76 4 // porter
+!SET_UNIT 2 58 76 4 // porter
+!SET_UNIT 2 57 77 4 // porter
+!SET_UNIT 2 58 78 4 // porter
+!SET_UNIT 2 57 78 4 // porter
 !SET_UNIT 3 60 76 4 // builder
 !SET_UNIT 3 60 77 4 // builder
 !SET_UNIT 3 60 78 4 // builder
@@ -307,16 +307,16 @@
 
 
 // Units
-!SET_UNIT 2 7 11 4 // serf
-!SET_UNIT 2 7 12 4 // serf
-!SET_UNIT 2 8 12 4 // serf
-!SET_UNIT 2 8 11 4 // serf
-!SET_UNIT 2 6 11 4 // serf
-!SET_UNIT 2 6 12 4 // serf
-!SET_UNIT 2 5 11 4 // serf
-!SET_UNIT 2 5 12 4 // serf
-!SET_UNIT 2 4 11 4 // serf
-!SET_UNIT 2 4 12 4 // serf
+!SET_UNIT 2 7 11 4 // porter
+!SET_UNIT 2 7 12 4 // porter
+!SET_UNIT 2 8 12 4 // porter
+!SET_UNIT 2 8 11 4 // porter
+!SET_UNIT 2 6 11 4 // porter
+!SET_UNIT 2 6 12 4 // porter
+!SET_UNIT 2 5 11 4 // porter
+!SET_UNIT 2 5 12 4 // porter
+!SET_UNIT 2 4 11 4 // porter
+!SET_UNIT 2 4 12 4 // porter
 !SET_UNIT 4 28 7 4 // woodcutter
 !SET_UNIT 4 35 11 4 // woodcutter
 !SET_UNIT 4 40 4 4 // woodcutter
