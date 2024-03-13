@@ -60,14 +60,14 @@
 
 
 // Units
-!SET_UNIT 2 8 12 4 // serf
-!SET_UNIT 2 7 12 4 // serf
-!SET_UNIT 2 6 12 4 // serf
-!SET_UNIT 2 8 13 4 // serf
+!SET_UNIT 2 8 12 4 // porter
+!SET_UNIT 2 7 12 4 // porter
+!SET_UNIT 2 6 12 4 // porter
+!SET_UNIT 2 8 13 4 // porter
 !SET_UNIT 3 10 13 4 // builder
-!SET_UNIT 2 7 13 4 // serf
+!SET_UNIT 2 7 13 4 // porter
 !SET_UNIT 3 11 13 4 // builder
-!SET_UNIT 1 9 13 4 // blank
+!SET_UNIT 1 9 13 4 // peasant
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -122,18 +122,18 @@
 
 
 // Units
-!SET_UNIT 2 51 53 4 // serf
+!SET_UNIT 2 51 53 4 // porter
 !SET_UNIT 3 53 53 4 // builder
-!SET_UNIT 2 50 53 4 // serf
+!SET_UNIT 2 50 53 4 // porter
 !SET_UNIT 3 54 53 4 // builder
-!SET_UNIT 2 49 53 4 // serf
+!SET_UNIT 2 49 53 4 // porter
 !SET_UNIT 3 55 53 4 // builder
-!SET_UNIT 2 51 54 4 // serf
+!SET_UNIT 2 51 54 4 // porter
 !SET_UNIT 3 53 54 4 // builder
-!SET_UNIT 2 50 54 4 // serf
+!SET_UNIT 2 50 54 4 // porter
 !SET_UNIT 3 54 54 4 // builder
-!SET_UNIT 1 52 53 4 // blank
-!SET_UNIT 1 52 54 4 // blank
+!SET_UNIT 1 52 53 4 // peasant
+!SET_UNIT 1 52 54 4 // peasant
 
 -----Hand2-----
 !HAND_CURRENT 2

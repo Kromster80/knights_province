@@ -37,6 +37,8 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -62,16 +64,16 @@
 
 
 // Units
-!SET_UNIT 2 17 35 // serf
-!SET_UNIT 2 18 35 // serf
-!SET_UNIT 2 19 35 // serf
-!SET_UNIT 3 23 35 // builder
-!SET_UNIT 3 22 35 // builder
-!SET_UNIT 3 21 35 // builder
-!SET_UNIT 1 19 34 // blank
-!SET_UNIT 1 18 34 // blank
-!SET_UNIT 1 21 34 // blank
-!SET_UNIT 1 22 34 // blank
+!SET_UNIT 2 17 35 4 // porter
+!SET_UNIT 2 18 35 4 // porter
+!SET_UNIT 2 19 35 4 // porter
+!SET_UNIT 3 23 35 4 // builder
+!SET_UNIT 3 22 35 4 // builder
+!SET_UNIT 3 21 35 4 // builder
+!SET_UNIT 1 19 34 4 // peasant
+!SET_UNIT 1 18 34 4 // peasant
+!SET_UNIT 1 21 34 4 // peasant
+!SET_UNIT 1 22 34 4 // peasant
 
 // Groups
 !SET_GROUP 19 26 31 3 3 6 // axefighter
@@ -100,6 +102,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -133,21 +137,21 @@
 !SET_TRIGGER 1 58 44 60 53
 
 // Emitters
-!SET_EMITTER 6 60 45
-!SET_EMITTER 6 60 47
-!SET_EMITTER 6 60 49
-!SET_EMITTER 6 60 51
-!SET_EMITTER 6 60 53
-!SET_EMITTER 6 61 52
-!SET_EMITTER 6 61 50
-!SET_EMITTER 6 61 48
-!SET_EMITTER 6 61 46
-!SET_EMITTER 6 61 44
-!SET_EMITTER 7 58 45
-!SET_EMITTER 7 58 47
-!SET_EMITTER 7 58 49
-!SET_EMITTER 7 58 51
-!SET_EMITTER 7 58 53
+!SET_EMITTER 6 60 45 // terrain_wall_of_fog
+!SET_EMITTER 6 60 47 // terrain_wall_of_fog
+!SET_EMITTER 6 60 49 // terrain_wall_of_fog
+!SET_EMITTER 6 60 51 // terrain_wall_of_fog
+!SET_EMITTER 6 60 53 // terrain_wall_of_fog
+!SET_EMITTER 6 61 52 // terrain_wall_of_fog
+!SET_EMITTER 6 61 50 // terrain_wall_of_fog
+!SET_EMITTER 6 61 48 // terrain_wall_of_fog
+!SET_EMITTER 6 61 46 // terrain_wall_of_fog
+!SET_EMITTER 6 61 44 // terrain_wall_of_fog
+!SET_EMITTER 7 58 45 // terrain_smokestack
+!SET_EMITTER 7 58 47 // terrain_smokestack
+!SET_EMITTER 7 58 49 // terrain_smokestack
+!SET_EMITTER 7 58 51 // terrain_smokestack
+!SET_EMITTER 7 58 53 // terrain_smokestack
 
 
 // This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12101 (2022.12.26 23:03)"  on 26.12.2022 23:05:27

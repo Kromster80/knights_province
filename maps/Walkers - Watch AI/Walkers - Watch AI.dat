@@ -35,6 +35,8 @@
 
 // Block units
 
+// Block orders
+
 // Block trades
 
 // Houses
@@ -60,16 +62,16 @@
 
 
 // Units
-!SET_UNIT 2 17 35 // serf
-!SET_UNIT 2 18 35 // serf
-!SET_UNIT 2 19 35 // serf
-!SET_UNIT 3 23 35 // builder
-!SET_UNIT 3 22 35 // builder
-!SET_UNIT 3 21 35 // builder
-!SET_UNIT 1 19 34 // blank
-!SET_UNIT 1 18 34 // blank
-!SET_UNIT 1 21 34 // blank
-!SET_UNIT 1 22 34 // blank
+!SET_UNIT 2 17 35 4 // porter
+!SET_UNIT 2 18 35 4 // porter
+!SET_UNIT 2 19 35 4 // porter
+!SET_UNIT 3 23 35 4 // builder
+!SET_UNIT 3 22 35 4 // builder
+!SET_UNIT 3 21 35 4 // builder
+!SET_UNIT 1 19 34 4 // peasant
+!SET_UNIT 1 18 34 4 // peasant
+!SET_UNIT 1 21 34 4 // peasant
+!SET_UNIT 1 22 34 4 // peasant
 
 // Groups
 !SET_GROUP 19 26 31 3 3 6 // axefighter
@@ -99,6 +101,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
@@ -138,6 +142,8 @@
 // Grant/Block houses
 
 // Block units
+
+// Block orders
 
 // Block trades
 
