@@ -1,7 +1,7 @@
 ﻿0:Krom
 1:Test-map
-5:Blue enemy
-6:Teal enemy
-7:Orange ally
+enemy_blue:Blue enemy
+enemy_teal:Teal enemy
+ally_orange:Orange ally
 9:Nothing on the right
 10:Nothing on the left
