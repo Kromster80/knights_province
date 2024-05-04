@@ -19,15 +19,6 @@ var
   waveGroups: Integer;
   objWaves1: Integer; // groupcount
   objWaves2: Integer; // direction indicator
-  dir: Integer;
-  dir2: Integer; //Int for attack direction
-  dir3: Integer;
-  xcord: Integer; //selfexplaining
-  ycord: Integer;
-  xcord2: Integer;
-  ycord2: Integer;
-  xcord3: Integer;
-  ycord3: Integer;
   dir_n_obj: Integer; //direction indicator for MissionObj
   dir_w_obj: Integer;
   dir_s_obj: Integer;
@@ -50,83 +41,85 @@ end;
 
 procedure CreateNextWave;
 var
+  dir: Integer; //Int for attack direction
+  locx: Integer; //selfexplaining
+  locy: Integer;
   tr_type_medium: Integer;
   tr_type_heavy: Integer;
+  faceDir: Integer;
 begin
   dir:= Utils.RandomI(4)  //attack direction randomized
   PlayWAV(-1, 'horn.wav', 0.8);
 
-  if dir = 0 then //North
-  begin
-    xcord := 66;
-    ycord := 8;
-    north_spawn := true;
-  end;
+  case dir of
+	  0:  begin //North
+          locx := 66;
+          locy := 8;
+          faceDir := 4;
+          north_spawn := true;
+        end;
+    1:  begin //West
+          locx := 10;
+          locy := 71;
+          faceDir := 6;
+          west_spawn := true;
+        end;
+    2:  begin //South
+          locx := 74;
+          locy := 134;
+          faceDir := 0;
+          south_spawn := true;
+        end;
+    3:  begin //East
+          locx := 133;
+          locy := 69;
+          faceDir := 2;
+          east_spawn := true;
+        end;
+	end;
 
-  if dir = 1 then //West
-  begin
-    xcord := 10;
-    ycord := 71;
-    west_spawn := true;
-  end;
-
-  if dir = 2 then //South
-  begin
-    xcord := 74;
-    ycord := 134;
-    south_spawn := true;
-  end;
-
-  if dir = 3 then //East
-  begin
-    xcord := 133;
-    ycord := 69;
-    east_spawn := true;
-  end;
-
-  Actions.GiveGroup(GAULS_PLAYER, utMilitia, xcord, ycord, 6, waveNumber, waveNumber);
+  Actions.GiveGroup(GAULS_PLAYER, utMilitia, locx, locy, faceDir, waveNumber, waveNumber);
   Inc(waveGroups);
 
   if waveNumber > 14 then  //spawn randomized medium troop
   begin
     tr_type_medium:= Utils.RandomI(3) //Axe, Pike, Bow
 
-    dir2:= Utils.RandomI(4)  //attack direction randomized
+    dir := Utils.RandomI(4)  //attack direction randomized
 
-    if dir2 = 0 then //North
-    begin
-      xcord2 := 80;
-      ycord2 := 13;
-      north_spawn := true;
-    end;
-
-    if dir2 = 1 then //West
-    begin
-      xcord2 := 8;
-      ycord2 := 61;
-      west_spawn := true;
-    end;
-
-    if dir2 = 2 then //South
-    begin
-      xcord2 := 66;
-      ycord2 := 134;
-      south_spawn := true;
-    end;
-
-    if dir2 = 3 then //East
-    begin
-      xcord2 := 133;
-      ycord2 := 63;
-      east_spawn := true;
+    case dir of
+      0:  begin //North
+            locx := 80;
+            locy := 13;
+            faceDir := 4;
+            north_spawn := true;
+          end;
+      1:  begin //West
+            locx := 8;
+            locy := 61;
+            faceDir := 6;
+            west_spawn := true;
+          end;
+      2:  begin //South
+            locx := 66;
+            locy := 134;
+            faceDir := 0;
+            south_spawn := true;
+          end;
+      3:  begin //East
+            locx := 133;
+            locy := 63;
+            faceDir := 2;
+            east_spawn := true;
+          end;
     end;
 
     if tr_type_medium = 0 then
-      Actions.GiveGroup(GAULS_PLAYER, utAxeFighter, xcord2, ycord2, 6, waveNumber - 14, waveNumber - 14);
+      Actions.GiveGroup(GAULS_PLAYER, utAxeFighter, locx, locy, faceDir, waveNumber - 14, waveNumber - 14);
     if tr_type_medium = 1 then
-      Actions.GiveGroup(GAULS_PLAYER, utPikeman, xcord2, ycord2, 6, waveNumber - 14, waveNumber - 14);
+      Actions.GiveGroup(GAULS_PLAYER, utPikeman, locx, locy, faceDir, waveNumber - 14, waveNumber - 14);
     if tr_type_medium = 2 then
-      Actions.GiveGroup(GAULS_PLAYER, utBowman, xcord2, ycord2, 6, waveNumber - 14, waveNumber - 14);
+      Actions.GiveGroup(GAULS_PLAYER, utBowman, locx, locy, faceDir, waveNumber - 14, waveNumber - 14);
     Inc(waveGroups);
   end;
 
@@ -134,42 +127,41 @@ begin
   begin
     tr_type_heavy:= Utils.RandomI(3)
 
-    dir3:= Utils.RandomI(4)  //attack direction randomized
+    dir := Utils.RandomI(4)  //attack direction randomized
 
-    if dir3 = 0 then //North
-    begin
-      xcord3 := 9;
-      ycord3 := 83;
-      north_spawn := true;
-    end;
-
-    if dir3 = 1 then //West
-    begin
-      xcord3 := 9;
-      ycord3 := 83;
-      west_spawn := true;
-    end;
-
-    if dir3 = 2 then //South
-    begin
-      xcord3 := 57;
-      ycord3 := 134;
-      south_spawn := true;
-    end;
-
-    if dir3 = 3 then //East
-    begin
-      xcord3 := 134;
-      ycord3 := 76;
-      east_spawn := true;
+    case dir of
+      0:  begin //North
+            locx := 83;
+            locy := 9;
+            faceDir := 4;
+            north_spawn := true;
+          end;
+      1:  begin //West
+            locx := 9;
+            locy := 83;
+            faceDir := 6;
+            west_spawn := true;
+          end;
+      2:  begin //South
+            locx := 57;
+            locy := 134;
+            faceDir := 0;
+            south_spawn := true;
+          end;
+      3:  begin //East
+            locx := 134;
+            locy := 76;
+            faceDir := 2;
+            east_spawn := true;
+          end;
     end;
 
     if tr_type_heavy = 0 then
-      Actions.GiveGroup(GAULS_PLAYER, utSwordsman, xcord3, ycord3, 6, waveNumber - 24, waveNumber - 24);
+      Actions.GiveGroup(GAULS_PLAYER, utSwordsman, locx, locy, faceDir, waveNumber - 24, waveNumber - 24);
     if tr_type_heavy = 1 then
-      Actions.GiveGroup(GAULS_PLAYER, utHalberdier, xcord3, ycord3, 6, waveNumber - 24, waveNumber - 24);
+      Actions.GiveGroup(GAULS_PLAYER, utHalberdier, locx, locy, faceDir, waveNumber - 24, waveNumber - 24);
     if tr_type_heavy = 2 then
-      Actions.GiveGroup(GAULS_PLAYER, utArbaletman, xcord3, ycord3, 6, waveNumber - 24, waveNumber - 24);
+      Actions.GiveGroup(GAULS_PLAYER, utArbaletman, locx, locy, faceDir, waveNumber - 24, waveNumber - 24);
       
     Inc(waveGroups);
   end;
@@ -262,24 +254,16 @@ begin
     begin
     Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, objWaves2, '<$15>');
       if north_spawn then //North
-        begin
-          Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osActive)
-        end;
+        Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_n_obj, osActive);
 
       if west_spawn then //West
-        begin
-          Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osActive)
-        end;
+        Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_w_obj, osActive);
 
       if south_spawn then //South
-        begin
-          Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osActive)
-        end;
+        Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_s_obj, osActive);
 
       if east_spawn then //East
-        begin
-          Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osActive)
-        end;
+        Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, dir_e_obj, osActive);
     end;
 
   if not attacker_alive then
