@@ -335,8 +335,8 @@ begin
 
   if aTick mod 10 = 0 then
   begin
-    gametime := (Utils.TimeToString(aTick));
-    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, gametime_obj, 'Gametime:' +gametime);
+    gametime := Utils.TimeToString(aTick);
+    Actions.PlayerObjectiveUpdateText(HUMAN_PLAYER, gametime_obj, 'Gametime: ' + gametime);
     CheckAlive;
   end;
 
