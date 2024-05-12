@@ -1,0 +1,58 @@
+﻿0:Amaroth
+1:Defeating the bandits didn't only fail to be easy - it wasn't satisfying, either. While laying down their arms, it became clear that they were just poor people caught between a rock and a hard place. Their leader, [$61793F]Graham[], explained that they indeed come from [$14FF14]Duke Royce[]'s lands. A few days ago, the entire duchy was attacked. The duke's army was clearly caught off guard and pushed back, while his countryside was burnt into cinders.||Many of Royce's peasants were forced to flee, and most of them took the easiest route to the South. To your lands. With almost no food and supplies, they were first forced to beg, and then turned to banditry. While their transgressions cannot be ignored, your father always taught you to deal with the cause, rather than with the consequence. On top of that, the Duke was also your father's friend.||As such, you allied with the refugees, provided them with the supplies they desperately needed, and marched united towards their tormentors, who had sent them your way.
+
+2:Sir Haytow
+3:Refugees
+4:Fishing village
+5:Farm
+6:Marauders
+
+10:As you arrive, you are welcomed by the leader of the refugees, who has been waiting for you impatiently.
+11:[$61793F]Graham:[] "M'lord... We've fortified an abandoned village we found here. We'll defend it with what we've got left. You've got some time to scout and prepare for attackin' those bastards."
+12:[$00B3FF]You:[] "Well done, thank you. All we need from you is to buy us some time to establish a foothold."
+13:[$61793F]Graham:[] "It ain't gonna be easy, m'lord. They didn't just burn our homes. They also stole a lot of our stuff and several villages paid them hefty tribute to leave them alone."
+14:[$00B3FF]You:[] "So they are likely to have strong position and a lot of supplies in stock. That is good to know, we will have to be cautious."
+15:[$61793F]Graham:[] "I know we've got no right to ask this of you m'lord... But those marauders burnt many of our villages. Murdered many of our friends in cold blood. You know all that... But there's more. When we came back... They started attackin' even those who paid tribute instead of runnin' or gettin' slaughtered. Please..."
+16:[$00B3FF]You:[] "So, you want me to defend the remaining villages?"
+17:[$61793F]Graham:[] "If it's possible for you, m'lord!"
+18:[$00B3FF]You:[] "It's an honorable thing to do. I will see what can be done. Either way, those men need to be stopped."
+
+20:[$61793F]Graham:[] "M'lord, enemy raiders are headin' towards the fishin' village! They'll arrive soon!"
+21:[$00B3FF]You:[] "We don't really have resources to fight the enemy in the open yet!"
+22:[$61793F]Graham:[] "Maybe, but we can't leave them just hangin'. We'll send what we've got to help. Any help you'll send is gonna be welcome."
+23:[$00B3FF]You:[] "I will consider it. I do have few troops at my disposal, after all."
+
+30:[$61793F]Graham:[] "Seems like we've properly pissed them off, m'lord. They're 'bout to increase their pressure. I hope our defenses can hold them off. Make haste with your army training, or we'll all be trampled soon!"
+
+40:[$61793F]Graham:[] "We've waited for long enough! How much more time do you need m'lord? 'cause we can't just watch them burn the countryside anymore. We'll try to put some pressure on their camp. Are you with us?"
+41:[$00B3FF]You:[] "You are hasty to attack, their camp is heavily guarded."
+42:[$61793F]Graham:[] "True that. But we came back here on one condition: we'll beat them for what they've done to us. Perhaps you can use our attacks as a distraction."
+
+50:[$61793F]Graham:[] "M'lord, the fishin' village closeby is done for! We'll retreat to that farm to the North. Let's hope we'll have better luck defending that one."
+
+60:[$61793F]Graham:[] "Shite, they've torched that farm, too. Now we'll try to deal with them under our towers. I hope you've got counterattack ready, we need to make these bastards pay!"
+
+70:Defend the refugees!
+
+80:Wolves and rabid dogs. That is all that live here. A small town once stood here, with its own fortifications. However, it doesn't seem like they helped much. You cannot help but shiver. The town's remains are not too dissimilar to Haytow.
+
+90:Only ghosts wander this area. What have these people ever done to these attackers?
+
+100:Peaceful lives wasted. Their livelihoods stolen, just to feed the army. Wait a moment... Where is that road going?
+
+110:Defend the [$FF1313]Fishing village[].
+111:Defend the [$1313FF]Farm[].
+112:Defend the town of the [$61793F]Refugees[].
+113:Destroy the town of the [$000080]Marauders[].
+114:Defeat the army of the [$000080]Marauders[].
+
+120:You stand victorious, the villages are now under your protection. The enemy army scatters. But you get only a few moments to catch your breath, as you are approached by a noble followed by his retinue, who seems to have just arrived to witness your triumph. Judging from his colors, it becomes immediately clear these marauders were his men.
+121:[$000080]Lord Clifford Hargrave:[] "Haytow... Since when are farmers like you interested in the big boy games?"
+122:[$00B3FF]You:[] "Burning the countryside and displacing entire scores of hungry refugees my way is what you call a big boy game? Who are you?"
+123:[$000080]Lord Clifford Hargrave:[] "Your ignorance just underlines the reasons why you should return to your little town and stop messing with things that are none of your business. I know a crest of someone as insignificant as you, yet you fail to recognize mine?! I am Lord Clifford Hargrave, and my battle with Royce is my own!"
+124:[$00B3FF]You:[] "Unfortunately, your conflict became my business the moment my town went up in flames. If you want to fight Duke Royce, you are free to do so, but leave the villages in my neighbourhood out of it."
+125:[$000080]Lord Clifford Hargrave:[] "The villages have two options. Pay the tribute and stop supporting Royce, or burn. And nothing will change about that, Haytow. If you want to fall for them here and now, be my guest. You can face me and my retinue up North, to save your precious little villages from getting even more bloody. Or, you can just leave and go home. Use the time you have, before I come for you."
+126:[$00B3FF]You:[] "Go back to your troops, Lord Hargrave. We will meet on the field of battle, here and now."
+127:As the lord leaves towards the North, preparing his troops for confrontation, one of your lieutenants approaches.
+128:[$00D0FF]Lieutenant:[] "Sire... Forgive me, you got us this far, but we aren't in the best shape after all the fighting."
+129:[$00B3FF]You:[] "I am well aware of that, but we cannot retreat. Without our protection, Lord Hargrave would do unspeakable things to Graham's people after all of this, and then he would regroup his army to attack Haytow. We have no castle strong enough to retreat to. If we are to win, we need to defeat his retinue here and now, before he manages to rally his fleeing raiders. Men, march Northward!"

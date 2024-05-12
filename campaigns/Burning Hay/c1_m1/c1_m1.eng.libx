@@ -1,0 +1,26 @@
+﻿0:Amaroth
+1:You are [$00D0FF]Sir Edgar Haytow[] - and while your bloodline isn't exactly fabled - being the humble Haytow of Haytow - you were still invited to the recent royal feast. A few days later, you are returning to Haytow, your hometown...
+
+2:Sir Haytow
+3:Bandits
+
+10:A stone's throw from the town of Haytow...
+11:[$0073FF]Captain Aston:[] "Sire, I don't know about you, but I am really looking forward to being home. I am exhausted."
+12:[$00D0FF]You:[] "Well, the feast was tiring indeed. And the mood was certainly not any better. I am not sure what the king was arguing about with some of the nobles, but it seemed serious. I am glad we could leave all that behind. Politics is not really for me, never was."
+13:[$0073FF]Captain Aston:[] "All the hunts and stops on the way back were a good distraction, but delayed us quite a bit. Your people need..."
+14:[$00D0FF]You:[] "Wait! Do you smell it? That is a lot of smoke... Too much for it to be bakeries working overtime. What if there is a fire?"
+15:[$0073FF]Captain Aston:[] "Or worse, Haytow might be under attack!"
+16:[$00D0FF]You:[] "Damn it. Men! To arms! Leave the game behind, we have more pressing matters!"
+
+20:Defeat all [$61793F]bandits[].
+21:Defend your [$07FFFF]hometown[].
+22:Your [$07FFFF]army[] must survive.
+
+30:Your men managed to deal with all of the attacking bandits. What remained of them fled to the North.
+31:[$0073FF]Captain Aston:[] "Are you alright, sire?"
+32:[$00D0FF]You:[] "A few dents and scratches in my armor, but overall in one piece. What about you?"
+33:[$0073FF]Captain Aston:[] "Same. Peasants got scared for sure, and many buildings will need fixing, but Haytow is safe for the time being."
+34:[$00D0FF]You:[] "Do we know who these people were? Where did they come from?"
+35:[$0073FF]Captain Aston:[] "No idea, we have no living prisoner to talk to. But they came from the North, and they fled the same way. They seemed to be after our winter supplies, sire."
+36:[$00D0FF]You:[] "Aston, once the people manage to put down the fires, I need you to help me organize militia. You will stay here and protect the town. I will take a few troops and pursue the bandits who ran away. I want to get to the bottom of this."
+37:[$0073FF]Captain Aston:[] "As you command."

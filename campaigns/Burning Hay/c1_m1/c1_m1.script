@@ -1,0 +1,168 @@
+{
+Mission ToDo:
+1. Intro cinematics. Currently hacked via simple PlayerMessage.
+2. Outro cinematics. Currently hacked via mission description of the next mission.
+}
+
+const
+	PLAYER_HAND = 0;
+	BANDITS_HAND = 1;
+	
+	OBJ_BANDITS = '<$20>';
+	OBJ_DEFEND = '<$21>';
+	OBJ_ARMY = '<$22>';
+	MSG_INTRO = '<$10>||<$11>|<$12>|<$13>|<$14>|<$15>|<$16>';
+	MSG_OUTRO = '<$30>||<$31>|<$32>|<$33>|<$34>|<$35>|<$36>|<$37>|';
+	
+var
+	DefeatBanditsObjID, DefendTownObjID, ArmySurviveObjID, WinTick, CurrentTick: Integer;
+	DefeatBanditsObjSt, DefendTownObjSt, ArmySurviveObjSt: TKMObjectiveStatus;
+	
+// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
+procedure ObjectiveStatusUpdate(aPlayer, objectiveID: Integer; var oldStatusVar: TKMObjectiveStatus; newStatus: TKMObjectiveStatus);
+begin
+	oldStatusVar := newStatus;
+	Actions.PlayerObjectiveUpdateStatus(aPlayer, objectiveID, newStatus);
+end;
+
+// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
+procedure ObjectiveCreate(aPlayer: Integer; objType: TKMObjectiveType; orderID: Integer; objStatus: TKMObjectiveStatus; objText: String; var objIDVar: Integer; var objStVar: TKMObjectiveStatus);
+begin
+	objStVar := objStatus;
+	objIDVar := Actions.PlayerObjectiveAdd(aPlayer, objType, orderID, objStatus, objText);
+end;
+
+// Basic convertor, for debug output purposes mainly.
+function ObjectiveStatusToStr(oStatus: TKMObjectiveStatus): String;
+begin
+	if (oStatus = osHidden) then
+		Result := 'osHidden'
+	else if (oStatus = osActive) then
+		Result := 'osActive'
+	else if (oStatus = osFailed) then
+		Result := 'osFailed'
+	else if (oStatus = osCompleted) then
+		Result := 'osCompleted'
+	else
+		Result := 'Unrecognized!';
+end;
+
+// Returns the X coordinate of the group's flag bearer.
+function GetGroupX(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionX(States.GroupMember(aGroup, 0));
+end;
+
+// Returns the Y coordinate of the group's flag bearer.
+function GetGroupY(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionY(States.GroupMember(aGroup, 0));
+end;
+
+// Takes the given coords and searches for the closest house matching the criteria (target players, house type and whether completed only).
+function GetClosestHouse(x, y: Integer; players: array of Integer; aHouseType: TKMHouseType; aOnlyCompleted: Boolean; out shortestDistance: Single): Integer;
+var
+    i, j: Integer;
+	distance: Single;
+    playerHouses: array of Integer;
+begin
+	shortestDistance := 10000;
+	Result := -1;
+	
+	for i := 0 to High(players) do
+	begin
+		playerHouses := States.PlayerGetHouses(players[i], aHouseType, aOnlyCompleted);
+		
+		for j := 0 to High(playerHouses) do
+		begin
+			distance := Utils.DistanceS(x - States.HousePositionX(playerHouses[j]), y - States.HousePositionY(playerHouses[j]));
+			if (distance < shortestDistance) then
+			begin
+				Result := playerHouses[j];
+				shortestDistance := distance;
+			end;
+		end;
+	end;
+end;
+
+// Take all bandit units, find the closest player's house to them, and send them its way.
+procedure BanditsAttackClosestHouse();
+var
+	banditGroups: array of Integer;
+	i, closestHouse: Integer;
+	distanceHouse: Single;
+begin
+	banditGroups := States.PlayerGetAllGroups(BANDITS_HAND);
+	for i:= 0 to High(banditGroups) do
+	begin
+		closestHouse := GetClosestHouse(GetGroupX(banditGroups[i]), GetGroupY(banditGroups[i]), [PLAYER_HAND], htAny, True, distanceHouse);
+		if (banditGroups[i] > 0) and (closestHouse > 0) then
+			Actions.GroupOrderAttackHouse(banditGroups[i], closestHouse);
+	end;
+end;
+
+//
+procedure CheckObjectives();
+begin
+	if ((DefeatBanditsObjSt = osActive)
+	and (Length(States.PlayerGetAllGroups(BANDITS_HAND)) = 0)) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, DefeatBanditsObjID, DefeatBanditsObjSt, osCompleted);
+	end;
+	
+	if ((ArmySurviveObjSt = osActive)
+	and (Length(States.PlayerGetAllGroups(PLAYER_HAND)) = 0)) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, ArmySurviveObjID, ArmySurviveObjSt, osFailed);
+		Actions.PlayerWin([BANDITS_HAND], True);
+	end;
+	
+	if ((DefendTownObjSt = osActive)
+	and (Length(States.PlayerGetHouses(PLAYER_HAND, htCamp, True)) = 0)
+	and (Length(States.PlayerGetHouses(PLAYER_HAND, htFort, True)) = 0)
+	and (Length(States.PlayerGetHouses(PLAYER_HAND, htBarracks, True)) = 0)) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, DefendTownObjID, DefendTownObjSt, osFailed);
+		Actions.PlayerWin([BANDITS_HAND], True);
+	end;
+	
+	if ((DefeatBanditsObjSt = osCompleted)
+	and not (ArmySurviveObjSt = osFailed)
+	and not (DefendTownObjSt = osFailed)) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, ArmySurviveObjID, ArmySurviveObjSt, osCompleted);
+		ObjectiveStatusUpdate(PLAYER_HAND, DefendTownObjID, DefendTownObjSt, osCompleted);
+		WinTick := CurrentTick;
+		Actions.PlayerMessage(PLAYER_HAND, MSG_OUTRO, True);
+	end;
+end;
+
+
+procedure OnMissionStart;
+begin
+	WinTick := -1;
+
+	Actions.PlayerMessage(PLAYER_HAND, MSG_INTRO, True);
+	ObjectiveCreate(PLAYER_HAND, otMain, 0, osActive, OBJ_BANDITS, DefeatBanditsObjID, DefeatBanditsObjSt);
+	ObjectiveCreate(PLAYER_HAND, otMain, 1, osActive, OBJ_DEFEND, DefendTownObjID, DefendTownObjSt);
+	ObjectiveCreate(PLAYER_HAND, otMain, 2, osActive, OBJ_ARMY, ArmySurviveObjID, ArmySurviveObjSt);
+end;
+
+procedure OnTick(aTick: Integer);
+begin
+	CurrentTick := aTick;
+	
+	if (CurrentTick mod 50 = 0) then
+	begin
+		BanditsAttackClosestHouse();
+		CheckObjectives();
+	end;
+	
+	if ((WinTick > 0)
+	and (aTick = WinTick + 1)) then
+		Actions.PlayerWin([PLAYER_HAND], True);
+end;

@@ -1,0 +1,986 @@
+{
+Mission ToDo:
+1. Intro cinematics. Currently hacked via simple PlayerMessage.
+2. Outro cinematics. Currently hacked via mission description of the next mission.
+}
+
+const
+	PLAYER_HAND = 0;
+	REFUGEES_HAND = 1;
+	FISHING_HAND = 2;
+	FARM_HAND = 3;
+	ENEMY_HAND = 4;
+	TERRAIN_TRIGGER_A = 1;
+	TERRAIN_TRIGGER_B = 3;
+	TERRAIN_TRIGGER_C = 4;
+	
+	OBJ_DEFEND_FISHING = '<$110>';
+	OBJ_DEFEND_FARM = '<$111>';
+	OBJ_DEFEND_REFUGEES = '<$112>';
+	OBJ_DESTROY_BASE = '<$113>';
+	OBJ_DEFEAT_ARMY = '<$114>';
+	MSG_INTRO = '<$10>||<$11>|<$12>|<$13>|<$14>|<$15>|<$16>|<$17>|<$18>';
+	MSG_FISHING_THREATENED = '<$20>|<$21>|<$22>|<$23>';
+	MSG_RAIDER_NUMBERS_INCREASED = '<$30>';
+	MSG_COUNTERATTACKS_ACTIVE = '<$40>|<$41>|<$42>';
+	MSG_FISHING_DESTROYED = '<$50>';
+	MSG_FARM_DESTROYED = '<$60>';
+	MSG_DEFEND_ALLIES = '<$70>';
+	MSG_TT_A_VISITED = '<$80>';
+	MSG_TT_B_VISITED = '<$90>';
+	MSG_TT_C_VISITED = '<$100>';
+	MSG_OUTRO = '<$120>||<$121>|<$122>|<$123>|<$124>|<$125>|<$126>||<$127>||<$128>|<$129>';
+
+var
+	TerrainTriggerFiredA, TerrainTriggerFiredB, TerrainTriggerFiredC: Boolean;
+	DefendFishingObjID, DefendFarmObjID, DefendRefugeesObjID, DestroyBaseObjID, DefeatArmyObjID, WinTick: Integer;
+	DefendFishingObjSt, DefendFarmObjSt, DefendRefugeesObjSt, DestroyBaseObjSt, DefeatArmyObjSt: TKMObjectiveStatus;
+
+
+
+// ####################   Extra utils   ####################
+// Author: Amaroth.
+// Version: 2024-02-29
+// These are just some thing to make your life easier. They are also dependencies for my personal scripts.
+
+// Broadcasts a message which immediately opens to all players. Intened for debugging.
+procedure DebugMsg(text: String);
+begin
+	Actions.PlayerMessage(-1, text, True);
+end;
+
+// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
+procedure ObjectiveStatusUpdate(aPlayer, objectiveID: Integer; var oldStatusVar: TKMObjectiveStatus; newStatus: TKMObjectiveStatus);
+begin
+	oldStatusVar := newStatus;
+	Actions.PlayerObjectiveUpdateStatus(aPlayer, objectiveID, newStatus);
+end;
+
+// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
+procedure ObjectiveCreate(aPlayer: Integer; objType: TKMObjectiveType; orderID: Integer; objStatus: TKMObjectiveStatus; objText: String; var objIDVar: Integer; var objStVar: TKMObjectiveStatus);
+begin
+	objStVar := objStatus;
+	objIDVar := Actions.PlayerObjectiveAdd(aPlayer, objType, orderID, objStatus, objText);
+end;
+
+// Basic convertor, for debug output purposes mainly.
+function ObjectiveStatusToStr(oStatus: TKMObjectiveStatus): String;
+begin
+	if (oStatus = osHidden) then
+		Result := 'osHidden'
+	else if (oStatus = osActive) then
+		Result := 'osActive'
+	else if (oStatus = osFailed) then
+		Result := 'osFailed'
+	else if (oStatus = osCompleted) then
+		Result := 'osCompleted'
+	else
+		Result := 'Unrecognized!';
+end;
+
+// Sets all WareDistributions of the given player to 5.
+procedure PlayerMaxWareDistributions(aPlayer: Integer);
+begin
+	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htSawmill, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htCoalmakers, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtWood, htWeaponWorkshop, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtWood, htArmorWorkshop, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htMill, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htCattleFarm, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htBrewery, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htFoundry, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htMint, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htWeaponSmithy, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htArmorSmithy, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtSteel, htWeaponSmithy, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtSteel, htArmorSmithy, 5);
+end;
+
+// Returns the X coordinate of the group's flag bearer.
+function GetGroupX(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionX(States.GroupMember(aGroup, 0));
+end;
+
+// Returns the Y coordinate of the group's flag bearer.
+function GetGroupY(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionY(States.GroupMember(aGroup, 0));
+end;
+
+// Basic convertor, for debug output purposes mainly.
+function BoolToStr(b: Boolean): String;
+begin
+	if (b) then
+		Result := 'True'
+	else
+		Result:= 'False';
+end;
+
+// Basic convertor, for debug output purposes mainly.
+function GroupTypeToStr(aGroupType: TKMGroupType): String;
+begin
+	if (aGroupType = gtNone) then
+		Result := 'gtNone'
+	else if (aGroupType = gtMelee) then
+		Result := 'gtMelee'
+	else if (aGroupType = gtAntiHorse) then
+		Result := 'gtAntiHorse'
+	else if (aGroupType = gtRanged) then
+		Result := 'gtRanged'
+	else if (aGroupType = gtMounted) then
+		Result := 'gtMounted'
+	else
+		Result := 'Unrecognized!';
+end;
+
+// Returns the sum of the array's elements.
+function GetArraySum(arr: array of Integer): Integer;
+var
+	i: Integer;
+begin
+	Result := 0;
+	for i := 0 to High(arr) do
+		Result := Result + arr[i];
+end;
+
+// Outputs the length and contents of the array in a string.
+function ArrayIDebug(arr: array of Integer): String;
+var
+	i, arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	Result := Utils.Format('Amount of items: %d|Items: ', [arrLen]);
+	for i := 0 to arrLen -1 do
+		Result := Result + IntToStr(arr[i]) + ', ';
+end;
+
+// For debug purposes, pass this for example to DebugMsg() if needed.
+function GroupDebug(aGroup: Integer): String;
+begin
+	if (aGroup <= 0) then
+		Result := Utils.Format('No group with ID %d found.', [aGroup])
+	else
+		Result := Utils.Format('Group ID %d, owner ID: %d, member count: %d, units per row: %d, is dead: %s, is idle: %s, flag bearer X: %d, flag bearer Y: %d', [aGroup, States.GroupOwner(aGroup), States.GroupMemberCount(aGroup), States.GroupColumnCount(aGroup), BoolToStr(States.GroupDead(aGroup)), BoolToStr(States.GroupIsIdle(aGroup)), GetGroupX(aGroup), GetGroupY(aGroup)]);
+end;
+
+// Increases the length of an array by 1 and assignes the given element to its last position.
+procedure ArrayIAppend(var arr: array of Integer; newElement: Integer);
+var
+	arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	SetLength(arr, arrLen + 1);
+	arr[arrLen] := newElement;
+end;
+
+// Splits a given amount of units from a group, returns ID of the new group (or -1, if the split couldn't be done, or back the given group if it didn't have enough troops to split from). Column count is kept the same for both groups (if possible).
+function GroupSplitByAmount(aGroup, splitAmount: Integer): Integer;
+var
+	i, originalAmount, newAmount, originalColCount, groupToSplit, groupSplitted: Integer;
+	splitGroups: array of Integer;
+begin
+	Result := -1;
+	// Initial sanity checks. If a group is invalid, has lower amount of units than 2 or the amount to split is lower than 1, return -1 and end.
+	if (aGroup <= 0)
+	or (splitAmount < 1) then
+		Exit;
+	originalAmount := States.GroupMemberCount(aGroup);
+	if (originalAmount < 2) then
+		Exit;
+	
+	// If there would be no troops left in the original group, return it as the new group and do nothing else.
+	if (splitAmount >= originalAmount) Then
+	begin
+		Result := aGroup;
+		Exit;
+	end;
+	
+	newAmount := originalAmount - splitAmount;
+	originalColCount := States.GroupColumnCount(aGroup);
+	
+	// Split the group into groups of 1.
+	groupToSplit := aGroup;
+	ArrayIAppend(splitGroups, groupToSplit);
+	while (Length(splitGroups) < originalAmount) do
+	begin
+		groupSplitted := Actions.GroupOrderSplit(groupToSplit);
+		ArrayIAppend(splitGroups, groupSplitted);
+		if (States.GroupMemberCount(groupToSplit) = 1) then
+			for i := 0 to High(splitGroups) do
+				if (States.GroupMemberCount(splitGroups[i]) > 1) then
+					groupToSplit := splitGroups[i];
+	end;
+	
+	// Link everyone into the original group, until only units that are to be split away remain. Then link these together (flag bearer becomes the last of them on the list).
+	Result := splitGroups[originalAmount - 1];
+	for i := 0 to High(splitGroups) do
+	begin
+		if (splitGroups[i] <> aGroup)
+		and (splitGroups[i] <> Result) Then
+		begin
+			if (States.GroupMemberCount(aGroup) < newAmount) then
+				Actions.GroupOrderLink(splitGroups[i], aGroup)
+			else
+				Actions.GroupOrderLink(splitGroups[i], Result);
+		end;
+	end;
+	
+	// Return to the original column counts (otherwise both groups would remain at 1).
+	Actions.GroupSetFormation(Result, originalColCount);
+	Actions.GroupSetFormation(aGroup, originalColCount);
+end;
+
+// Returns the house type to which the given ware type is supposed to go. For horses, allows for fort/barracks preference.
+function GetStoreForWareType(wareType: TKMWareType; horsePreferFort: Boolean): TKMHouseType;
+begin
+	if (wareType in [wtStone, wtTrunk, wtWood, wtFish, wtCider, wtClub, wtGold]) then
+		Result := htCamp
+	else if (wareType in [wtGrain, wtFlour, wtBread, wtBeef, wtSausages, wtAle, wtWool, wtCloth, wtGoldOre, wtIronOre, wtCoal, wtSteel]) then
+		Result := htStore
+	else if (wareType in [wtAxe, wtPike, wtBow, wtShield, wtGambeson])
+	or ((wareType = wtHorse) and horsePreferFort) then
+		Result := htFort
+	else if (wareType in [wtSword, wtHalberd, wtArbalet, wtMetalShield, wtMetalArmor])
+	or ((wareType = wtHorse) and not horsePreferFort) then
+		Result := htBarracks
+	else
+		Result := htNone;
+end;
+
+// Unused types like utBarbarian and neutral types like utBoar are NOT included.
+function IsUnitMilitary(aUnit: Integer): Boolean;
+var
+	ut: TKMUnitType;
+begin
+	ut := States.UnitType(aUnit);
+	Result := False;
+
+	if (ut in [utMilitia, utAxeFighter, utSwordsman, utBowman, utArbaletman, utPikeman, utHalberdier, utHorseScout, utCavalry]) then
+		Result := True;
+end;
+
+// Takes the given coords and searches for the closest house matching the criteria (target players, house type and whether completed only).
+function GetClosestHouse(x, y: Integer; players: array of Integer; aHouseType: TKMHouseType; aOnlyCompleted: Boolean; out shortestDistance: Single): Integer;
+var
+    i, j: Integer;
+	distance: Single;
+    playerHouses: array of Integer;
+begin
+	shortestDistance := 10000;
+	Result := -1;
+	
+	for i := 0 to High(players) do
+	begin
+		playerHouses := States.PlayerGetHouses(players[i], aHouseType, aOnlyCompleted);
+		
+		for j := 0 to High(playerHouses) do
+		begin
+			distance := Utils.DistanceS(x - States.HousePositionX(playerHouses[j]), y - States.HousePositionY(playerHouses[j]));
+			if (distance < shortestDistance) then
+			begin
+				Result := playerHouses[j];
+				shortestDistance := distance;
+			end;
+		end;
+	end;
+end;
+
+// Takes the given coords and searches for the closest unit matching the criteria (target players). Considers non-military units to be further by militaryBias - used for priority being given to soldiers over civilians.
+function GetClosestUnit(x, y, militaryBias: Integer; players: array of Integer; out shortestDistance: Single): Integer;
+var
+    i, j: Integer;
+	distance: Single;
+    playerUnits: array of Integer;
+begin
+	shortestDistance := 10000;
+	shortestDistance := 10000;
+	Result := -1;
+	
+	for i := 0 to High(players) do
+	begin
+		playerUnits := States.PlayerGetAllUnits(players[i]);
+		
+		for j := 0 to High(playerUnits) do
+		begin
+			distance := Utils.DistanceS(x - States.UnitPositionX(playerUnits[j]), y - States.UnitPositionY(playerUnits[j]));
+			if (militaryBias <> 0)
+			and (not IsUnitMilitary(States.UnitType(playerUnits[j]))) then
+				distance := distance + militaryBias;
+			
+			if (distance < shortestDistance) then
+			begin
+				Result := playerUnits[j];
+				shortestDistance := distance;
+			end;
+		end;
+	end;
+end;
+// ####################   End of Extra utils  ####################
+
+
+
+
+
+// ####################   AttackAI (AAI) script   ####################
+// Author: Amaroth. This script requires Amaroth's Extra utils to run.
+// The intented use of this system is to make the AI attack only from AIDispositions that are designated to be used as such.
+// This system also focuses on the attack trying to burn the entire enemy base house after house, instead of burning a single house and then returning home.
+// Sending troops to attack only units, or both units and houses, is also supported. When attacking units, you can also prioritize houses over units, and soldiers over civilians.
+// The system creates AIDispositions, lets the AI fill them with troops, and when wave conditions are met, it sends the troops out. The troops then pursue their target until it's dead, or until they find another target to pursue.
+// The system is not designed to be combined with regular built-in MapEd AIOffence in any way.
+// Change InitiateAAIDisps() to set up your waves and dispositions. Update their setting during the game's time (if you need to do that at all) either in AttackAIResolveTick(), or just directly in OnTick(). You shouldn't need to touch any other procedures/functions, unless you intend to modify the system itself.
+// Please NOTE that several fields in the records below link directly to map objects. Changing the fields (like AAIDisp coordinates etc) directly can and will cause the records of this script and the game to fall out of sync, and the system malfunction or break in the result. Use only in-built procedures for changing any of the fields in the AAI records. Follow the examples to avoid issues, unless you really know what you are doing.
+// Before reporting an issue with this script, try to make sure it's not a bug inside the game itself.
+
+type
+	WaveTargetType = (wtHouses, wtUnits, wtBoth);
+	
+// Keeps track of a group that has been sent to an attack, but also tracks when it has received its current target (so time since then can be calculated) and the ID of its current target.
+// NOTE: Be especially here careful to only edit this by using in-built procedures made for that purpose.
+	AAIGroup = record
+		groupID, pursueStartTick, targetHouseID, targetUnitID: Integer;
+	end;
+	
+// Tracks the position of AIDisposition and extends it into one used for attacks.
+// NOTE: Be especially here careful to only edit this by using in-built procedures made for that purpose.
+	AAIDisp = record
+		aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow, minUnits: Integer;
+		aGroupType: TKMGroupType;
+		allowedTraining, allowedAttacking: Boolean;
+		targetPlayers: array of Integer;
+		activeGroups: array of AAIGroup;
+	end;
+
+// AAIWave provides the AI with grouped AAIDs into waves. This structure handles the conditions under which the attack is to be released.
+// NOTE: You are free to change the fields in this record directly - the only exception.
+	AAIWave = record
+		aAIDisps: array of AAIDisp;
+		// ALWAYS in the following order: gtMelee, gtAntiHorse, gtRanged, gtMounted
+		minAmountsPerType: array of Integer;
+		// You can set stopTick to -1 to make the attacks never end.
+		startTick, stopTick, attackFrequency: Integer;
+		matchTypesAndCounts: Boolean;
+		waveTarget: WaveTargetType;
+	end;
+	
+var
+	// NOTE: Use AddAAIDisp() and RemoveAAIDisp() to manage items, no direct changes!
+	AAIDisps: array of AAIDisp; 
+	// NOTE: Use AddAAIWave() to create new ones!
+	AAIWaves: array of AAIWave;
+	// The initial values are to be set in InitiateAAIDisps(), where they are also documented in detail.
+	GroupTargetResetCheckFrequency, CurrentTick, TargetTimeoutTicks, HouseTargetBias, MilitaryUnitTargetBias: Integer;
+
+// Basic convertor, for debug output purposes mainly.
+function WaveTargetTypeToStr(waveTarget: WaveTargetType): String;
+begin
+	if waveTarget = wtHouses then
+		Result := 'wtHouses'
+	else if waveTarget = wtUnits then
+		Result := 'wtUnits'
+	else if waveTarget = wtBoth then
+		Result := 'wtBoth';
+end;
+
+// For debug purposes, pass this for example to DebugMsg() if needed.
+function DebugAAIGroup(group: AAIGroup): string;
+begin
+	Result := Utils.Format('Debug AAIGroup output: Group ID: %d, last target swap tick: %d, target house ID: %d, target unit ID: %d', [group.groupID, group.pursueStartTick, group.targetHouseID, group.targetUnitID]);
+end;
+
+// For debug purposes, pass this for example to DebugMsg() if needed.
+function DebugAAIDisp(disp: AAIDisp): String;
+var
+	targetsDebug, groupsDebug: String;
+	i: Integer;
+begin
+	targetsDebug := ArrayIDebug(disp.targetPlayers);
+	for i := 0 to High(disp.activeGroups) do
+		groupsDebug := groupsDebug + '- ' + DebugAAIGroup(disp.activeGroups[i]) + '|';
+	Result := Utils.Format('Debug AAIDisp output:||owner ID: %d, X: %d, Y: %d, direction: %d, guard radius: %d, number of units: %d, number of columns: %d, min units: %d, group type: %s, allowed training: %s, allowed attacking: %s|targets: |%s|active groups: |%s', [disp.aPlayer, disp.X, disp.Y, disp.aDir, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow, disp.minUnits, GroupTypeToStr(disp.aGroupType), BoolToStr(disp.allowedTraining), BoolToStr(disp.allowedAttacking), targetsDebug, groupsDebug]);
+end;
+
+// For debug purposes, pass this for example to DebugMsg() if needed.
+function DebugAAIWave(wave: AAIWave): String;
+var
+	dispsDebug: String;
+	i: Integer;
+begin
+	for i := 0 to High(wave.aAIDisps) do
+		dispsDebug := dispsDebug + '- ' + DebugAAIDisp(wave.aAIDisps[i]);
+	Result := Utils.Format('Debug AAIWave output:||min amounts per type settings (melee, pike, bow, horse): %s|start at tick: %d, stop at tick: %d, delay between attacks (ticks): %d, match types and counts: %s, wave target setting: %s|dispositions:|%s', [ArrayIDebug(wave.minAmountsPerType), wave.startTick, wave.stopTick, wave.attackFrequency, BoolToStr(wave.matchTypesAndCounts), WaveTargetTypeToStr(wave.waveTarget), dispsDebug]);
+end;
+
+// Removes the old AIDisposition and if training is allowed, places a new one with up to date data.
+// Note: several AIDispositions on the same coords for the same player are NOT supported by this system - the last one to be placed is the one that remains.
+procedure UpdateAIDisp(disp: AAIDisp; oldPlayer, oldX, oldY: Integer);
+begin
+	Actions.PlayerAIDispositionRemove(oldPlayer, oldX, oldY);
+	if (disp.allowedTraining) then
+		Actions.PlayerAIDispositionAdd(disp.aPlayer, disp.X, disp.Y, disp.aDir, disp.aGroupType, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow);
+end;
+
+// Create a new AAIGroup with a link to existing unit group on map and append it to the given groupArray. Used for adding troops in active AAIDisps to attacking groups.
+function AddAAIGroup(var groupArray: array of AAIGroup; groupID: Integer): AAIGroup;
+var
+	group: AAIGroup;
+	arrLen: Integer;
+begin
+	group.groupID := groupID;
+	group.pursueStartTick := -1;
+	group.targetHouseID := -1;
+	group.targetUnitID := -1;
+	
+	arrLen := Length(groupArray);
+	SetLength(groupArray, arrLen + 1);
+	groupArray[arrLen] := group;
+	
+	Result := group;
+end;
+
+// Sets the given AAIGroup's target to the given house.
+procedure SetTargetHouseAAIGroup(var group: AAIGroup; houseID: Integer);
+begin
+	if (houseID <= 0) then Exit;
+	
+	group.targetHouseID := houseID;
+	group.targetUnitID := -1;
+	group.pursueStartTick := CurrentTick;
+end;
+
+// Sets the given AAIGroup's target to the given unit.
+procedure SetTargetUnitAAIGroup(var group: AAIGroup; unitID: Integer);
+begin
+	if (unitID <= 0) then Exit;
+	
+	group.targetUnitID := unitID;
+	group.targetHouseID := -1;
+	group.pursueStartTick := CurrentTick;
+end;
+
+// Create and return a new AAIDisp.
+// NOTE: Without adding this to some AAIWave, it behaves just like any other regular AIDisposition, just with ability to be enabled/disabled at will. You are free to exploit that ability, if you will.
+function AddAAIDisp(aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow, minUnits: Integer; aGroupType: TKMGroupType; allowedTraining, allowedAttacking: Boolean; targetPlayers: array of Integer): AAIDisp;
+var
+	arrLen: Integer;
+	disp: AAIDisp;
+begin
+	disp.aPlayer := aPlayer;
+	disp.X := X;
+	disp.Y := Y;
+	disp.aDir := aDir;
+	disp.aGuardRadius := aGuardRadius;
+	disp.aNumUnits := aNumUnits;
+	disp.aUnitsPerRow := aUnitsPerRow;
+	disp.minUnits := minUnits;
+	disp.aGroupType := aGroupType;
+	disp.allowedTraining := allowedTraining;
+	disp.allowedAttacking := allowedAttacking;
+	disp.targetPlayers := targetPlayers;
+
+	arrLen := Length(AAIDisps);
+	SetLength(AAIDisps, arrLen + 1);
+	AAIDisps[arrLen] := disp;
+	
+	UpdateAIDisp(disp, aPlayer, X, Y);
+	
+	Result := disp;
+end;
+
+// Create and return a new AAIWave.
+function AddAAIWave(aAIDisps: array of AAIDisp; minAmountsPerType: array of Integer; startTick, stopTick, attackFrequency: Integer; matchTypesAndCounts: Boolean; waveTarget: WaveTargetType): AAIWave;
+var
+	arrLen: Integer;
+	wave: AAIWave;
+begin
+	wave.aAIDisps := aAIDisps;
+	wave.minAmountsPerType := minAmountsPerType;
+	wave.startTick := startTick;
+	wave.stopTick := stopTick;
+	wave.attackFrequency := attackFrequency;
+	wave.matchTypesAndCounts := matchTypesAndCounts;
+	wave.waveTarget := waveTarget;
+	
+	arrLen := Length(AAIWaves);
+	SetLength(AAIWaves, arrLen + 1);
+	AAIWaves[arrLen] := wave;
+	
+	Result := wave;
+end;
+
+// Adds an AAIDisp into the wave.
+procedure AddToWaveAAIDisp(var wave: AAIWave; var disp: AAIDisp);
+var
+	arrLen: Integer;
+begin
+	arrLen := Length(wave.aAIDisps);
+	SetLength(wave.aAIDisps, arrLen + 1);
+	wave.aAIDisps[arrLen] := disp;
+end;
+
+// Fully deactives given AAIDisp and removes the corresponding AIDisposition from the map.
+procedure DisableAAIDisp(var disp: AAIDisp);
+var
+	i: Integer;
+begin
+	disp.allowedTraining := False;
+	disp.allowedAttacking := False;
+	UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
+end;
+
+// If training is allowed, creates AIDisposition, starting the unit training in the result. Otherwise corresponding AIDisposition is removed.
+// NOTE: Disabling this also effectively disables aGuardRadius for troops that might be already in position. If there are other AIDispositions that have empty space, these troops will be also used by them.
+procedure SetTrainingAAIDisp(var disp: AAIDisp; allowedTraining: Boolean);
+begin
+	disp.allowedTraining := allowedTraining;
+	UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
+end;
+
+// Enables/disables the participation of the given AAIDisp in attacks.
+procedure SetAttackingAAIDisp(var disp: AAIDisp; allowedAttacking: Boolean);
+begin
+	disp.allowedAttacking := allowedAttacking;
+end;
+
+// Sets the amount of units the AAIDisp has to contain before it is allowed to send its troops into an attack. Changing the amount higher than the current AIDisposition capacity updates both of the mentioned values.
+procedure SetMinUnitsAAIDisp(var disp: AAIDisp; minUnits: Integer);
+begin
+	if (disp.aNumUnits < minUnits) then
+	begin
+		disp.aNumUnits := minUnits;
+		UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
+	end;
+	disp.minUnits := minUnits;
+end;
+
+// Changes the current AIDisposition's settings to the new ones, and makes sure the changes are also reflected in the map.
+procedure SetDispAAIDisp(var disp: AAIDisp; aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow: Integer; aGroupType: TKMGroupType);
+var
+	oldPlayer, oldX, oldY: Integer;
+begin
+	oldPlayer := disp.aPlayer;
+	oldX := disp.X;
+	oldY := disp.Y;
+	
+	disp.aPlayer := aPlayer;
+	disp.X := X;
+	disp.Y := Y;
+	disp.aDir := aDir;
+	disp.aGuardRadius := aGuardRadius;
+	disp.aNumUnits := aNumUnits;
+	disp.aUnitsPerRow := aUnitsPerRow;
+	disp.aGroupType := aGroupType;
+	
+	UpdateAIDisp(disp, oldPlayer, oldX, oldY);
+end;
+
+// Changes the current AIDisposition's placement, without changing any of the remaining settings.
+procedure MoveAAIDisp(var disp: AAIDisp; X, Y, aDir: Integer);
+begin
+	SetDispAAIDisp(disp, disp.aPlayer, X, Y, aDir, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow, disp.aGroupType);
+end;
+
+// Adds a new target for the attacks.
+procedure NewTargetAAIDisp(var disp: AAIDisp; aPlayer: Integer);
+var
+	arrLen: Integer;
+begin
+	arrLen := Length(disp.targetPlayers);
+	setLength(disp.targetPlayers, arrLen + 1);
+	disp.targetPlayers[arrLen] := aPlayer;
+end;
+
+// Removes a target from the attacks.
+procedure RemoveTargetAAIDisp(var disp: AAIDisp; aPlayer: Integer);
+var
+	i: Integer;
+begin
+	for i := 0 to High(disp.targetPlayers) do
+		if (disp.targetPlayers[i] = aPlayer) then
+			disp.targetPlayers[i] := -1;
+end;
+
+// Sets the targets of the attacks to the given array.
+procedure SetTargetsAAIDisp(var disp: AAIDisp; players: array of Integer);
+begin
+	disp.targetPlayers := players;
+end;
+
+function GetTroopAmountAAIDisp(disp: AAIDisp): Integer;
+var
+	groupID: Integer;
+begin
+	Result := 0;
+	groupID := States.GroupAt(disp.X, disp.Y);
+	// Minimize the risk of an incorrect group being targeted. Sadly, no 100% way of doing this atm.
+	if (groupID > 0) and (States.GroupOwner(groupID) = disp.aPlayer) then
+		Result := States.GroupMemberCount(groupID);
+end;
+
+// Searches for a new target for the given AAIGroup and assignes it. Does not initiate the attack command itself.
+procedure FindNewTargetAAIGroup(var group: AAIGroup; targetPlayers: array of Integer; waveTarget: WaveTargetType; aTick: Integer);
+var
+	closestHouse, closestUnit: Integer;
+	distanceHouse, distanceUnit: Single;
+begin
+	if (waveTarget = wtHouses) then
+	begin
+		closestHouse := GetClosestHouse(GetGroupX(group.groupID), GetGroupY(group.groupID), targetPlayers, htAny, True, distanceHouse);
+		
+		if (closestHouse > 0) then
+			SetTargetHouseAAIGroup(group, closestHouse);
+	end;
+	
+	if (waveTarget = wtUnits) then
+	begin
+		closestUnit := GetClosestUnit(GetGroupX(group.groupID), GetGroupY(group.groupID), MilitaryUnitTargetBias, targetPlayers, distanceUnit);
+		
+		if (closestUnit > 0) then
+			SetTargetUnitAAIGroup(group, closestUnit);
+	end;
+	
+	if (waveTarget = wtBoth) then
+	begin
+		closestHouse := GetClosestHouse(GetGroupX(group.groupID), GetGroupY(group.groupID), targetPlayers, htAny, True, distanceHouse);
+		closestUnit := GetClosestUnit(GetGroupX(group.groupID), GetGroupY(group.groupID), MilitaryUnitTargetBias, targetPlayers, distanceUnit);
+		
+		if ((distanceUnit + HouseTargetBias) < distanceHouse) and (closestUnit > 0) then
+			SetTargetUnitAAIGroup(group, closestUnit)
+		else if (closestHouse > 0) then
+			SetTargetHouseAAIGroup(group, closestHouse);
+	end;
+end;
+
+// Gives attack command to the given AAIGroup. If its current target is invalid, initiates new target search.
+procedure CommandAttackAAIGroup(var group: AAIGroup; targetPlayers: array of Integer; waveTarget: WaveTargetType);
+begin
+	if (States.GroupMemberCount(group.groupID) = 0) then Exit;
+	if ((group.targetHouseID > 0) and (States.HouseDestroyed(group.targetHouseID)))
+	or ((group.targetUnitID > 0) and (States.UnitDead(group.targetUnitID)))
+	or ((group.targetHouseID <= 0) and (group.targetUnitID <= 0)) then
+		FindNewTargetAAIGroup(group, targetPlayers, waveTarget, CurrentTick);
+	
+	if (group.targetHouseID > 0) then
+		Actions.GroupOrderAttackHouse(group.groupID, group.targetHouseID)
+	else if (group.targetUnitID > 0) then
+		Actions.GroupOrderAttackUnit(group.groupID, group.targetUnitID);
+end;
+
+// Check if a disposition is able to partake in an attack.
+function IsReadyAAIDisp(var disp: AAIDisp): Boolean;
+begin
+	Result := False;
+	if (disp.allowedAttacking) and (GetTroopAmountAAIDisp(disp) >= disp.minUnits) then
+		Result := True;
+end;
+
+// Check if a wave is ready to send an attack.
+function IsReadyAAIWave(var wave: AAIWave): Boolean;
+var
+	i: Integer;
+	troopAmountsInGroups: array of Integer;
+begin
+	if ((CurrentTick - wave.startTick) mod wave.attackFrequency = 0) and (CurrentTick >= wave.startTick) and ((CurrentTick < wave.stopTick) or (wave.stopTick = -1)) then
+	begin
+		// Count the troops per type present in the wave's AAIDisps.
+		troopAmountsInGroups := [0, 0, 0, 0];
+		for i := 0 to High(wave.aAIDisps) do
+		begin
+			// If AAIDisp is not allowed to participate in attacks or if it has not reached minimum amount of units yet, it is not being included.
+			if IsReadyAAIDisp(wave.aAIDisps[i]) then
+			begin
+				if (wave.aAIDisps[i].aGroupType = gtMelee) then
+					troopAmountsInGroups[0] := troopAmountsInGroups[0] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
+				else if (wave.aAIDisps[i].aGroupType = gtAntiHorse) then
+					troopAmountsInGroups[1] := troopAmountsInGroups[1] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
+				else if (wave.aAIDisps[i].aGroupType = gtRanged) then
+					troopAmountsInGroups[2] := troopAmountsInGroups[2] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
+				else if (wave.aAIDisps[i].aGroupType = gtMounted) then
+					troopAmountsInGroups[3] := troopAmountsInGroups[3] + GetTroopAmountAAIDisp(wave.aAIDisps[i]);
+			end;
+		end;
+		
+		Result := True;
+		// If the amounts per type have to all match, check individual type amounts.
+		if wave.matchTypesAndCounts then
+		begin
+			for i := 0 to High(wave.minAmountsPerType) do
+				if (wave.minAmountsPerType[i] > troopAmountsInGroups[i]) then
+						Result := False
+		end
+		// If the amounts per type don't have to precisely match, check only total sums of troops.
+		else if (GetArraySum(troopAmountsInGroups) < GetArraySum(wave.minAmountsPerType)) then
+			Result := False;
+		//DebugMsg('Match types: ' + BoolToStr(wave.matchTypesAndCounts)+ '||Available troop amounts: ' + ArrayIDebug(troopAmountsInGroups) + '||Min amounts per type: ' + ArrayIDebug(wave.minAmountsPerType) + '||Ready to attack: ' + BoolToStr(Result));
+	end;
+end;
+
+// If the wave is ready, adds all troops in the given wave's AIDispositions into the attacking groups.
+procedure UnleashAAIWave(var wave: AAIWave);
+var
+	i, groupID: Integer;
+begin
+	for i := 0 to High(wave.aAIDisps) do
+	begin
+		groupID := States.GroupAt(wave.aAIDisps[i].X, wave.aAIDisps[i].Y);	
+		
+		if (groupID > 0)
+		and (States.GroupOwner(groupID) = wave.aAIDisps[i].aPlayer)
+		and (States.GroupColumnCount(groupID) = wave.aAIDisps[i].aUnitsPerRow)
+		and (IsReadyAAIDisp(wave.aAIDisps[i])) then
+		begin
+			AddAAIGroup(wave.aAIDisps[i].activeGroups, groupID);
+			FindNewTargetAAIGroup(wave.aAIDisps[i].activeGroups[High(wave.aAIDisps[i].activeGroups)], wave.aAIDisps[i].targetPlayers, wave.waveTarget, CurrentTick);
+		end;
+	end;
+end;
+
+// Checks all AAIGroups. If their target has run out of timeout, a new is searched for. Then, attack order is refreshed. This constant order refreshing is an unfortunate spam, but it is a required hack to prevent the groups from undesired home returns.
+procedure UpdateOrdersAAIWaves();
+var
+	i, j, k: Integer;
+begin
+	for i := 0 to High(AAIWaves) do
+		for j := 0 to High(AAIWaves[i].aAIDisps) do
+			for k := 0 to High(AAIWaves[i].aAIDisps[j].activeGroups) do
+				begin
+					if (CurrentTick >= (AAIWaves[i].aAIDisps[j].activeGroups[k].pursueStartTick + TargetTimeoutTicks)) then
+						FindNewTargetAAIGroup(AAIWaves[i].aAIDisps[j].activeGroups[k], AAIWaves[i].aAIDisps[j].targetPlayers, AAIWaves[i].waveTarget, CurrentTick);
+					CommandAttackAAIGroup(AAIWaves[i].aAIDisps[j].activeGroups[k], AAIWaves[i].aAIDisps[j].targetPlayers, AAIWaves[i].waveTarget);
+				end;
+end;
+
+var
+// Save as many AAIWaves as you need here, in global variables. Or access them through AAIWaves array. AddAAIWave() automatically adds new AAIWaves into the array, don't do it yourself.
+	EnemyWave1, EnemyWave2, EnemyWave3, EnemyWave4, AllyWave: AAIWave;
+	EnemyAxe1, EnemyAxe2, EnemyPike1, EnemyPike2, EnemyPike3, EnemyBow1, EnemyBow2, EnemyScout1, EnemyScout2: AAIDisp;
+	AllySpear1, AllySpear2, AllySpear3, AllySpear4, AllyBow1: AAIDisp;
+
+// Use this procedure to set up AAIDisps and AAIWaves. It gets called on tick 1.
+procedure InitiateAAIDisps();
+begin
+	// Duration (in ticks) after which an AAIGroup is to seek a new target. Prevents the group from going tunnel-vision-chasing after a single unit that keeps running away.
+	TargetTimeoutTicks := 100;
+	// Relevant only when both houses and units are being targeted by the AAIWave. Ensures that houses take priority when seeking closest targets by increasing distance units are considered to be at.
+	HouseTargetBias := 0;
+	// Relevant only when units are being targeted by the AAIWave. Ensures that military units take priority when seeking closest targets by increasing distance other units are considered to be at.
+	MilitaryUnitTargetBias := 5;
+	
+	
+	
+	EnemyScout1 := AddAAIDisp(ENEMY_HAND, 78, 47, 4, 15, 12, 4, 0, gtMounted, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	EnemyScout2 := AddAAIDisp(ENEMY_HAND, 95, 47, 4, 15, 12, 4, 0, gtMounted, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	
+	EnemyAxe1 := AddAAIDisp(ENEMY_HAND, 84, 53, 4, 15, 10, 5, 0, gtMelee, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	EnemyAxe2 := AddAAIDisp(ENEMY_HAND, 90, 53, 4, 15, 10, 5, 0, gtMelee, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	
+	EnemyPike1 := AddAAIDisp(ENEMY_HAND, 78, 51, 4, 15, 12, 4, 0, gtAntiHorse, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	EnemyPike2 := AddAAIDisp(ENEMY_HAND, 95, 51, 4, 15, 12, 4, 0, gtAntiHorse, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	EnemyPike3 := AddAAIDisp(ENEMY_HAND, 87, 43, 4, 15, 10, 5, 0, gtAntiHorse, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	
+	EnemyBow1 := AddAAIDisp(ENEMY_HAND, 84, 46, 4, 15, 10, 5, 0, gtRanged, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	EnemyBow2 := AddAAIDisp(ENEMY_HAND, 90, 46, 4, 15, 10, 5, 0, gtRanged, True, True, [FISHING_HAND, FARM_HAND, REFUGEES_HAND, PLAYER_HAND]);
+	
+	
+	// Initial raids. Just harassing.
+	EnemyWave1 := AddAAIWave([EnemyScout2], [0, 0, 0, 12], 9000, 18000, 3000, True, wtBoth);
+	// Become more serious.
+	EnemyWave2 := AddAAIWave([EnemyScout1, EnemyScout2, EnemyAxe1, EnemyAxe2, EnemyPike3], [15, 15, 0, 15], 18000, 45000, 3000, False, wtBoth);
+	// Gloves off. 75 minutes should be more than enough for a player to start producing their T2s.
+	EnemyWave3 := AddAAIWave([EnemyAxe1, EnemyAxe2, EnemyPike1, EnemyPike2, EnemyPike3, EnemyBow1, EnemyBow2, EnemyScout1, EnemyScout2], [20, 20, 20, 0], 45000, -1, 600, True, wtBoth);
+	
+	
+	// Ally moving front disps (start at home - go defend fishing - move to farm - move back home).
+	AllySpear1 := AddAAIDisp(REFUGEES_HAND, 64, 135, 0, 10, 10, 5, 0, gtAntiHorse, True, False, [ENEMY_HAND]);
+	AllyBow1 := AddAAIDisp(REFUGEES_HAND, 64, 137, 0, 10, 10, 5, 0, gtRanged, True, False, [ENEMY_HAND]);
+	// Ally home disps.
+	AllySpear2 := AddAAIDisp(REFUGEES_HAND, 53, 124, 0, 15, 9, 3, 0, gtAntiHorse, True, False, [ENEMY_HAND]);
+	AllySpear3 := AddAAIDisp(REFUGEES_HAND, 59, 124, 0, 10, 12, 6, 0, gtAntiHorse, True, False, [ENEMY_HAND]);
+	AllySpear4 := AddAAIDisp(REFUGEES_HAND, 64, 127, 0, 15, 9, 3, 0, gtAntiHorse, True, False, [ENEMY_HAND]);
+	AllyWave := AddAAIWave([AllySpear1, AllySpear2, AllySpear3, AllySpear4, AllyBow1], [0, 20, 10, 0], 45000, -1, 600, False, wtBoth);
+end;
+
+// Each tick, check whether there is a wave that is potentially supposed to be unleashed. If there is, check for its min troop amount requirements. If these are met as well, send the troops out.
+// Add this procedure to your OnTick, as shown below.
+procedure AttackAIResolveTick(aTick: Integer);
+var
+	i, j, k: Integer;
+	troopAmountsInGroups: array of Integer;
+	isAttackReady: Boolean;
+begin
+	CurrentTick := aTick;
+	
+	if (CurrentTick = 1) then
+		InitiateAAIDisps();
+	
+	for i := 0 to High(AAIWaves) do
+		if (IsReadyAAIWave(AAIWaves[i])) then
+			UnleashAAIWave(AAIWaves[i]);
+	
+	UpdateOrdersAAIWaves();
+end;
+// ####################   End of AttackAIDisposition script   ####################
+
+
+
+
+
+// When the fishing village is defeated, notify the player and move the helping AI disposition to the farm.
+procedure FishingDefeated();
+begin
+	ObjectiveStatusUpdate(PLAYER_HAND, DefendFishingObjID, DefendFishingObjSt, osFailed);
+	Actions.PlayerMessage(PLAYER_HAND, MSG_FISHING_DESTROYED, True);
+	MoveAAIDisp(AllySpear1, 56, 86, 0);
+	MoveAAIDisp(AllyBow1, 56, 88, 0);
+end;
+
+
+// When the farm is defeated, notify the player and move the helping AI disposition behind the last defense line (these will be then used for attacking the enemy back).
+procedure FarmDefeated();
+begin
+	ObjectiveStatusUpdate(PLAYER_HAND, DefendFarmObjID, DefendFarmObjSt, osFailed);
+	Actions.PlayerMessage(PLAYER_HAND, MSG_FARM_DESTROYED, True);
+	MoveAAIDisp(AllySpear1, 64, 135, 0);
+	MoveAAIDisp(AllyBow1, 64, 137, 0);
+	SetAttackingAAIDisp(AllySpear1, True);
+	SetAttackingAAIDisp(AllyBow1, True);
+end;
+
+//
+procedure CheckObjectives();
+begin
+	if ((DestroyBaseObjSt = osActive)
+	and (Length(States.PlayerGetHouses(ENEMY_HAND, htCamp, True)) = 0)
+	and (Length(States.PlayerGetHouses(ENEMY_HAND, htFort, True)) = 0)
+	and (Length(States.PlayerGetHouses(ENEMY_HAND, htBarracks, True)) = 0)) then
+		ObjectiveStatusUpdate(PLAYER_HAND, DestroyBaseObjID, DestroyBaseObjSt, osCompleted);
+		
+	if (Length(States.PlayerGetAllGroups(ENEMY_HAND)) = 0) then
+		ObjectiveStatusUpdate(PLAYER_HAND, DefeatArmyObjID, DefeatArmyObjSt, osCompleted)
+	else
+		ObjectiveStatusUpdate(PLAYER_HAND, DefeatArmyObjID, DefeatArmyObjSt, osActive);
+		
+	
+	if ((DestroyBaseObjSt = osCompleted)
+	and (DefeatArmyObjSt = osCompleted)
+	and not (DefendRefugeesObjSt = osFailed)) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, DefendRefugeesObjID, DefendRefugeesObjSt, osCompleted);
+		if not (DefendFishingObjSt = osFailed) then
+			ObjectiveStatusUpdate(PLAYER_HAND, DefendFishingObjID, DefendFishingObjSt, osCompleted);
+		if not (DefendFarmObjSt = osFailed) then
+			ObjectiveStatusUpdate(PLAYER_HAND, DefendFarmObjID, DefendFarmObjSt, osCompleted);
+		
+		WinTick := CurrentTick;
+		Actions.PlayerMessage(PLAYER_HAND, MSG_OUTRO, True);
+	end;
+end;
+
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	if (aPlayer = FISHING_HAND) then
+		FishingDefeated();
+
+	if (aPlayer = FARM_HAND) then
+		FarmDefeated();
+
+	if (aPlayer = REFUGEES_HAND) then
+	begin
+		ObjectiveStatusUpdate(PLAYER_HAND, DefendRefugeesObjID, DefendRefugeesObjSt, osFailed);
+		Actions.PlayerMissionResultString(PLAYER_HAND, MSG_DEFEND_ALLIES);
+		Actions.PlayerWin([ENEMY_HAND], True);
+	end;
+end;
+
+
+procedure OnMissionStart();
+var
+	testArr: array of Integer;
+begin
+	WinTick := -1;
+	
+	// Intro info.
+	Actions.PlayerMessage(PLAYER_HAND, MSG_INTRO, True);
+	
+	ObjectiveCreate(PLAYER_HAND, otMain, 0, osActive, OBJ_DEFEND_REFUGEES, DefendRefugeesObjID, DefendRefugeesObjSt);
+	ObjectiveCreate(PLAYER_HAND, otMain, 1, osActive, OBJ_DESTROY_BASE, DestroyBaseObjID, DestroyBaseObjSt);
+	ObjectiveCreate(PLAYER_HAND, otMain, 2, osActive, OBJ_DEFEAT_ARMY, DefeatArmyObjID, DefeatArmyObjSt);
+	
+	ObjectiveCreate(PLAYER_HAND, otAdditional, 3, osActive, OBJ_DEFEND_FISHING, DefendFishingObjID, DefendFishingObjSt);
+	ObjectiveCreate(PLAYER_HAND, otAdditional, 4, osActive, OBJ_DEFEND_FARM, DefendFarmObjID, DefendFarmObjSt);
+	
+	// Set WareDistribution for all wares in all houses to 5, except grain for sheep = 0. I just prefer it this way, and my production lines are optimized for that.
+	PlayerMaxWareDistributions(REFUGEES_HAND);
+	PlayerMaxWareDistributions(FISHING_HAND);
+	PlayerMaxWareDistributions(FARM_HAND);
+	PlayerMaxWareDistributions(ENEMY_HAND);
+	Actions.PlayerWareDistribution(REFUGEES_HAND, wtGrain, htSheepyard, 0);
+	Actions.PlayerWareDistribution(ENEMY_HAND, wtGrain, htSheepyard, 0);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+	AttackAIResolveTick(aTick);
+
+	// Notify the player that enemy mounted raiders are about to attack.
+	if (aTick = 7800) then
+	begin
+		Actions.PlayerMessage(PLAYER_HAND, MSG_FISHING_THREATENED, True);
+		MoveAAIDisp(AllySpear1, 110, 74, 0);
+		MoveAAIDisp(AllyBow1, 110, 76, 0);
+	end;
+
+	// Notify the player that enemy attacks are gaining intensity.
+	if (aTick = 17700) then
+		Actions.PlayerMessage(PLAYER_HAND, MSG_RAIDER_NUMBERS_INCREASED, True);
+
+	// Notify the player that the refugees will be counterattacking, too.
+	if (aTick = 45000) then
+		Actions.PlayerMessage(PLAYER_HAND, MSG_COUNTERATTACKS_ACTIVE, True);
+		
+	if (CurrentTick mod 50 = 0) then
+		CheckObjectives();
+		
+	if ((WinTick > 0)
+	and (aTick = WinTick + 1)) then
+		Actions.PlayerWin([PLAYER_HAND], True);
+end;
+
+
+// Manage descriptions of burned down villages on their first player visit.
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HAND) then
+	begin
+		if ((aTriggerId = TERRAIN_TRIGGER_A) and not TerrainTriggerFiredA) then
+		begin
+			Actions.PlayerMessage(PLAYER_HAND, MSG_TT_A_VISITED, True);
+			TerrainTriggerFiredA := true;
+		end;
+
+		if ((aTriggerId = TERRAIN_TRIGGER_B) and not TerrainTriggerFiredB) then
+		begin
+			Actions.PlayerMessage(PLAYER_HAND, MSG_TT_B_VISITED, True);
+			TerrainTriggerFiredB := true;
+		end;
+  
+		if ((aTriggerId = TERRAIN_TRIGGER_C) and not TerrainTriggerFiredC) then
+		begin
+			Actions.PlayerMessage(PLAYER_HAND, MSG_TT_C_VISITED, True);
+			TerrainTriggerFiredC := true;
+		end;
+	end;
+end;

@@ -1,0 +1,112 @@
+﻿0:Amaroth
+1:You met [$000080]Lord Clifford Hargrave[]'s challenge head-on and defeated his men once again. He left his retinue behind as he fled towards [$14FF14]Duke Royce[]'s castle. [$61793F]Graham[] offered you help with the capture of the fleeing Lord. Wondering what surprises await you to the North, you sent Graham's people ahead to establish a foothold before your main force arrives with you.
+
+2:Sir Haytow
+3:Lord Hargrave
+4:Refugees
+5:Siege Camp
+6:Duke Royce
+
+10:Defeat and destroy [$518FCF]Hargrave's siege camp[].
+11:Defeat and destroy [$000080]Hargrave's main base[].
+12:Supply wagons arrived, but no valid storehouse was found for them to deposit resources into. They are awaiting your commands.
+
+20:Graham was tasked with setting up your base camp before your arrival. As you approach the agreed upon place, you hear battlecries. Graham and his people need help!
+
+30:The enemy attackers lie all defeated. But so do many of your allies. You recognize one of the fallen immediately.
+31:[$61793F]Graham:[] "Forgive me, m'lord... Too many of 'em..."
+32:[$00B3FF]You:[] "There is nothing to forgive, you fought well."
+33:[$61793F]Graham:[] "Aye, but this arrow's goin' nowhere... I'm gonna die, and we both know that."
+34:[$00B3FF]You:[] "It is too close to the heart. I am sorry. Is there anything I can do for you?"
+35:[$61793F]Graham:[] "Yeah. Make these bastards pay... Watch out... Hargrave kept his siege camp to the East... But the Duke should be close..."
+36:[$00B3FF]You:[] "Duke Royce? Do you know where he is?"
+37:[$61793F]Graham:[] "... Close. Should... arrive... soon..."
+38:[$00B3FF]You:[] "... Soldiers! Finish the camp and prepare to scout the area! Our enemies must not take us by surprise again!"
+
+40:A sound of a unit marching down the road from which you've arrived earlier puts you immediately on edge...
+41:[$00B3FF]You:[] "Halt! Who goes there?!"
+42:[$0073FF]Captain Aston:[] "I'd expect warmer welcome, sire. It's good to see you still kicking."
+43:[$00B3FF]You:[] "Aston! What are you doing here?"
+44:[$0073FF]Captain Aston:[] "Haytow is safe. I figured you'll need some help over here, so I left the town in the hands of that Linton fellow who helped you with bandits earlier."
+45:[$00B3FF]You:[] "Very well, we could use any help at this point. You and your men are most welcome! However, our enemy is likely well supplied and well fortified. We need to bridge that gap as soon as possible."
+46:[$0073FF]Captain Aston:[] "I cannot help with the latter, I've never been much of a builder. But I can help with the former."
+47:[$00B3FF]You:[] "What do you mean, captain?"
+48:[$0073FF]Captain Aston:[] "You are Haytow of Haytow, after all, sire! Who else should be well supplied, but you? I established a supply line from home. We should be swimming in grain soon. Just make sure you have a storehouse for wagons to go into."
+49:[$00B3FF]You:[] "That is incredible news. Mhm. I wonder if our enemies have similar supply chains set up as well."
+
+50:Scouts report from the East...
+51:[$00D0FF]Scout:[] "Sire! There is a narrow wooden bridge directly to the East of our camp."
+52:[$00B3FF]You:[] "Interesting. It could lead to a weakpoint in the enemy defense. We should see what lies behind it, but be on guard, it could be a trap."
+
+60:Your scouts report from the Northeast...
+61:[$00D0FF]Scout:[] "We've discovered a ford closeby, my lord."
+62:[$00B3FF]You:[] "Does it seem safe to cross?"
+63:[$00D0FF]Scout:[] "Very much not so. There are fortifications on the other side, and enemy troops in strong defensive positions. We believe it's enemy siege camp previously used to launch the attack to take the castle, my lord. The enemy keeps it defended and supplied."
+64:[$00B3FF]You:[] "A direct attack across the ford would be costly, but so would be exposing our back to that camp while we attempt to storm the castle. Perhaps there is another way though..."
+
+70:A scout reports from the Northeast...
+71:[$00D0FF]Scout:[] "This was the bridge leading to the main gate."
+72:[$00B3FF]You:[] "Or, what remains of it. That is most unfortunate, how are we to cross the river?"
+73:[$00D0FF]Scout:[] "That is up to you, sire. What I can say is this is not the way. I think the defenders themselves collapsed it, when the castle was attacked."
+74:[$00B3FF]You:[] "Stalwart warriors indeed. We shall honor their memory by bringing Hargrave to his knees."
+
+80:Scouts report from the North...
+81:[$00D0FF]Scout:[] "A bridge to the town. The good news is, it is still standing."
+82:[$00B3FF]You:[] "And the bad news?"
+83:[$00D0FF]Scout:[] "Swarming with enemies, and guarded by towers."
+84:[$00B3FF]You:[] "Hardly a surprise. We will be blocking enemy arrows with our faces, if we try to cross here."
+85:[$00D0FF]Scout:[] "The castle seems damaged and for the most part, unguarded, my lord."
+86:[$00B3FF]You:[] "So perhaps we can catch them by surprise, if we manage to sneak in somehow..."
+
+90:Scout report comes from the East...
+91:[$00D0FF]Scout:[] "Good news, sire! We've found out what road our enemies use for supplying their former siege camp."
+92:[$00B3FF]You:[] "Excellent work. Where is it?"
+93:[$00D0FF]Scout:[] "On the other bank, coming from the South."
+94:[$00B3FF]You:[] "If that is the case, perhaps we could try to ambush and steal their supplies..."
+95:[$00D0FF]Scout:[] "Yes sire. We just need to wait for the next supply train to come. The only issue is that the enemy is guarding the area with cavalry. We will need to sneak around them somehow, or get rid of them, first."
+
+100:Graham wasn't wrong... Duke was close! He arrives, followed by his army.
+101:[$14FF14]Duke Royce:[] "Hargrave! You slimy worm! Did you think you can take my castle and hold it in your dirty, crooked hands?! By all that is holy, by my family's legacy and by your stink, you filth of a craven, I swear I will behead you before the sunset!"
+102:[$00B3FF]You:[] "That is a big promise to make, Duke."
+103:[$14FF14]Duke Royce:[] "Haytow! You are a blessing, lad. As you were chasing that dog around, I had enough time to regroup my men and prepare for counterattack."
+104:[$00B3FF]You:[] "That is wonderful. So, what is you plan?"
+105:[$14FF14]Duke Royce:[] "My castle's walls were breached, and thanks to you, Hargrave did not have enough time to fix them properly. If we get to the castle from the East, we can sneak in and liberate the town from there."
+106:[$00B3FF]You:[] "That sounds like a plan, but we need to get through the enemy siege camp, first."
+107:[$14FF14]Duke Royce:[] "Do we now? Well, it seems we have got our work cut out for us. We will attack from the South. Help us in any way you see fit, Haytow. You have done very well so far, I will trust your judgement."
+
+110:The former siege camp is in flames, and its defenders lie defeated.
+111:[$00B3FF]You:[] "Finally, progress. Now we can focus on Hargrave."
+112:[$0073FF]Captain Aston:[] "It won't be easy to dig them out of that castle, sire."
+113:[$00B3FF]You:[] "They did breach the castle somehow, and it's more vulnerable from the Eastern side. There should be a way in."
+
+120:The castle has fallen, the town is freed. You search for Hargrave, but to no avail.
+121:[$00B3FF]You:[] "Where is he?!"
+122:[$0073FF]Captain Aston:[] "Nowhere to be found, sire. He could have escaped into the castle. Or, he ran into his siege camp."
+123:[$00B3FF]You:[] "The castle seems abandoned. We should search it, for a good measure, but I fear we will have to dig him out of that camp."
+
+130:All of Hargrave's troops were defeated, or have conceded. The Lord is brought to you and Duke Royce.
+131:[$14FF14]Duke Royce:[] "Hargrave. Give me a single good reason..."
+132:[$000080]Lord Clifford Hargrave:[] "To leave me alive? There is plenty, Duke. For start, I can be ransomed for a hefty sum. And, your honor..."
+133:[$14FF14]Duke Royce:[] "My honor? You dare to talk of honor?! What I wanted from you is a single good reason why you did all of this!"
+134:[$000080]Lord Clifford Hargrave:[] "Royce... You should know better than most that our king is a fool. He is young, inexperienced, and repeatedly proves to be unable to learn. He does not really rule the kingdom, and when he attempts to do so, he only manages to offend his own nobility with hasty and poor decisions. He cannot be left to rule any longer. The Marshal would make much finer king."
+135:[$14FF14]Duke Royce:[] "... You talk of high treason now."
+136:[$000080]Lord Clifford Hargrave:[] "I guess I do. But I find it amusing you did not contradict my claims about our king."
+137:[$14FF14]Duke Royce:[] "Your claims are your claims, and with nothing else for your defense, you remain a traitor. And as for me... I will not follow Marshal Greedfare."
+138:[$000080]Lord Clifford Hargrave:[] "So, what now? What ransom will you demand from my family, I wonder, before I am to see the King's so called justice? If he will even manage to remain our king, that is."
+139:[$14FF14]Duke Royce:[] "What you speak of would normally be the custom, yes. But I cannot let you go. Lord Clifford Hargrave. I find you guilty of high treason against our king, His Majesty Benton II. of Westford, and you have offended me, my lands and my people greatly. For these crimes, I hereby sentence you to death. You will be beheaded by sword, as befits your status. The execution will happen here and now."
+
+140:Hargrave gets executed. While you disliked the man, he did face his final fate without a blink. You find a moment to talk to the Duke afterwards.
+141:[$00B3FF]You:[] "That business with Hargrave... May I ask why did you execute him on the spot?"
+142:[$14FF14]Duke Royce:[] "We are noblemen, young Haytow. Why is that possible?"
+143:[$00B3FF]You:[] "We were born as them. And we swore an oath to our liege."
+144:[$14FF14]Duke Royce:[] "Being born means nothing. But swearing an oath, that is something you do, on your own, knowingly and willingly. It is what ensures you are true nobleman. Your word, your oath. I swore I will behead Hargrave, and you stood witness to that. No matter what he said to his defense, I could not have let him go. I would lower myself to him, I would become an oathbreaker. And, at least for time being, he would live to mock me for that, and to make sure everyone knows."
+145:[$00B3FF]You:[] "Perhaps you should have avoided swearing that oath of beheading in the first place. He could have helped us uncover what is happening."
+146:[$14FF14]Duke Royce:[] "Perhaps I was hasty. But his help is not needed. Marshal Greedfare was never a true friend to the old King, and when Benton II. got crowned, he opposed him whenever he was able to. Benton's inexperience only helped escalating things and making them personal. Greedfare started rebellion, and Hargrave knew too well I will not support their move."
+147:[$00B3FF]You:[] "Is your oath to the king that important to you?"
+148:[$14FF14]Duke Royce:[] "Not just that. If anyone can just claim the throne because they do not like who is sitting on it, the realm will tear itself apart in never ending civil wars. Order is what keeps us stable. Unfit as our King is, he needs to rule, or abdicate willingly in favor of someone, who actually has rightful claim to the throne. Now that you have helped me with this mess, I need to deal with Greedfare. This is no end, lad."
+149:[$00B3FF]You:[] "How can I help?"
+150:[$14FF14]Duke Royce:[] "I hoped you would ask. Marshal's army is powerful and experienced. But he relies heavily on mines to the North that are under his control. They provide him with steel and gold. Without capturing them, we stand no chance. But with them... We can even the odds. Follow me."
+
+160:A scout comes from the North...
+161:[$00D0FF]Scout:[] "Sire! Lord Hargrave seems to be preparing a massive attack against us!"
+162:[$00B3FF]You:[] "We knew they will not just watch us laying siege. Prepare defensive positions!"
