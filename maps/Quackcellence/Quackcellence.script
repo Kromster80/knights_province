@@ -142,6 +142,20 @@ begin
                 Actions.RoadAdd(aX-1, aY, aPlayer); // Camp needs roads below
                 Actions.RoadAdd(aX-1, aY+1, aPlayer); // Camp needs roads below
             end;
+            if aFace = toNorth then
+            begin
+                Actions.RoadAdd(aX+2, aY-1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX+1, aY-1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX, aY-1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX-1, aY-1, aPlayer); // Camp needs roads below
+            end else
+            if aFace = toEast then
+            begin
+                Actions.RoadAdd(aX+1, aY+2, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX+1, aY+1, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX+1, aY, aPlayer); // Camp needs roads below
+                Actions.RoadAdd(aX+1, aY-1, aPlayer); // Camp needs roads below
+            end;
             RemoveStartingUnits(aPlayer);
             SpawnUnits(aPlayer, 4, aX-1, aY, utPorter);
             SpawnUnits(aPlayer, 4, aX+5, aY, utBuilder);
