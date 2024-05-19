@@ -1,0 +1,45 @@
+﻿0:Amaroth
+1:Pokonanie bandytów nie tylko nie było łatwe, ale też nie dawało satysfakcji. Kiedy złożyli broń, stało się jasne, że są to po prostu biedni ludzie, uwięzieni między młotem a kowadłem. Ich przywódca, [$61793F]Graham[], wyjaśnił, że rzeczywiście pochodzą z ziem [$14FF14]Księcia Royce’a[]. Kilka dni temu zaatakowano całe księstwo. Armia księcia została wyraźnie zaskoczona i odepchnięta, podczas gdy jego okolice spłonęły na popiół.||Wielu chłopów Royce'a zostało zmuszonych do ucieczki, a większość z nich wybrała najłatwiejszą drogę na południe. Na twoje ziemie. Nie mając prawie żadnej żywności i zapasów, zmuszeni byli najpierw żebrać, a następnie zwrócić się ku bandytyzmowi. Chociaż ich przewinienia nie mogą być ignorowane, twój ojciec zawsze uczył cię, jak radzić sobie z przyczyną, a nie z konsekwencjami. Co więcej, książę był także przyjacielem twojego ojca.||W związku z tym sprzymierzyłeś się z uchodźcami, zaopatrzyłeś ich w zapasy, których desperacko potrzebowali, i zjednoczeni maszerowakiście w stronę ich dręczycieli.
+2:Sir Haytow
+3:Uchodźcy
+4:Wioska rybacka
+5:Gospodarstwo
+6:Rabusie
+10:Po przybyciu, zostajesz powitany przez przywódcę uchodźców, który czekał na ciebie z niecierpliwością.
+11:[$61793F]Graham:[] „Panie... Ufortyfikowaliśmy opuszczoną wioskę, którą tu znaleźliśmy. Będziemy jej bronić tym, co nam zostało. Masz trochę czasu na zwiad i przygotowanie ataku na tych drani.
+12:[$00B3FF]Ty:[] „Dobra robota, dziękuję. Jedyne, czego potrzebujemy od Ciebie, to kupienie nam trochę czasu na zdobycie przyczółka.”
+13:[$61793F]Graham:[] „To nie będzie łatwe, mój panie. Oni nie tylko spalili nasze domy. Ukradli także wiele naszych rzeczy i kilka wiosek zapłaciło im ogromną daninę, aby zostawili ich w spokoju."
+14:[$00B3FF]Ty:[] „Zatem prawdopodobnie będą mieli silną pozycję i dużo zapasów w magazynie. Dobrze wiedzieć, będziemy musieli zachować ostrożność.”
+15:[$61793F]Graham:[] „Wiem, że nie mamy prawa cię o to prosić, panie… Ale ci rabusie spalili wiele naszych wiosek. Zamordowali wielu naszych przyjaciół z zimną krwią. Wiesz to wszystko ... Ale jest coś więcej. Kiedy wróciliśmy... zaczęli atakować nawet tych, którzy płacili daninę zamiast uciekać lub zostać zamordowanymi. Proszę...".
+16:[$00B3FF]Ty:[] „Więc chcesz, żebym bronił pozostałych wiosek?”
+17:[$61793F]Graham:[] „Jeśli tylko to możliwe, panie!”
+18:[$00B3FF]Ty:[] „To zaszczytna rzecz. Zobaczę, co da się zrobić. Tak czy inaczej, tych ludzi trzeba powstrzymać”.
+20:[$61793F]Graham:[] „Panie, wrodzy najeźdźcy zmierzają w stronę wioski rybackiej! Wkrótce przybędą!”
+21:[$00B3FF]Ty:[] „Nie mamy jeszcze zasobów, aby walczyć z wrogiem na otwartej przestrzeni!”
+22:[$61793F]Graham:[] „Być może, ale nie możemy ich tak zostawić. Wyślemy, co mamy do pomocy. Każda pomoc, której udzielisz, będzie mile widziana.”
+23:[$00B3FF]Ty:[] „Zastanowię się nad tym. W końcu mam do dyspozycji niewielu żołnierzy.”
+30:[$61793F]Graham:[] „Wygląda na to, że solidnie ich wkurzyliśmy, milordzie. Zamierzają zwiększyć presję. Mam nadzieję, że nasza obrona ich powstrzyma. Pospiesz się ze szkoleniem armii lub wkrótce wszyscy zostaniemy zdeptani!”
+40:[$61793F]Graham:[] „Czekaliśmy wystarczająco długo! Ile jeszcze czasu potrzebujesz, panie? Ponieważ nie możemy już dłużej patrzeć, jak palą okoliczne osady. Spróbujemy wywrzeć pewną presję w ich obozie. Jesteś z nami?”
+41:[$00B3FF]Ty:[] „Spieszysz się z atakiem, ich obóz jest silnie strzeżony.”
+42:[$61793F]Graham:[] „To prawda. Ale wróciliśmy tutaj pod jednym warunkiem: pokonamy ich za to, co nam zrobili. Być może mógłbyś wykorzystać nasze ataki do odwrócenia ich uwagi.”
+50:[$61793F]Graham:[] „Panie, pobliska wioska rybacka jest skończona! Wycofujemy się na tę farmę na północy. Miejmy nadzieję, że będziemy mieli więcej szczęścia w jej obronie.”
+60:[$61793F]Graham:[] „Cholera, tę farmę też spalili. Teraz spróbujmy sobie z nimi poradzić pod naszymi wieżami. Mam nadzieję, że przygotowałeś kontratak, musimy sprawić, żeby ci dranie zapłacili! "
+70:Broń uchodźców!
+80:Wilki i wściekłe psy. To wszystko, co tu żyje. Niegdyś stało tu małe miasteczko z własnymi fortyfikacjami. Nie wydaje się jednak, żeby one zbytnio pomogły. Nie możesz powstrzymać dreszczy. Pozostałości miasta nie różnią się zbytnio od Haytow.
+90:Tylko duchy wędrują po tym obszarze. Cóż takiego ci ludzie zrobili tym agresorom?
+100:Spokojne życie zmarnowane. Skradziono im środki do życia, żeby wyżywić armię. Poczekaj chwilę... Dokąd prowadzi ta droga?
+110:Broń [$FF1313]wioski rybackiej[].
+111:Obroń [$1313FF]gospodarstwo[].
+112:Broń miasta [$61793F]Uchodźców[].
+113:Zniszcz obóz [$000080]Rabusiów[].
+114:Pokonaj armię [$000080]Rabusiów[].
+120:Osiągnąłes zwycięstwo, wioski są teraz pod twoją ochroną. Armia wroga rozpraszyła się. Ledwo wziąłeś kilka oddechów, gdy podszedł do ciebie szlachcic wraz ze swoim orszakiem. Wydaje się, że przybyli, aby być świadkami twojego triumfu. Sądząc po jego barwach szlachcica, od razu stało się jasne, że ci rabusie byli jego ludźmi.
+121:[$000080]Lord Clifford Hargrave:[] „Haytow... Od kiedy rolnicy, tacy jak ty interesują się zabawą dla dużych chłopców?”
+122:[$00B3FF]Ty:[] „Palenie wsi i wysiedlanie dziesiątek głodnych uchodźców, to według ciebie zabawa dla dużych chłopców? Kim jesteś?”
+123:[$000080]Lord Clifford Hargrave:[] „Twoja ignorancja tylko podkreśla powody, dla których powinieneś wrócić do swojego małego miasteczka i przestać zawracać sobie głowę sprawami, które są za małe na twoją głowę. Ja znam herb kogoś tak nieistotnego jak ty, a mimo to Ty nie zdołałeś rozpoznać mnie?! Jestem lord Clifford Hargrave i porachunki z Royce’em to moja sprawa!”
+124:[$00B3FF]Ty:[] „Niestety, twój konflikt stał się moją sprawą w chwili, gdy moje miasto stanęło w płomieniach. Jeśli chcesz walczyć z księciem Royce’em, możesz to zrobić, ale nie mieszaj do tego wiosek w mojej okolicy.”
+125:[$000080]Lord Clifford Hargrave:[] „Wioski mają dwie możliwości. Zapłać daninę i przestań wspierać Royce’a albo spłonąć. I nic tego nie zmieni, Haytow. Jeśli chcesz polec w ich imieniu, bądź moim gościem. Możesz stawić czoła mnie i mojej świcie na północy, aby ocalić swoje cenne małe wioski przed jeszcze większą rzezią. Możesz też po prostu wyjechać i wrócić do domu, zanim po ciebie przyjdę.
+126:[$00B3FF]Ty:[] „Wracaj do swoich żołnierzy, lordzie Hargrave. Spotkamy się na polu bitwy tu i teraz.”
+127:Gdy władca wyrusza na północ, przygotowując swoje wojska do konfrontacji, zbliża się jeden z twoich poruczników.
+128:[$00D0FF]Porucznik:[] „Panie... Wybacz, doprowadziłeś nas tak daleko, ale po tych wszystkich walkach nie jesteśmy w najlepszej formie.”
+129:[$00B3FF]Ty:[] „Doskonale o tym wiem, ale nie możemy się wycofać. Bez naszej ochrony lord Hargrave zrobi po tym wszystkim makabryczne rzeczy ludowi Grahama, a następnie przegrupuje swoją armię, by zaatakować Haytow. Nie mamy wystarczająco silnego zamku, do którego moglibyśmy się wycofać. Jeśli mamy zwyciężyć, musimy pokonać jego orszak tu i teraz, zanim uda mu się zebrać uciekających najeźdźców. Ludzie, maszerujcie na północ!
