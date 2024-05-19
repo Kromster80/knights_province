@@ -1,23 +1,23 @@
 ﻿0:<==
-1:Król rozkazał sprowadzenie Chłopca, musimy odszukać i sprowadzić go z powrotem.
-3:Porozmawiaj z Chłopcem stojącym przy moście na wschodzie.
+1:Król rozkazał sprowadzenie chłopca, musimy odszukać i sprowadzić go z powrotem.
+3:Porozmawiaj z chłopcem stojącym przy moście na wschodzie.
 5:Odnaleźliśmy list!
-6:Wilcza Jaskinia - to tutaj chowaliśmy się, gdy musieliśmy uciekać z miasta.
+6:Wilcza jaskinia - to tutaj chowaliśmy się, gdy musieliśmy uciekać z miasta.
 7:Śnieżna góra - pamiętam, jak za dzieciaka wspinaliśmy się na sam szczyt.
-8:Stara Kopalnia - aż strach pomyśleć jak mogliśmy się bawić w tak przerażającym miejscu.
+8:Stara kopalnia - aż strach pomyśleć jak mogliśmy się bawić w tak przerażającym miejscu.
 9:Upss - chyba się zgubiliśmy...
 10:[$00FFFF]Znajdź list ukryty w pniu, gdzieś w górach[]
 11:Góry Timan - aż wracają wspomnienia z dzieciństwa.
 12:Znaleźliśmy pień, niestety nic nie ma w środku. |Szukajmy dalej.
-14:Witaj Chłopcze |Czemu uciekłeś tak z nagła?
-15:bo, bo przestraszyłem się Króla
+14:Witaj, chłopcze |Czemu?
+15:...bo, bo... przestraszyłem się Króla
 16:Króla... dlaczego?
 17:... |... |Lepiej, jeżeli Król sam odnajdzie i przeczyta list z butelki
-18:Jaka butelka... jaki List... o czym ty prawisz chłopcze
-19:Z fosy zamku wyłowiono butelka ze starym listem
+18:Jaka butelka... jaki List... o czym ty prawisz, chłopcze?
+19:Z zamkowej fosy wyłowiono butelkę ze starym listem
 20:Starym listem... czy mógłbyś mi przekazać ten list?
-21:...nie mogę. |List został ukryty i nie ma prawa ujrzeć świata dziennego!
-22:Chłopcze, zdradź mi, proszę gdzie go znajdę
+21:...nie mogę. |List został ukryty i nie ma prawa ujrzeć światła dziennego!
+22:Chłopcze, zdradź mi, proszę, gdzie go znajdę?
 23:Nie wiem, został ukryty gdzieś w górach...
-24:hm... odnajdźmy ten list. ||Znajdźmy butelkę z Listem, ukrytą gdzieś w górach.
-26:Chłopcze
+24:hm... odnajdźmy ten list. ||Znajdźmy butelkę z tym listem. Jest ukryta gdzieś w górach.
+26:Chłopiec

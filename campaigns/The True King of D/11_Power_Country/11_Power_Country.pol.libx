@@ -1,15 +1,15 @@
 ﻿0:Kinghts Dzapan
-1:Zbliżamy się do Królewskiej stolicy. |Skumulowane są tutaj najbardziej żyzne ziemie, jak i góry o bogatych surowcach. |Tereny te są najniebezpieczniejsze w całym kraju, znajduje się tu mnóstwo osad wroga, strzeż się i bądź przezorny.
-2:Gdzieś na północnym zachodzie znajduje się mała wioska z najemnikami, którzy za złoto zrobią wszystko. |Powinniśmy rozejrzeć się za nią, może uda nam się przekupić kilku żołnierzy.
-3:znajdź wioskę z najemnikami
+1:Zbliżamy się do królewskiej stolicy. |Skumulowane są tutaj najbardziej żyzne ziemie, jak i góry o bogatych surowcach. |Tereny te są najniebezpieczniejsze w całym kraju, znajduje się tu mnóstwo osad wroga. Strzeż się i bądź przezorny.
+2:Gdzieś na północnym zachodzie znajduje się mała wioska z najemnikami, którzy w zamian za złoto zrobią wszystko. |Powinniśmy rozejrzeć się za nią, może uda nam się przekupić kilku żołnierzy.
+3:Znajdź wioskę z najemnikami
 4:Wioska najemników
-5:Czas pomyśleć o decydującej bitwie, wysyłając szpiega, aby rozrysował mapę dla kolejnej misji.
+5:Czas pomyśleć o decydującej bitwie, wysyłając szpiega, aby rozrysował mapę dla kolejnej wyprawy.
 6:Wysłano szpiega
-7:Powrócił nasz szpieg z mapami oraz rozeznaniem sytuacji wokół Zamku. |Z Informacji wynika, iż kolejna misja jest zupełnie zależna od tej! |Wszystkie surowce na ziemiach dookoła Królewskiego zamku zostały w pełni wyczerpane. |Aby zwyciężyć w przyszłej misji, potrzebujemy ogromnej Armii, musimy wykorzystać bogate surowce tych ziem i zbudować ogromny potencjał wojskowy, który będzie nam potrzebny w przyszłej misji. ||Zgromadź i wyszkol wielką Armie, którą ruszymy na przyszłą misję.
-8:Wyszkol Wojska przed końcem misji.
-9:Pułapki! |Znaleźliśmy się, na polu pełnych pułapek, musimy szybko przedostać się przez nie.
-10:Szumowino jedna! |Myślisz, że ty, ty, podołasz mnie zniszczyć...
-11:Pozyskaliśmy zapasy wroga, sprowadźmy je do bazy.
+7:Powrócił nasz szpieg z mapami oraz rozeznaniem sytuacji wokół zamku. |Z Informacji wynika, iż kolejna misja jest zupełnie zależna od tej! |Wszystkie surowce na ziemiach dookoła królewskiego zamku zostały w pełni wyczerpane. |Aby zwyciężyć w przyszłej misji, potrzebujemy ogromnej armii, Musimy wykorzystać bogate surowce tych ziem i zbudować ogromną armię, która będzie nam potrzebna w przyszłej misji. ||Zgromadź i wyszkol wielką armie, którą ruszymy na wyprawę.
+8:Wyszkol wojska przed końcem misji.
+9:Pułapki! |Znaleźliśmy się, na polu pełnych pułapek, musimy szybko się przedrzeć.
+10:Szumowino jedna! |Myślisz, że ty, ty, zdołasz mnie zniszczyć?
+11:Pozyskaliśmy zapasy wroga. Sprowadźmy je do bazy.
 12:Pokonaj wszystkich wrogów
 13:Wróg
 14:Nalgene D.Jabr
@@ -21,76 +21,76 @@
 32:Czekaliśmy na ciebie... długo, tak bardzo długo!
 33:Kim wy jesteście?
 34:Jesteśmy tajną formacją wodza Nalgene Stein. |Ukrywaliśmy się, w tym wodospadzie bardzo długo, oczekując waszego przybycia.
-35:Formacja wojskowa mojego Ojca?
-36:Tak.||Ukrywaliśmy i chroniliśmy twego ojca. |Nazywam się Generał Kwalik |Od jego śmierci, byliśmy w cieniu świata, oczekując z nadzieją, że przybędziesz. |Teraz nasze wojska należą do was, służba u twego boku to dar mój Panie.
+35:Formacja wojskowa mojego ojca?
+36:Tak.||Ukrywaliśmy i chroniliśmy twego ojca. |Nazywam się Generał Kwalik |Od jego śmierci, byliśmy w cieniu świata, oczekując z nadzieją, że przybędziesz. |Teraz nasze wojska należą do was, służba u twego boku to dar, mój panie.
 37:Czy powinniśmy im zaufać, może to zasadzka? ||Zaufać im?
 38:TAK
 39:W imie prawdziwego króla!||Do boju!
 40:NIE
-41:Bardzo ubolewamy twoją decyzję, oczywiście spełnimy twoją wolę. ||Żegnaj Panie.
+41:Bardzo ubolewamy nad twoją decyzją, oczywiście spełnimy twoją wolę. ||Żegnaj, panie.
 42:
 43:MERCENAR VILLAGE - General Malkowski
 44:-------------------------------------
-50:Witaj wędrowniku, co cię sprowadza do naszej osady, mam nadzieję, że nie szukasz problemów?
+50:Witaj wędrowniku, co cię sprowadza do naszej osady. Mam nadzieję, że nie szukasz problemów?
 51:Poszukuję żołnierzy gotowych do poświęceń.
-52:Do poświeceń powiadasz... |Takich jest tutaj pełno, wystarczy rozejrzeć się po wiosce i popytać mieszkańców, oczywiście, jeżeli posiadasz coś cennego do zaoferowania ha,ha,ha...
+52:Do poświeceń powiadasz... |Takich jest tutaj pełno. Wystarczy rozejrzeć się po wiosce i popytać mieszkańców. Oczywiście, jeżeli posiadasz coś cennego do zaoferowania ha,ha,ha...
 53:
-55:Czołem nieznany, napijesz się z nami piwa?
+55:Czołem nieznany. Napijesz się z nami piwa?
 56:Witam, piwo hm...
 57:Napij się
 58:Dla takich jak ty szkoda piwa, spadaj stąd!
-59:Nie dziękuje
+59:Nie, dziękuje
 60:W takim razie spieprzaj!
 61:
 64:10 Złota
-65:Witam Cię, |Wyglądasz na wojownika, czy chciałbyś dołączyć do mojej Armii?
-66:Serwus! |Twojej Armii, a co to za Armia, nie widzę tu żadnej Armii...
-67:Armia czyha u bram mojego miasta. |Takich Wojowników jak ty właśnie poszukuję, czy przyłączysz się do nas?
-68:Może tak, może nie, wszystko zależy, co masz do zaoferowania
+65:Witam Cię, |Wyglądasz na wojownika, czy chciałbyś dołączyć do mojej armii?
+66:Serwus! |Twojej armii? A co to za armia, nie widzę tu żadnej armii...
+67:Armia czyha u bram mojego miasta. |Takich wojowników jak ty właśnie poszukuję. Czy przyłączysz się do nas?
+68:Może tak, może nie, wszystko zależy, co masz do zaoferowania?
 69:Jestem w stanie zaoferować ci 10 złota!
-70:Chcę raz tyle, ale wybór należy do Ciebie. |||Wyślij:
+70:Chętnie, ale wybór należy do ciebie. |||Wyślij:
 71:10 złota! Chojraku, chyba nie myślałeś, że pozwolimy ci maszerować po naszych terenach.
-72:Żartowałem, nikt z moich wasali nie przystąpi do twej nikczemnej ''Armii''. |Potraktuję twe złoto jako zapłatę za wstęp do naszej osady. |Masz 5 min, a po tym czasie ma cię tu nie być!
-73:Nie otrzymaliśmy twojego złota zdrajco! |Spodziewałem się, że chcesz, mnie oszukać a teraz giń!
+72:Żartowałem, nikt z moich wasali nie przystąpi do twej nikczemnej ''armii''. |Potraktuję twe złoto jako zapłatę za wstęp do naszej osady. |Masz 5 min, a po tym czasie ma cię tu nie być!
+73:Nie otrzymaliśmy twojego złota zdrajco! |Spodziewałem się, że chcesz mnie oszukać. A teraz giń!
 74:20 Złota
 
 75:Stop, zatrzymaj się! |Co taki łajdak jak ty robi w naszej kwaterze?
 76:Poszukuję sojuszników do walki z wrogiem
-77:Z Wrogiem... A kim niby jest ten Wróg?
+77:Z wrogiem... A kim niby jest ten wróg?
 78:To aktualny Król, zdrajca i morderca...
-79:Nasz kochany Król. ||Tak się składa, że głównym donatorem naszym jest Król.
+79:Nasz kochany Król. ||Tak się składa, że głównym naszym sponsorem jest Król.
 80:...
-81:Tak więc... ||Masz szczęście, że trafiłeś na uczciwego człowieka. |Jeżeli, zapłacisz nam 50 złota, puścimy cię wolno, w innym przypadku wyjedziesz stąd w worku.
+81:Tak więc... ||Masz szczęście, że trafiłeś na uczciwego człowieka. |Jeżeli, zapłacisz nam 50 złota, puścimy cię wolno. W przeciwnym razie, wyjedziesz stąd w worku.
 82:Nie płać
 83:Giń!
 84:Zapłać 50 złota
 85:Bywaj.
 86:Nie otrzymaliśmy twojego złota, zawijaj się stąd!
 87:
-90:Salut młody żołnierzu
-91:Czołem |wyglądasz na weterana
+90:Salut, młody żołnierzu
+91:Czołem |Wyglądasz na weterana
 92:Tak, kiedyś służyłem w dobrym celu, lecz te czasy to przeszłość.
-93:Czy nie chciałbyś nas wspomóc swoją siłą w walce z Tyranem?
-94:Tyranem... od dawna nie słyszałem o zadanym tyranie, któż to taki?
+93:Czy nie chciałbyś nas wspomóc swoją siłą w walce z tyranem?
+94:Tyranem? Od dawna nie słyszałem o żadnym tyranie. Któż to taki?
 95:To Król!
 96:Król powiadasz... |Nie rozumiem, czy mógłbyś rozwinąć bardziej ten temat?
-97:Chyba nie mam nic do stracenia. |Opowiem ci coś, o czym nieliczni wiedzą! |Dawno, dawno temu Królestwa rodzina zabiła prawowitego króla i przejęła władzę nad Państwem, a cała Historia została wymazana z pamięci.
+97:Chyba nie mam nic do stracenia. |Opowiem ci coś, o czym nieliczni wiedzą! |Dawno, dawno temu królewska rodzina zabiła prawowitego króla i przejęła władzę nad państwem, a cała historia została wymazana z pamięci.
 98:Zamilcz!!
 99:...?
-100:Już nic nie mów. ||''szept'' Posłuchaj Chłopcze, jestem jednym z trzech Generałów twojego ojca.
+100:Już nic nie mów. ||''szept'' Posłuchaj chłopcze, jestem jednym z trzech generałów twojego ojca.
 101:Że, co...?
-102:Dobrze słyszałeś, ja i pozostałych dwóch Generałów, po śmierci twego ojca ukryliśmy się na tych ziemiach.
+102:Dobrze słyszałeś, ja i pozostałych dwóch generałów po śmierci twego ojca ukryliśmy się na tych ziemiach.
 103:Czemu akurat tu?
-104:Ta osada to najlepsza kryjówka w całym Królestwie. |Pamiętasz stare przysłowie, ''W paszczę...
+104:Ta osada to najlepsza kryjówka w całym królestwie. |Pamiętasz stare przysłowie, ''W paszczę...
 105:...niedźwiedzia nikt nie patrzy''
-106:Zdradzę ci tajemnice, lecz przyrzeknij, nikomu tego nie powiesz. |Ja Generał Małkowski byłem prawą ręką twojego Ojca, wraz ze mną, dwoma innymi formacjami dowodzili Generał Kwalik oraz Generał Slew.
-107:Nie wiedziałem, że Ojciec posiadał takie wojska.
+106:Zdradzę ci tajemnicę, lecz przyrzeknij, że nikomu tego nie powiesz. |Ja Generał Małkowski byłem prawą ręką twojego ojca, a wraz ze mną, dwoma innymi formacjami dowodzili Generał Kwalik oraz Generał Slew.
+107:Nie wiedziałem, że ojciec posiadał takie wojska.
 108:Teraz gdy znasz całą prawdę, ja i moi wierni żołnierze będziemy ci służyć. |Proszę, zabierz nas ze sobą.
 109:OK
 
 MYSTERIOUS FOREST - Gen. Slew 
 -------------------------------------
-110:Witaj wędrowcu, czy zdajesz sobie sprawę, że dotarłeś w jedno z najstarszych i najbardziej tajemniczych miejsc w tym kraju, Las Samobójców. |Jest to ostatni naturalny las pierwotny na kontynencie, który zachował się w niemal niezmienionym stanie od tysięcy lat. ||Kto raz zawita, nigdy nie wraca.
+110:Witaj wędrowcu, czy zdajesz sobie sprawę, że dotarłeś w jedno z najstarszych i najbardziej tajemniczych miejsc w tym kraju. Las Samobójców. |Jest to ostatni las pierwotny na kontynencie, który zachował się w niemal niezmienionym stanie od tysięcy lat. ||Kto raz zawita, nigdy nie wraca.
 111:Muszę zbadać to miejsce.
 112:Zdradzę ci tajemnicę, aby przetrwać i dojść do końca ścieżki, musisz rozwiązać zagadki.
 113:Zagadki, o czym ty mówisz?
@@ -108,8 +108,8 @@ MYSTERIOUS FOREST - Gen. Slew
 129:Żołnierz
 130:Zła odpowiedź, przejście zablokowane.
 131:
-135:Hoł, hoł cudzoziemcu, słychać Cię z daleka, czemu jesteś tak głośny?
-136:Ja, głośny... kolejny ważniak się znalazł.
+135:Hoł, hoł cudzoziemcu, słychać cię z daleka Czemu jesteś taki głośny?
+136:Ja, głośny? kolejny ważniak się znalazł.
 137:Zagadka, zagadeczka... ||Jak nazwiesz takiego czarodzieja, który płomieniem żelazo skleja?
 138:Cieśla
 139:Zła odpowiedź - zawróć!
@@ -125,10 +125,10 @@ MYSTERIOUS FOREST - Gen. Slew
 152:Nic mi do tego powiadasz, w takim razie, nie dajesz mi wyboru! Nie przejdziesz dalej.
 153:Odkrywcą
 154:W takim razie, znajdź siebie inne miejsca do ‘’Odkrywania’’
-157:Przyszłym Królem
-158:Przyszłym królem, było tu pełno takich jak ty. |Nie wyglądasz mi na osobę, która mogłaby zarządzać królestwem.
+157:Przyszłym królem
+158:Przyszłym królem? Było tu pełno takich jak ty. |Nie wyglądasz mi na osobę, która mogłaby zarządzać królestwem.
 159:Przebyłem całe królestwo, by dotrzeć do tego zakątku ziem, jeżeli nie chcesz, nie musisz mi wierzyć.
-160:Dobrze, nie wiem czemu, ale intuicja podpowiada mi, abym ci zaufał. |Odpowiedz mi, proszę na ostatnie pytanie, jeżeli odpowiesz prawidłowo, droga dla ciebie będzie otworem. ||Jak nazywał się Bohater i Generał, walczący w obronie każdego cywila?
+160:Dobrze, nie wiem czemu, ale intuicja podpowiada mi, abym ci zaufał. |Odpowiedz mi, proszę na ostatnie pytanie, a jeżeli odpowiesz prawidłowo, droga dla ciebie stanie otworem. ||Jak nazywał się Bohater i Generał, walczący w obronie każdego cywila?
 163:Gen. Sasin
 164:Sasin... |morderca i gwałciciel! Wynoś się stąd.
 165:Gen. Prex
@@ -137,14 +137,14 @@ MYSTERIOUS FOREST - Gen. Slew
 168:Tak! |Niech siła i rozum zawsze będą z tobą.
 169:Gen. Tion
 170:Generał o takim imieniu nigdy nie istniał. |Jednak myliłem się co do ciebie, opuść nasz Las.
-171:Adieu młody
+171:Adieu, młody
 172:
-175:Kim jesteś, jak się tu znalazłeś! |Mów i to już! W innym przypadku mój miecz zasmakuje twej krwi.
-176:Jestem... |hm... czy jest sens odpowiadać...
+175:Kim jesteś, jak się tu znalazłeś?! |Mów i to już! W innym przypadku mój miecz zasmakuje twej krwi.
+176:Jestem... |hmm... czy jest sens odpowiadać...
 177:Zlekceważ
 178:W takim razie poczujesz mój miecz na własnej skórze!
 179:Odpowiedz
-180:Dobrze! |Nazywam się Nalgene D.Jabr jestem synem Nalgene D.Stein prawowitym władcą królestwa.
+180:Dobrze! |Nazywam się Nalgene D.Jabr jestem synem Nalgene D.Stein, prawowitym władcą królestwa.
 181:Powiedziałeś D... czy jesteś świadomy, o czym mówisz?
 182:Tak, znam jego znaczenie.
 183:Nie wierzę, to niemożliwe... |Czy to na ty, prawdę ty... syn mistrza Stein?
@@ -156,15 +156,15 @@ MYSTERIOUS FOREST - Gen. Slew
 189:Rozumiem, pamiętaj, przyszłość królestwa spoczywa na twoich barkach!
 190:Szukam sojuszników
 191:hm... |Wiesz, jakie były ostatnie słowa twego ojca. ||''Przyjaciele, ja znikam, lecz nadzieja nigdy nie zniknie. Oczekujcie mego syna, on przybędzie i was poprowadzi''
-192:Przyjaciele, kogo miał na myśli?
-193:Twój Ojciec rzekł to do nas: |- Generała Kowalik |- Generała Małkowski |oraz mnie - Generała Slew
+192:Przyjaciele? Kogo miał na myśli?
+193:Twój Ojciec rzekł to do nas: |- Generała Kwalika |- Generała Małkowskiego |oraz mnie - Generała Slewa
 194:Od bardzo, bardzo dawna ukrywaliśmy się w tym lesie, nadszedł czas, aby wykonać nasz ruch. |Od teraz nasze wojska są do twojej dyspozycji. Do boju!
 195:Do boju!
 196:
 197:CEMETERY 
 198:-------------------------------------
 200:Cmentarz dusz wygnanych
-201:Cmentarz dusz wygnanych. ||W miejscu tym znajdują się groby zapomnianych żołnierzy, historia powiada, iż dusze do dnia, dzisiejszego prześladują swych morderców.||Odwiedźmy i złóżmy hołd poległym żołnierza.
+201:Cmentarz dusz wygnanych. ||W miejscu tym znajdują się groby zapomnianych żołnierzy, historia powiada, iż dusze do dnia, dzisiejszego prześladują swych morderców.||Odwiedźmy go i złóżmy hołd poległym żołnierzom.
 203:                              R.I.P ||* Wiceadmirał Gonig ...        ||* Dowódca III Armi          ||* Zginął w walkach o Aros    |||''Człowiek o sercu z kamienia, spoczywaj w spokoju''
 204:                              R.I.P ||* Pułkownik Drong ...          ||* Dowódca II pułku          ||* Zginął pod Gedor           |||''...''
 205:                              R.I.P ||* Szeregowy Brin               ||* ...                       ||* Zginął w walkach o Aros

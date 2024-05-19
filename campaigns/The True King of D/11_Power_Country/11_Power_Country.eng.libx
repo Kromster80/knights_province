@@ -1,7 +1,7 @@
 ﻿0:Kinghts Dzapan
 1:We are nearing the Royal Capital. |The most fertile lands are concentrated here and also there are mountains rich of resources. |These lands are the most dangerous place in the whole kingdom and many enemy towns are situated near, so be wary and cautious.
 2:Somewhere in the northwest is a small village with mercenaries, who can do anything for the right ammount of gold. |We should look for it, so we might have a chance to recruit a few of their soldiers.
-3:find the village with mercenaries
+3:Find the village with mercenaries
 4:Village of the mercenaries
 5:It's time to think about the decisive battle. Send a spy, so he can draw a map for the next mission.
 6:A spy has been sent
@@ -22,7 +22,7 @@
 33:Who are you?
 34:We are a secret formation of the chieftain Nalgene Stein. |We were hiding in that waterfall for a very long time, awaitng your arrival.
 35:My father's military formation?
-36:Yes.|| We hid and protected your father. |My name is General Kwalik. |After his death we stayed in the shadow of the world, awaitng your coming with hope. |Now our soldiers belong to you. Service by your side is a gift, my Lord.
+36:Yes.|| We hid and protected your father. |My name is General Kowalik. |After his death we stayed in the shadow of the world, awaitng your coming with hope. |Now our soldiers belong to you. Service by your side is a gift, my Lord.
 37:Should we trust them? Maybe it's a trap? ||Trust them?
 38:YES
 39:In the name of true king!||To battle!
@@ -39,14 +39,14 @@
 56:Hello there, beer hmm...
 57:Drink some
 58:For those like you giving beer is a waste. Get lost!
-59:No thanks
+59:No, thanks
 60:In that case piss off!
 61:
 64:10 gold
 65:Welcome, |You look like a warrior, would you like to join my Army?
 66:Hi! |Your Army? And where is that army? I don't see any army here...
 67:The Army awaits beside the gates of my town. |I look for warriors just like you, will you join us?
-68:Maybe yes, maybe no, it all depends on what you have to offer
+68:Maybe yes, maybe no, it all depends on what you have to offer?
 69:I can offer you 10 gold!
 70:Ok, I'll take it, but the choice is yours to make. |||Pay:
 71:10 gold! You fool, you really thought we would let you march into our lands?
@@ -67,7 +67,7 @@
 85:Farewell.
 86:We didn't receive your gold, sod off!
 87:
-90:Salut young soldier
+90:Salut, young soldier
 91:Hello |You look like a veteran
 92:Yes, I was serving for a good purpose, but those are days of the past.
 93:Would you like to help us in a fight against the Tyran?
@@ -161,7 +161,7 @@ MYSTERIOUS FOREST - Gen. Slew
 194:For a very, very long time we hid in this forest, but now is the time to finally make our move. |From now on our forces will be under your command. Let's fight!
 195:Let's fight!
 196:
-197:CEMETERY 
+197:CEMETERY
 198:-------------------------------------
 200:Cementery of banished souls
 201:Cementery of banished souls. ||In this place are the graves of forgotten soldiers. The story goes that to this day this souls haunt their murderers. ||Let's visit and honor the fallen troops.
