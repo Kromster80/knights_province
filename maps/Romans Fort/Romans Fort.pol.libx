@@ -1,9 +1,9 @@
 ﻿0:<==
 1:Survival |Przetrwaj losowo generowane kierunki ataku. |Losowo generowane oddziały w środkowej i późnej fazie gry. |WAŻNE: Przeczytaj tekst przed rozpoczęciem misji!
-2:Dezerterów
+2:Dezerterzy
 3:Galowie
-11:[$00ff00]Tryb Normalny[]: Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]3 minuty[], Ciężka zbroja odrodzenie co [$00ffff]4minuty[]|Jednostki skórzanego pojawiają się o [$00ffff]00:45:00[]; Ciężka zbroja o[$00ffff]01:14:00[]||[$0000ff]Tryb Trudny[]:Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]2,5 min[], Ciężka zbroja odrodzenie co [$00ffff]3,5 min[]|Jednostki skórzanego pojawiają się o [$00ffff]00:37:30[]; Ciężka zbroja o [$00ffff]01:02:00[]||Wybierz swój tryb:
-12:Wybrałeś tryb normalny. Powodzenia i miłej zabawy! WSKAZÓWKA: Nie zapomnij przywieźć naszych wozów z szosy do obozu!
+11:[$00ff00]Tryb Normalny[]: Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]3 minuty[], Ciężka zbroja odrodzenie co [$00ffff]4minuty[]|Jednostki skórzane pojawiają się o [$00ffff]00:45:00[]; Ciężka zbroja o[$00ffff]01:14:00[]||[$0000ff]Tryb Trudny[]:Żołdak i skórzane jednostki, czas odrodzenia: [$00ffff]2,5 min[], Ciężka zbroja odrodzenie co [$00ffff]3,5 min[]|Jednostki skórzane pojawiają się o [$00ffff]00:37:30[]; Ciężka zbroja o [$00ffff]01:02:00[]||Wybierz swój tryb:
+12:Wybrałeś tryb normalny. Powodzenia i miłej zabawy! WSKAZÓWKA: Nie zapomnij przywieźć naszych wozów z gościńca do obozu!
 13:Wybrałeś tryb trudny. Niech bogowie będą z tobą! ||WSKAZÓWKA: w lasach jest mnóstwo łupów, ale uważaj na dzikie zwierzęta i dezerterów!
 14:GG :-)
 15:[$0000ff]!! NADCHODZĄCY ATAK !![]
