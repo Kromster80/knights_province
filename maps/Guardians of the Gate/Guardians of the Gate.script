@@ -1,0 +1,720 @@
+const
+	PLAYER_HAND = 0;
+	ENEMY_HAND = 1;
+	
+	WAVE_TIMER = 150;
+	FLANK_TROOPS_PERCENT = 25;
+	INITIAL_PEACE_TIME = 300;
+	INITIAL_DIFFICULTY = 200;
+	DIFFICULTY_INCREASE_PERCENT = 10;
+	ORE_DELIVERED = 20;
+	
+	T2_APPEAR_WAVE = 6;
+	T2_FULL_WAVE = 15;
+	T3_APPEAR_WAVE = 24;
+	T3_FULL_WAVE = 33;
+	
+	OBJ_CURRENT_WAVE = '<$10>';
+	OBJ_CURRENT_WAVE_TYPE = '<$11>';
+	OBJ_NEXT_WAVE_IN = '<$12>';
+	OBJ_NEXT_WAVE_TYPE = '<$13>';
+	OBJ_ENEMIES_ALIVE = '<$14>';
+	OBJ_ENEMIES_KILLED = '<$15>';
+	OBJ_SCORE = '<$16>';
+	MSG_INTRO = '<$40>||<$41>|||<$42>|<$43>';
+	MSG_IRON = '<$50>';
+	
+	LAUNCH1_X = 11;
+	LAUNCH1_Y = 20;
+	LAUNCH2_X = 35;
+	LAUNCH2_Y = 7;
+	LAUNCH3_X = 62;
+	LAUNCH3_Y = 12;
+	
+	TARGET1_X = 10;
+	TARGET1_Y = 52;
+	TARGET2_X = 36;
+	TARGET2_Y = 39;
+	TARGET3_X = 63;
+	TARGET3_Y = 39;
+	WAGON_X = 41;
+	WAGON_Y = 78;
+	
+	SCORE_MILITIA = 10;
+	SCORE_AXE = 30;
+	SCORE_PIKE = 20;
+	SCORE_SCOUT = 40;
+	SCORE_SWORD = 60;
+	SCORE_HALBERD = 40;
+	SCORE_KNIGHT = 80;
+	
+	DAY_DURATION = 60000;
+	INITIAL_TICKS = 0;
+	DAWN_SUNSET_HOURS = 4.0;
+	NO_MOON_HOURS = 1.0;
+	NIGHT_HOURS = 8.0;
+	
+type
+	AttackType = (atNone, atInfantry, atSpearmen, atCavalry);
+	
+var
+	CurrentWave, EnemiesAlive, EnemiesKilled, NextWaveTimer, WaveDifficulty, Score: Integer;
+	CurrentAttackType, NextAttackType: AttackType;
+	LeftWaveGroups, CenterWaveGroups, RightWaveGroups: array of Integer;
+	CurrentWaveTracker, CurrentWaveTypeTracker, NextWaveTimerTracker, NextWaveTypeTracker, EnemiesAliveTracker, EnemiesKilledTracker, ScoreTracker: Integer;
+	DawnSunsetTicks, MorningAfternoonTicks, NoMoonTicks, MoonTicks: Integer;
+
+
+// For scoreboard trackers.
+function AttackTypeToStr(aType: AttackType; waveNumber: Integer): String;
+begin
+	if (waveNumber < T2_APPEAR_WAVE) then
+	begin
+		if (aType <> atNone) then Result := '<$21>'
+		else Result := '<$20>';
+	end
+	else if (waveNumber < T2_FULL_WAVE) then
+	begin
+		if (aType = atInfantry) then Result := '<$22>'
+		else if (aType = atSpearmen) then Result := '<$23>'
+		else if (aType = atCavalry) then Result := '<$24>'
+		else Result := '<$20>';
+	end
+	else if (waveNumber < T3_APPEAR_WAVE) then
+	begin
+		if (aType = atInfantry) then Result := '<$25>'
+		else if (aType = atSpearmen) then Result := '<$26>'
+		else if (aType = atCavalry) then Result := '<$27>'
+		else Result := '<$20>';
+	end
+	else if (waveNumber < T3_FULL_WAVE) then
+	begin
+		if (aType = atInfantry) then Result := '<$28>'
+		else if (aType = atSpearmen) then Result := '<$29>'
+		else if (aType = atCavalry) then Result := '<$30>'
+		else Result := '<$20>';
+	end
+	else
+	begin
+		if (aType = atInfantry) then Result := '<$31>'
+		else if (aType = atSpearmen) then Result := '<$32>'
+		else if (aType = atCavalry) then Result := '<$33>'
+		else Result := '<$20>';
+	end;
+end;
+
+
+// Increases the length of an array by 1 and assignes the given element to its last position.
+procedure ArrayIAppend(var arr: array of Integer; newElement: Integer);
+var
+	arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	SetLength(arr, arrLen + 1);
+	arr[arrLen] := newElement;
+end;
+
+
+// Returns the X coordinate of the group's flag bearer.
+function GetGroupX(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionX(States.GroupMember(aGroup, 0));
+end;
+
+
+// Returns the Y coordinate of the group's flag bearer.
+function GetGroupY(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionY(States.GroupMember(aGroup, 0));
+end;
+
+
+// Takes the given coords and searches for the closest house matching the criteria (target player, house type).
+function GetClosestHouse(x, y, player: Integer; aHouseType: TKMHouseType): Integer;
+var
+    i: Integer;
+	distance, shortestDistance: Single;
+    playerHouses: array of Integer;
+begin
+	shortestDistance := 10000;
+	Result := -1;
+	
+	playerHouses := States.PlayerGetHouses(player, aHouseType, False);
+	
+	for i := 0 to High(playerHouses) do
+	begin
+		distance := Utils.DistanceS(x - States.HousePositionX(playerHouses[i]), y - States.HousePositionY(playerHouses[i]));
+		if (distance < shortestDistance) then
+		begin
+			Result := playerHouses[i];
+			shortestDistance := distance;
+		end;
+	end;
+end;
+
+
+
+procedure Dawn(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+	sunSaturation, sunValue, skySaturation, ambValue: Single;
+begin
+	sunAltitude := Round(90 * aTick / (DawnSunsetTicks + MorningAfternoonTicks));
+	sunAzimuth := 90 + sunAltitude;
+	sunSaturation := 1 - (aTick * 1.0 / DawnSunsetTicks);
+	sunValue := 4.0 * aTick / DawnSunsetTicks;
+	skySaturation := Utils.MaxS(0.2 - (aTick * 1.0 / DawnSunsetTicks), 0);
+	ambValue := 0.05 + (aTick * 1.0 / DawnSunsetTicks * 0.04);
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(Utils.ColorFromHSV(0, sunSaturation, sunValue));
+	Actions.WeatherSkyColorSet(Utils.ColorFromHSV(0, skySaturation, 0.22));
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, ambValue));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Dawn.||aTick: %d|sunAltitude: %d|sunAzimuth: %d|sunSaturation: %n|sunValue: %n|skySaturation: %n|ambValue: %n', [aTick, sunAltitude, sunAzimuth, sunSaturation, sunValue, skySaturation, ambValue]), False);
+end;
+
+
+
+procedure Morning(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+begin
+	sunAltitude := Round(90 * (aTick + DawnSunsetTicks) / (DawnSunsetTicks + MorningAfternoonTicks));
+	sunAzimuth := 90 + sunAltitude ;
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(-1);
+	Actions.WeatherSkyColorSet(-1);
+	Actions.WeatherAmbColorSet(-1);
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Morning.||aTick: %d|sunAltitude: %d|sunAzimuth: %d', [aTick, sunAltitude, sunAzimuth]), False);
+end;
+
+
+
+procedure Afternoon(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+begin
+	sunAltitude := 90 - Round(90 * aTick / (DawnSunsetTicks + MorningAfternoonTicks));
+	sunAzimuth := 270 - sunAltitude;
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(-1);
+	Actions.WeatherSkyColorSet(-1);
+	Actions.WeatherAmbColorSet(-1);
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Afternoon.||aTick: %d|sunAltitude: %d|sunAzimuth: %d', [aTick, sunAltitude, sunAzimuth]), False);
+end;
+
+
+
+procedure Sunset(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+	sunSaturation, sunValue, skySaturation, ambValue: Single;
+begin
+	sunAltitude := 90 - Round(90 * (aTick + MorningAfternoonTicks) / (DawnSunsetTicks + MorningAfternoonTicks));
+	sunAzimuth := 270 - sunAltitude;
+	sunSaturation := aTick * 1.0 / DawnSunsetTicks;
+	sunValue := 1 - (aTick * 1.0 / DawnSunsetTicks);
+	skySaturation := Utils.MaxS((aTick * 1.0 / DawnSunsetTicks) - 0.8, 0);
+	ambValue := 0.09 - (aTick * 1.0 / DawnSunsetTicks * 0.04);
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(Utils.ColorFromHSV(0, sunSaturation, sunValue));
+	Actions.WeatherSkyColorSet(Utils.ColorFromHSV(0, skySaturation, 0.22));
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, ambValue));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Sunset.||aTick: %d|sunAltitude: %d|sunAzimuth: %d|sunSaturation: %n|sunValue: %n|skySaturation: %n|ambValue: %n', [aTick, sunAltitude, sunAzimuth, sunSaturation, sunValue, skySaturation, ambValue]), False);
+end;
+
+
+
+procedure NightStart(aTick: Integer);
+var
+	skySaturation, skyValue: Single;
+begin
+	skySaturation := 0.2 - (aTick * 0.5 / NoMoonTicks);
+	skyValue := 0.22 - (aTick * 0.22 / NoMoonTicks);
+
+	Actions.WeatherSunPositionSet(0, 0);
+	Actions.WeatherSunColorSet(0);
+	Actions.WeatherSkyColorSet(Utils.ColorFromHSV(0, skySaturation, skyValue));
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, 0.05));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Night start.||aTick: %d|skySaturation: %n|skyValue: %n', [aTick, skySaturation, skyValue]), False);
+end;
+
+
+
+procedure PreMidnightMoon(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+	sunValue: Single;
+begin
+	sunAltitude := Round(90 * aTick / MoonTicks);
+	sunAzimuth := sunAltitude + 90;
+	sunValue := aTick * 8.0 / MoonTicks * 0.20;
+	if (sunValue > 0.20) then
+		sunValue := 0.20;
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(Utils.ColorFromHSV(0.5, 0.3, sunValue));
+	Actions.WeatherSkyColorSet(0);
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, 0.05));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Pre-midnight.||aTick: %d|sunAltitude: %d|sunAzimuth: %d|sunValue: %n', [aTick, sunAltitude, sunAzimuth, sunValue]), False);
+end;
+
+
+
+procedure PostMidnightMoon(aTick: Integer);
+var
+	sunAltitude, sunAzimuth: Integer;
+	sunValue: Single;
+begin
+	sunAltitude := 90 - Round(90 * aTick / MoonTicks);
+	sunAzimuth := 270 - sunAltitude;
+	sunValue := 8 - (aTick * 8.0 / MoonTicks * 0.20);
+	if (sunValue > 0.20) then
+		sunValue := 0.20;
+	
+	Actions.WeatherSunPositionSet(sunAzimuth, sunAltitude);
+	Actions.WeatherSunColorSet(Utils.ColorFromHSV(0.5, 0.3, sunValue));
+	Actions.WeatherSkyColorSet(0);
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, 0.05));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Post-midnight.||aTick: %d|sunAltitude: %d|sunAzimuth: %d|sunValue: %n', [aTick, sunAltitude, sunAzimuth, sunValue]), False);
+end;
+
+
+
+procedure NightEnd(aTick: Integer);
+var
+	skySaturation, skyValue: Single;
+begin
+	skySaturation := (aTick * 0.2 / NoMoonTicks);
+	skyValue := (aTick * 0.22 / NoMoonTicks);
+
+	Actions.WeatherSunPositionSet(0, 0);
+	Actions.WeatherSunColorSet(0);
+	Actions.WeatherSkyColorSet(Utils.ColorFromHSV(0, skySaturation, skyValue));
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(0, 0, 0.05));
+	
+	//Actions.PlayerMessage(-1, Utils.Format('Night end.||aTick: %d|skySaturation: %n', [aTick, skySaturation]), False);
+end;
+
+
+// Runs the day-night simulation itself. Call this from OnTick event handler, I recommend once per 10 ticks.
+procedure RunDayNight(aTick: Integer);
+var
+	ticksFromDawn, ticksFromMorning, ticksFromNoon, ticksFromEvening, ticksFromSunset, ticksFromMoondawn, ticksFromMidnight, ticksFromMoonset: Integer;
+begin
+	ticksFromDawn := (aTick + INITIAL_TICKS + DAY_DURATION) mod DAY_DURATION;
+	ticksFromMorning := ticksFromDawn - DawnSunsetTicks;
+	ticksFromNoon := ticksFromMorning - MorningAfternoonTicks;
+	ticksFromEvening := ticksFromNoon - MorningAfternoonTicks;
+	ticksFromSunset := ticksFromEvening - DawnSunsetTicks;
+	ticksFromMoondawn := ticksFromSunset - NoMoonTicks;
+	ticksFromMidnight := ticksFromMoondawn - MoonTicks;
+	ticksFromMoonset := ticksFromMidnight - MoonTicks;
+	
+	// Determine what part of the cycle it currently is, then run it, passing it amount of ticks from that phase's start.
+	if (ticksFromMoonset >= 0) then
+		NightEnd(ticksFromMoonset)
+	else if (ticksFromMidnight >= 0) then
+		PostMidnightMoon(ticksFromMidnight)
+	else if (ticksFromMoondawn >= 0) then
+		PreMidnightMoon(ticksFromMoondawn)
+	else if (ticksFromSunset >= 0) then
+		NightStart(ticksFromSunset)
+	else if (ticksFromEvening >= 0) then
+		Sunset(ticksFromEvening)
+	else if (ticksFromNoon >= 0) then
+		Afternoon(ticksFromNoon)
+	else if (ticksFromMorning >= 0) then
+		Morning(ticksFromMorning)
+	else if (ticksFromDawn >= 0) then
+		Dawn(ticksFromDawn);
+end;
+
+
+// Initial setup, to ensure everything can run. Call this from OnMissionStart event handler.
+procedure InitiateDayNight();
+begin
+	DawnSunsetTicks := Round(DAY_DURATION / 24 * DAWN_SUNSET_HOURS / 2); // How many ticks 1 dawn or sunset takes.
+	MorningAfternoonTicks := Round(DAY_DURATION / 24 * (24 - NIGHT_HOURS - DAWN_SUNSET_HOURS) / 2); // How many ticks 1 morning or afternoon takes.
+	NoMoonTicks := Round(DAY_DURATION / 24 * NO_MOON_HOURS / 2); // How many ticks 1 part of night without moon takes.
+	MoonTicks := Round(DAY_DURATION / 24 * (NIGHT_HOURS - NO_MOON_HOURS) / 2); // How many ticks pre-midnight or post-midnight phase with moon takes.
+	
+	//Actions.PlayerMessage(-1, Utils.Format('DawnSunsetTicks: %d,|MorningAfternoonTicks: %d,|NoMoonTicks: %d,|MoonTicks: %d', [DawnSunsetTicks, MorningAfternoonTicks, NoMoonTicks, MoonTicks]), False);
+	
+	RunDayNight(0); // Run the simulation once from here to avoid having sudden lighting change from the map's default to the script's settings (can happen especially if something pauses the game before the first call from OnTick).
+end;
+
+
+// Updates some of the texts on the scoreboard.
+procedure UpdateUnitTrackers();
+begin
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, EnemiesAliveTracker, OBJ_ENEMIES_ALIVE + ': [$00FFFF]' + IntToStr(EnemiesAlive));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, EnemiesKilledTracker, OBJ_ENEMIES_KILLED + ': [$00FFFF]' + IntToStr(EnemiesKilled));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, ScoreTracker, OBJ_SCORE + ': [$00FFFF]' + IntToStr(Score));
+end;
+
+
+// Updates some of the texts on the scoreboard.
+procedure UpdateWaveTrackers();
+begin
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, CurrentWaveTracker, OBJ_CURRENT_WAVE + ': [$00FFFF]' + IntToStr(CurrentWave));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, CurrentWaveTypeTracker, OBJ_CURRENT_WAVE_TYPE + ': [$00FFFF]' + AttackTypeToStr(CurrentAttackType, CurrentWave));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, NextWaveTypeTracker, OBJ_NEXT_WAVE_TYPE + ': [$00FFFF]' + AttackTypeToStr(NextAttackType, CurrentWave + 1));
+end;
+	
+	
+// Initial setup of the scoreboard trackers and related values.
+procedure InitiateTrackers();
+begin
+	CurrentWave := 0;
+	CurrentAttackType := atNone;
+	NextWaveTimer := INITIAL_PEACE_TIME;
+	NextAttackType := atInfantry;
+	EnemiesAlive := 0;
+	EnemiesKilled := 0;
+
+	CurrentWaveTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 0, osActive, '');
+	CurrentWaveTypeTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 1, osActive, '');
+	NextWaveTimerTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 2, osActive, OBJ_NEXT_WAVE_IN);
+	NextWaveTypeTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 3, osActive, '');
+	EnemiesAliveTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 4, osActive, '');
+	EnemiesKilledTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 5, osActive, '');
+	ScoreTracker := Actions.PlayerObjectiveAdd(PLAYER_HAND, otAdditional, 6, osActive, '');
+	UpdateWaveTrackers();
+	UpdateUnitTrackers();
+end;
+
+
+// Calculates how many troops should be spawned and of what type, then spawns them.
+procedure SpawnTroops();
+var
+	lowAmountTotal, lowAmountFlank, lowAmountCenter, lowValue: Integer;
+	highAmountTotal, highAmountFlank, highAmountCenter, highValue: Integer;
+	lowUnitType, highUnitType: TKMUnitType;
+begin
+	// Determine the unit types and associated scoring.
+	// First couple of waves are militia-only.
+	if (CurrentWave < T2_APPEAR_WAVE) then
+	begin
+		lowUnitType := utMilitia;
+		highUnitType := lowUnitType
+		lowValue := SCORE_MILITIA;
+		highValue := lowValue;
+	end
+	// Mix of T2 with militia. T2 troop types alternate.
+	else if (CurrentWave < T2_FULL_WAVE) then
+	begin
+		if (CurrentAttackType = atSpearmen) then
+		begin
+			lowUnitType := utMilitia;
+			highUnitType := utPikeman
+			lowValue := SCORE_MILITIA;
+			highValue := SCORE_PIKE;
+		end
+		else if (CurrentAttackType = atInfantry) then
+		begin
+			lowUnitType := utMilitia;
+			highUnitType := utAxeFighter
+			lowValue := SCORE_MILITIA;
+			highValue := SCORE_AXE;
+		end
+		else
+		begin
+			lowUnitType := utMilitia;
+			highUnitType := utHorseScout
+			lowValue := SCORE_MILITIA;
+			highValue := SCORE_SCOUT;
+		end;
+	end
+	// Pure T2 waves. Troop types alternate.
+	else if (CurrentWave < T3_APPEAR_WAVE) then
+	begin
+		if (CurrentAttackType = atSpearmen) then
+		begin
+			lowUnitType := utPikeman;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_PIKE;
+			highValue := lowValue;
+		end
+		else if (CurrentAttackType = atInfantry) then
+		begin
+			lowUnitType := utAxeFighter;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_AXE;
+			highValue := lowValue;
+		end
+		else
+		begin
+			lowUnitType := utHorseScout;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_SCOUT;
+			highValue := lowValue;
+		end;
+	end
+	// Mix of T3 with T2. Troop types alternate.
+	else if (CurrentWave < T3_FULL_WAVE) then
+	begin
+		if (CurrentAttackType = atSpearmen) then
+		begin
+			lowUnitType := utPikeman;
+			highUnitType := utHalberdier;
+			lowValue := SCORE_PIKE;
+			highValue := SCORE_HALBERD;
+		end
+		else if (CurrentAttackType = atInfantry) then
+		begin
+			lowUnitType := utAxeFighter;
+			highUnitType := utSwordsman;
+			lowValue := SCORE_AXE;
+			highValue := SCORE_SWORD;
+		end
+		else
+		begin
+			lowUnitType := utHorseScout;
+			highUnitType := utCavalry;
+			lowValue := SCORE_SCOUT;
+			highValue := SCORE_KNIGHT;
+		end;
+	end
+	// Pure T3 waves.
+	else
+	begin
+		if (CurrentAttackType = atSpearmen) then
+		begin
+			lowUnitType := utHalberdier;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_HALBERD;
+			highValue := lowValue;
+		end
+		else if (CurrentAttackType = atInfantry) then
+		begin
+			lowUnitType := utSwordsman;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_SWORD;
+			highValue := lowValue;
+		end
+		else
+		begin
+			lowUnitType := utCavalry;
+			highUnitType := lowUnitType;
+			lowValue := SCORE_KNIGHT;
+			highValue := lowValue;
+		end;
+	end;
+	
+		
+	// 25% of the troops goes through the left flank, 25% through the right flank. The rest takes the center.
+	// If the wave is to contain 2 different tiers of troops, each tier gets 50% of the difficulty points pool for its spawn numbers.
+	// The difficulty equals to the total score of the units in the wave. This means that the difficulty both sets up how much score is gained per a wave, but also, how many troops of what type are sent in the wave.
+	if (highValue = lowValue) then
+	begin
+		lowAmountTotal := Trunc(WaveDifficulty / lowValue);
+		lowAmountFlank := Trunc(lowAmountTotal * (FLANK_TROOPS_PERCENT / 100.0));
+		lowAmountCenter := Utils.MaxI(lowAmountTotal - (2 * lowAmountFlank), 0);
+	end
+	else
+	begin
+		highAmountTotal := Trunc(WaveDifficulty / highValue / 2);
+		highAmountFlank := Trunc(highAmountTotal * (FLANK_TROOPS_PERCENT / 100.0));
+		highAmountCenter := Utils.MaxI(highAmountTotal - (2 * highAmountFlank), 0);
+	
+		lowAmountTotal := Trunc((WaveDifficulty - (highAmountTotal * highValue)) / lowValue);
+		lowAmountFlank :=  Trunc(lowAmountTotal * (FLANK_TROOPS_PERCENT / 100.0));
+		lowAmountCenter := Utils.MaxI(lowAmountTotal - (2 * lowAmountFlank), 0);
+	end;
+	
+	
+	// Spawn the groups on the spawn coords. 25% on each flank, the rest at the center.
+	if (lowAmountFlank > 0) then
+	begin
+		ArrayIAppend(LeftWaveGroups, Actions.GiveGroup(ENEMY_HAND, lowUnitType, LAUNCH1_X, LAUNCH1_Y, 4, lowAmountFlank, 6));
+		ArrayIAppend(RightWaveGroups, Actions.GiveGroup(ENEMY_HAND, lowUnitType, LAUNCH3_X, LAUNCH3_Y, 4, lowAmountFlank, 6));
+	end;
+	if (lowAmountCenter > 0) then
+		ArrayIAppend(CenterWaveGroups, Actions.GiveGroup(ENEMY_HAND, lowUnitType, LAUNCH2_X, LAUNCH2_Y, 4, lowAmountCenter, 6));
+	if (highAmountFlank > 0) then
+	begin
+		ArrayIAppend(LeftWaveGroups, Actions.GiveGroup(ENEMY_HAND, highUnitType, LAUNCH1_X, LAUNCH1_Y, 4, highAmountFlank, 6));
+		ArrayIAppend(RightWaveGroups, Actions.GiveGroup(ENEMY_HAND, highUnitType, LAUNCH3_X, LAUNCH3_Y, 4, highAmountFlank, 6));
+	end;
+	if (highAmountCenter > 0) then
+		ArrayIAppend(CenterWaveGroups, Actions.GiveGroup(ENEMY_HAND, highUnitType, LAUNCH2_X, LAUNCH2_Y, 4, highAmountCenter, 6));
+	
+	// For debug only.
+	// Actions.PlayerMessage(-1, Utils.Format('WaveDifficulty: %d|highAmountTotal: %d|highAmountFlank: %d|highAmountCenter: %d|lowAmountTotal: %d|lowAmountFlank: %d|lowAmountCenter: %d', [WaveDifficulty, highAmountTotal, highAmountFlank, highAmountCenter, lowAmountTotal, lowAmountFlank, lowAmountCenter]), True);
+	
+	// Final recounts and updates of the trackers.
+	EnemiesAlive := EnemiesAlive + lowAmountTotal + highAmountTotal;
+	UpdateUnitTrackers();
+	WaveDifficulty := Round(WaveDifficulty * (100 + DIFFICULTY_INCREASE_PERCENT) / 100);
+end;
+
+
+// Checks what wave is due to be sent, and switches around what is the next to come.
+procedure ReleaseNextWave();
+begin
+	NextWaveTimer := WAVE_TIMER;
+	CurrentWave := CurrentWave + 1;
+	
+	CurrentAttackType := NextAttackType;
+	
+	if (CurrentWave = T2_APPEAR_WAVE - 1) then
+		NextAttackType := atSpearmen;
+		
+	if (CurrentWave >= T2_APPEAR_WAVE) then
+	begin
+		if (CurrentAttackType = atSpearmen) then
+			NextAttackType := atInfantry
+		else if (CurrentAttackType = atInfantry) then
+			NextAttackType := atCavalry
+		else if (CurrentAttackType = atCavalry) then
+			NextAttackType := atSpearmen;
+	end;
+		
+	SpawnTroops();
+	UpdateWaveTrackers();
+end;
+
+
+// Periodically being used to send the attacking troops toward the closest player's house. Tries to ensure the troops seek targets closest to the wall's breach they are supposed to enter through.
+procedure UpdateTargets();
+var
+	i, house: Integer;
+	groups: array of Integer;
+begin
+	for i := 0 to High(LeftWaveGroups) do
+	begin
+		house := GetClosestHouse(TARGET1_X, TARGET1_Y, PLAYER_HAND, htAny);
+		if (States.GroupMemberCount(LeftWaveGroups[i]) > 0) and (house > 0) then
+			Actions.GroupOrderAttackHouse(LeftWaveGroups[i], house);
+	end;
+	
+	for i := 0 to High(CenterWaveGroups) do
+	begin
+		house := GetClosestHouse(TARGET2_X, TARGET2_Y, PLAYER_HAND, htAny);
+		if (States.GroupMemberCount(CenterWaveGroups[i]) > 0) and (house > 0) then
+			Actions.GroupOrderAttackHouse(CenterWaveGroups[i], house);
+	end;
+	
+	for i := 0 to High(RightWaveGroups) do
+	begin
+		house := GetClosestHouse(TARGET3_X, TARGET3_Y, PLAYER_HAND, htAny);
+		if (States.GroupMemberCount(RightWaveGroups[i]) > 0) and (house > 0) then
+			Actions.GroupOrderAttackHouse(RightWaveGroups[i], house);
+	end;
+end;
+
+
+// Periodically update the scoreboard next wave in counter. If it's due, initiate the next wave.
+procedure NextWaveTick();
+begin
+	if (NextWaveTimer > 0) then
+		NextWaveTimer := NextWaveTimer - 1
+	else
+		ReleaseNextWave();
+	
+	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, NextWaveTimerTracker, OBJ_NEXT_WAVE_IN + ': [$00FFFF]' + Utils.TimeToString(NextWaveTimer * 10));
+end;
+
+
+// Sends iron ore delivery to the player.
+procedure SendIron();
+var
+	wagon, store: Integer;
+begin
+	wagon := Actions.GiveUnit(PLAYER_HAND, utWagon, WAGON_X, WAGON_Y, 0);
+	Actions.UnitCarryGive(wagon, wtIronOre, ORE_DELIVERED);
+	store := GetClosestHouse(WAGON_X, WAGON_Y, PLAYER_HAND, htStore);
+	if (store > 0) then
+		Actions.UnitWagonOrderEnterHouse(wagon, store);
+end;
+
+
+// Initiate scoreboards, brief up the player.
+procedure OnMissionStart();
+begin
+	WaveDifficulty := INITIAL_DIFFICULTY;
+	InitiateDayNight();
+	InitiateTrackers();
+	Actions.PlayerMessage(PLAYER_HAND, MSG_INTRO, True);
+end;
+
+
+
+procedure OnTick(aTick: Integer);
+begin
+	if (aTick mod 10 = 0) then
+	begin
+		RunDayNight(aTick);
+		NextWaveTick();
+	end;
+		
+	if (aTick mod 30 = 0) then
+		UpdateTargets();
+		
+	if (aTick = 6000) then
+		Actions.PlayerMessage(PLAYER_HAND, MSG_IRON, True);
+	if (aTick mod 6000 = 0) then
+		SendIron();
+end;
+
+
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	Actions.PlayerMissionResultString(PLAYER_HAND, Utils.Format('<$10>: %d|<$16>: %d|<$60>', [CurrentWave, Score]));
+	Actions.MissionHighscore(Score);
+end;
+
+
+// The score which is used for unit spawning is also used as the mission score when units are slain.
+procedure OnUnitBeforeDied(aUnit: Integer; aKillerOwner: Integer);
+var
+	unitType: TKMUnitType;
+begin
+	if (States.UnitOwner(aUnit) = ENEMY_HAND) then
+	begin
+		EnemiesAlive := EnemiesAlive - 1;
+		EnemiesKilled := EnemiesKilled + 1;
+		
+		unitType := States.UnitType(aUnit);
+		if (unitType = utMilitia) then
+			Score := Score + SCORE_MILITIA
+		else if (unitType = utAxeFighter) then
+			Score := Score + SCORE_AXE
+		else if (unitType = utSwordsman) then
+			Score := Score + SCORE_SWORD
+		else if (unitType = utPikeman) then
+			Score := Score + SCORE_PIKE
+		else if (unitType = utHalberdier) then
+			Score := Score + SCORE_HALBERD
+		else if (unitType = utHorseScout) then
+			Score := Score + SCORE_SCOUT
+		else if (unitType = utCavalry) then
+			Score := Score + SCORE_KNIGHT;
+		
+		UpdateUnitTrackers();
+	end;
+end;
+
+
+// If a player's unit walks all the way into the fog walls, kill it.
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	if ((States.UnitOwner(aUnit) = PLAYER_HAND) and (aTriggerId > 0) and (aTriggerId <= 7)) then
+		Actions.UnitKill(aUnit, False);
+end;
