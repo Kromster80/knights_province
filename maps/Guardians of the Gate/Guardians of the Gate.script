@@ -5,7 +5,7 @@ const
 	WAVE_TIMER = 150;
 	FLANK_TROOPS_PERCENT = 25;
 	INITIAL_PEACE_TIME = 300;
-	INITIAL_DIFFICULTY = 200;
+	INITIAL_DIFFICULTY = 100;
 	DIFFICULTY_INCREASE_PERCENT = 10;
 	ORE_DELIVERED = 20;
 	
@@ -644,6 +644,19 @@ begin
 end;
 
 
+// Prevent the player from somehow glitching or blocking the attackers and starving them to death.
+procedure FeedAttackers();
+var
+	unitsToFeed: array of Integer;
+	i: Integer;
+begin
+	unitsToFeed := States.PlayerGetAllUnits(ENEMY_HAND);
+
+	for i := 0 to High(unitsToFeed) do
+		Actions.UnitHungerSet(unitsToFeed[i], States.UnitHungerMax);
+end;
+
+
 // Initiate scoreboards, brief up the player.
 procedure OnMissionStart();
 begin
@@ -670,6 +683,9 @@ begin
 		Actions.PlayerMessage(PLAYER_HAND, MSG_IRON, True);
 	if (aTick mod 6000 = 0) then
 		SendIron();
+		
+	if (aTick mod 6000 = 0) then
+		FeedAttackers();
 end;
 
 
