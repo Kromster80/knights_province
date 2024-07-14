@@ -1,5 +1,5 @@
 ﻿0:DuckingDuke
-1:Fall of Orthalm 1_4 - Coinage||After you've liberated Kamme from the [$ff8080]Medis Army[] you have some time to catch your breath as your loyal man-at-arms scour the nearby countryside for any remaining Medis stragglers. It is at this moment that you are informed by a merchant from Kamme that the nearby gold mining town of Binnenhau has laid abandoned ever since the [$7f407f]Kimian mercenaries[] ransacked it and then left for unknown reasons. It would be prudent to rebuild this town as the gold would surely prove useful on your campaign and it would help the local economy recover from all the raids.||Be wary of the woods though...
+1:Fall of Orthalm - Act 1, Mission 4 - Coinage||After you've liberated Kamme from the [$ff8080]Medis Army[] you have some time to catch your breath as your loyal man-at-arms scour the nearby countryside for any remaining Medis stragglers. It is at this moment that you are informed by a merchant from Kamme that the nearby gold mining town of Binnenhau has laid abandoned ever since the [$7f407f]Kimian mercenaries[] ransacked it and then left for unknown reasons. It would be prudent to rebuild this town as the gold would surely prove useful on your campaign and it would help the local economy recover from all the raids.||Be wary of the woods though...
 3:Lord of Seefort
 4:Medis Raiders
 5:Bandits
@@ -19,3 +19,5 @@
 35:The messenger smiles and promises us we will not regret it. They will be in the area for a while longer to recuperate from the battle but they look forward to future cooperation.
 36:The messenger just sighs as we make a promise we cannot keep as our gold supply is too low to pay them. As he wanders off he remarks that they will instead take the mining town from our hands, willingly or not. Ready our forces!
 37:The messenger's face gets red and he just storms off without a word. Seems like we can expect the Bandits to come after us now, prepare yourself.
+38:Pay them
+39:Refuse
