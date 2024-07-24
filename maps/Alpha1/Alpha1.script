@@ -25,6 +25,8 @@ begin
  
   marker1 := Actions.InteractionMarkerAdd(itInfo, 26, 75);
   marker2 := Actions.InteractionMarkerAdd(itExclamation, 27, 76);
+
+  //Actions.PlayerMessage(0, '1|2|3|4|5|6|7|8|9|01|2|3|4|5|6|7|8|9|01|2|3|4|5|6|7|8|9|01|2|3|4|5|6|7|8|9|01|2|3|4|5|6|7|8|9|01|2|3|4|5|6|7|8|9|0', True);
 end;
 
 

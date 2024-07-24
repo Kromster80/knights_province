@@ -282,6 +282,11 @@
 !SET_GROUP 24 21 35 4 1 1 // halberdier
 !SET_GROUP 19 18 35 4 1 1 // axefighter
 !SET_GROUP 25 59 36 1 1 1 // horsescout
+!SET_GROUP 30 13 35 5 1 1 // rebelFork
+!SET_GROUP 31 14 35 5 1 1 // skeleton
+!SET_GROUP 27 15 35 5 1 1 // skeletonAxe
+!SET_GROUP 28 16 35 5 1 1 // skeletonSword
+!SET_GROUP 29 17 35 5 1 1 // skeletonBow
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -798,4 +803,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r14954 (2024.06.16 11:51)" on 16.06.2024 11:54:59
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15061 (2024.07.19 22:18)" on 19.07.2024 22:19:08
