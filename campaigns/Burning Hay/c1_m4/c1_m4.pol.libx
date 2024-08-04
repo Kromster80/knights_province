@@ -1,31 +1,41 @@
-﻿0:Amaroth
+﻿#Pol texts by Dolbi
+0:Amaroth
 1:Pokonanie rabusiów, którzy podpalili [$14FF14]ziemie księcia Royce’a[], nie oznaczało końca. Gdy wrogie miasto płonęło, rzucił ci wyzwanie [$000080]Lord Clifford Hargrave[], który stoi za wszystkimi najazdami. Nie zgodziłeś się na ustąpienie i poprowadziłeś swoje wojska dalej na północ, aby stawić czoła jego oddziałom, zanim będzie mógł zgromadzić więcej sił.
-2:Sir Haytow
-3:Lord Hargrave
-10:Wrogie oddziały z lewej
-11:Twoje oddziały z lewej
-12:Czas, który upłynął
-13:Wynik misji
-14:Pokonaj armię [$000080]Lorda Clifforda Hargrave’a[].
-20:Twoja armia przegrupowuje się i nabiera sił. Orszak Hargrave’a jest blisko, a w powietrzu można wyczuć zapach niepokoju. Ptaki śpiewające na drzewach zdają się nie mieć pojęcia, że wkrótce rozpocznie się bitwa, która może zadecydować o przyszłości całego Twojego rodzinnego miasta. Oddychasz i czekasz na raporty zwiadowców.
-40:[$00B3FF]Ty:[] „Skauci, jakie są wieści?”
-41:[$00D0FF]Zwiadowca straży przedniej:[] „Mój panie, droga na północ jest zablokowana przez piechotę. Mają silną pozycję, a skały w okolicy prawdopodobnie kryją zasadzkę. Lord i jego najbliżsi rycerze wycofali się na zaplecze. Byli też pikinierzy, ustawieni na wypadek, gdybyśmy zdecydowali się na szarżę na ich piechotę naszą kawalerią.
-42:[$00B3FF]Ty:[] „Czy możemy wybrać inną drogę? A co ze stroną zachodnią?”
-43:[$00D0FF]Zachodni zwiadowca:[] „Na zachodzie jest wąska ścieżka w górę. Widzieliśmy tam kilku łuczników, prawdopodobnie przygotowanych do zasadzki na głównej drodze. Ale wygląda na to, że nikt nie chroni ścieżki prowadzącej na ich tyły.”
-44:[$00B3FF]Ty:[] „Przynajmniej mamy więcej niż jedną opcję. A strona wschodnia?”
-45:[$00D0FF]Wschodni zwiadowca:[] "Nie mieliśmy szczęścia, nie znaleźliśmy żadnego przejścia. Ale zauważyliśmy więcej piechoty ukrywającej się w lesie. Było też trochę lekkiej kawalerii."
-46:[$00B3FF]Ty:[] „Więc kiedy już przebijemy się przez pierwsze wąskie gardło, prawdopodobnie wpadniemy w kolejną zasadzkę, jeśli nie będziemy ostrożni. Cała ich kawaleria wycofała się.”
-47:[$00D0FF]Zwiadowca straży przedniej:[] „Wygląda na to, że tak, mój panie. Chcieliśmy dalej prowadzić zwiad, ale nie było możliwości, żebyśmy ominęli wrogów. Być może, gdy zrobimy postęp, będziemy mogli przeprowadzać dalsze zwiady. Wróg może otrzymać posiłki, o których jeszcze nie wiemy.
-48:[$00B3FF]Ty:[] „Możliwe. Dobrze, przygotujmy się do nadchodzącej bitwy. Powinniśmy spróbować zakończyć to tak szybko, jak to możliwe, przy jak najmniejszych stratach. Nie możemy ryzykować, że lord otrzyma posiłki.”
-60:[$00D0FF]Skaut:[] „Panie! Wszyscy ich rycerze polegli! I mamy jeńca!”
-61:[$00B3FF]Ty:[] „Kodeks rycerski jest jasny. Utrzymaj go przy życiu i przyprowadź do mnie, musimy porozmawiać.”
-62:Kilka chwil później...
-63:[$0000C0] Schwytany rycerz: [] „Dziękuję za twoje miłosierdzie. Twoi ludzie walczyli dobrze, nie spodziewaliśmy się, że napotkamy taki opór.”
-64:[$00B3FF]Ty:[] „Możesz odwdzięczyć się za moją dobroć. Gdzie jest lord Hargrave?”
-65:[$0000C0] Schwytany rycerz: [] „Kiedy zobaczył, że losy bitwy się odwracają, uciekł.”
-66:[$00B3FF]Ty:[] „Dokąd mógł uciec? W stronę swojego zamku?”
-67:[$0000C0] Schwytany rycerz: [] „Wątpię, mój panie. Hargrave jest zbyt daleko stąd. Prawdopodobnie udał się do zamku Honorguard.”
-68:[$00B3FF]Ty:[] „Lord Hargrave zdobył zamek księcia Royce’a?!”
-69:[$0000C0] Schwytany rycerz: [] „Tak, zdobył. Książę Royce zdołał się wymknąć, ale Lord Hargrave chciał się najpierw z tobą uporać, zanim spróbujemy jego odnaleźć.”
-70:[$00B3FF]Ty:[] „Dziękuję. Uszanuję kod i wykupię cię za uczciwą cenę twojej rodzinie, dobry rycerzu. Kiedy już tu skończymy, przygotujemy się do wykopania Hargrave’a z zamku Honorguard.”
-80:Hargrave zdołał uciec, ale teraz wiesz, gdzie go znaleźć. Wiesz też, że powinieneś udać się dalej na północ, w stronę zamku Royce'a i spróbować odnaleźć samego księcia.
+
+player_01:Sir Haytow
+player_02:Lord Hargrave
+
+hero_haytow_name:Sir Edgar Haytow
+hero_hargrave_name:Lord Hargrave
+
+obj_defeat_hargrave:Pokonaj armię [$000080]Lorda Hargrave’a[]
+obj_enemy_troops_left:Wrogie oddziały z lewej
+obj_player_troops_left:Twoje oddziały z lewej
+obj_time_passed:Czas, który upłynął
+obj_score:Wynik misji
+
+msg_intro_01:Twoja armia przegrupowuje się i nabiera sił. Orszak Hargrave’a jest blisko, a w powietrzu można wyczuć zapach niepokoju. Ptaki śpiewające na drzewach zdają się nie mieć pojęcia, że wkrótce rozpocznie się bitwa, która może zadecydować o przyszłości całego Twojego rodzinnego miasta. Oddychasz i czekasz na raporty zwiadowców.
+
+msg_scout_report_01:[$00B3FF]Ty:[] „Skauci, jakie są wieści?”
+msg_scout_report_02:[$00D0FF]Zwiadowca straży przedniej:[] „Mój panie, droga na północ jest zablokowana przez piechotę. Mają silną pozycję, a skały w okolicy prawdopodobnie kryją zasadzkę. Lord i jego najbliżsi rycerze wycofali się na zaplecze. Byli też pikinierzy, ustawieni na wypadek, gdybyśmy zdecydowali się na szarżę na ich piechotę naszą kawalerią.
+msg_scout_report_03:[$00B3FF]Ty:[] „Czy możemy wybrać inną drogę? A co ze stroną zachodnią?”
+msg_scout_report_04:[$00D0FF]Zachodni zwiadowca:[] „Na zachodzie jest wąska ścieżka w górę. Widzieliśmy tam kilku łuczników, prawdopodobnie przygotowanych do zasadzki na głównej drodze. Ale wygląda na to, że nikt nie chroni ścieżki prowadzącej na ich tyły.”
+msg_scout_report_05:[$00B3FF]Ty:[] „Przynajmniej mamy więcej niż jedną opcję. A strona wschodnia?”
+msg_scout_report_06:[$00D0FF]Wschodni zwiadowca:[] "Nie mieliśmy szczęścia, nie znaleźliśmy żadnego przejścia. Ale zauważyliśmy więcej piechoty ukrywającej się w lesie. Było też trochę lekkiej kawalerii."
+msg_scout_report_07:[$00B3FF]Ty:[] „Więc kiedy już przebijemy się przez pierwsze wąskie gardło, prawdopodobnie wpadniemy w kolejną zasadzkę, jeśli nie będziemy ostrożni. Cała ich kawaleria wycofała się.”
+msg_scout_report_08:[$00D0FF]Zwiadowca straży przedniej:[] „Wygląda na to, że tak, mój panie. Chcieliśmy dalej prowadzić zwiad, ale nie było możliwości, żebyśmy ominęli wrogów. Być może, gdy zrobimy postęp, będziemy mogli przeprowadzać dalsze zwiady. Wróg może otrzymać posiłki, o których jeszcze nie wiemy.
+msg_scout_report_09:[$00B3FF]Ty:[] „Możliwe. Dobrze, przygotujmy się do nadchodzącej bitwy. Powinniśmy spróbować zakończyć to tak szybko, jak to możliwe, przy jak najmniejszych stratach. Nie możemy ryzykować, że lord otrzyma posiłki.”
+
+msg_knight_captured_01:[$00D0FF]Skaut:[] „Panie! Wszyscy ich rycerze polegli! I mamy jeńca!”
+msg_knight_captured_02:[$00B3FF]Ty:[] „Kodeks rycerski jest jasny. Utrzymaj go przy życiu i przyprowadź do mnie, musimy porozmawiać.”
+msg_knight_captured_03:Kilka chwil później...
+msg_knight_captured_04:[$0000C0] Schwytany rycerz: [] „Dziękuję za twoje miłosierdzie. Twoi ludzie walczyli dobrze, nie spodziewaliśmy się, że napotkamy taki opór.”
+msg_knight_captured_05:[$00B3FF]Ty:[] „Możesz odwdzięczyć się za moją dobroć. Gdzie jest lord Hargrave?”
+msg_knight_captured_06:[$0000C0] Schwytany rycerz: [] „Kiedy zobaczył, że losy bitwy się odwracają, uciekł.”
+msg_knight_captured_07:[$00B3FF]Ty:[] „Dokąd mógł uciec? W stronę swojego zamku?”
+msg_knight_captured_08:[$0000C0] Schwytany rycerz: [] „Wątpię, mój panie. Hargrave jest zbyt daleko stąd. Prawdopodobnie udał się do zamku Honorguard.”
+msg_knight_captured_09:[$00B3FF]Ty:[] „Lord Hargrave zdobył zamek księcia Royce’a?!”
+msg_knight_captured_10:[$0000C0] Schwytany rycerz: [] „Tak, zdobył. Książę Royce zdołał się wymknąć, ale Lord Hargrave chciał się najpierw z tobą uporać, zanim spróbujemy jego odnaleźć.”
+msg_knight_captured_11:[$00B3FF]Ty:[] „Dziękuję. Uszanuję kod i wykupię cię za uczciwą cenę twojej rodzinie, dobry rycerzu. Kiedy już tu skończymy, przygotujemy się do wykopania Hargrave’a z zamku Honorguard.”
+
+msg_outro_01:Hargrave zdołał uciec, ale teraz wiesz, gdzie go znaleźć. Wiesz też, że powinieneś udać się dalej na północ, w stronę zamku Royce'a i spróbować odnaleźć samego księcia.

@@ -1,22 +1,30 @@
-﻿0:Amaroth
-1:Nazywasz się [$00D0FF]Sir Edgar Haytow[] i chociaż twój rodowód nie jest zbyt legendarny – jako skromny Haytow z Haytow –  zostałeś zaproszony na niedawną królewską ucztę. Kilka dni później wracasz do Haytow, swojego rodzinnego miasta…
-2:Sir Haytow
-3:Bandyci
-10:Rzut kamieniem od miasteczka Haytow...
-11:[$0073FF]Kapitan Aston:[] „Panie, nie wiem jak ty, ale ja naprawdę nie mogę się doczekać powrotu do domu. Jestem wyczerpany.”
-12:[$00D0FF]Ty:[] „Cóż, uczta rzeczywiście była męcząca. I nastrój z pewnością nie był lepszy. Nie jestem pewien, o co Król kłócił się z niektórymi szlachcicami, ale wydawało się to poważne. Cieszę się, że moglibyśmy to wszystko zostawić za sobą. Polityka nie jest dla mnie, nigdy nie była”.
-13:[$0073FF]Kapitan Aston:[] „Wszystkie polowania i przystanki w drodze powrotnej były dobrą rozrywką, ale trochę nas opóźniły. Twoi ludzie potrzebują…”
-14:[$00D0FF]Ty:[] „Czekaj! Czujesz to? Dużo dymu… Za dużo, żeby to były piekarnie pracujące po godzinach. A co jeśli wybuchł pożar?”
-15:[$0073FF]Kapitan Aston:[] „Albo, co gorsza, Haytow może zostać zaatakowane!”
-16:[$00D0FF]Ty:[] „Cholera. Ludzie! Do broni! Zostawcie zabawę, mamy pilniejsze sprawy!”
-20:Pokonaj wszystkich [$61793F]bandytów[].
-21:Broń swojego [$07FFFF]miasta rodzinnego[].
-22:Twoja [$07FFFF]armia[] musi przetrwać.
-30:Twoim ludziom udało się rozprawić ze wszystkimi atakującymi bandytami. Reszta z nich uciekła na północ.
-31:[$0073FF]Kapitan Aston:[] „Wszystko w porządku, sir?”
-32:[$00D0FF]Ty:[] „Kilka wgnieceń i zadrapań na mojej zbroi, ale ogólnie jestem w jednym kawałku. A ty?”
-33:[$0073FF]Kapitan Aston:[] „To samo. Chłopi na pewno się przestraszyli i wiele budynków będzie wymagało naprawy, ale w Haytow na razie jest bezpiecznie.”
-34:[$00D0FF]Ty:[] „Czy wiemy, kim byli ci ludzie? Skąd przybyli?”
-35:[$0073FF]Kapitan Aston:[] „Nie mam pojęcia, nikogo nie pojmalismy. Jednak oni przybyli z północy i uciekli tą samą drogą. Wyglądało na to, że szukali naszych zimowych zapasów, sir.”
-36:[$00D0FF]Ty:[] „Astonie, kiedy ludziom uda się ugasić pożary, potrzebuję twojej pomocy w zorganizowaniu milicji. Zostaniesz tutaj i będziesz chronić miasto. Wezmę kilku żołnierzy i będę ścigał bandytów, którzy uciekli. Chcę zakończyć tę sprawę.
-37:[$0073FF]Kapitan Aston:[] „Jak rozkażesz.”
+﻿#Pol texts by Dolbi
+0:Amaroth
+1:Nazywasz się [$00B3FF]Sir Edgar Haytow[] i chociaż twój rodowód nie jest zbyt legendarny – jako skromny Haytow z Haytow –  zostałeś zaproszony na niedawną królewską ucztę. Kilka dni później wracasz do Haytow, swojego rodzinnego miasta...
+
+player_01:Sir Haytow
+player_02:Bandyci
+
+hero_haytow_name:Sir Edgar Haytow
+hero_aston_name:Kapitan Aston
+
+obj_kill_bandits:Pokonaj wszystkich [$61793F]bandytów[]
+obj_defend_town:Broń swojego [$07FFFF]miasta rodzinnego[]
+obj_army_survives:Twoja [$07FFFF]armia[] musi przetrwać
+
+msg_intro_01:Rzut kamieniem od miasteczka Haytow...
+msg_intro_02:[$0073FF]Kapitan Aston:[] „Panie, nie wiem jak ty, ale ja naprawdę nie mogę się doczekać powrotu do domu. Jestem wyczerpany.”
+msg_intro_03:[$00B3FF]Ty:[] „Cóż, uczta rzeczywiście była męcząca. I nastrój z pewnością nie był lepszy. Nie jestem pewien, o co Król kłócił się z niektórymi szlachcicami, ale wydawało się to poważne. Cieszę się, że moglibyśmy to wszystko zostawić za sobą. Polityka nie jest dla mnie, nigdy nie była”.
+msg_intro_04:[$0073FF]Kapitan Aston:[] „Wszystkie polowania i przystanki w drodze powrotnej były dobrą rozrywką, ale trochę nas opóźniły. Twoi ludzie potrzebują...”
+msg_intro_05:[$00B3FF]Ty:[] „Czekaj! Czujesz to? Dużo dymu... Za dużo, żeby to były piekarnie pracujące po godzinach. A co jeśli wybuchł pożar?”
+msg_intro_06:[$0073FF]Kapitan Aston:[] „Albo, co gorsza, Haytow może zostać zaatakowane!”
+msg_intro_07:[$00B3FF]Ty:[] „Cholera. Ludzie! Do broni! Zostawcie zabawę, mamy pilniejsze sprawy!”
+
+msg_outro_01:Twoim ludziom udało się rozprawić ze wszystkimi atakującymi bandytami. Reszta z nich uciekła na północ.
+msg_outro_02:[$0073FF]Kapitan Aston:[] „Wszystko w porządku, sir?”
+msg_outro_03:[$00B3FF]Ty:[] „Kilka wgnieceń i zadrapań na mojej zbroi, ale ogólnie jestem w jednym kawałku. A ty?”
+msg_outro_04:[$0073FF]Kapitan Aston:[] „To samo. Chłopi na pewno się przestraszyli i wiele budynków będzie wymagało naprawy, ale w Haytow na razie jest bezpiecznie.”
+msg_outro_05:[$00B3FF]Ty:[] „Czy wiemy, kim byli ci ludzie? Skąd przybyli?”
+msg_outro_06:[$0073FF]Kapitan Aston:[] „Nie mam pojęcia, nikogo nie pojmalismy. Jednak oni przybyli z północy i uciekli tą samą drogą. Wyglądało na to, że szukali naszych zimowych zapasów, sir.”
+msg_outro_07:[$00B3FF]Ty:[] „Astonie, kiedy ludziom uda się ugasić pożary, potrzebuję twojej pomocy w zorganizowaniu milicji. Zostaniesz tutaj i będziesz chronić miasto. Wezmę kilku żołnierzy i będę ścigał bandytów, którzy uciekli. Chcę zakończyć tę sprawę.
+msg_outro_08:[$0073FF]Kapitan Aston:[] „Jak rozkażesz.”

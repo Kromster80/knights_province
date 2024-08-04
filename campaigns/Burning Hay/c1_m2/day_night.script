@@ -1,0 +1,229 @@
+// ####################   Day-night cycle script   ####################
+// Author: Amaroth.
+// Version: 2.0.0 (2024-08-04)
+// Simulates the day-night cycle by changing the sun's altitude and azimuth, together with lighting colors.
+// By default, the day takes 24 minutes, 8 out of that being the night, and the mission starts at dawn.
+
+// HOW TO USE:
+// 1. Add DNInitiateScript to your OnMissionStart event handler.
+// 2. Add DNResolveTick to your OnTick event handler.
+// 3. If you wish to modify the script's behavior (changing the colors, intensities, durations etc), do so by editing the arrays in DNInitiateScript. I know this solution can prove to be problematic if new versions of the script are to be released, but that's how it currently is.
+// 4. ??
+// 5. Profit.
+
+var
+	DNSetupHours, DNSetupSunAltitude, DNSetupSunAzimuth, DNSetupSunHue, DNSetupSunSaturation, DNSetupSunValue, DNSetupSkyHue, DNSetupSkySaturation, DNSetupSkyValue, DNSetupAmbHue, DNSetupAmbSaturation, DNSetupAmbValue: array of Single;
+	DNPhaseTicks, DNPhaseStart: array of Single;
+	DNSane: Boolean;
+	DNCycleStart, DNCycleTicks: Single;
+
+
+// Performs the actual lighting changes. Call this from OnTick.
+procedure DNResolveTick(aTick: Single);
+var
+	i, phase, prevPhase: Integer;
+	cycleTick, progress, sunAzi, sunAlt, sunH, sunS, sunV, skyH, skyS, skyV, ambH, ambS, ambV: Single;
+begin
+	if not DNSane then Exit;
+	
+	// Ensures that the tick is not higher than the cycle's length - for repeated cycles to work. It's just a self-written modulo for Singles.
+	cycleTick := aTick + DNCycleStart - (DNCycleTicks * Trunc((aTick + DNCycleStart) / DNCycleTicks));
+	
+	// Find out what phase is currently active.
+	for i := 0 to High(DNPhaseStart) do
+		if (cycleTick >= DNPhaseStart[i]) then
+			phase := i;
+	
+	// If the first phase is active, than the previous one is the last one.
+	prevPhase := phase - 1;
+	if (phase = 0) then
+		prevPhase := High(DNPhaseStart);
+	
+	// Calculate how far in the phase the current tick is.
+	progress := (cycleTick - DNPhaseStart[phase]) / DNPhaseTicks[phase];
+	
+	// Calculate the new values that are to be applied into the game.
+	sunAlt := Utils.Lerp(DNSetupSunAltitude[prevPhase], DNSetupSunAltitude[phase], progress);
+	sunAzi := Utils.Lerp(DNSetupSunAzimuth[prevPhase], DNSetupSunAzimuth[phase], progress);
+	sunH := Utils.Lerp(DNSetupSunHue[prevPhase], DNSetupSunHue[phase], progress);
+	sunS := Utils.Lerp(DNSetupSunSaturation[prevPhase], DNSetupSunSaturation[phase], progress);
+	sunV := Utils.Lerp(DNSetupSunValue[prevPhase], DNSetupSunValue[phase], progress);
+	skyH := Utils.Lerp(DNSetupSkyHue[prevPhase], DNSetupSkyHue[phase], progress);
+	skyS := Utils.Lerp(DNSetupSkySaturation[prevPhase], DNSetupSkySaturation[phase], progress);
+	skyV := Utils.Lerp(DNSetupSkyValue[prevPhase], DNSetupSkyValue[phase], progress);
+	ambH := Utils.Lerp(DNSetupAmbHue[prevPhase], DNSetupAmbHue[phase], progress);
+	ambS := Utils.Lerp(DNSetupAmbSaturation[prevPhase], DNSetupAmbSaturation[phase], progress);
+	ambV := Utils.Lerp(DNSetupAmbValue[prevPhase], DNSetupAmbValue[phase], progress);
+	
+	// Apply the calculated values into the game.
+	Actions.WeatherSunPositionSet(sunAzi, sunAlt);
+	Actions.WeatherSunColorSet(Utils.ColorFromHSV(sunH, sunS, sunV));
+	Actions.WeatherSkyColorSet(Utils.ColorFromHSV(skyH, skyS, skyV));
+	Actions.WeatherAmbColorSet(Utils.ColorFromHSV(ambH, ambS, ambV));
+end;
+
+
+// Ensures the script does not run with nonsensical value inputs, which could lead either to unhandled exceptions or weird, unexpected behavior.
+procedure DNCheckSanity();
+var
+	i: Integer;
+	errors: String;
+begin
+	DNSane := True;
+	
+	if not (((Length(DNSetupHours) + Length(DNSetupSunAltitude) + Length(DNSetupSunAzimuth) + Length(DNSetupSunHue) + Length(DNSetupSunSaturation) + Length(DNSetupSunValue) + Length(DNSetupSkyHue) + Length(DNSetupSkySaturation) + Length(DNSetupSkyValue) + Length(DNSetupAmbHue) + Length(DNSetupAmbSaturation) + Length(DNSetupAmbValue)) / 12) = Length(DNSetupHours)) then
+	begin
+		DNSane := False;
+		errors := errors + 'The setup arrays do not have the same length (amount of items) in them.|';
+	end;
+	
+	if not (Length(DNSetupHours) > 0) then
+	begin
+		DNSane := False;
+		errors := errors + 'Setup arrays have to have at least 1 item in them.|';
+	end;
+	
+	for i := 0 to High(DNSetupSunAltitude) do
+		if (DNSetupSunAltitude[i] > 90) or (DNSetupSunAltitude[i] < 0) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sun altitude has to always be between 0 and 90.|';
+		end;
+		
+	for i := 0 to High(DNSetupSunAzimuth) do
+		if (DNSetupSunAzimuth[i] < 0) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sun azimuth has to always be equal to or higher than 0.|';
+		end;
+		
+		
+	for i := 0 to High(DNSetupSunHue) do
+		if (DNSetupSunHue[i] < 0) or (DNSetupSunHue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sun hue has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupSunSaturation) do
+		if (DNSetupSunSaturation[i] < 0) or (DNSetupSunSaturation[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sun saturation has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupSunValue) do
+		if (DNSetupSunValue[i] < 0) or (DNSetupSunValue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sun value has to always be in 0..1 range.|';
+		end;
+	
+	
+	for i := 0 to High(DNSetupSkyHue) do
+		if (DNSetupSkyHue[i] < 0) or (DNSetupSkyHue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sky hue has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupSkySaturation) do
+		if (DNSetupSkySaturation[i] < 0) or (DNSetupSkySaturation[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sky saturation has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupSkyValue) do
+		if (DNSetupSkyValue[i] < 0) or (DNSetupSkyValue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Sky value has to always be in 0..1 range.|';
+		end;
+		
+		
+	for i := 0 to High(DNSetupAmbHue) do
+		if (DNSetupAmbHue[i] < 0) or (DNSetupAmbHue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Ambience hue has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupAmbSaturation) do
+		if (DNSetupAmbSaturation[i] < 0) or (DNSetupAmbSaturation[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Ambience saturation has to always be in 0..1 range.|';
+		end;
+		
+	for i := 0 to High(DNSetupAmbValue) do
+		if (DNSetupAmbValue[i] < 0) or (DNSetupAmbValue[i] > 1) then
+		begin
+			DNSane := False;
+			errors := errors + 'Ambience value has to always be in 0..1 range.|';
+		end;
+	
+	if not DNSane then
+		Actions.PlayerMessage(-1, 'There has been an error in the day-night script. The script was disabled. Please, check the values entered in the configuration. If you are unsure how to proceed, contact the script''s author. Errors encountered:||' + errors, True);
+end;
+
+
+// Initial setup of values that are to be shifted throughout the cycle. Call this from OnMissionStart.
+procedure DNInitiateScript(cycleStart, cycleTicks: Single);
+var
+	i, j, arrLen: Integer;
+	phaseStart, arrSSum: Single;
+begin
+	DNCycleStart := cycleStart; // Enter the amount of ticks the mission is to start at in regards to the cycle. 0 means it will start precisely at the start of the first phase (which by default is the beginning of the dawn).
+	DNCycleTicks := cycleTicks; // Enter the amount of ticks the cycle is to take. I recommend setting this value to 14400 ticks (meaning a day in game will then take 24 minutes).
+
+	// Use the following arrays to set up the values that are meant to be applied by the END of the given phase. START values of the given phase is taken from the END of the previous phase.
+	// For example, by default, the sun goes to altitude 6 within the first phase, which takes 0.5 hours (30 seconds of real time). It starts during this phase at altitude 0, because that is where it got by the end of the previous (the last) phase.
+	// IMPORTANT: All of the arrays below need to have the same amount of items, and have valid values in them. Otherwise the script's sanity checks won't pass and the script will throw an error messsage and refuse to run.
+	// Default cycle phases and their indexes are as follows: 0 - dawn1 (red sun, quick sun value on), 1 - dawn2 (slower progress towards day), 2 - morning (day-noon), 3 - afternoon (noon-evening), 4 - sunset1 (slower progress towards set), 5 - sunset2 (red sun, quick sun value off), 6 - initnight1 (move sun to moon dawn while it's off), 7 - initnight2 (change sun to moon), 8 - night1 (moon dawn-midnight), 9 night2 (midnight-moonset), 10 - initday1 (change moon to sun), 11 - initday2 (move sun to sun dawn while it's off)
+	DNSetupHours              := [0.5, 1.5, 6, 6, 1.5, 0.5, 0.1, 0.1, 3.8, 3.8, 0.1, 0.1]; // Duration of individual phases in hours (by default, 1 hour here is 60 seconds or 600 ticks of game time). The sum of these does not have to be 24, but by default is.
+	DNSetupSunAltitude        := [6, 19, 75, 19, 6, 0, 0, 0, 75, 0, 0, 0]; // The sun/moon's vertical position in degrees. Enter values 0..90.
+	DNSetupSunAzimuth         := [96, 113, 180, 247, 264, 270, 90, 90, 180, 270, 270, 90]; // The sun/moon's horizontal position in degrees (0 = North, 90 = East, 180 = South, 270 = West). Enter values >= 0 (values higher than 360 will get automatically recounted to the 0..360 range - this can be useful if you intend to make the sun/moon go anti-clockwise, which can be done here).
+	
+	DNSetupSunHue             := [0.042, 0.167, 0.167, 0.167, 0.042, 0, 0, 0.5, 0.5, 0.5, 0, 0]; // The sun/moon's color (H out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 180 and 1 represents 360.
+	DNSetupSunSaturation      := [0.75, 0.03, 0.03, 0.03, 0.75, 1, 1, 0.3, 0.3, 0.3, 1, 1]; // The sun/moon's color (S out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	DNSetupSunValue           := [0.96, 0.96, 0.96, 0.96, 0.96, 0, 0, 0.5, 0.5, 0.5, 0, 0]; // The sun/moon's color (V out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	
+	DNSetupSkyHue             := [0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589, 0.589]; // The sky's color (H out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 180 and 1 represents 360.
+	DNSetupSkySaturation      := [0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24, 0.24]; // The sky's color (S out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	DNSetupSkyValue           := [0.22, 0.22, 0.22, 0.22, 0.22, 0.22, 0.22, 0, 0, 0, 0.22, 0.22]; // The sky's color (V out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	
+	DNSetupAmbHue             := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // The ambience color (H out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 180 and 1 represents 360.
+	DNSetupAmbSaturation      := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // The ambience color (S out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	DNSetupAmbValue           := [0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.08, 0.04, 0.04, 0.04, 0.08, 0.09]; // The ambience color (V out of HSV). Enter values 0..1, where 0 represents 0, 0.5 represents 50 and 1 represents 100.
+	
+	DNCheckSanity();
+	if not DNSane then Exit;
+	
+	// Checks for how many ticks will individual phases take.
+	for i := 0 to High(DNSetupHours) do
+	begin
+		arrLen := Length(DNPhaseTicks);
+		arrSSum := 0;
+		for j := 0 to High(DNSetupHours) do
+			arrSSum := arrSSum + DNSetupHours[j];
+		SetLength(DNPhaseTicks, arrLen + 1);
+		DNPhaseTicks[arrLen] := DNCycleTicks / arrSSum * DNSetupHours[i];
+	end;
+	
+	// Checks for the start tick of the individual phases.
+	for i := 0 to High(DNPhaseTicks) do
+	begin
+		phaseStart := 0;
+		for j := 0 to i - 1 do
+			phaseStart := phaseStart + DNPhaseTicks[j];
+		begin
+			arrLen := Length(DNPhaseStart);
+			SetLength(DNPhaseStart, arrLen + 1);
+			DNPhaseStart[arrLen] := phaseStart;
+		end;
+	end;
+	
+	DNResolveTick(0);
+end;
+// ####################   End of Day-night cycle script   ####################

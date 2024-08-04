@@ -1,175 +1,179 @@
+uses
+	extra_utils, day_night;
+
 const
-	PLAYER_HAND = 0;
-	ENEMY_HAND = 1;
+	PLAYER_HUMAN = 0;
+	PLAYER_HARGRAVE = 1;
 	
-	OBJ_DEFEAT_ENEMY = '<$14>';
-	OBJ_ENEMY_TROOPS = '<$10>: ';
-	OBJ_PLAYER_TROOPS = '<$11>: ';
-	OBJ_TIME_PASSED = '<$12>: ';
-	OBJ_SCORE = '<$13>: ';
-	MSG_INTRO = '<$20>';
-	MSG_SCOUT_REPORT = '<$40>|<$41>|<$42>|<$43>|<$44>|<$45>|<$46>|<$47>|<$48>';
-	MSG_KNIGHT_CAPTURED = '<$60>|<$61>||<$62>|<$63>|<$64>|<$65>|<$66>|<$67>|<$68>|<$69>|<$70>';
-	MSG_OUTRO = '<$80>';
+	OBJ_DEFEAT_ENEMY = '<$obj_defeat_hargrave>';
+	OBJ_ENEMY_TROOPS = '<$obj_enemy_troops_left>: [$00FFFF]';
+	OBJ_PLAYER_TROOPS = '<$obj_player_troops_left>: [$00FFFF]';
+	OBJ_TIME_PASSED = '<$obj_time_passed>: [$00FFFF]';
+	OBJ_SCORE = '<$obj_score>: [$00FFFF]';
+	
+	MSG_INTRO = '<$msg_intro_01>';
+	MSG_SCOUT_REPORT = '<$msg_scout_report_01>|<$msg_scout_report_02>|<$msg_scout_report_03>|<$msg_scout_report_04>|<$msg_scout_report_05>|<$msg_scout_report_06>|<$msg_scout_report_07>|<$msg_scout_report_08>|<$msg_scout_report_09>';
+	MSG_KNIGHT_CAPTURED = '<$msg_knight_captured_01>|<$msg_knight_captured_02>||<$msg_knight_captured_03>|<$msg_knight_captured_04>|<$msg_knight_captured_05>|<$msg_knight_captured_06>|<$msg_knight_captured_07>|<$msg_knight_captured_08>|<$msg_knight_captured_09>|<$msg_knight_captured_10>|<$msg_knight_captured_11>';
+	MSG_OUTRO = '<$msg_outro_01>';
+	
+	HERO_FULL_REGEN_TIME = 6000.0;
+	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
+	HERO_HAYTOW_HP = 275;
+	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_HARGRAVE_NAME = '<$hero_hargrave_name>';
+	HERO_HARGRAVE_HP = 500;
+	HERO_HARGRAVE_COLOR = $000000;
 
 var
-	PlayerStartTroops, EnemyStartTroops, PlayerCurrentTroops, EnemyCurrentTroops, CurrentTick, WinTick, CurrentScore, EnemyKnightAmount: Integer;
+	HeroHargraveUnit, PlayerStartTroops, EnemyStartTroops, PlayerCurrentTroops, EnemyCurrentTroops, CurrentTick, PlayerWinTick, CurrentScore, EnemyKnightAmount: Integer;
 	MainObjID, EnemyTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjID, TimePassedTrackerObjID, ScoreTrackerObjID: Integer;
 	MainObjSt, EnemyTroopsLeftTrackerObjSt, PlayerTroopsLeftTrackerObjSt, TimePassedTrackerObjSt, ScoreTrackerObjSt: TKMObjectiveStatus;
 
 
+// 
 procedure FeedEnemies();
 var
 	unitsToFeed: array of Integer;
 	i: Integer;
 begin
-	unitsToFeed := States.PlayerGetAllUnits(ENEMY_HAND);
+	unitsToFeed := States.PlayerGetAllUnits(PLAYER_HARGRAVE);
 
 	for i := 0 to High(unitsToFeed) do
 		Actions.UnitHungerSet(unitsToFeed[i], States.UnitHungerMax);
 end;
 
-// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
-procedure ObjectiveStatusUpdate(aPlayer, objectiveID: Integer; var oldStatusVar: TKMObjectiveStatus; newStatus: TKMObjectiveStatus);
-begin
-	oldStatusVar := newStatus;
-	Actions.PlayerObjectiveUpdateStatus(aPlayer, objectiveID, newStatus);
-end;
 
-// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
-procedure ObjectiveCreate(aPlayer: Integer; objType: TKMObjectiveType; orderID: Integer; objStatus: TKMObjectiveStatus; objText: String; var objIDVar: Integer; var objStVar: TKMObjectiveStatus);
-begin
-	objStVar := objStatus;
-	objIDVar := Actions.PlayerObjectiveAdd(aPlayer, objType, orderID, objStatus, objText);
-end;
-
-// Basic convertor, for debug output purposes mainly.
-function ObjectiveStatusToStr(oStatus: TKMObjectiveStatus): String;
-begin
-	if (oStatus = osHidden) then
-		Result := 'osHidden'
-	else if (oStatus = osActive) then
-		Result := 'osActive'
-	else if (oStatus = osFailed) then
-		Result := 'osFailed'
-	else if (oStatus = osCompleted) then
-		Result := 'osCompleted'
-	else
-		Result := 'Unrecognized!';
-end;
-
-
-procedure UpdateObjectives();
+//
+procedure UpdateObjectiveTexts();
 begin
 	// Recount current values.
-	PlayerCurrentTroops := Length(States.PlayerGetAllUnits(PLAYER_HAND));
-	EnemyCurrentTroops := Length(States.PlayerGetAllUnits(ENEMY_HAND));
-	CurrentScore := Round(PlayerCurrentTroops * 10000000 / PlayerStartTroops / CurrentTick);
+	PlayerCurrentTroops := States.StatArmyCount(PLAYER_HUMAN);
+	EnemyCurrentTroops := States.StatArmyCount(PLAYER_HARGRAVE);
+	CurrentScore := Utils.MaxI(Round(10000000.0 * PlayerCurrentTroops / PlayerStartTroops / CurrentTick), 0);
 	
 	// Update visual counters.
-	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, EnemyTroopsLeftTrackerObjID, OBJ_ENEMY_TROOPS + IntToStr(EnemyCurrentTroops));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, PlayerTroopsLeftTrackerObjID, OBJ_PLAYER_TROOPS + IntToStr(PlayerCurrentTroops));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, TimePassedTrackerObjID, OBJ_TIME_PASSED + IntToStr(Round(CurrentTick / 10)));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HAND, ScoreTrackerObjID, OBJ_SCORE + IntToStr(CurrentScore));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, EnemyTroopsLeftTrackerObjID, OBJ_ENEMY_TROOPS + IntToStr(EnemyCurrentTroops));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, PlayerTroopsLeftTrackerObjID, OBJ_PLAYER_TROOPS + IntToStr(PlayerCurrentTroops));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, TimePassedTrackerObjID, OBJ_TIME_PASSED + Utils.TimeToString(CurrentTick));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ScoreTrackerObjID, OBJ_SCORE + IntToStr(CurrentScore));
 end;
 
 
-procedure CheckObjectives();
+// Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
+procedure PlayerWins();
 begin
-	if (Length(States.PlayerGetAllGroups(ENEMY_HAND)) = 0) then
-	begin
-		ObjectiveStatusUpdate(PLAYER_HAND, MainObjID, MainObjSt, osCompleted);
-		ObjectiveStatusUpdate(PLAYER_HAND, EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt, osCompleted);
-		ObjectiveStatusUpdate(PLAYER_HAND, PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt, osCompleted);
-		ObjectiveStatusUpdate(PLAYER_HAND, TimePassedTrackerObjID, TimePassedTrackerObjSt, osCompleted);
-		ObjectiveStatusUpdate(PLAYER_HAND, ScoreTrackerObjID, ScoreTrackerObjSt, osCompleted);
-	end;
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, TimePassedTrackerObjID, TimePassedTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, ScoreTrackerObjID, ScoreTrackerObjSt, osCompleted);
 	
-	if (Length(States.PlayerGetAllGroups(PLAYER_HAND)) = 0) then
-	begin
-		ObjectiveStatusUpdate(PLAYER_HAND, MainObjID, MainObjSt, osFailed);
-		ObjectiveStatusUpdate(PLAYER_HAND, EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt, osFailed);
-		ObjectiveStatusUpdate(PLAYER_HAND, PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt, osFailed);
-		ObjectiveStatusUpdate(PLAYER_HAND, TimePassedTrackerObjID, TimePassedTrackerObjSt, osFailed);
-		ObjectiveStatusUpdate(PLAYER_HAND, ScoreTrackerObjID, ScoreTrackerObjSt, osFailed);
-		Actions.PlayerWin([ENEMY_HAND], True);
-	end;
+	if (PlayerWinTick = -1) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+	PlayerWinTick := CurrentTick;
+end;
+
+
+// Periodically called to check whether the players are still supposed to live, and to update the objective statuses.
+procedure UpdateObjectives();
+begin
+	UTObjectiveCheckSurvival(PLAYER_HUMAN, stArmy);
+	
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_HARGRAVE, MainObjID, MainObjSt);
+	
+	UpdateObjectiveTexts();
 	
 	if (MainObjSt = osCompleted) then
-	begin
-		Actions.PlayerMessage(PLAYER_HAND, MSG_OUTRO, True);
-		WinTick := CurrentTick;
-	end;
+		PlayerWins();
 end;
 
 
-procedure OnMissionStart();
+// Finds the first suitable units to be turned into the mission's heroes and makes them change into them.
+procedure SetupHeroes();
 begin
-	// Initiate values for objective counters.
-	PlayerStartTroops := Length(States.PlayerGetAllUnits(PLAYER_HAND));
-	EnemyStartTroops := Length(States.PlayerGetAllUnits(ENEMY_HAND));
+	UTUnitSetHeroStats(States.UnitAt(38, 78), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	HeroHargraveUnit := States.UnitAt(40, 56);
+	UTUnitSetHeroStats(HeroHargraveUnit, HERO_HARGRAVE_NAME, HERO_HARGRAVE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HARGRAVE_HP, 60)), -1, -1, -1, HERO_HARGRAVE_COLOR);
+end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	PlayerWinTick := -1;
+	PlayerStartTroops := Length(States.PlayerGetAllUnits(PLAYER_HUMAN));
+	EnemyStartTroops := Length(States.PlayerGetAllUnits(PLAYER_HARGRAVE));
 	PlayerCurrentTroops := PlayerStartTroops;
 	EnemyCurrentTroops := EnemyStartTroops;
 	CurrentTick := 0;
 	CurrentScore := 0;
-	WinTick := -1;
 	EnemyKnightAmount := 6;
 
-	// Initiate objective counters.
-	ObjectiveCreate(PLAYER_HAND, otMain, 0, osActive, OBJ_DEFEAT_ENEMY, MainObjID, MainObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DEFEAT_ENEMY, MainObjID, MainObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 1, osActive, '', EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 2, osActive, '', PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 3, osActive, '', TimePassedTrackerObjID, TimePassedTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osActive, '', ScoreTrackerObjID, ScoreTrackerObjSt);
 	
-	ObjectiveCreate(PLAYER_HAND, otAdditional, 1, osActive, OBJ_ENEMY_TROOPS + IntToStr(EnemyCurrentTroops), EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt);
-	ObjectiveCreate(PLAYER_HAND, otAdditional, 2, osActive, OBJ_PLAYER_TROOPS + IntToStr(PlayerCurrentTroops), PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt);
-	ObjectiveCreate(PLAYER_HAND, otAdditional, 3, osActive, OBJ_TIME_PASSED + IntToStr(Round(CurrentTick / 10)), TimePassedTrackerObjID, TimePassedTrackerObjSt);
-	ObjectiveCreate(PLAYER_HAND, otAdditional, 4, osActive, OBJ_SCORE + IntToStr(CurrentScore), ScoreTrackerObjID, ScoreTrackerObjSt);
-	
-	// Mission intro information.
-	Actions.PlayerMessage(PLAYER_HAND, MSG_INTRO, True);
+	UpdateObjectiveTexts();
 end;
+
+
+
+procedure OnMissionStart();
+begin
+	DNInitiateScript(1800, 14400);
+	SetupHeroes();
+	SetupObjectives();
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+end;
+
 
 
 procedure OnTick(aTick: Integer);
 begin
-	if ((aTick mod 10 = 0) and not States.PlayerDefeated(ENEMY_HAND)) then
-		UpdateObjectives();
+	DNResolveTick(aTick);
+	CurrentTick := aTick;
 	
-	// Give scout report.
+	// Give scout report. Hargrave disappears.
 	if (aTick = 150) then
-		Actions.PlayerMessage(PLAYER_HAND, MSG_SCOUT_REPORT, True);
+	begin
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_SCOUT_REPORT, True);
+		Actions.UnitKill(HeroHargraveUnit, True);
+	end;
 
 	// No winning this by starving them out.
 	if (aTick mod 6000 = 0) then
 		FeedEnemies();
-
-	CurrentTick := aTick;
 	
-	if (CurrentTick mod 50 = 0) then
-		CheckObjectives();
-	
-	if ((WinTick > 0)
-	and (aTick = WinTick + 1)) then
-		Actions.PlayerWin([PLAYER_HAND], True);
+	if (aTick - 1 = PlayerWinTick) then
+		Actions.PlayerWin([PLAYER_HUMAN], False);
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
 end;
+
 
 
 procedure OnPlayerVictory(aPlayer: Integer);
 begin
-	if (aPlayer = PLAYER_HAND) then
+	if (aPlayer = PLAYER_HUMAN) then
 	begin
 		UpdateObjectives();
 		Actions.MissionHighscore(CurrentScore);
-		Actions.PlayerMissionResultString(PLAYER_HAND, OBJ_SCORE + IntToStr(CurrentScore));
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, OBJ_SCORE + IntToStr(CurrentScore));
 	end;
 end;
+
 
 
 procedure OnUnitBeforeDied(aUnit: Integer; aKillerOwner: Integer);
 begin
 	// Wait for all the enemy knights to die - then question a prisoner where the enemy lord is.
-	if ((States.UnitType(aUnit) = utCavalry) and (States.UnitOwner(aUnit) = ENEMY_HAND)) then
+	if ((States.UnitType(aUnit) = utCavalry) and (States.UnitOwner(aUnit) = PLAYER_HARGRAVE)) then
 	begin
 		EnemyKnightAmount := EnemyKnightAmount - 1;
 		if (EnemyKnightAmount = 0) then
-			Actions.PlayerMessage(PLAYER_HAND, MSG_KNIGHT_CAPTURED, True);
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_KNIGHT_CAPTURED, True);
 	end;
 end;

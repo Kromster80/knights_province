@@ -1,1519 +1,662 @@
+uses
+	extra_utils, day_night, wagon_supply, attack_ai;
+
 const
-	PLAYER_HAND = 0;
-	HARGRAVE_HAND = 1;
-	REFUGEES_HAND = 2;
-	SIEGE_HAND = 3;
-	ROYCE_HAND = 4;
+	PLAYER_HUMAN = 0;
+	PLAYER_HARGRAVE = 1;
+	PLAYER_REFUGEES = 2;
+	PLAYER_SIEGE_CAMP = 3;
+	PLAYER_ROYCE = 4;
+	
+	OBJ_DESTROY_SIEGE_TOWN = '<$obj_destroy_siege_town>';
+	OBJ_DEFEAT_SIEGE_ARMY = '<$obj_defeat_siege_army>';
+	OBJ_DESTROY_HARGRAVE_TOWN = '<$obj_destroy_hargrave_town>';
+	OBJ_DEFEAT_HARGRAVE_ARMY = '<$obj_defeat_hargrave_army>';
+	
+	MSG_SUPPLY_NO_STOREHOUSE = '<$msg_supply_no_storehouse>';
+	MSG_INTRO = '<$msg_intro_01>';
+	MSG_GRAHAM_DIED = '<$msg_graham_died_01>||<$msg_graham_died_02>|<$msg_graham_died_03>|<$msg_graham_died_04>|<$msg_graham_died_05>|<$msg_graham_died_06>|<$msg_graham_died_07>|<$msg_graham_died_08>|<$msg_graham_died_09>';
+	MSG_CAPTAIN_ARRIVES = '<$msg_captain_arrives_01>||<$msg_captain_arrives_02>|<$msg_captain_arrives_03>|<$msg_captain_arrives_04>|<$msg_captain_arrives_05>|<$msg_captain_arrives_06>|<$msg_captain_arrives_07>|<$msg_captain_arrives_08>|<$msg_captain_arrives_09>|<$msg_captain_arrives_10>';
+	MSG_BOTTOM_BRIDGE_EXPLORED = '<$msg_bridge_explored_01>||<$msg_bridge_explored_02>|<$msg_bridge_explored_03>';
+	MSG_FORD_EXPLORED = '<$msg_ford_explored_01>||<$msg_ford_explored_02>|<$msg_ford_explored_03>|<$msg_ford_explored_04>|<$msg_ford_explored_05>';
+	MSG_BROKEN_BRIDGE_EXPLORED = '<$msg_broken_bridge_explored_01>||<$msg_broken_bridge_explored_02>|<$msg_broken_bridge_explored_03>|<$msg_broken_bridge_explored_04>|<$msg_broken_bridge_explored_05>';
+	MSG_NORTHERN_BRIDGE_EXPLORED = '<$msg_northern_bridge_explored_01>||<$msg_northern_bridge_explored_02>|<$msg_northern_bridge_explored_03>|<$msg_northern_bridge_explored_04>|<$msg_northern_bridge_explored_05>|<$msg_northern_bridge_explored_06>|<$msg_northern_bridge_explored_07>';
+	MSG_ENEMY_SUPPLY_SPOTTED = '<$msg_enemy_supply_spotted_01>||<$msg_enemy_supply_spotted_02>|<$msg_enemy_supply_spotted_03>|<$msg_enemy_supply_spotted_04>|<$msg_enemy_supply_spotted_05>|<$msg_enemy_supply_spotted_06>';
+	MSG_DUKE_ARRIVES = '<$msg_duke_arrives_01>||<$msg_duke_arrives_02>|<$msg_duke_arrives_03>|<$msg_duke_arrives_04>|<$msg_duke_arrives_05>|<$msg_duke_arrives_06>|<$msg_duke_arrives_07>|<$msg_duke_arrives_08>';
+	MSG_HARGRAVE_EXPOSED = '<$msg_hargrave_exposed_01>||<$msg_hargrave_exposed_02>|<$msg_hargrave_exposed_03>|<$msg_hargrave_exposed_04>';
+	MSG_HARGRAVE_RUNS = '<$msg_hargrave_runs_01>||<$msg_hargrave_runs_02>|<$msg_hargrave_runs_03>|<$msg_hargrave_runs_04>';
+	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>|<$msg_outro_05>|<$msg_outro_06>|<$msg_outro_07>|<$msg_outro_08>|<$msg_outro_09>|<$msg_outro_10>|||<$msg_outro_11>||<$msg_outro_12>|<$msg_outro_13>|<$msg_outro_14>|<$msg_outro_15>|<$msg_outro_16>|<$msg_outro_17>|<$msg_outro_18>|<$msg_outro_19>|<$msg_outro_20>|<$msg_outro_21>';
+	MSG_HARGRAVE_PREPARES_ATTACK = '<$msg_hargrave_prepares_attack_01>||<$msg_hargrave_prepares_attack_02>|<$msg_hargrave_prepares_attack_03>';
+	
 	CAPTAIN_ARRIVE_TIME = 6000;
 	PLAYER_SUPPLY_X = 0;
 	PLAYER_SUPPLY_Y = 190;
 	PLAYER_SUPPLY_PERIOD = 6000;
+	
 	ROYCE_SUPPLY_X = 190;
 	ROYCE_SUPPLY_Y = 190;
 	ROYCE_SUPPLY_PERIOD = 4500;
 	ROYCE_BUILD_TIME = 4200;
 	ROYCE_ARRIVE_TIME = 18000;
+	
 	SIEGE_SUPPLY_X = 138;
 	SIEGE_SUPPLY_Y = 190;
+	SIEGE_SUPPLY_PERIOD = 9000;
+	SIEGE_PATROL_START_X = 138;
+	SIEGE_PATROL_START_Y = 153;
+	SIEGE_PATROL_TRAVEL_TIME = 300;
+	
 	HARGRAVE_SUPPLY_X = 11;
 	HARGRAVE_SUPPLY_Y = 0;
 	HARGRAVE_ESCAPED_SUPPLY_X = 190;
 	HARGRAVE_ESCAPED_SUPPLY_Y = 107;
 	HARGRAVE_SUPPLY_PERIOD = 18000;
-	HARGRAVE_START_TRAINING = 27000;
+	
+	HARGRAVE_START_TRAINING = 36000;
 	HARGRAVE_ATTACKS_START = 54000;
-	HARGRAVE_ATTACKS_PERIOD = 12000;
-	HARGRAVE_ATTACKS_PREPARE_TIME = 3000;
-	SIEGE_SUPPLY_PERIOD = 9000;
-	SIEGE_PATROL_START_X = 138;
-	SIEGE_PATROL_START_Y = 153;
+	HARGRAVE_ATTACKS_PERIOD = 6000;
+	
+	HERO_FULL_REGEN_TIME = 6000.0;
+	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
+	HERO_HAYTOW_HP = 300;
+	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_ASTON_NAME = '<$hero_aston_name>';
+	HERO_ASTON_HP = 250;
+	HERO_ASTON_COLOR = $00B0FF;
+	HERO_GRAHAM_NAME = '<$hero_graham_name>';
+	HERO_GRAHAM_HP = 200;
+	HERO_GRAHAM_COLOR = $41592F;
+	HERO_ROYCE_NAME = '<$hero_royce_name>';
+	HERO_ROYCE_HP = 500;
+	HERO_ROYCE_COLOR = $10A010;
+	HERO_HARGRAVE_NAME = '<$hero_hargrave_name>';
+	HERO_HARGRAVE_HP = 500;
+	HERO_HARGRAVE_COLOR = $000000;
+	
 	TT_BOTTOM_BRIDGE = 1;
 	TT_FORD = 2;
 	TT_BROKEN_BRIDGE = 3;
 	TT_NORTH_BRIDGE = 4;
-	TT_ENEMY_SUPPLY_SPOTTED = 7;
-	
-	OBJ_SIEGE = '<$10>';
-	OBJ_HARGRAVE = '<$11>';
-	MSG_SUPPLY_NO_STOREHOUSE = '<$12>';
-	MSG_INTRO = '<$20>';
-	MSG_GRAHAM_DIED = '<$30>||<$31>|<$32>|<$33>|<$34>|<$35>|<$36>|<$37>|<$38>';
-	MSG_CAPTAIN_ARRIVES = '<$40>||<$41>|<$42>|<$43>|<$44>|<$45>|<$46>|<$47>|<$48>|<$49>';
-	MSG_BOTTOM_BRIDGE_EXPLORED = '<$50>||<$51>|<$52>';
-	MSG_FORD_EXPLORED = '<$60>||<$61>|<$62>|<$63>|<$64>';
-	MSG_BROKEN_BRIDGE_EXPLORED = '<$70>||<$71>|<$72>|<$73>|<$74>';
-	MSG_NORTHERN_BRIDGE_EXPLORED = '<$80>||<$81>|<$82>|<$83>|<$84>|<$85>|<$86>';
-	MSG_ENEMY_SUPPLY_SPOTTED = '<$90>||<$91>|<$92>|<$93>|<$94>|<$95>';
-	MSG_DUKE_ARRIVES = '<$100>||<$101>|<$102>|<$103>|<$104>|<$105>|<$106>|<$107>';
-	MSG_HARGRAVE_EXPOSED = '<$110>||<$111>|<$112>|<$113>';
-	MSG_HARGRAVE_RUNS = '<$120>||<$121>|<$122>|<$123>';
-	MSG_HARGRAVE_DEFEATED = '<$130>||<$131>|<$132>|<$133>|<$134>|<$135>|<$136>|<$137>|<$138>|<$139>|||<$140>||<$141>|<$142>|<$143>|<$144>|<$145>|<$146>|<$147>|<$148>|<$149>|<$150>';
-	MSG_HARGRAVE_ATTACK_PREPARE = '<$160>||<$161>|<$162>';
+	TT_ENEMY_SUPPLY_ROAD = 7;
 
 var
-	InitialAttackProceeding, TTFiredBottomBridge, TTFiredFord, TTBrokenBridgeFired, TTNorthBridgeFired, TTEnemySupplySpottedFired, WarnedAgainstAttack: Boolean;
-	WinTick, DefeatSiegeObjID, DefeatHargraveObjID: Integer;
-	DefeatSiegeObjSt, DefeatHargraveObjSt: TKMObjectiveStatus;
+	TTFiredBottomBridge, TTFiredFord, TTBrokenBridgeFired, TTNorthBridgeFired, TTEnemySupplyRoadFired, HargraveDefeated, SiegeDefeated, InitialAttackDefeated: Boolean;
+	HeroHaytowUnit, HeroGrahamUnit, PlayerWinTick, DefeatSiegeArmyObjID, DestroySiegeTownObjID, DefeatHargraveArmyObjID, DestroyHargraveTownObjID: Integer;
+	DefeatSiegeArmyObjSt, DestroySiegeTownObjSt, DefeatHargraveArmyObjSt, DestroyHargraveTownObjSt: TKMObjectiveStatus;
+	HargraveAttack, SiegeCampAttack, HargraveSideAttack, RoyceAttack: Integer;
 	InitialAttackGroups: array of Integer;
 
 
-
-
-
-{ToDo:
-- Give Royce's arrival proper cutscene, at least try to.
-- Beauty finishing.
-- Stolen horse wagons don't go to fort. (fixed?)
-}
-// ####################   Extra utils   ####################
-// Author: Amaroth.
-// Version: 2024-02-29
-// These are just some thing to make your life easier. They are also dependencies for my personal scripts.
-
-// Broadcasts a message which immediately opens to all players. Intened for debugging.
-procedure DebugMsg(text: String);
-begin
-	Actions.PlayerMessage(-1, text, True);
-end;
-
-// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
-procedure ObjectiveStatusUpdate(aPlayer, objectiveID: Integer; var oldStatusVar: TKMObjectiveStatus; newStatus: TKMObjectiveStatus);
-begin
-	oldStatusVar := newStatus;
-	Actions.PlayerObjectiveUpdateStatus(aPlayer, objectiveID, newStatus);
-end;
-
-// Used for a temporary hack to get around the fact we currently lack States to get current objective status.
-procedure ObjectiveCreate(aPlayer: Integer; objType: TKMObjectiveType; orderID: Integer; objStatus: TKMObjectiveStatus; objText: String; var objIDVar: Integer; var objStVar: TKMObjectiveStatus);
-begin
-	objStVar := objStatus;
-	objIDVar := Actions.PlayerObjectiveAdd(aPlayer, objType, orderID, objStatus, objText);
-end;
-
-// Basic convertor, for debug output purposes mainly.
-function ObjectiveStatusToStr(oStatus: TKMObjectiveStatus): String;
-begin
-	if (oStatus = osHidden) then
-		Result := 'osHidden'
-	else if (oStatus = osActive) then
-		Result := 'osActive'
-	else if (oStatus = osFailed) then
-		Result := 'osFailed'
-	else if (oStatus = osCompleted) then
-		Result := 'osCompleted'
-	else
-		Result := 'Unrecognized!';
-end;
-
-// Sets all WareDistributions of the given player to 5.
-procedure PlayerMaxWareDistributions(aPlayer: Integer);
-begin
-	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htSawmill, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htCoalmakers, 5);
-	
-	Actions.PlayerWareDistribution(aPlayer, wtWood, htWeaponWorkshop, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtWood, htArmorWorkshop, 5);
-	
-	Actions.PlayerWareDistribution(aPlayer, wtGrain, htMill, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtGrain, htCattleFarm, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtGrain, htBrewery, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 5);
-	
-	Actions.PlayerWareDistribution(aPlayer, wtCoal, htFoundry, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtCoal, htMint, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtCoal, htWeaponSmithy, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtCoal, htArmorSmithy, 5);
-	
-	Actions.PlayerWareDistribution(aPlayer, wtSteel, htWeaponSmithy, 5);
-	Actions.PlayerWareDistribution(aPlayer, wtSteel, htArmorSmithy, 5);
-end;
-
-// Returns the X coordinate of the group's flag bearer.
-function GetGroupX(aGroup: Integer): Integer;
-begin
-	Result := -1;
-	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
-		Result := States.UnitPositionX(States.GroupMember(aGroup, 0));
-end;
-
-// Returns the Y coordinate of the group's flag bearer.
-function GetGroupY(aGroup: Integer): Integer;
-begin
-	Result := -1;
-	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
-		Result := States.UnitPositionY(States.GroupMember(aGroup, 0));
-end;
-
-// Returns the group type of the given group. Assumes it from the flag bearer's unit type. Supports basic and currently player-accessible unit types.
-function GetGroupType(aGroup: Integer): TKMGroupType;
-begin
-	Result := gtNone;
-	if (States.GroupMemberCount(aGroup) <= 0) then Exit;
-	
-	if (States.UnitType(States.GroupMember(aGroup, 0)) in [utMilitia, utAxeFighter, utSwordsman]) then
-		Result := gtMelee
-	else if (States.UnitType(States.GroupMember(aGroup, 0)) in [utPikeman, utHalberdier]) then
-		Result := gtAntiHorse
-	else if (States.UnitType(States.GroupMember(aGroup, 0)) in [utBowman, utArbaletman]) then
-		Result := gtRanged
-	else if (States.UnitType(States.GroupMember(aGroup, 0)) in [utHorseScout, utCavalry]) then
-		Result := gtMounted;
-end;
-
-// Basic convertor, for debug output purposes mainly.
-function BoolToStr(b: Boolean): String;
-begin
-	if (b) then
-		Result := 'True'
-	else
-		Result:= 'False';
-end;
-
-// Basic convertor, for debug output purposes mainly.
-function GroupTypeToStr(aGroupType: TKMGroupType): String;
-begin
-	if (aGroupType = gtNone) then
-		Result := 'gtNone'
-	else if (aGroupType = gtMelee) then
-		Result := 'gtMelee'
-	else if (aGroupType = gtAntiHorse) then
-		Result := 'gtAntiHorse'
-	else if (aGroupType = gtRanged) then
-		Result := 'gtRanged'
-	else if (aGroupType = gtMounted) then
-		Result := 'gtMounted'
-	else
-		Result := 'Unrecognized!';
-end;
-
-// Returns the sum of the array's elements.
-function GetArraySum(arr: array of Integer): Integer;
-var
-	i: Integer;
-begin
-	Result := 0;
-	for i := 0 to High(arr) do
-		Result := Result + arr[i];
-end;
-
-// Outputs the length and contents of the array in a string.
-function ArrayIDebug(arr: array of Integer): String;
-var
-	i, arrLen: Integer;
-begin
-	arrLen := Length(arr);
-	Result := Utils.Format('Amount of items: %d|Items: ', [arrLen]);
-	for i := 0 to arrLen -1 do
-		Result := Result + IntToStr(arr[i]) + ', ';
-end;
-
-// For debug purposes, pass this for example to DebugMsg() if needed.
-function GroupDebug(aGroup: Integer): String;
-begin
-	if (aGroup <= 0) then
-		Result := Utils.Format('No group with ID %d found.', [aGroup])
-	else
-		Result := Utils.Format('Group ID %d, owner ID: %d, member count: %d, units per row: %d, is dead: %s, is idle: %s, flag bearer X: %d, flag bearer Y: %d', [aGroup, States.GroupOwner(aGroup), States.GroupMemberCount(aGroup), States.GroupColumnCount(aGroup), BoolToStr(States.GroupDead(aGroup)), BoolToStr(States.GroupIsIdle(aGroup)), GetGroupX(aGroup), GetGroupY(aGroup)]);
-end;
-
-// Increases the length of an array by 1 and assignes the given element to its last position.
-procedure ArrayIAppend(var arr: array of Integer; newElement: Integer);
-var
-	arrLen: Integer;
-begin
-	arrLen := Length(arr);
-	SetLength(arr, arrLen + 1);
-	arr[arrLen] := newElement;
-end;
-
-// Splits a given amount of units from a group, returns ID of the new group (or -1, if the split couldn't be done, or back the given group if it didn't have enough troops to split from). Column count is kept the same for both groups (if possible).
-function GroupSplitByAmount(aGroup, splitAmount: Integer): Integer;
-var
-	i, originalAmount, newAmount, originalColCount, groupToSplit, groupSplitted: Integer;
-	splitGroups: array of Integer;
-begin
-	Result := -1;
-	// Initial sanity checks. If a group is invalid, has lower amount of units than 2 or the amount to split is lower than 1, return -1 and end.
-	if (aGroup <= 0)
-	or (splitAmount < 1) then
-		Exit;
-	originalAmount := States.GroupMemberCount(aGroup);
-	if (originalAmount < 2) then
-		Exit;
-	
-	// If there would be no troops left in the original group, return it as the new group and do nothing else.
-	if (splitAmount >= originalAmount) Then
-	begin
-		Result := aGroup;
-		Exit;
-	end;
-	
-	newAmount := originalAmount - splitAmount;
-	originalColCount := States.GroupColumnCount(aGroup);
-	
-	// Split the group into groups of 1.
-	groupToSplit := aGroup;
-	ArrayIAppend(splitGroups, groupToSplit);
-	while (Length(splitGroups) < originalAmount) do
-	begin
-		groupSplitted := Actions.GroupOrderSplit(groupToSplit);
-		ArrayIAppend(splitGroups, groupSplitted);
-		if (States.GroupMemberCount(groupToSplit) = 1) then
-			for i := 0 to High(splitGroups) do
-				if (States.GroupMemberCount(splitGroups[i]) > 1) then
-					groupToSplit := splitGroups[i];
-	end;
-	
-	// Link everyone into the original group, until only units that are to be split away remain. Then link these together (flag bearer becomes the last of them on the list).
-	Result := splitGroups[originalAmount - 1];
-	for i := 0 to High(splitGroups) do
-	begin
-		if (splitGroups[i] <> aGroup)
-		and (splitGroups[i] <> Result) Then
-		begin
-			if (States.GroupMemberCount(aGroup) < newAmount) then
-				Actions.GroupOrderLink(splitGroups[i], aGroup)
-			else
-				Actions.GroupOrderLink(splitGroups[i], Result);
-		end;
-	end;
-	
-	// Return to the original column counts (otherwise both groups would remain at 1).
-	Actions.GroupSetFormation(Result, originalColCount);
-	Actions.GroupSetFormation(aGroup, originalColCount);
-end;
-
-// Returns the house type to which the given ware type is supposed to go. For horses, allows for fort/barracks preference.
-function GetStoreForWareType(wareType: TKMWareType; horsePreferFort: Boolean): TKMHouseType;
-begin
-	if (wareType in [wtStone, wtTrunk, wtWood, wtFish, wtCider, wtClub, wtGold]) then
-		Result := htCamp
-	else if (wareType in [wtGrain, wtFlour, wtBread, wtBeef, wtSausages, wtAle, wtWool, wtCloth, wtGoldOre, wtIronOre, wtCoal, wtSteel]) then
-		Result := htStore
-	else if ((wareType in [wtAxe, wtPike, wtBow, wtShield, wtGambeson])
-	or ((wareType = wtHorse) and horsePreferFort)) then
-		Result := htFort
-	else if ((wareType in [wtSword, wtHalberd, wtArbalet, wtMetalShield, wtMetalArmor])
-	or ((wareType = wtHorse) and not horsePreferFort)) then
-		Result := htBarracks
-	else
-		Result := htNone;
-end;
-
-// Unused types like utBarbarian and neutral types like utBoar are NOT included.
-function IsUnitMilitary(aUnit: Integer): Boolean;
-var
-	ut: TKMUnitType;
-begin
-	ut := States.UnitType(aUnit);
-	Result := False;
-
-	if (ut in [utMilitia, utAxeFighter, utSwordsman, utBowman, utArbaletman, utPikeman, utHalberdier, utHorseScout, utCavalry]) then
-		Result := True;
-end;
-
-// Takes the given coords and searches for the closest house matching the criteria (target players, house type and whether completed only).
-function GetClosestHouse(x, y: Integer; players: array of Integer; aHouseType: TKMHouseType; aOnlyCompleted: Boolean; out shortestDistance: Single): Integer;
-var
-    i, j: Integer;
-	distance: Single;
-    playerHouses: array of Integer;
-begin
-	shortestDistance := 10000;
-	Result := -1;
-	
-	for i := 0 to High(players) do
-	begin
-		playerHouses := States.PlayerGetHouses(players[i], aHouseType, aOnlyCompleted);
-		
-		for j := 0 to High(playerHouses) do
-		begin
-			distance := Utils.DistanceS(x - States.HousePositionX(playerHouses[j]), y - States.HousePositionY(playerHouses[j]));
-			if (distance < shortestDistance) then
-			begin
-				Result := playerHouses[j];
-				shortestDistance := distance;
-			end;
-		end;
-	end;
-end;
-
-// Takes the given coords and searches for the closest unit matching the criteria (target players). Considers non-military units to be further by militaryBias - used for priority being given to soldiers over civilians.
-function GetClosestUnit(x, y, militaryBias: Integer; players: array of Integer; out shortestDistance: Single): Integer;
-var
-    i, j: Integer;
-	distance: Single;
-    playerUnits: array of Integer;
-begin
-	shortestDistance := 10000;
-	shortestDistance := 10000;
-	Result := -1;
-	
-	for i := 0 to High(players) do
-	begin
-		playerUnits := States.PlayerGetAllUnits(players[i]);
-		
-		for j := 0 to High(playerUnits) do
-		begin
-			distance := Utils.DistanceS(x - States.UnitPositionX(playerUnits[j]), y - States.UnitPositionY(playerUnits[j]));
-			if (militaryBias <> 0)
-			and (not IsUnitMilitary(States.UnitType(playerUnits[j]))) then
-				distance := distance + militaryBias;
-			
-			if (distance < shortestDistance) then
-			begin
-				Result := playerUnits[j];
-				shortestDistance := distance;
-			end;
-		end;
-	end;
-end;
-// ####################   End of Extra utils  ####################
-
-
-
-
-
-// ####################   WagonSupply script   ####################
-// Author: Amaroth. This script requires Amaroth's Extra utils to run.
-// Version: 2024-02-29
-// The intended use of this script is to provide an easy to use interface to set up supply chain. Wagons will appear on the starting coordinates, they will be filled with apropriate amount of resources (if there's too much for 1 wagon to carry, more are spawned, as needed), and sent towards the closest house of their owner which can take their resources in. If no house is found, the wagons will just stay where they are.
-// Optionally, the script can warn the owner of the wagons that no valid storehouse for the supplies was found.
-// Optionally, if no valid storehouse is found, new wagons will not spawn.
-// Optionally (by default), when a wagon is taken/stolen, it is automatically sent to the new owner's base.
-// NOTE: Consider replacing CheckSendWagon() message for the player with translations from libx, if you intend to use them.
-// Apart from that, all you really need to do is add WagonScriptResolveTick(aTick); line into your OnTick event handler, CheckSendStolenWagon(aOldUnit, aNewUnit); into your OnUnitOwnerChanged event handler, and configure your wagons in the InitiateWagonScript() procedure.
-const
-	WAGON_CAPACITY = 50;
-
-// Check AddWagonSupply for more info.
-type
-	WagonSupply = record
-		aPlayer, spawnX, spawnY, startTick, stopTick, supplyFrequency: Integer;
-		wareType: TKMWareType;
-		wareAmount: Integer;
-		allowedNoStoreMessage, allowedNoStoreNoSpawn, horsePreferFort: Boolean;
-	end;
-	
-var
-	WagonSupplies: array of WagonSupply;
-	WagonCurrentTick: Integer;
-	AutoSendHomeAllowed: Boolean;
-	
-function AddWagonSupply(aPlayer, spawnX, spawnY, startTick, stopTick, supplyFrequency: Integer; wareType: TKMWareType; wareAmount: Integer; allowedNoStoreMessage, allowedNoStoreNoSpawn, horsePreferFort: Boolean): WagonSupply;
-var
-	wagonSupply: WagonSupply;
-	arrLen: Integer;
-begin
-	// Who will be the initial owner.
-	wagonSupply.aPlayer := aPlayer;
-	// Spawn coordinates for the wagons.
-	wagonSupply.spawnX := spawnX;
-	wagonSupply.spawnY := spawnY;
-	// When will the spawning start, when will it stop, and how frequently (in ticks). Enter -1 for stopTick to make the wagon spawn never end.
-	wagonSupply.startTick := startTick;
-	wagonSupply.stopTick := stopTick;
-	wagonSupply.supplyFrequency := supplyFrequency;
-	// What type of resource.
-	wagonSupply.wareType := wareType;
-	// What amount. If WAGON_CAPACITY is overfilled, more than 1 wagons spawn.
-	wagonSupply.wareAmount := wareAmount;
-	// If allowed, messages will pop up for the player notifying they have no available storehouse for resources being sent. Happens only if allowedNoStoreNoSpawn is disabled.
-	wagonSupply.allowedNoStoreMessage := allowedNoStoreMessage;
-	// If allowed, wagons will not spawn if there is no suitable storehouse for them to head towards.
-	wagonSupply.allowedNoStoreNoSpawn := allowedNoStoreNoSpawn;
-	// If allowed, horses will prioritize Fort over Barracks.
-	wagonSupply.horsePreferFort := horsePreferFort;
-	
-	arrLen := Length(WagonSupplies);
-	SetLength(WagonSupplies, arrLen + 1);
-	WagonSupplies[arrLen] := wagonSupply;
-	
-	Result := wagonSupply;
-end;
-
-function IsWagonReady(var wagon: WagonSupply): Boolean;
-begin
-	if ((WagonCurrentTick - wagon.startTick) mod wagon.supplyFrequency = 0)
-	and (WagonCurrentTick >= wagon.startTick)
-	and ((WagonCurrentTick < wagon.stopTick) or (wagon.stopTick = -1)) then
-		Result := True
-	else
-		Result := False;
-end;
-
-// Spawns wagons to carry the supply towards the target house.
-procedure SendWagon(var wagon: WagonSupply; targetHouse: Integer);
-var
-	i, fullWagonAmount, lastWagonLoad: Integer;
-	wagons: array of Integer;
-begin
-	// Yes, that many sanity checks.
-	if (wagon.wareAmount <= 0)
-	or (wagon.aPlayer < 0)
-	or (wagon.spawnX < 0)
-	or (wagon.spawnY < 0)
-	or (wagon.wareType = wtAll)
-	or (wagon.wareType = wtWarfare)
-	or (wagon.wareType = wtFood)
-	or (wagon.wareType = wtNone)
-	or ((targetHouse > 0)
-	and ((wagon.aPlayer <> States.HouseOwner(targetHouse)) 
-	or (not States.HouseIsComplete(targetHouse))
-	or (States.HouseDestroyed(targetHouse)))) then
-		Exit;
-	
-	fullWagonAmount := Trunc(wagon.wareAmount / WAGON_CAPACITY);
-	lastWagonLoad := wagon.wareAmount - (WAGON_CAPACITY * fullWagonAmount);
-
-	for i := 0 to fullWagonAmount - 1 do
-	begin
-		ArrayIAppend(wagons, Actions.GiveUnit(wagon.aPlayer, utWagon, wagon.spawnX, wagon.spawnY, 0));
-		Actions.UnitCarryGive(wagons[i], wagon.wareType, WAGON_CAPACITY);
-	end;
-	
-	if (lastWagonLoad > 0) then
-	begin
-		ArrayIAppend(wagons, Actions.GiveUnit(wagon.aPlayer, utWagon, wagon.spawnX, wagon.spawnY, 0));
-		Actions.UnitCarryGive(wagons[High(wagons)], wagon.wareType, lastWagonLoad);
-	end;
-
-	if (targetHouse > 0) then
-		for i := 0 to High(wagons) do
-			Actions.UnitWagonOrderEnterHouse(wagons[i], targetHouse);
-end;
-
-// Call this from OnUnitOwnerChanged event handler - used for auto-sending stolen wagons to the robber's base.
-procedure CheckSendStolenWagon(aOldUnit, aNewUnit: Integer);
-var
-	closestHouse: Integer;
-	closestDistance: Single;
-begin
-	if (States.UnitType(aNewUnit) = utWagon)
-	and AutoSendHomeAllowed then
-	begin
-		closestHouse := GetClosestHouse(States.UnitPositionX(aNewUnit), States.UnitPositionY(aNewUnit), [States.UnitOwner(aNewUnit)], GetStoreForWareType(States.UnitCarryType(aNewUnit), False), True, closestDistance);
-		if (closestHouse > 0) then
-			Actions.UnitWagonOrderEnterHouse(aNewUnit, closestHouse)
-		else
-			closestHouse := GetClosestHouse(States.UnitPositionX(aNewUnit), States.UnitPositionY(aNewUnit), [States.UnitOwner(aNewUnit)], GetStoreForWareType(States.UnitCarryType(aNewUnit), True), True, closestDistance);
-		if (closestHouse > 0) then
-			Actions.UnitWagonOrderEnterHouse(aNewUnit, closestHouse);
-	end;
-end;
-
-// Checks whether a wagon has suitable destination. If not and apropriate conditions are met, notifies the player. If apropriate, initiates wagon spawn.
-procedure CheckSendWagon(var wagon: WagonSupply);
-var
-	closestHouse: Integer;
-	closestDistance: Single;
-begin
-	closestHouse := GetClosestHouse(wagon.spawnX, wagon.spawnY, [wagon.aPlayer], GetStoreForWareType(wagon.wareType, wagon.horsePreferFort), True, closestDistance);
-	// If the cargo are horses and no fort/barracks was found, try to find the other option instead.
-	if (closestHouse < 0) and (wagon.wareType = wtHorse) then
-		closestHouse := GetClosestHouse(wagon.spawnX, wagon.spawnY, [wagon.aPlayer], GetStoreForWareType(wagon.wareType, not wagon.horsePreferFort), True, closestDistance);
-	
-	if (closestHouse < 0) then
-	begin
-		if wagon.allowedNoStoreNoSpawn then Exit;
-		if wagon.allowedNoStoreMessage and (closestHouse < 0) then
-			Actions.PlayerMessage(wagon.aPlayer, MSG_SUPPLY_NO_STOREHOUSE, True);
-	end;
-	SendWagon(wagon, closestHouse);
-end;
-
-// Initial settings, called on tick 1.
-procedure InitiateWagonScript();
-begin
-	// Relevant if a wagon is stolen. Needs CheckSendStolenWagon call in OnUnitOwnerChanged event handler to work.
-	AutoSendHomeAllowed := True;
-end;
-
-// Each tick, checks whether there is a wagon supply to be sent out.
-procedure WagonScriptResolveTick(aTick: Integer);
-var
-	i: Integer;
-begin
-	WagonCurrentTick := aTick;
-	
-	if (WagonCurrentTick = 1) then
-		InitiateWagonScript();
-		
-	for i := 0 to High(WagonSupplies) do
-		if (IsWagonReady(WagonSupplies[i])) then
-			CheckSendWagon(WagonSupplies[i]);
-end;
-// ####################   WagonSupply script   ####################
-
-
-
-
-
-
-type
-	WaveTargetType = (wtHouses, wtUnits, wtBoth);
-	
-// Keeps track of a group that has been sent to an attack, but also tracks when it has received its current target (so time since then can be calculated) and the ID of its current target.
-// NOTE: Be especially here careful to only edit this by using in-built procedures made for that purpose.
-	AAIGroup = record
-		groupID, pursueStartTick, targetHouseID, targetUnitID: Integer;
-	end;
-	
-// Tracks the position of AIDisposition and extends it into one used for attacks.
-// NOTE: Be especially here careful to only edit this by using in-built procedures made for that purpose.
-	AAIDisp = record
-		aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow, minUnits: Integer;
-		aGroupType: TKMGroupType;
-		allowedTraining, allowedAttacking: Boolean;
-		targetPlayers: array of Integer;
-		activeGroups: array of AAIGroup;
-	end;
-
-// AAIWave provides the AI with grouped AAIDs into waves. This structure handles the conditions under which the attack is to be released.
-// NOTE: You are free to change the fields in this record directly - the only exception.
-	AAIWave = record
-		aAIDisps: array of AAIDisp;
-		// ALWAYS in the following order: gtMelee, gtAntiHorse, gtRanged, gtMounted
-		minAmountsPerType: array of Integer;
-		startTick, stopTick, attackFrequency: Integer;
-		matchTypesAndCounts: Boolean;
-		waveTarget: WaveTargetType;
-	end;
-	
-var
-	// NOTE: Use AddAAIDisp() and RemoveAAIDisp() to manage items, no direct changes!
-	AAIDisps: array of AAIDisp; 
-	// NOTE: Use AddAAIWave() to create new ones!
-	AAIWaves: array of AAIWave;
-	// The initial values are to be set in InitiateAAIDisps(), where they are also documented in detail.
-	GroupTargetResetCheckFrequency, CurrentTick, TargetTimeoutTicks, HouseTargetBias, MilitaryUnitTargetBias: Integer;
-
-// Basic convertor, for debug output purposes mainly.
-function WaveTargetTypeToStr(waveTarget: WaveTargetType): String;
-begin
-	if waveTarget = wtHouses then
-		Result := 'wtHouses'
-	else if waveTarget = wtUnits then
-		Result := 'wtUnits'
-	else if waveTarget = wtBoth then
-		Result := 'wtBoth';
-end;
-
-// For debug purposes, pass this for example to DebugMsg() if needed.
-function DebugAAIGroup(group: AAIGroup): string;
-begin
-	Result := Utils.Format('Debug AAIGroup output: Group ID: %d, last target swap tick: %d, target house ID: %d, target unit ID: %d', [group.groupID, group.pursueStartTick, group.targetHouseID, group.targetUnitID]);
-end;
-
-// For debug purposes, pass this for example to DebugMsg() if needed.
-function DebugAAIDisp(disp: AAIDisp): String;
-var
-	targetsDebug, groupsDebug: String;
-	i: Integer;
-begin
-	targetsDebug := ArrayIDebug(disp.targetPlayers);
-	for i := 0 to High(disp.activeGroups) do
-		groupsDebug := groupsDebug + '- ' + DebugAAIGroup(disp.activeGroups[i]) + '|';
-	Result := Utils.Format('Debug AAIDisp output:||owner ID: %d, X: %d, Y: %d, direction: %d, guard radius: %d, number of units: %d, number of columns: %d, min units: %d, group type: %s, allowed training: %s, allowed attacking: %s|targets: |%s|active groups: |%s', [disp.aPlayer, disp.X, disp.Y, disp.aDir, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow, disp.minUnits, GroupTypeToStr(disp.aGroupType), BoolToStr(disp.allowedTraining), BoolToStr(disp.allowedAttacking), targetsDebug, groupsDebug]);
-end;
-
-// For debug purposes, pass this for example to DebugMsg() if needed.
-function DebugAAIWave(wave: AAIWave): String;
-var
-	dispsDebug: String;
-	i: Integer;
-begin
-	for i := 0 to High(wave.aAIDisps) do
-		dispsDebug := dispsDebug + '- ' + DebugAAIDisp(wave.aAIDisps[i]);
-	Result := Utils.Format('Debug AAIWave output:||min amounts per type settings (melee, pike, bow, horse): %s|start at tick: %d, stop at tick: %d, delay between attacks (ticks): %d, match types and counts: %s, wave target setting: %s|dispositions:|%s', [ArrayIDebug(wave.minAmountsPerType), wave.startTick, wave.stopTick, wave.attackFrequency, BoolToStr(wave.matchTypesAndCounts), WaveTargetTypeToStr(wave.waveTarget), dispsDebug]);
-end;
-
-// Removes the old AIDisposition and if training is allowed, places a new one with up to date data.
-// Note: several AIDispositions on the same coords for the same player are NOT supported by this system - the last one to be placed is the one that remains.
-procedure UpdateAIDisp(disp: AAIDisp; oldPlayer, oldX, oldY: Integer);
-begin
-	Actions.PlayerAIDispositionRemove(oldPlayer, oldX, oldY);
-	if (disp.allowedTraining) then
-		Actions.PlayerAIDispositionAdd(disp.aPlayer, disp.X, disp.Y, disp.aDir, disp.aGroupType, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow);
-end;
-
-// Create a new AAIGroup with a link to existing unit group on map and append it to the given groupArray. Used for adding troops in active AAIDisps to attacking groups.
-function AddAAIGroup(var groupArray: array of AAIGroup; groupID: Integer): AAIGroup;
-var
-	group: AAIGroup;
-	arrLen: Integer;
-begin
-	group.groupID := groupID;
-	group.pursueStartTick := -1;
-	group.targetHouseID := -1;
-	group.targetUnitID := -1;
-	
-	arrLen := Length(groupArray);
-	SetLength(groupArray, arrLen + 1);
-	groupArray[arrLen] := group;
-	
-	Result := group;
-end;
-
-// Sets the given AAIGroup's target to the given house.
-procedure SetTargetHouseAAIGroup(var group: AAIGroup; houseID: Integer);
-begin
-	if (houseID <= 0) then Exit;
-	
-	group.targetHouseID := houseID;
-	group.targetUnitID := -1;
-	group.pursueStartTick := CurrentTick;
-end;
-
-// Sets the given AAIGroup's target to the given unit.
-procedure SetTargetUnitAAIGroup(var group: AAIGroup; unitID: Integer);
-begin
-	if (unitID <= 0) then Exit;
-	
-	group.targetUnitID := unitID;
-	group.targetHouseID := -1;
-	group.pursueStartTick := CurrentTick;
-end;
-
-// Create and return a new AAIDisp.
-// NOTE: Without adding this to some AAIWave, it behaves just like any other regular AIDisposition, just with ability to be enabled/disabled at will. You are free to exploit that ability, if you will.
-function AddAAIDisp(aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow, minUnits: Integer; aGroupType: TKMGroupType; allowedTraining, allowedAttacking: Boolean; targetPlayers: array of Integer): AAIDisp;
-var
-	arrLen: Integer;
-	disp: AAIDisp;
-begin
-	disp.aPlayer := aPlayer;
-	disp.X := X;
-	disp.Y := Y;
-	disp.aDir := aDir;
-	disp.aGuardRadius := aGuardRadius;
-	disp.aNumUnits := aNumUnits;
-	disp.aUnitsPerRow := aUnitsPerRow;
-	disp.minUnits := minUnits;
-	disp.aGroupType := aGroupType;
-	disp.allowedTraining := allowedTraining;
-	disp.allowedAttacking := allowedAttacking;
-	disp.targetPlayers := targetPlayers;
-
-	arrLen := Length(AAIDisps);
-	SetLength(AAIDisps, arrLen + 1);
-	AAIDisps[arrLen] := disp;
-	
-	UpdateAIDisp(disp, aPlayer, X, Y);
-	
-	Result := disp;
-end;
-
-// Create and return a new AAIWave.
-function AddAAIWave(aAIDisps: array of AAIDisp; minAmountsPerType: array of Integer; startTick, stopTick, attackFrequency: Integer; matchTypesAndCounts: Boolean; waveTarget: WaveTargetType): AAIWave;
-var
-	arrLen: Integer;
-	wave: AAIWave;
-begin
-	wave.aAIDisps := aAIDisps;
-	wave.minAmountsPerType := minAmountsPerType;
-	wave.startTick := startTick;
-	wave.stopTick := stopTick;
-	wave.attackFrequency := attackFrequency;
-	wave.matchTypesAndCounts := matchTypesAndCounts;
-	wave.waveTarget := waveTarget;
-	
-	arrLen := Length(AAIWaves);
-	SetLength(AAIWaves, arrLen + 1);
-	AAIWaves[arrLen] := wave;
-	
-	Result := wave;
-end;
-
-// Fully deactives given AAIDisp and removes the corresponding AIDisposition from the map.
-procedure DisableAAIDisp(var disp: AAIDisp);
-var
-	i: Integer;
-begin
-	disp.allowedTraining := False;
-	disp.allowedAttacking := False;
-	UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
-end;
-
-// If training is allowed, creates AIDisposition, starting the unit training in the result. Otherwise corresponding AIDisposition is removed.
-// NOTE: Disabling this also effectively disables aGuardRadius for troops that might be already in position. If there are other AIDispositions that have empty space, these troops will be also used by them.
-procedure SetTrainingAAIDisp(var disp: AAIDisp; allowedTraining: Boolean);
-begin
-	disp.allowedTraining := allowedTraining;
-	UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
-end;
-
-// Enables/disables the participation of the given AAIDisp in attacks.
-procedure SetAttackingAAIDisp(var disp: AAIDisp; allowedAttacking: Boolean);
-begin
-	disp.allowedAttacking := allowedAttacking;
-end;
-
-// Sets the amount of units the AAIDisp has to contain before it is allowed to send its troops into an attack. Changing the amount higher than the current AIDisposition capacity updates both of the mentioned values.
-procedure SetMinUnitsAAIDisp(var disp: AAIDisp; minUnits: Integer);
-begin
-	if (disp.aNumUnits < minUnits) then
-	begin
-		disp.aNumUnits := minUnits;
-		UpdateAIDisp(disp, disp.aPlayer, disp.X, disp.Y);
-	end;
-	disp.minUnits := minUnits;
-end;
-
-// Changes the current AIDisposition's settings to the new ones, and makes sure the changes are also reflected in the map.
-procedure SetDispAAIDisp(var disp: AAIDisp; aPlayer, X, Y, aDir, aGuardRadius, aNumUnits, aUnitsPerRow: Integer; aGroupType: TKMGroupType);
-var
-	oldPlayer, oldX, oldY: Integer;
-begin
-	oldPlayer := disp.aPlayer;
-	oldX := disp.X;
-	oldY := disp.Y;
-	
-	disp.aPlayer := aPlayer;
-	disp.X := X;
-	disp.Y := Y;
-	disp.aDir := aDir;
-	disp.aGuardRadius := aGuardRadius;
-	disp.aNumUnits := aNumUnits;
-	disp.aUnitsPerRow := aUnitsPerRow;
-	disp.aGroupType := aGroupType;
-	
-	UpdateAIDisp(disp, oldPlayer, oldX, oldY);
-end;
-
-// Changes the current AIDisposition's placement, without changing any of the remaining settings.
-procedure MoveAAIDisp(var disp: AAIDisp; X, Y, aDir: Integer);
-begin
-	SetDispAAIDisp(disp, disp.aPlayer, X, Y, aDir, disp.aGuardRadius, disp.aNumUnits, disp.aUnitsPerRow, disp.aGroupType);
-end;
-
-// Adds a new target for the attacks.
-procedure NewTargetAAIDisp(var disp: AAIDisp; aPlayer: Integer);
-var
-	arrLen: Integer;
-begin
-	arrLen := Length(disp.targetPlayers);
-	setLength(disp.targetPlayers, arrLen + 1);
-	disp.targetPlayers[arrLen] := aPlayer;
-end;
-
-// Removes a target from the attacks.
-procedure RemoveTargetAAIDisp(var disp: AAIDisp; aPlayer: Integer);
-var
-	i: Integer;
-begin
-	for i := 0 to High(disp.targetPlayers) do
-		if (disp.targetPlayers[i] = aPlayer) then
-			disp.targetPlayers[i] := -1;
-end;
-
-// Sets the targets of the attacks to the given array.
-procedure SetTargetsAAIDisp(var disp: AAIDisp; players: array of Integer);
-begin
-	disp.targetPlayers := players;
-end;
-
-function GetTroopAmountAAIDisp(disp: AAIDisp): Integer;
-var
-	groupID: Integer;
-begin
-	Result := 0;
-	groupID := States.GroupAt(disp.X, disp.Y);
-	// Minimize the risk of an incorrect group being targeted. Sadly, no 100% way of doing this atm.
-	if (groupID > 0)
-	and (States.GroupOwner(groupID) = disp.aPlayer) then
-		Result := States.GroupMemberCount(groupID);
-end;
-
-// Searches for a new target for the given AAIGroup and assignes it. Does not initiate the attack command itself.
-procedure FindNewTargetAAIGroup(var group: AAIGroup; targetPlayers: array of Integer; waveTarget: WaveTargetType; aTick: Integer);
-var
-	closestHouse, closestUnit: Integer;
-	distanceHouse, distanceUnit: Single;
-begin
-	if (waveTarget = wtHouses) then
-	begin
-		closestHouse := GetClosestHouse(GetGroupX(group.groupID), GetGroupY(group.groupID), targetPlayers, htAny, True, distanceHouse);
-		
-		if (closestHouse > 0) then
-			SetTargetHouseAAIGroup(group, closestHouse);
-	end;
-	
-	if (waveTarget = wtUnits) then
-	begin
-		closestUnit := GetClosestUnit(GetGroupX(group.groupID), GetGroupY(group.groupID), MilitaryUnitTargetBias, targetPlayers, distanceUnit);
-		
-		if (closestUnit > 0) then
-			SetTargetUnitAAIGroup(group, closestUnit);
-	end;
-	
-	if (waveTarget = wtBoth) then
-	begin
-		closestHouse := GetClosestHouse(GetGroupX(group.groupID), GetGroupY(group.groupID), targetPlayers, htAny, True, distanceHouse);
-		closestUnit := GetClosestUnit(GetGroupX(group.groupID), GetGroupY(group.groupID), MilitaryUnitTargetBias, targetPlayers, distanceUnit);
-		
-		if ((distanceUnit + HouseTargetBias) < distanceHouse)
-		and (closestUnit > 0) then
-			SetTargetUnitAAIGroup(group, closestUnit)
-		else if (closestHouse > 0) then
-			SetTargetHouseAAIGroup(group, closestHouse);
-	end;
-end;
-
-// Gives attack command to the given AAIGroup. If its current target is invalid, initiates new target search.
-procedure CommandAttackAAIGroup(var group: AAIGroup; targetPlayers: array of Integer; waveTarget: WaveTargetType);
-begin
-	if (States.GroupMemberCount(group.groupID) = 0) then Exit;
-	if ((group.targetHouseID > 0) and (States.HouseDestroyed(group.targetHouseID)))
-	or ((group.targetUnitID > 0) and (States.UnitDead(group.targetUnitID)))
-	or ((group.targetHouseID <= 0) and (group.targetUnitID <= 0)) then
-		FindNewTargetAAIGroup(group, targetPlayers, waveTarget, CurrentTick);
-	
-	if (group.targetHouseID > 0) then
-		Actions.GroupOrderAttackHouse(group.groupID, group.targetHouseID)
-	else if (group.targetUnitID > 0) then
-		Actions.GroupOrderAttackUnit(group.groupID, group.targetUnitID);
-end;
-
-// Check if a disposition is able to partake in an attack.
-function IsReadyAAIDisp(var disp: AAIDisp): Boolean;
-begin
-	Result := False;
-	if (disp.allowedAttacking) and (GetTroopAmountAAIDisp(disp) >= disp.minUnits) then
-		Result := True;
-end;
-
-// Check if a wave is ready to send an attack.
-function IsReadyAAIWave(var wave: AAIWave): Boolean;
-var
-	i: Integer;
-	troopAmountsInGroups: array of Integer;
-begin
-	if ((CurrentTick - wave.startTick) mod wave.attackFrequency = 0)
-	and (CurrentTick >= wave.startTick)
-	and ((CurrentTick < wave.stopTick) or (wave.stopTick = -1)) then
-	begin
-		// Count the troops per type present in the wave's AAIDisps.
-		troopAmountsInGroups := [0, 0, 0, 0];
-		for i := 0 to High(wave.aAIDisps) do
-		begin
-			// If AAIDisp is not allowed to participate in attacks or if it has not reached minimum amount of units yet, it is not being included.
-			if IsReadyAAIDisp(wave.aAIDisps[i]) then
-			begin
-				if (wave.aAIDisps[i].aGroupType = gtMelee) then
-					troopAmountsInGroups[0] := troopAmountsInGroups[0] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
-				else if (wave.aAIDisps[i].aGroupType = gtAntiHorse) then
-					troopAmountsInGroups[1] := troopAmountsInGroups[1] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
-				else if (wave.aAIDisps[i].aGroupType = gtRanged) then
-					troopAmountsInGroups[2] := troopAmountsInGroups[2] + GetTroopAmountAAIDisp(wave.aAIDisps[i])
-				else if (wave.aAIDisps[i].aGroupType = gtMounted) then
-					troopAmountsInGroups[3] := troopAmountsInGroups[3] + GetTroopAmountAAIDisp(wave.aAIDisps[i]);
-			end;
-		end;
-			
-		Result := True;
-		// If the amounts per type have to all match, check individual type amounts.
-		if wave.matchTypesAndCounts then
-		begin
-			for i := 0 to High(wave.minAmountsPerType) do
-				if (wave.minAmountsPerType[i] > troopAmountsInGroups[i]) then
-						Result := False
-		end
-		// If the amounts per type don't have to precisely match, check only total sums of troops.
-		else if (GetArraySum(troopAmountsInGroups) < GetArraySum(wave.minAmountsPerType)) then
-			Result := False;
-	end;
-end;
-
-// If the wave is ready, adds all troops in the given wave's AIDispositions into the attacking groups.
-procedure UnleashAAIWave(var wave: AAIWave);
-var
-	i, groupID: Integer;
-begin
-	for i := 0 to High(wave.aAIDisps) do
-	begin
-		groupID := States.GroupAt(wave.aAIDisps[i].X, wave.aAIDisps[i].Y);	
-		
-		if (groupID > 0)
-		and (States.GroupOwner(groupID) = wave.aAIDisps[i].aPlayer)
-		and (States.GroupColumnCount(groupID) = wave.aAIDisps[i].aUnitsPerRow)
-		and (IsReadyAAIDisp(wave.aAIDisps[i])) then
-		begin
-			AddAAIGroup(wave.aAIDisps[i].activeGroups, groupID);
-			FindNewTargetAAIGroup(wave.aAIDisps[i].activeGroups[High(wave.aAIDisps[i].activeGroups)], wave.aAIDisps[i].targetPlayers, wave.waveTarget, CurrentTick);
-		end;
-	end;
-end;
-
-// Checks all AAIGroups. If their target has run out of timeout, a new is searched for. Then, attack order is refreshed. This constant order refreshing is an unfortunate spam, but it is a required hack to prevent the groups from undesired home returns.
-procedure UpdateOrdersAAIWaves();
-var
-	i, j, k: Integer;
-begin
-	for i := 0 to High(AAIWaves) do
-		for j := 0 to High(AAIWaves[i].aAIDisps) do
-			for k := 0 to High(AAIWaves[i].aAIDisps[j].activeGroups) do
-				begin
-					if (CurrentTick >= (AAIWaves[i].aAIDisps[j].activeGroups[k].pursueStartTick + TargetTimeoutTicks)) then
-						FindNewTargetAAIGroup(AAIWaves[i].aAIDisps[j].activeGroups[k], AAIWaves[i].aAIDisps[j].targetPlayers, AAIWaves[i].waveTarget, CurrentTick);
-					CommandAttackAAIGroup(AAIWaves[i].aAIDisps[j].activeGroups[k], AAIWaves[i].aAIDisps[j].targetPlayers, AAIWaves[i].waveTarget);
-				end;
-end;
-
-// Use this procedure to set up AAIDisps and AAIWaves. It gets called on tick 1.
-procedure InitiateAAIDisps();
-begin
-	// Duration (in ticks) after which an AAIGroup is to seek a new target. Prevents the group from going tunnel-vision-chasing after a single unit that keeps running away.
-	TargetTimeoutTicks := 100;
-	// Relevant only when both houses and units are being targeted by the AAIWave. Ensures that houses take priority when seeking closest targets by increasing distance units are considered to be at.
-	HouseTargetBias := 5;
-	// Relevant only when units are being targeted by the AAIWave. Ensures that military units take priority when seeking closest targets by increasing distance other units are considered to be at.
-	MilitaryUnitTargetBias := 5;
-end;
-
-// Each tick, check whether there is a wave that is potentially supposed to be unleashed. If there is, check for its min troop amount requirements. If these are met as well, send the troops out.
-// Add this procedure to your OnTick, as shown below.
-procedure AttackAIResolveTick(aTick: Integer);
-var
-	i, j, k: Integer;
-	troopAmountsInGroups: array of Integer;
-	isAttackReady: Boolean;
-begin
-	CurrentTick := aTick;
-	
-	if (CurrentTick = 1) then
-		InitiateAAIDisps();
-	
-	for i := 0 to High(AAIWaves) do
-		if (IsReadyAAIWave(AAIWaves[i])) then
-			UnleashAAIWave(AAIWaves[i]);
-	
-	UpdateOrdersAAIWaves();
-end;
-// ####################   End of AttackAIDisposition script   ####################
-
-
-
-
-
-var
-	DukeWave, HargraveWave: AAIWave;
-	SiegeScoutPatrol: AAIDisp;
-	enemyAxe1, enemyAxe2, enemyAxe3, enemySpear1, enemySpear2, enemySpear3: AAIDisp;
-	
-// Prepare Hargrave's additional attack waves.
+// Initial setup of the Hargrave's attacks.
 procedure HargraveAttackSetup();
-begin
-	enemyAxe1 := AddAAIDisp(HARGRAVE_HAND, 55, 76, 4, 30, 15, 5, 0, gtMelee, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	enemyAxe2 := AddAAIDisp(HARGRAVE_HAND, 55, 73, 4, 30, 15, 5, 0, gtMelee, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	enemyAxe3 := AddAAIDisp(HARGRAVE_HAND, 55, 70, 4, 30, 15, 5, 0, gtMelee, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	
-	enemySpear1 := AddAAIDisp(HARGRAVE_HAND, 51, 76, 2, 30, 18, 3, 0, gtAntiHorse, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	enemySpear2 := AddAAIDisp(HARGRAVE_HAND, 59, 76, 2, 30, 18, 3, 0, gtAntiHorse, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	enemySpear3 := AddAAIDisp(HARGRAVE_HAND, 62, 76, 2, 30, 18, 3, 0, gtAntiHorse, False, True, [PLAYER_HAND, REFUGEES_HAND]);
-	
-	HargraveWave := AddAAIWave([enemyAxe1, enemyAxe2, enemyAxe3, enemySpear1, enemySpear2, enemySpear3], [35, 44, 0, 0], HARGRAVE_ATTACKS_START, -1, HARGRAVE_ATTACKS_PERIOD, True, wtBoth);
-end;
-
-// Warn the player that massive attacks are coming. Move the enemy offensive army outisde of the town to make its launch smoother.
-procedure HargraveAttackPrepare();
-begin
-	if (not WarnedAgainstAttack) then
-	begin
-		Actions.PlayerMessage(PLAYER_HAND, MSG_HARGRAVE_ATTACK_PREPARE, True);
-		WarnedAgainstAttack := True;
-	end;
-	MoveAAIDisp(enemyAxe1, 55, 76, 4);
-	MoveAAIDisp(enemyAxe2, 55, 73, 4);
-	MoveAAIDisp(enemyAxe3, 55, 70, 4);
-	MoveAAIDisp(enemySpear1, 51, 76, 4);
-	MoveAAIDisp(enemySpear2, 59, 76, 4);
-	MoveAAIDisp(enemySpear3, 62, 76, 4);
-end;
-
-// Retreat the AAIDisps back behind the frontlines to safely train up for the next attack.
-procedure HargraveAttackWithdraw();
-begin
-	MoveAAIDisp(enemyAxe1, 57, 43, 4);
-	MoveAAIDisp(enemyAxe2, 36, 54, 4);
-	MoveAAIDisp(enemyAxe3, 31, 54, 4);
-	MoveAAIDisp(enemySpear1, 45, 56, 2);
-	MoveAAIDisp(enemySpear2, 38, 56, 2);
-	MoveAAIDisp(enemySpear3, 31, 56, 2);
-end;
-
-//
-procedure HargraveCheckAttackPrepared();
 var
-	i, axes, spears, bows, horses: Integer;
-	groups: array of Integer;
+	hargraveDefenseAIDs: array of Integer;
 begin
-	axes := 0;
-	spears := 0;
-	bows := 0;
-	horses := 0;
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 66, 37));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 57, 46));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 58, 48));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 53, 48));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 60, 51));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 55, 51));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 50, 51));
+	Utils.ArrayAppendI(hargraveDefenseAIDs, UTAIDispositionAt(PLAYER_HARGRAVE, 51, 31));
 	
-	groups := States.PlayerGetAllGroups(HARGRAVE_HAND);
+	HargraveAttack := AAICreateAttack(PLAYER_HARGRAVE, [PLAYER_HUMAN, PLAYER_REFUGEES], atBoth);
+	AAIAttackSetTimes(HargraveAttack, HARGRAVE_ATTACKS_START, -1, HARGRAVE_ATTACKS_PERIOD);
+	AAIAttackSetCompositions(HargraveAttack, [40, 40, 20, 0], 100, True, True, hargraveDefenseAIDs);
 	
-	for i := 0 to High(groups) do
-	begin
-		if (GetGroupType(groups[i]) = gtMelee) then
-			axes := axes + States.GroupMemberCount(groups[i])
-		else if (GetGroupType(groups[i]) = gtAntiHorse) then
-			spears := spears + States.GroupMemberCount(groups[i])
-		else if (GetGroupType(groups[i]) = gtRanged) then
-			bows := bows + States.GroupMemberCount(groups[i])
-		else if (GetGroupType(groups[i]) = gtMounted) then
-			horses := horses + States.GroupMemberCount(groups[i]);
-	end;
-	
-	if ((Length(HargraveWave.minAmountsPerType) >= 4)
-	and (axes >= HargraveWave.minAmountsPerType[0])
-	and (spears >= HargraveWave.minAmountsPerType[1])
-	and (bows >= HargraveWave.minAmountsPerType[2])
-	and (horses >= HargraveWave.minAmountsPerType[3])) then
-		HargraveAttackPrepare();
+	HargraveSideAttack := AAICreateAttack(PLAYER_HARGRAVE, [PLAYER_HUMAN, PLAYER_REFUGEES], atBoth);
+	AAIAttackSetTimes(HargraveSideAttack, HARGRAVE_ATTACKS_START, -1, HARGRAVE_ATTACKS_PERIOD);
+	AAIAttackSetCompositions(HargraveSideAttack, [0, 0, 0, 30], 100, False, True, hargraveDefenseAIDs);
+	AAIAttackSetTargetAreaCenter(HargraveSideAttack, 73, 142);
 end;
 
-procedure HargraveStartTraining();
+
+// Initial setup of the siege camp's attacks.
+procedure SiegeAttackSetup();
+var
+	siegeDefenseAIDs: array of Integer;
 begin
-	// An unfortunate hack, don't ask why I had to do this.
-	HargraveAttackWithdraw();
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 127, 132));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 126, 125));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 127, 118));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 148, 113));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 169, 114));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 141, 147));
+	Utils.ArrayAppendI(siegeDefenseAIDs, UTAIDispositionAt(PLAYER_SIEGE_CAMP, 141, 143));
 	
-	SetTrainingAAIDisp(enemyAxe1, True);
-	SetTrainingAAIDisp(enemyAxe2, True);
-	SetTrainingAAIDisp(enemyAxe3, True);
-	SetTrainingAAIDisp(enemySpear1, True);
-	SetTrainingAAIDisp(enemySpear2, True);
-	SetTrainingAAIDisp(enemySpear3, True);
+	SiegeCampAttack := AAICreateAttack(PLAYER_SIEGE_CAMP, [PLAYER_HUMAN, PLAYER_REFUGEES], atBoth);
+	AAIAttackSetTimes(SiegeCampAttack, HARGRAVE_ATTACKS_START, -1, HARGRAVE_ATTACKS_PERIOD);
+	AAIAttackSetCompositions(SiegeCampAttack, [15, 15, 15, 0], 80, True, True, siegeDefenseAIDs);
+	AAIAttackSetTargetAreaCenter(SiegeCampAttack, 26, 107);
 end;
 
-// In the not-so probable case the player destroys Hargrave's base first, and only then goes afterthe siege camp.
-procedure HargraveRuns();
-begin
-	Actions.PlayerMessage(PLAYER_HAND, MSG_HARGRAVE_RUNS, True);
-	
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 143, 95, 0, gtRanged, 10, 21, 7);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 153, 94, 0, gtRanged, 10, 12, 4);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 149, 100, 0, gtRanged, 10, 21, 7);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 149, 94, 0, gtMelee, 10, 12, 4);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 149, 97, 0, gtAntiHorse, 10, 12, 4);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 135, 149, 4, gtMelee, 10, 20, 10);
-	Actions.PlayerAIDispositionAdd(SIEGE_HAND, 136, 147, 4, gtRanged, 15, 15, 5);
-	Actions.PlayerAIDispositionRemove(SIEGE_HAND, 136, 145);
-	
-	AddWagonSupply(SIEGE_HAND, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtBread, 50, True, False, False);
-	AddWagonSupply(SIEGE_HAND, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtAle, 50, True, False, False);
-	AddWagonSupply(SIEGE_HAND, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtSausages, 50, True, False, False);
-end;
-	
-// A check used periodically for enemies to determine whether they've been defeated or not.
-procedure CheckObjectives();
+
+// Makes the enemy groups around the player's start position attack.
+procedure InitialAttackSetup();
 var
 	i: Integer;
 begin
-	if ((DefeatSiegeObjSt = osActive)
-	and (Length(States.PlayerGetHouses(SIEGE_HAND, htCamp, True)) = 0)
-	and (Length(States.PlayerGetHouses(SIEGE_HAND, htFort, True)) = 0)
-	and (Length(States.PlayerGetHouses(SIEGE_HAND, htBarracks, True)) = 0)
-	and (Length(States.PlayerGetAllGroups(SIEGE_HAND)) = 0)) then
-	begin
-		ObjectiveStatusUpdate(PLAYER_HAND, DefeatSiegeObjID, DefeatSiegeObjSt, osCompleted);
-
-		for i := 0 to High(WagonSupplies) do
-			if (WagonSupplies[i].aPlayer = SIEGE_HAND) then
-				WagonSupplies[i].stopTick := WagonCurrentTick;
-				
-		if (DefeatHargraveObjSt = osActive) then
-			Actions.PlayerMessage(PLAYER_HAND, MSG_HARGRAVE_EXPOSED, True);
-	end;
-		
-	if ((DefeatHargraveObjSt = osActive)
-	and (Length(States.PlayerGetHouses(HARGRAVE_HAND, htCamp, True)) = 0)
-	and (Length(States.PlayerGetHouses(HARGRAVE_HAND, htFort, True)) = 0)
-	and (Length(States.PlayerGetHouses(HARGRAVE_HAND, htBarracks, True)) = 0)
-	and (Length(States.PlayerGetAllGroups(HARGRAVE_HAND)) = 0)) then
-	begin
-		ObjectiveStatusUpdate(PLAYER_HAND, DefeatHargraveObjID, DefeatHargraveObjSt, osCompleted);
-		
-		for i := 0 to High(WagonSupplies) do
-			if (WagonSupplies[i].aPlayer = HARGRAVE_HAND) then
-				WagonSupplies[i].stopTick := WagonCurrentTick;
-				
-		if (DefeatSiegeObjSt = osActive) then
-			HargraveRuns();
-	end;
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(26, 145));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(37, 148));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(40, 159));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(26, 139));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(33, 142));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(43, 152));
+	Utils.ArrayAppendI(InitialAttackGroups, States.GroupAt(46, 159));
 	
-	if ((DefeatHargraveObjSt = osCompleted)
-	and (DefeatSiegeObjSt = osCompleted)) then
-	begin
-		Actions.PlayerMessage(PLAYER_HAND, MSG_HARGRAVE_DEFEATED, True);
-		WinTick := CurrentTick;
-	end;
+	for i := 0 to High(InitialAttackGroups) do
+		AAIAttackJoinGroup(HargraveAttack, InitialAttackGroups[i]);
 end;
+
+
+// Creates AIDispositions in front of the Hargrave's base, so he has a place to put troops that are to be sent in the attacks, and to send the attacks from. This proved to work better than trying to send the troops bunched up over the narrow bridge and defense lines.
+procedure HargraveAttackStartTraining();
+begin
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_HARGRAVE_PREPARES_ATTACK, True);
+
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 48, 73, 4, gtAntiHorse, 18, 3, 30);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 62, 73, 4, gtAntiHorse, 18, 3, 30);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 55, 74, 4, gtAntiHorse, 18, 9, 30);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 55, 72, 4, gtRanged, 18, 9, 30);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 50, 77, 4, gtMelee, 15, 5, 35);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 55, 77, 4, gtMelee, 15, 5, 35);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 60, 77, 4, gtMelee, 15, 5, 35);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 66, 77, 4, gtMounted, 15, 5, 35);
+	Actions.PlayerAIDispositionAdd(PLAYER_HARGRAVE, 66, 73, 4, gtMounted, 15, 5, 30);
+end;
+
+
+// In the not-so probable case the player destroys Hargrave's base first, and only then goes after the siege camp. Hargrave has run, and the siege camp prepares to protect its North defense line as well.
+procedure HargraveRunToSiegeCamp();
+begin
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_HARGRAVE_RUNS, True);
+	
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 143, 95, 0, gtRanged, 21, 7, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 153, 94, 0, gtRanged, 12, 4, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 149, 100, 0, gtRanged, 21, 7, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 149, 94, 0, gtMelee, 12, 4, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 149, 97, 0, gtAntiHorse, 12, 4, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 135, 149, 4, gtMelee, 20, 10, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_SIEGE_CAMP, 136, 147, 4, gtRanged, 15, 5, 15);
+	Actions.PlayerAIDispositionRemove(PLAYER_SIEGE_CAMP, 136, 145);
+	
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtBread, 50, True, False, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtAle, 50, True, False, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, HARGRAVE_ESCAPED_SUPPLY_X, HARGRAVE_ESCAPED_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtSausages, 50, True, False, False);
+end;
+
+
+// Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
+procedure PlayerWins();
+begin
+	if (PlayerWinTick = -1) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+	PlayerWinTick := AAICurrentTick;
+end;
+
+
+// Periodically called to check whether the players are still supposed to live, and to update the objective statuses.
+procedure UpdateObjectives();
+begin
+	UTObjectiveCheckSurvival(PLAYER_HUMAN, stBuildings);
+	
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_SIEGE_CAMP, DefeatSiegeArmyObjID, DefeatSiegeArmyObjSt);
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_SIEGE_CAMP, DestroySiegeTownObjID, DestroySiegeTownObjSt);
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_HARGRAVE, DefeatHargraveArmyObjID, DefeatHargraveArmyObjSt);
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_HARGRAVE, DestroyHargraveTownObjID, DestroyHargraveTownObjSt);
+	
+	if (DefeatSiegeArmyObjSt = osCompleted)
+	and (DestroySiegeTownObjSt = osCompleted)
+	and not SiegeDefeated then
+	begin
+		SiegeDefeated := True;
+		WSPlayerDisableSupplies(PLAYER_SIEGE_CAMP);
+		if not HargraveDefeated then
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_HARGRAVE_EXPOSED, True);
+	end;
+		
+	if (DefeatHargraveArmyObjSt = osCompleted)
+	and (DestroyHargraveTownObjSt = osCompleted)
+	and not HargraveDefeated then
+	begin
+		HargraveDefeated := True;
+		WSPlayerDisableSupplies(PLAYER_HARGRAVE);
+		if not SiegeDefeated then
+			HargraveRunToSiegeCamp();
+	end;
+
+	if SiegeDefeated and HargraveDefeated then
+		PlayerWins();
+end;
+
 
 // Determine if enemy supply train was/could have been spotted by the player.
-function EnemySupplySpotted(): Boolean;
+function IsEnemySupplyOnRoad(): Boolean;
 var
 	i: Integer;
 	unitsInArea: array of Integer;
 	wagonInArea: Boolean;
 begin
-	Result := False;
 	unitsInArea := States.UnitsAt(131, 145, 143, 190);
 	for i := 0 to High(unitsInArea) do
 		if (not wagonInArea) then
 		begin
 			if (States.UnitType(unitsInArea[i]) = utWagon)
-			and (States.UnitOwner(unitsInArea[i]) = SIEGE_HAND) then
+			and (States.UnitOwner(unitsInArea[i]) = PLAYER_SIEGE_CAMP) then
 				wagonInArea := True;
 		end;
-	if (wagonInArea) then
-		Result := True;
+	Result := wagonInArea;
 end;
+
 
 // Initial setup of the enemy supply trains and their guards.
 procedure EnemySupplyStart();
-begin
-	// A group of scouts that guard the area. They move back and forth along the road.
-	SiegeScoutPatrol := AddAAIDisp(SIEGE_HAND, SIEGE_PATROL_START_X, SIEGE_PATROL_START_Y, 4, 20, 20, 5, 0, gtMounted, True, False, []);
-	
+begin	
 	// The supply train itself.
-	AddWagonSupply(SIEGE_HAND, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtBread, 100, False, True, False);
-	AddWagonSupply(SIEGE_HAND, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtSausages, 50, False, True, False);
-	AddWagonSupply(SIEGE_HAND, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtAle, 150, False, True, False);
-	AddWagonSupply(SIEGE_HAND, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtHorse, 10, False, True, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtBread, 100, False, True, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtSausages, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtAle, 150, False, True, False);
+	WSAddWagonSupply(PLAYER_SIEGE_CAMP, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y, 1, -1, SIEGE_SUPPLY_PERIOD, wtHorse, 10, False, True, False);
 	
 	// Hargrave's supply. Goes to the North base, and if that one is defeated first, this is moved to the Siege camp instead.
-	AddWagonSupply(HARGRAVE_HAND, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtBread, 50, True, False, False);
-	AddWagonSupply(HARGRAVE_HAND, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtAle, 50, True, False, False);
-	AddWagonSupply(HARGRAVE_HAND, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtSausages, 50, True, False, False);
+	WSAddWagonSupply(PLAYER_HARGRAVE, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtBread, 50, True, False, False);
+	WSAddWagonSupply(PLAYER_HARGRAVE, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtAle, 50, True, False, False);
+	WSAddWagonSupply(PLAYER_HARGRAVE, HARGRAVE_SUPPLY_X, HARGRAVE_SUPPLY_Y, WagonCurrentTick + 1, -1, HARGRAVE_SUPPLY_PERIOD, wtSausages, 50, True, False, False);
 end;
+
+
+// Finds the first suitable units to be turned into the mission's heroes and makes them change into them.
+procedure SetupHeroes();
+begin
+	UTUnitSetHeroStats(States.UnitAt(30, 169), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	UTUnitSetHeroStats(States.UnitAt(51, 31), HERO_HARGRAVE_NAME, HERO_HARGRAVE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HARGRAVE_HP, 60)), -1, -1, -1, HERO_HARGRAVE_COLOR);
+	HeroGrahamUnit := States.UnitAt(27, 149);
+	UTUnitSetHeroStats(HeroGrahamUnit, HERO_GRAHAM_NAME, HERO_GRAHAM_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_GRAHAM_HP, 60)), -1, -1, -1, HERO_GRAHAM_COLOR);
+end;
+
 
 //
 procedure CaptainArrives();
 var
 	captainGroup, axeGroup: Integer;
 begin
-	Actions.PlayerMessage(PLAYER_HAND, MSG_CAPTAIN_ARRIVES, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_CAPTAIN_ARRIVES, True);
 	
 	// 1 sword fighter with 14 axe fighters come as a single group.
-	captainGroup := Actions.GiveGroup(PLAYER_HAND, utSwordsman, PLAYER_SUPPLY_X + 2, PLAYER_SUPPLY_Y - 3, 0, 1, 1);
-	axeGroup := Actions.GiveGroup(PLAYER_HAND, utAxeFighter, PLAYER_SUPPLY_X + 2, PLAYER_SUPPLY_Y - 2, 0, 14, 5);
+	captainGroup := Actions.GiveGroup(PLAYER_HUMAN, utSwordsman, PLAYER_SUPPLY_X + 2, PLAYER_SUPPLY_Y - 3, 0, 1, 1);
+	axeGroup := Actions.GiveGroup(PLAYER_HUMAN, utAxeFighter, PLAYER_SUPPLY_X + 2, PLAYER_SUPPLY_Y - 2, 0, 14, 5);
 	Actions.GroupOrderLink(axeGroup, captainGroup);
 	Actions.GroupSetFormation(captainGroup, 5);
+	// 2 walk orders in case one spot is blocked.
+	Actions.GroupOrderWalk(captainGroup, 23, 183, 1);
 	Actions.GroupOrderWalk(captainGroup, 26, 173, 1);
 	
 	// Periodically send grain to the closest storehouse.
-	AddWagonSupply(PLAYER_HAND, PLAYER_SUPPLY_X, PLAYER_SUPPLY_Y, WagonCurrentTick + 50, -1, PLAYER_SUPPLY_PERIOD, wtGrain, 200, True, False, False);
+	WSAddWagonSupply(PLAYER_HUMAN, PLAYER_SUPPLY_X, PLAYER_SUPPLY_Y, WagonCurrentTick + 50, -1, PLAYER_SUPPLY_PERIOD, wtGrain, 200, True, False, False);
 	
 	// Allow buildings that use grain, even if requirements are not met yet.
-	Actions.PlayerHouseGrant(PLAYER_HAND, htMill, True);
-	Actions.PlayerHouseGrant(PLAYER_HAND, htCattleFarm, True);
-	Actions.PlayerHouseGrant(PLAYER_HAND, htBrewery, True);
-	Actions.PlayerHouseGrant(PLAYER_HAND, htStables, True);
+	Actions.PlayerHouseGrant(PLAYER_HUMAN, htMill, True);
+	Actions.PlayerHouseGrant(PLAYER_HUMAN, htCattleFarm, True);
+	Actions.PlayerHouseGrant(PLAYER_HUMAN, htBrewery, True);
+	Actions.PlayerHouseGrant(PLAYER_HUMAN, htStables, True);
+	
+	UTUnitSetHeroStats(States.GroupMember(captainGroup, 0), HERO_ASTON_NAME, HERO_ASTON_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ASTON_HP, 60)), -1, -1, -1, HERO_ASTON_COLOR);
 end;
+
+
 
 //
 procedure DukeArrives();
 var
-	axe1, axe2, spear1, spear2, spear3, bow1, cav1: AAIDisp;
+	dukeGroup: Integer;
 begin
-	Actions.PlayerMessage(PLAYER_HAND, MSG_DUKE_ARRIVES, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_DUKE_ARRIVES, True);
 	
-	Actions.PlayerAllianceChange(ROYCE_HAND, PLAYER_HAND, True, True);
-	Actions.PlayerAllianceChange(ROYCE_HAND, REFUGEES_HAND, True, True);
+	Actions.PlayerAllianceChange(PLAYER_ROYCE, PLAYER_HUMAN, True, True);
+	Actions.PlayerAllianceChange(PLAYER_ROYCE, PLAYER_REFUGEES, True, True);
 	
 	// 1 knight per 4 supplies. Just to be cool.
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtHorse, 1, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtSword, 1, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalShield, 1, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalArmor, 1, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtHorse, 1, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtSword, 1, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalShield, 1, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalArmor, 1, False, True, False);
 	
 	// Quarter of the attack army per 7.5 minutes.
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtAxe, 15, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtPike, 10, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtBow, 5, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtShield, 15, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtGambeson, 30, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtHorse, 5, False, True, True);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtAxe, 15, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtPike, 10, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtBow, 5, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtShield, 15, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtGambeson, 30, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtHorse, 5, False, True, True);
 	
 	// Some food.
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtBread, 25, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtSausages, 25, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtAle, 50, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtCider, 50, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtFish, 25, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtBread, 25, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtSausages, 25, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtAle, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtCider, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtFish, 25, False, True, False);
 	
 	// Create AIdispositions which are also used for attacking.
-	axe1 := AddAAIDisp(ROYCE_HAND, 159, 172, 6, 20, 20, 5, 20, gtMelee, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
-	axe2 := AddAAIDisp(ROYCE_HAND, 159, 184, 6, 20, 20, 5, 20, gtMelee, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
-	spear1 := AddAAIDisp(ROYCE_HAND, 164, 172, 6, 20, 20, 5, 20, gtAntiHorse, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
-	spear2 := AddAAIDisp(ROYCE_HAND, 164, 184, 6, 20, 20, 5, 20, gtAntiHorse, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
-	bow1 := AddAAIDisp(ROYCE_HAND, 163, 178, 6, 20, 20, 5, 20, gtRanged, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
-	cav1 := AddAAIDisp(ROYCE_HAND, 158, 178, 6, 20, 21, 5, 21, gtMounted, True, True, [HARGRAVE_HAND, SIEGE_HAND]);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 159, 172, 6, gtMelee, 20, 5, 20);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 159, 184, 6, gtMelee, 20, 5, 20);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 164, 172, 6, gtAntiHorse, 20, 5, 20);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 164, 184, 6, gtAntiHorse, 20, 5, 20);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 163, 178, 6, gtRanged, 20, 5, 20);
+	Actions.PlayerAIDispositionAdd(PLAYER_ROYCE, 158, 178, 6, gtMounted, 21, 5, 20);
 	
-	
-	// Each minute, check if army is fully trained. If it is, go burn stuff.
-	DukeWave := AddAAIWave([axe1, axe2, spear1, spear2, bow1, cav1], [40, 40, 20, 21], WagonCurrentTick + 1, -1, 600, True, wtBoth);
+	RoyceAttack := AAICreateAttack(PLAYER_ROYCE, [PLAYER_SIEGE_CAMP, PLAYER_HARGRAVE], atBoth);
+	AAIAttackSetTimes(RoyceAttack, ROYCE_ARRIVE_TIME + 600, -1, 600);
+	AAIAttackSetCompositions(RoyceAttack, [35, 35, 15, 15], 100, True, True, []);
 	
 	// Initial troops the duke arrives with.
-	Actions.GiveGroup(ROYCE_HAND, utCavalry, 190, 190, 6, 1, 1);
-	Actions.GiveGroup(ROYCE_HAND, utAxeFighter, 187, 182, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utAxeFighter, 187, 177, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utPikeman,187, 172, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utPikeman, 187, 167, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utBowman, 187, 162, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utHorseScout, 187, 187, 6, 20, 5);
-	Actions.GiveGroup(ROYCE_HAND, utPorter, 175, 170, 6, 10, 5);
-	Actions.GiveGroup(ROYCE_HAND, utBuilder, 175, 170, 6, 10, 5);
+	dukeGroup := Actions.GiveGroup(PLAYER_ROYCE, utCavalry, 190, 190, 6, 1, 1);
+	Actions.GiveGroup(PLAYER_ROYCE, utAxeFighter, 187, 182, 6, 20, 5);
+	Actions.GiveGroup(PLAYER_ROYCE, utAxeFighter, 187, 177, 6, 20, 5);
+	Actions.GiveGroup(PLAYER_ROYCE, utPikeman,187, 172, 6, 20, 5);
+	Actions.GiveGroup(PLAYER_ROYCE, utPikeman, 187, 167, 6, 20, 5);
+	Actions.GiveGroup(PLAYER_ROYCE, utBowman, 187, 162, 6, 20, 5);
+	Actions.GiveGroup(PLAYER_ROYCE, utHorseScout, 187, 187, 6, 20, 5);
+	UTUnitSetHeroStats(States.GroupMember(dukeGroup, 0), HERO_ROYCE_NAME, HERO_ROYCE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ROYCE_HP, 60)), -1, -1, -1, HERO_ROYCE_COLOR);
+	
+	// Initial civilians the duke arrives with.
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
+	
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
+	Actions.GiveUnit(PLAYER_ROYCE, utBuilder, 175, 170, 6);
 	
 	// Give initial camp.
-	Actions.GiveHouse(ROYCE_HAND, htCamp, 180, 180, toWest);
-	Actions.RoadAdd(179, 178, ROYCE_HAND);
-	Actions.RoadAdd(179, 179, ROYCE_HAND);
-	Actions.RoadAdd(179, 180, ROYCE_HAND);
-	Actions.RoadAdd(179, 181, ROYCE_HAND);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + 1, WagonCurrentTick + 2, ROYCE_SUPPLY_PERIOD, wtStone, 100, False, True, False);
-	AddWagonSupply(ROYCE_HAND, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + 1, WagonCurrentTick + 2, ROYCE_SUPPLY_PERIOD, wtWood, 100, False, True, False);
+	Actions.GiveHouse(PLAYER_ROYCE, htCamp, 180, 180, toWest);
+	Actions.RoadAdd(179, 178, PLAYER_ROYCE);
+	Actions.RoadAdd(179, 179, PLAYER_ROYCE);
+	Actions.RoadAdd(179, 180, PLAYER_ROYCE);
+	Actions.RoadAdd(179, 181, PLAYER_ROYCE);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + 1, WagonCurrentTick + 2, ROYCE_SUPPLY_PERIOD, wtStone, 100, False, True, False);
+	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + 1, WagonCurrentTick + 2, ROYCE_SUPPLY_PERIOD, wtWood, 100, False, True, False);
 	
 	// Build the rest of the camp.
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 175);
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 176);
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 177, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 176, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 175, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 173, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 172, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 171, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 170, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 177);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 178);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 179);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 180);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 181);
-	Actions.PlanAddRoad(ROYCE_HAND, 169, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 170, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 171, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 172, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 173, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 175, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 176, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 177, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 182);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 178);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 179);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 180);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 181);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 178);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 179);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 180);
-	Actions.PlanAddRoad(ROYCE_HAND, 178, 181);
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 183);
-	Actions.PlanAddRoad(ROYCE_HAND, 179, 184);
-	Actions.PlanAddRoad(ROYCE_HAND, 172, 183);
-	Actions.PlanAddRoad(ROYCE_HAND, 172, 184);
-	Actions.PlanAddRoad(ROYCE_HAND, 172, 185);
-	Actions.PlanAddRoad(ROYCE_HAND, 176, 183);
-	Actions.PlanAddRoad(ROYCE_HAND, 176, 184);
-	Actions.PlanAddRoad(ROYCE_HAND, 176, 185);
-	Actions.PlanAddRoad(ROYCE_HAND, 173, 185);
-	Actions.PlanAddRoad(ROYCE_HAND, 174, 185);
-	Actions.PlanAddRoad(ROYCE_HAND, 175, 185);
-	Actions.PlanAddHouse(ROYCE_HAND, htStore, 177, 179, toEast);
-	Actions.PlanAddHouse(ROYCE_HAND, htTavern, 180, 175, toWest);
-	Actions.PlanAddHouse(ROYCE_HAND, htTavern, 172, 186, toNorth);
-	Actions.PlanAddHouse(ROYCE_HAND, htFort, 170, 179, toWest);
-	Actions.PlanAddHouse(ROYCE_HAND, htBarracks, 180, 184, toWest);
-	Actions.PlanAddHouse(ROYCE_HAND, htCottage, 169, 176, toSouth);
-	Actions.PlanAddHouse(ROYCE_HAND, htCottage, 174, 176, toSouth);
-	Actions.PlanAddHouse(ROYCE_HAND, htCottage, 169, 183, toNorth);
-	Actions.PlanAddHouse(ROYCE_HAND, htCottage, 174, 183, toNorth);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 175);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 176);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 177, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 176, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 175, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 173, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 172, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 171, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 170, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 177);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 178);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 179);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 180);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 181);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 169, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 170, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 171, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 172, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 173, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 175, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 176, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 177, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 182);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 178);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 179);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 180);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 181);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 178);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 179);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 180);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 178, 181);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 183);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 179, 184);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 172, 183);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 172, 184);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 172, 185);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 176, 183);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 176, 184);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 176, 185);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 173, 185);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 174, 185);
+	Actions.PlanAddRoad(PLAYER_ROYCE, 175, 185);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htStore, 177, 179, toEast);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htTavern, 180, 175, toWest);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htTavern, 172, 186, toNorth);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htFort, 170, 179, toWest);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htBarracks, 180, 184, toWest);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 169, 176, toSouth);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 174, 176, toSouth);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 169, 183, toNorth);
+	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 174, 183, toNorth);
 end;
 
+
 // Should probably add AAI function that can do this without half reinventing the wheel.
-procedure InitialAttackHandle();
+procedure CheckInitialAttackDeafeated();
 var
-	i, closestHouse, closestUnit: Integer;
-	closestHouseD, closestUnitD: Single;
+	i: Integer;
 begin
-	InitialAttackProceeding := False;
+	InitialAttackDefeated := True;
 	for i := 0 to High(InitialAttackGroups) do
-		if (States.GroupMemberCount(InitialAttackGroups[i]) > 0) then
+		if (InitialAttackGroups[i] > 0) and (States.GroupMemberCount(InitialAttackGroups[i]) > 0) then
 		begin
-			InitialAttackProceeding := True;
-			closestHouse := GetClosestHouse(GetGroupX(InitialAttackGroups[i]), GetGroupY(InitialAttackGroups[i]), [PLAYER_HAND, REFUGEES_HAND], htAny, True, closestHouseD);
-			closestUnit := GetClosestUnit(GetGroupX(InitialAttackGroups[i]), GetGroupY(InitialAttackGroups[i]), MilitaryUnitTargetBias, [PLAYER_HAND, REFUGEES_HAND], closestUnitD);
-			
-			if (closestHouseD < closestUnitD)
-			and (closestHouse > -1) then
-				Actions.GroupOrderAttackHouse(InitialAttackGroups[i], closestHouse)
-			else if (closestUnit > -1) then
-				Actions.GroupOrderAttackUnit(InitialAttackGroups[i], closestUnit);
+			InitialAttackDefeated := False;
+			Break;
 		end;
-	if (not InitialAttackProceeding) then
+
+	if InitialAttackDefeated then
 	begin
-		// Remove these AIDispositions, they were used just to spawn troops for the initial attack and avoid having them run back to base.
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 40, 159);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 46, 159);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 43, 152);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 37, 148);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 33, 142);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 26, 139);
-		Actions.PlayerAIDispositionRemove(HARGRAVE_HAND, 26, 145);
-		
 		// Remove the defending AIDispositions for the purpose of moving the troops to the North.
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 23, 149);
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 27, 149);
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 34, 151);
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 36, 158);
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 36, 162);
-		Actions.PlayerAIDispositionRemove(REFUGEES_HAND, 30, 155);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 23, 149);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 27, 149);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 34, 151);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 36, 158);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 36, 162);
+		Actions.PlayerAIDispositionRemove(PLAYER_REFUGEES, 30, 155);
 		
 		// Use the remaining refugees to guard the Northern pass.
-		Actions.PlayerAIDispositionAdd(REFUGEES_HAND, 24, 125, 0, gtMelee, 15, 15, 5);
-		Actions.PlayerAIDispositionAdd(REFUGEES_HAND, 29, 125, 0, gtAntiHorse, 15, 15, 5);
-		Actions.PlayerAIDispositionAdd(REFUGEES_HAND, 27, 128, 0, gtRanged, 15, 18, 6);
+		Actions.PlayerAIDispositionAdd(PLAYER_REFUGEES, 24, 125, 0, gtMelee, 15, 5, 15);
+		Actions.PlayerAIDispositionAdd(PLAYER_REFUGEES, 29, 125, 0, gtAntiHorse, 15, 5, 15);
+		Actions.PlayerAIDispositionAdd(PLAYER_REFUGEES, 27, 128, 0, gtRanged, 18, 6, 15);
 		
 		// Graham's end.
-		Actions.PlayerMessage(PLAYER_HAND, MSG_GRAHAM_DIED, True);
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_GRAHAM_DIED, True);
+		Actions.UnitKill(HeroGrahamUnit, False);
 	end;
 end;
+
+
+//
+procedure SiegePatrolMove(aTick: Integer);
+var
+	siegePatrol: Integer;
+begin
+	if ((aTick / SIEGE_PATROL_TRAVEL_TIME) mod 2 = 0) then
+	begin
+		siegePatrol := UTAIDispositionAt(PLAYER_SIEGE_CAMP, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y - 4);
+		UTAIDispositionMove(PLAYER_SIEGE_CAMP, siegePatrol, SIEGE_PATROL_START_X, SIEGE_PATROL_START_Y, 4);
+	end
+	else
+	begin
+		siegePatrol := UTAIDispositionAt(PLAYER_SIEGE_CAMP, SIEGE_PATROL_START_X, SIEGE_PATROL_START_Y);
+		UTAIDispositionMove(PLAYER_SIEGE_CAMP, siegePatrol, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y - 4, 0);
+	end;
+end;
+
+
 
 procedure FeedRefugees();
 var
 	unitsToFeed: array of Integer;
 	i: Integer;
 begin
-	unitsToFeed := States.PlayerGetAllUnits(REFUGEES_HAND);
+	unitsToFeed := States.PlayerGetAllUnits(PLAYER_REFUGEES);
 
 	for i := 0 to High(unitsToFeed) do
 		Actions.UnitHungerSet(unitsToFeed[i], States.UnitHungerMax);
 end;
 
-procedure OnMissionStart();
+
+//
+procedure OptimizeAI();
 begin
-	WinTick := -1;
-	ObjectiveCreate(PLAYER_HAND, otMain, 0, osActive, OBJ_SIEGE, DefeatSiegeObjID, DefeatSiegeObjSt);
-	ObjectiveCreate(PLAYER_HAND, otMain, 1, osActive, OBJ_HARGRAVE, DefeatHargraveObjID, DefeatHargraveObjSt);
+	UTOptimizeAIArmyCompositions(PLAYER_HARGRAVE, [320, 0, 320, 0, 320, 0, 320, 0], True);
+	UTOptimizeAIHouseWareBlocks(PLAYER_HARGRAVE, [], [], True, True);
 	
-	Actions.PlayerMessage(PLAYER_HAND, MSG_INTRO, True);
+	UTOptimizeAIArmyCompositions(PLAYER_SIEGE_CAMP, [320, 0, 320, 0, 320, 0, 320, 0], True);
+	UTOptimizeAIHouseWareBlocks(PLAYER_SIEGE_CAMP, [], [], True, True);
+end;
 
-	// Personal preference. The bases should be balanced around this.
-	PlayerMaxWareDistributions(HARGRAVE_HAND);
-	PlayerMaxWareDistributions(REFUGEES_HAND);
-	PlayerMaxWareDistributions(SIEGE_HAND);
-	PlayerMaxWareDistributions(ROYCE_HAND);
-	Actions.PlayerWareDistribution(HARGRAVE_HAND, wtGrain, htSheepyard, 0);
-	Actions.PlayerWareDistribution(REFUGEES_HAND, wtGrain, htSheepyard, 0);
-	Actions.PlayerWareDistribution(SIEGE_HAND, wtGrain, htSheepyard, 0);
-	Actions.PlayerWareDistribution(ROYCE_HAND, wtGrain, htSheepyard, 0);
 
-	// Used for patroling the siege camp's supply line.
+
+procedure SetupAI();
+begin
+	HargraveAttackSetup();
+	SiegeAttackSetup();
+	InitialAttackSetup();
+	
 	EnemySupplyStart();
 	
-	// Used for handling the initial attack, rather then seeing the troops turn and go fill empty AIDispositions. 
-	InitialAttackProceeding := True;
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(40, 159));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(46, 159));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(43, 152));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(37, 148));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(33, 142));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(26, 139));
-	ArrayIAppend(InitialAttackGroups, States.GroupAt(26, 145));
-	
-	// Prepare Hargrave's additional attack waves.
-	HargraveAttackSetup();
+	UTPlayerMaxWareDistributions(PLAYER_HARGRAVE);
+	UTPlayerMaxWareDistributions(PLAYER_REFUGEES);
+	UTPlayerMaxWareDistributions(PLAYER_SIEGE_CAMP);
+	UTPlayerMaxWareDistributions(PLAYER_ROYCE);
+	Actions.PlayerWareDistribution(PLAYER_HARGRAVE, wtGrain, htSheepyard, 0);
+	Actions.PlayerWareDistribution(PLAYER_REFUGEES, wtGrain, htSheepyard, 0);
+	Actions.PlayerWareDistribution(PLAYER_SIEGE_CAMP, wtGrain, htSheepyard, 0);
+	Actions.PlayerWareDistribution(PLAYER_ROYCE, wtGrain, htSheepyard, 0);
 end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	PlayerWinTick := -1;
+	
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DESTROY_SIEGE_TOWN, DestroySiegeTownObjID, DestroySiegeTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_DEFEAT_SIEGE_ARMY, DefeatSiegeArmyObjID, DefeatSiegeArmyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 2, osActive, OBJ_DESTROY_HARGRAVE_TOWN, DestroyHargraveTownObjID, DestroyHargraveTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 3, osActive, OBJ_DEFEAT_HARGRAVE_ARMY, DefeatHargraveArmyObjID, DefeatHargraveArmyObjSt);
+end;
+
+
+
+procedure OnMissionStart();
+begin
+	DNInitiateScript(12000, 14400);
+	WSInitiateScript(True);
+	AAIInitiateScript(100, 5, 10, 50);
+	SetupHeroes();
+	SetupAI();
+	SetupObjectives();
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+end;
+
+
 
 procedure OnTick(aTick: Integer);
 begin
-	AttackAIResolveTick(aTick);
-	WagonScriptResolveTick(aTick);
+	DNResolveTick(aTick);
+	WSResolveTick(aTick);
+	AAIResolveTick(aTick);
 
-	if ((aTick * 2) mod 600 = 0) then
-		MoveAAIDisp(SiegeScoutPatrol, SIEGE_SUPPLY_X, SIEGE_SUPPLY_Y - 4, 0);
-	if ((aTick) mod 600 = 0) then
-		MoveAAIDisp(SiegeScoutPatrol, SIEGE_PATROL_START_X, SIEGE_PATROL_START_Y, 4);
+	if (not SiegeDefeated) and (aTick mod SIEGE_PATROL_TRAVEL_TIME = 0) then
+		SiegePatrolMove(aTick);
 	
-	if InitialAttackProceeding and (aTick mod 100 = 0) then
-		InitialAttackHandle();
-		
+	if not InitialAttackDefeated and (aTick mod 10 = 0) then
+		CheckInitialAttackDeafeated();
+	
 	if (aTick mod 9000 = 0) then
 		FeedRefugees();
 	
-	// Before the attack is launched, checks if it is ready. If it is, sends the troops in front of the bridge for smoother walking towards their target.
-	if (aTick = HARGRAVE_START_TRAINING) then
-		HargraveStartTraining();
+	if (aTick mod 100 = 0) then
+		OptimizeAI();
 	
-	if ((aTick >= (HARGRAVE_ATTACKS_START - HARGRAVE_ATTACKS_PREPARE_TIME))
-	and ((aTick - HARGRAVE_ATTACKS_START + HARGRAVE_ATTACKS_PREPARE_TIME) mod (HARGRAVE_ATTACKS_PERIOD) = 0)) then
-		HargraveCheckAttackPrepared();
-		
-	// A minute after the attack, return the AIDispositions back behind the frontline.
-	if ((aTick >= (HARGRAVE_ATTACKS_START + 600))
-	and ((aTick - HARGRAVE_ATTACKS_START - 600) mod (HARGRAVE_ATTACKS_PERIOD) = 0)) then
-		HargraveAttackWithdraw();
-		
-	if (aTick mod 50 = 0) then
-		CheckObjectives();
-		
 	if (aTick = CAPTAIN_ARRIVE_TIME) then
 		CaptainArrives();
 	
 	if (aTick = ROYCE_ARRIVE_TIME) then
 		DukeArrives();
+	
+	if (aTick = HARGRAVE_START_TRAINING) then
+		HargraveAttackStartTraining();
 		
-	if ((WinTick > 0)
-	and (aTick = WinTick + 1)) then
-		Actions.PlayerWin([PLAYER_HAND], True);
+	if (aTick - 1 = PlayerWinTick) then
+		Actions.PlayerWin([PLAYER_HUMAN], False);
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
 end;
+
 
 procedure OnUnitOwnerChanged(aOldUnit, aNewUnit: Integer);
 begin
-	CheckSendStolenWagon(aOldUnit, aNewUnit);
+	WSCheckSendStolenWagon(aOldUnit, aNewUnit);
 end;
+
+
+procedure OnWarriorEquipped(aUnit: Integer; aGroup: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_ROYCE) and (States.UnitType(aUnit) = utCavalry) then
+		UTUnitSetHeroStats(aUnit, HERO_ROYCE_NAME, HERO_ROYCE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ROYCE_HP, 60)), -1, -1, -1, HERO_ROYCE_COLOR);
+end;
+
 
 procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
 begin
-	if (States.UnitOwner(aUnit) = PLAYER_HAND) then
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
 	begin
 		if ((aTriggerId = TT_BOTTOM_BRIDGE)
 		and not TTFiredBottomBridge) then
 		begin
-			Actions.PlayerMessage(PLAYER_HAND, MSG_BOTTOM_BRIDGE_EXPLORED, True);
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_BOTTOM_BRIDGE_EXPLORED, True);
 			TTFiredBottomBridge := True;
 		end;
 		if ((aTriggerId = TT_FORD)
 		and not TTFiredFord) then
 		begin
-			Actions.PlayerMessage(PLAYER_HAND, MSG_FORD_EXPLORED, True);
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_FORD_EXPLORED, True);
 			TTFiredFord := True;
 		end;
 		if ((aTriggerId = TT_BROKEN_BRIDGE)
 		and not TTBrokenBridgeFired) then
 		begin
-			Actions.PlayerMessage(PLAYER_HAND, MSG_BROKEN_BRIDGE_EXPLORED, True);
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_BROKEN_BRIDGE_EXPLORED, True);
 			TTBrokenBridgeFired := True;
 		end;
 		if ((aTriggerId = TT_NORTH_BRIDGE)
 		and not TTNorthBridgeFired) then
 		begin
-			Actions.PlayerMessage(PLAYER_HAND, MSG_NORTHERN_BRIDGE_EXPLORED, True);
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_NORTHERN_BRIDGE_EXPLORED, True);
 			TTNorthBridgeFired := True;
 		end;
-		if ((aTriggerId = TT_ENEMY_SUPPLY_SPOTTED)
-		and EnemySupplySpotted()
-		and not TTEnemySupplySpottedFired) then
+		if ((aTriggerId = TT_ENEMY_SUPPLY_ROAD)
+		and IsEnemySupplyOnRoad()
+		and not TTEnemySupplyRoadFired) then
 		begin
-			Actions.PlayerMessage(PLAYER_HAND, MSG_ENEMY_SUPPLY_SPOTTED, True);
-			TTEnemySupplySpottedFired := True
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_ENEMY_SUPPLY_SPOTTED, True);
+			TTEnemySupplyRoadFired := True
 		end;
 	end;
 end;

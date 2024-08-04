@@ -1,0 +1,229 @@
+// ####################   WagonSupply script   ####################
+// Author: Amaroth. This script requires Amaroth's Extra utils to run.
+// Version: 1.1.1 (2024-08-04)
+// The intended use of this script is to provide an easy to use interface to set up supply chain. Wagons will appear on the starting coordinates, they will be filled with appropriate amount of resources (if there's too much for 1 wagon to carry, more are spawned, as needed), and sent towards the closest house of their owner which can take the resources in. If no house is found, the wagons will just stay where they are
+// Some of the optioal features are: The owner receives a message that the wagons could not find a valid storehouse. Or, if no valid storehouse was found, the wagons don't spawn in the first place. Also, when a wagon is taken/stolen, it can be automatically sent to the new owner's base (if the new owner has a valid storehouse of his own).
+
+// HOW TO USE:
+// 1. Add WSInitiateScript to your OnMissionStart event handler.
+// 2. Add WSResolveTick to your OnTick event handler.
+// 3. (Optional): Add msg_supply_no_storehouse into your map's libx. This message is to notify the player that the wagons could not find a storehouse/camp/fort/barracks to deliver the resources into, and that they are awaiting the player's commands. Word this to your player in any way you like. This needs to be done only if allowedNoStoreMessage is True.
+// 4. (Optional): Add WSCheckSendStolenWagon into your OnUnitOwnerChanged.
+// 5. Use WSAddWagonSupply to create and configure periodical stream of supply to a player.
+// 6. There are some more optional functions here. Check their individual descriptions for more info.
+// 7. ??
+// 8. Profit.
+
+uses
+	extra_utils;
+
+const
+	WS_WAGON_CAPACITY = 50;
+
+// Check WSAddWagonSupply for more info.
+type
+	WSWagonSupply = record
+		aPlayer, spawnX, spawnY, startTick, stopTick, supplyFrequency: Integer;
+		wareType: TKMWareType;
+		wareAmount: Integer;
+		allowedNoStoreMessage, allowedNoStoreNoSpawn, horsePreferFort: Boolean;
+	end;
+	
+var
+	WSWagonSupplies: array of WSWagonSupply;
+	WagonCurrentTick: Integer;
+	AutoSendHomeAllowed: Boolean;
+
+
+// Creates a new supply for the given player. Periodically, wagons will be spawned, and they will deliver the resources to the player's house.
+procedure WSAddWagonSupply(aPlayer, spawnX, spawnY, startTick, stopTick, supplyFrequency: Integer; wareType: TKMWareType; wareAmount: Integer; allowedNoStoreMessage, allowedNoStoreNoSpawn, horsePreferFort: Boolean);
+var
+	WSWagonSupply: WSWagonSupply;
+	arrLen: Integer;
+begin
+	// Who will be the initial owner.
+	WSWagonSupply.aPlayer := aPlayer;
+	// Spawn coordinates for the wagons.
+	WSWagonSupply.spawnX := spawnX;
+	WSWagonSupply.spawnY := spawnY;
+	// When will the spawning start, when will it stop, and how frequently (in ticks) will it occur. Enter -1 for stopTick to make the wagon spawn never end.
+	WSWagonSupply.startTick := startTick;
+	WSWagonSupply.stopTick := stopTick;
+	WSWagonSupply.supplyFrequency := supplyFrequency;
+	// The type of the supplied resource.
+	WSWagonSupply.wareType := wareType;
+	// The amount of the supplied resource per 1 period/delivery. The script will spawn as many wagons as are needed.
+	WSWagonSupply.wareAmount := wareAmount;
+	// If allowed, messages will pop up for the player notifying there is no available storehouse for resources being sent. Happens only if allowedNoStoreNoSpawn is disabled.
+	WSWagonSupply.allowedNoStoreMessage := allowedNoStoreMessage;
+	// If allowed, wagons will not spawn if there is no suitable storehouse for them to head towards.
+	WSWagonSupply.allowedNoStoreNoSpawn := allowedNoStoreNoSpawn;
+	// If allowed, horses will prioritize Forts over Barracks, if both are found.
+	WSWagonSupply.horsePreferFort := horsePreferFort;
+	
+	arrLen := Length(WSWagonSupplies);
+	SetLength(WSWagonSupplies, arrLen + 1);
+	WSWagonSupplies[arrLen] := WSWagonSupply;
+end;
+
+
+// Returns if the given wagon supply's time for the next delivery is up.
+function WSSupplyIsReady(var wagon: WSWagonSupply): Boolean;
+begin
+	Result := ((WagonCurrentTick - wagon.startTick) mod wagon.supplyFrequency = 0) and (WagonCurrentTick >= wagon.startTick) and ((WagonCurrentTick < wagon.stopTick) or (wagon.stopTick = -1));
+end;
+
+
+// Spawns the wagons to carry the supply towards the target house.
+procedure WSSupplySend(var wagon: WSWagonSupply; targetHouse: Integer);
+var
+	i, fullWagonAmount, lastWagonLoad: Integer;
+	wagons: array of Integer;
+begin
+	// Yes, that many sanity checks.
+	if (wagon.wareAmount <= 0)
+	or (wagon.aPlayer < 0)
+	or (wagon.spawnX < 0)
+	or (wagon.spawnY < 0)
+	or (wagon.wareType = wtAll)
+	or (wagon.wareType = wtWarfare)
+	or (wagon.wareType = wtFood)
+	or (wagon.wareType = wtNone)
+	or ((targetHouse > 0)
+	and ((wagon.aPlayer <> States.HouseOwner(targetHouse)) 
+	or (not States.HouseIsComplete(targetHouse))
+	or (States.HouseDestroyed(targetHouse)))) then
+		Exit;
+	
+	fullWagonAmount := Trunc(wagon.wareAmount / WS_WAGON_CAPACITY);
+	lastWagonLoad := wagon.wareAmount mod WS_WAGON_CAPACITY;
+
+	for i := 0 to fullWagonAmount - 1 do
+	begin
+		Utils.ArrayAppendI(wagons, Actions.GiveUnit(wagon.aPlayer, utWagon, wagon.spawnX, wagon.spawnY, 0));
+		Actions.UnitCarryGive(wagons[i], wagon.wareType, WS_WAGON_CAPACITY);
+	end;
+	
+	if (lastWagonLoad > 0) then
+	begin
+		Utils.ArrayAppendI(wagons, Actions.GiveUnit(wagon.aPlayer, utWagon, wagon.spawnX, wagon.spawnY, 0));
+		Actions.UnitCarryGive(wagons[High(wagons)], wagon.wareType, lastWagonLoad);
+	end;
+
+	if (targetHouse > 0) then
+		for i := 0 to High(wagons) do
+			Actions.UnitWagonOrderEnterHouse(wagons[i], targetHouse);
+end;
+
+
+// Sends the resources from one house to another. The resources are taken from the origin house. This works even if the houses are owned by different players - can be used for trading.
+procedure WSSendResourcesHouseToHouse(originHouse, destinationHouse: Integer; wareType: TKMWareType; wareAmount: Integer);
+var
+	i, fullWagonAmount, lastWagonLoad, destinationOwner, newWagon: Integer;
+	wagons: array of Integer;
+begin
+	if not (originHouse > 0) or not (destinationHouse > 0) then Exit;
+	if not States.HouseIsComplete(originHouse) or not States.HouseIsComplete(destinationHouse) then Exit;
+	if (States.HouseWareInside(originHouse, wareType) < wareAmount) then Exit;
+	
+	Actions.HouseWareRemove(originHouse, wareType, wareAmount);
+	destinationOwner := States.HouseOwner(destinationHouse);
+	
+	fullWagonAmount := Trunc(wareAmount / WS_WAGON_CAPACITY);
+	lastWagonLoad := wareAmount mod WS_WAGON_CAPACITY;
+	
+	for i := 0 to fullWagonAmount - 1 do
+	begin
+		newWagon := Actions.GiveUnit(destinationOwner, utWagon, States.HousePositionX(originHouse) + 1, States.HousePositionY(originHouse) + 1, 0);
+		if (newWagon < 1) Then
+			newWagon := Actions.GiveUnit(destinationOwner, utWagon, States.HousePositionX(originHouse) - 1, States.HousePositionY(originHouse) - 1, 0);
+		Utils.ArrayAppendI(wagons, newWagon);
+		Actions.UnitCarryGive(wagons[i], wareType, WS_WAGON_CAPACITY);
+	end;
+	
+	if (lastWagonLoad > 0) then
+	begin
+		newWagon := Actions.GiveUnit(destinationOwner, utWagon, States.HousePositionX(originHouse) + 1, States.HousePositionY(originHouse) + 1, 0);
+		if (newWagon < 1) Then
+			newWagon := Actions.GiveUnit(destinationOwner, utWagon, States.HousePositionX(originHouse) - 1, States.HousePositionY(originHouse) - 1, 0);
+		Utils.ArrayAppendI(wagons, newWagon);
+		Actions.UnitCarryGive(wagons[High(wagons)], wareType, lastWagonLoad);
+	end;
+
+	for i := 0 to High(wagons) do
+		Actions.UnitWagonOrderEnterHouse(wagons[i], destinationHouse);
+end;
+
+
+// Call this from OnUnitOwnerChanged event handler - used for auto-sending stolen wagons to the robber's base. Note that this will not work if the player has no valid destination house available, and then, currently, the wagon will just remain standing idle anyway.
+procedure WSCheckSendStolenWagon(aOldUnit, aNewUnit: Integer);
+var
+	closestHouse: Integer;
+	closestDistance: Single;
+begin
+	if (States.UnitType(aNewUnit) = utWagon)
+	and AutoSendHomeAllowed then
+	begin
+		closestHouse := UTHouseGetClosestToPos(States.UnitPositionX(aNewUnit), States.UnitPositionY(aNewUnit), [States.UnitOwner(aNewUnit)], UTWareTypeGetStoreHouseType(States.UnitCarryType(aNewUnit), False), True, closestDistance);
+		if (closestHouse > 0) then
+			Actions.UnitWagonOrderEnterHouse(aNewUnit, closestHouse)
+		else
+			closestHouse := UTHouseGetClosestToPos(States.UnitPositionX(aNewUnit), States.UnitPositionY(aNewUnit), [States.UnitOwner(aNewUnit)], UTWareTypeGetStoreHouseType(States.UnitCarryType(aNewUnit), True), True, closestDistance);
+		if (closestHouse > 0) then
+			Actions.UnitWagonOrderEnterHouse(aNewUnit, closestHouse);
+	end;
+end;
+
+
+// Checks whether a wagon has suitable destination. If not and apropriate conditions are met, notifies the player. If apropriate, initiates wagon spawn.
+procedure WSCheckSupplySend(var wagon: WSWagonSupply);
+var
+	closestHouse: Integer;
+	closestDistance: Single;
+begin
+	closestHouse := UTHouseGetClosestToPos(wagon.spawnX, wagon.spawnY, [wagon.aPlayer], UTWareTypeGetStoreHouseType(wagon.wareType, wagon.horsePreferFort), True, closestDistance);
+	// If the cargo are horses and no fort/barracks was found, try to find the other option instead.
+	if (closestHouse < 0) and (wagon.wareType = wtHorse) then
+		closestHouse := UTHouseGetClosestToPos(wagon.spawnX, wagon.spawnY, [wagon.aPlayer], UTWareTypeGetStoreHouseType(wagon.wareType, not wagon.horsePreferFort), True, closestDistance);
+	
+	if (closestHouse < 0) then
+	begin
+		if wagon.allowedNoStoreNoSpawn then Exit;
+		if wagon.allowedNoStoreMessage and (closestHouse < 0) then
+			Actions.PlayerMessage(wagon.aPlayer, '<$msg_supply_no_storehouse>', True);
+	end;
+	WSSupplySend(wagon, closestHouse);
+end;
+
+
+// Disables all wagon supplies of the given player. Commonly used when a player is defeated.
+procedure WSPlayerDisableSupplies(aPlayer: Integer);
+var
+	i: Integer;
+begin
+	for i := 0 to High(WSWagonSupplies) do
+			if (WSWagonSupplies[i].aPlayer = aPlayer) then
+				WSWagonSupplies[i].stopTick := WagonCurrentTick;
+end;
+
+
+// Init the script and its config values. Call this from OnMissionStart.
+procedure WSInitiateScript(sendHomeAllowed: Boolean);
+begin
+	// Relevant if a wagon is stolen. Needs OnUnitOwnerChanged event handler.
+	AutoSendHomeAllowed := sendHomeAllowed;
+end;
+
+
+// Each tick, checks whether there is a wagon supply to be sent out. Call this from OnTick.
+procedure WSResolveTick(aTick: Integer);
+var
+	i: Integer;
+begin
+	WagonCurrentTick := aTick;
+		
+	for i := 0 to High(WSWagonSupplies) do
+		if (WSSupplyIsReady(WSWagonSupplies[i])) then
+			WSCheckSupplySend(WSWagonSupplies[i]);
+end;
+// ####################   End of WagonSupply script   ####################

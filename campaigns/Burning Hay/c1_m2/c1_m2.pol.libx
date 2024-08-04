@@ -1,35 +1,47 @@
-﻿0:Amaroth
+﻿#Pol texts by Dolbi
+0:Amaroth
 1:Żaden bandyta nie został wzięty do niewoli, ale kilku uciekło na północ, skąd przybyli. Oznacza to, że musi istnieć obóz, który wymaga wykorzenienia. Ugasiłeś pożary, powołałeś milicję, zleciłeś [$0073FF]Kapitanowi Astonowi[] ochronę twojego zamku pod twoją nieobecność (lub tego, co z niego zostało) i wymaszerowałeś w pościg za uciekającymi [$61793F]bandytami[].
-2:Sir Haytow
-3:Bandyci
-4:Wojska królewskie
-10:Kilka dni później...
-11:Znalazłeś mały obóz z żołnierzami noszącymi królewskie barwy. Nie jesteś pewien, co oni tutaj robią, ale wydaje się, że są atakowani przez tych samych bandytów! Być może powinniście połączyć siły.
-20:[$00B3FF]Ty:[] „Żołnierze! Kto jest waszym przywódcą? I co się tutaj dzieje?”
-21:[$A040A0]Sierżant Linton:[] „Sir! Właśnie przechodziliśmy obok, kiedy nasz kapitan został zabity przez tych drani bez ważnego powodu, a teraz wygląda na to, że chcą zabrać nasze zapasy! Potrzebujemy pomocy!”
-22:[$00B3FF]Ty:[] „Ci bandyci również zaatakowali Haytow. Musimy połączyć siły i położyć temu kres. Czy w imieniu naszego Króla dołączysz do mnie?”
-23:[$A040A0]Sierżant Linton:[] „Oczywiście, panie, czas sprowadzić tu trochę starego królewskiego spokoju!”
-30:[$A040A0]Sierżant Linton:[] „Świetna walka, sir. Wszystko w porządku?”
-31:[$00B3FF]Ty:[] „Kilka zadrapań i wgnieceń, nic trwałego. Słyszysz to?”
-32:[$A040A0]Sierżant Linton:[] „Cholera, tak. Ludzie, przegrupujcie się! Nadchodzi ich więcej!”
-40:[$00D0FF]Zwiadowca:[] „Sir! Wygląda na to, że obóz bandytów przygotowuje dodatkowe ataki!”
-41:[$00B3FF]Ty:[] „Ci ludzie są albo odważni, albo po prostu zdesperowani. Albo jedno i drugie. Nie spodziewałem się, że to będzie łatwe, ale w tych ludziach musi być coś więcej niż tylko chciwość”.
-42:[$A040A0]Sierżant Linton:[] „Mówisz mi, że zwykli bandyci już by się poddali i po prostu przenieśli gdzie indziej? Nie jesteśmy tego warci.”
-43:[$00B3FF]Ty:[] „Być może nie mają dokąd pójść. Dalej na północ są ziemie Księcia Royce’a. Mój ojciec znał Royce’a bardzo dobrze. Pamiętam, że wcale nie był otwarty dla bandytyzmu”.
-44:[$A040A0]Sierżant Linton:[] „Musimy się teraz upewnić, że jesteśmy w stanie odeprzeć ciągłe ataki. Następnie jak najszybciej przeprowadź kontratak.”
-45:[$00B3FF]Ty:[] „Najpierw chciałbym zapytać Royce’a o tych ludzi, ale nie ma takiej możliwości. Będziemy musieli się przebić. Ile mamy czasu?”
-46:[$A040A0]Zwiadowca:[] „Nie jestem pewien. Około 10 minut?”
-47:[$00B3FF]Ty:[] „Bardzo dobrze. Będziemy musieli zadowolić się tym, co mamy.”
-50:Zniszcz [$61793F]bazę bandytów[].
-51:Broń swojego [$07FFFF]miasteczka[].
-60:Walka była znacznie trudniejsza, niż się spodziewałeś, ale z pomocą Lintona i jego ludzi w końcu udało ci się przechylić szalę zwycięstwa.
-61:[$00B3FF]Ty:[] „Czy teraz w końcu się poddasz, bandyto?!”
-62:[$61793F]Bandyta Graham:[] „Tak! Panie, błagam o litość!”
-63:[$00B3FF]Ty:[] „Ty i twoja banda zaatakowaliście moje miasto, napadliście na jego mury, próbowaliście ukraść nasze zapasy i zraniliście kilku moich ludzi. Teraz prosicie o litość? Kim jesteście?”
-64:[$61793F] Bandyta Graham: [] „Jesteśmy tylko uchodźcami, mój panie! Nazywam się Graham. Dowodzę tą bandą. Nasze wioski zostały spalone, nie mamy dokąd pójść ani co jeść! Próbowaliśmy żebrać, ale jest nas zbyt wielu, żeby wykarmić nas wszystkich tylko tym!”
-65:[$00B3FF]Ty:[] „Dlaczego zostałeś zaatakowany? Kto cię zaatakował? I skąd jesteś?”
-66:[$61793F] Bandyta Graham: [] „Nie mam pojęcia, kim oni byli, milordzie. Jesteśmy z ziem Księcia Royce’a. Wszyscy. Myślałem, że rozgniewał jakichś podłych ludzi, i rzeczywiście tak się stało, a jego armia została pobita. Uciekliśmy, ale potem zdaliśmy sobie sprawę, że to nie nakarmi naszych rodzin, panie. Nie chcieliśmy nikogo skrzywdzić, staraliśmy się być w tym niegroźni.
-67:[$00B3FF]Ty:[] „Na wszystko, co święte, co za bałagan. Graham, ty i twoi ludzie należycie z powrotem do swoich ziem. Powinienem kazać was wszystkich powiesić na najbliższym wzgórzu, ale nie mogę pozwolić, aby wasze rodziny głodowały na śmierć i ciążyły na moim sumieniu. Twierdzisz, że zdałeś sobie sprawę, że bieganie nie wyżywi twoich rodzin. Jeśli tak jest, czy pomożesz mi wymierzyć sprawiedliwość tym, którzy postawili nas w takiej sytuacji?”
-68:[$61793F] Bandyta Graham: [] „Koniec z uciekaniem, panie! Jesteś najwspanialszy!”
-69:[$00B3FF]Ty:[] „W Haytow zawsze mamy zapas jedzenia. Zapewnimy twoim ludziom potrzebne zapasy. W zamian nie chcę widzieć więcej kradzieży. I będziesz walczyć u mojego boku przeciwko swoim prześladowcom. Książę Royce był sojusznikiem i przyjacielem mojego ojca.
-70:[$61793F] Bandyta Graham: [] „Koniec z uciekaniem i kradzieżą, panie! Zgadzamy się!”
+
+player_01:Sir Haytow
+player_02:Bandyci
+player_03:Wojska królewskie
+
+hero_haytow_name:Sir Edgar Haytow
+hero_graham_name:Bandyta Graham
+hero_linton_name:Sierżant Linton
+
+obj_destroy_bandit_town:Zniszcz [$61793F]bazę bandytów[]
+obj_defeat_bandit_army:Pokonaj armię [$61793F]bandytów[]
+
+msg_intro_01:Kilka dni później...
+msg_intro_02:Znalazłeś mały obóz z żołnierzami noszącymi królewskie barwy. Nie jesteś pewien, co oni tutaj robią, ale wydaje się, że są atakowani przez tych samych bandytów! Być może powinniście połączyć siły.
+
+msg_join_forces_01:[$00B3FF]Ty:[] „Żołnierze! Kto jest waszym przywódcą? I co się tutaj dzieje?”
+msg_join_forces_02:[$A040A0]Sierżant Linton:[] „Sir! Właśnie przechodziliśmy obok, kiedy nasz kapitan został zabity przez tych drani bez ważnego powodu, a teraz wygląda na to, że chcą zabrać nasze zapasy! Potrzebujemy pomocy!”
+msg_join_forces_03:[$00B3FF]Ty:[] „Ci bandyci również zaatakowali Haytow. Musimy połączyć siły i położyć temu kres. Czy w imieniu naszego Króla dołączysz do mnie?”
+msg_join_forces_04:[$A040A0]Sierżant Linton:[] „Oczywiście, panie, czas sprowadzić tu trochę starego królewskiego spokoju!”
+
+msg_more_coming_01:[$A040A0]Sierżant Linton:[] „Świetna walka, sir. Wszystko w porządku?”
+msg_more_coming_02:[$00B3FF]Ty:[] „Kilka zadrapań i wgnieceń, nic trwałego. Słyszysz to?”
+msg_more_coming_03:[$A040A0]Sierżant Linton:[] „Cholera, tak. Ludzie, przegrupujcie się! Nadchodzi ich więcej!”
+
+msg_attacks_resuming_01:[$00D0FF]Zwiadowca:[] „Sir! Wygląda na to, że obóz bandytów przygotowuje dodatkowe ataki!”
+msg_attacks_resuming_02:[$00B3FF]Ty:[] „Ci ludzie są albo odważni, albo po prostu zdesperowani. Albo jedno i drugie. Nie spodziewałem się, że to będzie łatwe, ale w tych ludziach musi być coś więcej niż tylko chciwość”.
+msg_attacks_resuming_03:[$A040A0]Sierżant Linton:[] „Mówisz mi, że zwykli bandyci już by się poddali i po prostu przenieśli gdzie indziej? Nie jesteśmy tego warci.”
+msg_attacks_resuming_04:[$00B3FF]Ty:[] „Być może nie mają dokąd pójść. Dalej na północ są ziemie Księcia Royce’a. Mój ojciec znał Royce’a bardzo dobrze. Pamiętam, że wcale nie był otwarty dla bandytyzmu”.
+msg_attacks_resuming_05:[$A040A0]Sierżant Linton:[] „Musimy się teraz upewnić, że jesteśmy w stanie odeprzeć ciągłe ataki. Następnie jak najszybciej przeprowadź kontratak.”
+msg_attacks_resuming_06:[$00B3FF]Ty:[] „Najpierw chciałbym zapytać Royce’a o tych ludzi, ale nie ma takiej możliwości. Będziemy musieli się przebić. Ile mamy czasu?”
+msg_attacks_resuming_07:[$A040A0]Zwiadowca:[] „Nie jestem pewien. Około 10 minut?”
+msg_attacks_resuming_08:[$00B3FF]Ty:[] „Bardzo dobrze. Będziemy musieli zadowolić się tym, co mamy.”
+
+msg_outro_01:Walka była znacznie trudniejsza, niż się spodziewałeś, ale z pomocą Lintona i jego ludzi w końcu udało ci się przechylić szalę zwycięstwa.
+msg_outro_02:[$00B3FF]Ty:[] „Czy teraz w końcu się poddasz, bandyto?!”
+msg_outro_03:[$61793F]Bandyta Graham:[] „Tak! Panie, błagam o litość!”
+msg_outro_04:[$00B3FF]Ty:[] „Ty i twoja banda zaatakowaliście moje miasto, napadliście na jego mury, próbowaliście ukraść nasze zapasy i zraniliście kilku moich ludzi. Teraz prosicie o litość? Kim jesteście?”
+msg_outro_05:[$61793F]Bandyta Graham: [] „Jesteśmy tylko uchodźcami, mój panie! Nazywam się Graham. Dowodzę tą bandą. Nasze wioski zostały spalone, nie mamy dokąd pójść ani co jeść! Próbowaliśmy żebrać, ale jest nas zbyt wielu, żeby wykarmić nas wszystkich tylko tym!”
+msg_outro_06:[$00B3FF]Ty:[] „Dlaczego zostałeś zaatakowany? Kto cię zaatakował? I skąd jesteś?”
+msg_outro_07:[$61793F]Bandyta Graham: [] „Nie mam pojęcia, kim oni byli, milordzie. Jesteśmy z ziem Księcia Royce’a. Wszyscy. Myślałem, że rozgniewał jakichś podłych ludzi, i rzeczywiście tak się stało, a jego armia została pobita. Uciekliśmy, ale potem zdaliśmy sobie sprawę, że to nie nakarmi naszych rodzin, panie. Nie chcieliśmy nikogo skrzywdzić, staraliśmy się być w tym niegroźni.
+msg_outro_08:[$00B3FF]Ty:[] „Na wszystko, co święte, co za bałagan. Graham, ty i twoi ludzie należycie z powrotem do swoich ziem. Powinienem kazać was wszystkich powiesić na najbliższym wzgórzu, ale nie mogę pozwolić, aby wasze rodziny głodowały na śmierć i ciążyły na moim sumieniu. Twierdzisz, że zdałeś sobie sprawę, że bieganie nie wyżywi twoich rodzin. Jeśli tak jest, czy pomożesz mi wymierzyć sprawiedliwość tym, którzy postawili nas w takiej sytuacji?”
+msg_outro_09:[$61793F]Bandyta Graham: [] „Koniec z uciekaniem, panie! Jesteś najwspanialszy!”
+msg_outro_10:[$00B3FF]Ty:[] „W Haytow zawsze mamy zapas jedzenia. Zapewnimy twoim ludziom potrzebne zapasy. W zamian nie chcę widzieć więcej kradzieży. I będziesz walczyć u mojego boku przeciwko swoim prześladowcom. Książę Royce był sojusznikiem i przyjacielem mojego ojca.
+msg_outro_11:[$61793F]Bandyta Graham: [] „Koniec z uciekaniem i kradzieżą, panie! Zgadzamy się!”

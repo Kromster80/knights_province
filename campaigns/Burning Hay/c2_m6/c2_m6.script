@@ -1,0 +1,533 @@
+uses
+	extra_utils, day_night, wagon_supply, attack_ai;
+
+const
+	PLAYER_HUMAN = 0;
+	PLAYER_OLD_MINE = 1;
+	PLAYER_NEW_MINE = 2;
+	PLAYER_TRADERS = 3;
+	
+	OBJ_DESTROY_NEW_TOWN = '<$obj_destroy_new_town>';
+	OBJ_DEFEAT_NEW_ARMY = '<$obj_defeat_new_army>';
+	OBJ_DESTROY_OLD_TOWN = '<$obj_destroy_old_town>';
+	OBJ_DEFEAT_OLD_ARMY = '<$obj_defeat_old_army>';
+	OBJ_TIME_TO_BE_SPOTTED = '<$obj_time_to_be_spotted>';
+	OBJ_TALK_TO_TRADERS = '<$obj_talk_to_traders>';
+	OBJ_STEEL_TRADE = '<$obj_steel_trade>';
+	OBJ_CLOTH_TRADE = '<$obj_cloth_trade>';
+	OBJ_TRADE_READY = '<$obj_trade_ready>';
+	OBJ_TRADE_NOT_READY = '<$obj_trade_not_ready>';
+	OBJ_TRADE_DONE = '<$obj_trade_done>';
+	OBJ_REMAIN_HIDDEN = '<$obj_remain_hidden>';
+	OBJ_REINFORCEMENTS_TIMER = '<$obj_reinforcements_timer>: [$00FFFF]';
+
+	MSG_INTRO = '<$msg_intro_01>||<$msg_intro_02>|<$msg_intro_03>|<$msg_intro_04>|<$msg_intro_05>|<$msg_intro_06>|<$msg_intro_07>|<$msg_intro_08>|<$msg_intro_09>|<$msg_intro_10>';
+	MSG_TRADERS_WELCOME = '<$msg_traders_welcome_01>|<$msg_traders_welcome_02>|<$msg_traders_welcome_03>|<$msg_traders_welcome_04>|<$msg_traders_welcome_05>|<$msg_traders_welcome_06>|<$msg_traders_welcome_07>|<$msg_traders_welcome_08>|<$msg_traders_welcome_09>';
+	MSG_SPOTTED_TIMEOUT = '<$msg_spotted_timeout_01>|<$msg_spotted_timeout_02>|<$msg_spotted_timeout_03>|<$msg_spotted_timeout_04>';
+	MSG_SPOTTED_UNITS = '<$msg_spotted_units_01>';
+	MSG_SUPPLY_NO_STOREHOUSE = '<$msg_supply_no_storehouse>';
+	MSG_TIME_RUNNING_OUT = '<$msg_time_running_out_01>|<$msg_time_running_out_02>|<$msg_time_running_out_03>|<$msg_time_running_out_04>|<$msg_time_running_out_05>|<$msg_time_running_out_06>|<$msg_time_running_out_07>';
+	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>||<$msg_outro_05>|<$msg_outro_06>|<$msg_outro_07>|<$msg_outro_08>|<$msg_outro_09>|<$msg_outro_10>';
+	
+	DIALOG_TRADER = 'trader.png';
+	DIALOG_STEEL = '<$dialog_steel>';
+	DIALOG_CLOTH = '<$dialog_cloth>';
+	DIALOG_STEEL_NOT_READY = '<$dialog_steel_not_ready>';
+	DIALOG_CLOTH_NOT_READY = '<$dialog_cloth_not_ready>';
+	DIALOG_BTN_CONFIRM = '<$dialog_btn_confirm>';
+	DIALOG_BTN_REJECT = '<$dialog_btn_reject>';
+	DIALOG_BTN_STEEL_CONFIRM = 1;
+	DIALOG_BTN_STEEL_REJECT = 2;
+	DIALOG_BTN_CLOTH_CONFIRM = 3;
+	DIALOG_BTN_CLOTH_REJECT = 4;
+	
+	SPOTTED_WARNING_TIME = 54000;
+	SPOTTED_FORCE_TIME = 72000;
+	SPOTTED_ATTACK_DELAY = 6000;
+	REINFORCEMENTS_DELAY = 18000;
+	REINFORCEMENTS_INTERVAL = 9000;
+	
+	TRADE_BREAD_AMOUNT = 50;
+	TRADE_ALE_AMOUNT = 25;
+	TRADE_STEEL_AMOUNT = 30;
+	TRADE_CLOTH_AMOUNT = 50;
+	
+	MARKER_STEEL_X = 80;
+	MARKER_STEEL_Y = 131;
+	MARKER_CLOTH_X = 80;
+	MARKER_CLOTH_Y = 132;
+	
+	HERO_FULL_REGEN_TIME = 6000.0;
+	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
+	HERO_HAYTOW_HP = 325;
+	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_ALBRECHT_NAME = '<$hero_albrecht_name>';
+	HERO_ALBRECHT_HP = 200;
+	HERO_ALBRECHT_COLOR = $505050;
+	
+	TT_TRADERS_WELCOME = 1;
+	TT_OLD_MINE_SPOTTED = 2;
+	TT_NEW_MINE_SPOTTED = 3;
+	
+var
+	TTFiredTradersWelcome, PlayerSpotted, SteelTradeReady, ClothTradeReady: Boolean;
+	MarkerTrader, MarkerSteel, MarkerCloth, AleStorehouse, BreadStorehouse, TradersStorehouse, PlayerSpottedTick, PlayerWinTick, HeroHaytowUnit, ReinforcementsArrived, OldAttack, NewAttack, DestroyNewTownObjID, DefeatNewArmyObjID, DestroyOldTownObjID, DefeatOldArmyObjID, HiddenExposedObjID, TalkToTradersObjID, SteelTradeReadyObjID, ClothTradeReadyObjID, ReinforcementsTimerObjID: Integer;
+	DestroyNewTownObjSt, DefeatNewArmyObjSt, DestroyOldTownObjSt, DefeatOldArmyObjSt, HiddenExposedObjSt, TalkToTradersObjSt, SteelTradeReadyObjSt, ClothTradeReadyObjSt, ReinforcementsTimerObjSt: TKMObjectiveStatus;
+
+
+// Each 15 minutes (30 for the first wave) a couple of troops is given to the northern mine, after the player was spotted.
+procedure SendReinforcements();
+begin
+	ReinforcementsArrived := ReinforcementsArrived + 1;
+	Actions.GiveGroup(PLAYER_NEW_MINE, utSwordsman, 2, 2, 4, 15, 5);
+	Actions.GiveGroup(PLAYER_NEW_MINE, utHalberdier, 7, 2, 4, 10, 5);
+	Actions.GiveGroup(PLAYER_NEW_MINE, utCavalry, 12, 2, 4, 7, 5);
+end;
+
+
+// Checks if the reinforcements are to be sent. Updates the counter.
+procedure CheckReinforcements();
+var
+	timeToNextReinforcements: Integer;
+begin
+	timeToNextReinforcements := PlayerSpottedTick + REINFORCEMENTS_DELAY + (ReinforcementsArrived * REINFORCEMENTS_INTERVAL) - AAICurrentTick;
+
+	if ((AAICurrentTick - PlayerSpottedTick) mod REINFORCEMENTS_INTERVAL = 0) and (AAICurrentTick >= PlayerSpottedTick + REINFORCEMENTS_DELAY) and PlayerSpotted then
+		SendReinforcements();
+	if (AAICurrentTick mod 10 = 0) and PlayerSpotted then
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ReinforcementsTimerObjID, OBJ_REINFORCEMENTS_TIMER + Utils.TimeToString(timeToNextReinforcements));
+end;
+
+
+// The new mine is now to start training troops for the attacks and launch them into attacks.
+procedure NewStartAttacking();
+var
+	newDefenseAIDs: array of Integer;
+begin
+	// The new mine starts training troops.
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utArbaletman, 300);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utHalberdier, 300);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utSwordsman, 300);
+	
+	// The new mine creates new IDispositions that are to be used for launching attacks. Several of the old ones are to be kept only for defense.
+	Actions.PlayerAIDispositionAdd(PLAYER_NEW_MINE, 19, 41, 4, gtMelee, 15, 5, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_NEW_MINE, 29, 41, 4, gtMelee, 15, 5, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_NEW_MINE, 24, 41, 4, gtAntiHorse, 15, 5, 10);
+	Utils.ArrayAppendI(newDefenseAIDs, UTAIDispositionAt(PLAYER_NEW_MINE, 19, 38));
+	Utils.ArrayAppendI(newDefenseAIDs, UTAIDispositionAt(PLAYER_NEW_MINE, 24, 38));
+	Utils.ArrayAppendI(newDefenseAIDs, UTAIDispositionAt(PLAYER_NEW_MINE, 29, 38));
+	Utils.ArrayAppendI(newDefenseAIDs, UTAIDispositionAt(PLAYER_NEW_MINE, 10, 17));
+	Utils.ArrayAppendI(newDefenseAIDs, UTAIDispositionAt(PLAYER_NEW_MINE, 21, 8));
+	
+	// Set up the attack. Launch when possible.
+	NewAttack := AAICreateAttack(PLAYER_NEW_MINE, [PLAYER_HUMAN], atBoth);
+	AAIAttackSetTimes(NewAttack, PlayerSpottedTick + SPOTTED_ATTACK_DELAY, -1, 3000);
+	AAIAttackSetCompositions(NewAttack, [20, 10, 0, 0], 100, True, True, newDefenseAIDs);
+end;
+
+
+// The old mine is now to start training troops for the attacks and launch them into attacks.
+procedure OldStartAttacking();
+var
+	oldDefenseAIDs: array of Integer;
+begin
+	// The old mine starts training troops.
+	Actions.PlayerAIArmyCompositionSet(PLAYER_OLD_MINE, utArbaletman, 300);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_OLD_MINE, utHalberdier, 300);
+	
+	// The old mine starts training troops.
+	Actions.PlayerAIDispositionAdd(PLAYER_OLD_MINE, 63, 85, 4, gtAntiHorse, 15, 5, 10);
+	Actions.PlayerAIDispositionAdd(PLAYER_OLD_MINE, 68, 85, 4, gtAntiHorse, 15, 5, 10);
+	Utils.ArrayAppendI(oldDefenseAIDs, UTAIDispositionAt(PLAYER_OLD_MINE, 63, 82));
+	Utils.ArrayAppendI(oldDefenseAIDs, UTAIDispositionAt(PLAYER_OLD_MINE, 68, 82));
+	Utils.ArrayAppendI(oldDefenseAIDs, UTAIDispositionAt(PLAYER_OLD_MINE, 74, 91));
+	Utils.ArrayAppendI(oldDefenseAIDs, UTAIDispositionAt(PLAYER_OLD_MINE, 67, 59));
+	Utils.ArrayAppendI(oldDefenseAIDs, UTAIDispositionAt(PLAYER_OLD_MINE, 91, 65));
+	
+	// Set up the attack. Launch when possible.
+	OldAttack := AAICreateAttack(PLAYER_OLD_MINE, [PLAYER_HUMAN], atBoth);
+	AAIAttackSetTimes(OldAttack, PlayerSpottedTick + SPOTTED_ATTACK_DELAY, -1, 3000);
+	AAIAttackSetCompositions(OldAttack, [0, 30, 0, 0], 100, True, True, oldDefenseAIDs);
+end;
+
+
+// The player was spotted. Handle the objective updates and AI training and attack setups.
+procedure PlayerWasSpotted();
+begin
+	// Player entered TT 2 or 3, or peace time ran out.
+	PlayerSpotted := True;
+	PlayerSpottedTick := WagonCurrentTick;
+	
+	// If the peace time ran out, mark the optional quest to remain hidden as completed. Otherwise, it's failed.
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, HiddenExposedObjID, OBJ_REMAIN_HIDDEN);
+	if (PlayerSpottedTick < SPOTTED_FORCE_TIME) then
+		UTObjectiveStatusUpdate(PLAYER_HUMAN, HiddenExposedObjID, HiddenExposedObjSt, osFailed)
+	else
+		UTObjectiveStatusUpdate(PLAYER_HUMAN, HiddenExposedObjID, HiddenExposedObjSt, osCompleted);
+	
+	// Create a tracker that shows when the next reinforcements arrive.
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 8, osActive, '', ReinforcementsTimerObjID, ReinforcementsTimerObjSt);
+	CheckReinforcements();
+	NewStartAttacking();
+	OldStartAttacking();
+end;
+
+
+// Updates markers used for trading.
+procedure UpdateTradeMarkers();
+var
+	playerStores: array of Integer;
+	i, maxPlayerBread, maxPlayerAle, wareAmount, steelColor, clothColor, traderSteel, traderCloth: Integer;
+	debug: String;
+begin
+	if (MarkerSteel = 0) and (MarkerCloth = 0) then Exit;
+	if (TradersStorehouse < 1) then Exit;
+	
+	traderSteel := States.HouseWareInside(TradersStorehouse, wtSteel);
+	traderCloth := States.HouseWareInside(TradersStorehouse, wtCloth);
+	AleStorehouse := 0;
+	BreadStorehouse := 0;
+	
+	playerStores := States.PlayerGetHouses(PLAYER_HUMAN, htStore, True);
+	
+	if (Length(playerStores) = 0) then
+	begin
+		SteelTradeReady := False;
+		ClothTradeReady := False;
+	end
+	else
+	begin		
+		for i := 0 to High(playerStores) do
+		begin
+			wareAmount := States.HouseWareInside(playerStores[i], wtAle);
+			debug := debug + Utils.Format('Store ID: %d, ale amount: %d|', [playerStores[i], wareAmount]);
+			if (wareAmount > maxPlayerAle) then
+			begin
+				maxPlayerAle := wareAmount;
+				AleStorehouse := playerStores[i];
+			end;
+				
+			wareAmount := States.HouseWareInside(playerStores[i], wtBread);
+			debug := debug + Utils.Format('Store ID: %d, bread amount: %d|', [playerStores[i], wareAmount]);
+			if (wareAmount > maxPlayerBread) then
+			begin
+				maxPlayerBread := wareAmount;
+				BreadStorehouse := playerStores[i];
+			end;
+			debug := debug + Utils.Format('Current ale storehouse: %d, current bread storehouse: %d||', [AleStorehouse, BreadStorehouse]);
+		end;
+		
+		SteelTradeReady := (maxPlayerBread >= TRADE_BREAD_AMOUNT) and (traderSteel >= TRADE_STEEL_AMOUNT);
+		ClothTradeReady := (maxPlayerAle >= TRADE_ALE_AMOUNT) and (traderCloth >= TRADE_CLOTH_AMOUNT);
+	end;
+	
+	UTDebugMsgSilent(debug);
+	
+	if SteelTradeReady then
+	begin
+		steelColor := $ACFF00;
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, SteelTradeReadyObjID, OBJ_STEEL_TRADE + OBJ_TRADE_READY);
+	end
+	else
+	begin
+		steelColor := $5E7E7E;
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, SteelTradeReadyObjID, OBJ_STEEL_TRADE + OBJ_TRADE_NOT_READY);
+	end;
+	
+	if ClothTradeReady then
+	begin
+		clothColor := $00FFFF;
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ClothTradeReadyObjID, OBJ_CLOTH_TRADE + OBJ_TRADE_READY);
+	end
+	else
+	begin
+		clothColor := $747E5E;
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ClothTradeReadyObjID, OBJ_CLOTH_TRADE + OBJ_TRADE_NOT_READY);
+	end;
+	
+	if (traderSteel >= TRADE_STEEL_AMOUNT) then
+		Actions.InteractionMarkerUpdate(MarkerSteel, steelColor, SteelTradeReady, 2)
+	else
+	begin
+		Actions.InteractionMarkerRemove(MarkerSteel);
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, SteelTradeReadyObjID, OBJ_STEEL_TRADE + OBJ_TRADE_DONE);
+		UTObjectiveStatusUpdate(PLAYER_HUMAN, SteelTradeReadyObjID, SteelTradeReadyObjSt, osCompleted);
+	end;
+	
+	if (traderCloth >= TRADE_CLOTH_AMOUNT) then
+		Actions.InteractionMarkerUpdate(MarkerCloth, clothColor, ClothTradeReady, 2)
+	else
+	begin
+		Actions.InteractionMarkerRemove(MarkerCloth);
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ClothTradeReadyObjID, OBJ_CLOTH_TRADE + OBJ_TRADE_DONE);
+		UTObjectiveStatusUpdate(PLAYER_HUMAN, ClothTradeReadyObjID, ClothTradeReadyObjSt, osCompleted);
+	end;
+end;
+
+
+// When traders are met, 2 trade routes become available to the player.
+procedure TradersMet();
+begin
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_TRADERS, True, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_TRADERS_WELCOME, True);
+	TTFiredTradersWelcome := True;
+	
+	MarkerSteel := Actions.InteractionMarkerAdd(itExclamation, MARKER_STEEL_X, MARKER_STEEL_Y);
+	MarkerCloth := Actions.InteractionMarkerAdd(itExclamation, MARKER_CLOTH_X, MARKER_CLOTH_Y);
+	Actions.InteractionMarkerRemove(MarkerTrader);
+	Actions.FogRevealRect(PLAYER_HUMAN, 61, 124, 98, 148);
+	UpdateTradeMarkers();
+	
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, TalkToTradersObjID, TalkToTradersObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, SteelTradeReadyObjID, SteelTradeReadyObjSt, osActive);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, ClothTradeReadyObjID, ClothTradeReadyObjSt, osActive);
+end;
+
+
+// Used to exchange steel for bread with the traders.
+procedure TradeSteel();
+var
+	wagonFromPlayer, wagonFromTraders: Integer;
+begin
+	if not SteelTradeReady then Exit;
+	if (BreadStorehouse < 1) or (TradersStorehouse < 1) then Exit;
+	if (States.HouseWareInside(BreadStorehouse, wtBread) < TRADE_BREAD_AMOUNT)
+	or (States.HouseWareInside(TradersStorehouse, wtSteel) < TRADE_STEEL_AMOUNT) then Exit;
+	
+	WSSendResourcesHouseToHouse(BreadStorehouse, TradersStorehouse, wtBread, TRADE_BREAD_AMOUNT);
+	WSSendResourcesHouseToHouse(TradersStorehouse, BreadStorehouse, wtSteel, TRADE_STEEL_AMOUNT);
+	
+	UpdateTradeMarkers();
+end;
+
+
+// Used to exchange cloth for ale with the traders.
+procedure TradeCloth();
+var
+	wagonFromPlayer, wagonFromTraders: Integer;
+begin
+	if not ClothTradeReady then Exit;
+	if (AleStorehouse < 1) or (TradersStorehouse < 1) then Exit;
+	if (States.HouseWareInside(AleStorehouse, wtAle) < TRADE_ALE_AMOUNT)
+	or (States.HouseWareInside(TradersStorehouse, wtCloth) < TRADE_CLOTH_AMOUNT) then Exit;
+	
+	WSSendResourcesHouseToHouse(AleStorehouse, TradersStorehouse, wtAle, TRADE_ALE_AMOUNT );
+	WSSendResourcesHouseToHouse(TradersStorehouse, AleStorehouse, wtCloth, TRADE_CLOTH_AMOUNT);
+	
+	UpdateTradeMarkers();
+end;
+
+
+// Called when there is only 30 minutes left before the player is discovered regardless of his actions.
+procedure TimeRunningOutWarning();
+begin
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_TIME_RUNNING_OUT, True);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, HiddenExposedObjID, HiddenExposedObjSt, osActive);
+end;
+
+
+// Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
+procedure PlayerWins();
+begin
+	if (PlayerWinTick = -1) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+	PlayerWinTick := AAICurrentTick;
+end;
+
+
+// Periodically called to check whether the players are still supposed to live, and to update the objective statuses.
+procedure UpdateObjectives();
+var
+	newHousesLeft, newUnitsLeft, oldHousesLeft, oldUnitsLeft, i: Integer;
+	newGroups, oldGroups: array of Integer;
+begin
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_NEW_MINE, DefeatNewArmyObjID, DefeatNewArmyObjSt);
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_OLD_MINE, DefeatOldArmyObjID, DefeatOldArmyObjSt);
+	
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_NEW_MINE, DestroyNewTownObjID, DestroyNewTownObjSt);
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_OLD_MINE, DestroyOldTownObjID, DestroyOldTownObjSt);
+		
+	if (DestroyNewTownObjSt = osCompleted)
+	and (DestroyOldTownObjSt = osCompleted)
+	and (DefeatNewArmyObjSt = osCompleted)
+	and (DefeatOldArmyObjSt = osCompleted) then
+		PlayerWins();
+end;
+
+
+// Finds the first suitable units to be turned into the mission's heroes and makes them change into them.
+procedure SetupHeroes();
+begin
+	UTUnitSetHeroStats(States.UnitAt(23, 130), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	UTUnitSetHeroStats(States.UnitAt(72, 124), HERO_ALBRECHT_NAME, HERO_ALBRECHT_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ALBRECHT_HP, 60)), -1, -1, -1, HERO_ALBRECHT_COLOR);
+end;
+
+
+// Optimize the AI's town.
+procedure OptimizeAI();
+begin
+	UTOptimizeAIArmyCompositions(PLAYER_OLD_MINE, [0, 0, 0, 300, 0, 300, 0, 0], False);
+	UTOptimizeAIHouseWareBlocks(PLAYER_OLD_MINE, [], [], True, True);
+	UTOptimizeAIArmyCompositions(PLAYER_NEW_MINE, [0, 300, 0, 300, 0, 300, 0, 0], False);
+	UTOptimizeAIHouseWareBlocks(PLAYER_NEW_MINE, [], [], True, True);
+end;
+
+
+// Initial AI's setup.
+procedure SetupAI();
+var
+	traderStores: array of Integer;
+begin
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_TRADERS, True, False);
+	Actions.PlayerAllianceChange(PLAYER_OLD_MINE, PLAYER_TRADERS, True, False);
+	Actions.PlayerAllianceChange(PLAYER_NEW_MINE, PLAYER_TRADERS, True, False);
+	// Init AI setup.
+	UTPlayerMaxWareDistributions(PLAYER_OLD_MINE);
+	UTPlayerMaxWareDistributions(PLAYER_NEW_MINE);
+	UTPlayerMaxWareDistributions(PLAYER_TRADERS);
+	
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utArbaletman, 0);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utHalberdier, 0);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_NEW_MINE, utSwordsman, 0);
+	
+	Actions.PlayerAIArmyCompositionSet(PLAYER_OLD_MINE, utArbaletman, 0);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_OLD_MINE, utHalberdier, 0);
+	Actions.PlayerAIArmyCompositionSet(PLAYER_OLD_MINE, utSwordsman, 0);
+	
+	// Init player supply. Gives only extra stone at the start of the mission.
+	WSAddWagonSupply(PLAYER_HUMAN, 16, 146, 1, 10, 9000, wtStone, 1000, False, True, False);
+	
+	// Init AI supply.
+	WSAddWagonSupply(PLAYER_OLD_MINE, 97, 57, 1, -1, 9000, wtAle, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_OLD_MINE, 97, 57, 1, -1, 9000, wtBread, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_OLD_MINE, 97, 57, 1, -1, 9000, wtSausages, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_OLD_MINE, 97, 57, 1, -1, 6000, wtIronOre, 50, False, True, False);
+	
+	WSAddWagonSupply(PLAYER_NEW_MINE, 34, 1, 1, -1, 6000, wtAle, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_NEW_MINE, 34, 1, 1, -1, 6000, wtBread, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_NEW_MINE, 34, 1, 1, -1, 6000, wtSausages, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_NEW_MINE, 34, 1, 1, -1, 6000, wtIronOre, 70, False, True, False);
+	
+	WSAddWagonSupply(PLAYER_TRADERS, 98, 133, 1, -1, 6000, wtCider, 50, False, True, False);
+	
+	// Init trader quest marker unit and storehouse to be traded with.
+	traderStores := States.PlayerGetHouses(PLAYER_TRADERS, htStore, True);
+	if (Length(traderStores) > 0) then 
+		TradersStorehouse := traderStores[0];
+	MarkerTrader := Actions.InteractionMarkerAddOnUnit(itExclamation, States.UnitAt(72, 124));
+	Actions.GiveWares(PLAYER_TRADERS, wtCloth, TRADE_CLOTH_AMOUNT * 7);
+	Actions.GiveWares(PLAYER_TRADERS, wtSteel, TRADE_STEEL_AMOUNT * 7);
+end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	PlayerWinTick := -1;
+	
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DESTROY_NEW_TOWN, DestroyNewTownObjID, DestroyNewTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_DEFEAT_NEW_ARMY, DefeatNewArmyObjID, DefeatNewArmyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 2, osActive, OBJ_DESTROY_OLD_TOWN, DestroyOldTownObjID, DestroyOldTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 3, osActive, OBJ_DEFEAT_OLD_ARMY, DefeatOldArmyObjID, DefeatOldArmyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osActive, OBJ_REMAIN_HIDDEN, HiddenExposedObjID, HiddenExposedObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 5, osActive, OBJ_TALK_TO_TRADERS, TalkToTradersObjID, TalkToTradersObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 6, osHidden, OBJ_STEEL_TRADE + OBJ_TRADE_NOT_READY, SteelTradeReadyObjID, SteelTradeReadyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 7, osHidden, OBJ_CLOTH_TRADE + OBJ_TRADE_NOT_READY, ClothTradeReadyObjID, ClothTradeReadyObjSt);
+end;
+
+
+
+procedure OnScriptMarkerClick(aPlayer, aTag: Integer);
+begin
+	if (aTag = MarkerSteel) then
+	begin
+		if (SteelTradeReady) then
+			Actions.CinematicTalkingHeadWithButtons(DIALOG_TRADER, DIALOG_STEEL, '', [DIALOG_BTN_CONFIRM, DIALOG_BTN_REJECT], [DIALOG_BTN_STEEL_CONFIRM, DIALOG_BTN_STEEL_REJECT])
+		else
+			Actions.CinematicTalkingHead(DIALOG_TRADER, DIALOG_STEEL_NOT_READY, '');
+	end
+	else if (aTag = MarkerCloth) then
+	begin
+		if (ClothTradeReady) then
+			Actions.CinematicTalkingHeadWithButtons(DIALOG_TRADER, DIALOG_CLOTH, '', [DIALOG_BTN_CONFIRM, DIALOG_BTN_REJECT], [DIALOG_BTN_CLOTH_CONFIRM, DIALOG_BTN_CLOTH_REJECT])
+		else
+			Actions.CinematicTalkingHead(DIALOG_TRADER, DIALOG_CLOTH_NOT_READY, '');
+	end;
+end;
+
+
+
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+begin
+	if (aPlayer <> PLAYER_HUMAN) then Exit;
+	if (aTag = 	DIALOG_BTN_STEEL_CONFIRM) then
+		TradeSteel()
+	else if (aTag = DIALOG_BTN_CLOTH_CONFIRM) then
+		TradeCloth();
+end;
+
+
+
+procedure OnMissionStart();
+begin
+	DNInitiateScript(9900, 14400);
+	WSInitiateScript(True);
+	AAIInitiateScript(100, 5, 10, 50);
+	SetupHeroes();
+	SetupAI();
+	SetupObjectives();
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+end;
+
+
+
+procedure OnTick(aTick: Integer);
+begin
+	DNResolveTick(aTick);
+	WSResolveTick(aTick);
+	AAIResolveTick(aTick);
+	
+	if (aTick mod 10 = 0) then
+		UpdateTradeMarkers();
+	
+	if (aTick = SPOTTED_WARNING_TIME) and not PlayerSpotted then
+		TimeRunningOutWarning();
+		
+	if (aTick mod 10 = 0) and (aTick >= SPOTTED_WARNING_TIME) and not PlayerSpotted then
+		Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, HiddenExposedObjID, OBJ_TIME_TO_BE_SPOTTED + ' ' + Utils.TimeToString(SPOTTED_FORCE_TIME - aTick));
+
+	if (aTick = SPOTTED_FORCE_TIME) and not PlayerSpotted then
+	begin
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_SPOTTED_TIMEOUT, True);
+		PlayerWasSpotted();
+	end;
+	
+	CheckReinforcements();
+	
+	if (aTick mod 100 = 0) and PlayerSpotted then
+		OptimizeAI();
+		
+	if (aTick - 1 = PlayerWinTick) then
+		Actions.PlayerWin([PLAYER_HUMAN], False);
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
+end;
+
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+	begin
+		if ((aTriggerId = TT_TRADERS_WELCOME)
+		and not TTFiredTradersWelcome) then
+			TradersMet()
+		else if (aTriggerId in  [TT_OLD_MINE_SPOTTED, TT_NEW_MINE_SPOTTED]) and not PlayerSpotted then
+		begin
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_SPOTTED_UNITS, True);
+			PlayerWasSpotted();
+		end;
+	end;
+end;

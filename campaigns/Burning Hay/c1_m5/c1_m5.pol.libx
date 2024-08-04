@@ -1,96 +1,122 @@
-﻿0:Amaroth
+﻿#Pol texts by Dolbi
+0:Amaroth
 1:Stawiłeś czoła wyzwaniu [$000080]lorda Clifforda Hargrave’a[] i po raz kolejny pokonałeś jego ludzi. On porzucił swoją świtę i uciekł w stronę zamku [$14FF14]Księcia Royce’a. [$61793F]Graham[] zaoferował ci pomoc w schwytaniu swojego uciekającego Pana. Zastanawiając się, jakie niespodzianki czekają na ciebie na północy, wysłałeś ludzi Grahama naprzód, aby zdobyli przyczółek, zanim przybędą z tobą twoje siły główne.
-2:Sir Haytow
-3:Lord Hargrave
-4:Uchodźcy
-5:Obóz oblężniczy
-6:Książę Royce
-10:Pokonaj i zniszcz [$518FCF]obóz oblężniczy Hargrave’a[].
-11:Pokonaj i zniszcz [$000080]główną bazę Hargrave'a[].
-12:Przyjechały wozy z zaopatrzeniem, ale nie znaleziono żadnego odpowiedniego magazynu, w którym możnaby zdeponować zasoby. Ludzie czekają na Twoje rozkazy.
-20:Grahamowi powierzono zadanie przygotowania sztabu przed twoim przybyciem. Gdy zbliżasz się do uzgodnionego miejsca, słyszysz okrzyki bojowe. Graham i jego ludzie potrzebują pomocy!
-30:Wrodzy napastnicy są pokonani. Ale wielu z twoich sojuszników poległo. Od razu rozpoznajesz jednego z poległych.
-31:[$61793F]Graham:[] „Wybacz mi, panie… Za dużo ich…”
-32:[$00B3FF]Ty:[] „Nie ma czego wybaczać, dzielnie walczyłeś.”
-33:[$61793F]Graham: [] „Tak, ale ta strzała zaprowadzi mnie na tamten świat… Umrę i oboje o tym wiemy.”
-34:[$00B3FF]Ty:[] „To zbyt blisko serca. Przykro mi. Czy mogę coś dla ciebie zrobić?”
-35:[$61793F]Graham:[] „Tak. Niech ci dranie zapłacą… Uważaj… Hargrave ustawił swój obóz oblężniczy na wschodzie… Ale książę powinien być blisko…”
-36:[$00B3FF]Ty:[] „Książę Royce? Czy wiesz, gdzie on jest?”
-37:[$61793F]Graham:[] "... Blisssko. Powinien... dotrzeć... wkrótce..."
-38:[$00B3FF]Ty:[] "...Żołnierze! Spakujcie obóz i przygotujcie się na zwiad! Nasi wrogowie nie mogą nas ponownie zaskoczyć!"
-40:Odgłos jednostek maszerujących drogą, z której przybyłeś, od razu wprowadza Cię w niepokój...
-41:[$00B3FF]Ty:[] „Stój! Kto tam idzie?!”
-42:[$0073FF]Kapitan Aston:[] „Spodziewałbym się cieplejszego powitania, panie. Dobrze widzieć, że wciąż zipiesz.”
-43:[$00B3FF]Ty:[] „Aston! Co tu robisz?”
-44:[$0073FF]Kapitan Aston:[] „Haytow jest bezpieczny. Pomyślałem, że będziesz potrzebować tutaj pomocy, więc zostawiłem miasto w rękach tego Lintona, który wcześniej pomógł ci z bandytami”.
-45:[$00B3FF]Ty:[] „No cóż, w tym momencie przyda nam się każda pomoc. Ty i twoi ludzie jesteście mile widziani! Jednakże nasz wróg jest prawdopodobnie dobrze zaopatrzony i dobrze ufortyfikowany. Musimy jak najszybciej nadrobić."
-46:[$0073FF]Kapitan Aston:[] „Nie mogę pomóc w tym drugim przypadku, nigdy nie byłem wielkim budowniczym. Ale mogę pomóc w pierwszym.”
-47:[$00B3FF]Ty:[] „Co masz na myśli, kapitanie?”
-48:[$0073FF]Kapitan Aston:[] „W końcu jesteś Haytow z Haytow, panie! Kto inny powinien być dobrze zaopatrzony, jak nie ty? Uruchomiłem linię zaopatrzenia z domu. Wkrótce powinniśmy pływać w zbożu. Tylko się upewnij, że macie magazyn, do którego wjadą powozy”.
-49:[$00B3FF]Ty:[] „To niesamowita wiadomość. Mhm. Zastanawiam się, czy nasi wrogowie też mają podobne łańcuchy dostaw.”
-50:Zwiadowcy donoszą ze wschodu...
-51:[$00D0FF]Zwiadowca:[] „Panie! Bezpośrednio na wschód od naszego obozu znajduje się wąski drewniany most.”
-52:[$00B3FF]Ty:[] „Interesujące. Może to oznaczać słaby punkt w obronie wroga. Powinniśmy zobaczyć, co się za tym kryje, ale uważaj, to może być pułapka.”
-60:Twoi zwiadowcy donoszą z północnego wschodu...
-61:[$00D0FF]Zwiadowca:[] „Odkryliśmy w pobliżu bród, mój panie.”
-62:[$00B3FF]Ty:[] „Czy przejście na drugą stronę wydaje się bezpieczne?”
-63:[$00D0FF]Zwiadowca:[] „Ani trochę. Po drugiej stronie znajdują się fortyfikacje, a wojska wroga stoją na silnych pozycjach obronnych. Uważamy, że to wrogi obóz oblężniczy, którego wcześniej użyto do rozpoczęcia ataku mającego na celu zdobycie zamku, mój panie. Wróg chroni go i zaopatruje.”
-64:[$00B3FF]Ty:[] „Bezpośredni atak przez bród byłby kosztowny, ale jednocześnie podczas próby szturmu odkryłby nasze plecy do ataku. Być może jest jednak inny sposób…”
-70:Zwiadowca donosi z północnego wschodu...
-71:[$00D0FF]Zwiadowca:[] „To był most prowadzący do głównej bramy.”
-72:[$00B3FF]Ty:[] „Albo do tego, co z tego jeszcze pozostało. To bardzo niefortunne, jak mamy przejść przez rzekę?”
-73:[$00D0FF]Zwiadowca:[] „To zależy od ciebie, panie. Mogę powiedzieć, że to nie jest dobra droga. Myślę, że sami obrońcy go zawalili, kiedy zaatakowano zamek.”
-74:[$00B3FF]Ty:[] „Zaiste niezłomni wojownicy. Uczcimy ich pamięć, rzucając Hargrave’a na kolana.”
-80:Raport zwiadowców z północy...
-81:[$00D0FF]Zwiadowca:[] „Ten most do miasta. Dobra wiadomość jest taka, że nadal stoi.”
-82:[$00B3FF]Ty:[] „A złe wieści?”
-83:[$00D0FF]Zwiadowca:[] „Roi się tam od wrogów i jest strzeżony przez wieże.”
-84:[$00B3FF]Ty:[] „Nic dziwnego. Ustrzelą nam zadki, jeśli spróbujemy tędy przejść.”
-85:[$00D0FF]Zwiadowca:[] „Zamek wygląda na uszkodzony i w większości niestrzeżony, mój panie.”
-86:[$00B3FF]Ty:[] „Więc może uda nam się ich zaskoczyć, jeśli się przekradniemy…”
-90:Raport zwiadowców ze wschodu...
-91:[$00D0FF]Zwiadowca:[] „Dobra wiadomość, panie! Dowiedzieliśmy się, jaką drogą wykorzystują nasi wrogowie, aby zaopatrywać swój dawny obóz oblężniczy.”
-92:[$00B3FF]Ty:[] „Świetna robota. Gdzie to jest?”
-93:[$00D0FF]Zwiadowca:[] „Na drugim brzegu, idąc z południa.”
-94:[$00B3FF]Ty:[] „Jeśli tak jest, być może moglibyśmy spróbować zaatakować i ukraść ich zapasy…”
-95:[$00D0FF]Zwiadowca:[] „Tak, panie. Musimy tylko poczekać, aż przyjedzie następny powóz z zaopatrzeniem. Jedynym problemem jest to, że wróg strzeże tego obszaru kawalerią. Będziemy musieli jakoś się przekraść lub pozbyć się ich.”
-100:Graham nie mylił się... Książę był blisko! Przybywa, a za nim jego armia.
-101:[$14FF14]Książę Royce:[] „Hargrave! Ty oślizgły robaku! Myślałeś, że możesz wziąć mój zamek i trzymać go w swoich brudnych, krzywych rękach?! Na wszystko, co święte, na dziedzictwo mojej rodziny i na twój smród, ty tchórzu, przysięgam, że obetnę ci głowę przed zachodem słońca!”
-102:[$00B3FF]Ty:[] „To wielka deklaracja, Książę.”
-103:[$14FF14]Książę Royce:[] „Haytow! Jesteś błogosławieństwem, chłopcze. Kiedy goniłeś tego psa, miałem wystarczająco dużo czasu, aby przegrupować moich ludzi i przygotować się do kontrataku”.
-104:[$00B3FF]Ty:[] „To wspaniale. Więc jaki masz plan?”
-105:[$14FF14]Książę Royce:[] „Mury mojego zamku zostały naruszone i przez ciebie Hargrave nie miał dość czasu, aby je porządnie naprawić. Jeśli dotrzemy do zamku od wschodu, będziemy mogli się przekraść i wyzwolić stamtąd miasto."
-106:[$00B3FF]Ty:[] „To brzmi jak plan, ale najpierw musimy przedostać się przez wrogi obóz oblężniczy.”
-107:[$14FF14]Książę Royce:[] „Czy ruszymy teraz? Cóż, wygląda na to, że wykonaliśmy już całą robotę. Zaatakujemy od południa. Pomóż nam w jakikolwiek sposób, jaki uznasz za stosowny, Haytow. Zrobiłeś bardzo dużo. Cóż, jak na razie, zaufam Twojej ocenie.
-110:Dawny obóz oblężniczy płonie, a jego obrońcy leżą pokonani.
-111:[$00B3FF]Ty:[] „Wreszcie postęp. Teraz możemy skupić się na Hargrave’ie.”
-112:[$0073FF]Kapitan Aston:[] „Nie będzie łatwo wykopać ich z tego zamku, panie.”
-113:[$00B3FF]Ty:[] „W jakiś sposób wdarli się do zamku i jest on bardziej drożny od wschodniej strony. Powinno być wejście.”
-120:Zamek upadł, miasto zostało uwolnione. Szukasz Hargrave'a, ale bezskutecznie.
-121:[$00B3FF]Ty:[] „Gdzie on jest?!”
-122:[$0073FF]Kapitan Aston:[] „Nigdzie nie można go znaleźć, panie. Mógł uciec do zamku. Albo wpadł do swojego obozu oblężniczego.”
-123:[$00B3FF]Ty:[] „Zamek wygląda na opuszczony. Powinniśmy go przeszukać, ale obawiam się, że będziemy musieli go odszukać w tym obozie.”
-130:Wszystkie oddziały Hargrave’a zostały pokonane lub poddały się. Lord jest przyprowadzony do ciebie i księcia Royce’a.
-131:[$14FF14]Książę Royce:[] „Hargrave. Podaj mi choć jeden dobry powód…”
-132:[$000080]Lord Clifford Hargrave:[] „Żeby zostawić mnie przy życiu? Jest tego mnóstwo, Książę. Na początek mogę zostać wykupiony za ogromną sumę. I, Twój honor…”
-133:[$14FF14]Książę Royce:[] „Mój honor? Ośmielasz się mówić o honorze?! Chciałem od ciebie tylko jednego dobrego powodu, dla którego to wszystko zrobiłeś!”
-134:[$000080]Lord Clifford Hargrave:[] „Royce... Powinieneś wiedzieć lepiej niż większość, że nasz król jest głupcem. Jest młody, niedoświadczony i wielokrotnie okazuje się, że nie jest w stanie się uczyć. Tak naprawdę nie rządzi królestwem, a kiedy próbuje to zrobić, udaje mu się tylko urazić własną szlachtę pochopnymi i złymi decyzjami. Nie można go dłużej pozostawiać przy władzy. Marszałek byłby o wiele lepszym królem.
-135:[$14FF14]Książę Royce:[] „...Teraz mówisz o zdradzie stanu.”
-136:[$000080]Lord Clifford Hargrave:[] „Chyba tak. Ale zabawne jest, że nie zaprzeczyłeś moim twierdzeniom na temat naszego króla.”
-137:[$14FF14]Książę Royce:[] „Twoje żądania są twoimi żadaniami i nie mając nic innego do własnej obrony, pozostajesz zdrajcą. A co do mnie… nie pójdę za marszałkiem Greedfare’em”.
-138:[$000080]Lord Clifford Hargrave:[] „I co teraz? Zastanawiam się, jakiego okupu zażądasz od mojej rodziny, zanim ujrzę tak zwaną sprawiedliwość króla? To znaczy, jeśli w ogóle uda mu się pozostać naszym królem .”
-139:[$14FF14]Książę Royce:[] „To, o czym mówisz, byłoby normalnym zwyczajem, to prawda. Ale nie mogę pozwolić ci odejść. Lordzie Clifford Hargrave. Uważam cię za winnego zdrady stanu wobec naszego króla, Jego Królewskiej Mości Bentona II Westforda i bardzo obraziłeś mnie, moje ziemie i mój lud. Za te zbrodnie niniejszym skazuję cię na śmierć mieczem, zgodnie z twoim statusem. Egzekucja nastąpi tu i teraz.
-140:Hargrave zostaje stracony. Chociaż nie lubiłeś tego człowieka, bez mrugnięcia okiem zmierzył się ze swoim ostatecznym losem, czym Ci zaimponował. Później znajdujesz chwilę, żeby porozmawiać z księciem.
-141:[$00B3FF]Ty:[] „Ta sprawa z Hargrave’em… Czy mogę zapytać, dlaczego uśmierciłeś go na miejscu?”
-142:[$14FF14]Książę Royce:[] „Jesteśmy szlachcicami, młody Haytow. Jak to jest możliwe?”
-143:[$00B3FF]Ty:[] „Urodziliśmy się nimi I złożyliśmy przysięgę naszemu władcy.”
-144:[$14FF14]Książę Royce:[] „To, że się urodziłeś, nic nie znaczy. Ale złożenie przysięgi to coś, co robisz samodzielnie, świadomie i dobrowolnie. To gwarantuje, że jesteś prawdziwym szlachcicem. Twoje słowo, twoja przysięga. Ja przysiągłem, że dekapituję Hargrave’a, a ty byłeś tego świadkiem, niezależnie od tego, co powiedział na swoją obronę, nie mógłbym pozwolić mu odejść. Zniweczyłbym przysięgę, gdyby on pozostał przy życiu. Inni zaczęliby ze mnie kpić”.
-145:[$00B3FF]Ty:[] „Być może powinieneś był w ogóle unikać składania przysięgi ścięcia głowy. Mógł nam pomóc odkryć, co się dzieje”.
-146:[$14FF14]Książę Royce:[] „Być może pośpieszyłem się. Ale jego pomoc nie jest potrzebna. Marszałek Greedfare nigdy nie był prawdziwym przyjacielem starego króla i kiedy Benton II został koronowany, sprzeciwiał mu się, ilekroć mógł. Brak doświadczenia Bentona tylko przyczynił się do eskalacji konfliktu i nadania jej charakteru osobistego. Greedfare rozpoczął bunt, a Hargrave aż za dobrze wiedział, że nie będę wspierał ich poczynań.
-147:[$00B3FF]Ty:[] „Czy przysięga złożona królowi jest dla ciebie tak ważna?”
-148:[$14FF14]Książe Royce:[] „Nie chodzi tylko o to. Jeśli ktoś może po prostu przejąć tron, ponieważ nie podoba mu się, kto na nim zasiada, królestwo rozpadnie się na kawałki w niekończących się wojnach domowych. Porządek jest tym, co zapewnia nam stabilność Choć nasz Król jest nieodpowiedni, musi rządzić lub dobrowolnie abdykować na rzecz kogoś, kto faktycznie ma prawo do tronu. Teraz, gdy pomogłeś mi z tym bałaganem, muszę uporać się z Greedfarem, chłopcze.
-149:[$00B3FF]Ty:[] „Jak mogę pomóc?”
-150:[$14FF14]Książę Royce:[] „Miałem nadzieję, że zapytasz. Armia marszałka jest potężna i doświadczona. Jednak on w dużym stopniu polega na kopalniach na północy, które są pod jego kontrolą. Dostarczają mu stali i złota. Bez ich przejęcia, nie mamy szans na sukces. Ale wraz z nimi... możemy nawet wyrównać szanse. Podążaj za mną.
-160:Zwiadowca przybywa z Północy...
-161:[$00D0FF]Zwiadowca:[] „Panie! Wygląda na to, że lord Hargrave przygotowuje na nas masowy atak!”
-162:[$00B3FF]Ty:[] „Wiedzieliśmy, że nie będą tylko patrzeć, jak przeprowadzamy oblężenie. Przygotuj pozycje obronne!”
+
+player_01:Sir Haytow
+player_02:Lord Hargrave
+player_03:Uchodźcy
+player_04:Obóz oblężniczy
+player_05:Książę Royce
+
+hero_haytow_name:Sir Edgar Haytow
+hero_graham_name:Graham
+hero_aston_name:Kapitan Aston
+hero_royce_name:Książę Royce
+hero_hargrave_name:Lord Hargrave
+
+obj_destroy_siege_town:Zniszcz [$518FCF]obóz oblężniczy Hargrave’a[]
+obj_defeat_siege_army:Defeat the army of [$518FCF]Siege Camp[]
+obj_destroy_hargrave_town:Zniszcz [$000080]główną bazę Hargrave'a[]
+obj_defeat_hargrave_army:Defeat the army of [$000080]Lord Hargrave[]
+
+msg_intro_01:Grahamowi powierzono zadanie przygotowania sztabu przed twoim przybyciem. Gdy zbliżasz się do uzgodnionego miejsca, słyszysz okrzyki bojowe. Graham i jego ludzie potrzebują pomocy!
+
+msg_supply_no_storehouse:Przyjechały wozy z zaopatrzeniem, ale nie znaleziono żadnego odpowiedniego magazynu, w którym możnaby zdeponować zasoby. Ludzie czekają na Twoje rozkazy.
+
+msg_graham_died_01:Wrodzy napastnicy są pokonani. Ale wielu z twoich sojuszników poległo. Od razu rozpoznajesz jednego z poległych.
+msg_graham_died_02:[$61793F]Graham:[] „Wybacz mi, panie... Za dużo ich...”
+msg_graham_died_03:[$00B3FF]Ty:[] „Nie ma czego wybaczać, dzielnie walczyłeś.”
+msg_graham_died_04:[$61793F]Graham: [] „Tak, ale ta strzała zaprowadzi mnie na tamten świat... Umrę i oboje o tym wiemy.”
+msg_graham_died_05:[$00B3FF]Ty:[] „To zbyt blisko serca. Przykro mi. Czy mogę coś dla ciebie zrobić?”
+msg_graham_died_06:[$61793F]Graham:[] „Tak. Niech ci dranie zapłacą... Uważaj... Hargrave ustawił swój obóz oblężniczy na wschodzie... Ale książę powinien być blisko...”
+msg_graham_died_07:[$00B3FF]Ty:[] „Książę Royce? Czy wiesz, gdzie on jest?”
+msg_graham_died_08:[$61793F]Graham:[] "... Blisssko. Powinien... dotrzeć... wkrótce..."
+msg_graham_died_09:[$00B3FF]Ty:[] "...Żołnierze! Spakujcie obóz i przygotujcie się na zwiad! Nasi wrogowie nie mogą nas ponownie zaskoczyć!"
+
+msg_captain_arrives_01:Odgłos jednostek maszerujących drogą, z której przybyłeś, od razu wprowadza Cię w niepokój...
+msg_captain_arrives_02:[$00B3FF]Ty:[] „Stój! Kto tam idzie?!”
+msg_captain_arrives_03:[$0073FF]Kapitan Aston:[] „Spodziewałbym się cieplejszego powitania, panie. Dobrze widzieć, że wciąż zipiesz.”
+msg_captain_arrives_04:[$00B3FF]Ty:[] „Aston! Co tu robisz?”
+msg_captain_arrives_05:[$0073FF]Kapitan Aston:[] „Haytow jest bezpieczny. Pomyślałem, że będziesz potrzebować tutaj pomocy, więc zostawiłem miasto w rękach tego Lintona, który wcześniej pomógł ci z bandytami”.
+msg_captain_arrives_06:[$00B3FF]Ty:[] „No cóż, w tym momencie przyda nam się każda pomoc. Ty i twoi ludzie jesteście mile widziani! Jednakże nasz wróg jest prawdopodobnie dobrze zaopatrzony i dobrze ufortyfikowany. Musimy jak najszybciej nadrobić."
+msg_captain_arrives_07:[$0073FF]Kapitan Aston:[] „Nie mogę pomóc w tym drugim przypadku, nigdy nie byłem wielkim budowniczym. Ale mogę pomóc w pierwszym.”
+msg_captain_arrives_08:[$00B3FF]Ty:[] „Co masz na myśli, kapitanie?”
+msg_captain_arrives_09:[$0073FF]Kapitan Aston:[] „W końcu jesteś Haytow z Haytow, panie! Kto inny powinien być dobrze zaopatrzony, jak nie ty? Uruchomiłem linię zaopatrzenia z domu. Wkrótce powinniśmy pływać w zbożu. Tylko się upewnij, że macie magazyn, do którego wjadą powozy”.
+msg_captain_arrives_10:[$00B3FF]Ty:[] „To niesamowita wiadomość. Mhm. Zastanawiam się, czy nasi wrogowie też mają podobne łańcuchy dostaw.”
+
+msg_bridge_explored_01:Zwiadowcy donoszą ze wschodu...
+msg_bridge_explored_02:[$00D0FF]Zwiadowca:[] „Panie! Bezpośrednio na wschód od naszego obozu znajduje się wąski drewniany most.”
+msg_bridge_explored_03:[$00B3FF]Ty:[] „Interesujące. Może to oznaczać słaby punkt w obronie wroga. Powinniśmy zobaczyć, co się za tym kryje, ale uważaj, to może być pułapka.”
+
+msg_ford_explored_01:Twoi zwiadowcy donoszą z północnego wschodu...
+msg_ford_explored_02:[$00D0FF]Zwiadowca:[] „Odkryliśmy w pobliżu bród, mój panie.”
+msg_ford_explored_03:[$00B3FF]Ty:[] „Czy przejście na drugą stronę wydaje się bezpieczne?”
+msg_ford_explored_04:[$00D0FF]Zwiadowca:[] „Ani trochę. Po drugiej stronie znajdują się fortyfikacje, a wojska wroga stoją na silnych pozycjach obronnych. Uważamy, że to wrogi obóz oblężniczy, którego wcześniej użyto do rozpoczęcia ataku mającego na celu zdobycie zamku, mój panie. Wróg chroni go i zaopatruje.”
+msg_ford_explored_05:[$00B3FF]Ty:[] „Bezpośredni atak przez bród byłby kosztowny, ale jednocześnie podczas próby szturmu odkryłby nasze plecy do ataku. Być może jest jednak inny sposób...”
+
+msg_broken_bridge_explored_01:Zwiadowca donosi z północnego wschodu...
+msg_broken_bridge_explored_02:[$00D0FF]Zwiadowca:[] „To był most prowadzący do głównej bramy.”
+msg_broken_bridge_explored_03:[$00B3FF]Ty:[] „Albo do tego, co z tego jeszcze pozostało. To bardzo niefortunne, jak mamy przejść przez rzekę?”
+msg_broken_bridge_explored_04:[$00D0FF]Zwiadowca:[] „To zależy od ciebie, panie. Mogę powiedzieć, że to nie jest dobra droga. Myślę, że sami obrońcy go zawalili, kiedy zaatakowano zamek.”
+msg_broken_bridge_explored_05:[$00B3FF]Ty:[] „Zaiste niezłomni wojownicy. Uczcimy ich pamięć, rzucając Hargrave’a na kolana.”
+
+msg_northern_bridge_explored_01:Raport zwiadowców z północy...
+msg_northern_bridge_explored_02:[$00D0FF]Zwiadowca:[] „Ten most do miasta. Dobra wiadomość jest taka, że nadal stoi.”
+msg_northern_bridge_explored_03:[$00B3FF]Ty:[] „A złe wieści?”
+msg_northern_bridge_explored_04:[$00D0FF]Zwiadowca:[] „Roi się tam od wrogów i jest strzeżony przez wieże.”
+msg_northern_bridge_explored_05:[$00B3FF]Ty:[] „Nic dziwnego. Ustrzelą nam zadki, jeśli spróbujemy tędy przejść.”
+msg_northern_bridge_explored_06:[$00D0FF]Zwiadowca:[] „Zamek wygląda na uszkodzony i w większości niestrzeżony, mój panie.”
+msg_northern_bridge_explored_07:[$00B3FF]Ty:[] „Więc może uda nam się ich zaskoczyć, jeśli się przekradniemy...”
+
+msg_enemy_supply_spotted_01:Raport zwiadowców ze wschodu...
+msg_enemy_supply_spotted_02:[$00D0FF]Zwiadowca:[] „Dobra wiadomość, panie! Dowiedzieliśmy się, jaką drogą wykorzystują nasi wrogowie, aby zaopatrywać swój dawny obóz oblężniczy.”
+msg_enemy_supply_spotted_03:[$00B3FF]Ty:[] „Świetna robota. Gdzie to jest?”
+msg_enemy_supply_spotted_04:[$00D0FF]Zwiadowca:[] „Na drugim brzegu, idąc z południa.”
+msg_enemy_supply_spotted_05:[$00B3FF]Ty:[] „Jeśli tak jest, być może moglibyśmy spróbować zaatakować i ukraść ich zapasy...”
+msg_enemy_supply_spotted_06:[$00D0FF]Zwiadowca:[] „Tak, panie. Musimy tylko poczekać, aż przyjedzie następny powóz z zaopatrzeniem. Jedynym problemem jest to, że wróg strzeże tego obszaru kawalerią. Będziemy musieli jakoś się przekraść lub pozbyć się ich.”
+
+msg_duke_arrives_01:Graham nie mylił się... Książę był blisko! Przybywa, a za nim jego armia.
+msg_duke_arrives_02:[$14FF14]Książę Royce:[] „Hargrave! Ty oślizgły robaku! Myślałeś, że możesz wziąć mój zamek i trzymać go w swoich brudnych, krzywych rękach?! Na wszystko, co święte, na dziedzictwo mojej rodziny i na twój smród, ty tchórzu, przysięgam, że obetnę ci głowę przed zachodem słońca!”
+msg_duke_arrives_03:[$00B3FF]Ty:[] „To wielka deklaracja, Książę.”
+msg_duke_arrives_04:[$14FF14]Książę Royce:[] „Haytow! Jesteś błogosławieństwem, chłopcze. Kiedy goniłeś tego psa, miałem wystarczająco dużo czasu, aby przegrupować moich ludzi i przygotować się do kontrataku”.
+msg_duke_arrives_05:[$00B3FF]Ty:[] „To wspaniale. Więc jaki masz plan?”
+msg_duke_arrives_06:[$14FF14]Książę Royce:[] „Mury mojego zamku zostały naruszone i przez ciebie Hargrave nie miał dość czasu, aby je porządnie naprawić. Jeśli dotrzemy do zamku od wschodu, będziemy mogli się przekraść i wyzwolić stamtąd miasto."
+msg_duke_arrives_07:[$00B3FF]Ty:[] „To brzmi jak plan, ale najpierw musimy przedostać się przez wrogi obóz oblężniczy.”
+msg_duke_arrives_08:[$14FF14]Książę Royce:[] „Czy ruszymy teraz? Cóż, wygląda na to, że wykonaliśmy już całą robotę. Zaatakujemy od południa. Pomóż nam w jakikolwiek sposób, jaki uznasz za stosowny, Haytow. Zrobiłeś bardzo dużo. Cóż, jak na razie, zaufam Twojej ocenie.
+
+msg_hargrave_exposed_01:Dawny obóz oblężniczy płonie, a jego obrońcy leżą pokonani.
+msg_hargrave_exposed_02:[$00B3FF]Ty:[] „Wreszcie postęp. Teraz możemy skupić się na Hargrave’ie.”
+msg_hargrave_exposed_03:[$0073FF]Kapitan Aston:[] „Nie będzie łatwo wykopać ich z tego zamku, panie.”
+msg_hargrave_exposed_04:[$00B3FF]Ty:[] „W jakiś sposób wdarli się do zamku i jest on bardziej drożny od wschodniej strony. Powinno być wejście.”
+
+msg_hargrave_runs_01:Zamek upadł, miasto zostało uwolnione. Szukasz Hargrave'a, ale bezskutecznie.
+msg_hargrave_runs_02:[$00B3FF]Ty:[] „Gdzie on jest?!”
+msg_hargrave_runs_03:[$0073FF]Kapitan Aston:[] „Nigdzie nie można go znaleźć, panie. Mógł uciec do zamku. Albo wpadł do swojego obozu oblężniczego.”
+msg_hargrave_runs_04:[$00B3FF]Ty:[] „Zamek wygląda na opuszczony. Powinniśmy go przeszukać, ale obawiam się, że będziemy musieli go odszukać w tym obozie.”
+
+msg_hargrave_prepares_attack_01:Zwiadowca przybywa z Północy...
+msg_hargrave_prepares_attack_02:[$00D0FF]Zwiadowca:[] „Panie! Wygląda na to, że lord Hargrave przygotowuje na nas masowy atak!”
+msg_hargrave_prepares_attack_03:[$00B3FF]Ty:[] „Wiedzieliśmy, że nie będą tylko patrzeć, jak przeprowadzamy oblężenie. Przygotuj pozycje obronne!”
+
+msg_outro_01:Wszystkie oddziały Hargrave’a zostały pokonane lub poddały się. Lord jest przyprowadzony do ciebie i księcia Royce’a.
+msg_outro_02:[$14FF14]Książę Royce:[] „Hargrave. Podaj mi choć jeden dobry powód...”
+msg_outro_03:[$000080]Lord Clifford Hargrave:[] „Żeby zostawić mnie przy życiu? Jest tego mnóstwo, Książę. Na początek mogę zostać wykupiony za ogromną sumę. I, Twój honor...”
+msg_outro_04:[$14FF14]Książę Royce:[] „Mój honor? Ośmielasz się mówić o honorze?! Chciałem od ciebie tylko jednego dobrego powodu, dla którego to wszystko zrobiłeś!”
+msg_outro_05:[$000080]Lord Clifford Hargrave:[] „Royce... Powinieneś wiedzieć lepiej niż większość, że nasz król jest głupcem. Jest młody, niedoświadczony i wielokrotnie okazuje się, że nie jest w stanie się uczyć. Tak naprawdę nie rządzi królestwem, a kiedy próbuje to zrobić, udaje mu się tylko urazić własną szlachtę pochopnymi i złymi decyzjami. Nie można go dłużej pozostawiać przy władzy. Marszałek byłby o wiele lepszym królem.
+msg_outro_06:[$14FF14]Książę Royce:[] „...Teraz mówisz o zdradzie stanu.”
+msg_outro_07:[$000080]Lord Clifford Hargrave:[] „Chyba tak. Ale zabawne jest, że nie zaprzeczyłeś moim twierdzeniom na temat naszego króla.”
+msg_outro_08:[$14FF14]Książę Royce:[] „Twoje żądania są twoimi żadaniami i nie mając nic innego do własnej obrony, pozostajesz zdrajcą. A co do mnie... nie pójdę za marszałkiem Greedfare’em”.
+msg_outro_09:[$000080]Lord Clifford Hargrave:[] „I co teraz? Zastanawiam się, jakiego okupu zażądasz od mojej rodziny, zanim ujrzę tak zwaną sprawiedliwość króla? To znaczy, jeśli w ogóle uda mu się pozostać naszym królem .”
+msg_outro_10:[$14FF14]Książę Royce:[] „To, o czym mówisz, byłoby normalnym zwyczajem, to prawda. Ale nie mogę pozwolić ci odejść. Lordzie Clifford Hargrave. Uważam cię za winnego zdrady stanu wobec naszego króla, Jego Królewskiej Mości Bentona II Westforda i bardzo obraziłeś mnie, moje ziemie i mój lud. Za te zbrodnie niniejszym skazuję cię na śmierć mieczem, zgodnie z twoim statusem. Egzekucja nastąpi tu i teraz.
+
+msg_outro_11:Hargrave zostaje stracony. Chociaż nie lubiłeś tego człowieka, bez mrugnięcia okiem zmierzył się ze swoim ostatecznym losem, czym Ci zaimponował. Później znajdujesz chwilę, żeby porozmawiać z księciem.
+msg_outro_12:[$00B3FF]Ty:[] „Ta sprawa z Hargrave’em... Czy mogę zapytać, dlaczego uśmierciłeś go na miejscu?”
+msg_outro_13:[$14FF14]Książę Royce:[] „Jesteśmy szlachcicami, młody Haytow. Jak to jest możliwe?”
+msg_outro_14:[$00B3FF]Ty:[] „Urodziliśmy się nimi I złożyliśmy przysięgę naszemu władcy.”
+msg_outro_15:[$14FF14]Książę Royce:[] „To, że się urodziłeś, nic nie znaczy. Ale złożenie przysięgi to coś, co robisz samodzielnie, świadomie i dobrowolnie. To gwarantuje, że jesteś prawdziwym szlachcicem. Twoje słowo, twoja przysięga. Ja przysiągłem, że dekapituję Hargrave’a, a ty byłeś tego świadkiem, niezależnie od tego, co powiedział na swoją obronę, nie mógłbym pozwolić mu odejść. Zniweczyłbym przysięgę, gdyby on pozostał przy życiu. Inni zaczęliby ze mnie kpić”.
+msg_outro_16:[$00B3FF]Ty:[] „Być może powinieneś był w ogóle unikać składania przysięgi ścięcia głowy. Mógł nam pomóc odkryć, co się dzieje”.
+msg_outro_17:[$14FF14]Książę Royce:[] „Być może pośpieszyłem się. Ale jego pomoc nie jest potrzebna. Marszałek Greedfare nigdy nie był prawdziwym przyjacielem starego króla i kiedy Benton II został koronowany, sprzeciwiał mu się, ilekroć mógł. Brak doświadczenia Bentona tylko przyczynił się do eskalacji konfliktu i nadania jej charakteru osobistego. Greedfare rozpoczął bunt, a Hargrave aż za dobrze wiedział, że nie będę wspierał ich poczynań.
+msg_outro_18:[$00B3FF]Ty:[] „Czy przysięga złożona królowi jest dla ciebie tak ważna?”
+msg_outro_19:[$14FF14]Książe Royce:[] „Nie chodzi tylko o to. Jeśli ktoś może po prostu przejąć tron, ponieważ nie podoba mu się, kto na nim zasiada, królestwo rozpadnie się na kawałki w niekończących się wojnach domowych. Porządek jest tym, co zapewnia nam stabilność Choć nasz Król jest nieodpowiedni, musi rządzić lub dobrowolnie abdykować na rzecz kogoś, kto faktycznie ma prawo do tronu. Teraz, gdy pomogłeś mi z tym bałaganem, muszę uporać się z Greedfarem, chłopcze.
+msg_outro_20:[$00B3FF]Ty:[] „Jak mogę pomóc?”
+msg_outro_21:[$14FF14]Książę Royce:[] „Miałem nadzieję, że zapytasz. Armia marszałka jest potężna i doświadczona. Jednak on w dużym stopniu polega na kopalniach na północy, które są pod jego kontrolą. Dostarczają mu stali i złota. Bez ich przejęcia, nie mamy szans na sukces. Ale wraz z nimi... możemy nawet wyrównać szanse. Podążaj za mną.

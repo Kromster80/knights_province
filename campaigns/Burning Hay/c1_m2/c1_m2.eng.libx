@@ -1,42 +1,47 @@
-﻿0:Amaroth
+﻿#Eng texts by Amaroth
+0:Amaroth
 1:No live bandits were taken prisoner, but several fled to the North, from where they came. This means there must be a camp that needs uprooting. You put down the fires, raised the militia, charged [$0073FF]Captain Aston[] with protecting your castle (or what was left of it) in your absence, and marched after the running [$61793F]bandits[].
 
-2:Sir Haytow
-3:Bandits
-4:Royal troops
+player_01:Sir Haytow
+player_02:Bandits
+player_03:Royal troops
 
-10:A few days later...
-11:You found a small camp with troops who bear royal colors. You are not sure what it is they are doing here, but they seem to be under attack from the very same bandits! Perhaps you should join forces.
+hero_haytow_name:Sir Edgar Haytow
+hero_graham_name:Bandit Graham
+hero_linton_name:Sargeant Linton
 
-20:[$00B3FF]You:[] "Soldiers! Who is your leader? And what is happening here?"
-21:[$A040A0]Sargeant Linton:[] "Sire! We were just passing by, when our captain was slain by these bastards for no good reason, and now they seem to be keen on taking our supplies! We need help!"
-22:[$00B3FF]You:[] "These bandits have attacked Haytow as well. We need to join forces and put a stop to this. In the name of our king, will you join me?"
-23:[$A040A0]Sargeant Linton:[] "Of course sire, time to bring some good old king's peace to this place!"
+obj_destroy_bandit_town:Destroy the town of [$61793F]Bandits[]
+obj_defeat_bandit_army:Defeat the army [$61793F]Bandits[]
 
-30:[$A040A0]Sargeant Linton:[] "Well fought sire. Are you alright?"
-31:[$00B3FF]You:[] "A few scratches and dents, nothing permanent. Do you hear that?"
-32:[$A040A0]Sargeant Linton:[] "Shite, I do. Men, regroup! More of them are coming!"
+msg_intro_01:A few days later...
+msg_intro_02:You found a small camp with troops who bear royal colors. You are not sure what it is they are doing here, but they seem to be under attack from the very same bandits! Perhaps you should join forces.
 
-40:[$00D0FF]Scout:[] "Sire! It seems the bandit camp is preparing additional attacks!"
-41:[$00B3FF]You:[] "These men are either courageous or straight up desperate. Or both. I didn't expect this to be easy, but there must be more to these people than just greed."
-42:[$A040A0]Sargeant Linton:[] "You tell me, regular bandits would give up by now and simply move elsewhere. We aren't really worth it."
-43:[$00B3FF]You:[] "Perhaps they have nowhere to go. Further to the North are Duke Royce's lands. My father knew Royce very well. I remember he was anything but kind to banditry."
-44:[$A040A0]Sargeant Linton:[] "We need to make sure we can withstand continuous attacks now. Then counterattack as soon as possible."
-45:[$00B3FF]You:[] "I would like to ask Royce about these people, first, but there is no way of doing that. We will have to fight our way through. How much time do we have?"
-46:[$A040A0]Scout:[] "I am not sure. 10 minutes or so?"
-47:[$00B3FF]You:[] "Very well. We will have to make do with what we have."
+msg_join_forces_01:[$00B3FF]You:[] "Soldiers! Who is your leader? And what is happening here?"
+msg_join_forces_02:[$A040A0]Sargeant Linton:[] "Sire! We were just passing by, when our captain was slain by these bastards for no good reason, and now they seem to be keen on taking our supplies! We need help!"
+msg_join_forces_03:[$00B3FF]You:[] "These bandits have attacked Haytow as well. We need to join forces and put a stop to this. In the name of our king, will you join me?"
+msg_join_forces_04:[$A040A0]Sargeant Linton:[] "Of course sire, time to bring some good old king's peace to this place!"
 
-50:Destroy the [$61793F]bandit base[].
-51:Defend your [$07FFFF]town[].
+msg_more_coming_01:[$A040A0]Sargeant Linton:[] "Well fought sire. Are you alright?"
+msg_more_coming_02:[$00B3FF]You:[] "A few scratches and dents, nothing permanent. Do you hear that?"
+msg_more_coming_03:[$A040A0]Sargeant Linton:[] "Shite, I do. Men, regroup! More of them are coming!"
 
-60:The fighting was way tougher than you expected, but with the help of Linton and his people, you managed to finally push through.
-61:[$00B3FF]You:[] "Will you finally give up now, bandit?!"
-62:[$61793F]Bandit Graham:[] "Yes! M'lord, I beg your mercy!"
-63:[$00B3FF]You:[] "You and your band attacked my town, assaulted its walls, tried to steal our supplies and hurt several of my people. Now you ask for mercy? Who are you?"
-64:[$61793F]Bandit Graham:[] "We're just refugees, m'lord! Name's Graham. Leadin' this bunch. Our villages got torched, we've got nowhere to go and nothing to eat! We tried beggin', but there's too many of us for just that to feed us all!"
-65:[$00B3FF]You:[] "Why were you attacked? Who attacked you? And where are you from?"
-66:[$61793F]Bandit Graham:[] "No idea who they were, m'lord. We're from Duke Royce's lands. All of us. Think he angered some mean folk, he did, and his army got a beatin'. We ran, but then we realized that won't feed our families, m'lord. We didn't want to hurt anyone, we tried to be nice 'bout it."
-67:[$00B3FF]You:[] "By all that is holy, what a mess. Graham, you and your people belong back to your lands. I should have you all hung on the closest hill, but I cannot have your families hungering to death on my conscience. You claim you realized that running will not feed your families. If that is the case, will you help me bring justice to those who put us all into this position in the first place?"
-68:[$61793F]Bandit Graham:[] "No more runnin', m'lord! You're most kind!"
-69:[$00B3FF]You:[] "We always have food to spare in Haytow. We will provide your people with the supplies they need. In return, I will see no more stealing. And, you will fight by my side against your oppressors. Duke Royce was my father's ally and friend."
-70:[$61793F]Bandit Graham:[] "No more runnin' and no more stealin', m'lord! Agreed!"
+msg_attacks_resuming_01:[$00D0FF]Scout:[] "Sire! It seems the bandit camp is preparing additional attacks!"
+msg_attacks_resuming_02:[$00B3FF]You:[] "These men are either courageous or straight up desperate. Or both. I didn't expect this to be easy, but there must be more to these people than just greed."
+msg_attacks_resuming_03:[$A040A0]Sargeant Linton:[] "You tell me, regular bandits would give up by now and simply move elsewhere. We aren't really worth it."
+msg_attacks_resuming_04:[$00B3FF]You:[] "Perhaps they have nowhere to go. Further to the North are Duke Royce's lands. My father knew Royce very well. I remember he was anything but kind to banditry."
+msg_attacks_resuming_05:[$A040A0]Sargeant Linton:[] "We need to make sure we can withstand continuous attacks now. Then counterattack as soon as possible."
+msg_attacks_resuming_06:[$00B3FF]You:[] "I would like to ask Royce about these people, first, but there is no way of doing that. We will have to fight our way through. How much time do we have?"
+msg_attacks_resuming_07:[$A040A0]Scout:[] "I am not sure. 10 minutes or so?"
+msg_attacks_resuming_08:[$00B3FF]You:[] "Very well. We will have to make do with what we have."
+
+msg_outro_01:The fighting was way tougher than you expected, but with the help of Linton and his people, you managed to finally push through.
+msg_outro_02:[$00B3FF]You:[] "Will you finally give up now, bandit?!"
+msg_outro_03:[$61793F]Bandit Graham:[] "Yes! M'lord, I beg your mercy!"
+msg_outro_04:[$00B3FF]You:[] "You and your band attacked my town, assaulted its walls, tried to steal our supplies and hurt several of my people. Now you ask for mercy? Who are you?"
+msg_outro_05:[$61793F]Bandit Graham:[] "We're just refugees, m'lord! Name's Graham. Leadin' this bunch. Our villages got torched, we've got nowhere to go and nothing to eat! We tried beggin', but there's too many of us for just that to feed us all!"
+msg_outro_06:[$00B3FF]You:[] "Why were you attacked? Who attacked you? And where are you from?"
+msg_outro_07:[$61793F]Bandit Graham:[] "No idea who they were, m'lord. We're from Duke Royce's lands. All of us. Think he angered some mean folk, he did, and his army got a beatin'. We ran, but then we realized that won't feed our families, m'lord. We didn't want to hurt anyone, we tried to be nice 'bout it."
+msg_outro_08:[$00B3FF]You:[] "By all that is holy, what a mess. Graham, you and your people belong back to your lands. I should have you all hung on the closest hill, but I cannot have your families hungering to death on my conscience. You claim you realized that running will not feed your families. If that is the case, will you help me bring justice to those who put us all into this position in the first place?"
+msg_outro_09:[$61793F]Bandit Graham:[] "No more runnin', m'lord! You're most kind!"
+msg_outro_10:[$00B3FF]You:[] "We always have food to spare in Haytow. We will provide your people with the supplies they need. In return, I will see no more stealing. And, you will fight by my side against your oppressors. Duke Royce was my father's ally and friend."
+msg_outro_11:[$61793F]Bandit Graham:[] "No more runnin' and no more stealin', m'lord! Agreed!"

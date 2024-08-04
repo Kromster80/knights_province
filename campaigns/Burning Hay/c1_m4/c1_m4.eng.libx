@@ -1,37 +1,41 @@
-﻿0:Amaroth
+﻿#Eng texts by Amaroth
+0:Amaroth
 1:Defeating the marauders who put a torch to [$14FF14]Duke Royce[]'s lands wasn't the end of things. As the enemy town burned, you were challenged by [$000080]Lord Clifford Hargrave[], who stands behind all the raids. You refused to back down and led your troops further Northward, to face his retinue, before he can gather more strength.
 
-2:Sir Haytow
-3:Lord Hargrave
+player_01:Sir Haytow
+player_02:Lord Hargrave
 
-10:Enemy troops left
-11:Your troops left
-12:Time passed (s)
-13:Mission score
-14:Defeat the army of [$000080]Lord Clifford Hargrave[].
+hero_haytow_name:Sir Edgar Haytow
+hero_hargrave_name:Lord Hargrave
 
-20:Your army regroups and assembles. Hargrave's retinue is close, and you can smell the anticipation in the air. The birds singing in the trees seem to have no idea, that a battle that may determine the future of your entire hometown is just about to ensue. You breathe in and await the scout reports.
+obj_defeat_hargrave:Defeat the army of [$000080]Lord Hargrave[]
+obj_enemy_troops_left:Enemy troops left
+obj_player_troops_left:Your troops left
+obj_time_passed:Time passed
+obj_score:Mission score
 
-40:[$00B3FF]You:[] "Scouts, what are the news?"
-41:[$00D0FF]Vanguard Scout:[] "My lord, the road to the North is blocked by infantry. They have a strong position and rocks in the area are likely hiding an ambush. The lord and his closest knights have pulled back, into the rear. There were also pikemen, probably set up in case we decide to charge their infantry with our cavalry."
-42:[$00B3FF]You:[] "Is there any other way we can take? What about the Western side?"
-43:[$00D0FF]Western Scout:[] "To the West, there is a narrow path up. We've seen some archers there, probably set up for an ambush on the main road. But they don't seem to have anyone protecting the path leading to their back."
-44:[$00B3FF]You:[] "At least we have more than one option. And the Eastern side?"
-45:[$00D0FF]Eastern Scout:[] "No luck there, we didn't find any passage. But we did spot more infantry, hiding in the woods. There was also some light cavalry."
-46:[$00B3FF]You:[] "So once we fight our way through the first bottleneck, we are likely to walk into another ambush, if we are not careful. All of their cavalry moved to the rear."
-47:[$00D0FF]Vanguard Scout:[] "It appears so, my lord. We would scout further, but there was no way for us to get around the enemies. Perhaps once we make progress, we will be able to scout around more. The enemy might be getting reinforcements we don't know about yet."
-48:[$00B3FF]You:[] "Possibly. Very well, let us prepare for the battle ahead. We should try to finish this as quickly as possible, with as low losses as possible. We cannot risk the lord getting reinforcements."
+msg_intro_01:Your army regroups and assembles. Hargrave's retinue is close, and you can smell the anticipation in the air. The birds singing in the trees seem to have no idea, that a battle that may determine the future of your entire hometown is just about to ensue. You breathe in and await the scout reports.
 
-60:[$00D0FF]Scout:[] "Sire! All of their knights fell! And, we've got a captive!"
-61:[$00B3FF]You:[] "The chivalric code is clear. Keep him alive and bring him to me, we need to talk."
-62:A few moments later...
-63:[$0000C0]Captured Knight:[] "Thank you for your mercy. Your men fought well, we did not expect to meet such resistance."
-64:[$00B3FF]You:[] "You can repay me my kindness. Where is Lord Hargrave?"
-65:[$0000C0]Captured Knight:[] "Once he saw the tide of the battle turning, he ran."
-66:[$00B3FF]You:[] "Where could he run to? Towards his castle?"
-67:[$0000C0]Captured Knight:[] "I doubt that, my lord. Hargrave is too far away from here. He has probably gone to the Honorguard."
-68:[$00B3FF]You:[] "Lord Hargrave has captured Duke Royce's castle?!"
-69:[$0000C0]Captured Knight:[] "Yes, he did. Duke Royce managed to slip away, but Lord Hargrave wanted to deal with you before we try to find him."
-70:[$00B3FF]You:[] "Thank you. I will honor the code and ransom you to your family for a fair price, good knight. Once we are done here, we will prepare for digging Hargrave out of Honorguard."
+msg_scout_report_01:[$00B3FF]You:[] "Scouts, what are the news?"
+msg_scout_report_02:[$00D0FF]Vanguard Scout:[] "My lord, the road to the North is blocked by infantry. They have a strong position and rocks in the area are likely hiding an ambush. The lord and his closest knights have pulled back, into the rear. There were also pikemen, probably set up in case we decide to charge their infantry with our cavalry."
+msg_scout_report_03:[$00B3FF]You:[] "Is there any other way we can take? What about the Western side?"
+msg_scout_report_04:[$00D0FF]Western Scout:[] "To the West, there is a narrow path up. We've seen some archers there, probably set up for an ambush on the main road. But they don't seem to have anyone protecting the path leading to their back."
+msg_scout_report_05:[$00B3FF]You:[] "At least we have more than one option. And the Eastern side?"
+msg_scout_report_06:[$00D0FF]Eastern Scout:[] "No luck there, we didn't find any passage. But we did spot more infantry, hiding in the woods. There was also some light cavalry."
+msg_scout_report_07:[$00B3FF]You:[] "So once we fight our way through the first bottleneck, we are likely to walk into another ambush, if we are not careful. All of their cavalry moved to the rear."
+msg_scout_report_08:[$00D0FF]Vanguard Scout:[] "It appears so, my lord. We would scout further, but there was no way for us to get around the enemies. Perhaps once we make progress, we will be able to scout around more. The enemy might be getting reinforcements we don't know about yet."
+msg_scout_report_09:[$00B3FF]You:[] "Possibly. Very well, let us prepare for the battle ahead. We should try to finish this as quickly as possible, with as low losses as possible. We cannot risk the lord getting reinforcements."
 
-80:Hargrave may have escaped, but you know where to find him now. You know you should head further North, towards Royce's castle, and try to find the Duke himself.
+msg_knight_captured_01:[$00D0FF]Scout:[] "Sire! All of their knights fell! And, we've got a captive!"
+msg_knight_captured_02:[$00B3FF]You:[] "The chivalric code is clear. Keep him alive and bring him to me, we need to talk."
+msg_knight_captured_03:A few moments later...
+msg_knight_captured_04:[$0000C0]Captured Knight:[] "Thank you for your mercy. Your men fought well, we did not expect to meet such resistance."
+msg_knight_captured_05:[$00B3FF]You:[] "You can repay me my kindness. Where is Lord Hargrave?"
+msg_knight_captured_06:[$0000C0]Captured Knight:[] "Once he saw the tide of the battle turning, he ran."
+msg_knight_captured_07:[$00B3FF]You:[] "Where could he run to? Towards his castle?"
+msg_knight_captured_08:[$0000C0]Captured Knight:[] "I doubt that, my lord. Hargrave is too far away from here. He has probably gone to the Honorguard."
+msg_knight_captured_09:[$00B3FF]You:[] "Lord Hargrave has captured Duke Royce's castle?!"
+msg_knight_captured_10:[$0000C0]Captured Knight:[] "Yes, he did. Duke Royce managed to slip away, but Lord Hargrave wanted to deal with you before we try to find him."
+msg_knight_captured_11:[$00B3FF]You:[] "Thank you. I will honor the code and ransom you to your family for a fair price, good knight. Once we are done here, we will prepare for digging Hargrave out of Honorguard."
+
+msg_outro_01:Hargrave may have escaped, but you know where to find him now. You know you should head further North, towards Royce's castle, and try to find the Duke himself.

@@ -1,0 +1,81 @@
+#Eng texts by Amaroth
+0:Amaroth
+1:[$14FF14]Duke Royce[] sent you  to capture some of the mines controlled by [$0000FF]Marshal Greedfare[]. Since your army lacks resources to build elite troops, you will have to proceed carefully and use the element of surprise. Furthermore, since the area lacks rocks suited for construction, you had to take a big load of them with you.
+
+player_01:Sir Haytow
+player_02:Old Mine
+player_03:New Mine
+player_04:Traders
+
+hero_haytow_name:Sir Edgar Haytow
+hero_albrecht_name:Trader Albrecht
+
+obj_destroy_new_town:Destroy the town of [$0000FF]New mine[]
+obj_defeat_new_army:Defeat the army of [$0000FF]New mine[]
+obj_destroy_old_town:Destroy the town [$0061FF]Old mine[]
+obj_defeat_old_army:Defeat the army [$0061FF]Old mine[]
+obj_time_to_be_spotted:Time until spotted: [$00FFFF]
+obj_talk_to_traders:Talk to the [$808080]Traders[]
+obj_steel_trade:Iron
+obj_cloth_trade:Cloth
+obj_trade_ready: [$00FFFF]trade available
+obj_trade_not_ready: [$0000FF]trade not available
+obj_trade_done: [$00FF00]sold out
+obj_remain_hidden:Remain hidden as long as possible
+obj_reinforcements_timer:Enemy reinforcements in
+
+dialog_steel:We can currently trade 30 iron for 50 bread. If you agree, we can send the resources to each other now.
+dialog_cloth:We can currently trade 50 cloth for 25 ale. If you agree, we can send the resources to each other now.
+dialog_steel_not_ready:I am sorry, but we cannot currently trade 30 iron for 50 bread. Build a storehouse and fill it with the required resources, first.
+dialog_cloth_not_ready:I am sorry, but we cannot currently trade 50 cloth for 25 ale. Build a storehouse and fill it with the required resources, first.
+dialog_btn_confirm:Accept the trade
+dialog_btn_reject:Maybe later
+
+msg_intro_01:While overseeing the initial camp construction, your scouts arrive.
+msg_intro_02:[$00D0FF]Scout:[] "I've got good news for you, sire."
+msg_intro_03:[$00B3FF]You:[] "Wonderful! These tended to be scarce of late. What did you find out?"
+msg_intro_04:[$00D0FF]Scout:[] "Greedfare's got two mines here. The one directly to the North is called the New Mine, the other one the Old Mine. Neither of them seems to be aware of our arrival."
+msg_intro_05:[$00B3FF]You:[] "So we can prepare a powerful attack and then catch them by surprise."
+msg_intro_06:[$00D0FF]Scout:[] "Yes, sire. I've also seen some men to the West. They didn't seem hostile, but you will probably want to talk to them yourself. It appears they are traders."
+msg_intro_07:[$00B3FF]You:[] "Do you think they can sell us something of use?"
+msg_intro_08:[$00D0FF]Scout:[] "Likely so, sire. But like I said, you should pay them a visit yourself. Just stay out of sight of the enemy watchtowers."
+msg_intro_09:[$00B3FF]You:[] "Anything more I should know, before we head out?"
+msg_intro_10:[$00D0FF]Scout:[] "Yes, in fact. Once the enemy sees us, they are likely to send calls for reinforcements. We will have to make very short work of them after that, if possible.
+
+msg_traders_welcome_01:[$808080]Albrecht:[] "Halt! Who goes there?"
+msg_traders_welcome_02:[$00B3FF]You:[] "Sir Edgar Haytow. And who might you be?"
+msg_traders_welcome_03:[$808080]Albrecht:[] "Albrecht, good knight. We are traders from afar."
+msg_traders_welcome_04:[$00B3FF]You:[] "So, is there someone you serve? What is your standing in this rebellion against our king?"
+msg_traders_welcome_05:[$808080]Albrecht:[] "Ah, the rebellions, civil wars, regular wars... All the same to me, good knight. I am happy to say I serve noone. Your conflicts are your own. All I am interested in is a fair exchange."
+msg_traders_welcome_06:[$00B3FF]You:[] "And what is it you are selling, then?"
+msg_traders_welcome_07:[$808080]Albrecht:[] "All kinds of trinkets, holy relics and fine wines. But I fear these would be of little use to you. You would rather buy something that could be used in your war, I presume?"
+msg_traders_welcome_08:[$00B3FF]You:[] "Indeed. Some sets of plate armor would be much more useful to me."
+msg_traders_welcome_09:[$808080]Albrecht:[] "My shop here is too humble for that kind of fanciness, but I can provide you with cloth and iron, so your people can craft good quality armor themselves. Currently, we lack food for our next journey. If you can get us ale and bread, we have a deal. Once you have the resources and a storehouse ready, talk to our quartermaster in our storehouse."
+
+msg_spotted_timeout_01:[$00D0FF]Scout:[] "Sire, more scouts were spotted closeby!"
+msg_spotted_timeout_02:[$00B3FF]You:[] "Did they run into more "accidents" as you put it the last time?"
+msg_spotted_timeout_03:[$00D0FF]Scout:[] "Most of them did, but not all. We are sure to have some company, and soon."
+msg_spotted_timeout_04:[$00B3FF]You:[] "I see. We will have to make do with what we have now. To arms men!"
+
+msg_spotted_units_01:Some of your units went too far, and were spotted from the enemy watchtowers. You need to act quickly now, before the enemies manage to mobilize all their forces.
+
+msg_supply_no_storehouse:Supply wagons arrived, but no valid storehouse was found for them to deposit resources into. They are awaiting your commands.
+
+msg_time_running_out_01:[$00D0FF]Scout:[] "Sire! We've discovered enemy scouts!"
+msg_time_running_out_02:[$00B3FF]You:[] "Did they see us?"
+msg_time_running_out_03:[$00D0FF]Scout:[] "They did, but then there was an accident..."
+msg_time_running_out_04:[$00B3FF]You:[] "What accident?"
+msg_time_running_out_05:[$00D0FF]Scout:[] "Well the one where my horse' hooves, my axe, their heads, a rusty shovel, a deep hole in the ground, and whole host of other things met and happened..."
+msg_time_running_out_06:[$00B3FF]You:[] "Why did I even ask... Good job. Should we expect more visits like that?"
+msg_time_running_out_07:[$00D0FF]Scout:[] "Yes, sire. Accidents happen. But there is this annoying custom of people sniffing around and trying to figure out why their buddies didn't come back home. We should make haste with our preparations."
+
+msg_outro_01:Many corpses of heavily armored troops lie around you. But the mines are yours.
+msg_outro_02:[$00D0FF]Scout:[] "I think we ran out of people to make accidents happen to, sire."
+msg_outro_03:[$00B3FF]You:[] "Is this a game to you?"
+msg_outro_04:[$00D0FF]Scout:[] "... One cannot be grim all the time. It gets old. Even faster than being old gets old. It's not a bloody game to me, sire. But I would prefer if it could be so."
+msg_outro_05:A few moments later...
+msg_outro_06:[$14FF14]Messenger:[] "Sire, duke Royce sent me. Marshal Greedfare is chasing after the duke's forces, but he did hear about your attacks on the mines. He sent reinforcements."
+msg_outro_07:[$00B3FF]You:[] "How much time do we have?"
+msg_outro_08:[$14FF14]Messenger:[] "A day or two, at best. The duke asks you whether you have enough forces left to assault the last 2 mines, further to the North."
+msg_outro_09:[$00B3FF]You:[] "It will not be easy, especially since they are at full alert now. But we can try. We should try. There will be no better chance than now to cut the marshal off his most valuable resources."
+msg_outro_10:[$14FF14]Messenger:[] "I will return back to my lord, then, sire. He will be pleased with your resolve. We will do our best to occupy the marshal while you finish here, then."
