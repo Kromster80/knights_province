@@ -7,7 +7,7 @@ Initial release:        14-04-2024
 **---CHANGELOG---**
 **#V2**
 **Mission 6**
-- New Chapter 2 was added, together with its intro mission number 6, Mining Trouble. The following missions are still under development
+- New Chapter 2 was added, together with its intro mission number 6, Mining Trouble. The following missions are still under development.
 
 **Heroes**
 - Each mission now starts with one or more heroes on the map. These are regular units, however, they have changed name, HP and color. Their HP regeneration is also changed, so they fully heal within 3 minutes (+20 seconds after they escaped their last fight). Stats of the main heroes also progressively increase throughout the missions. Currently, there are 7 different heroes present in the campaign: Haytow, Aston, Graham, Linton, Hargrave, Royce, Albrecht.
@@ -17,9 +17,13 @@ Initial release:        14-04-2024
 
 **Better AI**
 - The entire AI scripting for attacks was completely overhauled. Archers now shoot when sent to attacks, performance issues were fixed, units "helicoptering" were fixed, errors caused by troops in towers were removed. The AAI script is now also stand-alone and can be easily integrated into any already existing map's script.
-- AI can now determine, when to feed sheep and/or horses, and when not. It can also block wares from its storehouse when they are in abundance, reducing unnecessary porter traffic.
+- AI can now determine when to feed sheep and/or horses, and when not. It can also block wares from its storehouse when they are in abundance, reducing unnecessary porter traffic.
 - AI can now check which troop types have no free formations to train new troops into. It will then redirect its efforts to producing armaments and training troops it actually misses and needs.
-- AI now has several small formations of troops guarding its town and key buildings in it in missions, where this change was needed. This should help with AI being helpless when its town is invaded by circumventing its main army.
+- AI now has several small formations of troops guarding its town and key buildings in missions, where this change was needed. This should help with AI being helpless when its town is invaded after circumventing its main army.
+
+**New map**
+- Completely new campaign map was made using Inkarnate Pro.
+- New/revised campaign map icons.
 
 **Other improvements**
 - Blocked units and houses were updated throughout the missions.
