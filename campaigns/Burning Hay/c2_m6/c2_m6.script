@@ -178,7 +178,6 @@ procedure UpdateTradeMarkers();
 var
 	playerStores: array of Integer;
 	i, maxPlayerBread, maxPlayerAle, wareAmount, steelColor, clothColor, traderSteel, traderCloth: Integer;
-	debug: String;
 begin
 	if (MarkerSteel = 0) and (MarkerCloth = 0) then Exit;
 	if (TradersStorehouse < 1) then Exit;
@@ -200,7 +199,6 @@ begin
 		for i := 0 to High(playerStores) do
 		begin
 			wareAmount := States.HouseWareInside(playerStores[i], wtAle);
-			debug := debug + Utils.Format('Store ID: %d, ale amount: %d|', [playerStores[i], wareAmount]);
 			if (wareAmount > maxPlayerAle) then
 			begin
 				maxPlayerAle := wareAmount;
@@ -208,20 +206,16 @@ begin
 			end;
 				
 			wareAmount := States.HouseWareInside(playerStores[i], wtBread);
-			debug := debug + Utils.Format('Store ID: %d, bread amount: %d|', [playerStores[i], wareAmount]);
 			if (wareAmount > maxPlayerBread) then
 			begin
 				maxPlayerBread := wareAmount;
 				BreadStorehouse := playerStores[i];
 			end;
-			debug := debug + Utils.Format('Current ale storehouse: %d, current bread storehouse: %d||', [AleStorehouse, BreadStorehouse]);
 		end;
 		
 		SteelTradeReady := (maxPlayerBread >= TRADE_BREAD_AMOUNT) and (traderSteel >= TRADE_STEEL_AMOUNT);
 		ClothTradeReady := (maxPlayerAle >= TRADE_ALE_AMOUNT) and (traderCloth >= TRADE_CLOTH_AMOUNT);
 	end;
-	
-	UTDebugMsgSilent(debug);
 	
 	if SteelTradeReady then
 	begin
