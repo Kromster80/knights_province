@@ -521,6 +521,7 @@
 // Houses
 !SET_HOUSE 37 91 94 0 // cottage
 !SET_HOUSE 17 32 24 0 // towerArrow
+!SET_HOUSE 38 75 64 0 // wolfsDen
 
 // Roads and fields
 
@@ -803,4 +804,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15061 (2024.07.19 22:18)" on 19.07.2024 22:19:08
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15227 (2024.08.01 13:39)" on 01.08.2024 13:56:37
