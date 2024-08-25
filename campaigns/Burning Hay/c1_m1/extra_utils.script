@@ -1,6 +1,6 @@
 // ####################   Extra utils   ####################
 // Author: Amaroth.
-// Version: 2.5.1 (2024-07-31)
+// Version: 2.5.2 (2024-08-25)
 // These are just some misc things to make my (or your) life easier. They are dependencies for many of my personal scripts.
 
 
@@ -599,7 +599,7 @@ begin
 	Actions.UnitHitpointsSet(aUnit, hp);
 	Actions.UnitHitpointsRestorePace(aUnit, regen);
 	Actions.UnitDamageSet(aUnit, minDmg, maxDmg);
-	Actions.UnitSight(aUnit, sightRadius);
+	Actions.UnitSightSet(aUnit, sightRadius);
 	Actions.UnitFlagColorOverride(aUnit, aColor);
 end;
 
@@ -611,7 +611,7 @@ begin
 	Actions.UnitHitpointsMax(aUnit, -1);
 	Actions.UnitHitpointsRestorePace(aUnit, -1);
 	Actions.UnitDamageSet(aUnit, -1, -1);
-	Actions.UnitSight(aUnit, -1);
+	Actions.UnitSightSet(aUnit, -1);
 	Actions.UnitFlagColorOverride(aUnit, -1);
 end;
 
