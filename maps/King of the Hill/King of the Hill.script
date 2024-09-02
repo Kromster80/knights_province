@@ -1,0 +1,341 @@
+uses
+	extra_utils, day_night, wagon_supply, attack_ai;
+
+const
+	PLAYER_HUMAN = 0;
+	
+	PLAYERS_MAX = 9;
+	
+	MAP_WIDTH = 256;
+	MAP_HEIGHT = 256;
+
+	OBJ_DESTROY_TOWNS = '<$obj_destroy_towns>: [$00FFFF]';
+	OBJ_CURRENT_SCORE = '<$obj_current_score>: [$00FFFF]';
+	OBJ_SCORE_PER_KILL = '<$obj_score_per_kill>: [$00FFFF]';
+
+	DIALOG_ICON = 'dialog_icon.png';
+	DIALOG_ENEMY_AMOUNT = '<$dialog_enemy_amount_01>||- <$dialog_enemy_amount_02>|- <$dialog_enemy_amount_03>|- <$dialog_enemy_amount_04>|- <$dialog_enemy_amount_05>';
+	
+	TIME_DIFFICULTY_1 = 3;
+	TIME_DIFFICULTY_2 = 9000;
+	TIME_DIFFICULTY_3 = 18000;
+	TIME_DIFFICULTY_4 = 27000;
+	TIME_DIFFICULTY_5 = 36000;
+	TIME_DIFFICULTY_6 = 45000;
+	TIME_DIFFICULTY_7 = 45000;
+	TIME_MAX_EXTRA_SCORE = 240;
+	
+var
+	EnemyPlayers, SpawnCoordsX, SpawnCoordsY: array of Integer;
+	EnemiesKilled, CurrentTick, DestroyTownsObjID, CurrentScoreObjID, ScorePerKillObjID: Integer;
+	DestroyTownsObjSt, CurrentScoreObjSt, ScorePerKillObjSt: TKMObjectiveStatus;
+	ScorePerKill, CurrentScore: Single;
+	CurrentAIArmyPool, AIArmyPool1, AIArmyPool2, AIArmyPool3, AIArmyPool4, AIArmyPool5, AIArmyPool6, AIArmyPool7: array of Integer;
+	AIArmySetupModifiers1, AIArmySetupModifiers2, AIArmySetupModifiers3, AIArmySetupModifiers4, AIArmySetupModifiers5, AIArmySetupModifiers6, AIArmySetupModifiers7: array of Single;
+
+
+// Displays the message which explains the score rules and asks for the amount of enemies the player wishes to face.
+procedure AskAmountOfEnemies();
+begin
+	Actions.PlayerMessageWithButtons(PLAYER_HUMAN, DIALOG_ENEMY_AMOUNT, ['1', '2', '3', '4', '5', '6', '7', '8'], ['', '', '', '', '', '', '', ''], [1, 2, 3, 4, 5, 6, 7, 8], True, True, True);
+end;
+
+
+// Spawns a given player on the given coords - giving the initial houses, roads, units and wares. If the player is an AI, ware distributions are also maxed (I believe that works the best).
+procedure SpawnAPlayer(aPlayer, x, y: Integer);
+begin
+	// Place a camp.
+	Actions.GiveHouse(aPlayer, htCamp, x, y, toSouth);
+	
+	// 4 road tiles below the camp.
+	Actions.RoadAdd(x - 2, y + 1, aPlayer);
+	Actions.RoadAdd(x - 1, y + 1, aPlayer);
+	Actions.RoadAdd(x, y + 1, aPlayer);
+	Actions.RoadAdd(x + 1, y + 1, aPlayer);
+	
+	// 5 porters, 2 peasants and 5 builders (default skirmish start).
+	Actions.GiveUnit(aPlayer, utPorter, x - 3, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utPorter, x - 2, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utPorter, x - 1, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utPorter, x - 2, y + 2, 0);
+	Actions.GiveUnit(aPlayer, utPorter, x - 1, y + 2, 0);
+	Actions.GiveUnit(aPlayer, utPeasant, x, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utPeasant, x, y + 2, 0);
+	Actions.GiveUnit(aPlayer, utBuilder, x + 1, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utBuilder, x + 2, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utBuilder, x + 3, y + 1, 0);
+	Actions.GiveUnit(aPlayer, utBuilder, x + 1, y + 2, 0);
+	Actions.GiveUnit(aPlayer, utBuilder, x + 2, y + 2, 0);
+	
+	// Initial resources.
+	Actions.GiveWares(aPlayer, wtStone, 80);
+	Actions.GiveWares(aPlayer, wtWood, 80);
+	Actions.GiveWares(aPlayer, wtFish, 100);
+	Actions.GiveWares(aPlayer, wtCider, 100);
+	Actions.GiveWares(aPlayer, wtClub, 10);
+	Actions.GiveWares(aPlayer, wtGold, 500);
+	
+	// For what I consider to be the more effective town's performance, max all ware distributions, close grain to sheep and horses (no AI mounted troops in the map at the moment, since they do not seem to be worth it for AI). Done only to the AIs, as I do not know the player's preference.
+	if not (aPlayer = PLAYER_HUMAN) then
+	begin
+		UTPlayerMaxWareDistributions(aPlayer);
+		Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 0);
+		Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 0);
+	end;
+end;
+
+
+// Initiates the spawning procedure of all players that are to be spawned.
+procedure SpawnPlayers();
+var
+	i: Integer;
+begin
+	if not ((Length(SpawnCoordsX) = PLAYERS_MAX) and (Length(SpawnCoordsY) = PLAYERS_MAX)) then Exit;
+	
+	// Spawn the human player.
+	SpawnAPlayer(PLAYER_HUMAN, SpawnCoordsX[PLAYER_HUMAN], SpawnCoordsY[PLAYER_HUMAN]);
+	// Spawn the enemies.
+	for i := 0 to High(EnemyPlayers) do
+		SpawnAPlayer(EnemyPlayers[i], SpawnCoordsX[EnemyPlayers[i]], SpawnCoordsY[EnemyPlayers[i]]);
+end;
+
+
+// Updates the AIArmyCompositions of the given players to the given amounts. Used for bumping up the difficulty as the game progresses.
+procedure UpdateArmyCompositions(players, armyPool: array of Integer);
+var
+	i, setup: Integer;
+	armyComposition: array of Integer;
+	setupModifiers: array of Single;
+begin
+	for i := 0 to High(players) do
+	begin
+		// A random setup is being chosen out of the following. This means different players train different unit types (one may for example train 60 archers, the other 60 pikemen instead), and they switch them at random each time this procedure is called.
+		setup := Utils.RandomI(6);
+		if (setup = 0) then
+			setupModifiers := AIArmySetupModifiers1
+		else if (setup = 1) then
+			setupModifiers := AIArmySetupModifiers2
+		else if (setup = 2) then
+			setupModifiers := AIArmySetupModifiers3
+		else if (setup = 3) then
+			setupModifiers := AIArmySetupModifiers4
+		else if (setup = 4) then
+			setupModifiers := AIArmySetupModifiers5
+		else if (setup = 5) then
+			setupModifiers := AIArmySetupModifiers6
+		else if (setup = 6) then
+			setupModifiers := AIArmySetupModifiers7;
+		
+		// Depending on the chosen setup, assign T1, T2 and T3 AI army compositions to different unit types, depending on the input armyPool values.
+		Actions.PlayerAIArmyCompositionReset(players[i]);
+		Actions.PlayerAIArmyCompositionSet(players[i], utMilitia, Round(armyPool[0] * setupModifiers[0]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utAxeFighter, Round(armyPool[1] * setupModifiers[1]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utPikeman, Round(armyPool[1] * setupModifiers[2]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utBowman, Round(armyPool[1] * setupModifiers[3]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utHorseScout, Round(armyPool[1] * setupModifiers[4]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utSwordsman, Round(armyPool[2] * setupModifiers[5]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utHalberdier, Round(armyPool[2] * setupModifiers[6]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utArbaletman, Round(armyPool[2] * setupModifiers[7]));
+		Actions.PlayerAIArmyCompositionSet(players[i], utCavalry, Round(armyPool[2] * setupModifiers[8]));
+	end;
+end;
+
+
+// Removes all of the initial camps from the map. Also remembers their coordinates, so they can be later used for spawning the players onto the original cam's position. This is so the initial camp's coords don't have to be hardcoded into the script.
+procedure RemoveInitialCamps();
+var
+	i, j: Integer;
+	houses: array of Integer;
+begin
+	SetLength(SpawnCoordsX, PLAYERS_MAX);
+	SetLength(SpawnCoordsY, PLAYERS_MAX);
+	
+	for i := 0 to High(SpawnCoordsX) do
+		begin
+			// Each player should have 1 camp, but to sure, delete all and remember the coords of the last one found.
+			houses := States.PlayerGetHouses(i, htCamp, True);
+			for j := 0 to High(houses) do
+			begin
+				SpawnCoordsX[i] := States.HousePositionX(houses[j]);
+				SpawnCoordsY[i] := States.HousePositionY(houses[j]);
+				Actions.HouseDestroy(houses[j], True);
+			end;
+		end;
+end;
+
+
+// Updates the objective trackers and counters.
+procedure UpdateObjectives();
+var
+	i: Integer;
+begin
+	// Recalculate the score the player is to get, should an enemy be defeated now. The value gets lowered each minute.
+	ScorePerKill := 1.0 * Length(EnemyPlayers) * (100 + Utils.MaxI(TIME_MAX_EXTRA_SCORE - (CurrentTick / 600), 0));
+	
+	// Update the objective texts/trackers.
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, DestroyTownsObjID, Utils.Format('%s%d/%d', [OBJ_DESTROY_TOWNS, EnemiesKilled, Length(EnemyPlayers)]));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, CurrentScoreObjID, OBJ_CURRENT_SCORE + IntToStr(Trunc(CurrentScore)));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ScorePerKillObjID, OBJ_SCORE_PER_KILL + IntToStr(Trunc(ScorePerKill)));
+	
+	// Check if the human player is still alive. If not, he is set as defeated.
+	UTObjectiveCheckSurvival(PLAYER_HUMAN, stBuildings);
+	
+	// Check if the enemy players are still alive. If not, they are set as defeated.
+	for i := 0 to High(EnemyPlayers) do
+	begin
+		if not States.PlayerDefeated(EnemyPlayers[i]) then
+			UTObjectiveCheckSurvival(EnemyPlayers[i], stBuildings);
+	end;
+	
+	// If all enemies are dead, the player wins.
+	if (EnemiesKilled = Length(EnemyPlayers)) then
+		Actions.PlayerWin([PLAYER_HUMAN], True);
+end;
+
+
+// Initial setup of the objective tracking board.
+procedure SetupObjectives();
+begin
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DESTROY_TOWNS, DestroyTownsObjID, DestroyTownsObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_CURRENT_SCORE, CurrentScoreObjID, CurrentScoreObjSt);
+	
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 2, osActive, OBJ_SCORE_PER_KILL, ScorePerKillObjID, ScorePerKillObjSt);
+end;
+
+
+// Checks which wares are abundant in the AI's town, and closes the deliveries of them into the corresponding storage houses. Results in limited unnecessary road traffic.
+procedure RunAIOptimizations();
+var
+	i: Integer;
+begin
+	for i := 0 to High(EnemyPlayers) do
+		if not States.PlayerDefeated(EnemyPlayers[i]) then
+			UTOptimizeAIHouseWareBlocks(EnemyPlayers[i], [], [], True, True);
+end;
+
+
+//
+procedure OnPlayerDefeated(aPlayer: Integer);
+var
+	i, x, y: Integer;
+	houses, units: array of Integer;
+begin
+	// If an enemy was defeated, update the score and enemies killed counters.
+	if (Utils.ArrayHasElementI(EnemyPlayers, aPlayer)) then
+	begin
+		CurrentScore := CurrentScore + ScorePerKill;
+		EnemiesKilled := EnemiesKilled + 1;
+	end;
+	
+	// If the player was deafeted, post and show the highscore.
+	if (aPlayer = PLAYER_HUMAN) then
+	begin
+		UpdateObjectives();
+		Actions.MissionHighscore(Trunc(CurrentScore));
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, Utils.Format('[$00FFFF]<$result_lose_01>[]|<$result_lose_02> [$00FFFF]%d/%d[]||<$result_lose_03> [$00FFFF]%d[]', [EnemiesKilled, Length(EnemyPlayers), Trunc(CurrentScore)]));
+	end;
+end;
+
+
+//
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+	// If the player has won, post and show the highscore.
+	if (aPlayer = PLAYER_HUMAN) then
+	begin
+		UpdateObjectives();
+		Actions.MissionHighscore(Trunc(CurrentScore));
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, Utils.Format('[$00FFFF]<$result_win_01>[]|<$result_win_02> [$00FFFF]%d/%d[]||<$result_win_03> [$00FFFF]%d[]', [EnemiesKilled, Length(EnemyPlayers), Trunc(CurrentScore)]));
+	end;
+end;
+
+
+// Catches the response the player gives in the ask amount of enemies dialog.
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+var
+	i: Integer;
+begin
+	if (aTag > 0) and (aTag < PLAYERS_MAX) then
+		for i := 1 to aTag do
+			Utils.ArrayAppendI(EnemyPlayers, i);
+	
+	EnemiesKilled := 0;
+end;
+
+
+// Initial mission setup.
+procedure OnMissionStart();
+begin
+	RemoveInitialCamps();
+	DNInitiateScript(600, 14400);
+	SetupObjectives();
+	
+	// Each 15 minutes, the AIArmyRates are increased depending on these pools. This progressively increases the difficulty of the game, since the AI trains more and more troops per hour. The format is [T1, T2, T3].
+	{AIArmyPool1 := [60, 100, 0];
+	AIArmyPool2 := [90, 210, 0];
+	AIArmyPool3 := [60, 315, 105];
+	AIArmyPool4 := [30, 420, 210];
+	AIArmyPool5 := [0, 630, 315];
+	AIArmyPool6 := [0, 840, 420];}
+	AIArmyPool1 := [30, 0, 30]; // Game start
+	AIArmyPool2 := [60, 0, 60]; // 15 min mark
+	AIArmyPool3 := [90, 60, 90]; // 30 min mark
+	AIArmyPool4 := [60, 120, 120]; // 45 min mark
+	AIArmyPool5 := [30, 240, 210]; // 60 min mark
+	AIArmyPool6 := [0, 480, 300]; // 75 min mark
+	AIArmyPool7 := [0, 480, 300]; // 90 min mark
+	
+	// Each 5 minutes, one of the following modifier sets is chosen at random for each individual AI. Corresponding items of the currently used AIArmyPool gets then multiplied by the following modifiers. So, if the AI has 120 T2 army pool, and gets a setup with 1.0/3 axe fighter rate, it will train 40 axe fighters per hour. The format is [militia, axeFighter, pikeman, bowman, scout, swordFighter, halberdier, crossbowman, knight].
+	AIArmySetupModifiers1 := [1.0, 1.0/3, 0.0, 0.0, 0.0, 1.0/3, 0.0, 0.0, 0.0];
+	AIArmySetupModifiers2 := [1.0, 0.0, 1.0/2, 0.0, 0.0, 0.0, 1.0/2, 0.0, 0.0];
+	AIArmySetupModifiers3 := [1.0, 0.0, 0.0, 1.0/2, 0.0, 0.0, 0.0, 1.0/2, 0.0];
+	AIArmySetupModifiers4 := [1.0, 1.0/6, 1.0/4, 0.0, 0.0, 1.0/6, 1.0/4, 0.0, 0.0];
+	AIArmySetupModifiers5 := [1.0, 1.0/6, 0.0, 1.0/4, 0.0, 1.0/6, 0.0, 1.0/4, 0.0];
+	AIArmySetupModifiers6 := [1.0, 0.0, 1.0/4, 1.0/4, 0.0, 0.0, 1.0/4, 1.0/4, 0.0];
+	AIArmySetupModifiers7 := [1.0, 1.0/9, 1.0/6, 1.0/6, 0.0, 1.0/9, 1.0/6, 1.0/6, 0.0];
+end;
+
+
+// Periodical and timed events.
+procedure OnTick(aTick: Integer);
+begin
+	DNResolveTick(aTick);
+	
+	CurrentTick := aTick;
+	
+	if (aTick = 1) then
+		AskAmountOfEnemies();
+	
+	if (aTick = 2) then
+		SpawnPlayers();
+	
+	if (aTick = TIME_DIFFICULTY_1) then
+		CurrentAIArmyPool := AIArmyPool1;
+	
+	if (aTick = TIME_DIFFICULTY_2) then
+		CurrentAIArmyPool := AIArmyPool2;
+	
+	if (aTick = TIME_DIFFICULTY_3) then
+		CurrentAIArmyPool := AIArmyPool3;
+	
+	if (aTick = TIME_DIFFICULTY_4) then
+		CurrentAIArmyPool := AIArmyPool4;
+	
+	if (aTick = TIME_DIFFICULTY_5) then
+		CurrentAIArmyPool := AIArmyPool5;
+	
+	if (aTick = TIME_DIFFICULTY_6) then
+		CurrentAIArmyPool := AIArmyPool6;
+	
+	if (aTick = TIME_DIFFICULTY_7) then
+		CurrentAIArmyPool := AIArmyPool7;
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
+	
+	if (aTick mod 100 = 0) then
+		RunAIOptimizations();
+		
+	if (aTick mod 3000 = 0) then
+		UpdateArmyCompositions(EnemyPlayers, CurrentAIArmyPool);
+end;

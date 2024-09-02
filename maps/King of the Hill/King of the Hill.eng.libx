@@ -1,0 +1,29 @@
+0:Amaroth
+1:Hold the [$00FFFF]Hill[] for as long as you can. You can face up to 8 enemies - the more you face, and the quicker you dispatch them, the more score you gain. Best of luck!
+
+player_02:Northwestern enemy
+player_03:Southeastern enemy
+player_04:Northern enemy
+player_05:Southern enemy
+player_06:Northeastern enemy
+player_07:Southwestern enemy
+player_08:Eastern enemy
+player_09:Western enemy
+
+obj_destroy_towns:Destroy enemy towns
+obj_current_score:Current score
+obj_score_per_kill:Current score per a destroyed town
+
+result_win_01:Hill defended!
+result_win_02:Defeated
+result_win_03:Score gained:
+
+result_lose_01:Hill lost!
+result_lose_02:Defeated 
+result_lose_03:Score gained:
+
+dialog_enemy_amount_01:Your Majesty, welcome to your [$00FFFF]Hill[]! I hope you did not choose this one to die on! Tell me, how many enemies do you wish to face?
+dialog_enemy_amount_02:You will get [$00FFFF]100 points[] for each enemy defeated.
+dialog_enemy_amount_03:Additionaly, you will get [$00FFFF]up to 240 extra points[] for the speed at which you defeat the enemy (1 for each minute before [$00FFFF]04:00:00[]).
+dialog_enemy_amount_04:All points you receive are [$00FFFF]multiplied by the amount of enemies[] you initially placed on the map. So, if you choose to fight 4 enemies, you will get 4 times more points for each enemy defeated than described above.
+dialog_enemy_amount_05:In order to defeat an enemy, you have to destroy all of their key town buildings ([$00FFFF]Camp, Fort, Barracks[]).
