@@ -105,9 +105,9 @@
 !SET_AI_DEFENCE 40 49 4 1 20 -1 15 5 // melee
 !SET_AI_DEFENCE 31 50 3 3 22 -1 12 4 // ranged
 !SET_AI_DEFENCE 46 40 5 2 25 -1 12 4 // antihorse
-!SET_AI_DEFENCE 69 7 4 4 32 -1 6 3 // mounted
-!SET_AI_DEFENCE 84 25 6 4 32 -1 10 5 // mounted
-!SET_AI_DEFENCE 59 22 6 1 15 -1 10 5 // melee
+!SET_AI_DEFENCE 69 7 4 4 38 -1 6 3 // mounted
+!SET_AI_DEFENCE 84 25 6 4 39 -1 10 5 // mounted
+!SET_AI_DEFENCE 59 22 6 1 20 -1 10 5 // melee
 !SET_AI_DEFENCE 59 28 6 2 15 -1 10 5 // antihorse
 !SET_AI_DEFENCE 66 25 6 3 14 -1 10 5 // ranged
 !SET_AI_DEFENCE 76 51 6 1 10 -1 12 4 // melee
@@ -293,7 +293,7 @@
 !SET_MAPOBJECT 59 8 2 conepine_3 - - - 0 0
 !SET_MAPOBJECT 62 8 1 conepine_3 - - - 0 0
 !SET_MAPOBJECT 64 8 2 shrub_1 - - - 0 0
-!SET_MAPOBJECT 75 8 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 75 8 0 oak_3 - w - 0 0
 !SET_MAPOBJECT 89 8 2 log - - - 0 0
 !SET_MAPOBJECT 91 8 1 flower_yellow - - - 0 0
 !SET_MAPOBJECT 13 9 1 pine1 - - - 0 0
@@ -1331,4 +1331,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15210 (2024/07/30 14:45)" on 31/07/2024 17:44:26
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15386 (2024/09/15 14:26)" on 19/09/2024 12:06:52

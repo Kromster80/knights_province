@@ -9,10 +9,11 @@ hero_haytow_name:Sir Edgar Haytow
 hero_hargrave_name:Lord Hargrave
 
 obj_defeat_hargrave:Pokonaj armię [$000080]Lorda Hargrave’a[]
-obj_enemy_troops_left:Wrogie oddziały z lewej
-obj_player_troops_left:Twoje oddziały z lewej
-obj_time_passed:Czas, który upłynął
-obj_score:Wynik misji
+obj_enemy_troops_defeated:Obrażeni wrogowie
+obj_player_troops_lost:Straceni żołnierze
+obj_time_passed:Pozostały czas
+
+result_score:Zdobyty wynik
 
 msg_intro_01:Twoja armia przegrupowuje się i nabiera sił. Orszak Hargrave’a jest blisko, a w powietrzu można wyczuć zapach niepokoju. Ptaki śpiewające na drzewach zdają się nie mieć pojęcia, że wkrótce rozpocznie się bitwa, która może zadecydować o przyszłości całego Twojego rodzinnego miasta. Oddychasz i czekasz na raporty zwiadowców.
 

@@ -9,10 +9,11 @@ hero_haytow_name:Sir Edgar Haytow
 hero_hargrave_name:Lord Hargrave
 
 obj_defeat_hargrave:Defeat the army of [$000080]Lord Hargrave[]
-obj_enemy_troops_left:Enemy troops left
-obj_player_troops_left:Your troops left
-obj_time_passed:Time passed
-obj_score:Mission score
+obj_enemy_troops_defeated:Defeated enemies
+obj_player_troops_lost:Troops lost
+obj_time_left:Time left
+
+result_score:Score gained
 
 msg_intro_01:Your army regroups and assembles. Hargrave's retinue is close, and you can smell the anticipation in the air. The birds singing in the trees seem to have no idea, that a battle that may determine the future of your entire hometown is just about to ensue. You breathe in and await the scout reports.
 

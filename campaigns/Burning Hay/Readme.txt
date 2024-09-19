@@ -5,6 +5,14 @@ Initial release:        14-04-2024
 
 
 **---CHANGELOG---**
+**#V2.1**
+**Mission 4**
+- Score is now: kills / losses (min 1) * ((12000 - time in ticks): min 600) OR 0 if the player is defeated. Basically, half your losses OR half your time in comparison with the 20 minute deadline to double your score.
+- Increased AI support/aggression radius. Frontal assaults will now pull the enemy army the way they should.
+- "Hargrave escaped" message now properly pops out when all enemy knights are dead.
+- Hargrave now properly doesn't count as a defeated enemy in the mission score and the amount of enemies killed.
+- More code cleanup, objective info displays adjustments.
+
 **#V2**
 **Mission 6**
 - New Chapter 2 was added, together with its intro mission number 6, Mining Trouble. The following missions are still under development.

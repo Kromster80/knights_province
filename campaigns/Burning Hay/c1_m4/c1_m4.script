@@ -6,15 +6,18 @@ const
 	PLAYER_HARGRAVE = 1;
 	
 	OBJ_DEFEAT_ENEMY = '<$obj_defeat_hargrave>';
-	OBJ_ENEMY_TROOPS = '<$obj_enemy_troops_left>: [$00FFFF]';
-	OBJ_PLAYER_TROOPS = '<$obj_player_troops_left>: [$00FFFF]';
-	OBJ_TIME_PASSED = '<$obj_time_passed>: [$00FFFF]';
-	OBJ_SCORE = '<$obj_score>: [$00FFFF]';
+	OBJ_ENEMY_TROOPS_DEFEATED = '<$obj_enemy_troops_defeated>: [$00FFFF]';
+	OBJ_PLAYER_TROOPS_LOST = '<$obj_player_troops_lost>: [$00FFFF]';
+	OBJ_TIME_LEFT = '<$obj_time_left>: [$00FFFF]';
+	
+	RESULT_SCORE = '<$result_score>: [$00FFFF]';
 	
 	MSG_INTRO = '<$msg_intro_01>';
 	MSG_SCOUT_REPORT = '<$msg_scout_report_01>|<$msg_scout_report_02>|<$msg_scout_report_03>|<$msg_scout_report_04>|<$msg_scout_report_05>|<$msg_scout_report_06>|<$msg_scout_report_07>|<$msg_scout_report_08>|<$msg_scout_report_09>';
 	MSG_KNIGHT_CAPTURED = '<$msg_knight_captured_01>|<$msg_knight_captured_02>||<$msg_knight_captured_03>|<$msg_knight_captured_04>|<$msg_knight_captured_05>|<$msg_knight_captured_06>|<$msg_knight_captured_07>|<$msg_knight_captured_08>|<$msg_knight_captured_09>|<$msg_knight_captured_10>|<$msg_knight_captured_11>';
 	MSG_OUTRO = '<$msg_outro_01>';
+	
+	MISSION_SCORE_TIMEOUT = 12000;
 	
 	HERO_FULL_REGEN_TIME = 6000.0;
 	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
@@ -25,9 +28,9 @@ const
 	HERO_HARGRAVE_COLOR = $000000;
 
 var
-	HeroHargraveUnit, PlayerStartTroops, EnemyStartTroops, PlayerCurrentTroops, EnemyCurrentTroops, CurrentTick, PlayerWinTick, CurrentScore, EnemyKnightAmount: Integer;
-	MainObjID, EnemyTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjID, TimePassedTrackerObjID, ScoreTrackerObjID: Integer;
-	MainObjSt, EnemyTroopsLeftTrackerObjSt, PlayerTroopsLeftTrackerObjSt, TimePassedTrackerObjSt, ScoreTrackerObjSt: TKMObjectiveStatus;
+	HargraveKnights, HeroHargraveUnit, PlayerTroopsLost, HargraveTroopsLost, CurrentTick, PlayerWinTick, CurrentScore: Integer;
+	MainObjID, HargraveTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjID, TimePassedTrackerObjID: Integer;
+	MainObjSt, HargraveTroopsLostTrackerObjSt, PlayerTroopsLostTrackerObjSt, TimePassedTrackerObjSt: TKMObjectiveStatus;
 
 
 // 
@@ -46,26 +49,19 @@ end;
 //
 procedure UpdateObjectiveTexts();
 begin
-	// Recount current values.
-	PlayerCurrentTroops := States.StatArmyCount(PLAYER_HUMAN);
-	EnemyCurrentTroops := States.StatArmyCount(PLAYER_HARGRAVE);
-	CurrentScore := Utils.MaxI(Round(10000000.0 * PlayerCurrentTroops / PlayerStartTroops / CurrentTick), 0);
-	
 	// Update visual counters.
-	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, EnemyTroopsLeftTrackerObjID, OBJ_ENEMY_TROOPS + IntToStr(EnemyCurrentTroops));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, PlayerTroopsLeftTrackerObjID, OBJ_PLAYER_TROOPS + IntToStr(PlayerCurrentTroops));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, TimePassedTrackerObjID, OBJ_TIME_PASSED + Utils.TimeToString(CurrentTick));
-	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, ScoreTrackerObjID, OBJ_SCORE + IntToStr(CurrentScore));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, HargraveTroopsLostTrackerObjID, OBJ_ENEMY_TROOPS_DEFEATED + IntToStr(HargraveTroopsLost));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, PlayerTroopsLostTrackerObjID, OBJ_PLAYER_TROOPS_LOST + IntToStr(PlayerTroopsLost));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, TimePassedTrackerObjID, OBJ_TIME_LEFT + Utils.TimeToString(Utils.MaxI(MISSION_SCORE_TIMEOUT - CurrentTick, 0)));;
 end;
 
 
 // Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
 procedure PlayerWins();
 begin
-	UTObjectiveStatusUpdate(PLAYER_HUMAN, EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt, osCompleted);
-	UTObjectiveStatusUpdate(PLAYER_HUMAN, PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, HargraveTroopsLostTrackerObjID, HargraveTroopsLostTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, PlayerTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjSt, osCompleted);
 	UTObjectiveStatusUpdate(PLAYER_HUMAN, TimePassedTrackerObjID, TimePassedTrackerObjSt, osCompleted);
-	UTObjectiveStatusUpdate(PLAYER_HUMAN, ScoreTrackerObjID, ScoreTrackerObjSt, osCompleted);
 	
 	if (PlayerWinTick = -1) then
 		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
@@ -100,19 +96,16 @@ end;
 procedure SetupObjectives();
 begin
 	PlayerWinTick := -1;
-	PlayerStartTroops := Length(States.PlayerGetAllUnits(PLAYER_HUMAN));
-	EnemyStartTroops := Length(States.PlayerGetAllUnits(PLAYER_HARGRAVE));
-	PlayerCurrentTroops := PlayerStartTroops;
-	EnemyCurrentTroops := EnemyStartTroops;
+	PlayerTroopsLost := 0;
+	HargraveTroopsLost := 0;
 	CurrentTick := 0;
 	CurrentScore := 0;
-	EnemyKnightAmount := 6;
+	HargraveKnights := Length(States.PlayerGetAllUnitsFilter(PLAYER_HARGRAVE, [utCavalry]));
 
 	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DEFEAT_ENEMY, MainObjID, MainObjSt);
-	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 1, osActive, '', EnemyTroopsLeftTrackerObjID, EnemyTroopsLeftTrackerObjSt);
-	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 2, osActive, '', PlayerTroopsLeftTrackerObjID, PlayerTroopsLeftTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 1, osActive, '', HargraveTroopsLostTrackerObjID, HargraveTroopsLostTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 2, osActive, '', PlayerTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjSt);
 	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 3, osActive, '', TimePassedTrackerObjID, TimePassedTrackerObjSt);
-	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osActive, '', ScoreTrackerObjID, ScoreTrackerObjSt);
 	
 	UpdateObjectiveTexts();
 end;
@@ -157,11 +150,25 @@ end;
 
 procedure OnPlayerVictory(aPlayer: Integer);
 begin
+	UpdateObjectiveTexts();
 	if (aPlayer = PLAYER_HUMAN) then
 	begin
-		UpdateObjectives();
+		CurrentScore := Round(1.0 * HargraveTroopsLost / Utils.MaxI(PlayerTroopsLost, 1) * Utils.MaxI(MISSION_SCORE_TIMEOUT - CurrentTick, 600));
 		Actions.MissionHighscore(CurrentScore);
-		Actions.PlayerMissionResultString(PLAYER_HUMAN, OBJ_SCORE + IntToStr(CurrentScore));
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, RESULT_SCORE + IntToStr(CurrentScore));
+	end;
+end;
+
+
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	UpdateObjectiveTexts();
+	if (aPlayer = PLAYER_HUMAN) then
+	begin
+		CurrentScore := 0;
+		Actions.MissionHighscore(CurrentScore);
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, RESULT_SCORE + IntToStr(CurrentScore));
 	end;
 end;
 
@@ -169,11 +176,17 @@ end;
 
 procedure OnUnitBeforeDied(aUnit: Integer; aKillerOwner: Integer);
 begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+		PlayerTroopsLost := PlayerTroopsLost + 1;
+	if (States.UnitOwner(aUnit) = PLAYER_HARGRAVE) and not (aUnit = HeroHargraveUnit) then
+		HargraveTroopsLost := HargraveTroopsLost + 1;
+	UpdateObjectiveTexts();
+
 	// Wait for all the enemy knights to die - then question a prisoner where the enemy lord is.
 	if ((States.UnitType(aUnit) = utCavalry) and (States.UnitOwner(aUnit) = PLAYER_HARGRAVE)) then
 	begin
-		EnemyKnightAmount := EnemyKnightAmount - 1;
-		if (EnemyKnightAmount = 0) then
+		HargraveKnights := HargraveKnights - 1;
+		if (HargraveKnights = 0) then
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_KNIGHT_CAPTURED, True);
 	end;
 end;
