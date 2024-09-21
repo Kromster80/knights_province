@@ -14,7 +14,7 @@ const
   PATROL_COUNT_2 = 9;                                            // Number of waypoints in patrol route
 
 var
-  PlayerCamp, ObjMine, ObjDestroy, ObjMineComplet: Integer;
+  PlayerCamp, ObjMine, ObjDestroy: Integer;
   ObjCheckBridge, ObjFight, ObjLastEnnemy: Integer;
   ObjSmallVillage: Integer;
   patrolGroup, patrolGroup2: Integer;                            // Group that will do the patroling
@@ -59,7 +59,6 @@ procedure OnMissionStart;
 begin
   ObjDestroy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$31>');
   ObjMine := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$32>');
-  ObjMineComplet := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 2, osHidden, '<$33>');
   ObjCheckBridge := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 3, osHidden, '<$34>');
   ObjFight := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 4, osHidden, '<$35>');
   ObjLastEnnemy := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 5, osHidden, '<$36>');
@@ -148,7 +147,6 @@ begin
     Actions.GiveGroup(Player8_HideAtack, utArbaletman, 43, 36, 2, 10, 5);
     Actions.GiveGroup(Player8_HideAtack, utArbaletman, 51, 47, 2, 10, 5);
     trigger2Showed := True;
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osCompleted);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osHidden);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMine, osHidden);
   end;
@@ -161,7 +159,6 @@ begin
 
   if (aTriggerId = 4) and (not trigger4Showed) and (States.UnitOwner(aUnit) = HUMAN_PLAYER) then
   begin
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osHidden);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjCheckBridge, osActive);
     trigger4Showed := True;
   end;
@@ -216,6 +213,46 @@ begin
   end;
 end;
 
+Procedure RemoveBlockadePassage;																	//If ennemy Camp is destroyed - open the passage 
+ begin
+  Actions.TerrainObjectRemoveTile(139, 47);
+  Actions.TerrainObjectRemoveTile(138, 47);
+  Actions.TerrainObjectRemoveTile(138, 48);
+  Actions.TerrainObjectRemoveTile(137, 48);
+  Actions.TerrainObjectRemoveTile(137, 49); 
+  Actions.TerrainObjectRemoveTile(136, 49);   
+  Actions.TerrainObjectRemoveTile(136, 50);   
+  Actions.TerrainObjectRemoveTile(135, 50);  
+  Actions.TerrainObjectRemoveTile(135, 51);    
+  Actions.TerrainObjectRemoveTile(134, 51);  
+  Actions.TerrainObjectRemoveTile(134, 52);  
+  Actions.TerrainObjectRemoveTile(133, 52);  
+  Actions.TerrainObjectRemoveTile(133, 53); 
+  Actions.TerrainObjectRemoveTile(132, 53);  
+  Actions.TerrainObjectRemoveTile(132, 54);   
+  Actions.TerrainObjectRemoveTile(131, 54);  
+  Actions.TerrainObjectRemoveTile(131, 55);    
+  Actions.TerrainObjectRemoveTile(130, 55);  
+  Actions.TerrainObjectRemoveTile(130, 56);   
+  Actions.TerrainObjectRemoveTile(129, 56);  
+  Actions.TerrainObjectRemoveTile(129, 57);   
+  Actions.TerrainObjectRemoveTile(128, 57);  
+  Actions.TerrainObjectRemoveTile(128, 58);    
+  Actions.TerrainObjectRemoveTile(127, 58);  
+  Actions.TerrainObjectRemoveTile(127, 59);  
+  Actions.TerrainObjectRemoveTile(126, 59);  
+  Actions.TerrainObjectRemoveTile(126, 60);   
+  Actions.TerrainObjectRemoveTile(125, 60);   
+  Actions.TerrainObjectRemoveTile(125, 61);  
+  Actions.TerrainObjectRemoveTile(124, 61); 
+
+  Actions.TerrainObjectRemoveTile(100, 41);  
+  Actions.TerrainObjectRemoveTile(100, 42);  
+  Actions.TerrainObjectRemoveTile(100, 43);  
+  Actions.TerrainObjectRemoveTile(100, 44);  
+end;
+
+
 
 procedure OnHouseDestroyed(aHouse: Integer; aDestroyerIndex: Integer);
 begin
@@ -224,10 +261,10 @@ begin
     Actions.CinematicBegin;
     Actions.CinematicViewSetTo(132, 55, 320, 0.15)
     Actions.CinematicEnd;
+	RemoveBlockadePassage;
     Actions.PlayerMessage(HUMAN_PLAYER, '<$6>', True);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjDestroy, osCompleted);
     Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMine, osCompleted);
-    Actions.PlayerObjectiveUpdateStatus(HUMAN_PLAYER, ObjMineComplet, osActive);
   end;
 end;
 

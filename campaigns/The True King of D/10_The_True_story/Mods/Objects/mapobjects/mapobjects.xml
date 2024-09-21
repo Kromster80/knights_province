@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+
+   <item1 EngName="Border_cones" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarScale="1.3000" AvatarOffsetZ="0.2500" AvatarHeading="0"/>
+    <Flags items="static,decoration"/>
+  </item1> 
+  
+    <item1 EngName="Border_cones2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarScale="1.3000" AvatarOffsetZ="0.4000" AvatarHeading="0"/>
+    <Flags items="static,decoration"/>
+  </item1> 
+
+    <item1 EngName="Blank_Blockade" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarScale="14.0000" AvatarOffsetZ="0.5000" AvatarHeading="0"/>
+    <Flags items="static,decoration"/>
+  </item1>   
+
+	  </Objects>  
+  </item1>   	
+</Root>
+

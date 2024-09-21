@@ -4,7 +4,7 @@
 3:Blokowanie przejścia do mostu
 4:To desant! | Wróg nas zaskoczył i przybył z nieznanego miejsca
 5:Zniszcz wroga, a następnie wykorzystaj ogromne złoża żelaza, aby powiększyć swoją osadę i stworzyć silną armię.
-6:Wydaje się, jakoby po drugiej stronie kamieniołomu znajdowała się jakaś ścieżka. Wykop kamień i zbadaj tę ścieżkę. |Wykorzystaj do tego infrastrukturę wroga, która może przyspieszyć ten proces.
+6:Przejście otwarte, sprawdzmy to.
 7:Rozpędź agresora i przywróć spokój w tej części kraju.
 8:Właśnie tu znajduje się główna baza agresora
 9:Według naszych informatorów, gdzieś w okolicy znajduje się mała wioska, która wspomaga agresora. |Znajdź i zniszcz ją!
@@ -26,7 +26,6 @@
 26:
 31:[$00FFFF]Zniszcz wroga na północy
 32:[$00FFFF]Przejmij kopalnie żelaza
-33:[$00FFFF]Przekop wzgórze kamienia
 34:[$00FFFF]Sprawdź, co znajduje się po drugiej stronie mostu
 35:[$00FFFF]Pokonaj wroga
 36:[$00FFFF]Zniszcz agresora

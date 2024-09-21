@@ -1,6 +1,23 @@
 ****************************************************
 **************|  Campaign version:  |***************
-*********************|  1.2b  |**********************
+*********************|  1.2c  |*********************
+****************************************************
+
+21-09-2024
+-----------
+Mission 10
+* removed the stone deposits blocking the passage to the next player and replaced them with a passage blockade object.
+* reduced the amount of stone to dig between AI3 - AI4
+* removed objectives nr.33
+* fixed text informations pol, eng, gre
+* add own mods to mission (border_cones,border_cones2, blank_blockade)
+
+
+
+
+****************************************************
+**************|  Campaign version:  |***************
+*********************|  1.2b  |*********************
 ****************************************************
 
 09-05-2024

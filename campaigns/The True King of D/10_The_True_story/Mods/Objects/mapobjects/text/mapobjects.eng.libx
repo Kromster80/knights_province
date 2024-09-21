@@ -1,0 +1,16 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+	[mapobjects.Border_cones]
+        desc:Field marking stakes
+        name:Single border cones			
+	[mapobjects.Border_cones2]
+        desc:Field marking stakes
+        name:Doble border cones		
+	[mapobjects.Blank_Blockade]
+        desc:Transparent passage blockade
+        name:Blank Blockade		
+	
+
+		
+		
