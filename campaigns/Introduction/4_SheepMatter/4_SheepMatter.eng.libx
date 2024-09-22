@@ -12,10 +12,10 @@
 26:Build 2 sheepyards with pastures
 30:Excellent!|With the pastures built, Breeders can now start breeding sheep. They will provide us with a steady supply of wool. Wool needs to be processed into cloth before becoming Gambesons.
 31:Now that you have pastures it is time to give you another bit of advice.|Sheep need something to graze off. Even if a pasture is built on a grassy terrain, sheep will still benefit from additional grain fed to them.
-32:Produce %d cloth
+32:Accumulate %d cloth
 40:Perfect!|Now that we have the necessary infrastructure and supplies in place, we can produce gambesons in the Armor Workshop. Our infantry will benefit greatly from this specialized armor. Finally we will be able to properly train our men in a Fort knowing they will be protected in combat.
 41:Build a Fort
-42:Produce %d gambesons
+42:Accumulate %d gambesons
 50:We need to do our end of the deal now. Let's send some reinforcements to the ally.
 51:Sent %d/%d Axefighters to the ally
 60:Thank you for your assistance! With your help, we will repell future bandit raids and keep our town safe.
