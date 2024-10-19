@@ -7,7 +7,7 @@ const
 	
 	MSG_INTRO = '<$msg_intro_01>';
 	
-	TIME_LIMIT = 54000;
+	TIME_LIMIT = 57000;
 	
 var
 	SausagesObj, TimerObj: Integer;
