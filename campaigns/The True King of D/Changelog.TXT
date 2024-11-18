@@ -1,5 +1,19 @@
 ****************************************************
 **************|  Campaign version:  |***************
+*********************|  1.2d  |*********************
+****************************************************
+
+18-11-2024
+-----------
+Mission 5 - 6 - 7 - 8 - 9 - 10 - 11 - 12
+* Corrected Farms placement taking back entrance into account (added in Alpha 13wip)
+
+
+
+
+
+****************************************************
+**************|  Campaign version:  |***************
 *********************|  1.2c  |*********************
 ****************************************************
 
@@ -11,6 +25,7 @@ Mission 10
 * removed objectives nr.33
 * fixed text informations pol, eng, gre
 * add own mods to mission (border_cones,border_cones2, blank_blockade)
+
 
 
 
