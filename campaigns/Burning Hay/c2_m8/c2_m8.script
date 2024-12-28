@@ -1,0 +1,712 @@
+uses
+	extra_utils, day_night, attack_ai, defense_ai;
+
+const
+	PLAYER_HUMAN = 0;
+	PLAYER_ENEMY = 1;
+	PLAYER_ROYCE = 2;
+	
+	OBJ_DEFEAT_ENEMY = '<$obj_defeat_enemy>';
+	OBJ_ENEMY_TROOPS_DEFEATED = '<$obj_enemy_troops_defeated>: [$00FFFF]';
+	OBJ_PLAYER_TROOPS_LOST = '<$obj_player_troops_lost>: [$00FFFF]';
+	OBJ_TIME_LEFT = '<$obj_time_left>: [$00FFFF]';
+	
+	RESULT_SCORE = '<$result_score>: [$00FFFF]';
+	
+	MSG_INTRO = '<$msg_intro_01>';
+	MSG_SCOUT_REPORT = '<$msg_scout_report_01>|<$msg_scout_report_02>|<$msg_scout_report_03>|<$msg_scout_report_04>|<$msg_scout_report_05>|<$msg_scout_report_06>|';
+	MSG_BARRICADES = '<$msg_barricades_01>|<$msg_barricades_02>|<$msg_barricades_03>|<$msg_barricades_04>';
+	MSG_REINFORCEMENTS = '<$msg_reinforcements_01>|<$msg_reinforcements_02>|<$msg_reinforcements_03>|<$msg_reinforcements_04>|<$msg_reinforcements_05>';
+	MSG_ROAD_OPEN = '<$msg_road_open_01>';
+	MSG_BLACKBERRY_FINALE = '<$msg_blackberry_finale_01>|<$msg_blackberry_finale_02>|<$msg_blackberry_finale_03>|<$msg_blackberry_finale_04>|<$msg_blackberry_finale_05>|<$msg_blackberry_finale_06>';
+	MSG_BLACKBERRY_FALL = '<$msg_blackberry_fall_01>||<$msg_blackberry_fall_02>|<$msg_blackberry_fall_03>|<$msg_blackberry_fall_04>|<$msg_blackberry_fall_05>|<$msg_blackberry_fall_06>||<$msg_blackberry_fall_07>';
+	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>';
+	
+	MISSION_SCORE_TIMEOUT = 24000;
+	
+	HERO_FULL_REGEN_TIME = 6000.0;
+	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
+	HERO_HAYTOW_HP = 375;
+	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_ASTON_NAME = '<$hero_aston_name>';
+	HERO_ASTON_HP = 325;
+	HERO_ASTON_COLOR = $00B0FF;
+	HERO_BLACKBERRY_NAME = '<$hero_blackberry_name>';
+	HERO_BLACKBERRY_HP = 400;
+	HERO_BLACKBERRY_COLOR = $0000FF;
+	HERO_DEADMANE_NAME = '<$hero_deadmane_name>';
+	HERO_DEADMANE_HP = 300;
+	HERO_DEADMANE_COLOR = $61793F;
+	
+	TT_REINFORCEMENTS = 1;
+	TT_ROAD_OPEN = 2;
+	TT_BARRICADES_1 = 3;
+	TT_BARRICADES_2 = 4;
+	TT_BARRICADES_3 = 5;
+
+var
+	TTFiredReinforcements, TTFiredRoadOpen, TTFiredBarricades, TTFiredBlackberryFinale, TTFiredScouts, TTFiredSpears: Boolean;
+	HeroBlackberryUnit, HeroDeadmaneUnit, MarkerDeadmane, AggroAttack, PlayerTroopsLost, EnemyTroopsLost, CurrentTick, PlayerWinTick, ReinforcementsTick, CurrentScore: Integer;
+	MainObjID, EnemyTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjID, TimePassedTrackerObjID: Integer;
+	MainObjSt, EnemyTroopsLostTrackerObjSt, PlayerTroopsLostTrackerObjSt, TimePassedTrackerObjSt: TKMObjectiveStatus;
+	InitScouts, InitBows1, InitHalberds1, InitHalberds2, InitHalberds3, InitCrossbows1, InitCrossbows2, InitSwords1, InitSwords2, InitCrossbows3, InitCrossbows4, InitKnights1, InitKnights2, InitAxes, InitBows2: Integer;
+	CentralBarrierArchers1, CentralBarrierArchers2, CentralBarrierScouts, CentralBarrierSpears, CentralBarrierAxes, CentralBarrierPhase: Integer;
+	EasterBarrierArchers, EasternBarrierAxes, EasternBarrierSpears, EasternBarrierHalbers, EasternBarrierSwords, EasternBarrierPhase: Integer;
+	BridgeArchers1, BridgeArchers2, BridgeArchers3, BridgeSwords1, BridgeSwords2, BridgeKnights, BridgePhase: Integer;
+	ValleyArchers, ValleySpears, ValleyHalberds, ValleyAxes, ValleyScouts, ValleyPhase: Integer;
+
+
+// Disables the given DAIGroup and adds it into the attack which ensures the group will from now continuously seek the closest player's units and attack them.
+procedure UnleashDAIGroup(id: Integer);
+begin
+	DAIGroupSetEnabled(id, False);
+	AAIAttackJoinGroup(AggroAttack, DAIGroups[id].Group);
+end;
+
+
+// Moves the defending groups back in a false retreat meneuver. Happens if their archers are shot by the player.
+procedure EasternBarrierRetreat();
+begin
+	EasternBarrierPhase := 1;
+	
+	DAIGroupSetPosition(EasterBarrierArchers, 103, 99, 0);
+	DAIGroupSetPosition(EasternBarrierAxes, 98, 97, 0);
+	DAIGroupSetPosition(EasternBarrierSpears, 109, 97, 0);
+	DAIGroupSetPosition(EasternBarrierHalbers, 102, 96, 0);
+	DAIGroupSetPosition(EasternBarrierSwords, 105, 96, 0);
+end;
+
+
+// Charges the player's units. Happens after the false retreat, once the player crosses the barrier with enough troops.
+procedure EasternBarrierDisbandDefense();
+begin
+	EasternBarrierPhase := -1;
+	
+	UnleashDAIGroup(EasterBarrierArchers);
+	UnleashDAIGroup(EasternBarrierAxes);
+	UnleashDAIGroup(EasternBarrierSpears);
+	UnleashDAIGroup(EasternBarrierHalbers);
+	UnleashDAIGroup(EasternBarrierSwords);
+end;
+
+
+//
+procedure CentralBarrierMeleeForward();
+begin
+	CentralBarrierPhase := 1;
+	
+	DAIGroupSetPosition(CentralBarrierSpears, 36, 96, 2);
+	DAIGroupSetPosition(CentralBarrierAxes, 36, 103, 2);
+	DAIGroupSetPosition(CentralBarrierArchers1, 33, 96, 2);
+	DAIGroupSetPosition(CentralBarrierArchers2, 33, 103, 2);
+end;
+
+
+//
+procedure CentralBarrierMeleeBack();
+begin
+	CentralBarrierPhase := 0;
+	
+	DAIGroupSetPosition(CentralBarrierSpears, 33, 96, 2);
+	DAIGroupSetPosition(CentralBarrierAxes, 33, 103, 2);
+	DAIGroupSetPosition(CentralBarrierArchers1, 36, 96, 2);
+	DAIGroupSetPosition(CentralBarrierArchers2, 36, 103, 2);
+end;
+
+
+// 
+procedure CentralBarrierDisbandDefense();
+begin
+	CentralBarrierPhase := -1;
+	
+	UnleashDAIGroup(CentralBarrierSpears);
+	UnleashDAIGroup(CentralBarrierAxes);
+	UnleashDAIGroup(CentralBarrierArchers1);
+	UnleashDAIGroup(CentralBarrierArchers2);
+	UnleashDAIGroup(CentralBarrierScouts);
+end;
+
+
+//
+procedure ValleyMeleeForward();
+begin
+	ValleyPhase := 1;
+	
+	DAIGroupSetPosition(ValleyArchers, 72, 119, 2);
+	DAIGroupSetPosition(ValleySpears, 75, 116, 2);
+	DAIGroupSetPosition(ValleyAxes, 75, 120, 2);
+end;
+
+
+//
+procedure ValleyMeleeBack();
+begin
+	ValleyPhase := 0;
+	
+	DAIGroupSetPosition(ValleyArchers, 75, 119, 2);
+	DAIGroupSetPosition(ValleySpears, 72, 116, 2);
+	DAIGroupSetPosition(ValleyAxes, 72, 120, 2);
+end;
+
+
+// 
+procedure ValleyDisbandDefense();
+begin
+	ValleyPhase := -1;
+	
+	UnleashDAIGroup(ValleyArchers);
+	UnleashDAIGroup(ValleySpears);
+	UnleashDAIGroup(ValleyHalberds);
+	UnleashDAIGroup(ValleyAxes);
+	UnleashDAIGroup(ValleyScouts);
+	
+	TTFiredScouts :=  True;
+	TTFiredSpears := True;
+end;
+
+
+// Moves the bridge's melee defenders forward to close the bridge off, moves the archers out of the way and back into more safe position. Happens if the player's units start crossing the bridge.
+procedure BridgeMeleeForward();
+begin
+	BridgePhase := 1;
+	
+	DAIGroupSetPosition(BridgeArchers1, 14, 55, 2);
+	DAIGroupSetPosition(BridgeArchers2, 19, 54, 4);
+	DAIGroupSetPosition(BridgeArchers3, 24, 57, 6);
+	DAIGroupSetPosition(BridgeSwords1, 16, 58, 4);
+	DAIGroupSetPosition(BridgeSwords2, 22, 58, 4);
+	DAIGroupSetPosition(BridgeKnights, 19, 58, 4);
+	
+	if (not TTFiredBlackberryFinale) then
+	begin
+		TTFiredBlackberryFinale := True;
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FINALE, True);
+	end;
+end;
+
+
+// Bridge's melee defenders move back behind the archers and the archers move towards the bridge, to be able to shoot over it. Happens if the player's units on the bridge retreat or are killed.
+procedure BridgeMeleeBack();
+begin
+	BridgePhase := 0;
+	
+	DAIGroupSetPosition(BridgeArchers1, 14, 57, 4);
+	DAIGroupSetPosition(BridgeArchers2, 19, 58, 4);
+	DAIGroupSetPosition(BridgeArchers3, 24, 57, 4);
+	DAIGroupSetPosition(BridgeSwords1, 14, 50, 4);
+	DAIGroupSetPosition(BridgeSwords2, 24, 50, 4);
+	DAIGroupSetPosition(BridgeKnights, 19, 50, 4);
+end;
+
+
+// Charges the player with what is left of the bridge's defenders. Happens if they suffer too many loses for the regular maneuvers to be effective.
+procedure BridgeDisbandDefense();
+begin
+	BridgePhase := -1;
+	
+	UnleashDAIGroup(BridgeArchers1);
+	UnleashDAIGroup(BridgeArchers2);
+	UnleashDAIGroup(BridgeArchers3);
+	UnleashDAIGroup(BridgeSwords1);
+	UnleashDAIGroup(BridgeSwords2);
+	UnleashDAIGroup(BridgeKnights);
+	
+	if (not TTFiredBlackberryFinale) then
+	begin
+		TTFiredBlackberryFinale := True;
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FINALE, True);
+	end;
+end;
+
+
+//
+procedure CheckInitAssault();
+begin
+	if (CurrentTick = 200) then
+	begin
+		UnleashDAIGroup(InitScouts);
+		UnleashDAIGroup(InitAxes);
+		UnleashDAIGroup(InitBows2);
+	end;
+	if (CurrentTick = 400) then
+	begin
+		UnleashDAIGroup(InitSwords1);
+		UnleashDAIGroup(InitBows1);
+	end;
+	if (CurrentTick = 500) then
+	begin
+		UnleashDAIGroup(InitHalberds1);
+		UnleashDAIGroup(InitHalberds2);
+		UnleashDAIGroup(InitCrossbows1);
+		UnleashDAIGroup(InitCrossbows2);
+	end;
+	if (CurrentTick = 800) then
+	begin
+		UnleashDAIGroup(InitHalberds3);
+		UnleashDAIGroup(InitSwords2);
+		UnleashDAIGroup(InitCrossbows3);
+		UnleashDAIGroup(InitCrossbows4);
+		UnleashDAIGroup(InitKnights1);
+		UnleashDAIGroup(InitKnights2);
+	end;
+end;
+
+
+// Checks what is currently going on with the eastern barrier, and whether a move of the defense lines is needed.
+procedure CheckEasternBarrier();
+var
+	i, playerAreaUnitsCount, rangedAliveCount, meleeAliveCount: Integer;
+	areaUnits: array of Integer;
+begin
+	if (EasternBarrierPhase = -1) then Exit;
+	
+	rangedAliveCount := DAIMemberCount(EasterBarrierArchers);
+	meleeAliveCount := DAIMemberCount(EasternBarrierAxes) + DAIMemberCount(EasternBarrierSpears) + DAIMemberCount(EasternBarrierHalbers) + DAIMemberCount(EasternBarrierSwords);
+	
+	if (EasternBarrierPhase = 0)
+	and ((rangedAliveCount <= 7) or (meleeAliveCount <= 20)) then
+		EasternBarrierRetreat();
+	
+	if (EasternBarrierPhase = 1) then
+	begin
+		areaUnits := States.UnitsAt(95, 86, 116, 100);
+		for i := 0 to High(areaUnits) do
+			if (States.UnitOwner(areaUnits[i]) = PLAYER_HUMAN) then
+				playerAreaUnitsCount := playerAreaUnitsCount + 1;
+		if (playerAreaUnitsCount > 5) then
+			EasternBarrierDisbandDefense();
+	end;
+end;
+
+
+// Checks what is currently going on with the valley, and whether a move of the defense lines is needed.
+procedure CheckValley();
+var
+	i, playerAreaUnitsCount, rangedAliveCount, meleeAliveCount: Integer;
+	areaUnits: array of Integer;
+begin
+	areaUnits := States.UnitsAt(67, 92, 71, 100);
+	for i := 0 to High(areaUnits) do
+		if (States.UnitOwner(areaUnits[i]) = PLAYER_HUMAN) then
+			playerAreaUnitsCount := playerAreaUnitsCount + 1;
+	
+	if (playerAreaUnitsCount > 0) then
+	begin
+		if (not TTFiredScouts) then
+		begin
+			TTFiredScouts :=  True;
+			UnleashDAIGroup(ValleyScouts);
+		end
+		else if (not TTFiredSpears) and (DAIMemberCount(ValleyScouts) <= 8) then
+		begin
+			TTFiredSpears := True;
+			UnleashDAIGroup(ValleyHalberds);
+		end;
+	end;
+
+	if (ValleyPhase = -1) then Exit;
+	
+	areaUnits := States.UnitsAt(76, 112, 79, 121);
+	for i := 0 to High(areaUnits) do
+		if (States.UnitOwner(areaUnits[i]) = PLAYER_HUMAN) then
+			playerAreaUnitsCount := playerAreaUnitsCount + 1;
+	
+	rangedAliveCount := DAIMemberCount(ValleyArchers);
+	meleeAliveCount := DAIMemberCount(ValleySpears) + DAIMemberCount(ValleyAxes);
+	
+	if (rangedAliveCount <= 8) or (meleeAliveCount <= 8) then
+		ValleyDisbandDefense()
+	else
+	begin
+		if (ValleyPhase = 1)
+		and (playerAreaUnitsCount < 4) then
+			ValleyMeleeBack();
+
+		if (ValleyPhase = 0)
+		and (playerAreaUnitsCount >= 4) then
+			ValleyMeleeForward();
+	end;
+end;
+
+
+// Checks what is currently going on with the central barrier, and whether a move of the defense lines is needed.
+procedure CheckCentralBarrier();
+var
+	i, playerAreaUnitsCount, rangedAliveCount, meleeAliveCount: Integer;
+	areaUnits: array of Integer;
+begin
+	if (CentralBarrierPhase = -1) then Exit;
+	
+	areaUnits := States.UnitsAt(37, 87, 40, 107);
+	for i := 0 to High(areaUnits) do
+		if (States.UnitOwner(areaUnits[i]) = PLAYER_HUMAN) then
+			playerAreaUnitsCount := playerAreaUnitsCount + 1;
+	
+	rangedAliveCount := DAIMemberCount(CentralBarrierArchers1) + DAIMemberCount(CentralBarrierArchers2);
+	meleeAliveCount := DAIMemberCount(CentralBarrierScouts) + DAIMemberCount(CentralBarrierSpears) + DAIMemberCount(CentralBarrierAxes);
+	
+	if (rangedAliveCount < 15) or (meleeAliveCount < 10) then
+		CentralBarrierDisbandDefense()
+	else
+	begin
+		if (CentralBarrierPhase = 1)
+		and (playerAreaUnitsCount < 5) then
+			CentralBarrierMeleeBack();
+
+		if (CentralBarrierPhase = 0)
+		and (playerAreaUnitsCount >= 5) then
+			CentralBarrierMeleeForward();
+	end;
+end;
+
+
+// Checks what is currently going on with the bridge, and whether a move of the defense lines is needed.
+procedure CheckBridgeDefense();
+var
+	i, playerAreaUnitsCount, rangedAliveCount, meleeAliveCount: Integer;
+	areaUnits: array of Integer;
+begin
+	if (BridgePhase = -1) then Exit;
+	
+	areaUnits := States.UnitsAt(6, 40, 30, 62);
+	for i := 0 to High(areaUnits) do
+		if (States.UnitOwner(areaUnits[i]) = PLAYER_HUMAN) then
+			playerAreaUnitsCount := playerAreaUnitsCount + 1;
+	
+	rangedAliveCount := DAIMemberCount(BridgeArchers1) + DAIMemberCount(BridgeArchers2) + DAIMemberCount(BridgeArchers3);
+	meleeAliveCount := DAIMemberCount(BridgeSwords1) + DAIMemberCount(BridgeSwords2) + DAIMemberCount(BridgeKnights);
+	
+	if (rangedAliveCount < 15) or (meleeAliveCount < 9) then
+		BridgeDisbandDefense()
+	else
+	begin
+		if (BridgePhase = 1)
+		and (playerAreaUnitsCount < 2) then
+			BridgeMeleeBack();
+
+		if (BridgePhase = 0)
+		and (playerAreaUnitsCount >= 2) then
+			BridgeMeleeForward();
+	end;
+end;
+
+
+// 
+procedure CheckDefenses();
+begin
+	CheckInitAssault();
+	CheckEasternBarrier();
+	CheckValley();
+	CheckCentralBarrier();
+	CheckBridgeDefense();
+end;
+
+
+
+procedure PassControlReinforcements();
+var
+	allGroups: array of Integer;
+	i: Integer;
+begin
+	allGroups := States.PlayerGetAllGroups(PLAYER_ROYCE);
+	for i := 0 to High(allGroups) do
+		Actions.GroupOwnerChange(allGroups[i], PLAYER_HUMAN);
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_REINFORCEMENTS, True);
+	Actions.InteractionMarkerRemove(MarkerDeadmane);
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(105, 115, 0.0, 0.25);
+	Actions.CinematicEnd();
+end;
+
+
+
+procedure SendReinforcements();
+var
+	swords, halberds, crossbows, knights: Integer;
+begin
+	TTFiredReinforcements := True;
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_ROYCE, True, True);
+	
+	swords := States.GroupAt(119, 119);
+	halberds := States.GroupAt(121, 124);
+	crossbows := States.GroupAt(123, 119);
+	knights := States.GroupAt(119, 124);
+	
+	Actions.GroupOrderWalk(swords, 107, 110, 6);
+	Actions.GroupOrderWalk(halberds, 107, 117, 7);
+	Actions.GroupOrderWalk(crossbows, 111, 110, 6);
+	Actions.GroupOrderWalk(knights, 105, 115, 7);
+	
+	ReinforcementsTick := CurrentTick + 200;
+end;
+
+
+// 
+procedure FeedTroops(aPlayer: Integer);
+var
+	unitsToFeed: array of Integer;
+	i: Integer;
+begin
+	unitsToFeed := States.PlayerGetAllUnits(aPlayer);
+
+	for i := 0 to High(unitsToFeed) do
+		Actions.UnitHungerSet(unitsToFeed[i], States.UnitHungerMax);
+end;
+
+
+//
+procedure UpdateObjectiveTexts();
+begin
+	// Update visual counters.
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, EnemyTroopsLostTrackerObjID, OBJ_ENEMY_TROOPS_DEFEATED + IntToStr(EnemyTroopsLost));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, PlayerTroopsLostTrackerObjID, OBJ_PLAYER_TROOPS_LOST + IntToStr(PlayerTroopsLost));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, TimePassedTrackerObjID, OBJ_TIME_LEFT + Utils.TimeToString(Utils.MaxI(MISSION_SCORE_TIMEOUT - CurrentTick, 0)));;
+end;
+
+
+// Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
+procedure PlayerWins();
+begin
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, EnemyTroopsLostTrackerObjID, EnemyTroopsLostTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, PlayerTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjSt, osCompleted);
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, TimePassedTrackerObjID, TimePassedTrackerObjSt, osCompleted);
+	
+	if (PlayerWinTick = -1) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+	PlayerWinTick := CurrentTick;
+end;
+
+
+// Periodically called to check whether the players are still supposed to live, and to update the objective statuses.
+procedure UpdateObjectives();
+begin
+	UTObjectiveCheckSurvival(PLAYER_HUMAN, stArmy);
+	
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_ENEMY, MainObjID, MainObjSt);
+	
+	UpdateObjectiveTexts();
+	
+	if (MainObjSt = osCompleted) then
+		PlayerWins();
+end;
+
+
+// Finds the first suitable units to be turned into the mission's heroes and makes them change into them.
+procedure SetupHeroes();
+begin
+	UTUnitSetHeroStats(States.UnitAt(101, 29), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	
+	UTUnitSetHeroStats(States.UnitAt(115, 15), HERO_ASTON_NAME, HERO_ASTON_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ASTON_HP, 60)), -1, -1, -1, HERO_ASTON_COLOR);
+	
+	HeroBlackberryUnit := States.UnitAt(19, 50);
+	UTUnitSetHeroStats(HeroBlackberryUnit, HERO_BLACKBERRY_NAME, HERO_BLACKBERRY_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_BLACKBERRY_HP, 60)), -1, -1, -1, HERO_BLACKBERRY_COLOR);
+	
+	HeroDeadmaneUnit := States.UnitAt(119, 124);
+	UTUnitSetHeroStats(HeroDeadmaneUnit, HERO_DEADMANE_NAME, HERO_DEADMANE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_DEADMANE_HP, 60)), -1, -1, -1, HERO_DEADMANE_COLOR);
+	MarkerDeadmane := Actions.InteractionMarkerAddOnUnit(itExclamation, HeroDeadmaneUnit);
+	Actions.InteractionMarkerUpdate(MarkerDeadmane, -1, True, 1.5);
+end;
+
+
+
+procedure SetupAI();
+begin
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_ROYCE, True, False);
+	FeedTroops(PLAYER_HUMAN);
+	FeedTroops(PLAYER_ENEMY);
+	FeedTroops(PLAYER_ROYCE);
+	
+	AggroAttack := AAICreateAttack(PLAYER_ENEMY, [PLAYER_HUMAN], atUnits);
+	
+	// The initial ambush
+	InitHalberds1 := DAICreateGroup(States.GroupAt(46, 69), 73, 51, 1, True);
+	InitHalberds2 := DAICreateGroup(States.GroupAt(52, 75), 80, 58, 1, True);
+	InitHalberds3 := DAICreateGroup(States.GroupAt(54, 86), 75, 70, 0, True);
+	InitScouts := DAICreateGroup(States.GroupAt(35, 8), 78, 45, 3, False);
+	InitKnights1 := DAICreateGroup(States.GroupAt(44, 84), 71, 70, 0, True);
+	InitKnights2 := DAICreateGroup(States.GroupAt(57, 89), 82, 70, 0, True);
+	InitSwords1 := DAICreateGroup(States.GroupAt(32, 16), 74, 49, 2, False);
+	InitSwords2 := DAICreateGroup(States.GroupAt(57, 83), 79, 70, 0, True);
+	InitAxes := DAICreateGroup(States.GroupAt(120, 57), 87, 52, 7, False);
+	
+	InitBows1 := DAICreateGroup(States.GroupAt(33, 6), 69, 43, 2, True);
+	InitBows2 := DAICreateGroup(States.GroupAt(124, 57), 98, 55, 7, True);
+	InitCrossbows1 := DAICreateGroup(States.GroupAt(45, 69), 70, 53, 1, True);
+	InitCrossbows2 := DAICreateGroup(States.GroupAt(51, 75), 77, 60, 1, True);
+	InitCrossbows3 := DAICreateGroup(States.GroupAt(51, 89), 79, 73, 0, True);
+	InitCrossbows4 := DAICreateGroup(States.GroupAt(49, 91), 75, 73, 0, True);
+	
+	// The eastern barrier
+	EasternBarrierPhase := 0;
+	EasterBarrierArchers := DAICreateGroup(States.GroupAt(104, 83), 104, 83, 0, True);
+	EasternBarrierAxes := DAICreateGroup(States.GroupAt(98, 86), 98, 86, 0, True);
+	EasternBarrierSpears := DAICreateGroup(States.GroupAt(110, 86), 110, 86, 0, True);
+	EasternBarrierHalbers := DAICreateGroup(States.GroupAt(102, 86), 102, 86, 0, True);
+	EasternBarrierSwords := DAICreateGroup(States.GroupAt(106, 86), 106, 86, 0, True);
+	
+	// The valley in the south
+	ValleyPhase := 0;
+	ValleyArchers := DAICreateGroup(States.GroupAt(75, 119), 75, 119, 2, True);
+	ValleySpears := DAICreateGroup(States.GroupAt(72, 116), 72, 116, 2, True);
+	ValleyHalberds := DAICreateGroup(States.GroupAt(63, 108), 63, 108, 0, True);
+	ValleyAxes := DAICreateGroup(States.GroupAt(72, 120), 72, 120, 2, True);
+	ValleyScouts := DAICreateGroup(States.GroupAt(58, 104), 58, 104, 2, True);
+	
+	// The central barrier
+	CentralBarrierPhase := 0;
+	CentralBarrierArchers1 := DAICreateGroup(States.GroupAt(36, 96), 36, 96, 2, True);
+	CentralBarrierArchers2 := DAICreateGroup(States.GroupAt(36, 103), 36, 103, 2, True);
+	CentralBarrierScouts := DAICreateGroup(States.GroupAt(36, 100), 36, 100, 4, True);
+	CentralBarrierSpears := DAICreateGroup(States.GroupAt(33, 96), 33, 96, 2, True);
+	CentralBarrierAxes := DAICreateGroup(States.GroupAt(33, 103), 33, 103, 2, True);
+	
+	// The last bridge
+	BridgePhase := 0;
+	BridgeArchers1 := DAICreateGroup(States.GroupAt(14, 57), 14, 57, 4, True);
+	BridgeArchers2 := DAICreateGroup(States.GroupAt(19, 58), 19, 58, 4, True);
+	BridgeArchers3 := DAICreateGroup(States.GroupAt(24, 57), 24, 57, 4, True);
+	BridgeSwords1 := DAICreateGroup(States.GroupAt(14, 50), 14, 50, 4, True);
+	BridgeSwords2 := DAICreateGroup(States.GroupAt(24, 50), 24, 50, 4, True);
+	BridgeKnights := DAICreateGroup(States.GroupAt(19, 50), 19, 50, 4, True);
+end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	PlayerWinTick := -1;
+	PlayerTroopsLost := 0;
+	EnemyTroopsLost := 0;
+	CurrentTick := 0;
+	CurrentScore := 0;
+
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DEFEAT_ENEMY, MainObjID, MainObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 1, osActive, '', EnemyTroopsLostTrackerObjID, EnemyTroopsLostTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 2, osActive, '', PlayerTroopsLostTrackerObjID, PlayerTroopsLostTrackerObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 3, osActive, '', TimePassedTrackerObjID, TimePassedTrackerObjSt);
+	
+	UpdateObjectiveTexts();
+end;
+
+
+
+procedure OnMissionStart();
+begin
+	DNInitiateScript(600, 28800);
+	AAIInitiateScript(100, 5, 10, 50);
+	DAIInitiateScript(40);
+	SetupHeroes();
+	SetupAI();
+	SetupObjectives();
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_SCOUT_REPORT, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BARRICADES, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_REINFORCEMENTS, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_ROAD_OPEN, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FINALE, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FALL, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+end;
+
+
+
+procedure OnTick(aTick: Integer);
+begin
+	DNResolveTick(aTick);
+	AAIResolveTick(aTick);
+	DAIResolveTick(aTick);
+	CurrentTick := aTick;
+	
+	// Give scout report. Hargrave disappears.
+	if (aTick = 150) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_SCOUT_REPORT, True);
+	
+	if (aTick mod 10 = 0) then
+		CheckDefenses();
+		
+	if (aTick mod 100 = 0) then
+		Actions.FogRevealAll(PLAYER_ENEMY);
+		
+	if (aTick = ReinforcementsTick) then
+		PassControlReinforcements();
+
+	// No winning this by starving them out.
+	if (aTick mod 600 = 0) then
+	begin
+		FeedTroops(PLAYER_HUMAN);
+		FeedTroops(PLAYER_ENEMY);
+		FeedTroops(PLAYER_ROYCE);
+	end;
+	
+	if (aTick - 1 = PlayerWinTick) then
+		Actions.PlayerWin([PLAYER_HUMAN], False);
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
+end;
+
+
+
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+	UpdateObjectiveTexts();
+	if (aPlayer = PLAYER_HUMAN) then
+	begin
+		CurrentScore := Round(1.0 * EnemyTroopsLost / Utils.MaxI(PlayerTroopsLost, 1) * Utils.MaxI(MISSION_SCORE_TIMEOUT - CurrentTick, 600));
+		Actions.MissionHighscore(CurrentScore);
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, RESULT_SCORE + IntToStr(CurrentScore));
+	end;
+end;
+
+
+
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	UpdateObjectiveTexts();
+	if (aPlayer = PLAYER_HUMAN) then
+	begin
+		CurrentScore := 0;
+		Actions.MissionHighscore(CurrentScore);
+		Actions.PlayerMissionResultString(PLAYER_HUMAN, RESULT_SCORE + IntToStr(CurrentScore));
+	end;
+end;
+
+
+
+procedure OnUnitBeforeDied(aUnit: Integer; aKillerOwner: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+		PlayerTroopsLost := PlayerTroopsLost + 1;
+	if (States.UnitOwner(aUnit) = PLAYER_ENEMY) and not (aUnit = HeroBlackberryUnit) then
+		EnemyTroopsLost := EnemyTroopsLost + 1;
+	if (aUnit = HeroBlackberryUnit) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FALL, True);
+	UpdateObjectiveTexts();
+end;
+
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+	begin
+		if ((aTriggerId = TT_REINFORCEMENTS)
+		and not TTFiredReinforcements) then
+			SendReinforcements();
+		if ((aTriggerId in [TT_BARRICADES_1, TT_BARRICADES_2, TT_BARRICADES_3])
+		and not TTFiredBarricades) then
+		begin
+			TTFiredBarricades := True;
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_BARRICADES, True);
+		end;
+		if ((aTriggerId = TT_ROAD_OPEN)
+		and not TTFiredRoadOpen) then
+		begin
+			TTFiredRoadOpen := True;
+			Actions.PlayerMessage(PLAYER_HUMAN, MSG_ROAD_OPEN, True);
+		end;
+	end;
+end;

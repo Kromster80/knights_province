@@ -151,7 +151,7 @@
 !SET_AI_DEFENCE_STOCK 23 12 // pikeman
 !SET_AI_DEFENCE 57 46 4 4 19 -1 15 5 // mounted
 !SET_AI_DEFENCE_STOCK 25 15 // horsescout
-!SET_AI_DEFENCE 66 37 2 4 30 -1 12 4 // mounted
+!SET_AI_DEFENCE 45 56 2 4 11 -1 12 4 // mounted
 !SET_AI_DEFENCE_STOCK 25 12 // horsescout
 !SET_AI_DEFENCE 58 48 4 3 10 -1 10 5 // ranged
 !SET_AI_DEFENCE 53 48 4 3 10 -1 10 5 // ranged
@@ -5209,4 +5209,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15210 (2024/07/30 14:45)" on 31/07/2024 18:20:29
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15531 (2024/11/12 22:44)" on 06/12/2024 21:32:46

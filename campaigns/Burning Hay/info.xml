@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Root>
-  <Campaign Version="2" LastEdited="2024.8.5 11:6:12" GUID="{8EC89075-124F-40CE-95FB-98CD5B78E1EC}" Title="campaign_title" Description="campaign_description" FocusImg="" NodeImg="node.png" PreviewImg="campaign_preview.png" NodeSpacing="30">
+  <Campaign Version="2" LastEdited="2024.11.16 14:7:4" GUID="{8EC89075-124F-40CE-95FB-98CD5B78E1EC}" Title="campaign_title" Description="campaign_description" FocusImg="" NodeImg="node.png" PreviewImg="campaign_preview.png" NodeSpacing="25">
     <Chapters>
-      <id0 Background="map_1.png" Title="chapter_title_1" ShortTitle="chapter_number_1"/>
-      <id1 Background="map_2.png" Title="chapter_title_2" ShortTitle="chapter_number_2"/>
+      <id0 Background="map_full.png" Title="chapter_title_1" ShortTitle="chapter_number_1"/>
     </Chapters>
     <Missions>
-      <id0 Chapter="0" FlagX="782" FlagY="677" Folder="c1_m1" Title="mission_title_1" Briefing="mission_briefing_1" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m1.png" FlagImgWon="mission_won.png" NodeAnchors="102;412;102;937;1003;738;857;673"/>
-      <id1 Chapter="0" FlagX="826" FlagY="495" Folder="c1_m2" Title="mission_title_2" Briefing="mission_briefing_2" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m2.png" FlagImgWon="mission_won.png" NodeAnchors="811;615;776;576;796;538;829;499"/>
-      <id2 Chapter="0" FlagX="564" FlagY="470" Folder="c1_m3" Title="mission_title_3" Briefing="mission_briefing_3" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m3.png" FlagImgWon="mission_won.png" NodeAnchors="791;482;716;447;617;528;583;467"/>
-      <id3 Chapter="0" FlagX="461" FlagY="276" Folder="c1_m4" Title="mission_title_4" Briefing="mission_briefing_4" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m4.png" FlagImgWon="mission_won.png" NodeAnchors="494;370;453;347;491;299;459;291"/>
-      <id4 Chapter="0" FlagX="570" FlagY="157" Folder="c1_m5" Title="mission_title_5" Briefing="mission_briefing_5" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m5.png" FlagImgWon="mission_won.png" NodeAnchors="479;268;569;206;529;177;555;156"/>
-      <id5 Chapter="1" FlagX="658" FlagY="147" Folder="c2_m6" Title="mission_title_6" Briefing="mission_briefing_6" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c2_m6.png" FlagImgWon="mission_won.png" NodeAnchors="590;235;565;158;615;160;655;155"/>
+      <id0 Chapter="0" FlagX="892" FlagY="652" Folder="c1_m1" Title="mission_title_1" Briefing="mission_briefing_1" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m1.png" FlagImgWon="mission_won.png" NodeAnchors="277;469;344;907;932;696;884;673"/>
+      <id1 Chapter="0" FlagX="868" FlagY="553" Folder="c1_m2" Title="mission_title_2" Briefing="mission_briefing_2" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m2.png" FlagImgWon="mission_won.png" NodeAnchors="877;659;770;608;892;564;877;554"/>
+      <id2 Chapter="0" FlagX="646" FlagY="524" Folder="c1_m3" Title="mission_title_3" Briefing="mission_briefing_3" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m3.png" FlagImgWon="mission_won.png" NodeAnchors="849;550;704;575;574;586;622;528"/>
+      <id3 Chapter="0" FlagX="596" FlagY="330" Folder="c1_m4" Title="mission_title_4" Briefing="mission_briefing_4" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m4.png" FlagImgWon="mission_won.png" NodeAnchors="642;490;684;442;479;395;585;351"/>
+      <id4 Chapter="0" FlagX="659" FlagY="260" Folder="c1_m5" Title="mission_title_5" Briefing="mission_briefing_5" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c1_m5.png" FlagImgWon="mission_won.png" NodeAnchors="616;308;655;313;589;254;663;265"/>
+      <id5 Chapter="0" FlagX="652" FlagY="115" Folder="c2_m6" Title="mission_title_6" Briefing="mission_briefing_6" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c2_m6.png" FlagImgWon="mission_won.png" NodeAnchors="681;251;926;235;423;234;625;113"/>
+      <id6 Chapter="0" FlagX="544" FlagY="77" Folder="c2_m7" Title="mission_title_7" Briefing="mission_briefing_7" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c2_m7.png" FlagImgWon="mission_won.png" NodeAnchors="635;98;639;47;586;87;560;74"/>
+      <id7 Chapter="0" FlagX="444" FlagY="177" Folder="c2_m8" Title="mission_title_8" Briefing="mission_briefing_8" BriefingAudio="" FlagImgLocked="mission_locked.png" FlagImgNormal="c2_m8.png" FlagImgWon="mission_won.png" NodeAnchors="623;83;465;48;547;121;463;151"/>
     </Missions>
   </Campaign>
 </Root>

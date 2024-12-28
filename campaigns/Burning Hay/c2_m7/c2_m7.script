@@ -1,0 +1,489 @@
+{ToDo:
+- Beauty edits
+- Messages
+- Enemy hero
+- Add William's marker actually on HIM
+}
+uses
+	extra_utils, day_night, wagon_supply, attack_ai;
+
+const
+	PLAYER_HUMAN = 0;
+	PLAYER_MINES = 1;
+	PLAYER_BLACKBERRY = 2;
+	PLAYER_MERCENARY = 3;
+	
+	OBJ_DESTROY_MINES_TOWN = '<$obj_destroy_mines_town>';
+	OBJ_DEFEAT_MINES_ARMY = '<$obj_defeat_mines_army>';
+	OBJ_DESTROY_BLACKBERRY_TOWN = '<$obj_destroy_blackberry_town>';
+	OBJ_DEFEAT_BLACKBERRY_ARMY = '<$obj_defeat_blackberry_army>';
+	OBJ_VISIT_MERCENARY = '<$obj_visit_mercenary>';
+	
+	MSG_INTRO = '<$msg_intro_01>||<$msg_intro_02>|<$msg_intro_03>|<$msg_intro_04>|<$msg_intro_05>|<$msg_intro_06>|<$msg_intro_07>|<$msg_intro_08>|<$msg_intro_09>|<$msg_intro_10>|<$msg_intro_11>';
+	MSG_MERCENARY_MET = '<$msg_mercenary_met_01>||<$msg_mercenary_met_02>|<$msg_mercenary_met_03>|<$msg_mercenary_met_04>|<$msg_mercenary_met_05>|<$msg_mercenary_met_06>|<$msg_mercenary_met_07>|<$msg_mercenary_met_08>|<$msg_mercenary_met_09>|<$msg_mercenary_met_10>|';
+	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>|||<$msg_outro_05>||<$msg_outro_06>|<$msg_outro_07>|<$msg_outro_08>||<$msg_outro_09>|<$msg_outro_10>|<$msg_outro_11>|<$msg_outro_12>|<$msg_outro_13>|<$msg_outro_14>|<$msg_outro_15>|<$msg_outro_16>|<$msg_outro_17>|<$msg_outro_18>|||<$msg_outro_19>||<$msg_outro_20>|<$msg_outro_21>|<$msg_outro_22>|<$msg_outro_23>|<$msg_outro_24>|';
+	
+	MERCENARY_HIRE_COST = 45;
+	MERCENARY_SPAWN_X = 108;
+	MERCENARY_SPAWN_Y = 65;
+	DIALOG_MERCENARY = '<$dialog_mercenary>';
+	DIALOG_MERCENARY_NOT_READY = '<$dialog_mercenary_not_ready>';
+	MERCENARY_BTN_SWORDS = '<$mercenary_btn_swords>';
+	MERCENARY_BTN_HALBERDS = '<$mercenary_btn_halberds>';
+	MERCENARY_BTN_CROSSBOWS = '<$mercenary_btn_crossbows>';
+	MERCENARY_BTN_CANCEL = '<$mercenary_btn_cancel>';
+	MERCENARY_TAG_SWORDS = 1;
+	MERCENARY_TAG_HALBERDS = 2;
+	MERCENARY_TAG_CROSSBOWS = 3;
+	MERCENARY_TAG_CANCEL = 4;
+	MERCENARY_SWORD_AMOUNT = 6;
+	MERCENARY_HALBERD_AMOUNT = 9;
+	MERCENARY_CROSSBOW_AMOUNT = 9;
+	MERCENARY_SWORD_NAME = '<$mercenary_sword_name>';
+	MERCENARY_SWORD_HP = 165;
+	MERCENARY_SWORD_DMG_MIN = 10;
+	MERCENARY_SWORD_DMG_MAX = 16;
+	MERCENARY_HALBERD_NAME = '<$mercenary_halberd_name>';
+	MERCENARY_HALBERD_HP = 120;
+	MERCENARY_HALBERD_DMG_MIN = 9;
+	MERCENARY_HALBERD_DMG_MAX = 12;
+	MERCENARY_CROSSBOW_NAME = '<$mercenary_crossbow_name>';
+	MERCENARY_CROSSBOW_HP = 120;
+	MERCENARY_CROSSBOW_DMG_MIN = 7;
+	MERCENARY_CROSSBOW_DMG_MAX = 9;
+	MERCENARY_UNIT_COLOR = $FF9000;
+	
+	BLACKBERRY_ATTACKS_START = 30600;
+	BLACKBERRY_ATTACKS_PERIOD = 6000;
+	
+	HERO_FULL_REGEN_TIME = 6000.0;
+	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
+	HERO_HAYTOW_HP = 350;
+	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_ASTON_NAME = '<$hero_aston_name>';
+	HERO_ASTON_HP = 300;
+	HERO_ASTON_COLOR = $00B0FF;
+	HERO_WILLIAM_NAME = '<$hero_william_name>';
+	HERO_WILLIAM_HP = 250;
+	HERO_WILLIAM_COLOR = $990000;
+	HERO_BLACKBERRY_NAME = '<$hero_blackberry_name>';
+	HERO_BLACKBERRY_HP = 400;
+	HERO_BLACKBERRY_COLOR = $0000FF;
+	
+	TT_MERCENARY_WELCOME = 4;
+	
+var
+	TTFiredMercenaryWelcome, MinesDefeated, BlackberryDefeated, MercenaryHireReady: Boolean;
+	BlackberryAttack, MarkerMercenary, PlayerWinTick, GoldCamp, MercenaryCamp, MercenaryBarracks, DestroyMinesTownObjID, DefeatMinesArmyObjID, DestroyBlackberryTownObjID, DefeatBlackberryArmyObjID, VisitMercenaryObjID: Integer;
+	DestroyMinesTownObjSt, DefeatMinesArmyObjSt, DestroyBlackberryTownObjSt, DefeatBlackberryArmyObjSt, VisitMercenaryObjSt: TKMObjectiveStatus;
+
+
+// Periodically checks, if the player is in the proximity of the mines. If he is, sets the next attack's destination to the mines. This means Blackberry defends the mines with his attacks, as priority. If the mines are not under assault, the next attack's target changes between 4 possible destinations at random.
+procedure SetBlackberryAttackTarget();
+var
+	target, i, playerUnitsCount, attackingUnitsCount: Integer;
+	unitsAroundMines: array of Integer;
+begin
+	// Count how many player's units are around the mines.
+	unitsAroundMines := States.UnitsAt(0, 0, 80, 110);
+	for i := 0 to High(unitsAroundMines) do
+		if (States.UnitOwner(unitsAroundMines[i]) = PLAYER_HUMAN) then
+			playerUnitsCount := playerUnitsCount + 1;
+	
+	// Count the amount of living troops currently taking part in an attack.
+	for i := 0 to High(AAIAttacks[BlackberryAttack].launchedGroups) do
+		attackingUnitsCount := attackingUnitsCount + States.GroupMemberCount(AAIAttacks[BlackberryAttack].launchedGroups[i].Group);
+	
+	// If more than 5 player's unit are in the proximity of the mines, target the mines area.
+	if (playerUnitsCount > 5) then
+		AAIAttackSetTargetAreaCenter(BlackberryAttack, 56, 33)
+	// As long as the player is not in the proximity of the mines and already being attacked, switch the next attack's target at random.
+	else if (attackingUnitsCount = 0) then
+	begin
+		target := Utils.RandomI(3);
+		if (target = 0) then
+			AAIAttackSetTargetAreaCenter(BlackberryAttack, 130, 127)
+		else if (target = 1) then
+			AAIAttackSetTargetAreaCenter(BlackberryAttack, 158, 99)
+		else if (target = 2) then
+			AAIAttackSetTargetAreaCenter(BlackberryAttack, 163, 67)
+		else if (target = 3) then
+			AAIAttackSetTargetAreaCenter(BlackberryAttack, 144, 28);
+	end;
+end;
+
+
+// Updates markers used for trading.
+procedure UpdateMercenaryMarker();
+var
+	playerCamps: array of Integer;
+	i, maxPlayerGold, wareAmount, markerColor: Integer;
+	markerHeight: Single;
+begin
+	if not TTFiredMercenaryWelcome then Exit;
+	if (MarkerMercenary = 0) then Exit;
+	
+	// Check if the player has a camp that has enough gold available in it.
+	playerCamps := States.PlayerGetHouses(PLAYER_HUMAN, htCamp, True);
+	if (Length(playerCamps) = 0) then
+		MercenaryHireReady := False
+	else
+	begin		
+		for i := 0 to High(playerCamps) do
+		begin
+			wareAmount := States.HouseWareInside(playerCamps[i], wtGold);
+			if (wareAmount > maxPlayerGold) then
+			begin
+				maxPlayerGold := wareAmount;
+				GoldCamp := playerCamps[i];
+			end;
+		end;
+		
+		MercenaryHireReady := (maxPlayerGold >= MERCENARY_HIRE_COST);
+	end;
+	
+	// If the player has enough gold available, make the marker yellow, glowing and bobbing. Otherwise, it will be gray and stationary.
+	if MercenaryHireReady then
+		markerColor := -1
+	else
+		markerColor := $606060;
+		
+	if MercenaryHireReady then
+		markerHeight := 1.5
+	else
+		markerHeight := -1;
+	
+	Actions.InteractionMarkerUpdate(MarkerMercenary, markerColor, MercenaryHireReady, markerHeight);
+	Actions.InteractionMarkerBob(MarkerMercenary, MercenaryHireReady);
+end;
+
+
+// Sends the gold from the player ot the mercenaries and gives the player this new units, according to the button he clicked in the dialog window.
+procedure HireMercenary(aTag: Integer);
+var
+	newGroup, i, amount, hp, minDmg, maxDmg: Integer;
+	name: String;
+	unitType: TKMUnitType;
+begin
+	// Double-check if conditions for the trade are currently met.
+	if not MercenaryHireReady then Exit;
+	if (GoldCamp < 1) or (MercenaryCamp < 1) then Exit;
+	if (States.HouseWareInside(GoldCamp, wtGold) < MERCENARY_HIRE_COST) then Exit;
+	
+	// If sword fighters are to be hired.
+	if (aTag = MERCENARY_TAG_SWORDS) then
+	begin
+		unitType := utSwordsman;
+		amount := MERCENARY_SWORD_AMOUNT;
+		name := MERCENARY_SWORD_NAME;
+		hp := MERCENARY_SWORD_HP;
+		minDmg := MERCENARY_SWORD_DMG_MIN;
+		maxDmg := MERCENARY_SWORD_DMG_MAX;
+		Actions.HouseWareRemove(MercenaryBarracks, wtSword, amount);
+		Actions.HouseWareRemove(MercenaryBarracks, wtMetalShield, amount);
+		Actions.HouseWareRemove(MercenaryBarracks, wtMetalArmor, amount);
+	end
+	// If halberdier are to be hired.
+	else if (aTag = MERCENARY_TAG_HALBERDS) then
+	begin
+		unitType := utHalberdier;
+		amount := MERCENARY_HALBERD_AMOUNT;
+		name := MERCENARY_HALBERD_NAME;
+		hp := MERCENARY_HALBERD_HP;
+		minDmg := MERCENARY_HALBERD_DMG_MIN;
+		maxDmg := MERCENARY_HALBERD_DMG_MAX;
+		Actions.HouseWareRemove(MercenaryBarracks, wtHalberd, amount);
+		Actions.HouseWareRemove(MercenaryBarracks, wtMetalArmor, amount);
+	end
+	// If crossbowmen are to be hired.
+	else if (aTag = MERCENARY_TAG_CROSSBOWS) then
+	begin
+		unitType := utArbaletman;
+		amount := MERCENARY_CROSSBOW_AMOUNT;
+		name := MERCENARY_CROSSBOW_NAME;
+		hp := MERCENARY_CROSSBOW_HP;
+		minDmg := MERCENARY_CROSSBOW_DMG_MIN;
+		maxDmg := MERCENARY_CROSSBOW_DMG_MAX;
+		Actions.HouseWareRemove(MercenaryBarracks, wtArbalet, amount);
+		Actions.HouseWareRemove(MercenaryBarracks, wtMetalArmor, amount);
+	end;
+	
+	// Send the resources from the player.
+	WSSendResourcesHouseToHouse(GoldCamp, MercenaryCamp, wtGold, MERCENARY_HIRE_COST);
+	
+	// Create the desired group, with enhanced statistics, adjusted color and name. Feed them.
+	newGroup := Actions.GiveGroup(PLAYER_HUMAN, unitType, MERCENARY_SPAWN_X, MERCENARY_SPAWN_Y, 4, amount, 3);
+	for i := 0 to States.GroupMemberCount(newGroup) - 1 do
+	begin
+		UTUnitSetHeroStats(States.GroupMember(newGroup, i), name, hp, -1, minDmg, maxDmg, -1, MERCENARY_UNIT_COLOR);
+		Actions.UnitHungerSet(States.GroupMember(newGroup, i), 2700);
+	end;
+	
+	// Ensure the marker is updated, in case the player ran out of gold for the next transaction.
+	UpdateMercenaryMarker();
+end;
+
+
+// Mercenaries were met - start sharing FOW with them, display welcome message, enable the trade.
+procedure MercenaryMet();
+begin
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, VisitMercenaryObjID, VisitMercenaryObjSt, osCompleted);
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_MERCENARY, True, True);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_MERCENARY_MET, True);
+	TTFiredMercenaryWelcome := True;
+	
+	UpdateMercenaryMarker();
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(118, 64, 0.0, 0.25);
+	Actions.CinematicEnd();
+end;
+
+
+// Called if all objectives are completed. Give the player the outro and then the mission will end with victory.
+procedure PlayerWins();
+begin
+	if (PlayerWinTick = -1) then
+		Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
+	PlayerWinTick := AAICurrentTick;
+end;
+
+
+// Periodically called to check whether the players are still supposed to live, and to update the objective statuses.
+procedure UpdateObjectives();
+var
+	i: Integer;
+begin
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_MINES, DefeatMinesArmyObjID, DefeatMinesArmyObjSt);
+	UTObjectiveArmyUpdate(PLAYER_HUMAN, PLAYER_BLACKBERRY, DefeatBlackberryArmyObjID, DefeatBlackberryArmyObjSt);
+	
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_MINES, DestroyMinesTownObjID, DestroyMinesTownObjSt);
+	UTObjectiveTownUpdate(PLAYER_HUMAN, PLAYER_BLACKBERRY, DestroyBlackberryTownObjID, DestroyBlackberryTownObjSt);
+	
+	// If the mines were defeated, disable their supply trains, and the supply train from the mines to Blackberry.
+	if (not MinesDefeated)
+	and (DefeatMinesArmyObjSt = osCompleted)
+	and (DestroyMinesTownObjSt = osCompleted) then
+	begin
+		WSPlayerDisableSupplies(PLAYER_MINES);
+		MinesDefeated := True;
+		for i := 0 to High(WSWagonSupplies) do
+			if (WSWagonSupplies[i].aPlayer = PLAYER_BLACKBERRY)
+			and (WSWagonSupplies[i].spawnX = 27)
+			and (WSWagonSupplies[i].spawnY = 36) then
+				WSWagonSupplies[i].stopTick := WagonCurrentTick;
+	end;
+	
+	// If Blackberry was defeated, disable his supply trains.
+	if (not BlackberryDefeated)
+	and (DefeatBlackberryArmyObjSt = osCompleted)
+	and (DestroyBlackberryTownObjSt = osCompleted) then
+	begin
+		WSPlayerDisableSupplies(PLAYER_BLACKBERRY);
+		BlackberryDefeated := True;
+	end;
+	
+	if (DefeatMinesArmyObjSt = osCompleted)
+	and (DefeatBlackberryArmyObjSt = osCompleted)
+	and (DestroyMinesTownObjSt = osCompleted)
+	and (DestroyBlackberryTownObjSt = osCompleted) then
+		PlayerWins();
+end;
+	
+
+// Finds the first suitable units to be turned into the mission's heroes and makes them change into them.
+procedure SetupHeroes();
+begin
+	UTUnitSetHeroStats(States.UnitAt(158, 29), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	
+	UTUnitSetHeroStats(States.UnitAt(157, 33), HERO_ASTON_NAME, HERO_ASTON_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ASTON_HP, 60)), -1, -1, -1, HERO_ASTON_COLOR);
+	
+	UTUnitSetHeroStats(States.UnitAt(118, 64), HERO_WILLIAM_NAME, HERO_WILLIAM_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_WILLIAM_HP, 60)), -1, -1, -1, HERO_WILLIAM_COLOR);
+	
+	UTUnitSetHeroStats(States.UnitAt(30, 157), HERO_BLACKBERRY_NAME, HERO_BLACKBERRY_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_BLACKBERRY_HP, 60)), -1, -1, -1, HERO_BLACKBERRY_COLOR);
+end;
+
+
+// Optimize the AI's town.
+procedure OptimizeAI();
+var
+	steelBalance: Integer;
+begin
+	// If the AI has full AIDispositions for one group type, it will redirect its efforts towards the dispositions tha still need troops.
+	UTOptimizeAIArmyCompositions(PLAYER_MINES, [0, 150, 0, 150, 0, 150, 0, 0], False);
+	UTOptimizeAIHouseWareBlocks(PLAYER_MINES, [wtCoal, wtIronOre, wtGoldOre, wtSteel, wtGold], [200, 10000, 10000, 200, 10000], True, True);
+	
+	// Train many T3 is iron is abundant, 50-50 T2-T3 if there is still some iron available, pure T2 if no iron is available. Do the same optimization with AIDispositions like the previous player gets.
+	steelBalance := States.StatWaresBalance(PLAYER_BLACKBERRY, wtSteel);
+	if (steelBalance = 0) then
+		UTOptimizeAIArmyCompositions(PLAYER_BLACKBERRY, [250, 0, 300, 0, 300, 0, 150, 0], False)
+	else if (steelBalance > 75) then
+		UTOptimizeAIArmyCompositions(PLAYER_BLACKBERRY, [0, 250, 0, 300, 0, 300, 0, 150], False)
+	else if (steelBalance < 25) then
+		UTOptimizeAIArmyCompositions(PLAYER_BLACKBERRY, [150, 150, 150, 150, 150, 150, 75, 75], False);
+end;
+
+
+// Initial AI's setup.
+procedure SetupAI();
+var
+	mercenaryBuildings: array of Integer;
+	blackberryDefenseAIDs: array of Integer;
+begin
+	// Make sure the mercenaries are allied to everyone, but without sharing FoW.
+	Actions.PlayerAllianceChange(PLAYER_MERCENARY, PLAYER_HUMAN, True, False);
+	Actions.PlayerAllianceChange(PLAYER_MERCENARY, PLAYER_MINES, True, False);
+	Actions.PlayerAllianceChange(PLAYER_MERCENARY, PLAYER_BLACKBERRY, True, False);
+
+	// Personally preferred ware distributions for AI.
+	UTPlayerMaxWareDistributions(PLAYER_MINES);
+	UTPlayerMaxWareDistributions(PLAYER_BLACKBERRY);
+	
+	// Supplies of food for the mines.
+	WSAddWagonSupply(PLAYER_MINES, 0, 127, 1, -1, 6000, wtFish, 75, False, True, False);
+	WSAddWagonSupply(PLAYER_MINES, 0, 127, 1, -1, 6000, wtCider, 75, False, True, False);
+	WSAddWagonSupply(PLAYER_MINES, 0, 127, 1, -1, 6000, wtAle, 75, False, True, False);
+	
+	// Supply of steel from the mines to Blackberry.
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 27, 36, 1, -1, 12000, wtSteel, 100, False, True, False);
+	// Supply of steel, coal and ale to Blackberry, coming from the edge of the map, going to the northern storehouse for traffic optimization.
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 49, 172, 1, -1, 12000, wtSteel, 100, False, True, False);
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 49, 172, 1, -1, 12000, wtCoal, 200, False, True, False);
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 22, 172, 1, -1, 6000, wtAle, 50, False, True, False);
+	// Horse supply to Blackberry, split between Barracks and Fort equally.
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 49, 172, 1, -1, 18000, wtHorse, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 49, 172, 1, -1, 18000, wtHorse, 50, False, True, True);
+	// Remaining food supply for Blackberry.
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 22, 172, 1, -1, 6000, wtBread, 50, False, True, False);
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 22, 172, 1, -1, 6000, wtSausages, 50, False, True, False);
+	// T2 production supply for Blackberry - a backup in case he starts running out of steel.
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 22, 172, 1, -1, 6000, wtCloth, 300, False, True, False);
+	WSAddWagonSupply(PLAYER_BLACKBERRY, 22, 172, 1, -1, 6000, wtWood, 400, False, True, False);
+	
+	// Init player supply. Gives only extra stone at the start of the mission.
+	WSAddWagonSupply(PLAYER_HUMAN, 180, 70, 1, 10, 9000, wtStone, 500, False, True, False);
+	WSAddWagonSupply(PLAYER_HUMAN, 173, 172, 1, 10, 9000, wtStone, 500, False, True, False);
+	
+	// Init mercenary quest marker unit and camp to be traded with.
+	mercenaryBuildings := States.PlayerGetHouses(PLAYER_MERCENARY, htCamp, True);
+	if (Length(mercenaryBuildings) > 0) then 
+		MercenaryCamp := mercenaryBuildings[0];
+	mercenaryBuildings := States.PlayerGetHouses(PLAYER_MERCENARY, htBarracks, True);
+	if (Length(mercenaryBuildings) > 0) then 
+		MercenaryBarracks := mercenaryBuildings[0];
+	MarkerMercenary := Actions.InteractionMarkerAddOnUnit(itExclamation, States.UnitAt(118, 64));
+	Actions.InteractionMarkerUpdate(MarkerMercenary, $606060, True, 1.5);
+	Actions.InteractionMarkerBob(MarkerMercenary, True);
+	
+	// Blackberry's attacks and defense setup. The mines don't attack.
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 41, 156));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 38, 153));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 44, 153));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 35, 148));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 41, 148));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 47, 148));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 35, 145));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 47, 145));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 41, 139));
+	Utils.ArrayAppendI(blackberryDefenseAIDs, UTAIDispositionAt(PLAYER_BLACKBERRY, 30, 157));
+	
+	BlackberryAttack := AAICreateAttack(PLAYER_BLACKBERRY, [PLAYER_HUMAN], atBoth);
+	AAIAttackSetTimes(BlackberryAttack, BLACKBERRY_ATTACKS_START, -1, BLACKBERRY_ATTACKS_PERIOD);
+	AAIAttackSetCompositions(BlackberryAttack, [30, 30, 30, 10], 100, True, True, blackberryDefenseAIDs);
+end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	PlayerWinTick := -1;
+	
+	// The main objectives.
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_DESTROY_MINES_TOWN, DestroyMinesTownObjID, DestroyMinesTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_DEFEAT_MINES_ARMY, DefeatMinesArmyObjID, DefeatMinesArmyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 2, osActive, OBJ_DESTROY_BLACKBERRY_TOWN, DestroyBlackberryTownObjID, DestroyBlackberryTownObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 3, osActive, OBJ_DEFEAT_BLACKBERRY_ARMY, DefeatBlackberryArmyObjID, DefeatBlackberryArmyObjSt);
+	
+	// The secondary objective for the discovery of the mercenary mechanic.
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osActive, OBJ_VISIT_MERCENARY, VisitMercenaryObjID, VisitMercenaryObjSt);
+end;
+
+
+// Display the mercenary dialog when the quest marker is clicked.
+procedure OnScriptMarkerClick(aPlayer, aTag: Integer);
+begin
+	if (aTag = MarkerMercenary)
+	and TTFiredMercenaryWelcome then
+	begin
+		if (MercenaryHireReady) then
+			Actions.PlayerMessageWithButtons(PLAYER_HUMAN, DIALOG_MERCENARY, [MERCENARY_BTN_SWORDS, MERCENARY_BTN_HALBERDS, MERCENARY_BTN_CROSSBOWS, MERCENARY_BTN_CANCEL], ['', '', '', ''], [1, 2, 3, 4], True, True, True)
+		else
+			Actions.PlayerMessage(PLAYER_HUMAN, DIALOG_MERCENARY_NOT_READY, True);
+	end;
+end;
+
+
+// Call mercenary hire, based off the button the player has clicked in the dialog.
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+begin
+	if (aTag in [MERCENARY_TAG_SWORDS, MERCENARY_TAG_HALBERDS, MERCENARY_TAG_CROSSBOWS]) then
+		HireMercenary(aTag);
+end;
+
+
+
+procedure OnMissionStart();
+begin
+	DNInitiateScript(600, 14400);
+	WSInitiateScript(True);
+	AAIInitiateScript(100, 5, 10, 50);
+	SetupHeroes();
+	SetupAI();
+	SetupObjectives();
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+end;
+
+
+
+procedure OnTick(aTick: Integer);
+begin
+	DNResolveTick(aTick);
+	WSResolveTick(aTick);
+	AAIResolveTick(aTick);
+	
+	if (aTick mod 600 = 0) then
+		SetBlackberryAttackTarget();
+	
+	if (aTick mod 10 = 0) then
+		UpdateMercenaryMarker();
+	
+	if (aTick mod 100 = 0) then
+		OptimizeAI();
+		
+	if (aTick - 1 = PlayerWinTick) then
+		Actions.PlayerWin([PLAYER_HUMAN], False);
+		
+	if (aTick mod 10 = 0) then
+		UpdateObjectives();
+end;
+
+
+// For wagon stealing - the wagons will automatically head to the new owner's base.
+procedure OnUnitOwnerChanged(aOldUnit, aNewUnit: Integer);
+begin
+	WSCheckSendStolenWagon(aOldUnit, aNewUnit);
+end;
+
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	// Welcome message and trade enable for the player when the mercenaries are met for the first time.
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+	begin
+		if ((aTriggerId = TT_MERCENARY_WELCOME)
+		and not TTFiredMercenaryWelcome) then
+			MercenaryMet();
+	end;
+end;

@@ -12,6 +12,7 @@ const
 	OBJ_DEFEAT_SIEGE_ARMY = '<$obj_defeat_siege_army>';
 	OBJ_DESTROY_HARGRAVE_TOWN = '<$obj_destroy_hargrave_town>';
 	OBJ_DEFEAT_HARGRAVE_ARMY = '<$obj_defeat_hargrave_army>';
+	OBJ_DISCOVER_SUPPLY = '<$obj_discover_supply>';
 	
 	MSG_SUPPLY_NO_STOREHOUSE = '<$msg_supply_no_storehouse>';
 	MSG_INTRO = '<$msg_intro_01>';
@@ -20,7 +21,7 @@ const
 	MSG_BOTTOM_BRIDGE_EXPLORED = '<$msg_bridge_explored_01>||<$msg_bridge_explored_02>|<$msg_bridge_explored_03>';
 	MSG_FORD_EXPLORED = '<$msg_ford_explored_01>||<$msg_ford_explored_02>|<$msg_ford_explored_03>|<$msg_ford_explored_04>|<$msg_ford_explored_05>';
 	MSG_BROKEN_BRIDGE_EXPLORED = '<$msg_broken_bridge_explored_01>||<$msg_broken_bridge_explored_02>|<$msg_broken_bridge_explored_03>|<$msg_broken_bridge_explored_04>|<$msg_broken_bridge_explored_05>';
-	MSG_NORTHERN_BRIDGE_EXPLORED = '<$msg_northern_bridge_explored_01>||<$msg_northern_bridge_explored_02>|<$msg_northern_bridge_explored_03>|<$msg_northern_bridge_explored_04>|<$msg_northern_bridge_explored_05>|<$msg_northern_bridge_explored_06>|<$msg_northern_bridge_explored_07>';
+	MSG_NORTHERN_BRIDGE_EXPLORED = '<$msg_northern_bridge_explored_01>||<$msg_northern_bridge_explored_02>|<$msg_northern_bridge_explored_03>|<$msg_northern_bridge_explored_04>|<$msg_northern_bridge_explored_05>|<$msg_northern_bridge_explored_06>';
 	MSG_ENEMY_SUPPLY_SPOTTED = '<$msg_enemy_supply_spotted_01>||<$msg_enemy_supply_spotted_02>|<$msg_enemy_supply_spotted_03>|<$msg_enemy_supply_spotted_04>|<$msg_enemy_supply_spotted_05>|<$msg_enemy_supply_spotted_06>';
 	MSG_DUKE_ARRIVES = '<$msg_duke_arrives_01>||<$msg_duke_arrives_02>|<$msg_duke_arrives_03>|<$msg_duke_arrives_04>|<$msg_duke_arrives_05>|<$msg_duke_arrives_06>|<$msg_duke_arrives_07>|<$msg_duke_arrives_08>';
 	MSG_HARGRAVE_EXPOSED = '<$msg_hargrave_exposed_01>||<$msg_hargrave_exposed_02>|<$msg_hargrave_exposed_03>|<$msg_hargrave_exposed_04>';
@@ -38,6 +39,7 @@ const
 	ROYCE_SUPPLY_PERIOD = 4500;
 	ROYCE_BUILD_TIME = 4200;
 	ROYCE_ARRIVE_TIME = 18000;
+	ROYCE_RESPAWN_CHECK_PERIOD = 6000;
 	
 	SIEGE_SUPPLY_X = 138;
 	SIEGE_SUPPLY_Y = 190;
@@ -69,6 +71,8 @@ const
 	HERO_ROYCE_NAME = '<$hero_royce_name>';
 	HERO_ROYCE_HP = 500;
 	HERO_ROYCE_COLOR = $10A010;
+	HERO_ROYCE_DMG_MIN = 10;
+	HERO_ROYCE_DMG_MAX = 20;
 	HERO_HARGRAVE_NAME = '<$hero_hargrave_name>';
 	HERO_HARGRAVE_HP = 500;
 	HERO_HARGRAVE_COLOR = $000000;
@@ -81,8 +85,8 @@ const
 
 var
 	TTFiredBottomBridge, TTFiredFord, TTBrokenBridgeFired, TTNorthBridgeFired, TTEnemySupplyRoadFired, HargraveDefeated, SiegeDefeated, InitialAttackDefeated: Boolean;
-	HeroHaytowUnit, HeroGrahamUnit, PlayerWinTick, DefeatSiegeArmyObjID, DestroySiegeTownObjID, DefeatHargraveArmyObjID, DestroyHargraveTownObjID: Integer;
-	DefeatSiegeArmyObjSt, DestroySiegeTownObjSt, DefeatHargraveArmyObjSt, DestroyHargraveTownObjSt: TKMObjectiveStatus;
+	HeroHaytowUnit, HeroGrahamUnit, HeroRoyceUnit, PlayerWinTick, DefeatSiegeArmyObjID, DestroySiegeTownObjID, DefeatHargraveArmyObjID, DestroyHargraveTownObjID, DiscoverSupplyObjID: Integer;
+	DefeatSiegeArmyObjSt, DestroySiegeTownObjSt, DefeatHargraveArmyObjSt, DestroyHargraveTownObjSt, DiscoverSupplyObjSt: TKMObjectiveStatus;
 	HargraveAttack, SiegeCampAttack, HargraveSideAttack, RoyceAttack: Integer;
 	InitialAttackGroups: array of Integer;
 
@@ -213,7 +217,10 @@ begin
 		SiegeDefeated := True;
 		WSPlayerDisableSupplies(PLAYER_SIEGE_CAMP);
 		if not HargraveDefeated then
+		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_HARGRAVE_EXPOSED, True);
+			AAIAttacks[RoyceAttack].TargetPlayers := [PLAYER_HARGRAVE];
+		end;
 	end;
 		
 	if (DefeatHargraveArmyObjSt = osCompleted)
@@ -302,25 +309,31 @@ begin
 	Actions.PlayerHouseGrant(PLAYER_HUMAN, htStables, True);
 	
 	UTUnitSetHeroStats(States.GroupMember(captainGroup, 0), HERO_ASTON_NAME, HERO_ASTON_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ASTON_HP, 60)), -1, -1, -1, HERO_ASTON_COLOR);
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(PLAYER_SUPPLY_X, PLAYER_SUPPLY_Y, 30.0, 0.25);
+	Actions.CinematicEnd();
 end;
 
+
+//
+procedure SpawnRoyce();
+var
+	dukeGroup: Integer;
+begin
+	dukeGroup := Actions.GiveGroup(PLAYER_ROYCE, utCavalry, 179, 184, 6, 1, 1);
+	HeroRoyceUnit := States.GroupMember(dukeGroup, 0);
+	UTUnitSetHeroStats(HeroRoyceUnit, HERO_ROYCE_NAME, HERO_ROYCE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ROYCE_HP, 60)), HERO_ROYCE_DMG_MIN, HERO_ROYCE_DMG_MAX, -1, HERO_ROYCE_COLOR);
+end;
 
 
 //
 procedure DukeArrives();
-var
-	dukeGroup: Integer;
 begin
 	Actions.PlayerMessage(PLAYER_HUMAN, MSG_DUKE_ARRIVES, True);
 	
 	Actions.PlayerAllianceChange(PLAYER_ROYCE, PLAYER_HUMAN, True, True);
 	Actions.PlayerAllianceChange(PLAYER_ROYCE, PLAYER_REFUGEES, True, True);
-	
-	// 1 knight per 4 supplies. Just to be cool.
-	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtHorse, 1, False, True, False);
-	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtSword, 1, False, True, False);
-	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalShield, 1, False, True, False);
-	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD * 4, wtMetalArmor, 1, False, True, False);
 	
 	// Quarter of the attack army per 7.5 minutes.
 	WSAddWagonSupply(PLAYER_ROYCE, ROYCE_SUPPLY_X, ROYCE_SUPPLY_Y, WagonCurrentTick + ROYCE_BUILD_TIME, -1, ROYCE_SUPPLY_PERIOD, wtAxe, 15, False, True, False);
@@ -350,14 +363,13 @@ begin
 	AAIAttackSetCompositions(RoyceAttack, [35, 35, 15, 15], 100, True, True, []);
 	
 	// Initial troops the duke arrives with.
-	dukeGroup := Actions.GiveGroup(PLAYER_ROYCE, utCavalry, 190, 190, 6, 1, 1);
+	SpawnRoyce();
 	Actions.GiveGroup(PLAYER_ROYCE, utAxeFighter, 187, 182, 6, 20, 5);
 	Actions.GiveGroup(PLAYER_ROYCE, utAxeFighter, 187, 177, 6, 20, 5);
 	Actions.GiveGroup(PLAYER_ROYCE, utPikeman,187, 172, 6, 20, 5);
 	Actions.GiveGroup(PLAYER_ROYCE, utPikeman, 187, 167, 6, 20, 5);
 	Actions.GiveGroup(PLAYER_ROYCE, utBowman, 187, 162, 6, 20, 5);
 	Actions.GiveGroup(PLAYER_ROYCE, utHorseScout, 187, 187, 6, 20, 5);
-	UTUnitSetHeroStats(States.GroupMember(dukeGroup, 0), HERO_ROYCE_NAME, HERO_ROYCE_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ROYCE_HP, 60)), -1, -1, -1, HERO_ROYCE_COLOR);
 	
 	// Initial civilians the duke arrives with.
 	Actions.GiveUnit(PLAYER_ROYCE, utPorter, 175, 170, 6);
@@ -448,6 +460,10 @@ begin
 	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 174, 176, toSouth);
 	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 169, 183, toNorth);
 	Actions.PlanAddHouse(PLAYER_ROYCE, htCottage, 174, 183, toNorth);
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(175, 181, 30.0, 0.25);
+	Actions.CinematicEnd();
 end;
 
 
@@ -545,6 +561,9 @@ begin
 	Actions.PlayerWareDistribution(PLAYER_REFUGEES, wtGrain, htSheepyard, 0);
 	Actions.PlayerWareDistribution(PLAYER_SIEGE_CAMP, wtGrain, htSheepyard, 0);
 	Actions.PlayerWareDistribution(PLAYER_ROYCE, wtGrain, htSheepyard, 0);
+	
+	// Clear Royce's initial decoy Peasant
+	Actions.UnitKill(States.UnitAt(188, 189), True);
 end;
 
 
@@ -557,6 +576,9 @@ begin
 	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_DEFEAT_SIEGE_ARMY, DefeatSiegeArmyObjID, DefeatSiegeArmyObjSt);
 	UTObjectiveCreate(PLAYER_HUMAN, otMain, 2, osActive, OBJ_DESTROY_HARGRAVE_TOWN, DestroyHargraveTownObjID, DestroyHargraveTownObjSt);
 	UTObjectiveCreate(PLAYER_HUMAN, otMain, 3, osActive, OBJ_DEFEAT_HARGRAVE_ARMY, DefeatHargraveArmyObjID, DefeatHargraveArmyObjSt);
+	
+	// The secondary objective for the discovery of the enemy supply.
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osHidden, OBJ_DISCOVER_SUPPLY, DiscoverSupplyObjID, DiscoverSupplyObjSt);
 end;
 
 
@@ -598,6 +620,12 @@ begin
 	
 	if (aTick = ROYCE_ARRIVE_TIME) then
 		DukeArrives();
+		
+	if (aTick mod ROYCE_RESPAWN_CHECK_PERIOD = 0)
+	and (HeroRoyceUnit > 0)
+	and (States.UnitDead(HeroRoyceUnit))
+	and (aTick > ROYCE_ARRIVE_TIME) then
+		SpawnRoyce();
 	
 	if (aTick = HARGRAVE_START_TRAINING) then
 		HargraveAttackStartTraining();
@@ -631,32 +659,50 @@ begin
 		and not TTFiredBottomBridge) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_BOTTOM_BRIDGE_EXPLORED, True);
+			if (DiscoverSupplyObjSt <> osCompleted) then
+				UTObjectiveStatusUpdate(PLAYER_HUMAN, DiscoverSupplyObjID, DiscoverSupplyObjSt, osActive);
 			TTFiredBottomBridge := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 		if ((aTriggerId = TT_FORD)
 		and not TTFiredFord) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_FORD_EXPLORED, True);
 			TTFiredFord := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 		if ((aTriggerId = TT_BROKEN_BRIDGE)
 		and not TTBrokenBridgeFired) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_BROKEN_BRIDGE_EXPLORED, True);
 			TTBrokenBridgeFired := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 		if ((aTriggerId = TT_NORTH_BRIDGE)
 		and not TTNorthBridgeFired) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_NORTHERN_BRIDGE_EXPLORED, True);
 			TTNorthBridgeFired := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 		if ((aTriggerId = TT_ENEMY_SUPPLY_ROAD)
 		and IsEnemySupplyOnRoad()
 		and not TTEnemySupplyRoadFired) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_ENEMY_SUPPLY_SPOTTED, True);
+			UTObjectiveStatusUpdate(PLAYER_HUMAN, DiscoverSupplyObjID, DiscoverSupplyObjSt, osCompleted);
 			TTEnemySupplyRoadFired := True
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 	end;
 end;

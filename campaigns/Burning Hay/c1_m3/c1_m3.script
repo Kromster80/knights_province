@@ -328,19 +328,28 @@ begin
 		if ((aTriggerId = TT_SOUTHERN_VILLAGE) and not TTFiredSouthernVillage) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_SOUTHERN_VISITED, True);
-			TTFiredSouthernVillage := true;
+			TTFiredSouthernVillage := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 
 		if ((aTriggerId = TT_CENTRAL_VILLAGE) and not TTFiredCentralVillage) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_CENTRAL_VISITED, True);
-			TTFiredCentralVillage := true;
+			TTFiredCentralVillage := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
   
 		if ((aTriggerId = TT_NORTHERN_VILLAGE) and not TTFiredNorthernVillage) then
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_NORTHERN_VISITED, True);
-			TTFiredNorthernVillage := true;
+			TTFiredNorthernVillage := True;
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 	end;
 end;

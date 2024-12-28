@@ -1,0 +1,61 @@
+#Eng texts by Amaroth
+0:Amaroth
+1:[$0061FF]Sir Blackberry[] has retreated, but only to regroup his fleeing troops. With him preparing to stir up more trouble, you have decided to give chase, joined by the knights who deserted both him and his overlord, [$0000FF]Marshal Greedfare[]. Now, it is time to face the marshal's lapdog on the battlefield.
+
+player_01:Sir Haytow
+player_02:Sir Blackberry
+player_03:Sir Deadmane
+
+hero_haytow_name:Sir Edgar Haytow
+hero_aston_name:Captain Aston
+hero_blackberry_name:Sir Blackberry
+hero_deadmane_name:Sir Deadmane
+
+obj_defeat_enemy:Defeat the army of [$0061FF]Sir Blackberry[]
+obj_enemy_troops_defeated:Defeated enemies
+obj_player_troops_lost:Troops lost
+obj_time_left:Time left
+
+result_score:Score gained
+
+msg_intro_01:You took a moment to rally your forces before setting off in pursuit of Sir Blackberry. Your newfound allies, led by Sir Everett, march alongside you, ready to lend their support. As dawn breaks, you arrive at an ominous valley, its shadowy expanse hinting at the dangers ahead.
+
+msg_scout_report_01:[$00D0FF]Vanguard Scout:[] "Sire! It's an ambush! Heavily armored troops are blocking the road ahead, and they've set up barricades to seal it completely! Most of them are equipped with halberds and crossbows, sire."
+msg_scout_report_02:[$00D0FF]Eastern Scout:[] "More of them coming from the east, sire! Axe fighters and bowmen! And there's a hill - looks like they've dug in and fortified their position there as well."
+msg_scout_report_03:[$00D0FF]Northern Scout:[] "Scouts, sword fighters, and bowmen coming from the north, sire! And it seems the route is completely blocked there as well."
+msg_scout_report_04:[$0000FF]Sir Everett:[] "I warned you there would be an ambush waiting for you, Sir Haytow. But we stand ready, and Blackberry has no clue that we are here with you. Let us face this red dawn together."
+msg_scout_report_05:[$0073FF]Captain Aston:[] "We await your commands, sire. Quickly, we need to organize the army!"
+msg_scout_report_06:[$00B3FF]You:[] "To arms, men! We will defend our current position, and then we will find a way to advance! The kingdom relies on us!"
+
+msg_barricades_01:[$0073FF]Captain Aston:[] "Blackberry's men have set up several barricades, sire."
+msg_barricades_02:[$00B3FF]You:[] "Most unfortunate. We lack siege equipment to break them down."
+msg_barricades_03:[$0000FF]Sir Everett:[] "If I may, we also lack time, Sir Haytow. Our scouts have discovered a path through - a small valley to the south."
+msg_barricades_04:[$00B3FF]You:[] "I hate the very idea of being funneled into another ambush. But we need to pursue Sir Blackberry, before he escapes again. Very well, we will advance to the south."
+
+msg_reinforcements_01:[$61793F]Sir Deadmane:[] "Sir Haytow! I am honored to finally meet you."
+msg_reinforcements_02:[$00B3FF]You:[] "We are in the middle of something here. Who are you and what is your business?"
+msg_reinforcements_03:[$61793F]Sir Deadmane:[] "Name's Deadmane, I serve Duke Royce. He sent us to assist you."
+msg_reinforcements_04:[$00B3FF]You:[] "Wonderful. Join my men. We need to push west. I don't want Sir Blackberry to escape us again."
+msg_reinforcements_05:[$61793F]Sir Deadmane:[] "We are yours to command, Sir Haytow."
+
+msg_road_open_01:The road to Greedfare Castle is open, but we still need to deal with Sir Blackberry.
+
+msg_blackberry_finale_01:[$0061FF]Sir Blackberry:[] "You are as annoying as they come, Haytow. And you, Everett! I shall have you flayed for your betrayal!"
+msg_blackberry_finale_02:[$0000FF]Sir Everett:[] "Best of luck with that, worm."
+msg_blackberry_finale_03:[$00B3FF]You:[] "Enough of this! Sir Blackberry, lay down your arms, and I swear you will be treated fairly and according to the code!"
+msg_blackberry_finale_04:[$0061FF]Sir Blackberry:[] "I spit on your code and your mercy. I am no common whore to be sold for ransom. Your father understood what needed to be done, but you are clearly just hopeless."
+msg_blackberry_finale_05:[$00B3FF]You:[] "My father? What does he have to do with any of this?"
+msg_blackberry_finale_06:[$0061FF]Sir Blackberry:[] "Enough talking. Men, charge!"
+
+msg_blackberry_fall_01:Sir Blackberry falls, struck by several blows. He is losing blood quickly, and you are not sure how much time he has left in this world.
+msg_blackberry_fall_02:[$0061FF]Sir Blackberry:[] "Defeated by a half-peasant... What a joke."
+msg_blackberry_fall_03:[$00B3FF]You:[] "It did not have to come to this, Sir Blackberry. You mentioned my father - explain yourself, and my surgeons will do what they can for you."
+msg_blackberry_fall_04:[$0061FF]Sir Blackberry:[] "There is no need for your charity. I am a dead man, no matter what happens. We both know that. But I will tell you this: Your father did not want Benton II to ascend to the throne - he was to support Greedfare."
+msg_blackberry_fall_05:[$00B3FF]You:[] "Lies and deceit! My father died in a jousting accident over a year ago!"
+msg_blackberry_fall_06:[$0061FF]Sir Blackberry:[] "Foolish boy... Do you really think we started preparing this rebellion yesterday? Your father was one of the first to plan joining. Ask around your own servants and soldiers..."
+msg_blackberry_fall_07:Before anyone can intervene, Blackberry pulls a rondel dagger from his belt. Without hesitation, he drives it into his own neck and dies a few seconds later.
+
+msg_outro_01:The battle is done, but you feel hollow. Your father was surely no traitor, was he? He always spoke about honor, about the chivalric code. Perhaps you should talk to Captain Aston when there is more time for this.
+msg_outro_02:[$0000FF]Sir Everett:[] "Blackberry is down, but Greedfare still stands. The road to his castle is now open, Sir Haytow. Should we march toward it now?"
+msg_outro_03:[$00B3FF]You:[] "Yes... I think it is time to lay siege to Marshal Greedfare's home. Sir Deadmane, do we have the duke's support?"
+msg_outro_04:[$61793F]Sir Deadmane:[] "The last time I saw him, he was trying to lure Greedfare's forces to the south. This should leave his castle open to our attack. I have no idea if he will be able to join our assault himself, but he instructed us to join you, and that is what we will do. Let us march south, Sir Haytow."

@@ -1,0 +1,423 @@
+// ####################   AttackAI (AAI) 2 script   ####################
+// Author: Amaroth. This script requires Amaroth's Extra utils to run.
+// Version: 2.2.2 (2024-08-04)
+// The current game's offence AI options in MapEd lack several features/options I find important. That is the reason why the original AAI script was developed. Since then, the script API and options offered to the mapmakers in the scripts have substantially expanded, together with my coding skills in PascalScript and my overall experience with the game and designing maps for it. Hence the big overhaul full of breaking changes, together with overall logic and process revision, all of that brought in this file.
+
+// HOW TO USE:
+// 0. When unsure how to use any of the procedures below, just read the comment above them. When unsure what different parameters in the procedures do, check the AAIAttack record declaration right by the beginning of the code.
+// 1. Add AAIInitiateScript to your OnMissionStart event handler.
+// 2. Add AAIResolveTick to your OnTick event handler.
+// 3. Use AAICreateAttack to create attacks for your players.
+// 4. Always use AAIAttackSetTimes, AAIAttackSetCompositions to configure the AAIAttacks as well.
+// 5. AAIAttackSetTargetAreaCenter is an additional and purely optional setting.
+// 6. There are some more optional functions here. Check their individual descriptions for more info.
+// 7. ??
+// 8. Profit.
+
+uses
+	extra_utils;
+
+type
+	AAIAllowedTargets = (atUnits, atHouses, atBoth);
+	
+	AAIGroup = record
+		Group: Integer; // The group's UID in the game.
+		TargetHouse: Integer; // The UID of the house the group is currently attacking (or -1).
+		TargetUnit: Integer; // The UID of the unit the group is currently attacking (or -1).
+		LastTargetResetTick: Integer; // Used for target timeout checks.
+	end;
+
+	AAIAttack = record
+		Player: Integer; // ID of the player who is to send the attacks.
+		StartTicks: Integer; // A tick at which the first attack is to occur.
+		StopTicks: Integer; // A tick at which the attacks will be disabled. -1 will cause the attacks to never cease. Otherwise use always values 2 or higher. NOTE: StopTick only prevents the attack from sending more troops out, currently active ones will continue seeking targets and fighting. Call  AAIAttackForceStop if you want the currently active troops to be released from the AAI's control.
+		PeriodTicks: Integer; // How many ticks after the previous attack was sent a new one is to be initiated.
+		PerTypeAmounts: array of Integer; // Amounts of units to be sent in a single attack, split by group type. The order of the types is determined by AAIGroupTypes. Keep the amount of elements here, even if they are to be 0!
+		CompositionPercentage: Integer; // How much % of the player's current units can be part of the attack at most. This does NOT take DisabledAIDispositions into consideration!
+		AllowSubstitutes: Boolean; // When enabled, units for the attacks may be taken from other group types when required and available.
+		UseFreeGroups: Boolean; // When enabled, free groups (not assigned to any AIDisposition) that are idle will be drafted into attacks as well.
+		DisabledAIDispositions: array of Integer; // All AIDispositions with UIDs found in this array will be completely ignored by the AAI and the troops will thus never take part in the attacks.
+		AllowedTargets: AAIAllowedTargets; // Determines whether the attackers will seek only buildings, only units, or both as targets. AAIHouseTargetBias and AAICivilianTargetBias can then be used to prioritize them based off distance.
+		TargetAroundSelf: Boolean; // When enabled, the groups will seek the next target  always closest to themselves. Otherwise, TargetAreaCenter will be used.
+		TargetAreaCenterX, TargetAreaCenterY: Integer; // When TargetAroundSelf is disabled, the groups will seek the next target always closest to these coords.
+		TargetPlayers: array of Integer; // The groups will seek targets owned by the players specified here.
+		launchedGroups: array of AAIGroup; // The groups that were already unleashed in the attack and are either dead or currently actively attacking. They are released only once no valid targets for the attack are found - then they are allowed for the AI to take home. Internal value, should not be changed externally.
+		previousAttackTicks: Integer; // At which tick the last attack was sent. Internal value, should not be changed externally.
+	end;
+
+var
+	AAIAttacks: array of AAIAttack; // All existing AAIAttacks.
+	AAIGroupTypes: array of TKMGroupType; // All existing group types, and the order in which amounts of troops in the config arrays are given.
+	AAITargetTimeoutTicks: Integer; // After how long will a group managed by AAI try to check whether a better (closer) target is available - in case the original one for example keeps running away. 100 is recommended. Setting this too low (especially under 20) can cause buggy behavior of the troops or performance issues.
+	AAIHouseTargetBias: Integer; // Makes the houses appear further away than all units by this value (or closer, if set to below 0). Allows for target prioritization (units > houses or vice versa). 5 is recommended.
+	AAICivilianTargetBias: Integer; // Makes the civilian units appear further away than military units by this value (or closer, if set to below 0). Allows for target prioritization (military > civilian or vice versa). 10 is recommended.
+	AAIAttackLaunchCheckPeriod: Integer; // The period at which the AAI checks if a new attack wave can be unleashed. To avoid performance issues, 50 is recommended.
+	AAICurrentTick: Integer; // Stores the current tick of the game. This is to avoid having to pass it over into almost all procedures within this script from OnTick.
+
+
+// Creates a new AAIGroup and returns it. Calling this directly is not recommended, use AAIAttackJoinGroup if you want to manually make a group in the game join an ongoing attack's force.
+function AAICreateAAIGroup(Group: Integer): AAIGroup;
+var
+	aAIGroup: aAIGroup;
+begin
+	aAIGroup.Group := Group;
+	aAIGroup.TargetHouse := -1;
+	aAIGroup.TargetUnit := -1;
+	aAIGroup.LastTargetResetTick := -AAITargetTimeoutTicks;
+	Result := aAIGroup;
+end;
+
+
+// Creates a new attack. Unless followed by AAIAttackSetTimes and AAIAttackSetCompositions, it won't really do anything on its own.
+function AAICreateAttack(Player: Integer; TargetPlayers: array of Integer; AllowedTargets: AAIAllowedTargets): Integer;
+var
+	aAIAttack: AAIAttack;
+	arrLen: Integer;
+begin
+	aAIAttack.Player := Player;
+	aAIAttack.TargetPlayers := TargetPlayers;
+	aAIAttack.AllowedTargets := AllowedTargets;
+	
+	aAIAttack.PerTypeAmounts := [0, 0, 0, 0];
+	
+	aAIAttack.TargetAroundSelf := True;
+	aAIAttack.TargetAreaCenterX := -1;
+	aAIAttack.TargetAreaCenterY := -1;
+	
+	arrLen := Length(AAIAttacks);
+	SetLength(AAIAttacks, arrLen + 1);
+	AAIAttacks[arrLen] := aAIAttack;
+	Result := arrLen;
+end;
+
+
+// Sets up when the attacks are to start, when they are to stop, and how often they should launch in ticks. If an attack is not ready when the period's time comes, it launches as soon as possible and moves the entire schedule with it. When this procedure is called on an attack that was already set up earlier, its internal check for how long ago the last attack has launched is reset and the attack may launch immediately if conditions are met.
+procedure AAIAttackSetTimes(attackIndex: Integer; StartTicks, StopTicks, PeriodTicks: Integer);
+begin
+	AAIAttacks[attackIndex].StartTicks := StartTicks;
+	AAIAttacks[attackIndex].StopTicks := StopTicks;
+	AAIAttacks[attackIndex].PeriodTicks := PeriodTicks;
+	AAIAttacks[attackIndex].previousAttackTicks := -1;
+end;
+
+
+// Configures how many troops are to be sent in the attack, how big part of the available forces may be used for the attack, whether substitues from other group types can be used and which AIDispositions are to be ignored by attack.
+procedure AAIAttackSetCompositions(attackIndex: Integer; PerTypeAmounts: array of Integer; CompositionPercentage: Integer; AllowSubstitutes: Boolean; UseFreeGroups: Boolean; DisabledAIDispositions: array of Integer);
+begin
+	if not (Length(PerTypeAmounts) = Length(AAIGroupTypes)) then Exit;
+	
+	AAIAttacks[attackIndex].PerTypeAmounts := PerTypeAmounts;
+	AAIAttacks[attackIndex].AllowSubstitutes := AllowSubstitutes;
+	AAIAttacks[attackIndex].CompositionPercentage := CompositionPercentage;
+	AAIAttacks[attackIndex].UseFreeGroups := UseFreeGroups;
+	AAIAttacks[attackIndex].DisabledAIDispositions := DisabledAIDispositions;
+end;
+
+
+// Updates the disabled AIDispositions of the given attack.
+procedure AAIAttackSetDisabledAIDispositions(attackIndex: Integer; DisabledAIDispositions: array of Integer);
+begin
+	AAIAttacks[attackIndex].DisabledAIDispositions := DisabledAIDispositions;
+end;
+
+
+// Ensures that the troops will seek their targets closest to the given coordinates, rather than their current positions. 
+procedure AAIAttackSetTargetAreaCenter(attackIndex: Integer; TargetAreaCenterX, TargetAreaCenterY: Integer);
+begin
+	AAIAttacks[attackIndex].TargetAroundSelf := False;
+	AAIAttacks[attackIndex].TargetAreaCenterX := TargetAreaCenterX;
+	AAIAttacks[attackIndex].TargetAreaCenterY := TargetAreaCenterY;
+end;
+
+
+// Allows the troops to seek their targets closest to their current positions, if they were previously set to looking around fixed coordinates.
+procedure AAIAttackAllowTargetAroundSelf(attackIndex: Integer);
+begin
+	AAIAttacks[attackIndex].TargetAroundSelf := True;
+	AAIAttacks[attackIndex].TargetAreaCenterX := -1;
+	AAIAttacks[attackIndex].TargetAreaCenterY := -1;
+end;
+
+
+// Puts the given group into the given attack's collection of attacking troops, meaning the group will immediately start attacking according to the attack's settings. NOTE: This will work even if the StartTick, StopTick etc. conditions are not met.
+procedure AAIAttackJoinGroup(attackIndex, group: Integer);
+var
+	arrLen: Integer;
+begin
+	arrLen := Length(AAIAttacks[attackIndex].launchedGroups);
+	SetLength(AAIAttacks[attackIndex].launchedGroups, arrLen + 1);
+	AAIAttacks[attackIndex].launchedGroups[arrLen] := AAICreateAAIGroup(group);
+end;
+
+
+// Immediately stops all currently active groups from seeking new targets, a new ones from being released. They become free for AIDispositions or other attacks to conscript them.
+procedure AAIAttackForceStop(attackIndex: Integer);
+begin
+	AAIAttacks[attackIndex].StopTicks := AAICurrentTick;
+	AAIAttacks[attackIndex].launchedGroups := [];
+end;
+
+
+// Returns whether the attack should launch, given the settings and the given tick.
+function AAIAttackTimeReady(var aAIAttack: AAIAttack): Boolean;
+begin
+	Result := (AAICurrentTick >= aAIAttack.StartTicks)
+	and ((aAIAttack.StopTicks > AAICurrentTick) or (aAIAttack.StopTicks = -1))
+	and ((AAICurrentTick >= aAIAttack.previousAttackTicks + aAIAttack.PeriodTicks) or (aAIAttack.previousAttackTicks = -1));
+end;
+
+
+// Checks for the closest suitable target for the given group, based off the attack's configuration. Returns whether the new target is different from the previous one.
+function AAIGroupSeekNewTarget(var group: AAIGroup; var aAIAttack: AAIAttack): Boolean;
+var
+	oldTargetHouse, oldTargetUnit, closestHouse, closestUnit, areaX, areaY: Integer;
+	distanceHouse, distanceUnit: Single;
+begin
+	oldTargetHouse := group.TargetHouse;
+	oldTargetUnit := group.TargetUnit;
+	
+	if aAIAttack.TargetAroundSelf then
+	begin
+		areaX := UTGroupGetFlagX(group.Group);
+		areaY := UTGroupGetFlagY(group.Group);
+	end
+	else
+	begin
+		areaX := aAIAttack.TargetAreaCenterX;
+		areaY := aAIAttack.TargetAreaCenterY;
+	end;
+	
+	if (aAIAttack.AllowedTargets = atHouses) or (aAIAttack.AllowedTargets = atBoth) then
+	begin
+		closestHouse := UTHouseGetClosestToPos(areaX, areaY, aAIAttack.TargetPlayers, htAny, True, distanceHouse);
+		distanceHouse := distanceHouse + AAIHouseTargetBias;
+	end;
+	
+	if (aAIAttack.AllowedTargets = atUnits) or (aAIAttack.AllowedTargets = atBoth) then
+	begin
+		closestUnit := UTUnitGetClosestToPos(areaX, areaY, AAICivilianTargetBias, aAIAttack.TargetPlayers, distanceUnit);
+	end;
+	
+	if (closestHouse > 0) then
+	begin
+		if (closestUnit > 0) then
+		begin
+			if (distanceHouse < distanceUnit) then
+			begin
+				group.TargetHouse := closestHouse;
+				group.TargetUnit := -1;
+			end
+			else
+			begin
+				group.TargetUnit := closestUnit;
+				group.TargetHouse := -1;
+			end;
+		end
+		else
+			begin
+			group.TargetHouse := closestHouse;
+			group.TargetUnit := -1;
+			end;
+	end
+	else if (closestUnit > 0) then
+	begin
+		group.TargetUnit := closestUnit;
+		group.TargetHouse := -1;
+	end;
+	
+	group.LastTargetResetTick := AAICurrentTick;
+	Result := (oldTargetHouse <> group.TargetHouse) or (oldTargetUnit <> group.TargetUnit);
+end;
+
+
+// Renews attack order for the unit, base off its target. If it has no target or if the target is dead, seeks a new target first.
+procedure AAIGroupCommandAttack(var group: AAIGroup; var aAIAttack: AAIAttack);
+var
+	targetChanged: Boolean;
+begin
+	targetChanged := False;
+	// Check if a new target requires to be sought. If yes, do so.
+	if ((group.TargetHouse = -1) and (group.TargetUnit = -1))
+	or ((group.TargetHouse > 0) and States.HouseDestroyed(group.TargetHouse))
+	or ((group.TargetUnit > 0) and States.UnitDead(group.TargetUnit))
+	or ((AAICurrentTick >= group.LastTargetResetTick + AAITargetTimeoutTicks)) then
+		targetChanged := AAIGroupSeekNewTarget(group, aAIAttack);
+	
+	// If a new target was selected, or the group became idle after killing someone on the way to its intended target, renew the attack command. If no suitable target for the attack was found, then the attack's groups can be removed and the AI may take them back home or use them in different attacks.
+	if targetChanged or States.GroupIsIdle(group.Group) then
+	begin
+		if (group.TargetHouse > 0) then
+			Actions.GroupOrderAttackHouse(group.Group, group.TargetHouse)
+		else if (group.TargetUnit > 0) then
+			Actions.GroupOrderAttackUnit(group.Group, group.TargetUnit)
+		else
+			aAIAttack.launchedGroups := [];
+	end;
+end;
+
+
+// Checks the amount of troops available. If it's enough, launches the attack.
+procedure AAIAttackTryLaunch(var aAIAttack: AAIAttack);
+var
+	i, j, arrLen: Integer;
+	perTypeAvailable, perTypeMissing, allGroups, groupsAIDs, groupsForbidden, groupsAllowed, groupsAlreadyTaken: array of Integer;
+	aUID, aX, aY, aDir, aNumUnits, aUnitsPerRow, aGuardRadius, groupUnits: Integer;
+	aGroupType: TKMGroupType;
+	enoughPerType: Boolean;
+	finalAAIGroups: array of AAIGroup;
+	debug: String;
+begin
+	SetLength(perTypeAvailable, Length(AAIGroupTypes));
+	SetLength(perTypeMissing, Length(AAIGroupTypes));
+	
+	// See what groups are available, which ones are from AIDispositions, and which ones are from the forbidden AIDispositions.
+	allGroups := States.PlayerGetAllGroups(aAIAttack.Player);
+	for i := 0 to States.PlayerAIDispositionCount(aAIAttack.Player) - 1 do
+	begin
+		States.PlayerAIDispositionGet(aAIAttack.Player, i, aUID, aX, aY, aDir, aGroupType, aNumUnits, aUnitsPerRow, aGuardRadius);
+		Utils.ArrayAppendI(groupsAIDs, States.PlayerAIDispositionUIDGroup(aAIAttack.Player, aUID));
+		if Utils.ArrayHasElementI(aAIAttack.DisabledAIDispositions, aUID) then
+			Utils.ArrayAppendI(groupsForbidden, States.PlayerAIDispositionUIDGroup(aAIAttack.Player, aUID));
+	end;
+	
+	// These groups already take part in some attack and thus cannot be used. A worry only if free groups are allowed.
+	if aAIAttack.UseFreeGroups then
+		for i := 0 to High(AAIAttacks) do
+			for j := 0 to High(AAIAttacks[i].launchedGroups) do
+				Utils.ArrayAppendI(groupsAlreadyTaken, AAIAttacks[i].launchedGroups[j].Group);
+	
+	// Compile the final array of groups that can take part in the attacks.
+	for i := 0 to High(allGroups) do
+	begin
+		if not Utils.ArrayHasElementI(groupsForbidden, allGroups[i])
+		and not Utils.ArrayHasElementI(groupsAlreadyTaken, allGroups[i])
+		and (States.GroupMemberCount(allGroups[i]) > 0)
+		and (States.UnitInHouse(States.GroupMember(allGroups[i], 0)) = 0) then
+		begin
+			if aAIAttack.UseFreeGroups then
+				Utils.ArrayAppendI(groupsAllowed, allGroups[i])
+			else if Utils.ArrayHasElementI(groupsAIDs, allGroups[i]) then
+				Utils.ArrayAppendI(groupsAllowed, allGroups[i]);
+		end;
+	end;
+	
+	// Sum up amounts of groups per group type.
+	for i := 0 to High(groupsAllowed) do
+		for j := 0 to High(AAIGroupTypes) do
+			if (groupsAllowed[i] > 0) and (States.GroupType(groupsAllowed[i]) = AAIGroupTypes[j]) then
+				perTypeAvailable[j] := perTypeAvailable[j] + States.GroupMemberCount(groupsAllowed[i]);
+	
+	// Lower the amount of troops considered to be available by the composition percentage.
+	for i := 0 to High(perTypeAvailable) do
+		perTypeAvailable[i] := Trunc(perTypeAvailable[i] * (aAIAttack.CompositionPercentage / 100.0));
+	
+	// Determine if matched types can be launched.
+	enoughPerType := True;
+	for i := 0 to High(AAIGroupTypes) do
+		if (perTypeAvailable[i] < aAIAttack.PerTypeAmounts[i]) then
+			enoughPerType := False;
+	
+	// If matched types can be launched, or if substitution is allowed and there is enough troops to substitute with, launch the attack.
+	if enoughPerType or (aAIAttack.AllowSubstitutes and (Utils.ArraySumI(perTypeAvailable) >= Utils.ArraySumI(aAIAttack.PerTypeAmounts))) then
+	begin
+		// Needed for checking how many units are still needed.
+		for i := 0 to High(perTypeMissing) do
+			perTypeMissing[i] := aAIAttack.PerTypeAmounts[i];
+			
+		// Launch the groups of matching group types, first.
+		for i := 0 to High(AAIGroupTypes) do
+			for j := 0 to High(groupsAllowed) do
+			begin
+				if (perTypeMissing[i] > 0)
+				and (groupsAllowed[j] > 0)
+				and (States.GroupType(groupsAllowed[j]) = AAIGroupTypes[i]) then
+				begin
+					groupUnits := States.GroupMemberCount(groupsAllowed[j]);
+					
+					arrLen := Length(finalAAIGroups);
+					SetLength(finalAAIGroups, arrLen + 1);
+					finalAAIGroups[arrLen] := AAICreateAAIGroup(UTGroupSplitByAmount(groupsAllowed[j], perTypeMissing[i]));
+					
+					if (groupUnits <= perTypeMissing[i]) then
+						groupsAllowed[j] := -1;
+					perTypeMissing[i] := perTypeMissing[i] - groupUnits;
+				end;
+			end;
+
+		// If some group types need substitutes, call them from what is left unused.
+		for i := 0 to High(perTypeMissing) do
+			if (perTypeMissing[i] > 0) then
+				for j := 0 to High(groupsAllowed) do
+					if (perTypeMissing[i] > 0) and (groupsAllowed[j] > 0) then
+					begin
+						groupUnits := States.GroupMemberCount(groupsAllowed[j]);
+						
+						arrLen := Length(finalAAIGroups);
+						SetLength(finalAAIGroups, arrLen + 1);
+						finalAAIGroups[arrLen] := AAICreateAAIGroup(UTGroupSplitByAmount(groupsAllowed[j], perTypeMissing[i]));
+						
+						if (groupUnits <= perTypeMissing[i]) then
+							groupsAllowed[j] := -1;
+						perTypeMissing[i] := perTypeMissing[i] - groupUnits;
+				end;
+		
+		// Clean up all invalid or dead previously launched groups.
+		for i := 0 to High (aAIAttack.launchedGroups) do
+			if (aAIAttack.launchedGroups[i].Group > 0) and (States.GroupMemberCount(aAIAttack.launchedGroups[i].Group) > 0) then
+			begin
+				arrLen := Length(finalAAIGroups);
+				SetLength(finalAAIGroups, arrLen + 1);
+				finalAAIGroups[arrLen] := aAIAttack.launchedGroups[i];
+			end;
+		aAIAttack.launchedGroups := finalAAIGroups;
+		
+		// Command the groups to attack. If they are new in the attack, they will automatically seek a valid target, first.
+		for i := 0 to High (aAIAttack.launchedGroups) do
+			AAIGroupCommandAttack(aAIAttack.launchedGroups[i], aAIAttack);
+		
+		aAIAttack.previousAttackTicks := AAICurrentTick;
+	end;
+end;
+
+
+// Ensures all currently active groups have an active target they are pursuing. If a timeout for theor target occurs, a new target is sought. If they become idle for any reason, the attack order is renewed.
+procedure AAIGroupsUpdateOrders(var aAIAttack: AAIAttack);
+var
+	i: Integer;
+begin
+	for i := 0 to High(aAIAttack.launchedGroups) do
+	begin
+		if (aAIAttack.launchedGroups[i].Group > 0)
+		and (States.GroupMemberCount(aAIAttack.launchedGroups[i].Group) > 0)
+		and (States.UnitInHouse(States.GroupMember(aAIAttack.launchedGroups[i].Group, 0)) = 0) then
+			AAIGroupCommandAttack(aAIAttack.launchedGroups[i], aAIAttack);
+	end;
+end;
+
+
+// Call this from OnMissionStart to set up initial config values.
+procedure AAIInitiateScript(targetTimeout, houseBias, civilianBias, attackLaunchCheckPeriod: Integer);
+begin
+	AAITargetTimeoutTicks := targetTimeout; // 100 is recommended.
+	AAIHouseTargetBias := houseBias; // 5 is recommended.
+	AAICivilianTargetBias := civilianBias; // 10 is recommended.
+	AAIAttackLaunchCheckPeriod := attackLaunchCheckPeriod; // 50 is recommended.
+	
+	AAIGroupTypes := [gtMelee, gtAntiHorse, gtRanged, gtMounted];
+end;
+
+
+// Call this from OnTick.
+procedure AAIResolveTick(aTick: Integer);
+var
+	i: Integer;
+begin
+	AAICurrentTick := aTick;
+	if (AAICurrentTick mod AAIAttackLaunchCheckPeriod = 0) or (AAICurrentTick = 1) then
+		for i := 0 to High(AAIAttacks) do
+			if AAIAttackTimeReady(AAIAttacks[i]) then
+				AAIAttackTryLaunch(AAIAttacks[i]);
+	for i := 0 to High(AAIAttacks) do
+		AAIGroupsUpdateOrders(AAIAttacks[i]);
+end;
+// ####################   End of AttackAI (AAI) 2 script   ####################

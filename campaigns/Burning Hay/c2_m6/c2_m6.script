@@ -21,13 +21,13 @@ const
 	OBJ_REMAIN_HIDDEN = '<$obj_remain_hidden>';
 	OBJ_REINFORCEMENTS_TIMER = '<$obj_reinforcements_timer>: [$00FFFF]';
 
-	MSG_INTRO = '<$msg_intro_01>||<$msg_intro_02>|<$msg_intro_03>|<$msg_intro_04>|<$msg_intro_05>|<$msg_intro_06>|<$msg_intro_07>|<$msg_intro_08>|<$msg_intro_09>|<$msg_intro_10>';
+	MSG_INTRO = '<$msg_intro_01>||<$msg_intro_02>|<$msg_intro_03>|<$msg_intro_04>|<$msg_intro_05>|<$msg_intro_06>|<$msg_intro_07>|<$msg_intro_08>|<$msg_intro_09>|<$msg_intro_10>|<$msg_intro_11>|<$msg_intro_12>';
 	MSG_TRADERS_WELCOME = '<$msg_traders_welcome_01>|<$msg_traders_welcome_02>|<$msg_traders_welcome_03>|<$msg_traders_welcome_04>|<$msg_traders_welcome_05>|<$msg_traders_welcome_06>|<$msg_traders_welcome_07>|<$msg_traders_welcome_08>|<$msg_traders_welcome_09>';
 	MSG_SPOTTED_TIMEOUT = '<$msg_spotted_timeout_01>|<$msg_spotted_timeout_02>|<$msg_spotted_timeout_03>|<$msg_spotted_timeout_04>';
 	MSG_SPOTTED_UNITS = '<$msg_spotted_units_01>';
 	MSG_SUPPLY_NO_STOREHOUSE = '<$msg_supply_no_storehouse>';
 	MSG_TIME_RUNNING_OUT = '<$msg_time_running_out_01>|<$msg_time_running_out_02>|<$msg_time_running_out_03>|<$msg_time_running_out_04>|<$msg_time_running_out_05>|<$msg_time_running_out_06>|<$msg_time_running_out_07>';
-	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>||<$msg_outro_05>|<$msg_outro_06>|<$msg_outro_07>|<$msg_outro_08>|<$msg_outro_09>|<$msg_outro_10>';
+	MSG_OUTRO = '<$msg_outro_01>||<$msg_outro_02>|<$msg_outro_03>|<$msg_outro_04>|||<$msg_outro_05>||<$msg_outro_06>|<$msg_outro_07>|<$msg_outro_08>|<$msg_outro_09>|<$msg_outro_10>|<$msg_outro_11>|<$msg_outro_12>';
 	
 	DIALOG_TRADER = 'trader.png';
 	DIALOG_STEEL = '<$dialog_steel>';
@@ -52,15 +52,18 @@ const
 	TRADE_STEEL_AMOUNT = 30;
 	TRADE_CLOTH_AMOUNT = 50;
 	
-	MARKER_STEEL_X = 80;
-	MARKER_STEEL_Y = 131;
-	MARKER_CLOTH_X = 80;
-	MARKER_CLOTH_Y = 132;
+	MARKER_STEEL_X = 76;
+	MARKER_STEEL_Y = 133;
+	MARKER_CLOTH_X = 77;
+	MARKER_CLOTH_Y = 133;
 	
 	HERO_FULL_REGEN_TIME = 6000.0;
 	HERO_HAYTOW_NAME = '<$hero_haytow_name>';
 	HERO_HAYTOW_HP = 325;
 	HERO_HAYTOW_COLOR = $00B0FF;
+	HERO_ASTON_NAME = '<$hero_aston_name>';
+	HERO_ASTON_HP = 275;
+	HERO_ASTON_COLOR = $00B0FF;
 	HERO_ALBRECHT_NAME = '<$hero_albrecht_name>';
 	HERO_ALBRECHT_HP = 200;
 	HERO_ALBRECHT_COLOR = $505050;
@@ -240,7 +243,10 @@ begin
 	end;
 	
 	if (traderSteel >= TRADE_STEEL_AMOUNT) then
-		Actions.InteractionMarkerUpdate(MarkerSteel, steelColor, SteelTradeReady, 2)
+	begin
+		Actions.InteractionMarkerUpdate(MarkerSteel, steelColor, SteelTradeReady, 1);
+		Actions.InteractionMarkerBob(MarkerSteel, SteelTradeReady);
+	end
 	else
 	begin
 		Actions.InteractionMarkerRemove(MarkerSteel);
@@ -249,7 +255,10 @@ begin
 	end;
 	
 	if (traderCloth >= TRADE_CLOTH_AMOUNT) then
-		Actions.InteractionMarkerUpdate(MarkerCloth, clothColor, ClothTradeReady, 2)
+	begin
+		Actions.InteractionMarkerUpdate(MarkerCloth, clothColor, ClothTradeReady, 1);
+		Actions.InteractionMarkerBob(MarkerCloth, ClothTradeReady);
+	end
 	else
 	begin
 		Actions.InteractionMarkerRemove(MarkerCloth);
@@ -275,6 +284,10 @@ begin
 	UTObjectiveStatusUpdate(PLAYER_HUMAN, TalkToTradersObjID, TalkToTradersObjSt, osCompleted);
 	UTObjectiveStatusUpdate(PLAYER_HUMAN, SteelTradeReadyObjID, SteelTradeReadyObjSt, osActive);
 	UTObjectiveStatusUpdate(PLAYER_HUMAN, ClothTradeReadyObjID, ClothTradeReadyObjSt, osActive);
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(76, 130, 30.0, 0.10);
+	Actions.CinematicEnd();
 end;
 
 
@@ -353,6 +366,9 @@ end;
 procedure SetupHeroes();
 begin
 	UTUnitSetHeroStats(States.UnitAt(23, 130), HERO_HAYTOW_NAME, HERO_HAYTOW_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_HAYTOW_HP, 60)), -1, -1, -1, HERO_HAYTOW_COLOR);
+	
+	UTUnitSetHeroStats(States.UnitAt(24, 131), HERO_ASTON_NAME, HERO_ASTON_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ASTON_HP, 60)), -1, -1, -1, HERO_ASTON_COLOR);
+	
 	UTUnitSetHeroStats(States.UnitAt(72, 124), HERO_ALBRECHT_NAME, HERO_ALBRECHT_HP, Round(HERO_FULL_REGEN_TIME / Utils.MaxI(HERO_ALBRECHT_HP, 60)), -1, -1, -1, HERO_ALBRECHT_COLOR);
 end;
 
@@ -409,6 +425,9 @@ begin
 	if (Length(traderStores) > 0) then 
 		TradersStorehouse := traderStores[0];
 	MarkerTrader := Actions.InteractionMarkerAddOnUnit(itExclamation, States.UnitAt(72, 124));
+	Actions.InteractionMarkerUpdate(MarkerTrader, -1, True, 1.5);
+	Actions.InteractionMarkerBob(MarkerTrader, True);
+	
 	Actions.GiveWares(PLAYER_TRADERS, wtCloth, TRADE_CLOTH_AMOUNT * 7);
 	Actions.GiveWares(PLAYER_TRADERS, wtSteel, TRADE_STEEL_AMOUNT * 7);
 end;
@@ -522,6 +541,9 @@ begin
 		begin
 			Actions.PlayerMessage(PLAYER_HUMAN, MSG_SPOTTED_UNITS, True);
 			PlayerWasSpotted();
+			Actions.CinematicBegin();
+			Actions.CinematicViewSetTo(aX, aY, 0.0, 0.25);
+			Actions.CinematicEnd();
 		end;
 	end;
 end;

@@ -1,6 +1,6 @@
 ﻿#Eng texts by Amaroth
 0:Amaroth
-1:You are [$00B3FF]Sir Edgar Haytow[] - and while your bloodline isn't exactly fabled - being the humble Haytow of Haytow - you were still invited to the recent royal feast. A few days later, you are returning to Haytow, your hometown...
+1:You are [$00B3FF]Sir Edgar Haytow[] - and while your bloodline isn't exactly fabled, being the humble Haytow of Haytow, you were still invited to the recent royal feast. A few days later, you are returning to Haytow, your hometown...
 
 player_01:Sir Haytow
 player_02:Bandits
@@ -14,17 +14,17 @@ obj_army_survives:Your [$07FFFF]army[] must survive
 
 msg_intro_01:A stone's throw from the town of Haytow...
 msg_intro_02:[$0073FF]Captain Aston:[] "Sire, I don't know about you, but I am really looking forward to being home. I am exhausted."
-msg_intro_03:[$00B3FF]You:[] "Well, the feast was tiring indeed. And the mood was certainly not any better. I am not sure what the king was arguing about with some of the nobles, but it seemed serious. I am glad we could leave all that behind. Politics is not really for me, never was."
-msg_intro_04:[$0073FF]Captain Aston:[] "All the hunts and stops on the way back were a good distraction, but delayed us quite a bit. Your people need..."
+msg_intro_03:[$00B3FF]You:[] "Well, the feast was tiring indeed. And the mood was certainly not any better. I am not sure what the king was arguing about with some of the nobles, but it seemed serious. I am glad we could leave all that behind. Politics were never really for me."
+msg_intro_04:[$0073FF]Captain Aston:[] "All the hunts and stops on the way back were a good distraction, but delayed us quite a bit. Your people need-"
 msg_intro_05:[$00B3FF]You:[] "Wait! Do you smell it? That is a lot of smoke... Too much for it to be bakeries working overtime. What if there is a fire?"
 msg_intro_06:[$0073FF]Captain Aston:[] "Or worse, Haytow might be under attack!"
 msg_intro_07:[$00B3FF]You:[] "Damn it. Men! To arms! Leave the game behind, we have more pressing matters!"
 
-msg_outro_01:Your men managed to deal with all of the attacking bandits. What remained of them fled to the North.
+msg_outro_01:Your men managed to deal with all the attacking bandits. What remained of them fled to the north.
 msg_outro_02:[$0073FF]Captain Aston:[] "Are you alright, sire?"
 msg_outro_03:[$00B3FF]You:[] "A few dents and scratches in my armor, but overall in one piece. What about you?"
 msg_outro_04:[$0073FF]Captain Aston:[] "Same. Peasants got scared for sure, and many buildings will need fixing, but Haytow is safe for the time being."
 msg_outro_05:[$00B3FF]You:[] "Do we know who these people were? Where did they come from?"
-msg_outro_06:[$0073FF]Captain Aston:[] "No idea, we have no living prisoner to talk to. But they came from the North, and they fled the same way. They seemed to be after our winter supplies, sire."
-msg_outro_07:[$00B3FF]You:[] "Aston, once the people manage to put down the fires, I need you to help me organize militia. You will stay here and protect the town. I will take a few troops and pursue the bandits who ran away. I want to get to the bottom of this."
+msg_outro_06:[$0073FF]Captain Aston:[] "No idea, we have no living prisoner to talk to. But they came from the north, and they fled the same way. They seemed to be after our winter supplies, sire."
+msg_outro_07:[$00B3FF]You:[] "Captain, once the people manage to put down the fires, I need you to help me organize militia. You will stay here and protect the town. I will take a few troops and pursue the bandits who ran away. I want to get to the bottom of this."
 msg_outro_08:[$0073FF]Captain Aston:[] "As you command."

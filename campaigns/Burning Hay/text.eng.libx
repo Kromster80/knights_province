@@ -1,25 +1,30 @@
-﻿campaign_title:Burning Hay
-campaign_description:As a young and until now insignificant knight who never cared about the kingdom's politics, you find yourself pulled right in the middle of a sudden civil war.|[$00B3FF]Note:[] Fair amount of story, no tutorial. More chapters coming soon (TM).|By: [$00B3FF]Amaroth[]|Version: [$00B3FF]2.1[]
+﻿#Eng texts by Amaroth
+campaign_title:Burning Hay
+campaign_description:As a young and until now insignificant knight who never cared about the kingdom's politics, you find yourself pulled right into the middle of a sudden civil war.|[$0000FF]Story-heavy, no tutorial. Challenging, especially for beginners. WIP![]|By: [$00B3FF]Amaroth[]|Version: [$00B3FF]2.2[]
 
-chapter_title_1:Chapter 1: The Peasant's Misfortune
+chapter_title_1:Burning Hay
 chapter_number_1:1
-chapter_title_2:Chapter 2: Steel Yourself!
-chapter_number_2:2
 
 mission_title_1:Flames on the Horizon
-mission_briefing_1:You are [$00B3FF]Sir Edgar Haytow[] - and while your bloodline isn't exactly fabled - being the humble Haytow of Haytow - you were still invited to the recent royal feast. A few days later, you are returning to Haytow, your hometown...
+mission_briefing_1:You are [$00B3FF]Sir Edgar Haytow[] - and while your bloodline isn't exactly fabled, being the humble Haytow of Haytow, you were still invited to the recent royal feast. A few days later, you are returning to Haytow, your hometown...
 
 mission_title_2:Uprooting the Bandits
-mission_briefing_2:No live bandits were taken prisoner, but several fled to the North, from where they came. This means there must be a camp that needs uprooting. You put down the fires, raised the militia, charged [$0073FF]Captain Aston[] with protecting your castle (or what was left of it) in your absence, and marched after the running [$61793F]bandits[].
+mission_briefing_2:No live bandits were taken prisoner, but several fled to the north, from where they came. This means there must be a camp that needs uprooting. You put out the fires, raised the militia, charged [$0073FF]Captain Aston[] with protecting your castle (or what was left of it) in your absence, and marched after the fleeing [$61793F]bandits[].
 
 mission_title_3:No More Maraudin'!
-mission_briefing_3:Defeating the bandits didn't only fail to be easy - it wasn't satisfying, either. While laying down their arms, it became clear that they were just poor people caught between a rock and a hard place. Their leader, [$61793F]Graham[], explained that they indeed come from [$14FF14]Duke Royce[]'s lands. A few days ago, the entire duchy was attacked. The duke's army was clearly caught off guard and pushed back, while his countryside was burnt into cinders.||Many of Royce's peasants were forced to flee, and most of them took the easiest route to the South. To your lands. With almost no food and supplies, they were first forced to beg, and then turned to banditry. While their transgressions cannot be ignored, your father always taught you to deal with the cause, rather than with the consequence. On top of that, the Duke was also your father's friend.||As such, you allied with the refugees, provided them with the supplies they desperately needed, and marched united towards their tormentors, who had sent them your way.
+mission_briefing_3:You pacified the bandits, but there was little satisfaction in doing so. The bandits turned out to be just poor refugees pushed into their acts by unknown raiders invading the [$14FF14]Duke Royce[]'s lands. Since Royce was a friend to your father, you promised help to the leader of the bandits, [$61793F]Graham[]. It is time to get to the bottom of what is going on in Royce's duchy.
 
 mission_title_4:Face Me!
-mission_briefing_4:Defeating the marauders who put a torch to [$14FF14]Duke Royce[]'s lands wasn't the end of things. As the enemy town burned, you were challenged by [$000080]Lord Clifford Hargrave[], who stands behind all the raids. You refused to back down and led your troops further Northward, to face his retinue, before he can gather more strength.
+mission_briefing_4:Defeating the marauders who set a torch to [$14FF14]Duke Royce[]'s lands was not the end of things. As the enemy town burned, you were challenged by [$000080]Lord Clifford Hargrave[], who stands behind all the raids. You refused to back down and led your troops further northward to face his retinue before he could gather more strength.
 
 mission_title_5:Storming the Castle
-mission_briefing_5:You met [$000080]Lord Clifford Hargrave[]'s challenge head-on and defeated his men once again. He left his retinue behind as he fled towards [$14FF14]Duke Royce[]'s castle. [$61793F]Graham[] offered you help with the capture of the fleeing Lord. Wondering what surprises await you to the North, you sent Graham's people ahead to establish a foothold before your main force arrives with you.
+mission_briefing_5:You met [$000080]Lord Clifford Hargrave[]'s challenge head-on and defeated his men once again. He left his retinue behind as he fled toward [$14FF14]Duke Royce[]'s castle. [$61793F]Graham[] offered you help with the capture of the fleeing lord. Wondering what surprises await you to the north, you sent Graham's people ahead to establish a foothold before your main force arrives with you.
 
 mission_title_6:Mining Trouble
 mission_briefing_6:[$14FF14]Duke Royce[] sent you  to capture some of the mines controlled by [$0000FF]Marshal Greedfare[]. Since your army lacks resources to build elite troops, you will have to proceed carefully and use the element of surprise. Furthermore, since the area lacks rocks suited for construction, you had to take a big load of them with you.
+
+mission_title_7:Gold Rush
+mission_briefing_7:[$0000FF]Marshal Greedfare[] sent reinforcements to the mines you captured, led by his loyal lapdog, [$0061FF]Sir Blackberry[]. Luckily, Blackberry arrived late, but now he intends to defend the last remaining mines against you.
+
+mission_title_8:Red Dawn
+mission_briefing_8:[$0061FF]Sir Blackberry[] has retreated, but only to regroup his fleeing troops. With him preparing to stir up more trouble, you have decided to give chase, joined by the knights who deserted both him and his overlord, [$0000FF]Marshal Greedfare[]. Now, it is time to face the marshal's lapdog on the battlefield.

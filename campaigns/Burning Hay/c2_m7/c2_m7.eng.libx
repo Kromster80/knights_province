@@ -1,0 +1,81 @@
+#Eng texts by Amaroth
+0:Amaroth
+1:[$0000FF]Marshal Greedfare[] sent reinforcements to the mines you captured, led by his loyal lapdog, [$0061FF]Sir Blackberry[]. Luckily, Blackberry arrived late, but now he intends to defend the last remaining mines against you.
+
+player_01:Sir Haytow
+player_02:Mines
+player_03:Sir Blackberry
+player_04:Mercenaries
+
+hero_haytow_name:Sir Edgar Haytow
+hero_aston_name:Captain Aston
+hero_william_name:William
+hero_blackberry_name:Sir Blackberry
+
+obj_destroy_mines_town:Destroy the town [$00D4A8]Mines[]
+obj_defeat_mines_army:Defeat the army [$00D4A8]Mines[]
+obj_destroy_blackberry_town:Destroy the town [$0061FF]Blackberry[]
+obj_defeat_blackberry_army:Defeat the army [$0061FF]Blackberry[]
+obj_visit_mercenary:Visit [$FF0000]Mercenaries[]
+
+dialog_mercenary:[$FF0000]William:[] "I see you have the gold ready. You know the deal: you send us 45 gold from your camp, and we'll give you either 6 sword fighters, 9 halberdiers, or 9 crossbowmen. What will it be?"
+dialog_mercenary_not_ready:[$FF0000]William:[] "Hey, sorry, but I don't think you have a camp with enough gold ready for us. Come back when you've stored at least 45 gold in a single camp."
+mercenary_btn_swords:6 swords
+mercenary_btn_halberds: 9 halberds
+mercenary_btn_crossbows:9 crossbows
+mercenary_btn_cancel:Cancel
+mercenary_sword_name:Hired swordsman
+mercenary_halberd_name:Hired halberdier
+mercenary_crossbow_name:Hired crossbowman
+
+msg_intro_01:Half of the area is yours. The fighting took a toll on the structures and equipment, and some of the fleeing enemies made sure to collapse the mines before they disappeared.
+msg_intro_02:[$00B3FF]You:[] "The mines were immense. It's no surprise the duke wanted them captured. We can easily rebuild what was destroyed and then utilize the resources."
+msg_intro_03:[$00D0FF]Scout:[] "Wish I had good news for you, sire. I don't."
+msg_intro_04:[$00B3FF]You:[] "... There is truly no break for us, is there? Very well. Out with it, soldier."
+msg_intro_05:[$00D0FF]Scout:[] "Greedfare has an army nearby. Troops flying his colors are marching our way. They've already established a camp to the southwest, and it seems they are being led by Sir Blackberry."
+msg_intro_06:[$00B3FF]You:[] "Sir Blackberry? I remember him - he was always a loyal lapdog of the marshal. This means they intend to cut us off from the remaining mines."
+msg_intro_07:[$00D0FF]Scout:[] "The wilderness is too vast and open for that, sire. They've chosen a well-fortified position down the river. We can still assault the remaining mines, if you wish."
+msg_intro_08:[$00B3FF]You:[] "Attacking the mines without defeating Sir Blackberry's army would leave us open to enemy counterattacks. It sounds risky."
+msg_intro_09:[$00D0FF]Scout:[] "The mines can be accessed by two defensible bridges. We've already spotted some wagons. No doubt the mines will be supplying Blackberry's war camp with steel."
+msg_intro_10:[$00B3FF]You:[] "So, if we attack the mines, Sir Blackberry can strike our base and our rear. If we attack Sir Blackberry, the mines will supply him with resources. Wonderful."
+msg_intro_11:[$00D0FF]Scout:[] "The choice is yours, sire. One more thing: we've spotted a camp of mercenaries nearby. Perhaps they are worth a visit?"
+
+
+msg_mercenary_met_01:An elderly man in blue armor awaits you. He is followed by hardened veterans who eye you with curiosity.
+msg_mercenary_met_02:[$FF0000]William:[] "Welcome. You can call me William. Who are you, boy?"
+msg_mercenary_met_03:[$00B3FF]You:[] "Edgar Haytow. On whose side do you stand, William?"
+msg_mercenary_met_04:[$FF0000]William:[] "Side? There is no side for me to stand on, boy. My lands were ravaged by way too many wars for me to fight for others. And I am getting way too old for bashing skulls in. But, I can tell that unlike me, you need some warriors for your struggles."
+msg_mercenary_met_05:[$00B3FF]You:[] "Your people seem experienced. What would it take for them to fight for me?"
+msg_mercenary_met_06:[$FF0000]William:[] "A simple matter of coin. My warriors are mercenaries, and very experienced ones. Each one of them can easily do the work of two greenhorns you have fighting for you."
+msg_mercenary_met_07:[$00B3FF]You:[] "How much? I am not exactly the richest man in the kingdom, you see."
+msg_mercenary_met_08:[$FF0000]William:[] "What I see is someone who just captured some of the richest mines in the kingdom. You can very much afford our services. Bring me 45 gold, and for that, you can either have 9 sword fighters, 6 halberdiers, or 6 crossbowmen. But remember, we do not know each other, and I myself am staying here."
+msg_mercenary_met_09:[$00B3FF]You:[] "That is a steep price. I will consider it. Your men better be worth it."
+msg_mercenary_met_10:[$FF0000]William:[] "Oh, that they are. Should you want to hire some of my mercenaries, all you have to do is come talk to me again. They will come fully equipped and fully fed. You can do with them as you will."
+
+msg_outro_01:The last of the soldiers defending the mines have just surrendered to you. The day is yours, once again.
+msg_outro_02:[$0061FF]Sir Blackberry:[] "Well fought, Haytow. I remember you were at least mediocre in swordplay, but having passable tactical wit - now, that is a new one to me."
+msg_outro_03:[$00B3FF]You:[] "Is that all you have, Sir Blackberry? Insults cannot win a war for you, and you are currently losing one."
+msg_outro_04:[$0061FF]Sir Blackberry:[] "Of course, this is very much not all I have. I have to give you this: I did not expect you to last a day against my forces. I will not underestimate you again. I will be back. Farewell."
+
+msg_outro_05:A few moments later, your captain comes with a concerned look on his face.
+msg_outro_06:[$0073FF]Captain Aston:[] "Sire, several of Greedfare's knights came to us and laid down their arms. I think I actually know a couple of them, too. What should we do with them?"
+msg_outro_07:[$00B3FF]You:[] "I want to talk with them. There is no harm in that."
+msg_outro_08:[$0073FF]Captain Aston:[] "I suppose so, sire. I will have them brought to you."
+
+msg_outro_09:[$00B3FF]You:[] "The battle is over, but the war is not. Why did you concede to my forces?"
+msg_outro_10:[$0000FF]Sir Everett:[] "What Marshal did never sat right with us, Sir Haytow. We were given a choice of either betraying our king, or betraying our liege lord. No matter what, we were to be traitors to someone. But, if we were to betray Greedfare, he would make an example of both us and our families. We did not have anyone to support us against his wrath. Until now."
+msg_outro_11:[$00B3FF]You:[] "So you betrayed our king, to avoid betraying your liege lord, and now, when the tide turns, you wish to betray your liege lord to... I am sorry, but why should I trust any of you?"
+msg_outro_12:[$0000FF]Sir Everett:[] "Because Greedfare is far from losing, Sir Haytow. All you did was to stop him from gaining even more steel and gold. That does not make his warehouses and coffers run dry overnight. You will need all the help you can get to win."
+msg_outro_13:[$00B3FF]You:[] "What more can you tell me?"
+msg_outro_14:[$0000FF]Sir Everett:[] "Blackberry realized he cannot defeat you here. You became too entrenched. He retreated to lure you out into the open. If you give chase, he will lay an ambush."
+msg_outro_15:[$00B3FF]You:[] "I cannot stay here. Greedfare has to be dealt with, and if I ignore Blackberry, he will be free to harass my supply trains. I need to strike him down while his forces are weakened and routed."
+msg_outro_16:[$0000FF]Sir Everett:[] "He ordered retreat a while back, Sir Haytow. All of this was just a part of his plan."
+msg_outro_17:[$00B3FF]You:[] "So, what do you suggest?"
+msg_outro_18:[$0000FF]Sir Everett:[] "Ride after him, as you intended. We will fight for you, if you will have us. Blackberry is cunning, but he is too arrogant to foresee us joining you. His forces will not be ready for that. We can make the difference you need."
+
+msg_outro_19:You take a moment to speak to your captain in private.
+msg_outro_20:[$0073FF]Captain Aston:[] "Sire, if I may... I cannot vouch for all of them. You need to be very careful with this bunch. But... I think we can trust at least some of them. And my gut tells me Blackberry has some nasty surprises set up for us. Maybe we should get a nasty surprise of our own."
+msg_outro_21:[$00B3FF]You:[] "This entire campaign is becoming more and more risky. We have to finish Blackberry off. Now."
+msg_outro_22:[$0073FF]Captain Aston:[] "And the knights?"
+msg_outro_23:[$00B3FF]You:[] "We take them in. But keep both of your eyes open."
+msg_outro_24:[$0073FF]Captain Aston:[] "That I always do, sire."

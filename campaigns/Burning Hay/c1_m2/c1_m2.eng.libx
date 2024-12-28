@@ -1,6 +1,6 @@
 ﻿#Eng texts by Amaroth
 0:Amaroth
-1:No live bandits were taken prisoner, but several fled to the North, from where they came. This means there must be a camp that needs uprooting. You put down the fires, raised the militia, charged [$0073FF]Captain Aston[] with protecting your castle (or what was left of it) in your absence, and marched after the running [$61793F]bandits[].
+1:No live bandits were taken prisoner, but several fled to the north, from where they came. This means there must be a camp that needs uprooting. You put out the fires, raised the militia, charged [$0073FF]Captain Aston[] with protecting your castle (or what was left of it) in your absence, and marched after the fleeing [$61793F]bandits[].
 
 player_01:Sir Haytow
 player_02:Bandits
@@ -28,13 +28,13 @@ msg_more_coming_03:[$A040A0]Sargeant Linton:[] "Shite, I do. Men, regroup! More 
 msg_attacks_resuming_01:[$00D0FF]Scout:[] "Sire! It seems the bandit camp is preparing additional attacks!"
 msg_attacks_resuming_02:[$00B3FF]You:[] "These men are either courageous or straight up desperate. Or both. I didn't expect this to be easy, but there must be more to these people than just greed."
 msg_attacks_resuming_03:[$A040A0]Sargeant Linton:[] "You tell me, regular bandits would give up by now and simply move elsewhere. We aren't really worth it."
-msg_attacks_resuming_04:[$00B3FF]You:[] "Perhaps they have nowhere to go. Further to the North are Duke Royce's lands. My father knew Royce very well. I remember he was anything but kind to banditry."
+msg_attacks_resuming_04:[$00B3FF]You:[] "Perhaps they have nowhere to go. Further to the north are Duke Royce's lands. My father knew Royce very well. I remember he was anything but kind to banditry."
 msg_attacks_resuming_05:[$A040A0]Sargeant Linton:[] "We need to make sure we can withstand continuous attacks now. Then counterattack as soon as possible."
-msg_attacks_resuming_06:[$00B3FF]You:[] "I would like to ask Royce about these people, first, but there is no way of doing that. We will have to fight our way through. How much time do we have?"
-msg_attacks_resuming_07:[$A040A0]Scout:[] "I am not sure. 10 minutes or so?"
+msg_attacks_resuming_06:[$00B3FF]You:[] "I would like to ask the duke about these people, first, but there is no way of doing that. We will have to fight our way through. How much time do we have?"
+msg_attacks_resuming_07:[$A040A0]Scout:[] "I am not sure. A few moments?"
 msg_attacks_resuming_08:[$00B3FF]You:[] "Very well. We will have to make do with what we have."
 
-msg_outro_01:The fighting was way tougher than you expected, but with the help of Linton and his people, you managed to finally push through.
+msg_outro_01:The fighting was tougher than you expected, but with the help of Linton and his men, you managed to finally push through.
 msg_outro_02:[$00B3FF]You:[] "Will you finally give up now, bandit?!"
 msg_outro_03:[$61793F]Bandit Graham:[] "Yes! M'lord, I beg your mercy!"
 msg_outro_04:[$00B3FF]You:[] "You and your band attacked my town, assaulted its walls, tried to steal our supplies and hurt several of my people. Now you ask for mercy? Who are you?"

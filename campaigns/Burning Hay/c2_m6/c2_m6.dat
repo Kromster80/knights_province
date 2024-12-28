@@ -112,11 +112,14 @@
 !WARE_OUT_ADD_TO_LAST 8 100 // gold
 !WARE_OUT_ADD_TO_LAST 28 100 // fish
 !WARE_OUT_ADD_TO_LAST 30 100 // cider
+!SET_HOUSE 26 24 134 0 // store
+!WARE_OUT_ADD_TO_LAST 9 100 // ale
+!WARE_OUT_ADD_TO_LAST 11 100 // bread
 
 // Roads and fields
 
-!SET_ROAD 19 134 !SET_ROAD 17 135 !SET_ROAD 18 135 !SET_ROAD 19 135
-!SET_ROAD 20 135
+!SET_ROAD 19 134 !SET_ROAD 24 134 !SET_ROAD 17 135 !SET_ROAD 18 135
+!SET_ROAD 19 135 !SET_ROAD 20 135
 
 // Fences
 
@@ -141,6 +144,7 @@
 !SET_GROUP 25 31 123 5 3 5 // horsescout
 !SET_GROUP_FOOD
 !SEND_GROUP 25 128 5
+!SET_GROUP 20 24 131 1 1 1 // swordsman
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -1445,6 +1449,9 @@
 !SET_MAPOBJECT 49 133 2 pine3 - - - 0 0
 !SET_MAPOBJECT 50 133 0 pine3 - - - 0 0
 !SET_MAPOBJECT 52 133 3 pine3 - - - 0 0
+!SET_MAPOBJECT 75 133 2 cageFire - - - 0 0
+!SET_MAPOBJECT 76 133 2 table - - - 0 1
+!SET_MAPOBJECT 77 133 0 table - - - 0 2
 !SET_MAPOBJECT 2 134 2 pine3 - - - 0 0
 !SET_MAPOBJECT 36 134 0 pine1 - - - 0 0
 !SET_MAPOBJECT 41 134 3 pine2 - - - 0 0
@@ -1463,6 +1470,7 @@
 !SET_MAPOBJECT 50 135 3 mushroom_2 - - - 0 0
 !SET_MAPOBJECT 56 135 0 pine3 - - - 0 0
 !SET_MAPOBJECT 69 135 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 77 135 2 chest_small - - - 0 0
 !SET_MAPOBJECT 3 136 2 pine1 - - - 0 0
 !SET_MAPOBJECT 6 136 3 rock_1 - - - 0 0
 !SET_MAPOBJECT 7 136 0 fern_3 - - - 0 0
@@ -1636,4 +1644,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15231 (2024/08/01 21:30)" on 02/08/2024 12:42:39
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15531 (2024/11/12 22:44)" on 07/12/2024 14:24:53

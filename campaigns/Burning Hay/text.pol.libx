@@ -1,10 +1,9 @@
-﻿campaign_title:Płonące stogi siana
-campaign_description:Jako młody i dotychczas nieznaczący rycerz, który nigdy nie przejmował się polityką w królestwie, znalazłeś się w samym środku nagłej wojny domowej.|[$00B3FF]Notatka:[] Spora dawka historii, bez przygotowania. Więcej rozdziałów pojawi się wkrótce. (TM).|Autor: [$00B3FF]Amaroth[]|Version: [$00B3FF]2.1[]
+﻿#Pol texts by Dolbi
+campaign_title:Płonące stogi siana
+campaign_description:Jako młody i dotychczas nieznaczący rycerz, który nigdy nie przejmował się polityką w królestwie, znalazłeś się w samym środku nagłej wojny domowej.|[$00B3FF]Notatka:[] Spora dawka historii, bez przygotowania. Więcej rozdziałów pojawi się wkrótce. (TM).|Autor: [$00B3FF]Amaroth[]|Version: [$00B3FF]2.2[]
 
-chapter_title_1:Rozdział 1: Pech Wieśniaka
+chapter_title_1:Płonące stogi siana
 chapter_number_1:1
-chapter_title_2:Chapter 2: Steel Yourself!
-chapter_number_2:2
 
 mission_title_1:Płomienie na horyzoncie
 mission_briefing_1:Jesteś [$00B3FF]Sir Edgar Haytow[] - póki co nie jesteś błękitnej krwi - ale będąc skromnym Haytowem z Haytow - ciągle jesteś mile widziany na królewskiej uczcie. Kilka dni później powracasz do Haytow, Twojego domowego miasteczka...

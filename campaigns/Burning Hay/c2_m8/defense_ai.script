@@ -1,0 +1,131 @@
+// ####################   Defense AI   ####################
+// Author: Amaroth.
+// Version: 1.0.0 (2024-11-18)
+// A framework which is to ensure the AI's troops don't just blindly rush anyone who attacks them - prevents the player from easily luring the AI out into the open from defensible positions. The script will try to hold the input groups in game on their intended positions, returning them to them if they walk too far off.
+
+uses
+	extra_utils;
+
+type
+	DAIGroup = record
+		Group: Integer; // The group's UID in the game.
+		ExpectedX: Integer; // The intended position the group should be trying to remain on.
+		ExpectedY: Integer; // The intended position the group should be trying to remain on.
+		ExpectedDirection: Integer; // The intended position the group should be trying to remain on.
+		LastPositionResetTick: Integer; // The last tick at which the group was checked whether it is still on its intended position.
+		Enabled: Boolean;
+	end;
+
+var
+	DAIGroups: array of DAIGroup; // All existing DAIAttacks.
+	DAIPositionCheckPeriod: Integer; // A delay in ticks after which the script re-checks whether the group needs to be ordered back to its position.
+	DAICurrentTick: Integer; // Stores the current tick of the game. This is to avoid having to pass it over into almost all procedures within this script from OnTick.
+
+
+// Creates a new DAIGroup, returns its ID (its order in the DAIGroups array).
+function DAICreateGroup(group, x, y, direction: Integer; enabled: Boolean): Integer;
+var
+	dAIGroup: DAIGroup;
+	arrLen: Integer;
+begin
+	dAIGroup.Group := group;
+	dAIGroup.ExpectedX := x;
+	dAIGroup.ExpectedY := y;
+	dAIGroup.ExpectedDirection := direction;
+	dAIGroup.LastPositionResetTick := 0;
+	dAIGroup.Enabled := enabled;
+	
+	arrLen := Length(DAIGroups);
+	SetLength(DAIGroups, arrLen + 1);
+	DAIGroups[arrLen] := dAIGroup;
+	Result := arrLen;
+end;
+
+
+//
+procedure DAIGroupRenewPosition(id: Integer);
+begin
+	if (id > High(DAIGroups)) then Exit;
+	Actions.GroupOrderWalk(DAIGroups[id].Group, DAIGroups[id].ExpectedX, DAIGroups[id].ExpectedY, DAIGroups[id].ExpectedDirection);
+end;
+
+
+// Changes the coords and direction where the DAIGroup is expected to stand.
+procedure DAIGroupSetPosition(id, x, y, direction: Integer);
+begin
+	if (id > High(DAIGroups)) then Exit;
+	DAIGroups[id].ExpectedX := x;
+	DAIGroups[id].ExpectedY := y;
+	DAIGroups[id].ExpectedDirection := direction;
+	
+	DAIGroupRenewPosition(id);
+end;
+
+
+// Sets whether the DAIGroup is to be actively being re-sent to its expected position or not.
+procedure DAIGroupSetEnabled(id: Integer; enabled: Boolean);
+begin
+	if (id > High(DAIGroups)) then Exit;
+	DAIGroups[id].Enabled := enabled;
+end;
+
+
+// Finds the input group in DAIGroups and returns its ID. If it was not found, returns -1.
+function DAIFindId(group: Integer): Integer;
+var
+	i, id: Integer;
+begin
+	id := -1;
+	for i := 0 to High(DAIGroups) do
+		if (DAIGroups[i].Group = group) then
+			id := i;
+	Result := id;
+end;
+
+
+//
+function DAIMemberCount(id: Integer): Integer;
+begin
+	if (id > High(DAIGroups)) then Exit;
+	Result := States.GroupMemberCount(DAIGroups[id].Group);
+end;
+
+
+//
+procedure DAIGroupCheckPosition(id: Integer);
+begin
+	if (id > High(DAIGroups)) then Exit;
+	if (States.GroupMemberCount(DAIGroups[id].Group) = 0) then
+	begin
+		DAIGroups[id].Enabled := False; // Stops re-checking on a dead group, now and further on.
+		Exit;
+	end;
+	
+	DAIGroups[id].LastPositionResetTick := DAICurrentTick;
+	
+	if (UTGroupGetFlagX(DAIGroups[id].Group) <> DAIGroups[id].ExpectedX)
+	or (UTGroupGetFlagY(DAIGroups[id].Group) <> DAIGroups[id].ExpectedY)
+	or (not States.GroupIsIdle(DAIGroups[id].Group)) then
+		DAIGroupRenewPosition(id);
+end;
+
+
+// Call this from OnMissionStart to set up initial config values.
+procedure DAIInitiateScript(positionCheckPeriod: Integer);
+begin
+	DAIPositionCheckPeriod := positionCheckPeriod; // 35 is recommended.
+end;
+
+
+// Call this from OnTick.
+procedure DAIResolveTick(aTick: Integer);
+var
+	i: Integer;
+begin
+	DAICurrentTick := aTick;
+	for i := 0 to High(DAIGroups) do
+		if (DAIGroups[i].Enabled)
+		and (DAIGroups[i].LastPositionResetTick <= DAICurrentTick - DAIPositionCheckPeriod) then
+			DAIGroupCheckPosition(i);
+end;
+// ####################   End of Extra utils  ####################
