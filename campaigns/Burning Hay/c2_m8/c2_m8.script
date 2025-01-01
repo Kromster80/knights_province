@@ -602,13 +602,6 @@ begin
 	SetupObjectives();
 	
 	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_SCOUT_REPORT, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BARRICADES, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_REINFORCEMENTS, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_ROAD_OPEN, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FINALE, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_BLACKBERRY_FALL, True);
-	Actions.PlayerMessage(PLAYER_HUMAN, MSG_OUTRO, True);
 end;
 
 
