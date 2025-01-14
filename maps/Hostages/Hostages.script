@@ -5,10 +5,12 @@
 const
   HUMAN_PLAYER = 0;
 
+var
+  captivePeasant: Integer;
 
 procedure OnMissionStart;
 begin
-
+  captivePeasant := States.UnitAt(13, 80);
 end;
 
 
@@ -37,7 +39,7 @@ begin
 
   if aTick = 41 then
   begin
-    Actions.CinematicSpeechBubble(13.5, 79.5, 1.05, 1, 'Help?', 3);
+    Actions.CinematicSpeechBubbleUnit(captivePeasant, 1, 'Help?', 3);
   end;
 
   if aTick = 61 then
