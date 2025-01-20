@@ -1,7 +1,6 @@
 !VERSION 3
 
 // Mod requirements
-!MOD_REQUIREMENT geometry_map_objects 0.0.1
 !MOD_REQUIREMENT Objects 0.0.1
 
 // General settings
