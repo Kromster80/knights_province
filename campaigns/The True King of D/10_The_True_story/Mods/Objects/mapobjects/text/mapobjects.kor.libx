@@ -1,0 +1,10 @@
+﻿[mapobjects]
+    [mapobjects.Border_cones]
+        desc:필드 마킹 스테이크
+        name:단일 테두리 원뿔
+    [mapobjects.Border_cones2]
+        desc:필드 마킹 스테이크
+        name:더블 보더 콘
+    [mapobjects.Blank_Blockade]
+        desc:투명한 통로 봉쇄
+        name:공백 봉쇄

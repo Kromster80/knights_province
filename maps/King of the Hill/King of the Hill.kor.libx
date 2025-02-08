@@ -1,0 +1,24 @@
+﻿0:아마로스
+1:최대한 많은 적에 맞서 [$00FFFF]언덕[]을 방어하세요. 최대 8명의 적을 상대할 수 있습니다. 더 많이 상대하고 더 빨리 처리할수록 더 많은 점수를 얻을 수 있습니다. 행운을 빕니다!
+player_02:북서쪽의 적
+player_03:남동쪽의 적
+player_04:북부의 적
+player_05:남쪽의 적
+player_06:북동쪽의 적
+player_07:남서부의 적
+player_08:동부의 적
+player_09:서쪽의 적
+obj_destroy_towns:적 마을을 파괴하세요
+obj_current_score:현재 점수
+obj_score_per_kill:파괴된 마을당 현재 점수
+result_win_01:힐이 방어했습니다!
+result_win_02:패배하다
+result_win_03:획득한 점수:
+result_lose_01:힐이 졌다!
+result_lose_02:패배하다
+result_lose_03:획득한 점수:
+dialog_enemy_amount_01:폐하, [$00FFFF]Hill[]에 오신 것을 환영합니다! 나는 당신이 이것을 죽을 선택하지 않기를 바랍니다! 말해 보세요. 얼마나 많은 적을 상대하고 싶나요?
+dialog_enemy_amount_02:적을 물리칠 때마다 [$00FFFF]100포인트[]를 받게 됩니다.
+dialog_enemy_amount_03:또한 적을 물리치는 속도에 따라 [$00FFFF]최대 240점의 추가 포인트[]를 얻을 수 있습니다([$00FFFF]04:00:00[] 이전에 1분마다 1점).
+dialog_enemy_amount_04:귀하가 받는 모든 포인트는 처음에 지도에 배치한 적의 수[]에 [$00FFFF]를 곱한 것입니다. 따라서, 4명의 적과 싸우기로 선택했다면, 각 적을 물리칠 때마다 위에서 설명한 것보다 4배 더 많은 포인트를 얻게 됩니다.
+dialog_enemy_amount_05:적을 물리치려면 모든 주요 도시 건물([$00FFFF]캠프, 요새, 병영[])을 파괴해야 합니다.
