@@ -1,0 +1,1399 @@
+uses
+	extra_utils, day_night, wagon_supply, attack_ai, temp_markers, trade_manager, rpg_units;
+
+const
+	PLAYER_HUMAN = 0;
+	PLAYER_PALADIN = 1;
+	PLAYER_UNDEAD = 2;
+	
+	OBJ_COLLECT_RESOURCES = '<$obj_collect_resources>: [$00FFFF]';
+	OBJ_SLAY_UNDEAD = '<$obj_slay_undead>: [$00FFFF]';
+	OBJ_DIFFICULTY = '<$obj_difficulty>: [$00FFFF]';
+	OBJ_TIME_LEFT = '<$obj_time_left>: [$00FFFF]';
+	OBJ_VISIT_PALADINS = '<$obj_visit_paladins>';
+	
+	ALERT_QUEST = 'alert_exclamation.png';
+	ALERT_WAGON = 'alert_undead.png';
+	ALERT_COLOR_NEAR = $00FFFF;
+	ALERT_COLOR_MID = $007FFF;
+	ALERT_COLOR_FAR = $0000FF;
+	ALERT_COLOR_UNDEAD = $00AA00;
+	
+	MSG_INTRO = '<$msg_intro_01>||<$msg_intro_02>|- <$msg_intro_03>|- <$msg_intro_04>|- <$msg_intro_05>|- <$msg_intro_06>|- <$msg_intro_07>||<$msg_intro_08>|- <$msg_intro_09>|- <$msg_intro_10>|- <$msg_intro_11>|- <$msg_intro_12>|- <$msg_intro_13>';
+	MSG_PALADIN_MET = '<$msg_paladin_met_01>||<$msg_paladin_met_02>';
+	
+	DIALOG_PALADIN_AVAILABLE = '<$dialog_paladin_available>';
+	DIALOG_PALADIN_UNAVAILABLE = '<$dialog_paladin_unavailable>';
+	PALADIN_BTN_HIRE = '<$paladin_btn_hire> ';
+	PALADIN_BTN_CLOSE = '<$paladin_btn_close>';
+	PALADIN_BTN_ACCEPT_ID = 1;
+	PALADIN_BTN_REFUSE_ID = 2;
+	
+	STATSPAWN_X = 131;
+	STATSPAWN_Y = 3;
+	
+	UNIT_LVL_MOD_HP = 1.15;
+	UNIT_LVL_MOD_DMG = 1.10;
+	UNIT_LVL_MOD_SIGHT = 1.05;
+	UNIT_DEFAULT_SIGHT_FOOT = 8;
+	UNIT_DEFAULT_SIGHT_MOUNTED = 12;
+	UNIT_ANTIHORSE_DMG_MOD = 2.0;
+	UNIT_INFANTRY_HP_MOD = 1.25;
+	UNIT_ANTIHORSE_HP_MOD = 1.50;
+	UNIT_WAGON_SPEED = 5;
+	UNIT_MAX_LVL = 9;
+	UNIT_EXP_RADIUS = 12;
+	
+	UNDEAD_LVL_MOD_HP = 1.40;
+	UNDEAD_LVL_MOD_DMG = 1.30;
+	UNDEAD_LVL_BONUS_SIGHT = 0;
+	UNDEAD_SKEL_HP_MOD = 1.0;
+	UNDEAD_AXE_HP_MOD = 1.4;
+	UNDEAD_SWORD_HP_MOD = 1.8;
+	UNDEAD_MAX_LVL = 5;
+	RESURRECTION_DELAY = 50;
+	
+	POOL_RES_SPAWN_BASE = 25;
+	POOL_RES_WAVE_BASE = 200;
+	POOL_RES_WAVE_INC = 50;
+	POOL_GUARD_BASE = 10000;
+	POOL_SPAWN_NEAR_MOD = 1.0;
+	POOL_SPAWN_MID_MOD = 2.0;
+	POOL_SPAWN_FAR_MOD = 3.0;
+	SPAWNS_PER_WAVE = 10;
+	
+	SPAWN_AGGRO_RANGE = 10;
+	SPAWN_MARKER_ADVANCE = 600;
+	SPAWN_REVEAL_PERIOD = 100;
+	SPAWN_REVEAL_RADIUS = 5;
+	
+	EXP_GAINED_MOD = 0.10;
+	EXP_TO_SCORE_MOD = 0.10;
+	RES_TO_SCORE_MOD = 1.0;
+	
+	MAP_TIME_LIMIT = 144000;
+	SPAWNS_PER_UNDEAD_LVL = 4;
+	
+	RES_BASE_VALUE_GOLD_ORE = 10;
+	RES_BASE_VALUE_GOLD = 14;
+	RES_BASE_VALUE_IRON_ORE = 8;
+	RES_BASE_VALUE_STEEL = 12;
+	RES_BASE_VALUE_SWORD = 20;
+	RES_BASE_VALUE_HALBERD = 20;
+	RES_BASE_VALUE_CROSSBOW = 20;
+	RES_BASE_VALUE_SHIELD = 20;
+	RES_BASE_VALUE_ARMOR = 20;
+	
+	PALADIN_HIRE_COST = 25;
+	PALADIN_SPAWN_X = 118;
+	PALADIN_SPAWN_Y = 164;
+	PALADIN_HP = 500;
+	PALADIN_DMG_MIN = 20;
+	PALADIN_DMG_MAX = 30;
+	PALADIN_SIGHT = 20;
+	
+	LBL_EXP = '<$lbl_exp>: ';
+	LBL_CAPTURED = '<$lbl_captured>';
+	LBL_LOST = '<$lbl_lost>';
+	LBL_GOLD_ORE = '<$lbl_gold_ore>';
+	LBL_GOLD = '<$lbl_gold>';
+	LBL_IRON_ORE = '<$lbl_iron_ore>';
+	LBL_STEEL = '<$lbl_steel>';
+	LBL_SWORD = '<$lbl_sword>';
+	LBL_HALBERD = '<$lbl_halberd>';
+	LBL_CROSSBOW = '<$lbl_crossbow>';
+	LBL_SHIELD = '<$lbl_shield>';
+	LBL_ARMOR = '<$lbl_armor>';
+	
+	UNIT_MILITIA_NAME = '<$unit_militia_name>';
+	UNIT_AXE_NAME = '<$unit_axe_name>';
+	UNIT_PIKE_NAME = '<$unit_pike_name>';
+	UNIT_BOW_NAME = '<$unit_bow_name>';
+	UNIT_SCOUT_NAME = '<$unit_scout_name>';
+	UNIT_SWORD_NAME = '<$unit_sword_name>';
+	UNIT_HALBERD_NAME = '<$unit_halberd_name>';
+	UNIT_CROSSBOW_NAME = '<$unit_crossbow_name>';
+	UNIT_KNIGHT_NAME = '<$unit_knight_name>';
+	UNIT_PALADIN_NAME = '<$unit_paladin_name>';
+	UNIT_PALADIN_MASTER_NAME = '<$unit_paladin_master_name>';
+	UNIT_MONK_NAME = '<$unit_monk_name>';
+	UNIT_SKELETON_NAME = '<$unit_skeleton_name>';
+	UNIT_SKELETON_AXE_NAME = '<$unit_skeleton_axe_name>';
+	UNIT_SKELETON_SWORD_NAME = '<$unit_skeleton_sword_name>';
+	UNIT_SKELETON_BOW_NAME = '<$unit_skeleton_bow_name>';
+	UNIT_UNDEAD_NAME_01 = '|<$unit_undead_name_01>';
+	UNIT_UNDEAD_NAME_02 = '|<$unit_undead_name_02>';
+	UNIT_UNDEAD_NAME_03 = '|<$unit_undead_name_03>';
+	UNIT_UNDEAD_NAME_04 = '|<$unit_undead_name_04>';
+	UNIT_UNDEAD_NAME_05 = '|<$unit_undead_name_05>';
+	UNIT_UNDEAD_NAME_06 = '|<$unit_undead_name_06>';
+	
+	TT_PALADIN_HEALING_ENTER = 1;
+	TT_PALADIN_HEALING_EXIT = 2;
+	TT_PALADIN_WELCOME = 3;
+
+type
+	LostUnit = record
+		aX: Integer;
+		aY: Integer;
+		aUnitType: TKMUnitType;
+		aLvl: Integer;
+		aDeathTick: Integer;
+	end;
+	
+	UndeadSpawn = record
+		resX: Integer;
+		resY: Integer;
+		guardX: Integer;
+		guardY: Integer;
+		spawnPoolMod: Single;
+		alertColor: Integer;
+		inNextWave: Boolean;
+	end;
+	
+	ResourceWagon = record
+		aUnit: Integer;
+		aReward: Integer;
+	end;
+
+var
+	LostUnits: array of LostUnit;
+	UndeadSpawns: array of UndeadSpawn;
+	ResourceWagons: array of ResourceWagon;
+	LvlExpRequired, LvlUnitColor, LvlUndeadExpRequired, LvlUndeadColor, SpawnAlerts, SpawnMarkers: array of Integer;
+	CurrentTick, MarkerPaladin, AlertPaladin, AggroAttack, UndeadLevel, CurrentWave, SpawnPeriod: Integer;
+	PlayerKillScore, PlayerResourceScore: Single;
+	TTFiredPaladinWelcome, PaladinHireReady: Boolean;
+	CollectResourcesObjID, SlayUndeadObjID, DifficultyObjID, TimeLeftObjID, VisitPaladinObjID: Integer;
+	CollectResourcesObjSt, SlayUndeadObjSt, DifficultyObjSt, TimeLeftObjSt, VisitPaladinObjSt: TKMObjectiveStatus;
+	MilStats, AxeStats, SwordStats, PikeStats, HalbStats, BowStats, CrossStats, ScoutStats, KnightStats, PalStats, UnSkelStats, UnAxeStats, UnSwordStats, UnBowStats: Integer;
+	LastResPoolUnderflow, LastGuardPoolUnderflow: Single;
+
+
+	
+//
+procedure SaveWagonScore(aUnit: Integer);
+var
+	arrLen: Integer;
+	wagon: ResourceWagon;
+	wareType: TKMWareType;
+	amount: Integer;
+begin
+	if (aUnit < 0) then Exit;
+	if (States.UnitType(aUnit) <> utWagon) then Exit;
+	
+	wareType := States.UnitCarryType(aUnit);
+	amount := States.UnitCarryCount(aUnit, wareType);
+	
+	wagon.aUnit := aUnit;
+	if (wareType = wtGoldOre) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_GOLD_ORE)
+	else if (wareType = wtGold) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_GOLD)
+	else if (wareType = wtIronOre) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_IRON_ORE)
+	else if (wareType = wtSteel) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_STEEL)
+	else if (wareType = wtSword) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_SWORD)
+	else if (wareType = wtHalberd) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_HALBERD)
+	else if (wareType = wtArbalet) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_CROSSBOW)
+	else if (wareType = wtMetalShield) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_SHIELD)
+	else if (wareType = wtMetalArmor) then
+		wagon.aReward := Round(amount * RES_BASE_VALUE_ARMOR);
+	
+	arrLen := Length(ResourceWagons);
+	SetLength(ResourceWagons, arrLen + 1);
+	ResourceWagons[arrLen] := wagon;
+	
+	//UTDebugMsg(Utils.Format('aUnit: %d, wareType: %s, amount: %d, score: %d', [ResourceWagons[arrLen].aUnit, UTWareTypeToStr(wareType), amount, ResourceWagons[arrLen].aReward]));
+end;
+
+
+//
+function UnitGetTempID(aUnit: Integer; preferPaladin: Boolean): Integer;
+var
+	unitType: TKMUnitType;
+begin
+	unitType := States.UnitType(aUnit);
+	
+	if (unitType = utMilitia) then
+		Result := MilStats
+	else if (unitType = utAxeFighter) then
+		Result := AxeStats
+	else if (unitType = utSwordsman) then
+		Result := SwordStats
+	else if (unitType = utPikeman) then
+		Result := PikeStats
+	else if (unitType = utHalberdier) then
+		Result := HalbStats
+	else if (unitType = utBowman) then
+		Result := BowStats
+	else if (unitType = utArbaletman) then
+		Result := CrossStats
+	else if (unitType = utHorseScout) then
+		Result := ScoutStats
+	else if (unitType = utCavalry) and preferPaladin then
+		Result := PalStats
+	else if (unitType = utCavalry) and (not preferPaladin) then
+		Result := KnightStats
+	else if (unitType = utSkeleton) then
+		Result := UnSkelStats
+	else if (unitType = utSkeletonAxe) then
+		Result := UnAxeStats
+	else if (unitType = utSkeletonSword) then
+		Result := UnSwordStats
+	else if (unitType = utSkeletonBow) then
+		Result := UnBowStats
+	else
+		Result := -1;
+		
+	//UTDebugMsg('Returning temp ID ' + IntToStr(Result) + ' for unit type ' + UTUnitTypeToStr(unitType));
+end;
+
+
+// Paladins were met - start sharing FOW with them, display welcome message, enable the trade.
+procedure PaladinMet();
+var
+	tradeOffer, tradeOption, i: Integer;
+begin
+	UTObjectiveStatusUpdate(PLAYER_HUMAN, VisitPaladinObjID, VisitPaladinObjSt, osCompleted);
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_PALADIN_MET, True);
+	TTFiredPaladinWelcome := True;
+	Actions.FogCoverRect(PLAYER_PALADIN, 115, 0, 150, 30);
+	Actions.PlayerAllianceChange(PLAYER_HUMAN, PLAYER_PALADIN, True, True);
+	
+	tradeOffer := TMNewTradeOffer(PLAYER_PALADIN, PLAYER_HUMAN, dtNone, dtNone, DIALOG_PALADIN_AVAILABLE, DIALOG_PALADIN_UNAVAILABLE, MarkerPaladin);
+	for i := 1 to 7 do
+		tradeOption := TMAddMercenaryOption(tradeOffer, wtGold, PALADIN_HIRE_COST * i, utCavalry, i, Utils.MinI(i, 3), PALADIN_SPAWN_X, PALADIN_SPAWN_Y, PALADIN_BTN_HIRE + IntToStr(i), '', 100 + i);
+	
+	Actions.AlertRemove(AlertPaladin);
+	
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(112, 155, 0.0, 0.25);
+	Actions.CinematicEnd();
+end;
+
+
+//
+function GetDifficultyLabel(aLvl: Integer): String;
+begin
+	if (aLvl < 1) then
+		Result := UNIT_UNDEAD_NAME_01
+	else if (aLvl = 1) then
+		Result := UNIT_UNDEAD_NAME_02
+	else if (aLvl = 2) then
+		Result := UNIT_UNDEAD_NAME_03
+	else if (aLvl = 3) then
+		Result := UNIT_UNDEAD_NAME_04
+	else if (aLvl = 4) then
+		Result := UNIT_UNDEAD_NAME_05
+	else
+		Result := UNIT_UNDEAD_NAME_06;
+end;
+
+
+// Checks the pre-spawned mock units and generates level stats for them. Then removes them.
+procedure GenerateLvlStats();
+var
+	i, j, rpgTemplateID, aHP, aMinDmg, aMaxDmg, aSight, aSpeed, group: Integer;
+	aUnitType: TKMUnitType;
+	defName: String;
+	names: array of String;
+	units, exp, colors: array of Integer;
+	hpMod, dmgMod, sightMod, speedMod: Single;
+begin
+	units := States.UnitsAt(130, 0, 140, 10);
+	for i := 0 to High(units) do
+	begin
+		aUnitType := States.UnitType(units[i]);
+		rpgTemplateID := UnitGetTempID(units[i], False);
+		
+		if (rpgTemplateID > -1) then
+		begin
+			names := [];
+			
+			if (aUnitType in [utMilitia, utAxeFighter, utSwordsman, utPikeman, utHalberdier, utBowman, utArbaletman, utHorseScout, utCavalry]) then
+			begin
+				if (aUnitType = utMilitia) then
+					defName := UNIT_MILITIA_NAME
+				else if (aUnitType = utAxeFighter) then
+					defName := UNIT_AXE_NAME
+				else if (aUnitType = utSwordsman) then
+					defName := UNIT_SWORD_NAME
+				else if (aUnitType = utPikeman) then
+					defName := UNIT_PIKE_NAME
+				else if (aUnitType = utHalberdier) then
+					defName := UNIT_HALBERD_NAME
+				else if (aUnitType = utBowman) then
+					defName := UNIT_BOW_NAME
+				else if (aUnitType = utArbaletman) then
+					defName := UNIT_CROSSBOW_NAME
+				else if (aUnitType = utHorseScout) then
+					defName := UNIT_SCOUT_NAME
+				else if (aUnitType = utCavalry) then
+					defName := UNIT_KNIGHT_NAME;
+				
+				for j := 0 to UNIT_MAX_LVL do
+					Utils.ArrayAppend(names, defName);
+				
+				exp := LvlExpRequired;
+				colors := LvlUnitColor;
+				hpMod := UNIT_LVL_MOD_HP;
+				dmgMod := UNIT_LVL_MOD_DMG;
+				sightMod := UNIT_LVL_MOD_SIGHT;
+				speedMod := 1;
+			end
+			else if (aUnitType in [utSkeleton, utSkeletonAxe, utSkeletonSword, utSkeletonBow]) then
+			begin
+				if (aUnitType = utSkeleton) then
+					defName := UNIT_SKELETON_NAME
+				else if (aUnitType = utSkeletonAxe) then
+					defName := UNIT_SKELETON_AXE_NAME
+				else if (aUnitType = utSkeletonSword) then
+					defName := UNIT_SKELETON_SWORD_NAME
+				else if (aUnitType = utSkeletonBow) then
+					defName := UNIT_SKELETON_BOW_NAME;
+				
+				for j := 0 to UNDEAD_MAX_LVL do
+					Utils.ArrayAppend(names, defName + GetDifficultyLabel(j));
+					
+				//UTDebugMsg(UTArrayDebug(names));
+				
+				exp := LvlUndeadExpRequired;
+				colors := LvlUndeadColor;
+				hpMod := UNDEAD_LVL_MOD_HP;
+				dmgMod := UNDEAD_LVL_MOD_DMG;
+				sightMod := 1;
+				speedMod := 1;
+			end;
+			
+			aHP := States.UnitHitpointsMax(units[i]);
+			aMinDmg := States.UnitDamageMin(units[i]);
+			aMaxDmg := States.UnitDamageMax(units[i]);
+			aSpeed := -1;
+			
+			// Set default unit's sight, depending on it being mounted or not
+			if (aUnitType in [utHorseScout, utCavalry]) then
+				aSight := UNIT_DEFAULT_SIGHT_MOUNTED
+			else
+				aSight := UNIT_DEFAULT_SIGHT_FOOT;
+			
+			// Make default stat adjustments, if the given unit type is to receive some map-specific buff/nerf
+			if (aUnitType in [utMilitia, utAxeFighter, utSwordsman]) then
+				aHP := Round(aHP * UNIT_INFANTRY_HP_MOD)
+			else if (aUnitType = utSkeleton) then
+				aHP := Round(aHP * UNDEAD_SKEL_HP_MOD)
+			else if (aUnitType = utSkeletonAxe) then
+				aHP := Round(aHP * UNDEAD_AXE_HP_MOD)
+			else if (aUnitType = utSkeletonSword) then
+				aHP := Round(aHP * UNDEAD_SWORD_HP_MOD)
+			else if (aUnitType in [utPikeman, utHalberdier]) then
+			begin
+				aHP := Round(aHP * UNIT_ANTIHORSE_HP_MOD);
+				aMinDmg := Round(aMinDmg * UNIT_ANTIHORSE_DMG_MOD);
+				aMaxDmg := Round(aMaxDmg * UNIT_ANTIHORSE_DMG_MOD);
+			end;
+			
+			RPGSetLvlNames(rpgTemplateID, names);
+			RPGSetLvlExp(rpgTemplateID, exp);
+			RPGSetLvlColors(rpgTemplateID, colors);
+			RPGGenerateLvlStatsExponential(rpgTemplateID, aHP, aMinDmg, aMaxDmg, aSight, aSpeed, hpMod, dmgMod, sightMod, speedMod);
+		end;
+		//if (rpgTemplateID = -1) then
+			//UTDebugMsg('Could not find template ID. Unit type: ' + UTUnitTypeToStr(aUnitType));
+		
+		Actions.UnitKill(units[i], True);
+	end;
+	
+	//UTDebugMsg(Utils.Format('MilStats %d, AxeStats %d, SwordStats %d, PikeStats %d, HalbStats %d, BowStats %d, CrossStats %d, ScoutStats %d, KnightStats %d, PalStats %d, UnSkelStats %d, UnAxeStats %d, UnSwordStats %d, UnBowStats %d', [MilStats, AxeStats, SwordStats, PikeStats, HalbStats, BowStats, CrossStats, ScoutStats, KnightStats, PalStats, UnSkelStats, UnAxeStats, UnSwordStats, UnBowStats]));
+	
+	// Clear the undead mock camp (needed for player persistence hack on map save)
+	Actions.HouseDestroy(States.HouseAt(147, 4), True);
+end;
+
+
+//
+function SpawnUndead(aUnitType: TKMUnitType; aX, aY, aAmount, aLvl: Integer; aggro: Boolean): Integer;
+var
+	newGroup, amountSpawned, i, tempID: Integer; 
+begin
+	//UTDebugMsg(Utils.Format('Spawning undead.|Type: %s|Coords: %d, %d|Amount: %d|Lvl: %d|Aggro: %s', [UTUnitTypeToStr(aUnitType), aX, aY, aAmount, aLvl, UTBoolToStr(aggro)]));
+	if (aAmount < 1) then Exit;
+	
+	newGroup := Actions.GiveGroup(PLAYER_UNDEAD, aUnitType, aX, aY, Utils.RandomI(8), aAmount, Utils.EnsureRangeI(aAmount / 3, 1, 12));
+	if (newGroup < 1) then Exit;
+	
+	amountSpawned := States.GroupMemberCount(newGroup);
+	if (amountSpawned = 0) then Exit;
+	
+	if (aUnitType = utSkeleton) then
+		tempID := UnSkelStats
+	else if (aUnitType = utSkeletonAxe) then
+		tempID := UnAxeStats
+	else if (aUnitType = utSkeletonSword) then
+		tempID := UnSwordStats
+	else if (aUnitType = utSkeletonBow) then
+		tempID := UnBowStats;
+	
+	Actions.GroupBannerDisplay(newGroup, False);
+	for i := 0 to amountSpawned - 1 do
+		RPGAddUnit(States.GroupMember(newGroup, i), tempID, aLvl);
+	if (aggro) then
+		AAIAttackJoinGroup(AggroAttack, newGroup);
+	
+	Result := amountSpawned;
+end;
+
+
+//
+procedure CheckLostUnitsResurrections();
+var
+	i, arrLen: Integer;
+	pendingResurrections: array of LostUnit;
+begin
+	for i := 0 to High(LostUnits) do
+		if (LostUnits[i].aDeathTick <= (CurrentTick - RESURRECTION_DELAY)) then
+			SpawnUndead(LostUnits[i].aUnitType, LostUnits[i].aX, LostUnits[i].aY, 1, LostUnits[i].aLvl, True)
+		else
+		begin
+			arrLen := Length(pendingResurrections);
+			SetLength(pendingResurrections, arrLen + 1);
+			pendingResurrections[arrLen] := LostUnits[i];
+		end;
+	LostUnits := pendingResurrections;
+end;
+
+
+//
+procedure SpawnResourceWagons(resPool: Single; aX, aY: Integer);
+var
+	i, j, setup, goldOre, gold, ironOre, steel, sword, halberd, crossbow, shield, armor: Integer;
+	wareTypes: array of TKMWareType;
+	wareAmounts, wagons: array of Integer;
+begin
+	// The amount of resources given is rounded down in calculations - this compensates the player, if the previous spawn was trimmed down
+	resPool := resPool + LastResPoolUnderflow;
+
+	// Pick random resource setup and calculate the amount of resources to be given
+	setup := Utils.RandomI(15);
+	
+	if (setup < 2) then // Gold ore 5
+		goldOre := Utils.MaxI(Trunc(resPool / RES_BASE_VALUE_GOLD_ORE), 1)
+	else if (setup < 4) then // Gold 7
+		gold := Utils.MaxI(Trunc(resPool / RES_BASE_VALUE_GOLD), 1)
+	else if (setup < 6) then // Iron ore 4
+		ironOre := Utils.MaxI(Trunc(resPool / RES_BASE_VALUE_IRON_ORE), 1)
+	else if (setup < 8) then // Steel 6
+		steel := Utils.MaxI(Trunc(resPool / RES_BASE_VALUE_STEEL), 1)
+	else if (setup < 10) then // Iron and gold ore 9
+	begin
+		goldOre := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_GOLD_ORE)), 1);
+		ironOre := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_IRON_ORE)), 1);
+	end
+	else if (setup < 11) then // Steel and gold 13
+	begin
+		gold := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_GOLD)), 1);
+		steel := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_STEEL)), 1);
+	end
+	else if (setup < 12) then // Halbedier arms&armor 20
+	begin
+		halberd := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_HALBERD)), 1);
+		armor := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_ARMOR)), 1);
+	end
+	else if (setup < 13) then // Crossbowman arms&armor 20
+	begin
+		crossbow := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_CROSSBOW)), 1);
+		armor := Utils.MaxI(Trunc(resPool / (2 * RES_BASE_VALUE_ARMOR)), 1);
+	end
+	else if (setup <= 14) then // Sword fighter arms&armor 30
+	begin
+		sword := Utils.MaxI(Trunc(resPool / (3 * RES_BASE_VALUE_SWORD)), 1);
+		shield := Utils.MaxI(Trunc(resPool / (3 * RES_BASE_VALUE_SHIELD)), 1);
+		armor := Utils.MaxI(Trunc(resPool / (3 * RES_BASE_VALUE_ARMOR)), 1);
+	end;
+	
+	wareTypes := [wtGoldOre, wtGold, wtIronOre, wtSteel, wtSword, wtHalberd, wtArbalet, wtMetalShield, wtMetalArmor];
+	wareAmounts := [goldOre, gold, ironOre, steel, sword, halberd, crossbow, shield, armor];
+	
+	for i := 0 to High(wareTypes) do
+		if (wareAmounts[i] > 0) then
+		begin
+			wagons := WSSpawnFilledWagons(PLAYER_UNDEAD, aX, aY, wareTypes[i], wareAmounts[i]);
+			//UTDebugMsg(Utils.Format('aX: %d, aY: %d||Array debug:|%s', [aX, aY, UTArrayIDebug(wagons)]));
+			for j := 0 to High(wagons) do
+				SaveWagonScore(wagons[j]);
+		end;
+	
+	// Calculate the underflow for the next time
+	LastResPoolUnderflow := resPool - ((goldOre * RES_BASE_VALUE_GOLD_ORE) + (gold * RES_BASE_VALUE_GOLD) + (ironOre * RES_BASE_VALUE_IRON_ORE) + (steel * RES_BASE_VALUE_STEEL) + (sword * RES_BASE_VALUE_SWORD) + (halberd * RES_BASE_VALUE_HALBERD) + (crossbow * RES_BASE_VALUE_CROSSBOW) + (shield * RES_BASE_VALUE_SHIELD) + (armor * RES_BASE_VALUE_ARMOR));
+	
+	//UTDebugMsg(Utils.Format('Attempted to spawn wagons at %d, %d, pool %n, setup %d, with the following resource amounts:| wtGoldOre %d| wtGold %d| wtIronOre %d| wtSteel %d| wtSword %d| wtHalberd %d| wtArbalet %d| wtMetalShield %d| wtMetalArmor %d||Total score: %d|Underflow: %n', [aX, aY, resPool, setup, goldOre, gold, ironOre, steel, sword, halberd, crossbow, shield, armor, ((goldOre * RES_BASE_VALUE_GOLD_ORE) + (gold * RES_BASE_VALUE_GOLD) + (ironOre * RES_BASE_VALUE_IRON_ORE) + (steel * RES_BASE_VALUE_STEEL) + (sword * RES_BASE_VALUE_SWORD) + (halberd * RES_BASE_VALUE_HALBERD) + (crossbow * RES_BASE_VALUE_CROSSBOW) + (shield * RES_BASE_VALUE_SHIELD) + (armor * RES_BASE_VALUE_ARMOR)), LastResPoolUnderflow]));
+end;
+
+
+//
+procedure SpawnGuards(guardPool: Single; aX, aY: Integer);
+var
+	i, setup, skelAmount, axeAmount, swordAmount, bowAmount, skelAward, axeAward, swordAward, bowAward, addedAmount: Integer;
+	remainingPool: Single;
+begin
+	// The amount of units given is rounded down in calculations - this compensates the undead, if the previous spawn was trimmed down
+	guardPool := guardPool + LastGuardPoolUnderflow;
+	
+	skelAward := RPGTemps[UnSkelStats].aLvlStats[UndeadLevel].aAward;
+	axeAward := RPGTemps[UnAxeStats].aLvlStats[UndeadLevel].aAward;
+	swordAward := RPGTemps[UnSwordStats].aLvlStats[UndeadLevel].aAward;
+	bowAward := RPGTemps[UnBowStats].aLvlStats[UndeadLevel].aAward;
+	
+	//UTDebugMsg(Utils.Format('UndeadLevel: %d, CurrentWave: %d, CurrentTick: %d, MAP_TIME_LIMIT: %d, UNDEAD_MAX_LVL: %d', [UndeadLevel, CurrentWave, CurrentTick, MAP_TIME_LIMIT, UNDEAD_MAX_LVL]));
+
+	// Choose the random setup (combination of unit types)
+	setup := Utils.RandomI(14);
+	
+	// Calculate how many of each unit type is to be spawned
+	if (setup = 0) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward);
+	end
+	else if (setup = 1) then
+	begin
+		axeAmount := Trunc(guardPool / axeAward);
+	end
+	else if (setup = 2) then
+	begin
+		swordAmount := Trunc(guardPool / swordAward);
+	end
+	else if (setup = 3) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 2);
+		bowAmount := Trunc(guardPool / bowAward / 2);
+	end
+	else if (setup = 4) then
+	begin
+		axeAmount := Trunc(guardPool / axeAward / 2);
+		bowAmount := Trunc(guardPool / bowAward / 2);
+	end
+	else if (setup = 5) then
+	begin
+		swordAmount := Trunc(guardPool / swordAward / 2);
+		bowAmount := Trunc(guardPool / bowAward / 2);
+	end
+	else if (setup = 6) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 2);
+		axeAmount := Trunc(guardPool / axeAward / 2);
+	end
+	else if (setup = 7) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 2);
+		swordAmount := Trunc(guardPool / swordAward / 2);
+	end
+	else if (setup = 8) then
+	begin
+		axeAmount := Trunc(guardPool / axeAward / 2);
+		swordAmount := Trunc(guardPool / swordAward / 2);
+	end
+	else if (setup = 9) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 3);
+		axeAmount := Trunc(guardPool / axeAward / 3);
+		bowAmount := Trunc(guardPool / bowAward / 3);
+	end
+	else if (setup = 10) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 3);
+		swordAmount := Trunc(guardPool / swordAward / 3);
+		bowAmount := Trunc(guardPool / bowAward / 3);
+	end
+	else if (setup = 11) then
+	begin
+		axeAmount := Trunc(guardPool / axeAward / 3);
+		swordAmount := Trunc(guardPool / swordAward / 3);
+		bowAmount := Trunc(guardPool / bowAward / 3);
+	end
+	else if (setup = 12) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 3);
+		axeAmount := Trunc(guardPool / axeAward / 3);
+		swordAmount := Trunc(guardPool / swordAward / 3);
+	end
+	else if (setup = 13) then
+	begin
+		skelAmount := Trunc(guardPool / skelAward / 4);
+		axeAmount := Trunc(guardPool / axeAward / 4);
+		swordAmount := Trunc(guardPool / swordAward / 4);
+		bowAmount := Trunc(guardPool / bowAward / 4);
+	end;
+	
+	remainingPool := guardPool - ((skelAmount * skelAward) + (axeAmount * axeAward) + (swordAmount * swordAward) + (bowAmount * bowAward));
+	if (remainingPool > swordAward) then
+	begin
+		addedAmount := Trunc(remainingPool / swordAward);
+		swordAmount := swordAmount + addedAmount;
+		remainingPool := remainingPool - (swordAward * addedAmount);
+	end;
+	if (remainingPool > axeAward) then
+	begin
+		addedAmount := Trunc(remainingPool / axeAward);
+		axeAmount := axeAmount + addedAmount;
+		remainingPool := remainingPool - (axeAward * addedAmount);
+	end;
+	if (remainingPool > bowAward) then
+	begin
+		addedAmount := Trunc(remainingPool / bowAward);
+		bowAmount := bowAmount + addedAmount;
+		remainingPool := remainingPool - (bowAward * addedAmount);
+	end;
+	if (remainingPool > skelAward) then
+	begin
+		addedAmount := Trunc(remainingPool / skelAward);
+		skelAmount := skelAmount + addedAmount;
+		remainingPool := remainingPool - (skelAward * addedAmount);
+	end;
+	
+	//UTDebugMsg(Utils.Format('About to try spawning undead.|guardPool: %n|coords: %d, %d|setup: %d|amounts: %d, %d, %d, %d|awards: %d, %d, %d, %d||Expected underflow: %n', [guardPool, aX, aY, setup, skelAmount, axeAmount, swordAmount, bowAmount, skelAward, axeAward, swordAward, bowAward, remainingPool]));
+	
+	// Spawn the units and check how many were actually successfully spawned
+	bowAmount := SpawnUndead(utSkeletonBow, aX, aY, bowAmount, UndeadLevel, False);
+	skelAmount := SpawnUndead(utSkeleton, aX, aY, skelAmount, UndeadLevel, False);
+	axeAmount := SpawnUndead(utSkeletonAxe, aX, aY, axeAmount, UndeadLevel, False);
+	swordAmount := SpawnUndead(utSkeletonSword, aX, aY, swordAmount, UndeadLevel, False);
+	
+	// Calculate the underflow for the next time
+	LastGuardPoolUnderflow := guardPool - ((skelAmount * skelAward) + (axeAmount * axeAward) + (swordAmount * swordAward) + (bowAmount * bowAward));
+	
+	//UTDebugMsg(Utils.Format('Underflow remaining for next spawn: %n', [LastGuardPoolUnderflow]));
+end;
+
+
+//
+procedure RevealUndeadWagons();
+var
+	i, j, alert, alertColor: Integer;
+	unitsInArea, undeadWagons: array of Integer;
+	undeadWagonsInArea: Boolean;
+begin
+	undeadWagons := States.PlayerGetAllUnitsFilter(PLAYER_UNDEAD, [utWagon]);
+	for i := 0 to High(undeadWagons) do
+		Actions.FogRevealCircle(PLAYER_HUMAN, States.UnitPositionX(undeadWagons[i]), States.UnitPositionY(undeadWagons[i]), SPAWN_REVEAL_RADIUS);
+
+	for i := 0 to High(UndeadSpawns) do
+	begin
+		unitsInArea := States.UnitsAt(UndeadSpawns[i].resX - SPAWN_REVEAL_RADIUS, UndeadSpawns[i].resY - SPAWN_REVEAL_RADIUS, UndeadSpawns[i].resX + SPAWN_REVEAL_RADIUS, UndeadSpawns[i].resY + SPAWN_REVEAL_RADIUS);
+		
+		undeadWagonsInArea := False;
+		
+		for j := 0 to High(unitsInArea) do
+			if (States.UnitType(unitsInArea[j]) = utWagon)
+			and (States.UnitOwner(unitsInArea[j]) = PLAYER_UNDEAD) then
+			begin
+				undeadWagonsInArea := True;
+				Break;
+			end;
+		
+		if (undeadWagonsInArea) then
+		begin		
+			alert := Actions.AlertAdd(PLAYER_HUMAN, UndeadSpawns[i].resX, UndeadSpawns[i].resY, ALERT_WAGON, 0.4, True);
+			Actions.AlertColor(alert, UndeadSpawns[i].alertColor, 1);
+			Actions.AlertDuration(alert, SPAWN_REVEAL_PERIOD);
+		end;
+	end;
+end;
+
+
+//
+procedure RevealUpcomingSpawns();
+var
+	i: Integer;
+begin
+	for i := 0 to High(UndeadSpawns) do
+		if (UndeadSpawns[i].inNextWave) then
+			Actions.FogRevealCircle(PLAYER_HUMAN, UndeadSpawns[i].guardX, UndeadSpawns[i].guardY, SPAWN_REVEAL_RADIUS);
+end;
+
+
+// Spawn points are pre-selected in advance, and the player is warned about them upfront
+procedure PrepareSpawnPoints();
+var
+	chosenSpawnIDs, eligibleSpawnIDs: array of Integer;
+	i, rndID: Integer;
+	spawnPoolModLeft: Single;
+begin
+	spawnPoolModLeft := SPAWNS_PER_WAVE;
+	
+	while (spawnPoolModLeft > 0) do
+	begin
+		// Find all eligible spawns (not used yet, its poolMod is not over what is left in the wave's pool
+		eligibleSpawnIDs := [];
+		for i := 0 to High(UndeadSpawns) do
+			if ((UndeadSpawns[i].spawnPoolMod) <= spawnPoolModLeft)
+			and (not Utils.ArrayHasElementI(chosenSpawnIDs, i)) then
+				Utils.ArrayAppendI(eligibleSpawnIDs, i);
+		
+		// If no eligible ones were find, add missing unused pool points to the next wave, so the player does not miss out. Should not really ever happen.
+		if (Length(eligibleSpawnIDs) = 0) then
+		begin
+			LastGuardPoolUnderflow := LastGuardPoolUnderflow + (spawnPoolModLeft * POOL_GUARD_BASE * (CurrentWave + 1) / SPAWNS_PER_WAVE);
+			LastResPoolUnderflow := LastResPoolUnderflow + (spawnPoolModLeft * ((POOL_RES_WAVE_BASE * (UndeadLevel + 1)) + (POOL_RES_WAVE_INC * (CurrentWave + 1))) / SPAWNS_PER_WAVE);
+			Break;
+		end;
+		
+		// Mark randomly selected eligible spawn to be used in the wave
+		rndID := eligibleSpawnIDs[Utils.RandomI(Length(eligibleSpawnIDs))];
+		Utils.ArrayAppendI(chosenSpawnIDs, rndID);
+		spawnPoolModLeft := spawnPoolModLeft - UndeadSpawns[rndID].spawnPoolMod;
+		
+		//UTDebugMsg(Utils.Format('Preparing spawn points for wave %d.||Eligible spawns: %s|Chosen spawns: %s||Spawns per wave (max): %d, selected spawn %d''s pool mod: %n, spawns left: %n', [CurrentWave + 1, UTArrayIDebug(eligibleSpawnIDs), UTArrayIDebug(chosenSpawnIDs), SPAWNS_PER_WAVE, rndID, UndeadSpawns[rndID].spawnPoolMod, spawnPoolModLeft]));
+	end;
+	
+	// All spawns that were selected for the next wave are to be highlighted on map and minimap
+	for i := 0 to High(chosenSpawnIDs) do
+	begin
+		UndeadSpawns[chosenSpawnIDs[i]].inNextWave := True;
+		
+		Utils.ArrayAppendI(SpawnMarkers, EMNewTempMarkerPoint(itExclamation, UndeadSpawns[chosenSpawnIDs[i]].guardX, UndeadSpawns[chosenSpawnIDs[i]].guardY, True, True, ALERT_COLOR_UNDEAD, 1, SPAWN_MARKER_ADVANCE));
+		
+		Utils.ArrayAppendI(SpawnAlerts, Actions.AlertAdd(PLAYER_HUMAN, UndeadSpawns[chosenSpawnIDs[i]].guardX, UndeadSpawns[chosenSpawnIDs[i]].guardY, ALERT_QUEST, 0.5, True));
+		Actions.AlertColor(SpawnAlerts[High(SpawnAlerts)], ALERT_COLOR_UNDEAD, 1);
+	end;
+end;
+
+
+//
+procedure NewLostUnit(aUnit: Integer);
+var
+	aLostUnit: LostUnit;
+	arrLen: Integer;
+	unitType: TKMUnitType;
+begin
+	aLostUnit.aX := States.UnitPositionX(aUnit);
+	aLostUnit.aY := States.UnitPositionY(aUnit);
+	aLostUnit.aDeathTick := CurrentTick;
+	unitType := States.UnitType(aUnit);
+	
+	if (unitType in [utAxeFighter, utPikeman, utHorseScout]) then
+		aLostUnit.aUnitType := utSkeletonAxe
+	else if (unitType in [utSwordsman, utHalberdier, utCavalry]) then
+		aLostUnit.aUnitType := utSkeletonSword
+	else if (unitType in [utBowman, utArbaletman]) then
+		aLostUnit.aUnitType := utSkeletonBow
+	else
+		aLostUnit.aUnitType := utSkeleton;
+	
+	if (UnitType in [utMilitia, utAxeFighter, utSwordsman]) then
+		aLostUnit.aLvl := 1
+	else if (unitType in [utHorseScout, utCavalry, utArbaletman]) then
+		aLostUnit.aLvl := 2
+	else
+		aLostUnit.aLvl := 0;
+	
+	EMNewTempMarkerPoint(itExclamation, aLostUnit.aX, aLostUnit.aY, True, True, ALERT_COLOR_UNDEAD, 1, RESURRECTION_DELAY);
+	
+	arrLen := Length(LostUnits);
+	SetLength(LostUnits, arrLen + 1);
+	LostUnits[arrLen] := aLostUnit;
+end;
+
+
+//
+procedure AwardUndeadKill(aUnit: Integer);
+var
+	expGained, i, j, arrLen: Integer;
+	units, expUnits: array of Integer;
+begin
+	// Get amount of exp to be awarded
+	expGained := Round(RPGUnitGetExpAward(aUnit) * EXP_GAINED_MOD);
+	if (expGained = 0) then Exit;
+	
+	// Award exp to the surrounding player's units
+	RPGAreaAwardExp(PLAYER_HUMAN, States.UnitPositionX(aUnit), States.UnitPositionY(aUnit), UNIT_EXP_RADIUS, expGained);
+
+	// Add score to the player equal to exp gained
+	PlayerKillScore := PlayerKillScore + (expGained * EXP_TO_SCORE_MOD);
+end;
+
+
+//
+procedure CheckWagonAggro();
+var
+	i, j, wagonX, wagonY, playerUnitsAround, unitGroup: Integer;
+	undeadWagons, unitsAround, undeadToAggro: array of Integer;
+	groupAlreadyUsed: Boolean;
+begin
+	undeadWagons := States.PlayerGetAllUnitsFilter(PLAYER_UNDEAD, [utWagon]);
+
+	for i := 0 to High(undeadWagons) do
+	begin
+		wagonX := States.UnitPositionX(undeadWagons[i]);
+		wagonY := States.UnitPositionY(undeadWagons[i]);
+		unitsAround := States.UnitsAt(wagonX - SPAWN_AGGRO_RANGE, wagonY - SPAWN_AGGRO_RANGE, wagonX + SPAWN_AGGRO_RANGE, wagonY + SPAWN_AGGRO_RANGE);
+		
+		// Count player units, if > 0, aggro time
+		playerUnitsAround := 0;
+		for j := 0 to High(unitsAround) do
+			if (States.UnitOwner(unitsAround[j]) = PLAYER_HUMAN)
+			and (States.UnitType(unitsAround[j]) <> utWagon) then
+				playerUnitsAround := playerUnitsAround + 1;
+		
+		// Find undead groups
+		if (playerUnitsAround > 0) then
+			for j := 0 to High(unitsAround) do
+				if (States.UnitOwner(unitsAround[j]) = PLAYER_UNDEAD) then
+				begin
+					unitGroup := States.UnitGroup(unitsAround[j]);
+					if (not Utils.ArrayHasElementI(undeadToAggro, unitGroup)) then
+						Utils.ArrayAppendI(undeadToAggro, unitGroup);
+				end;
+	end;
+	
+	// Aggro the undead units
+	for i := 0 to High(undeadToAggro) do
+	begin
+		groupAlreadyUsed := False;
+		for j := 0 to High(AAIAttacks[AggroAttack].launchedGroups) do
+		begin
+			if (AAIAttacks[AggroAttack].launchedGroups[j].Group = undeadToAggro[i]) then
+			begin
+				groupAlreadyUsed := True;
+				Break;
+			end;
+		end;
+		
+		if (not groupAlreadyUsed) then
+			AAIAttackJoinGroup(AggroAttack, undeadToAggro[i]);
+	end;
+end;
+
+
+//
+procedure ReturnUndeadWagon(aUnit: Integer);
+var
+	i, j, unitX, unitY, distance, distanceMin, destinationId: Integer;
+	unitsInArea, guardedAreaIDs: array of Integer;
+	isAreaGuarded: Boolean;
+begin
+	unitX := States.UnitPositionX(aUnit);
+	unitY := States.UnitPositionY(aUnit);
+	destinationId := -1;
+	
+	// Search all spawns, and save amount of units guarding them and distance to them
+	for i := 0 to High(UndeadSpawns) do
+	begin
+		unitsInArea := States.UnitsAt(UndeadSpawns[i].guardX - 10, UndeadSpawns[i].guardY - 10, UndeadSpawns[i].guardX + 10, UndeadSpawns[i].guardY + 10);
+		
+		isAreaGuarded := False;
+		for j := 0 to High(unitsInArea) do
+			if (States.UnitOwner(unitsInArea[j]) = PLAYER_UNDEAD) and (not States.UnitType(unitsInArea[j]) = utWagon) then
+			begin
+				isAreaGuarded := True;
+				Break;
+			end;
+		
+		if (isAreaGuarded) then
+			Utils.ArrayAppendI(guardedAreaIDs, i);
+	end;
+	
+	// Find the closest guarded spawn
+	for i := 0 to High(guardedAreaIDs) do
+	begin
+		distance := Round(Utils.DistanceI(unitX - UndeadSpawns[guardedAreaIDs[i]].resX, unitY - UndeadSpawns[guardedAreaIDs[i]].resY));
+		
+		if (distance < distanceMin) or (destinationId < 0) then
+		begin
+			distanceMin := distance;
+			destinationId := guardedAreaIDs[i];
+		end;
+	end;
+	
+	// If no guarded spawn was found, find the closest one that is unguarded
+	if (destinationId < 0) then
+		for i := 0 to High(UndeadSpawns) do
+		begin
+			distance := Round(Utils.DistanceI(unitX - UndeadSpawns[i].resX, unitY - UndeadSpawns[i].resY));
+			
+			if ((distance < distanceMin) or (destinationId < 0)) then
+			begin
+				distanceMin := distance;
+				destinationId := i;
+			end;
+		end;
+	
+	Actions.UnitOrderWalk(aUnit, UndeadSpawns[destinationId].resX, UndeadSpawns[destinationId].resY);
+end;
+
+
+//
+procedure HandleStolenWagon(aUnit: Integer);
+var
+	wareType: TKMWareType;
+	amount, speed: Integer;
+	lblWareType, lblResult: String;
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+	begin
+		speed := UNIT_WAGON_SPEED;
+		lblResult := LBL_CAPTURED;
+	end
+	else if (States.UnitOwner(aUnit) = PLAYER_UNDEAD) then
+	begin
+		speed := -1;
+		lblResult := LBL_LOST;
+		ReturnUndeadWagon(aUnit);
+	end
+	else
+		Exit;
+	
+	wareType := States.UnitCarryType(aUnit);
+	amount := States.UnitCarryCount(aUnit, wareType);
+	if (wareType = wtGoldOre) then
+		lblWareType := LBL_GOLD_ORE
+	else if (wareType = wtGold) then
+		lblWareType := LBL_GOLD
+	else if (wareType = wtIronOre) then
+		lblWareType := LBL_IRON_ORE
+	else if (wareType = wtSteel) then
+		lblWareType := LBL_STEEL
+	else if (wareType = wtSword) then
+		lblWareType := LBL_SWORD
+	else if (wareType = wtHalberd) then
+		lblWareType := LBL_HALBERD
+	else if (wareType = wtArbalet) then
+		lblWareType := LBL_CROSSBOW
+	else if (wareType = wtMetalShield) then
+		lblWareType := LBL_SHIELD
+	else if (wareType = wtMetalArmor) then
+		lblWareType := LBL_ARMOR;
+	
+	Actions.UnitSpeedSet(aUnit, speed);
+	Actions.CinematicSpeechBubbleUnit(aUnit, 1, Utils.Format('%dx %s %s!', [amount, lblWareType, lblResult]), 5);
+end;
+
+
+//
+procedure UndeadStoleWagon(aUnit: Integer);
+var
+	wareType: TKMWareType;
+	amount: Integer;
+	lblWareType: String;
+begin
+	Actions.UnitSpeedSet(aUnit, -1);
+end;
+
+
+//
+procedure AssignUnitStats(aUnit: Integer; preferPaladin: Boolean);
+var
+	tempID: Integer;
+begin
+	tempID := UnitGetTempID(aUnit, preferPaladin);
+	if (tempID >= 0) then
+	begin
+		RPGAddUnit(aUnit, UnitGetTempID(aUnit, preferPaladin), 0);
+		Actions.UnitMoraleOverride(aUnit, 100);
+	end;
+end;
+
+
+// Initial setup of variables that are used for unit stat and color progressions when leveling
+procedure SetupLeveling();
+var
+	i: Integer;
+begin
+	LvlExpRequired := [0, 20, 50, 90, 140, 200, 270, 350, 440, 540];
+	LvlUnitColor := [$FF0000, $FF1C1C, $FF3939, $FF5555, $FF7171, $FF8D8D, $FFAAAA, $FFC6C6, $FFE3E3, $FFFFFF];
+	
+	LvlUndeadExpRequired := [0, 1, 2, 3, 4, 5];
+	LvlUndeadColor := [$000000, $000033, $000066, $000099, $0000CC, $0000FF];
+	
+	MilStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	AxeStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	SwordStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	PikeStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	HalbStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	BowStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	CrossStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	ScoutStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	KnightStats := RPGAddTemplate(UNIT_MAX_LVL, True, True);
+	
+	UnSkelStats := RPGAddTemplate(UNDEAD_MAX_LVL, False, False);
+	UnAxeStats := RPGAddTemplate(UNDEAD_MAX_LVL, False, False);
+	UnSwordStats := RPGAddTemplate(UNDEAD_MAX_LVL, False, False);
+	UnBowStats := RPGAddTemplate(UNDEAD_MAX_LVL, False, False);
+	
+	GenerateLvlStats();
+	PalStats := RPGAddTemplate(0, False, True);
+	RPGSetLvlNames(PalStats, [UNIT_PALADIN_NAME]);
+	RPGSetLvlExp(PalStats, [0]);
+	RPGSetLvlColors(PalStats, [LvlUnitColor[High(LvlUnitColor)]]);
+	RPGGenerateLvlStatsLinear(PalStats, PALADIN_HP, PALADIN_DMG_MIN, PALADIN_DMG_MAX, PALADIN_SIGHT, -1, 0, 0, 0, 0);
+	RPGAddUnit(States.UnitAt(112, 155), PalStats, 0);
+	Actions.UnitNameSet(States.UnitAt(112, 155), UNIT_PALADIN_MASTER_NAME);
+	
+	Actions.PlayerColorChange(PLAYER_HUMAN, LvlUnitColor[0]);
+	Actions.PlayerColorChange(PLAYER_UNDEAD, LvlUndeadColor[0]);
+end;
+
+
+//
+procedure AddUndeadSpawn(resX, resY, guardX, guardY: Integer; spawnPoolMod: Single);
+var
+	aUndeadSpawn: UndeadSpawn;
+	arrLen: Integer;
+begin
+	aUndeadSpawn.resX := resX;
+	aUndeadSpawn.resY := resY;
+	aUndeadSpawn.guardX := guardX;
+	aUndeadSpawn.guardY := guardY;
+	aUndeadSpawn.spawnPoolMod := spawnPoolMod;
+	
+	if (spawnPoolMod <= 1) then
+		aUndeadSpawn.alertColor := ALERT_COLOR_NEAR
+	else if (spawnPoolMod <= 2) then
+		aUndeadSpawn.alertColor := ALERT_COLOR_MID
+	else
+		aUndeadSpawn.alertColor := ALERT_COLOR_FAR;
+	
+	aUndeadSpawn.inNextWave := False;
+	
+	arrLen := Length(UndeadSpawns);
+	SetLength(UndeadSpawns, arrLen + 1);
+	UndeadSpawns[arrLen] := aUndeadSpawn;
+end;
+
+
+//
+procedure SetupSpawnCoords();
+begin
+	// Near spawns (base pools)
+	AddUndeadSpawn(164, 105, 166, 99, POOL_SPAWN_NEAR_MOD); // Distance: ~37s
+	AddUndeadSpawn(128, 181, 131, 187, POOL_SPAWN_NEAR_MOD); // Distance: ~37s
+	AddUndeadSpawn(76, 76, 79, 71, POOL_SPAWN_NEAR_MOD); // Distance: ~39s
+	AddUndeadSpawn(51, 128, 55, 123, POOL_SPAWN_NEAR_MOD); // Distance: ~43s
+	AddUndeadSpawn(213, 132, 206, 131, POOL_SPAWN_NEAR_MOD); // Distance: ~43s
+	AddUndeadSpawn(188, 194, 187, 188, POOL_SPAWN_NEAR_MOD); // Distance: ~44s
+	AddUndeadSpawn(93, 158, 86, 161, POOL_SPAWN_NEAR_MOD); // Distance: ~47s
+	AddUndeadSpawn(135, 220, 138, 214, POOL_SPAWN_NEAR_MOD); // Distance: ~51s
+	AddUndeadSpawn(176, 59, 171, 65, POOL_SPAWN_NEAR_MOD); // Distance: ~55s
+	AddUndeadSpawn(110, 44, 113, 39, POOL_SPAWN_NEAR_MOD); // Distance: ~55s
+	
+	// Mid spawns (56-79s cav walking distance from player's camp; receive increased resources and guards)
+	AddUndeadSpawn(91, 35, 83, 40, POOL_SPAWN_MID_MOD); // Distance: ~57s
+	AddUndeadSpawn(226, 170, 219, 173, POOL_SPAWN_MID_MOD); // Distance: ~58s
+	AddUndeadSpawn(33, 122, 27, 128, POOL_SPAWN_MID_MOD); // Distance: ~61s
+	AddUndeadSpawn(13, 99, 18, 93, POOL_SPAWN_MID_MOD); // Distance: ~64s
+	AddUndeadSpawn(224, 149, 232, 147, POOL_SPAWN_MID_MOD); // Distance: ~67s
+	AddUndeadSpawn(238, 77, 230, 81, POOL_SPAWN_MID_MOD); // Distance: ~67s
+	AddUndeadSpawn(13, 167, 20, 163, POOL_SPAWN_MID_MOD); // Distance: ~69s
+	AddUndeadSpawn(163, 14, 162, 22, POOL_SPAWN_MID_MOD); // Distance: ~71s
+	AddUndeadSpawn(197, 60, 202, 53, POOL_SPAWN_MID_MOD); // Distance: ~73s
+	AddUndeadSpawn(11, 51, 20, 58, POOL_SPAWN_MID_MOD); // Distance: ~74s
+	
+	// Far spawns (80s+ cav walking distance from player's camp; receive even more increased resources and guards)
+	AddUndeadSpawn(235, 243, 235, 236, POOL_SPAWN_FAR_MOD); // Distance: ~80s
+	AddUndeadSpawn(9, 12, 18, 15, POOL_SPAWN_FAR_MOD); // Distance: ~85s
+	AddUndeadSpawn(52, 193, 51, 202, POOL_SPAWN_FAR_MOD); // Distance: ~88s
+	AddUndeadSpawn(111, 223, 108, 231, POOL_SPAWN_FAR_MOD); // Distance: ~91s
+	AddUndeadSpawn(248, 14, 239, 13, POOL_SPAWN_FAR_MOD); // Distance: ~92s
+	AddUndeadSpawn(23, 241, 30, 236, POOL_SPAWN_FAR_MOD); // Distance: ~100s
+	AddUndeadSpawn(153, 237, 145, 243, POOL_SPAWN_FAR_MOD); // Distance: ~111s
+	AddUndeadSpawn(211, 228, 204, 221, POOL_SPAWN_FAR_MOD); // Distance: ~127s
+end;
+
+
+//
+procedure InitiateExpUnits();
+var
+	i, unitTemp: Integer;
+	units: array of Integer;
+begin
+	units := States.PlayerGetAllUnits(PLAYER_HUMAN);
+	UTArrayIMerge(units, States.PlayerGetAllUnits(PLAYER_UNDEAD));
+	
+	for i := 0 to High(units) do
+		AssignUnitStats(units[i], False);
+end;
+
+
+// Initial AI's setup.
+procedure SetupAI();
+var
+	i: Integer;
+	monks: array of Integer;
+begin
+	AggroAttack := AAICreateAttack(PLAYER_UNDEAD, [PLAYER_HUMAN], atBoth);
+	PlayerKillScore := 0;
+	PlayerResourceScore := 0;
+
+	// Make sure the mercenaries are allied to everyone, but without sharing FoW.
+	Actions.PlayerAllianceChange(PLAYER_PALADIN, PLAYER_HUMAN, True, False);
+	Actions.PlayerAllianceChange(PLAYER_PALADIN, PLAYER_UNDEAD, True, False);
+	
+	// Name paladin's peasant monks
+	monks := States.PlayerGetAllUnitsFilter(PLAYER_PALADIN, [utPeasant]);
+	for i := 0 to High(monks) do
+		Actions.UnitNameSet(monks[i], UNIT_MONK_NAME);
+end;
+
+
+//
+procedure UpdateObjectives();
+begin
+	UTObjectiveCheckSurvival(PLAYER_HUMAN, stBuildings);
+	
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, CollectResourcesObjID, OBJ_COLLECT_RESOURCES + IntToStr(Round(PlayerResourceScore)));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, SlayUndeadObjID, OBJ_SLAY_UNDEAD + IntToStr(Round(PlayerKillScore)));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, DifficultyObjID, Utils.Format('%s%d (%s)', [OBJ_DIFFICULTY, CurrentWave, GetDifficultyLabel(UndeadLevel)]));
+	Actions.PlayerObjectiveUpdateText(PLAYER_HUMAN, TimeLeftObjID, OBJ_TIME_LEFT + Utils.TimeToString(MAP_TIME_LIMIT - CurrentTick));
+	
+	if (CurrentTick >= MAP_TIME_LIMIT) then
+		Actions.PlayerWin([PLAYER_HUMAN], True);
+end;
+
+
+// Creates the initial objectives for the player.
+procedure SetupObjectives();
+begin
+	// The main objectives.
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 0, osActive, OBJ_COLLECT_RESOURCES + '0', CollectResourcesObjID, CollectResourcesObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 1, osActive, OBJ_SLAY_UNDEAD + '0', SlayUndeadObjID, SlayUndeadObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 2, osActive, Utils.Format('%s%d (%s)', [OBJ_DIFFICULTY, CurrentWave, GetDifficultyLabel(UndeadLevel)]), DifficultyObjID, DifficultyObjSt);
+	UTObjectiveCreate(PLAYER_HUMAN, otMain, 3, osActive, OBJ_TIME_LEFT + Utils.TimeToString(MAP_TIME_LIMIT - CurrentTick), TimeLeftObjID, TimeLeftObjSt);
+	
+	// The secondary objective for the discovery of the paladin mechanics.
+	UTObjectiveCreate(PLAYER_HUMAN, otAdditional, 4, osActive, OBJ_VISIT_PALADINS, VisitPaladinObjID, VisitPaladinObjSt);
+	MarkerPaladin := Actions.InteractionMarkerAddOnUnit(itExclamation, States.UnitAt(112, 155));
+	Actions.InteractionMarkerUpdate(MarkerPaladin, $606060, True, 1.5);
+	Actions.InteractionMarkerBob(MarkerPaladin, True);
+	AlertPaladin := Actions.AlertAdd(PLAYER_HUMAN, 112, 155, ALERT_QUEST, 0.6, True);
+	Actions.AlertColor(AlertPaladin, $00FFFF, 1);
+end;
+
+
+//
+procedure PostHighscore();
+var
+	score: Integer;
+begin
+	score := Round(PlayerKillScore) + Round(PlayerResourceScore);
+	Actions.MissionHighscore(score);
+	Actions.PlayerMissionResultString(PLAYER_HUMAN, Utils.Format('%d + %d|= <$lbl_score>: %d', [Round(PlayerKillScore), Round(PlayerResourceScore), score]));
+end;
+
+
+//
+procedure RunSpawns();
+var
+	i: Integer;
+	currentResPool, currentGuardPool: Single;
+begin
+	CurrentWave := Trunc((CurrentTick) / SpawnPeriod) + 1;
+	UndeadLevel := Utils.MinI(Trunc(1.0 * CurrentTick / (MAP_TIME_LIMIT / (UNDEAD_MAX_LVL + 1))), UNDEAD_MAX_LVL);
+	
+	currentResPool := (POOL_RES_WAVE_BASE * (UndeadLevel + 1)) + (POOL_RES_WAVE_INC * CurrentWave);
+	currentGuardPool := POOL_GUARD_BASE * CurrentWave;
+
+	// Activate the upcoming spawns
+	for i := 0 to High(UndeadSpawns) do
+		if (UndeadSpawns[i].inNextWave) then
+		begin
+			SpawnResourceWagons(currentResPool / SPAWNS_PER_WAVE * UndeadSpawns[i].spawnPoolMod, UndeadSpawns[i].resX, UndeadSpawns[i].resY);
+			SpawnGuards(currentGuardPool / SPAWNS_PER_WAVE * UndeadSpawns[i].spawnPoolMod, UndeadSpawns[i].guardX, UndeadSpawns[i].guardY);
+		end;
+	
+	// Unmark the spawns as upcoming ones
+	for i := 0 to High(UndeadSpawns) do
+		UndeadSpawns[i].inNextWave := False;
+	
+	// Remove upcoming spawn markers
+	for i := 0 to High(SpawnMarkers) do
+		Actions.InteractionMarkerRemove(SpawnMarkers[i]);
+	SpawnMarkers := [];
+	
+	// Remove upcoming spawn alerts
+	for i := 0 to High(SpawnAlerts) do
+		Actions.AlertRemove(SpawnAlerts[i]);
+	SpawnAlerts := [];
+end;
+
+
+//
+procedure OnMissionStart();
+begin
+	DNInitiateScript(600, 28800);
+	WSInitiateScript(True);
+	AAIInitiateScript(100, 5, 10, 50);
+	TMInitiateScript(50, PALADIN_BTN_CLOSE, '', 100);
+	RPGInitiateScript(True);
+	SetupObjectives();
+	SetupLeveling();
+	SetupSpawnCoords();
+	InitiateExpUnits();
+	SetupAI();
+
+	SpawnPeriod := Round(1.0 * MAP_TIME_LIMIT / (UNDEAD_MAX_LVL + 1) / SPAWNS_PER_UNDEAD_LVL);
+	
+	Actions.PlayerMessage(PLAYER_HUMAN, MSG_INTRO, True);
+end;
+
+
+//
+procedure OnTick(aTick: Integer);
+begin
+	DNResolveTick(aTick);
+	WSResolveTick(aTick);
+	AAIResolveTick(aTick);
+	EMResolveTick(aTick);
+	TMResolveTick(aTick);
+	
+	CurrentTick := aTick;
+	
+	if ((aTick + SPAWN_MARKER_ADVANCE - 1) mod SpawnPeriod = 0)
+	or (aTick = 1) then
+		PrepareSpawnPoints();
+	
+	if ((aTick - 1) mod SpawnPeriod = 0) then
+		RunSpawns();
+	
+	if (aTick mod 600 = 0) then
+		RPGCleanRPGUnits();
+	
+	if (aTick mod 10 = 0) then
+	begin
+		CheckLostUnitsResurrections();
+		UpdateObjectives();
+	end;
+	
+	if (aTick mod 30 = 0) then
+		CheckWagonAggro();
+	
+	if ((aTick - 1) mod SPAWN_REVEAL_PERIOD = 0) then
+	begin
+		RevealUndeadWagons();
+		RevealUpcomingSpawns();
+	end;
+	
+	if (aTick mod 9000 = 0) then
+		UTFeedAllUnits(PLAYER_PALADIN);
+end;
+
+
+//
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	if (aPlayer = PLAYER_HUMAN) then
+		PostHighscore();
+end;
+
+
+//
+procedure OnPlayerVictory(aPlayer: Integer);
+begin
+	if (aPlayer = PLAYER_HUMAN) then
+		PostHighscore();
+end;
+
+
+//
+procedure OnUnitOwnerChanged(aOldUnit, aNewUnit: Integer);
+var
+	wareType: TKMWareType;
+	i, amount: Integer;
+	lblWareType: String;
+begin
+	if (States.UnitType(aNewUnit) = utWagon) then
+	begin
+		WSCheckSendStolenWagon(aOldUnit, aNewUnit);
+		HandleStolenWagon(aNewUnit);
+		// Unit's ID changed - update it in the saved wagon score array as well
+		for i := 0 to High(ResourceWagons) do
+			if (ResourceWagons[i].aUnit = aOldUnit) then
+				ResourceWagons[i].aUnit := aNewUnit;
+	end;
+end;
+
+
+//
+procedure OnWarriorEquipped(aUnit, aGroup: Integer);
+begin
+	//UTDebugMsg('Warrior equipped.');
+	AssignUnitStats(aUnit, False);
+end;
+
+
+// If the player cheats and adds knights, they become paladins. There is just no way around that, as long as paladins are supposed to be provided from the trade script, but also obtain exp.
+procedure OnWarriorGiven(aUnit, aGroup: Integer);
+begin
+	//UTDebugMsg('Warrior given.');
+	AssignUnitStats(aUnit, False);
+end;
+
+
+//
+procedure OnGroupGiven(aGroup: Integer);
+var
+	i: Integer;
+begin
+	//UTDebugMsg('Group given.');
+	if (aGroup > 0) then
+		for i := 0 to States.GroupMemberCount(aGroup) - 1 do
+			AssignUnitStats(States.GroupMember(aGroup, i), True);
+end;
+
+
+//
+procedure OnUnitBeforeDied(aUnit, aKillerOwner: Integer);
+begin
+	if ((States.UnitOwner(aUnit) = PLAYER_HUMAN)
+	and (States.UnitType(aUnit) <> utWagon))
+	and (States.UnitInHouse(aUnit) <= 0) then
+		NewLostUnit(aUnit)
+	else if (States.UnitOwner(aUnit) = PLAYER_UNDEAD) then
+		AwardUndeadKill(aUnit);
+end;
+
+
+//
+procedure OnUnitWagonEnteredHouse(aUnit: Integer; aHouse: Integer);
+var
+	i: Integer;
+begin
+	for i := 0 to High(ResourceWagons) do
+		if (ResourceWagons[i].aUnit = aUnit) then
+		begin
+			PlayerResourceScore := PlayerResourceScore + (ResourceWagons[i].aReward * RES_TO_SCORE_MOD);
+		//UTDebugMsg(Utils.Format('Unit: %d|Reward: %d|Res to score mod: %n', [ResourceWagons[i].aUnit, ResourceWagons[i].aReward, RES_TO_SCORE_MOD]));
+		end;
+end;
+
+
+//
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Integer);
+begin
+	if (States.UnitOwner(aUnit) = PLAYER_HUMAN) then
+	begin
+		if (aTriggerId = TT_PALADIN_HEALING_ENTER) then
+			Actions.UnitHitpointsRestorePace(aUnit, 10)
+		else if (aTriggerId = TT_PALADIN_HEALING_EXIT) then
+			Actions.UnitHitpointsRestorePace(aUnit, -1)
+		else if ((aTriggerId = TT_PALADIN_WELCOME) and not TTFiredPaladinWelcome) then
+			PaladinMet();	
+	end;
+end;
+
+
+// Display the paladin dialog when the quest marker is clicked.
+procedure OnScriptMarkerClick(aPlayer, aTag: Integer);
+begin
+	TMScriptMarkerClick(aPlayer, aTag);
+end;
+
+
+// Call paladin hire, based off the button the player has clicked in the dialog.
+procedure OnScriptButtonClick(aPlayer, aTag: Integer);
+begin
+	TMScriptBtnClick(aPlayer, aTag);
+end;

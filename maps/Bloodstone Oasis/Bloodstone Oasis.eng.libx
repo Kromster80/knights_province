@@ -1,0 +1,77 @@
+#Eng texts by Amaroth
+0:Amaroth
+1:Venture to the cursed Bloodstone Oasis, where traitors have risen as undead. Build a stronghold, gather resources, and fight back with the help of local paladins. Your goal is simple: slay as many undead as you can while surviving the relentless onslaught and cleansing the land of its curse.
+
+player_human:Living
+player_paladin:Paladins
+player_undead:Undead
+
+obj_collect_resources:Collect resources
+obj_slay_undead:Slay undead
+obj_difficulty:Difficulty
+obj_time_left:Time left
+obj_visit_paladins:Visit [$00FFFF]paladins[]
+
+rpg_lbl_exp:exp
+
+lbl_score:Score
+
+lbl_captured:captured
+lbl_lost:lost
+lbl_gold_ore:[$00FFFF]gold ore[]
+lbl_gold:[$00DDDD]gold[]
+lbl_iron_ore:[$FFFF00]iron ore[]
+lbl_steel:[$DDDD00]steel[]
+lbl_sword:[$FCFCB8]sword[]
+lbl_halberd:[$FCFCB8]halberd[]
+lbl_crossbow:[$FCFCB8]crossbow[]
+lbl_shield:[$FCFCB8]steel shield[]
+lbl_armor:[$FCFCB8]steel armor[]
+
+unit_militia_name:Militia
+unit_axe_name:Axe fighter
+unit_pike_name:Pikeman
+unit_bow_name:Bowman
+unit_scout_name:Scout
+unit_sword_name:Sword fighter
+unit_halberd_name:Halberdier
+unit_crossbow_name:Crossbowman
+unit_knight_name:Knight
+unit_paladin_name:Paladin
+unit_paladin_master_name:Master Paladin
+unit_monk_name:Monk
+unit_skeleton_name:Skeleton
+unit_skeleton_axe_name:Skeletal axeman
+unit_skeleton_sword_name:Skeletal swordsman
+unit_skeleton_bow_name:Skeletal bowman
+unit_undead_name_01:Feeble
+unit_undead_name_02:Weak
+unit_undead_name_03:Common
+unit_undead_name_04:Dangerous
+unit_undead_name_05:Horrible
+unit_undead_name_06:Nightmarish
+
+msg_intro_01:The emperor sent you to chase after the army that has betrayed him. You and your troops rode all the way to the Bloodstone Oasis, only to find someone or something has already slain the traitors. It seems their death was just the beginning. The traitors are dead, yet they walk, still. Their cursed skeletons haunt the area, and you lack supplies to run home.
+
+msg_intro_02:[$00B0FF][u]OBJECTIVES:[/u][]
+msg_intro_03:[$00FFFF]Establish a secure and defensible base.[] The undead will not tolerate the living in their domain.
+msg_intro_04:[$00FFFF]Capture the wagons.[] Traitors leave behind valuable resources. Wagons have increased movement speed and are sent to apropriate houses automatically upon capture.
+msg_intro_05:[$00FFFF]Seek help from local paladins.[] They have experience fighting undead beyond yours.
+msg_intro_06:[$00FFFF]Collect the resources.[] They grant many points upon retrieval.
+msg_intro_07:[$00FFFF]Slay the undead.[] Each undead slain also gives some points.
+
+msg_intro_08:[$00B0FF][u]SPECIAL RULES:[/u][]
+msg_intro_09:All your [u]infantry[/u] gets [$00FFFF][u]+25% HP[/u][]!
+msg_intro_10:All your [u]spears[/u] get [$00FFFF][u]+50% HP[/u][] and [$00FFFF][u]+100% DMG[/u][]!
+msg_intro_11:[$00FFFF]Your units gain experience from slain undead[] (unless they are in a tower) - increasing [u]HP, damage, view range[/u], and slowly earning white paladin colors. Keep your units alive, especially the veterans.
+msg_intro_12:[$00FFFF]All fallen units you lose will come back to haunt you.[] The entire area is cursed.
+msg_intro_13:Enemy wagon locations are revealed and marked on minimap. [$007FFF]Orange[] and especially [$0000FF]red areas[] are more distant, have [u]increased the guards and rewards[/u] compared to the near [$00FFFF]yellow areas[].
+msg_intro_14:Undead become more numerous and more powerful, as [$00FFFF]difficulty number[] increases.
+
+msg_paladin_met_01:The order of paladins established a base here. Their leader tells you they are the most powerful knights you can think of, but they lack equipment to help you. You will need to pay [$00FFFF]25 gold to outfit a paladin[].
+msg_paladin_met_02:If your units are hurt, you can place them into the [$00FFFF]healing oasis behind the paladin leader[]. Monks will heal your units very quickly, as long as they remain out of combat.
+
+dialog_paladin_available:You have enough [$00FFFF]gold[] available in at least one of your camps. Do you want to outfit paladins? They will cost you [$00FFFF]25 gold each[].
+dialog_paladin_unavailable:In order to outfit a paladin, you need to have a camp that contains at least [$00FFFF]25 gold[]. Currently, there is no such camp.
+paladin_btn_hire:Hire
+paladin_btn_close:Close

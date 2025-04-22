@@ -1,0 +1,1163 @@
+// ####################   Extra utils   ####################
+// Author: Amaroth.
+// Version: 2.14.1 (2025-02-26)
+// These are just some misc things to make my (or your) life easier. They are dependencies for many of my personal scripts.
+
+
+// Broadcasts a message which immediately opens to all players. Intened for debugging.
+procedure UTDebugMsg(text: String);
+begin
+	Actions.PlayerMessage(-1, text, True);
+end;
+
+
+// Broadcasts a message to all players, which does not open. Intened for debugging.
+procedure UTDebugMsgSilent(text: String);
+begin
+	Actions.PlayerMessage(-1, text, False);
+end;
+
+
+// Used to get around the fact basic mod operator supports only Integers.
+function UTModSingle(a, b: Single): Single;
+begin
+	if (b = 0) then Exit;
+	Result := a - b * Trunc(a / b);
+end;
+
+
+// Basic convertor, for debug output purposes maiainly.
+function UTBoolToStr(b: Boolean): String;
+begin
+	if (b) then
+		Result := 'True'
+	else
+		Result:= 'False';
+end;
+
+
+// Basic convertor, for debug output purposes mainly.
+function UTGroupTypeToStr(aGroupType: TKMGroupType): String;
+begin
+	if (aGroupType = gtNone) then
+		Result := 'gtNone'
+	else if (aGroupType = gtMelee) then
+		Result := 'gtMelee'
+	else if (aGroupType = gtAntiHorse) then
+		Result := 'gtAntiHorse'
+	else if (aGroupType = gtRanged) then
+		Result := 'gtRanged'
+	else if (aGroupType = gtMounted) then
+		Result := 'gtMounted'
+	else
+		Result := 'Unrecognized!';
+end;
+
+
+// Basic convertor, for debug output purposes mainly.
+function UTUnitTypeToStr(aUnitType: TKMUnitType): String;
+begin
+	if (aUnitType = utNone) then
+		Result := 'utNone'
+	else if (aUnitType = utPeasant) then
+		Result := 'utPeasant'
+	else if (aUnitType = utPorter) then
+		Result := 'utPorter'
+	else if (aUnitType = utBuilder) then
+		Result := 'utBuilder'
+	else if (aUnitType = utWoodcutter) then
+		Result := 'utWoodcutter'
+	else if (aUnitType = utMiner) then
+		Result := 'utMiner'
+	else if (aUnitType = utBreeder) then
+		Result := 'utBreeder'
+	else if (aUnitType = utFarmer) then
+		Result := 'utFarmer'
+	else if (aUnitType = utCarpenter) then
+		Result := 'utCarpenter'
+	else if (aUnitType = utBaker) then
+		Result := 'utBaker'
+	else if (aUnitType = utButcher) then
+		Result := 'utButcher'
+	else if (aUnitType = utTailor) then
+		Result := 'utTailor'
+	else if (aUnitType = utBrewer) then
+		Result := 'utBrewer'
+	else if (aUnitType = utFisher) then
+		Result := 'utFisher'
+	else if (aUnitType = utStonecutter) then
+		Result := 'utStonecutter'
+	else if (aUnitType = utSmith) then
+		Result := 'utSmith'
+	else if (aUnitType = utMetallurgist) then
+		Result := 'utMetallurgist'
+	else if (aUnitType = utRecruit) then
+		Result := 'utRecruit'
+	else if (aUnitType = utMilitia) then
+		Result := 'utMilitia'
+	else if (aUnitType = utAxeFighter) then
+		Result := 'utAxeFighter'
+	else if (aUnitType = utSwordsman) then
+		Result := 'utSwordsman'
+	else if (aUnitType = utBowman) then
+		Result := 'utBowman'
+	else if (aUnitType = utArbaletman) then
+		Result := 'utArbaletman'
+	else if (aUnitType = utPikeman) then
+		Result := 'utPikeman'
+	else if (aUnitType = utHalberdier) then
+		Result := 'utHalberdier'
+	else if (aUnitType = utHorseScout) then
+		Result := 'utHorseScout'
+	else if (aUnitType = utCavalry) then
+		Result := 'utCavalry'
+	else if (aUnitType = utSkeletonAxe) then
+		Result := 'utSkeletonAxe'
+	else if (aUnitType = utSkeletonSword) then
+		Result := 'utSkeletonSword'
+	else if (aUnitType = utSkeletonBow) then
+		Result := 'utSkeletonBow'
+	else if (aUnitType = utRebelFork) then
+		Result := 'utRebelFork'
+	else if (aUnitType = utSkeleton) then
+		Result := 'utSkeleton'
+	else if (aUnitType = utWagon) then
+		Result := 'utWagon'
+	else if (aUnitType = utWagon2) then
+		Result := 'utWagon2'
+	else if (aUnitType = utCatapult) then
+		Result := 'utCatapult'
+	else if (aUnitType = utBallista) then
+		Result := 'utBallista'
+	else if (aUnitType = utWolf) then
+		Result := 'utWolf'
+	else if (aUnitType = utFish) then
+		Result := 'utFish'
+	else if (aUnitType = utWatersnake) then
+		Result := 'utWatersnake'
+	else if (aUnitType = utSeastar) then
+		Result := 'utSeastar'
+	else if (aUnitType = utCrab) then
+		Result := 'utCrab'
+	else if (aUnitType = utWaterflower) then
+		Result := 'utWaterflower'
+	else if (aUnitType = utWaterleaf) then
+		Result := 'utWaterleaf'
+	else if (aUnitType = utDuck) then
+		Result := 'utDuck'
+	else if (aUnitType = utDeer) then
+		Result := 'utDeer'
+	else if (aUnitType = utBoar) then
+		Result := 'utBoar'
+	else if (aUnitType = utBear) then
+		Result := 'utBear'
+	else if (aUnitType = utDuck2) then
+		Result := 'utDuck2'
+	else if (aUnitType = utHorse) then
+		Result := 'utHorse'
+	else if (aUnitType = utSheep) then
+		Result := 'utSheep'
+	else if (aUnitType = utAny) then
+		Result := 'utAny'
+	else
+		Result := 'Unrecognized!';
+end;
+
+
+// Basic convertor, for debug output purposes mainly.
+function UTObjectiveStatusToStr(oStatus: TKMObjectiveStatus): String;
+begin
+	if (oStatus = osHidden) then
+		Result := 'osHidden'
+	else if (oStatus = osActive) then
+		Result := 'osActive'
+	else if (oStatus = osFailed) then
+		Result := 'osFailed'
+	else if (oStatus = osCompleted) then
+		Result := 'osCompleted'
+	else
+		Result := 'Unrecognized!';
+end;
+
+
+// Basic convertor, for debug output purposes mainly.
+function UTWareTypeToStr(wareType: TKMWareType): String;
+begin
+	if (wareType = wtNone) then
+		Result := 'wtNone'
+	else if (wareType = wtTrunk) then
+		Result := 'wtTrunk'
+	else if (wareType = wtStone) then
+		Result := 'wtStone'
+	else if (wareType = wtWood) then
+		Result := 'wtWood'
+	else if (wareType = wtIronOre) then
+		Result := 'wtIronOre'
+	else if (wareType = wtGoldOre) then
+		Result := 'wtGoldOre'
+	else if (wareType = wtCoal) then
+		Result := 'wtCoal'
+	else if (wareType = wtSteel) then
+		Result := 'wtSteel'
+	else if (wareType = wtGold) then
+		Result := 'wtGold'
+	else if (wareType = wtAle) then
+		Result := 'wtAle'
+	else if (wareType = wtGrain) then
+		Result := 'wtGrain'
+	else if (wareType = wtBread) then
+		Result := 'wtBread'
+	else if (wareType = wtFlour) then
+		Result := 'wtFlour'
+	else if (wareType = wtLeather) then
+		Result := 'wtLeather'
+	else if (wareType = wtSausages) then
+		Result := 'wtSausages'
+	else if (wareType = wtBeef) then
+		Result := 'wtBeef'
+	else if (wareType = wtCowhide) then
+		Result := 'wtCowhide'
+	else if (wareType = wtShield) then
+		Result := 'wtShield'
+	else if (wareType = wtMetalShield) then
+		Result := 'wtMetalShield'
+	else if (wareType = wtArmor) then
+		Result := 'wtArmor'
+	else if (wareType = wtMetalArmor) then
+		Result := 'wtMetalArmor'
+	else if (wareType = wtAxe) then
+		Result := 'wtAxe'
+	else if (wareType = wtSword) then
+		Result := 'wtSword'
+	else if (wareType = wtPike) then
+		Result := 'wtPike'
+	else if (wareType = wtHalberd) then
+		Result := 'wtHalberd'
+	else if (wareType = wtBow) then
+		Result := 'wtBow'
+	else if (wareType = wtArbalet) then
+		Result := 'wtArbalet'
+	else if (wareType = wtHorse) then
+		Result := 'wtHorse'
+	else if (wareType = wtFish) then
+		Result := 'wtFish'
+	else if (wareType = wtClub) then
+		Result := 'wtClub'
+	else if (wareType = wtCider) then
+		Result := 'wtCider'
+	else if (wareType = wtWool) then
+		Result := 'wtWool'
+	else if (wareType = wtCloth) then
+		Result := 'wtCloth'
+	else if (wareType = wtGambeson) then
+		Result := 'wtGambeson'
+	else if (wareType = wtAll) then
+		Result := 'wtAll'
+	else if (wareType = wtWarfare) then
+		Result := 'wtWarfare'
+	else if (wareType = wtFood) then
+		Result := 'wtFood'
+	else
+		Result := 'Unrecognized!';
+end;
+
+
+// Searches through the given player's AIDispositions, and if one with matching coordinates is found, returns its UID. If no AIDisposition is found, returns -1.
+function UTAIDispositionAt(aPlayer, x, y: Integer): Integer;
+var
+	uid, dispX, dispY, dir, amount, rows, guardRadius, i: Integer;
+	groupType: TKMGroupType;
+begin
+	Result := -1;
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	
+	for i := 0 to States.PlayerAIDispositionCount(aPlayer) - 1 do
+	begin
+		States.PlayerAIDispositionGet(aPlayer, i, uid, dispX, dispY, dir, groupType, amount, rows, guardRadius);
+		if (dispX = x) and (dispY = y) then
+			Result := uid;
+	end;
+end;
+
+
+// Searches through the given player's AIDispositions, and if one with matching coordinates is found, returns the group which is assigned to it.
+function UTAIDispositionAtGroup(aPlayer, x, y: Integer): Integer;
+begin
+	Result := -1;
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	Result := States.PlayerAIDispositionUIDGroup(aPlayer, UTAIDispositionAt(aPlayer, x, y));
+end;
+
+
+// Returns an array of all groups that the AI has assigned in its AIDispositions.
+function UTAIDispositionGroups(aPlayer: Integer): array of Integer;
+var
+	uid, dispX, dispY, dir, amount, rows, guardRadius, i: Integer;
+	groupType: TKMGroupType;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	for i := 0 to States.PlayerAIDispositionCount(aPlayer) - 1 do
+	begin
+		States.PlayerAIDispositionGet(aPlayer, i, uid, dispX, dispY, dir, groupType, amount, rows, guardRadius);
+		Utils.ArrayAppendI(Result, States.PlayerAIDispositionGroup(aPlayer, i));
+	end;
+end;
+
+
+// Removes the old AIDisposition by its UID and creates a new one on the given coordinates and direction - thus "moving" it. Returns the new UID.
+function UTAIDispositionMove(aPlayer, oldUID, newX, newY, newDir: Integer): Integer;
+var
+	oldDispositionUID, oldX, oldY, oldDir, oldNumUnits, oldUnitsPerRow, oldGuardRadius: Integer;
+	oldGroupType: TKMGroupType;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) or (newDir > 7) then Exit;
+	States.PlayerAIDispositionUIDGet(aPlayer, oldUID, oldX, oldY, oldDir, oldGroupType, oldNumUnits, oldUnitsPerRow, oldGuardRadius);
+	if (oldUID = 0) then Exit;
+	Actions.PlayerAIDispositionUIDRemove(aPlayer, oldUID);
+	Result := Actions.PlayerAIDispositionUIDAdd(aPlayer, newX, newY, newDir, oldGroupType, oldNumUnits, oldUnitsPerRow, oldGuardRadius);
+end;
+
+
+// Outputs the length and contents of the array in a string.
+function UTArrayIDebug(arr: array of Integer): String;
+var
+	i, arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	Result := Utils.Format('Amount of items: %d|Items: ', [arrLen]);
+	for i := 0 to arrLen - 1 do
+		Result := Result + IntToStr(arr[i]) + ', ';
+end;
+
+
+// Outputs the length and contents of the array in a string.
+function UTArraySDebug(arr: array of Single): String;
+var
+	i, arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	Result := Utils.Format('Amount of items: %d|Items: ', [arrLen]);
+	for i := 0 to arrLen - 1 do
+		Result := Result + Utils.Format('%n, ', [arr[i]]);
+end;
+
+
+// Outputs the length and contents of the array in a string.
+function UTArrayDebug(arr: array of String): String;
+var
+	i, arrLen: Integer;
+begin
+	arrLen := Length(arr);
+	Result := Utils.Format('Amount of items: %d|Items: ', [arrLen]);
+	for i := 0 to arrLen - 1 do
+		Result := Result + Utils.Format('%s, ', [arr[i]]);
+end;
+
+
+// Merges the second array to the first array
+procedure UTArrayIMerge(out arr: array of Integer; arrAppend: array of Integer);
+var
+	i: Integer;
+begin
+	for i := 0 to High(arrAppend) do
+		Utils.ArrayAppendI(arr, arrAppend[i]);
+end;
+
+
+// Merges the second array to the first array
+procedure UTArraySMerge(out arr: array of Single; arrAppend: array of Single);
+var
+	i: Integer;
+begin
+	for i := 0 to High(arrAppend) do
+		Utils.ArrayAppendS(arr, arrAppend[i]);
+end;
+
+
+// Merges the second array to the first array
+procedure UTArrayMerge(out arr: array of String; arrAppend: array of String);
+var
+	i: Integer;
+begin
+	for i := 0 to High(arrAppend) do
+		Utils.ArrayAppend(arr, arrAppend[i]);
+end;
+
+
+// Returns the maximum value in the array
+function UTArrayIMax(arr: array of Integer): Integer;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	Result := arr[0];
+	for i := 0 to High(arr) do
+		if (arr[i] > Result) then
+			Result := arr[i];
+end;
+
+
+// Returns the maximum value in the array
+function UTArraySMax(arr: array of Single): Single;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	Result := arr[0];
+	for i := 0 to High(arr) do
+		if (arr[i] > Result) then
+			Result := arr[i];
+end;
+
+
+// Returns the maximum value in the array
+function UTArrayIMin(arr: array of Integer): Integer;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	Result := arr[0];
+	for i := 0 to High(arr) do
+		if (arr[i] < Result) then
+			Result := arr[i];
+end;
+
+
+// Returns the maximum value in the array
+function UTArraySMin(arr: array of Single): Single;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	Result := arr[0];
+	for i := 0 to High(arr) do
+		if (arr[i] < Result) then
+			Result := arr[i];
+end;
+
+
+// Returns the sum value of the array
+function UTArrayISum(arr: array of Integer): Integer;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	for i := 0 to High(arr) do
+		Result := Result + arr[i];
+end;
+
+
+// Returns the sum value of the array
+function UTArraySSum(arr: array of Single): Single;
+var
+	i: Integer;
+begin
+	if (Length(arr) = 0) then Exit;
+	
+	for i := 0 to High(arr) do
+		Result := Result + arr[i];
+end;
+
+
+// Returns the average value of the array
+function UTArrayIAvg(arr: array of Integer): Single;
+begin
+	Result := 1.0 * UTArrayISum(arr) / Length(arr);
+end;
+
+
+// Returns the average value of the array
+function UTArraySAvg(arr: array of Single): Single;
+
+begin
+	Result := 1.0 * UTArraySSum(arr) / Length(arr);
+end;
+
+
+// Fully feeds all of the units owned by the given player
+procedure UTFeedAllUnits(aPlayer: Integer);
+var
+	unitsToFeed: array of Integer;
+	i: Integer;
+begin
+	unitsToFeed := States.PlayerGetAllUnits(aPlayer);
+
+	for i := 0 to High(unitsToFeed) do
+		Actions.UnitHungerSet(unitsToFeed[i], States.UnitHungerMax);
+end;
+
+
+// Sets all WareDistributions of the given player to 5.
+procedure UTPlayerMaxWareDistributions(aPlayer: Integer);
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htSawmill, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtTrunk, htCoalmakers, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtWood, htWeaponWorkshop, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtWood, htArmorWorkshop, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htMill, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htCattleFarm, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htBrewery, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htFoundry, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htMint, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htWeaponSmithy, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtCoal, htArmorSmithy, 5);
+	
+	Actions.PlayerWareDistribution(aPlayer, wtSteel, htWeaponSmithy, 5);
+	Actions.PlayerWareDistribution(aPlayer, wtSteel, htArmorSmithy, 5);
+end;
+
+
+//
+procedure UTFocusCameraOnUnit(aUnit: Integer; aHeading, aZoom: Single);
+begin
+	Actions.CinematicBegin();
+	Actions.CinematicViewSetTo(States.UnitPositionX(aUnit), States.UnitPositionY(aUnit), aHeading, aZoom);
+	Actions.CinematicEnd();
+end;
+
+
+// Checks if the given trigger has already fired. If not and the unit matches the player, displays a message to the player, with optional camera focus on the unit.
+procedure UTCheckAreaExploredMessage(var aTriggerFired: Boolean; aPlayer, aUnit: Integer; aMessage: String; aOpen, aFocusCamera: Boolean);
+begin
+	if aTriggerFired
+	or (States.UnitOwner(aUnit) <> aPlayer) then
+		Exit;
+	
+	aTriggerFired := True;
+	
+	Actions.PlayerMessage(aPlayer, aMessage, aOpen);
+	
+	if aFocusCamera then
+		UTFocusCameraOnUnit(aUnit, 0.0, 0.25);
+end;
+
+
+// Returns the amount of key buildings (camp, barracks, fort) the given player has standing. Meant for town destroy objectives.
+function UTPlayerKeyBuildingsAmount(aPlayer: Integer): Integer;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	Result := States.StatHouseTypeCount(aPlayer, htCamp) + States.StatHouseTypeCount(aPlayer, htFort) + States.StatHouseTypeCount(aPlayer, htBarracks);
+end;
+
+
+// Used to get around the fact we currently lack States to get current objective status.
+procedure UTObjectiveCreate(aPlayer: Integer; objType: TKMObjectiveType; orderID: Integer; objStatus: TKMObjectiveStatus; objText: String; var objIDVar: Integer; var objStVar: TKMObjectiveStatus);
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	objStVar := objStatus;
+	objIDVar := Actions.PlayerObjectiveAdd(aPlayer, objType, orderID, objStatus, objText);
+end;
+
+
+// Used to get around the fact we currently lack States to get current objective status.
+procedure UTObjectiveStatusUpdate(aPlayer, objectiveID: Integer; var oldStatusVar: TKMObjectiveStatus; newStatus: TKMObjectiveStatus);
+begin
+	if (aPlayer < 0) or (aPlayer > 11) or (objectiveID < 1) then Exit;
+	oldStatusVar := newStatus;
+	Actions.PlayerObjectiveUpdateStatus(aPlayer, objectiveID, newStatus);
+end;
+
+
+// Checks if the target player has 0 army. If he does, the objective is marked as completed. Otherwise, it's marked as active.
+procedure UTObjectiveArmyUpdate(objOwner, objTarget, objID: Integer; var objStatus: TKMObjectiveStatus);
+begin
+	if (States.StatArmyCount(objTarget) = 0) then
+		UTObjectiveStatusUpdate(objOwner, objID, objStatus, osCompleted)
+	else
+		UTObjectiveStatusUpdate(objOwner, objID, objStatus, osActive);
+end;
+
+
+// Checks if the target player has 0 key buildings. If he does, the objective is marked as completed. Otherwise, it's marked as active.
+procedure UTObjectiveTownUpdate(objOwner, objTarget, objID: Integer; var objStatus: TKMObjectiveStatus);
+begin
+	if (UTPlayerKeyBuildingsAmount(objTarget) = 0) then
+		UTObjectiveStatusUpdate(objOwner, objID, objStatus, osCompleted)
+	else
+		UTObjectiveStatusUpdate(objOwner, objID, objStatus, osActive);
+end;
+
+
+// Checks how many troops and key buildings the player has left. If the player is supposed to be defeated (depending on the input survival type), sets the player as defeated. 
+type
+	UTSurvivalType = (stBuildings, stArmy, stBuildingsOrArmy, stBuildingsAndArmy);
+
+procedure UTObjectiveCheckSurvival(aPlayer: Integer; suvivalType: UTSurvivalType);
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	if (States.PlayerDefeated(aPlayer)) then Exit;
+	if (suvivalType = stBuildings) and (UTPlayerKeyBuildingsAmount(aPlayer) = 0) then
+		Actions.PlayerDefeat(aPlayer);
+	if (suvivalType = stArmy) and (States.StatArmyCount(aPlayer) = 0) Then
+		Actions.PlayerDefeat(aPlayer);
+	if (suvivalType = stBuildingsOrArmy) and ((UTPlayerKeyBuildingsAmount(aPlayer) = 0) and (States.StatArmyCount(aPlayer) = 0)) then
+		Actions.PlayerDefeat(aPlayer);
+	if (suvivalType = stBuildingsAndArmy) and ((UTPlayerKeyBuildingsAmount(aPlayer) = 0) or (States.StatArmyCount(aPlayer) = 0)) then
+		Actions.PlayerDefeat(aPlayer);
+end;
+
+
+// Currently, if the AI has its dispositions full, it still orders weaponry. This leads to a paradox where an AI which has full bow dispositions, but no melee troops, still orders bows from workshops. This proc makes the AI realize what it is currently missing and focus its efforts towards it. Militia is not being taken into account.
+procedure UTOptimizeAIArmyCompositions(aPlayer: Integer; defaultSettings: array of Integer; manageHorses: Boolean);
+var
+	uid, x, y, dir, amount, rows, guardRadius, i, j, group, t2OverflowsCount, t3OverflowsCount, t2OverflowTotal, t3OverflowTotal: Integer;
+	groupType: TKMGroupType;
+	currentAmounts, requestedAmounts, overflowTroops, optimizedSettings, groups: array of Integer;
+	groupTypes: array of TKMGroupType;
+	unitTypes: array of TKMUnitType;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	groupTypes := [gtMelee, gtRanged, gtAntiHorse, gtMounted];
+	// The train rates set up in the defaultSettings have to match the order of unit types in this array!
+	unitTypes := [utAxeFighter, utSwordsman, utBowman, utArbaletman, utPikeman, utHalberdier, utHorseScout, utCavalry];
+	
+	if (Length(defaultSettings) <> Length(unitTypes)) then Exit;
+	
+	SetLength(currentAmounts, Length(groupTypes));
+	SetLength(requestedAmounts, Length(groupTypes));
+	SetLength(overflowTroops, Length(unitTypes));
+	SetLength(optimizedSettings, Length(unitTypes));
+
+	// Find out the total amount of troops required by AIDispositions and the total amount of troops currently present in them. All split by group type.
+	for i := 0 to States.PlayerAIDispositionCount(aPlayer) - 1 do
+	begin
+		States.PlayerAIDispositionGet(aPlayer, i, uid, x, y, dir, groupType, amount, rows, guardRadius);
+		group := States.PlayerAIDispositionGroup(aPlayer, i);
+			
+		for j := 0 to High(groupTypes) do
+		begin
+			if (groupType = groupTypes[j]) then
+			begin
+				requestedAmounts[j] := requestedAmounts[j] + amount;
+				
+				if (group > 0) then
+				begin
+					Utils.ArrayAppendI(groups, group);
+					currentAmounts[j] := currentAmounts[j] + States.GroupMemberCount(group);
+				end;
+			end;
+		end;
+	end;
+	
+	// If any group type is currently at full capacity, mark the production of the troops for it as overflows. Overflows will be redirected to other unit types of matching tier.
+	for i := 0 to High(groupTypes) do
+	begin
+		if (requestedAmounts[i] <= currentAmounts[i]) then
+		begin
+			overflowTroops[2*i] := overflowTroops[2*i] + defaultSettings[2*i];
+			overflowTroops[2*i+1] := overflowTroops[2*i+1] + defaultSettings[2*i+1];
+			t2OverflowTotal := t2OverflowTotal + overflowTroops[2*i];
+			t3OverflowTotal := t3OverflowTotal + overflowTroops[2*i+1];
+			t2OverflowsCount := t2OverflowsCount + 1;
+			t3OverflowsCount := t3OverflowsCount + 1;
+			optimizedSettings[2*i] := 0;
+			optimizedSettings[2*i+1] := 0;
+		end;
+	end;
+	
+	// Create new optimized settings where values from default that would go in vain are redirected equally between the remaining still required group types.
+	for i := 0 to High(groupTypes) do
+	begin
+		if (requestedAmounts[i] > currentAmounts[i]) then
+		begin
+			if (t2OverflowsCount < 4) then
+				optimizedSettings[2*i] := defaultSettings[2*i] + ((t2OverflowTotal - overflowTroops[2*i]) / (4 - t2OverflowsCount))
+			else
+				optimizedSettings[2*i] := defaultSettings[2*i];
+				
+			if (t3OverflowsCount < 4) then
+				optimizedSettings[2*i+1] := defaultSettings[2*i+1] + ((t3OverflowTotal - overflowTroops[2*i+1]) / (4 - t3OverflowsCount))
+			else
+				optimizedSettings[2*i+1] := defaultSettings[2*i+1];
+		end;
+	end;
+	
+	// If all AIDispositions are full, then use the default settings to stock up on items to train everything that is present in the defaults.
+	if (Utils.ArraySumI(optimizedSettings) = 0) then
+		optimizedSettings := defaultSettings;
+	
+	// Perform the actual changes in game.
+	for i := 0 to High(optimizedSettings) do
+	begin
+		Actions.PlayerAIArmyCompositionSet(aPlayer, unitTypes[i], optimizedSettings[i]);
+	end;
+	
+	// No point in feeding horses if no cavalry is to be trained.
+	if manageHorses Then
+	begin
+		if (optimizedSettings[6] + optimizedSettings[7] = 0) then
+			Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 0)
+		else
+			Actions.PlayerWareDistribution(aPlayer, wtGrain, htStables, 5);
+	end;
+end;
+
+
+// Checks the storehouses across the AI's town and closes off resource deliveries where needed, to reduce unnecessary traffic.
+procedure UTOptimizeAIHouseWareBlocks(aPlayer: Integer; wareTypes: array of TKMWareType; wareMaximums: array of Integer; keepDefaults, manageSheep: Boolean);
+var
+	defaultWares, finalWares: array of TKMWareType;
+	defaultMaximums, finalMaximums, houses: array of Integer;
+	storeHouseTypes: array of TKMHouseType;
+	i, j, k, currentLength: Integer;
+	inputWareFound: Boolean;
+	test: String;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	if (Length(wareTypes) <> Length(wareMaximums)) then Exit;
+	
+	defaultWares := [wtTrunk, wtStone, wtWood, wtIronOre, wtGoldOre, wtCoal, wtSteel, wtGold, wtGrain, wtFlour, wtBeef, wtWool, wtCloth];
+	defaultMaximums := [20, 50, 100, 50, 20, 100, 100, 50, 100, 50, 50, 50, 100];
+	storeHouseTypes := [htCamp, htStore, htFort, htBarracks];
+	
+	// This allows for the default values to be used if other values were not specified in the input, and if the user wishes it to happen so.
+	if keepDefaults then
+	begin
+		SetLength(finalWares, Length(defaultWares));
+		SetLength(finalMaximums, Length(defaultWares));
+		
+		for i := 0 to High(finalWares) do
+		begin
+			finalWares[i] := defaultWares[i];
+			finalMaximums[i] := -1;
+			
+			for j := 0 to High(wareTypes) do
+				if (wareTypes[j] = finalWares[i]) then
+					finalMaximums[i] := wareMaximums[j];
+			if (finalMaximums[i] = -1) then
+				finalMaximums[i] := defaultMaximums[i];
+		end;
+		for i := 0 to High(wareTypes) do
+		begin
+			inputWareFound := False;
+			for j := 0 to High(finalWares) do
+				if (wareTypes[i] = finalWares[j]) then
+					inputWareFound := True;
+			if not inputWareFound then
+			begin
+				currentLength := Length(finalWares);
+				
+				SetLength(finalWares, currentLength + 1);
+				finalWares[currentLength] := wareTypes[i];
+				
+				SetLength(finalMaximums, currentLength + 1);
+				finalMaximums[currentLength] := wareMaximums[i];
+			end;
+		end;
+	end
+	// If the user does not wish the defaults to be used at all, and wants only the ware types specified in the input to be affected, that is where this comes to play.
+	else
+	begin
+		finalWares := wareTypes;
+		finalMaximums := wareMaximums;
+	end;
+	
+	// Perform the actual changes in game.
+	for i := 0 to High(storeHouseTypes) do
+	begin
+		for j := 0 to High(finalWares) do
+		begin
+			if ((storeHouseTypes[i] = htCamp) and (finalWares[j] in [wtStone, wtTrunk, wtWood, wtFish, wtCider, wtClub, wtGold]))
+			or ((storeHouseTypes[i] = htStore) and (finalWares[j] in [wtGrain, wtFlour, wtBread, wtBeef, wtSausages, wtAle, wtWool, wtCloth, wtGoldOre, wtIronOre, wtCoal, wtSteel]))
+			or ((storeHouseTypes[i] = htFort) and (finalWares[j] in [wtAxe, wtPike, wtBow, wtShield, wtGambeson, wtHorse]))
+			or ((storeHouseTypes[i] = htBarracks) and (finalWares[j] in [wtSword, wtHalberd, wtArbalet, wtMetalShield, wtMetalArmor, wtHorse])) then
+			begin
+				houses := States.PlayerGetHouses(aPlayer, storeHouseTypes[i], True);
+				for k := 0 to High(houses) do
+				begin
+					if (States.StatWaresBalance(aPlayer, finalWares[j]) >= finalMaximums[j]) then
+						Actions.HouseWareInBlock(houses[k], finalWares[j], 1)
+					else
+						Actions.HouseWareInBlock(houses[k], finalWares[j], 0);
+				end;
+			end;
+			
+			// If sheep feeding is to be automatically handled, give them grain if it is above the cap. Otherwise, close the grain supply to them.
+			if manageSheep and (finalWares[j] = wtGrain) then
+			begin
+				if (States.StatWaresBalance(aPlayer, wtGrain) >= finalMaximums[j]) then
+					Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 5)
+				else
+					Actions.PlayerWareDistribution(aPlayer, wtGrain, htSheepyard, 0);
+			end;
+		end;
+	end;
+end;
+
+
+// Returns the X coordinate of the group's flag bearer.
+function UTGroupGetFlagX(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionX(States.GroupMember(aGroup, 0));
+end;
+
+
+// Returns the Y coordinate of the group's flag bearer.
+function UTGroupGetFlagY(aGroup: Integer): Integer;
+begin
+	Result := -1;
+	if (aGroup > 0) and (States.GroupMemberCount(aGroup) > 0) then
+		Result := States.UnitPositionY(States.GroupMember(aGroup, 0));
+end;
+
+
+// For debug purposes, pass this for example to UTDebugMsg() if needed.
+function UTGroupDebug(aGroup: Integer): String;
+begin
+	if (aGroup <= 0) then
+		Result := Utils.Format('No group with ID %d found.', [aGroup])
+	else
+		Result := Utils.Format('Group ID %d, owner ID: %d, member count: %d, units per row: %d, is dead: %s, is idle: %s, flag bearer X: %d, flag bearer Y: %d', [aGroup, States.GroupOwner(aGroup), States.GroupMemberCount(aGroup), States.GroupColumnCount(aGroup), UTBoolToStr(States.GroupDead(aGroup)), UTBoolToStr(States.GroupIsIdle(aGroup)), UTGroupGetFlagX(aGroup), UTGroupGetFlagY(aGroup)]);
+end;
+
+
+// Splits a given amount of units from a group, returns ID of the new group (or -1, if the split couldn't be done, or back the given group if it didn't have enough troops to split from). Column count is kept the same for both groups (if possible).
+function UTGroupSplitByAmount(aGroup, splitAmount: Integer): Integer;
+var
+	i, originalAmount, newAmount, originalColCount, groupToSplit, groupSplitted: Integer;
+	splitGroups: array of Integer;
+begin
+	Result := -1;
+	if (splitAmount < 1) or (aGroup < 1) then Exit;
+	
+	originalAmount := States.GroupMemberCount(aGroup);
+	if (originalAmount = 1) or (splitAmount >= originalAmount) then
+	begin
+		Result := aGroup;
+		Exit;
+	end;
+	
+	newAmount := originalAmount - splitAmount;
+	originalColCount := States.GroupColumnCount(aGroup);
+	
+	// Split the group into groups of 1.
+	groupToSplit := aGroup;
+	Utils.ArrayAppendI(splitGroups, groupToSplit);
+	while (Length(splitGroups) < originalAmount) do
+	begin
+		groupSplitted := Actions.GroupOrderSplit(groupToSplit);
+		Utils.ArrayAppendI(splitGroups, groupSplitted);
+		if (States.GroupMemberCount(groupToSplit) = 1) then
+			for i := 0 to High(splitGroups) do
+				if (States.GroupMemberCount(splitGroups[i]) > 1) then
+					groupToSplit := splitGroups[i];
+	end;
+	
+	// Link everyone into the original group, until only units that are to be split away remain. Then link these together (flag bearer becomes the last of them on the list).
+	Result := splitGroups[originalAmount - 1];
+	for i := 0 to High(splitGroups) do
+	begin
+		if (splitGroups[i] <> aGroup)
+		and (splitGroups[i] <> Result) Then
+		begin
+			if (States.GroupMemberCount(aGroup) < newAmount) then
+				Actions.GroupOrderLink(splitGroups[i], aGroup)
+			else
+				Actions.GroupOrderLink(splitGroups[i], Result);
+		end;
+	end;
+	
+	// Return to the original column counts (otherwise both groups would remain at 1).
+	Actions.GroupSetFormation(Result, originalColCount);
+	Actions.GroupSetFormation(aGroup, originalColCount);
+end;
+
+
+// Returns all units within certain radius off the given point
+function UTUnitsInRadius(aX, aY: Integer; radius: Single): array of Integer;
+var
+	i: Integer;
+	unitsInSquare: array of Integer;
+begin
+	unitsInSquare := States.UnitsAt(Round(aX - radius), Round(aY - radius), Round(aX + radius), Round(aY + radius));
+	
+	for i := 0 to High(unitsInSquare) do
+		if (Utils.DistanceS(aX - States.UnitPositionX(unitsInSquare[i]), aY - States.UnitPositionY(unitsInSquare[i])) <= radius) then
+			Utils.ArrayAppendI(Result, unitsInSquare[i]);
+end;
+
+
+// Returns all units within certain radius off the given point that are owned by the given player
+function UTPlayerUnitsInRadius(aPlayer, aX, aY: Integer; radius: Single): array of Integer;
+var
+	i: Integer;
+	unitsInRadius: array of Integer;
+begin
+	unitsInRadius := UTUnitsInRadius(aX, aY, radius);
+	
+	for i := 0 to High(unitsInRadius) do
+		if (States.UnitOwner(unitsInRadius[i]) = aPlayer) then
+			Utils.ArrayAppendI(Result, unitsInRadius[i]);
+end;
+
+
+
+// Find the closest group of matching group type within range and links the given group to it
+procedure UTGroupLinkToClosest(aGroup: Integer; radius: Single);
+var
+	unitsCloseby: array of Integer;
+	flagX, flagY, i, groupCloseby, closestGroup: Integer;
+	distance, minDistance: Single;
+begin
+	if (aGroup <= 0) or (radius <= 0) then Exit;
+
+	flagX := UTGroupGetFlagX(aGroup);
+	flagY := UTGroupGetFlagY(aGroup);
+	minDistance := 10000;
+	closestGroup := -1;
+	
+	unitsCloseby := UTPlayerUnitsInRadius(States.GroupOwner(aGroup), flagX, flagY, radius);
+	
+	for i := 0 to High(unitsCloseby) do
+	begin
+		groupCloseby := States.UnitGroup(unitsCloseby[i]);
+		if (States.GroupType(groupCloseby) = States.GroupType(aGroup)) then
+		begin
+			distance := Utils.DistanceS(flagX - States.UnitPositionX(unitsCloseby[i]), flagy - States.UnitPositionY(unitsCloseby[i]));
+			if (groupCloseby <> aGroup)
+			and (distance <= radius)
+			and (distance < minDistance) then
+				closestGroup := groupCloseby;
+		end;
+	end;
+	
+	if (closestGroup > -1) then
+		Actions.GroupOrderLink(aGroup, closestGroup);
+end;
+
+
+// Increases the unit's max HP to the given value, while keeping the current % of the unit's HP.
+procedure UTChangeUnitHPMax(aUnit, newMax: Integer);
+var
+	currentHP, currentMax: Integer;
+begin
+	currentHP := States.UnitHitpoints(aUnit);
+	currentMax := States.UnitHitpointsMax(aUnit);
+	
+	if (newMax < 0) then
+	begin
+		Actions.UnitHitpointsMax(aUnit, -1);
+		newMax := States.UnitHitpointsMax(aUnit);
+	end
+	else
+		Actions.UnitHitpointsMax(aUnit, newMax);
+	
+	Actions.UnitHitpointsSet(aUnit, Round(1.0 * currentHP * newMax / currentMax));
+end;
+
+
+// Turns the given unit into a hero - by setting its stats to the given inputs. Name, speed and damage changes are unfortunately not yet supported by the core game. Keeps the original unit's HP %.
+procedure UTUnitSetHeroStats(aUnit: Integer; name: String; hp, regen, minDmg, maxDmg, sightRadius, aColor: Integer);
+begin
+	Actions.UnitNameSet(aUnit, name);
+	UTChangeUnitHPMax(aUnit, hp);
+	Actions.UnitHitpointsRestorePace(aUnit, regen);
+	Actions.UnitDamageSet(aUnit, minDmg, maxDmg);
+	Actions.UnitSightSet(aUnit, sightRadius);
+	Actions.UnitFlagColorOverride(aUnit, aColor);
+end;
+
+
+// Restores the given unit's stats to default values. Keeps the original unit's HP %.
+procedure UTUnitResetStats(aUnit: Integer);
+begin
+	Actions.UnitNameSet(aUnit, '');
+	UTChangeUnitHPMax(aUnit, -1);
+	Actions.UnitHitpointsRestorePace(aUnit, -1);
+	Actions.UnitDamageSet(aUnit, -1, -1);
+	Actions.UnitSightSet(aUnit, -1);
+	Actions.UnitFlagColorOverride(aUnit, -1);
+end;
+
+
+// Unused types like utBarbarian and neutral types like utBoar are NOT included.
+function UTUnitIsMilitary(aUnit: Integer): Boolean;
+var
+	ut: TKMUnitType;
+begin
+	ut := States.UnitType(aUnit);
+	Result := ut in [utMilitia, utAxeFighter, utSwordsman, utBowman, utArbaletman, utPikeman, utHalberdier, utHorseScout, utCavalry, utSkeletonAxe, utSkeletonSword, utSkeletonBow, utRebelFork, utSkeleton, utCatapult, utBallista];
+end;
+
+
+// Takes the given coords and searches for the closest unit matching the criteria (target players). Considers non-military units to be further by civilianBias - used for priority being given to soldiers over civilians (when values above 0 are used at least).
+function UTUnitGetClosestToPos(x, y, civilianBias: Integer; players: array of Integer; out shortestDistance: Single): Integer;
+var
+    i, j: Integer;
+	distance: Single;
+    playerUnits: array of Integer;
+begin
+	shortestDistance := 10000;
+	shortestDistance := 10000;
+	Result := -1;
+	
+	for i := 0 to High(players) do
+	begin
+		playerUnits := States.PlayerGetAllUnits(players[i]);
+		
+		for j := 0 to High(playerUnits) do
+		if (States.UnitInHouse(playerUnits[j]) = 0) then
+		begin
+			distance := Utils.DistanceS(x - States.UnitPositionX(playerUnits[j]), y - States.UnitPositionY(playerUnits[j]));
+			if (civilianBias <> 0)
+			and (not UTUnitIsMilitary(States.UnitType(playerUnits[j]))) then
+				distance := distance + civilianBias;
+			
+			if (distance < shortestDistance) then
+			begin
+				Result := playerUnits[j];
+				shortestDistance := distance;
+			end;
+		end;
+	end;
+end;
+
+
+// Transitions the ownership of the house, but also keeps the house's properties like ware amounts.
+function UTHouseOwnerChangeImproved(aHouseID, aPlayer: Integer): Integer;
+var
+	i, waresBlock, woodcutterSetting: Integer;
+	wareTypes: array of TKMWareType;
+	wareAmounts, wareBlocks, orderAmounts: array of Integer;
+	houseType: TKMHouseType;
+begin
+	if (aPlayer < 0) or (aPlayer > 11) then Exit;
+	houseType := States.HouseType(aHouseID);
+	if (houseType in [htNone, htWolfsDen, htBearsDen]) then Exit;
+	
+	// wareBlocks is currently disabled, as it is bugged in the core game.
+	wareTypes := [wtTrunk, wtStone, wtWood, wtIronOre, wtGoldOre, wtCoal, wtSteel, wtGold, wtAle, wtGrain, wtBread, wtFlour, wtSausages, wtBeef, wtShield, wtMetalShield, wtArmor, wtMetalArmor, wtAxe, wtSword, wtPike, wtHalberd, wtBow, wtArbalet, wtHorse, wtFish, wtClub, wtCider, wtWool, wtCloth, wtGambeson];
+	SetLength(wareAmounts, Length(wareTypes));
+	//SetLength(wareBlocks, Length(wareTypes));
+	SetLength(orderAmounts, Length(wareTypes));
+	
+	for i := 0 to High(wareTypes) do
+	begin
+		wareAmounts[i] := States.HouseWareInside(aHouseID, wareTypes[i]);
+		//if (houseType in [htCamp, htFort, htStore, htBarracks]) then
+        //    wareBlocks[i] := States.HouseWareBlock(aHouseID, wareTypes[i]);
+		if not (houseType in [htCamp, htFort, htStore, htBarracks]) then
+			waresBlock := States.HouseWaresBlock(aHouseID);
+		orderAmounts[i] := States.HouseWeaponsOrdered(aHouseID, wareTypes[i]);
+		//Woodcutter settings are currently disabled, since the game's API does not support them correctly.
+		//woodcutterSetting := States.HouseWoodcutterChopOnly(aHouseID);
+	end;
+
+	Result := Actions.HouseOwnerChange(aHouseID, aPlayer);
+
+	for i := 0 to High(wareTypes) do
+	begin
+		if (wareAmounts[i] > 0) then
+			Actions.HouseWareAdd(Result, wareTypes[i], wareAmounts[i]);
+		//if (houseType in [htCamp, htFort, htStore, htBarracks]) Then
+		//	Actions.HouseWareInBlock(Result, wareTypes[i], wareBlocks[i]);
+		if not (houseType in [htCamp, htFort, htStore, htBarracks]) then
+			Actions.HouseWaresInBlock(Result, waresBlock);
+		if (orderAmounts[i] > 0) then
+			Actions.HouseWeaponsOrderSet(Result, wareTypes[i], orderAmounts[i]);
+		//Actions.HouseWoodcutterMode(Result, woodcutterSetting);
+	end;
+end;
+
+
+// Takes the given coords and searches for the closest house matching the criteria (target players, house type and whether completed only).
+function UTHouseGetClosestToPos(x, y: Integer; players: array of Integer; aHouseType: TKMHouseType; aOnlyCompleted: Boolean; out shortestDistance: Single): Integer;
+var
+    i, j: Integer;
+	distance: Single;
+    playerHouses: array of Integer;
+begin
+	shortestDistance := 10000;
+	Result := -1;
+	
+	for i := 0 to High(players) do
+	begin
+		playerHouses := States.PlayerGetHouses(players[i], aHouseType, aOnlyCompleted);
+		
+		for j := 0 to High(playerHouses) do
+		begin
+			distance := Utils.DistanceS(x - States.HousePositionX(playerHouses[j]), y - States.HousePositionY(playerHouses[j]));
+			if (distance < shortestDistance) then
+			begin
+				Result := playerHouses[j];
+				shortestDistance := distance;
+			end;
+		end;
+	end;
+end;
+
+
+// Returns the house type to which the given ware type is supposed to go. For horses, allows for fort/barracks preference.
+function UTWareTypeGetStoreHouseType(wareType: TKMWareType; horsePreferFort: Boolean): TKMHouseType;
+begin
+	if (wareType in [wtStone, wtTrunk, wtWood, wtFish, wtCider, wtClub, wtGold]) then
+		Result := htCamp
+	else if (wareType in [wtGrain, wtFlour, wtBread, wtBeef, wtSausages, wtAle, wtWool, wtCloth, wtGoldOre, wtIronOre, wtCoal, wtSteel]) then
+		Result := htStore
+	else if (wareType in [wtAxe, wtPike, wtBow, wtShield, wtGambeson])
+	or ((wareType = wtHorse) and horsePreferFort) then
+		Result := htFort
+	else if (wareType in [wtSword, wtHalberd, wtArbalet, wtMetalShield, wtMetalArmor])
+	or ((wareType = wtHorse) and not horsePreferFort) then
+		Result := htBarracks
+	else
+		Result := htNone;
+end;
+
+
+//
+function UTWareGetPlayerStores(aPlayer: Integer; aWareType: TKMWareType; ignoreBlock: Boolean): array of Integer;
+var
+	i: Integer;
+	houses: array of Integer;
+begin
+	houses := States.PlayerGetHouses(aPlayer, UTWareTypeGetStoreHouseType(aWareType, False), True);
+	if (aWareType = wtHorse) then
+		UTArrayIMerge(houses, States.PlayerGetHouses(aPlayer, htFort, True));
+	
+	if ignoreBlock then
+		Result := houses
+	else
+	begin
+		for i := 0 to High(houses) do
+			if (States.HouseWareBlock(houses[i], aWareType) = 0) then
+				Utils.ArrayAppendI(Result, houses[i]);
+	end;
+end;
+
+
+// Returns the closest house that can take the given resource - optionally, ignores resource input blocks
+function UTWareGetClosestPlayerStore(aPlayer, aX, aY: Integer; aWareType: TKMWareType; ignoreBlock: Boolean): Integer;
+var
+	i: Integer;
+	distance, minDistance: Single;
+	houses: array of Integer;
+begin
+	minDistance := 10000;
+	Result := -1;
+	
+	houses := UTWareGetPlayerStores(aPlayer, aWareType, ignoreBlock);
+	for i := 0 to High(houses) do
+	begin
+		distance := Utils.DistanceS(aX - States.HousePositionX(houses[i]), aY - States.HousePositionY(houses[i]));
+			if (distance < minDistance) then
+			begin
+				Result := houses[i];
+				minDistance := distance;
+			end;
+	end;
+end;
+// ####################   End of Extra utils  ####################

@@ -1,0 +1,700 @@
+// ####################   Trade route manager script   ####################
+// Author: Amaroth.
+// Version: 1.1.2 (2025-04-17)
+// Adds interaction markers into the game. After being clicked, they provide the player with a dialog containing up to 7 options of differet ware-for-ware or ware-for-units options + fixed 8th offer of closing the dialog.
+// The script makes sure that you don't enter duplicate button tags (IDs) into it, but it has no way of ensuring they are not the same as button tags you might be using in your own script. Be careful if you have PlayerMessageWithButtons in your own script to avoid duplicate button tags.
+
+// HOW TO USE:
+// 1. Add TMInitiateScript to your OnMissionStart event handler
+// 2. Add TMResolveTick to your OnTick event handler
+// 3. Add TMScriptBtnClick to your OnScriptButtonClick event handler.
+// 4. Add TMScriptMarkerClick to your OnScriptMarkerClick event handler.
+// 5. Use TMNewTradeOffer to create a new TradeRoute
+// 6. Use TMAddWareOption and/or TMAddMercenaryOption to add route options to the TradeRoute
+// 7. Optional: Use TMSetMarkerAvailableSettings and TMSetMarkerUnavailableSettings to override the default appearance of available/unavailable marker behavior
+// 8. Optional: Use TMSetMercenaryOptionStats to override the default stats of hired units (to give them unique names, combat stats, color etc)
+// 9. Optional: Should you need to change the route's marker, use TMSetOfferMarker for that
+
+{
+TODO
+- More warehouses support
+}
+
+uses
+	extra_utils, wagon_supply, temp_markers;
+
+const
+	// Default stats for the hired units. Note that these are not based off any unit type. By default, the script will just provide fully fed regular units with their respective default stats. TMSetMercenaryOptionStats changes this behavior for chosen TMMercenaryOffer - these here are global settings and should not really be edited.
+	TM_DEFAULT_MERC_NAME = '';
+	TM_DEFAULT_MERC_HP_MAX = -1;
+	TM_DEFAULT_MERC_HP_REGEN = -1;
+	TM_DEFAULT_MERC_DMG_MIN = -1;
+	TM_DEFAULT_MERC_DMG_MAX = -1;
+	TM_DEFAULT_MERC_SIGHT = -1;
+	TM_DEFAULT_MERC_COLOR = -1;
+	TM_DEFAULT_MERC_HUNGER = 2700;
+	
+	// Default appearance of a marker if at least 1 offer is available. You can override these for an route with TMSetMarkerAvailableSettings. Changing the defaults here is not recommended.
+	TM_DEFAULT_AVAILABLE_BOB = True;
+	TM_DEFAULT_AVAILABLE_GLOW = True;
+	TM_DEFAULT_AVAILABLE_COLOR = $00FFFF;
+	TM_DEFAULT_AVAILABLE_HEIGHT = 1.5;
+	
+	// Default appearance of a marker if no offer is available. You can override these for an route with TMSetMarkerUnavailableSettings. Changing the defaults here is not recommended.
+	TM_DEFAULT_UNAVAILABLE_BOB = False;
+	TM_DEFAULT_UNAVAILABLE_GLOW = False;
+	TM_DEFAULT_UNAVAILABLE_COLOR = $606060;
+	TM_DEFAULT_UNAVAILABLE_HEIGHT = -1;
+	
+	TM_OPTIONS_LIMIT = 7; // This is imposed by the game itself's limit of max 8 buttons per a PlayerMessageWithButtons
+
+type
+	// dtWagon = wares will be delivered by a wagon
+	// dtInstant = wares will be instantaneously transferred, no wagons
+	// dtNone = wares will be only removed from the source, no delivery to the target
+	// dtWagonMagic = wares will be delivered by a wagon, but the sender does not have them removed from any warehouse (there still needs to be a sender warehouse)
+	// dtInstantMagic = wares will be instantaneously added to the receiver, but the sender does not have them removed from any warehouse (there needs to be no sender warehouse)
+	// dtNoneMagic = no wares are delivered and no wares are removed 
+	TMDeliveryType = (dtWagon, dtInstant, dtNone, dtWagonMagic, dtInstantMagic);
+	
+	TMMercenaryStats = record
+		aName: String;
+		aHP: Integer;
+		aRegen: Integer;
+		aMinDmg: Integer;
+		aMaxDmg: Integer;
+		aSight: Integer;
+		aColor: Integer;
+		aHunger: Integer;
+	end;
+	
+	// An offer in a dialog to route wares for wares
+	TMWareOffer = record
+		inWareType: TKMWareType; // Input ware type of the route (provided by the player)
+		inAmount: Integer; // Input ware amount of the route (provided by the player)
+		outWareType: TKMWareType; // Output ware type of the route (provided by the trader)
+		outAmount: Integer; // Output ware amount of the route (provided by the trader)
+		btnTxt: String; // For PlayerMessageWithButtons - associated button settings
+		btnIcon: String; // For PlayerMessageWithButtons - associated button settings
+		btnTag: Integer; // For PlayerMessageWithButtons - associated button settings
+		isAvailable: Boolean; // Whether this offer is currently available
+	end;
+	
+	// An offer in a dialog to route wares for mercenaries (units)
+	TMMercenaryOffer = record
+		inWareType: TKMWareType; // Input ware type of the route (provided by the player)
+		inAmount: Integer; // Input ware amount of the route (provided by the player)
+		outUnitType: TKMUnitType; // Output unit type of the route (provided by the trader)
+		outAmount: Integer; // Output unit amount of the route (provided by the trader)
+		outColAmount: Integer; // Amount of columns in the hired group's formation
+		outX: Integer; // Output unit spawn X
+		outY: Integer; // Output unit spawn Y
+		stats: TMMercenaryStats; // Used for overriding the default unit stats - like changing names, colors, combat stats etc of the mercenary units to make them distinct
+		btnTxt: String; // For PlayerMessageWithButtons - associated button settings
+		btnIcon: String; // For PlayerMessageWithButtons - associated button settings
+		btnTag: Integer; // For PlayerMessageWithButtons - associated button settings
+		isAvailable: Boolean; // Whether this offer is currently available
+	end;
+	
+	// A record of marker settings, used for remembering how marker should look when a deal is available, and when its not
+	TMMarkerSettings = record
+		aBob: Boolean; // See Actions.InteractionMarkerBob
+		aColor: Integer; // See Actions.InteractionMarkerUpdate
+		aGlow: Boolean; // See Actions.InteractionMarkerUpdate
+		aHeight: Single; // See Actions.InteractionMarkerUpdate
+	end;
+	
+	// Note that a single TradeRoute can contain only up to 7 wOffers and mOffers in total - this is the limit of PlayerMessageWithButtons, together with space being left for cancel button
+	TMTradeRoute = record
+		aTrader: Integer; // Who offers the route deal (AI)
+		aPlayer: Integer; // Who can take the route deal (the player)
+		wOffers: array of TMWareOffer; // Ware trades that are offered
+		mOffers: array of TMMercenaryOffer; // Mercenary hires that are offered
+		inDevType: TMDeliveryType; // How input wares are delivered (if at all)
+		outDevType: TMDeliveryType; // How ouput wares are delivered (if at all)
+		isAvailable: Boolean; // Whether this route has at least 1 offer currently available
+		aMarker: Integer; // For accessing the map marker
+		avMarkSettings: TMMarkerSettings; // How the marker should look, if at least 1 route is available
+		unavMarkSettings: TMMarkerSettings; // How the marker should look, if no route is available
+		availableText: String;
+		unavailableText: String;
+	end;
+
+var
+	TMRoutes: array of TMTradeRoute;
+	RefusebtnTxt, RefuseBtnIcon: String;
+	AvailabilityCheckPeriod, RefuseBtnTag: Integer;
+
+
+// Returns whether the given button tag is already taken by any of the existing options
+function TMIsButtonTagTaken(aTag: Integer): Boolean;
+var
+	i, j: Integer;
+begin
+	Result := False;
+	
+	for i := 0 to High(TMRoutes) do
+	begin
+		for j := 0 to High(TMRoutes[i].wOffers) do
+			if (TMRoutes[i].wOffers[j].btnTag = aTag) then
+			begin
+				Result := True;
+				Exit;
+			end;
+		for j := 0 to High(TMRoutes[i].mOffers) do
+			if (TMRoutes[i].mOffers[j].btnTag = aTag) then
+			begin
+				Result := True;
+				Exit;
+			end;
+		if (RefuseBtnTag = aTag) then
+			Result := True;
+	end;
+end;
+
+
+
+// Creates a new TradeRoute and adds it to the array of all existing ones
+function TMNewTradeOffer(aTrader, aPlayer: Integer; inDevType, outDevType: TMDeliveryType; availableText, unavailableText: String; aMarker: Integer): Integer;
+var
+	aTMTradeOffer: TMTradeRoute;
+	arrLen: Integer;
+begin
+	aTMTradeOffer.aTrader := aTrader;
+	aTMTradeOffer.aPlayer := aPlayer;
+	aTMTradeOffer.inDevType := inDevType;
+	aTMTradeOffer.outDevType := outDevType;
+	aTMTradeOffer.availableText := availableText;
+	aTMTradeOffer.unavailableText := unavailableText;
+	aTMTradeOffer.aMarker := aMarker;
+	aTMTradeOffer.isAvailable := False;
+	
+	aTMTradeOffer.avMarkSettings.aBob := TM_DEFAULT_AVAILABLE_BOB;
+	aTMTradeOffer.avMarkSettings.aColor := TM_DEFAULT_AVAILABLE_COLOR;
+	aTMTradeOffer.avMarkSettings.aGlow := TM_DEFAULT_AVAILABLE_GLOW;
+	aTMTradeOffer.avMarkSettings.aHeight := TM_DEFAULT_AVAILABLE_HEIGHT;
+	
+	aTMTradeOffer.unavMarkSettings.aBob := TM_DEFAULT_UNAVAILABLE_BOB;
+	aTMTradeOffer.unavMarkSettings.aColor := TM_DEFAULT_UNAVAILABLE_COLOR;
+	aTMTradeOffer.unavMarkSettings.aGlow := TM_DEFAULT_UNAVAILABLE_GLOW;
+	aTMTradeOffer.unavMarkSettings.aHeight := TM_DEFAULT_UNAVAILABLE_HEIGHT;
+	
+	arrLen := Length(TMRoutes);
+	SetLength(TMRoutes, arrLen + 1);
+	TMRoutes[arrLen] := aTMTradeOffer;
+	
+	Result := arrLen;
+end;
+
+
+// Changes the available appearance of the marker of the given route from default/previous settings.
+procedure TMSetMarkerAvailableSettings(rID: Integer; aBob: Boolean; aColor: Integer; aGlow: Boolean; aHeight: Single);
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	
+	TMRoutes[rID].avMarkSettings.aBob := aBob;
+	TMRoutes[rID].avMarkSettings.aColor := aColor;
+	TMRoutes[rID].avMarkSettings.aGlow := aGlow;
+	TMRoutes[rID].avMarkSettings.aHeight := aHeight;
+end;
+
+
+// Changes the unavailable appearance of the marker of the given route from default/previous settings.
+procedure TMSetMarkerUnavailableSettings(rID: Integer; aBob: Boolean; aColor: Integer; aGlow: Boolean; aHeight: Single);
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	
+	TMRoutes[rID].unavMarkSettings.aBob := aBob;
+	TMRoutes[rID].unavMarkSettings.aColor := aColor;
+	TMRoutes[rID].unavMarkSettings.aGlow := aGlow;
+	TMRoutes[rID].unavMarkSettings.aHeight := aHeight;
+end;
+
+
+// Finds a camp/store/fort/barracks of the given player that has the highest amount of given wareType available inside, that is at least matching the minimal requested value
+function PlayerSeekWarehouse(aPlayer: Integer; aWareType: TKMWareType; minWareAmount: Integer): Integer;
+var
+	i, wareAmount, maxAmount: Integer;
+	houses, forts: array of Integer;
+begin
+	Result := -1;
+
+	houses := States.PlayerGetHouses(aPlayer, UTWareTypeGetStoreHouseType(aWareType, False), True);
+	// If horse sources are being sough, also include Forts
+	if (aWareType = wtHorse) then
+	begin
+		forts := States.PlayerGetHouses(aPlayer, htFort, False);
+		for i := 0 to High(forts) do
+			Utils.ArrayAppendI(houses, forts[i]);
+	end;
+		
+	for i := 0 to High(houses) do
+	begin
+		wareAmount := States.HouseWareInside(houses[i], aWareType);
+		
+		if (wareAmount >= minWareAmount)
+		and (wareAmount > maxAmount) then
+		begin
+			maxAmount := wareAmount;
+			Result := houses[i];
+		end;
+	end;
+	
+	//UTDebugMsgSilent(Utils.Format('Seeking a warehouse. Player: %d, ware: %s, amount: %d. Houses amount: %d. House selected: %d', [aPlayer, UTWareTypeToStr(aWareType), minWareAmount, Length(houses), Result]));
+end;
+
+
+// Returns if the player is currently ready for an exchange
+function TMIsPlayerWareReady(aPlayer: Integer; sendWareType, receiveWareType: TKMWareType; sendAmount: Integer; sendDeliveryType, receiveDeliveryType: TMDeliveryType): Boolean;
+var
+	i, wareAmountAvailable: Integer;
+	sendHouses, receiveHouses: array of Integer;
+begin
+	Result := True;
+	
+	// If the wares are supposed to be removed from the sender as part of the exchange
+	if (sendDeliveryType in [dtWagon, dtInstant, dtNone]) then
+	begin
+		// Are there houses available to send the wares from?
+		sendHouses := UTWareGetPlayerStores(aPlayer, sendWareType, True);
+		// Is there enough of wares inside the houses?
+		for i := 0 to High(sendHouses) do
+			wareAmountAvailable := wareAmountAvailable + States.HouseWareInside(sendHouses[i], sendWareType);
+		if (wareAmountAvailable < sendAmount) then
+		begin
+			Result := False;
+			Exit;
+		end;
+	end;
+	
+	// If the wares are supposed to be given to the receiver as part of the exchange
+	if (receiveDeliveryType in [dtWagon, dtInstant, dtWagonMagic, dtInstantMagic])
+	and (Length(UTWareGetPlayerStores(aPlayer, receiveWareType, False)) = 0) then
+	begin
+		Result := False;
+		Exit;
+	end;
+end;
+
+
+// Updates the availability of the given ware for ware offer, also seeks the target and source houses of the potential route, both for determining the availability and for potential use of them in the upcoming route execution
+procedure TMWareUpdateAvailability(rID, oID: Integer);
+var
+	route: TMTradeRoute;
+	offer: TMWareOffer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (oID > High(TMRoutes[rID].wOffers)) then Exit;
+	route := TMRoutes[rID];
+	offer := route.wOffers[oID];
+	
+	TMRoutes[rID].wOffers[oID].isAvailable := TMIsPlayerWareReady(route.aTrader, offer.outWareType, offer.inWareType, offer.outAmount, route.outDevType, route.inDevType) and TMIsPlayerWareReady(route.aPlayer, offer.inWareType, offer.outWareType, offer.inAmount, route.inDevType, route.outDevType);
+end;
+
+
+// Updates the availability of the given ware for units offer, also seeks the target and source houses of the potential route, both for determining the availability and for potential use of them in the upcoming route execution
+procedure TMMercenaryUpdateAvailability(rID, oID: Integer);
+var
+	i, wareAmountAvailable: Integer;
+	route: TMTradeRoute;
+	offer: TMMercenaryOffer;
+	sendHouses: array of Integer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (oID > High(TMRoutes[rID].mOffers)) then Exit;
+	route := TMRoutes[rID];
+	offer := route.mOffers[oID];
+	
+	TMRoutes[rID].mOffers[oID].isAvailable := True;
+	
+	if route.inDevType in [dtWagon, dtInstant, dtNone] then
+	begin
+		// Are there houses available to send the wares from?
+		sendHouses := UTWareGetPlayerStores(route.aPlayer, offer.inWareType, True);
+		// Is there enough of wares inside the houses?
+		for i := 0 to High(sendHouses) do
+			wareAmountAvailable := wareAmountAvailable + States.HouseWareInside(sendHouses[i], offer.inWareType);
+		if wareAmountAvailable < offer.inAmount then
+		begin
+			TMRoutes[rID].mOffers[oID].isAvailable := False;
+			Exit;
+		end;
+	end;
+end;
+
+
+// Updates appearance of the route's marker, according to its availability
+procedure TMUpdateMarker(rID: Integer);
+var
+	settings: TMMarkerSettings;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+
+	if (TMRoutes[rID].isAvailable) then
+		settings := TMRoutes[rID].avMarkSettings
+	else
+		settings := TMRoutes[rID].unavMarkSettings;
+
+	if (TMRoutes[rID].aMarker > -1) then
+	begin
+		Actions.InteractionMarkerBob(TMRoutes[rID].aMarker, settings.aBob);
+		Actions.InteractionMarkerUpdate(TMRoutes[rID].aMarker, settings.aColor, settings.aGlow, settings.aHeight);
+	end;
+end;
+
+
+// Updates the marker's ID of the given route
+procedure TMSetOfferMarker(rID, aMarker: Integer);
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	
+	TMRoutes[rID].aMarker := aMarker;
+	TMUpdateMarker(rID);
+end;
+
+
+//
+procedure TMUpdateOfferAvailability(rID: Integer);
+var
+	i: Integer;
+	offerIsAvailable: Boolean;
+	route: TMTradeRoute;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	route := TMRoutes[rID];
+
+	offerIsAvailable := False;
+	for i := 0 to High(route.wOffers) do
+	begin
+		TMWareUpdateAvailability(rID, i);
+		if (route.wOffers[i].isAvailable) then
+			offerIsAvailable := True;
+	end;
+	
+	for i := 0 to High(route.mOffers) do
+	begin
+		TMMercenaryUpdateAvailability(rID, i);
+		if (route.mOffers[i].isAvailable) then
+			offerIsAvailable := True;
+	end;
+	
+	TMRoutes[rID].isAvailable := offerIsAvailable;
+	
+	//UTDebugMsgSilent(Utils.Format('Checking route availability. wOffers count: %d, mOffers count: %d, Is available: %s', [Length(route.wOffers), Length(route.mOffers), UTBoolToStr(route.isAvailable)]));
+	
+	TMUpdateMarker(rID);
+end;
+
+
+// Adds an offer (WareOffer) to exchange wares for wares to a TradeRoute, if there is still space for a new offer
+function TMAddWareOption(rID: Integer; inWareType: TKMWareType; inAmount: Integer; outWareType: TKMWareType; outAmount: Integer; btnTxt, btnIcon: String; btnTag: Integer): Integer;
+var
+	offer: TMWareOffer;
+	arrLen: Integer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (TMIsButtonTagTaken(btnTag)) then Exit;
+	
+	if ((Length(TMRoutes[rID].wOffers) + Length(TMRoutes[rID].mOffers)) >= TM_OPTIONS_LIMIT) then Exit;
+	
+	offer.inWareType := inWareType;
+	offer.inAmount := inAmount;
+	offer.outWareType := outWareType;
+	offer.outAmount := outAmount;
+	offer.btnTxt := btnTxt;
+	offer.btnIcon := btnIcon;
+	offer.btnTag := btnTag;
+	offer.isAvailable := False;
+	
+	arrLen := Length(TMRoutes[rID].wOffers);
+	SetLength(TMRoutes[rID].wOffers, arrLen + 1);
+	TMRoutes[rID].wOffers[arrLen] := offer;
+	
+	TMUpdateOfferAvailability(rID);
+	
+	Result := arrLen;
+end;
+
+
+// Adds an offer (MercenaryOffer) to exchange wares for units to a TradeRoute, if there is still space for a new offer
+function TMAddMercenaryOption(rID: Integer; inWareType: TKMWareType; inAmount: Integer; outUnitType: TKMUnitType; outAmount, outColAmount, outX, outY: Integer; btnTxt, btnIcon: String; btnTag: Integer): Integer;
+var
+	offer: TMMercenaryOffer;
+	arrLen: Integer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (TMIsButtonTagTaken(btnTag)) then Exit;
+	
+	if ((Length(TMRoutes[rID].wOffers) + Length(TMRoutes[rID].mOffers)) >= TM_OPTIONS_LIMIT) then Exit;
+	
+	offer.inWareType := inWareType;
+	offer.inAmount := inAmount;
+	offer.outUnitType := outUnitType;
+	offer.outAmount := outAmount;
+	offer.outColAmount := outColAmount;
+	offer.outX := outX;
+	offer.outY := outY;
+	offer.btnTxt := btnTxt;
+	offer.btnIcon := btnIcon;
+	offer.btnTag := btnTag;
+	offer.isAvailable := False;
+	
+	offer.stats.aName := TM_DEFAULT_MERC_NAME;
+	offer.stats.aHP := TM_DEFAULT_MERC_HP_MAX;
+	offer.stats.aRegen := TM_DEFAULT_MERC_HP_REGEN;
+	offer.stats.aMinDmg := TM_DEFAULT_MERC_DMG_MIN;
+	offer.stats.aMaxDmg := TM_DEFAULT_MERC_DMG_MAX;
+	offer.stats.aSight := TM_DEFAULT_MERC_SIGHT;
+	offer.stats.aColor := TM_DEFAULT_MERC_COLOR;
+	offer.stats.aHunger := TM_DEFAULT_MERC_HUNGER;
+	
+	arrLen := Length(TMRoutes[rID].mOffers);
+	SetLength(TMRoutes[rID].mOffers, arrLen + 1);
+	TMRoutes[rID].mOffers[arrLen] := offer;
+	
+	TMUpdateOfferAvailability(rID);
+	
+	Result := arrLen;
+end;
+
+
+// Changes the stats of the units being given by the mercenary offer
+procedure TMSetMercenaryOptionStats(rID, oID: Integer; aName: String; aHP, aRegen, aMinDmg, aMaxDmg, aSight, aColor, aHunger: Integer);
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (oID > High(TMRoutes[rID].mOffers)) then Exit;
+	
+	TMRoutes[rID].mOffers[oID].stats.aName := aName;
+	TMRoutes[rID].mOffers[oID].stats.aHP := aHP;
+	TMRoutes[rID].mOffers[oID].stats.aRegen := aRegen;
+	TMRoutes[rID].mOffers[oID].stats.aMinDmg := aMinDmg;
+	TMRoutes[rID].mOffers[oID].stats.aMaxDmg := aMaxDmg;
+	TMRoutes[rID].mOffers[oID].stats.aSight := aSight;
+	TMRoutes[rID].mOffers[oID].stats.aColor := aColor;
+	TMRoutes[rID].mOffers[oID].stats.aHunger := aHunger;
+end;
+
+
+// Removes resources from the source and depending on the delivery type, sends or adds them to the target.
+procedure TMSendTradedWares(senderPlayer, receiverPlayer: Integer; wareType: TKMWareType; wareAmount: Integer; deliveryType: TMDeliveryType);
+var
+	i, j, waresInHouse, waresLeft, waresToRemove: Integer;
+	spawnPos: TKMPoint;
+	sendHouses, receiveHouses, wagons: array of Integer;
+begin
+	if (deliveryType in [dtWagon, dtWagonMagic]) then
+	begin
+		sendHouses := UTWareGetPlayerStores(senderPlayer, wareType, True);
+		waresLeft := wareAmount;
+		for i := 0 to High(sendHouses) do
+		begin
+			waresInHouse := States.HouseWareInside(sendHouses[i], wareType);
+			if (waresInHouse > 0) then
+			begin
+				waresToRemove := Utils.MinI(waresInHouse, waresLeft);
+				if (deliveryType = dtWagon) then
+					Actions.HouseWareRemove(sendHouses[i], wareType, waresToRemove);
+				
+				spawnPos := States.HousePositionDoorstep(sendHouses[i]);
+				wagons := WSSpawnFilledWagons(receiverPlayer, spawnPos.X, spawnPos.Y, wareType, waresToRemove);
+				for j := 0 to High(wagons) do
+					WSSendWagonToClosestHouse(wagons[j]);
+				
+				waresLeft := waresLeft - waresInHouse;
+			end;
+			if (waresLeft = 0) then Break;
+		end;
+	end
+	else
+	begin
+		if (deliveryType in [dtInstant, dtNone]) then
+		begin
+			sendHouses := UTWareGetPlayerStores(senderPlayer, wareType, True);
+			waresLeft := wareAmount;
+			for i := 0 to High(sendHouses) do
+			begin
+				waresInHouse := States.HouseWareInside(sendHouses[i], wareType);
+				if (waresInHouse > 0) then
+				begin
+					waresToRemove := Utils.MinI(waresInHouse, waresLeft);
+					Actions.HouseWareRemove(sendHouses[i], wareType, waresToRemove);
+					waresLeft := waresLeft - waresToRemove;
+				end;
+				if (waresLeft = 0) then Break;
+			end;
+		end;
+
+		if (deliveryType in [dtInstant, dtInstantMagic]) then
+		begin
+			receiveHouses := UTWareGetPlayerStores(receiverPlayer, wareType, False);
+			Actions.HouseWareAdd(receiveHouses[i], wareType, wareAmount);
+		end;
+	end;
+end;
+
+
+// Executes a route of ware for ware
+procedure TMTradeWares(rID, oID: Integer);
+var
+	route: TMTradeRoute;
+	offer: TMWareOffer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (oID > High(TMRoutes[rID].wOffers)) then Exit;
+	route := TMRoutes[rID];
+	offer := route.wOffers[oID];
+
+	if (not offer.isAvailable) then Exit;
+	
+	// Take the wares from the player
+	TMSendTradedWares(route.aPlayer, route.aTrader, offer.inWareType, offer.inAmount, route.inDevType);
+	
+	// Send the wares to the player
+	TMSendTradedWares(route.aTrader, route.aPlayer, offer.outWareType, offer.outAmount, route.outDevType);
+	
+	TMUpdateOfferAvailability(rID);
+end;
+
+
+// Executes a route of ware for units
+procedure TMHireMercenaries(rID, oID: Integer);
+var
+	newGroup, i, aUnit: Integer;
+	stats: TMMercenaryStats;
+	route: TMTradeRoute;
+	offer: TMMercenaryOffer;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	if (oID > High(TMRoutes[rID].mOffers)) then Exit;
+	route := TMRoutes[rID];
+	offer := route.mOffers[oID];
+
+	if (not route.mOffers[oID].isAvailable) then Exit;
+	
+	// Take the wares from the player
+	TMSendTradedWares(route.aPlayer, route.aTrader, offer.inWareType, offer.inAmount, route.inDevType);
+	
+	// Give the units to the player
+	newGroup := Actions.GiveGroup(route.aPlayer, offer.outUnitType, offer.outX, offer.outY, 4, offer.outAmount, offer.outColAmount);
+	
+	if (newGroup > 0) then
+	begin
+		stats := offer.stats;
+		for i := 0 to States.GroupMemberCount(newGroup) - 1 do
+		begin	
+			aUnit := States.GroupMember(newGroup, i);
+			
+			if (stats.aName <> '') then
+				Actions.UnitNameSet(aUnit, stats.aName);
+			if (stats.aHP > -1) then
+				UTChangeUnitHPMax(aUnit, stats.aHP);
+			if (stats.aRegen > -1) then
+				Actions.UnitHitpointsRestorePace(aUnit, stats.aRegen);
+			if (stats.aMinDmg > -1) or (stats.aMaxDmg > -1) then
+				Actions.UnitDamageSet(aUnit, stats.aMinDmg, stats.aMaxDmg);
+			if (stats.aSight > -1) then
+				Actions.UnitSightSet(aUnit, stats.aSight);
+			if (stats.aColor > -1) then
+				Actions.UnitFlagColorOverride(aUnit, stats.aColor);
+			if (stats.aHunger > -1) then
+				Actions.UnitHungerSet(aUnit, stats.aHunger);
+			
+			EMNewTempMarkerUnit(itExclamation, States.GroupMember(newGroup, i), True, True, stats.aColor, 1.5, 10);
+		end;
+		UTGroupLinkToClosest(newGroup, 5);
+	end;
+	
+	TMUpdateOfferAvailability(rID);
+end;
+
+
+// Shows dialog, and adds buttons to it, depending on what is available at the moment
+procedure TMShowDialog(rID: Integer);
+var
+	i: Integer;
+	btns, imgs: array of String;
+	tags: array of Integer;
+	route: TMTradeRoute;
+begin
+	if (rID > High(TMRoutes)) then Exit;
+	route := TMRoutes[rID];
+
+	TMUpdateOfferAvailability(rID);
+	
+	if (route.isAvailable) then
+	begin
+		for i := 0 to High(route.wOffers) do
+			if (route.wOffers[i].isAvailable) then
+			begin
+				Utils.ArrayAppend(btns, route.wOffers[i].btnTxt);
+				Utils.ArrayAppend(imgs, route.wOffers[i].btnIcon);
+				Utils.ArrayAppendI(tags, route.wOffers[i].btnTag);
+			end;
+		for i := 0 to High(route.mOffers) do
+			if (route.mOffers[i].isAvailable) then
+			begin
+				Utils.ArrayAppend(btns, route.mOffers[i].btnTxt);
+				Utils.ArrayAppend(imgs, route.mOffers[i].btnIcon);
+				Utils.ArrayAppendI(tags, route.mOffers[i].btnTag);
+			end;
+		
+		Utils.ArrayAppend(btns, RefusebtnTxt);
+		Utils.ArrayAppend(imgs, RefuseBtnIcon);
+		Utils.ArrayAppendI(tags, RefuseBtnTag);
+		
+		Actions.PlayerMessageWithButtons(route.aPlayer, route.availableText, btns, imgs, tags, True, True, True);
+	end
+	else
+		Actions.PlayerMessage(route.aPlayer, route.unavailableText, True);
+end;
+
+
+//
+procedure TMResolveTick(aTick: Integer);
+var
+	i: Integer;
+begin
+	if ((AvailabilityCheckPeriod > 0)
+	and (aTick mod AvailabilityCheckPeriod = 0)) then
+		for i := 0 to High(TMRoutes) do
+			TMUpdateOfferAvailability(i);
+end;
+
+
+//
+procedure TMInitiateScript(checkPeriod: Integer; refuseText, refuseIcon: String; refuseTag: Integer);
+begin
+	AvailabilityCheckPeriod := checkPeriod; // How often (in ticks) will the script check what deals can be made and updates the corresponding route markers. The checks are made on marker click again - if you don't want the markers to be updated frequently or at all, feel free to enter a very high value here.
+	RefusebtnTxt := refuseText; // Used to set up the "cancel - I don't want to take any deal this time" button in route dialogs
+	RefuseBtnIcon := refuseIcon; // Used to set up the "cancel - I don't want to take any deal this time" button in route dialogs
+	RefuseBtnTag := refuseTag; // Used to set up the "cancel - I don't want to take any deal this time" button in route dialogs
+end;
+
+
+//
+procedure TMScriptMarkerClick(aPlayer, aTag: Integer);
+var
+	i: Integer;
+begin
+	for i := 0 to High(TMRoutes) do
+		if (TMRoutes[i].aMarker = aTag) then
+			TMShowDialog(i);
+end;
+
+
+//
+procedure TMScriptBtnClick(aPlayer, aTag: Integer);
+var
+	i, j: Integer;
+begin
+	for i := 0 to High(TMRoutes) do
+		if (aPlayer = TMRoutes[i].aPlayer) then
+		begin
+			for j := 0 to High(TMRoutes[i].wOffers) do
+				if (aTag = TMRoutes[i].wOffers[j].btnTag) then
+					TMTradeWares(i, j);
+			for j := 0 to High(TMRoutes[i].mOffers) do
+				if (aTag = TMRoutes[i].mOffers[j].btnTag) then
+					TMHireMercenaries(i, j);
+		end;
+end;

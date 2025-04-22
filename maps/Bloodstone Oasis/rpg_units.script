@@ -1,0 +1,467 @@
+// ####################   RPG units script   ####################
+// Author: Amaroth.
+// Version: 1.0.0 (2025-04-22)
+// Gives the units ability to gain exp and levels - this then results in increased stats. Supports linear, exponential or custom stat progressions. Level and exp displays on units are optionally also available. Works with temp_markers to display exclamation on levelup.
+
+// HOW TO USE:
+// 1. Use RPGInitiateScript(True) from your OnMissionStart if you want levelup markers to be visible.
+// 2. If running a large map (especially), calling RPGCleanRPGUnits from time to time may enhance performance. A more permanent and less hacky fix may come later.
+// 3. RPGAddTemplate creates a new template (settings for leveling up a unit - you could call it a "class").
+// 4. RPGSetLvlNames sets up unit visual names for individual levels.
+// 5. RPGSetLvlExp sets up amount of exp required to be reached before the given level is awarded.
+// 6. RPGSetLvlColors can be used for the unit changing its color as it levels up.
+// 7. RPGGenerateLvlStatsLinear or RPGGenerateLvlStatsExponential can be used for having stats generated in automated progression.
+// 8. Alternatively, you can just use RPGAddTemplate to create a template and then manually add levels with RPGAddLvl and stats in its input as you see fit.
+
+uses
+	extra_utils, temp_markers;
+
+const
+	RPG_LBL_EXP = '|<$rpg_lbl_exp>: ';
+
+type
+	RPGLvlStats = record
+		aName: String;
+		aExp: Integer;
+		aColor: Integer;
+		aHP: Integer;
+		aMinDmg: Integer;
+		aMaxDmg: Integer;
+		aSight: Integer;
+		aSpeed: Integer;
+		aAward: Integer;
+	end;
+	
+	RPGTemplate = record
+		aLvlStats: array of RPGLvlStats;
+		aShowLvl: Boolean;
+		aShowExp: Boolean;
+	end;
+	
+	RPGUnit = record
+		aUnit: Integer;
+		aTempID: Integer;
+		aExp: Integer;
+		aLvl: Integer;
+	end;
+	
+var
+	RPGUnits: array of RPGUnit;
+	RPGTemps: array of RPGTemplate;
+	ShowLvlUpMarker: Boolean;
+
+
+// Returns a dump of all information about the template. For debug purposes.
+function RPGDebugTemplate(tempID: Integer): String;
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) then Exit;
+	
+	Result := Utils.Format('RPGTemplate debug.|aShowLvl: %s|aShowExp: %s||', [UTBoolToStr(RPGTemps[tempID].aShowLvl), UTBoolToStr(RPGTemps[tempID].aShowExp)]);
+	for  i := 0 to High(RPGTemps[tempID].aLvlStats) do
+		Result := Result + Utils.Format('Level stats:|level: %d, aName: %s, aExp: %d, aColor: %d, aHP: %d, aMinDmg: %d, aMaxDmg: %d, aSight: %d, aSpeed: %d, aAward: %d', [i, RPGTemps[tempID].aLvlStats[i].aName, RPGTemps[tempID].aLvlStats[i].aExp, RPGTemps[tempID].aLvlStats[i].aColor, RPGTemps[tempID].aLvlStats[i].aHP, RPGTemps[tempID].aLvlStats[i].aMinDmg, RPGTemps[tempID].aLvlStats[i].aMaxDmg, RPGTemps[tempID].aLvlStats[i].aSight, RPGTemps[tempID].aLvlStats[i].aSpeed, RPGTemps[tempID].aLvlStats[i].aAward]);
+end;
+
+
+// Clears RPG units array of already slain units. A temporary hack to avoid performance issues.
+procedure RPGCleanRPGUnits();
+var
+	i, arrLen: Integer;
+	newArr: array of RPGUnit;
+begin
+	for i := 0 to High(RPGUnits) do
+		if (not States.UnitDead(RPGUnits[i].aUnit)) then
+		begin
+			arrLen := Length(newArr);
+			SetLength(newArr, arrLen + 1);
+			newArr[arrLen] := RPGUnits[i];
+		end;
+	RPGUnits := newArr;
+end;
+
+
+// Calculates base exp award that should be given for a unit and returns it. Uses the stats the given unit is currently having in the game, works even for units that are not RPG units.
+function RPGUnitGetExpAward(aUnit: Integer): Integer;
+begin
+	if (aUnit < 0) then Exit;
+	
+	// HP * average damage per a hit.
+	Result := Round(States.UnitHitpointsMax(aUnit) * ((States.UnitDamageMin(aUnit) + States.UnitDamageMax(aUnit)) / 2.0));
+end;
+
+
+// Updates exp award that should be given for an RPG unit on given level. Uses the stats the RPG unit should be having, not necessarily it currently in the game has.
+procedure RPGUpdateAward(tempID, lvlID: Integer);
+var
+	hp, minDmg, maxDmg: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	if (lvlID > High(RPGTemps[tempID].aLvlStats)) or (lvlID < 0) then Exit;
+	
+	hp := RPGTemps[tempID].aLvlStats[lvlID].aHP;
+	minDmg := RPGTemps[tempID].aLvlStats[lvlID].aMinDmg;
+	maxDmg := RPGTemps[tempID].aLvlStats[lvlID].aMaxDmg;
+	
+	// HP * average damage per a hit.
+	RPGTemps[tempID].aLvlStats[lvlID].aAward := Round(hp * ((minDmg + maxDmg) / 2.0));
+	
+	//UTDebugMsg(Utils.Format('Updated award for RPG unit.|tempID: %d, lvl: %d|hp: %d, minD: %d, maxD: %d|award: %d', [tempID, lvlID, hp, minDmg, maxDmg, RPGTemps[tempID].aLvlStats[lvlID].aAward]));
+end;
+
+
+// Takes the provided base stats and calculates stats for the levels in exponential progression based off the provided exponents. Saves them to the template's level stats.
+procedure RPGGenerateLvlStatsExponential(tempID, aHP, aMinDmg, aMaxDmg, aSight, aSpeed: Integer; aHPExp, aDmgExp, aSightExp, aSpeedExp: Single);
+var
+	i: Integer;
+begin
+	//UTDebugMsg(Utils.Format('TempID: %d, len: %d', [tempID, Length(RPGTemps)]));
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to High(RPGTemps[tempID].aLvlStats) do
+	begin
+		RPGTemps[tempID].aLvlStats[i].aHP := Round(aHP * Utils.Power(aHPExp, i));
+		RPGTemps[tempID].aLvlStats[i].aMinDmg := Round(aMinDmg * Utils.Power(aDmgExp, i));
+		RPGTemps[tempID].aLvlStats[i].aMaxDmg := Round(aMaxDmg * Utils.Power(aDmgExp, i));
+		RPGTemps[tempID].aLvlStats[i].aSight := Round(aSight * Utils.Power(aSightExp, i));
+		RPGTemps[tempID].aLvlStats[i].aSpeed := Round(aSpeed * Utils.Power(aSpeedExp, i));
+		
+		RPGUpdateAward(tempID, i);
+	end;
+end;
+
+
+// Takes the provided base stats and calculates stats for the levels in linear progression based off the provided increments. Saves them to the template's level stats.
+procedure RPGGenerateLvlStatsLinear(tempID, aHP, aMinDmg, aMaxDmg, aSight, aSpeed, aHPInc, aDmgInc, aSightInc, aSpeedInc: Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to High(RPGTemps[tempID].aLvlStats) do
+	begin
+		RPGTemps[tempID].aLvlStats[i].aHP := aHP + (aHPInc * i);
+		RPGTemps[tempID].aLvlStats[i].aMinDmg := aMinDmg + (aDmgInc * i);
+		RPGTemps[tempID].aLvlStats[i].aMaxDmg := aMaxDmg + (aDmgInc * i);
+		RPGTemps[tempID].aLvlStats[i].aSight := aSight + (aSightInc * i);
+		RPGTemps[tempID].aLvlStats[i].aSpeed := aSpeed + (aSpeedInc * i);
+		
+		RPGUpdateAward(tempID, i);
+	end;
+end;
+
+
+// Updates the RPG unit's name based off its current level and exp.
+procedure RPGUnitUpdateName(unitID: Integer);
+var
+	nameLabel, lvlLabel, expLabel: String;
+begin
+	if (unitID > High(RPGUnits)) or (unitID < 0) then Exit;
+	
+	nameLabel := RPGTemps[RPGUnits[unitID].aTempID].aLvlStats[RPGUnits[unitID].aLvl].aName;
+	
+	if (RPGTemps[RPGUnits[unitID].aTempID].aShowLvl) then
+		lvlLabel := Utils.Format(' %d', [RPGUnits[unitID].aLvl + 1]);
+	
+	if (RPGTemps[RPGUnits[unitID].aTempID].aShowExp) then
+	begin
+		if (RPGUnits[unitID].aLvl < High(RPGTemps[RPGUnits[unitID].aTempID].aLvlStats)) then
+			expLabel := Utils.Format('%s%d / %d', [RPG_LBL_EXP, RPGUnits[unitID].aExp, RPGTemps[RPGUnits[unitID].aTempID].aLvlStats[RPGUnits[unitID].aLvl + 1].aExp])
+		else
+			expLabel := RPG_LBL_EXP + IntToStr(RPGUnits[unitID].aExp);
+	end;
+	
+	Actions.UnitNameSet(RPGUnits[unitID].aUnit, nameLabel + lvlLabel + expLabel);
+end;
+
+
+// Updates the RPG unit's combat stats and color based off its current level.
+procedure RPGUnitUpdateStats(unitID: Integer);
+var
+	stats: RPGLvlStats;
+begin
+	if (unitID > High(RPGUnits)) or (unitID < 0) then Exit;
+	
+	stats := RPGTemps[RPGUnits[unitID].aTempID].aLvlStats[RPGUnits[unitID].aLvl];
+	
+	Actions.UnitFlagColorOverride(RPGUnits[unitID].aUnit, stats.aColor);
+	UTChangeUnitHPMax(RPGUnits[unitID].aUnit, stats.aHP);
+	Actions.UnitDamageSet(RPGUnits[unitID].aUnit, stats.aMinDmg, stats.aMaxDmg);
+	Actions.UnitSightSet(RPGUnits[unitID].aUnit, stats.aSight);
+	Actions.UnitSpeedSet(RPGUnits[unitID].aUnit, stats.aSpeed);
+	
+	//UTDebugMsg(Utils.Format('Giving stats to %s:|aColor %d|aHP: %d|aMinDmg: %d|aMaxDmg: %d|aSight: %d|aSpeed: %d', [UTUnitTypeToStr(States.UnitType(RPGUnits[unitID].aUnit)), stats.aColor, stats.aHP, stats.aMinDmg, stats.aMaxDmg, stats.aSight, stats.aSpeed]));
+end;
+
+
+// Searches for game unit's UID in RPG units. If found, returns matching RPG unit's ID, otherwise -1 is returned.
+function RPGUnitGetRPGID(aUnit: Integer): Integer;
+var
+	i: Integer;
+begin
+	Result := -1;
+	
+	if (aUnit < 0) then Exit;
+	
+	for i := 0 to High(RPGUnits) do
+		if (RPGUnits[i].aUnit = aUnit) then
+		begin
+			Result := i;
+			Break;
+		end;
+end;
+
+
+// Adds exp to the RPG unit. Supports exp removal as well.
+procedure RPGUnitAwardExp(unitID, exp: Integer);
+var
+	i, oldLvl, newLvl: Integer;
+begin
+	if (unitID > High(RPGUnits)) or (unitID < 0) then Exit;
+	
+	RPGUnits[unitID].aExp := RPGUnits[unitID].aExp + exp;
+	
+	oldLvl := RPGUnits[unitID].aLvl;
+	for i := 0 to High(RPGTemps[RPGUnits[unitID].aTempID].aLvlStats) do
+		if (RPGTemps[RPGUnits[unitID].aTempID].aLvlStats[i].aExp <= RPGUnits[unitID].aExp) then
+			newLvl := i
+		else
+			Break;
+	
+	if (newLvl <> oldLvl) then
+	begin
+		RPGUnits[unitID].aLvl := newLvl;
+		if ShowLvlUpMarker and (oldLvl >= 0) then
+			EMNewTempMarkerUnit(itExclamation, RPGUnits[unitID].aUnit, True, True, $00CCFF, 1.5, 10);
+		RPGUnitUpdateStats(unitID);
+	end;
+	
+	RPGUnitUpdateName(unitID);
+end;
+
+
+// Finds all units owned by the player in radius around coords and splits the exp in between them equally.
+procedure RPGAreaAwardExp(owner, centerX, centerY, radius, exp: Integer);
+var
+	expLeft, expForNext, unitsAwarded, rpgID, i: Integer;
+	units, rpgUnits: array of Integer;
+begin
+	expLeft := exp;
+	
+	units := UTPlayerUnitsInRadius(owner, centerX, centerY, radius);
+	for i := 0 to High(units) do
+	begin
+		rpgID := RPGUnitGetRPGID(units[i]);
+		if (rpgID > -1) then
+			Utils.ArrayAppendI(rpgUnits, rpgID);
+	end;
+	
+	i := Utils.RandomI(Length(rpgUnits));
+	while ((i < Length(rpgUnits)) and (expLeft > 0)) do
+	begin
+		expForNext := Trunc(expLeft / (Length(rpgUnits) - unitsAwarded));
+		expLeft := expLeft - expForNext;
+		RPGUnitAwardExp(rpgUnits[i], expForNext);
+		unitsAwarded := unitsAwarded + 1;
+		
+		if (i = High(rpgUnits)) then
+			i := 0
+		else
+			i := i + 1;
+	end;
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlNames(tempID: Integer; names: array of String);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(names)) do
+		RPGTemps[tempID].aLvlStats[i].aName := names[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlExp(tempID: Integer; exp: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(exp)) do
+		RPGTemps[tempID].aLvlStats[i].aExp := exp[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlColors(tempID: Integer; colors: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(colors)) do
+		RPGTemps[tempID].aLvlStats[i].aColor := colors[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlHPs(tempID: Integer; hps: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(hps)) do
+		RPGTemps[tempID].aLvlStats[i].aHP := hps[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlMinDmgs(tempID: Integer; dmgs: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(dmgs)) do
+		RPGTemps[tempID].aLvlStats[i].aMinDmg := dmgs[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlMaxDmgs(tempID: Integer; dmgs: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(dmgs)) do
+		RPGTemps[tempID].aLvlStats[i].aMaxDmg := dmgs[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlSights(tempID: Integer; sights: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(sights)) do
+		RPGTemps[tempID].aLvlStats[i].aSight := sights[i];
+end;
+
+
+// Takes the input values and assigns them to the apropriate stat of the individual levels, starting from 0. Any excess gets ignored.
+procedure RPGSetLvlSpeeds(tempID: Integer; speeds: array of Integer);
+var
+	i: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	for i := 0 to Utils.MinI(High(RPGTemps[tempID].aLvlStats), High(speeds)) do
+		RPGTemps[tempID].aLvlStats[i].aSpeed := speeds[i];
+end;
+
+
+// Adds a new level to the template, with all stats set to game's default values.
+procedure RPGAddDefaultLvl(tempID: Integer);
+var
+	lvl: RPGLvlStats;
+	arrLen: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	lvl.aName := '';
+	lvl.aExp := -1;
+	lvl.aColor := -1;
+	lvl.aHP := -1;
+	lvl.aMinDmg := -1;
+	lvl.aMaxDmg := -1;
+	lvl.aSight := -1;
+	lvl.aSpeed := -1;
+	lvl.aAward := -1;
+	
+	arrLen := Length(RPGTemps[tempID].aLvlStats);
+	SetLength(RPGTemps[tempID].aLvlStats, arrLen + 1);
+	RPGTemps[tempID].aLvlStats[arrLen] := lvl;
+end;
+
+
+// Adds a new level to the tamplate, with given stats.
+procedure RPGAddLvl(tempID: Integer; aName: String; aExp, aColor, aHP, aMinDmg, aMaxDmg, aSight, aSpeed: Integer);
+var
+	lvl: RPGLvlStats;
+	arrLen: Integer;
+begin
+	if (tempID > High(RPGTemps)) or (tempID < 0) then Exit;
+	
+	lvl.aName := aName;
+	lvl.aExp := aExp;
+	lvl.aColor := aColor;
+	lvl.aHP := aHP;
+	lvl.aMinDmg := aMinDmg;
+	lvl.aMaxDmg := aMaxDmg;
+	lvl.aSight := aSight;
+	lvl.aSpeed := aSpeed;
+	
+	arrLen := Length(RPGTemps[tempID].aLvlStats);
+	SetLength(RPGTemps[tempID].aLvlStats, arrLen + 1);
+	RPGTemps[tempID].aLvlStats[arrLen] := lvl;
+	
+	RPGUpdateAward(tempID, arrLen);
+end;
+
+
+// Adds a new template and returns its ID.
+function RPGAddTemplate(maxLvl: Integer; showLvl, showExp: Boolean): Integer;
+var
+	template: RPGTemplate;
+	arrLen, i: Integer;
+begin
+	if (maxLvl < 0) then Exit;
+		
+	template.aShowLvl := showLvl;
+	template.aShowExp := showExp;
+
+	arrLen := Length(RPGTemps);
+	SetLength(RPGTemps, arrLen + 1);
+	RPGTemps[arrLen] := template;
+	Result := arrLen;
+	
+	for i := 0 to maxLvl do
+		RPGAddDefaultLvl(arrLen);
+end;
+
+
+// Adds a new RPG unit and returns its ID.
+function RPGAddUnit(aUnit, aTempID, aExp: Integer): Integer;
+var
+	newUnit: RPGUnit;
+	arrLen: Integer;
+begin
+	if (aTempID > High(RPGTemps)) or (aTempID < 0) then Exit;
+
+	newUnit.aUnit := aUnit;
+	newUnit.aTempID := aTempID;
+	newUnit.aExp := 0;
+	newUnit.aLvl := -1;
+	
+	arrLen := Length(RPGUnits);
+	SetLength(RPGUnits, arrLen + 1);
+	RPGUnits[arrLen] := newUnit;
+	Result := arrLen;
+	
+	RPGUnitAwardExp(arrLen, aExp);
+end;
+
+
+// Initiates the script's global settings.
+procedure RPGInitiateScript(showMarker: Boolean);
+begin
+	ShowLvlUpMarker := showMarker;
+end;

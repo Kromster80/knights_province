@@ -1,0 +1,82 @@
+// ####################   Expanded markers script   ####################
+// Author: Amaroth.
+// Version: 1.0.0 (2025-02-03)
+// Places markers on the map or minimap, with expanded functionality
+
+// HOW TO USE:
+// 1. Add EMResolveTick to your OnTick event handler.
+// 2. Use either EMNewTempMarkerPoint or EMNewTempMarkerUnit, depending on whether you want to place a marker on a stationary point in the map, or on a unit
+
+type
+	EMTempMarker = record
+		aMarkerID: Integer;
+		createTick: Integer;
+		removeTick: Integer;
+	end;
+
+var
+	EMTempMarkers: array of EMTempMarker;
+	EMCurrentTick: Integer;
+
+
+//
+function EMNewTempMarkerPoint(aMarkerType: TKMInteractionType; aX, aY: Integer; aBob, aGlow: Boolean; aColor: Integer; aHeight: Single; aDuration: Integer): Integer;
+var
+	aTempMarker: EMTempMarker;
+	arrLen: Integer;
+begin
+	aTempMarker.aMarkerID := Actions.InteractionMarkerAdd(aMarkerType, aX, aY);
+	aTempMarker.createTick := EMCurrentTick;
+	aTempMarker.removeTick := EMCurrentTick + aDuration;
+	
+	Actions.InteractionMarkerBob(aTempMarker.aMarkerID, aBob);
+	Actions.InteractionMarkerUpdate(aTempMarker.aMarkerID, aColor, aGlow, aHeight);
+	
+	arrLen := Length(EMTempMarkers);
+	SetLength(EMTempMarkers, arrLen + 1);
+	EMTempMarkers[arrLen] := aTempMarker;
+	
+	Result := aTempMarker.aMarkerID;
+end;
+
+
+//
+function EMNewTempMarkerUnit(aMarkerType: TKMInteractionType; aUnit: Integer; aBob, aGlow: Boolean; aColor: Integer; aHeight: Single; aDuration: Integer): Integer;
+var
+	aTempMarker: EMTempMarker;
+	arrLen: Integer;
+begin
+	aTempMarker.aMarkerID := Actions.InteractionMarkerAddOnUnit(aMarkerType, aUnit);
+	aTempMarker.createTick := EMCurrentTick;
+	aTempMarker.removeTick := EMCurrentTick + aDuration;
+	
+	Actions.InteractionMarkerBob(aTempMarker.aMarkerID, aBob);
+	Actions.InteractionMarkerUpdate(aTempMarker.aMarkerID, aColor, aGlow, aHeight);
+	
+	arrLen := Length(EMTempMarkers);
+	SetLength(EMTempMarkers, arrLen + 1);
+	EMTempMarkers[arrLen] := aTempMarker;
+	
+	Result := aTempMarker.aMarkerID;
+end;
+
+
+//
+procedure EMResolveTick(aTick: Integer);
+var
+	i, arrLen: Integer;
+	pendingRemovals: array of EMTempMarker;
+begin
+	EMCurrentTick := aTick;
+	
+	for i := 0 to High(EMTempMarkers) do
+		if (EMCurrentTick >= EMTempMarkers[i].removeTick) then
+			Actions.InteractionMarkerRemove(EMTempMarkers[i].aMarkerID)
+		else
+		begin
+			arrLen := Length(pendingRemovals);
+			SetLength(pendingRemovals, arrLen + 1);
+			pendingRemovals[arrLen] := EMTempMarkers[i];
+		end;
+	EMTempMarkers := pendingRemovals;
+end;
