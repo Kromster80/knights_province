@@ -1,0 +1,15 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.boat]
+        desc:...
+        name:Small boat
+    [mapobjects.boat_sail]
+        desc:...
+        name:Sail boat
+    [mapobjects.boat_viking]
+        desc:...
+        name:Viking boat
+    [mapobjects.boat_with_sail]
+        desc:...
+        name:Boat
