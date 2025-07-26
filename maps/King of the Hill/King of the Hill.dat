@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 3 // Max score
 !HANDS_COUNT 10
@@ -78,7 +80,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -132,7 +134,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -186,7 +188,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -240,7 +242,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -294,7 +296,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -348,7 +350,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -402,7 +404,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -456,7 +458,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -510,7 +512,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -4887,4 +4889,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15352 (2024/08/25 08:46)" on 02/09/2024 09:24:23
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:02

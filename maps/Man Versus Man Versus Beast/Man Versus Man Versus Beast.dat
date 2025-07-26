@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !MODE_TACTIC
@@ -37,7 +39,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -132,12 +134,13 @@
 !SET_AI_DEFENCE 37 37 4 3 10 -1 9 3 // ranged
 !SET_AI_DEFENCE 41 37 4 3 10 -1 9 3 // ranged
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 1200
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -150,7 +153,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -190,12 +193,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -208,7 +212,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -258,7 +262,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1779,4 +1783,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r14997 (2024.06.30 15:12)" on 30.06.2024 15:21:25
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:12

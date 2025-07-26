@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !HANDS_COUNT 4
@@ -13,6 +15,7 @@
 !HAND_AI_CHARACTER 2
 !HAND_COLOR 460799
 !HAND_CENTER_SCREEN 20 34
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -35,7 +38,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -84,6 +87,7 @@
 !HAND_COLOR 6388031
 !HAND_NAME 5
 !HAND_CENTER_SCREEN 67 20
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -102,7 +106,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -125,6 +129,7 @@
 !HAND_ACTIVATE
 !HAND_COLOR 524287
 !HAND_CENTER_SCREEN 20 34
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -143,7 +148,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -161,6 +166,7 @@
 !HAND_CURRENT 3
 !HAND_NEUTRAL_TYPE
 !HAND_ACTIVATE
+!HAND_VIEW_DIR 30
 
 // Fog of War
 
@@ -173,5 +179,82 @@
 // Triggers
 !SET_TRIGGER 1 58 44 60 53
 
+// MapObjects
+!SET_MAPOBJECT 1 1 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 7 2 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 6 4 0 pine1 - - - 0 0
+!SET_MAPOBJECT 10 4 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 3 5 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 9 5 0 milestone - - - 0 0
+!SET_MAPOBJECT 5 6 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 1 7 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 7 7 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 9 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 11 7 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 13 7 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 3 8 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 6 9 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 9 9 0 pine3 - - - 0 0
+!SET_MAPOBJECT 11 9 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 14 9 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 9 10 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 19 10 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 12 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 5 12 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 11 12 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 17 12 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 6 13 0 pine3 - - - 0 0
+!SET_MAPOBJECT 19 13 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 23 13 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 11 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 1 15 0 pine1 - - - 0 0
+!SET_MAPOBJECT 4 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 25 15 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 11 16 0 pine1 - - - 0 0
+!SET_MAPOBJECT 23 16 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 6 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 17 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 23 17 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 3 18 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 12 18 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 15 18 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 22 18 0 pine2 - - - 0 0
+!SET_MAPOBJECT 12 19 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 18 19 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 15 20 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 7 21 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 12 21 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 19 21 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 21 21 0 pine3 - - - 0 0
+!SET_MAPOBJECT 9 22 0 pine3 - - - 0 0
+!SET_MAPOBJECT 21 22 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 4 23 0 pine2 - - - 0 0
+!SET_MAPOBJECT 7 23 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 24 0 boulder - - - 0 0
+!SET_MAPOBJECT 12 24 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 24 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 4 25 0 pine3 - - - 0 0
+!SET_MAPOBJECT 14 25 0 oak_1 - - - 0 0
+!SET_MAPOBJECT 8 26 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 3 27 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 11 27 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 27 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 16 27 0 birch_1 - - - 0 0
+!SET_MAPOBJECT 12 29 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 7 31 0 oak_2 - - - 0 0
+!SET_MAPOBJECT 10 31 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 1 32 0 pine2 - - - 0 0
+!SET_MAPOBJECT 12 32 0 birch_1 - - - 0 0
+!SET_MAPOBJECT 9 40 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 6 43 0 conepine_3 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12101 (2022.12.26 23:10)"  on 26.12.2022 23:11:19
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:11

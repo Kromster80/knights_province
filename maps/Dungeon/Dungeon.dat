@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !MODE_TACTIC
@@ -30,7 +32,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -105,4 +107,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15570 (2025.01.03 16:04)" on 04.01.2025 20:06:12
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:16:43

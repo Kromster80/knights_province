@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !HANDS_COUNT 3
@@ -39,7 +41,7 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -107,7 +109,7 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -181,5 +183,347 @@
 !SET_EMITTER 6 66 93 // terrain_wall_of_fog
 !SET_EMITTER 7 24 11 // terrain_smokestack
 
+// MapObjects
+!SET_MAPOBJECT 2 2 1 obelisk_broken - - - 0 0
+!SET_MAPOBJECT 3 2 0 pine1 - - - 0 0
+!SET_MAPOBJECT 10 2 2 pine1 - - - 0 0
+!SET_MAPOBJECT 12 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 14 2 2 pine3 - - - 0 0
+!SET_MAPOBJECT 21 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 26 2 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 3 1 boulder - - - 0 0
+!SET_MAPOBJECT 14 3 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 16 3 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 4 3 pine3 - - - 0 0
+!SET_MAPOBJECT 12 4 3 pine1 - - - 0 0
+!SET_MAPOBJECT 18 4 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 4 2 pine3 - - - 0 0
+!SET_MAPOBJECT 6 5 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 9 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 5 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 20 5 1 pine3 - - - 0 0
+!SET_MAPOBJECT 25 5 3 pine2 - - - 0 0
+!SET_MAPOBJECT 91 5 2 obelisk - - - 0 0
+!SET_MAPOBJECT 5 6 2 pine1 - - - 0 0
+!SET_MAPOBJECT 7 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 6 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 11 6 3 pine3 - - - 0 0
+!SET_MAPOBJECT 17 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 12 7 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 13 7 1 pine3 - - - 0 0
+!SET_MAPOBJECT 16 7 1 milestone - - - 0 0
+!SET_MAPOBJECT 19 7 3 pine3 - - - 0 0
+!SET_MAPOBJECT 3 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 6 8 1 pine3 - - - 0 0
+!SET_MAPOBJECT 11 8 1 pine2 - - - 0 0
+!SET_MAPOBJECT 15 8 2 pine3 - - - 0 0
+!SET_MAPOBJECT 27 8 3 obelisk - - - 0 0
+!SET_MAPOBJECT 30 8 2 pine3 - - - 0 0
+!SET_MAPOBJECT 1 9 2 pine2 - - - 0 0
+!SET_MAPOBJECT 8 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 19 9 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 9 3 obelisk - - - 0 0
+!SET_MAPOBJECT 27 9 3 obelisk - - - 0 0
+!SET_MAPOBJECT 3 10 1 pine3 - - - 0 0
+!SET_MAPOBJECT 5 10 2 pine3 - - - 0 0
+!SET_MAPOBJECT 12 10 1 pine3 - - - 0 0
+!SET_MAPOBJECT 41 10 3 obelisk - - - 0 0
+!SET_MAPOBJECT 43 10 3 obelisk - - - 0 0
+!SET_MAPOBJECT 14 11 1 pine1 - - - 0 0
+!SET_MAPOBJECT 18 11 3 pine3 - - - 0 0
+!SET_MAPOBJECT 35 11 3 pine3 - - - 0 0
+!SET_MAPOBJECT 3 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 12 3 pine3 - - - 0 0
+!SET_MAPOBJECT 10 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 14 12 2 milestone - - - 0 0
+!SET_MAPOBJECT 41 12 3 obelisk - - - 0 0
+!SET_MAPOBJECT 43 12 3 obelisk - - - 0 0
+!SET_MAPOBJECT 14 13 2 pine3 - - - 0 0
+!SET_MAPOBJECT 15 13 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 18 13 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 13 3 obelisk - - - 0 0
+!SET_MAPOBJECT 27 13 3 obelisk - - - 0 0
+!SET_MAPOBJECT 28 13 3 obelisk - - - 0 0
+!SET_MAPOBJECT 50 13 3 pine3 - - - 0 0
+!SET_MAPOBJECT 8 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 11 14 3 pine3 - - - 0 0
+!SET_MAPOBJECT 3 15 3 pine3 - - - 0 0
+!SET_MAPOBJECT 15 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 17 15 2 pine1 - - - 0 0
+!SET_MAPOBJECT 6 16 1 pine3 - - - 0 0
+!SET_MAPOBJECT 13 16 0 pine3 - - - 0 0
+!SET_MAPOBJECT 3 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 39 17 1 pine3 - - - 0 0
+!SET_MAPOBJECT 43 17 2 pine3 - - - 0 0
+!SET_MAPOBJECT 55 17 2 pine2 - - - 0 0
+!SET_MAPOBJECT 5 18 1 pine3 - - - 0 0
+!SET_MAPOBJECT 10 18 3 pine3 - - - 0 0
+!SET_MAPOBJECT 11 18 2 milestone - - - 0 0
+!SET_MAPOBJECT 13 18 0 milestone - - - 0 0
+!SET_MAPOBJECT 14 18 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 18 3 pine3 - - - 0 0
+!SET_MAPOBJECT 7 19 3 pine3 - - - 0 0
+!SET_MAPOBJECT 12 19 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 19 2 pine3 - - - 0 0
+!SET_MAPOBJECT 32 19 2 pine3 - - - 0 0
+!SET_MAPOBJECT 7 20 1 boulder - - - 0 0
+!SET_MAPOBJECT 15 20 2 pine3 - - - 0 0
+!SET_MAPOBJECT 36 20 2 pine3 - - - 0 0
+!SET_MAPOBJECT 4 21 0 pine2 - - - 0 0
+!SET_MAPOBJECT 10 21 1 pine3 - - - 0 0
+!SET_MAPOBJECT 13 21 3 boulder - - - 0 0
+!SET_MAPOBJECT 27 21 0 pine1 - - - 0 0
+!SET_MAPOBJECT 54 21 3 obelisk - - - 0 0
+!SET_MAPOBJECT 4 22 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 6 22 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 22 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 22 22 2 pine3 - - - 0 0
+!SET_MAPOBJECT 9 23 1 pine3 - - - 0 0
+!SET_MAPOBJECT 12 23 0 pine3 - - - 0 0
+!SET_MAPOBJECT 15 23 0 pine3 - - - 0 0
+!SET_MAPOBJECT 17 23 3 pine3 - - - 0 0
+!SET_MAPOBJECT 52 23 3 obelisk - - - 0 0
+!SET_MAPOBJECT 56 23 3 obelisk - - - 0 0
+!SET_MAPOBJECT 4 24 3 pine3 - - - 0 0
+!SET_MAPOBJECT 11 24 1 boulder - - - 0 0
+!SET_MAPOBJECT 6 25 3 pine3 - - - 0 0
+!SET_MAPOBJECT 10 25 0 pine2 - - - 0 0
+!SET_MAPOBJECT 12 25 3 pine3 - - - 0 0
+!SET_MAPOBJECT 14 25 0 pine3 - - - 0 0
+!SET_MAPOBJECT 54 25 3 obelisk - - - 0 0
+!SET_MAPOBJECT 61 25 2 pine3 - - - 0 0
+!SET_MAPOBJECT 65 25 1 pine1 - - - 0 0
+!SET_MAPOBJECT 3 26 2 pine3 - - - 0 0
+!SET_MAPOBJECT 17 26 3 pine3 - - - 0 0
+!SET_MAPOBJECT 30 26 2 obelisk - - - 0 0
+!SET_MAPOBJECT 39 26 0 pine3 - - - 0 0
+!SET_MAPOBJECT 42 26 0 pine3 - - - 0 0
+!SET_MAPOBJECT 49 26 0 pine3 - - - 0 0
+!SET_MAPOBJECT 10 27 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 11 27 0 pine3 - - - 0 0
+!SET_MAPOBJECT 15 27 0 boulder - - - 0 0
+!SET_MAPOBJECT 29 27 2 obelisk - - - 0 0
+!SET_MAPOBJECT 31 27 2 obelisk - - - 0 0
+!SET_MAPOBJECT 59 27 1 pine3 - - - 0 0
+!SET_MAPOBJECT 4 28 0 pine1 - - - 0 0
+!SET_MAPOBJECT 8 28 2 pine3 - - - 0 0
+!SET_MAPOBJECT 13 28 3 pine3 - - - 0 0
+!SET_MAPOBJECT 16 28 2 pine3 - - - 0 0
+!SET_MAPOBJECT 30 28 2 obelisk - - - 0 0
+!SET_MAPOBJECT 2 29 1 pine2 - - - 0 0
+!SET_MAPOBJECT 6 29 2 milestone - - - 0 0
+!SET_MAPOBJECT 21 29 0 pine3 - - - 0 0
+!SET_MAPOBJECT 38 29 3 pine3 - - - 0 0
+!SET_MAPOBJECT 50 29 3 pine3 - - - 0 0
+!SET_MAPOBJECT 4 30 1 pine2 - - - 0 0
+!SET_MAPOBJECT 6 30 1 pine3 - - - 0 0
+!SET_MAPOBJECT 14 30 0 pine3 - - - 0 0
+!SET_MAPOBJECT 15 30 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 18 30 2 pine3 - - - 0 0
+!SET_MAPOBJECT 1 31 1 pine2 - - - 0 0
+!SET_MAPOBJECT 11 31 0 pine1 - - - 0 0
+!SET_MAPOBJECT 20 31 2 pine2 - - - 0 0
+!SET_MAPOBJECT 24 31 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 56 31 3 pine3 - - - 0 0
+!SET_MAPOBJECT 4 32 2 boulder - - - 0 0
+!SET_MAPOBJECT 6 32 2 pine1 - - - 0 0
+!SET_MAPOBJECT 14 32 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 32 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 32 1 pine1 - - - 0 0
+!SET_MAPOBJECT 22 32 0 pine3 - - - 0 0
+!SET_MAPOBJECT 1 33 3 pine1 - - - 0 0
+!SET_MAPOBJECT 4 33 1 pine2 - - - 0 0
+!SET_MAPOBJECT 9 33 1 pine3 - - - 0 0
+!SET_MAPOBJECT 11 33 3 pine3 - - - 0 0
+!SET_MAPOBJECT 24 33 2 pine1 - - - 0 0
+!SET_MAPOBJECT 7 34 2 pine3 - - - 0 0
+!SET_MAPOBJECT 13 34 0 pine3 - - - 0 0
+!SET_MAPOBJECT 15 34 2 pine3 - - - 0 0
+!SET_MAPOBJECT 19 34 3 milestone - - - 0 0
+!SET_MAPOBJECT 20 34 2 pine3 - - - 0 0
+!SET_MAPOBJECT 22 34 2 pine1 - - - 0 0
+!SET_MAPOBJECT 32 34 0 pine3 - - - 0 0
+!SET_MAPOBJECT 34 34 0 pine3 - - - 0 0
+!SET_MAPOBJECT 3 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 5 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 9 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 25 35 3 pine3 - - - 0 0
+!SET_MAPOBJECT 62 35 0 pine1 - - - 0 0
+!SET_MAPOBJECT 4 36 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 7 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 16 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 18 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 29 36 2 pine1 - - - 0 0
+!SET_MAPOBJECT 54 36 3 pine3 - - - 0 0
+!SET_MAPOBJECT 4 37 0 pine3 - - - 0 0
+!SET_MAPOBJECT 10 37 1 pine3 - - - 0 0
+!SET_MAPOBJECT 12 37 2 pine3 - - - 0 0
+!SET_MAPOBJECT 14 37 3 pine3 - - - 0 0
+!SET_MAPOBJECT 22 37 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 25 37 1 pine3 - - - 0 0
+!SET_MAPOBJECT 35 37 2 pine3 - - - 0 0
+!SET_MAPOBJECT 6 38 1 pine3 - - - 0 0
+!SET_MAPOBJECT 8 38 3 pine2 - - - 0 0
+!SET_MAPOBJECT 9 38 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 18 38 1 pine3 - - - 0 0
+!SET_MAPOBJECT 22 38 3 pine3 - - - 0 0
+!SET_MAPOBJECT 29 38 1 pine2 - - - 0 0
+!SET_MAPOBJECT 14 39 1 pine3 - - - 0 0
+!SET_MAPOBJECT 16 39 2 pine3 - - - 0 0
+!SET_MAPOBJECT 19 39 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 24 39 0 pine3 - - - 0 0
+!SET_MAPOBJECT 9 40 3 pine3 - - - 0 0
+!SET_MAPOBJECT 47 40 0 pine3 - - - 0 0
+!SET_MAPOBJECT 14 41 1 pine3 - - - 0 0
+!SET_MAPOBJECT 17 41 3 pine3 - - - 0 0
+!SET_MAPOBJECT 21 41 3 milestone - - - 0 0
+!SET_MAPOBJECT 22 41 1 pine3 - - - 0 0
+!SET_MAPOBJECT 25 41 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 26 41 3 pine1 - - - 0 0
+!SET_MAPOBJECT 56 41 2 pine3 - - - 0 0
+!SET_MAPOBJECT 15 42 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 71 42 0 pine1 - - - 0 0
+!SET_MAPOBJECT 19 43 3 pine2 - - - 0 0
+!SET_MAPOBJECT 22 43 2 pine3 - - - 0 0
+!SET_MAPOBJECT 40 43 0 pine3 - - - 0 0
+!SET_MAPOBJECT 17 44 3 pine3 - - - 0 0
+!SET_MAPOBJECT 25 44 3 pine3 - - - 0 0
+!SET_MAPOBJECT 27 44 2 milestone - - - 0 0
+!SET_MAPOBJECT 20 45 1 pine2 - - - 0 0
+!SET_MAPOBJECT 24 45 3 boulder - - - 0 0
+!SET_MAPOBJECT 47 45 1 pine3 - - - 0 0
+!SET_MAPOBJECT 70 45 3 pine3 - - - 0 0
+!SET_MAPOBJECT 74 45 1 pine2 - - - 0 0
+!SET_MAPOBJECT 21 46 3 boulder - - - 0 0
+!SET_MAPOBJECT 24 46 1 pine3 - - - 0 0
+!SET_MAPOBJECT 26 46 1 pine3 - - - 0 0
+!SET_MAPOBJECT 39 46 0 pine1 - - - 0 0
+!SET_MAPOBJECT 62 46 0 pine1 - - - 0 0
+!SET_MAPOBJECT 66 46 3 pine2 - - - 0 0
+!SET_MAPOBJECT 72 46 3 pine3 - - - 0 0
+!SET_MAPOBJECT 68 47 2 pine3 - - - 0 0
+!SET_MAPOBJECT 4 48 1 pine3 - - - 0 0
+!SET_MAPOBJECT 17 48 1 pine2 - - - 0 0
+!SET_MAPOBJECT 23 48 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 38 48 0 pine3 - - - 0 0
+!SET_MAPOBJECT 40 48 2 pine2 - - - 0 0
+!SET_MAPOBJECT 44 48 2 pine3 - - - 0 0
+!SET_MAPOBJECT 52 48 2 pine3 - - - 0 0
+!SET_MAPOBJECT 63 48 2 pine3 - - - 0 0
+!SET_MAPOBJECT 66 48 0 pine3 - - - 0 0
+!SET_MAPOBJECT 70 48 0 pine3 - - - 0 0
+!SET_MAPOBJECT 75 48 3 pine2 - - - 0 0
+!SET_MAPOBJECT 23 49 2 pine1 - - - 0 0
+!SET_MAPOBJECT 27 49 3 pine2 - - - 0 0
+!SET_MAPOBJECT 54 49 0 pine3 - - - 0 0
+!SET_MAPOBJECT 68 49 3 pine1 - - - 0 0
+!SET_MAPOBJECT 25 50 2 pine3 - - - 0 0
+!SET_MAPOBJECT 26 50 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 30 50 2 pine3 - - - 0 0
+!SET_MAPOBJECT 64 50 1 pine1 - - - 0 0
+!SET_MAPOBJECT 66 50 0 pine3 - - - 0 0
+!SET_MAPOBJECT 69 50 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 78 50 1 pine1 - - - 0 0
+!SET_MAPOBJECT 27 51 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 66 51 1 boulder - - - 0 0
+!SET_MAPOBJECT 28 52 2 pine1 - - - 0 0
+!SET_MAPOBJECT 65 52 3 pine2 - - - 0 0
+!SET_MAPOBJECT 71 52 0 pine1 - - - 0 0
+!SET_MAPOBJECT 67 53 1 pine2 - - - 0 0
+!SET_MAPOBJECT 12 55 1 pine3 - - - 0 0
+!SET_MAPOBJECT 31 55 0 pine2 - - - 0 0
+!SET_MAPOBJECT 33 55 2 pine1 - - - 0 0
+!SET_MAPOBJECT 50 56 0 pine2 - - - 0 0
+!SET_MAPOBJECT 8 57 2 pine3 - - - 0 0
+!SET_MAPOBJECT 24 59 2 pine3 - - - 0 0
+!SET_MAPOBJECT 28 59 1 pine3 - - - 0 0
+!SET_MAPOBJECT 33 59 2 pine2 - - - 0 0
+!SET_MAPOBJECT 19 60 0 pine3 - - - 0 0
+!SET_MAPOBJECT 26 60 1 pine3 - - - 0 0
+!SET_MAPOBJECT 28 61 2 pine2 - - - 0 0
+!SET_MAPOBJECT 18 62 3 pine1 - - - 0 0
+!SET_MAPOBJECT 35 64 1 pine3 - - - 0 0
+!SET_MAPOBJECT 33 66 2 pine3 - - - 0 0
+!SET_MAPOBJECT 9 70 1 pine2 - - - 0 0
+!SET_MAPOBJECT 25 70 1 pine2 - - - 0 0
+!SET_MAPOBJECT 91 70 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 34 71 0 pine3 - - - 0 0
+!SET_MAPOBJECT 23 72 3 pine3 - - - 0 0
+!SET_MAPOBJECT 90 72 1 boulder - - - 0 0
+!SET_MAPOBJECT 19 73 1 pine2 - - - 0 0
+!SET_MAPOBJECT 38 73 2 pine3 - - - 0 0
+!SET_MAPOBJECT 89 73 0 pine1 - - - 0 0
+!SET_MAPOBJECT 23 74 1 boulder - - - 0 0
+!SET_MAPOBJECT 19 75 0 pine2 - - - 0 0
+!SET_MAPOBJECT 23 75 3 pine3 - - - 0 0
+!SET_MAPOBJECT 36 76 1 pine3 - - - 0 0
+!SET_MAPOBJECT 40 76 2 pine1 - - - 0 0
+!SET_MAPOBJECT 60 76 0 pine3 - - - 0 0
+!SET_MAPOBJECT 21 77 3 pine2 - - - 0 0
+!SET_MAPOBJECT 66 77 0 pine3 - - - 0 0
+!SET_MAPOBJECT 91 77 1 milestone - - - 0 0
+!SET_MAPOBJECT 35 78 0 pine3 - - - 0 0
+!SET_MAPOBJECT 89 78 0 pine3 - - - 0 0
+!SET_MAPOBJECT 90 78 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 75 80 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 17 81 1 pine1 - - - 0 0
+!SET_MAPOBJECT 55 82 3 pine3 - - - 0 0
+!SET_MAPOBJECT 20 83 1 pine3 - - - 0 0
+!SET_MAPOBJECT 23 83 2 pine2 - - - 0 0
+!SET_MAPOBJECT 84 83 2 pine3 - - - 0 0
+!SET_MAPOBJECT 86 83 1 pine3 - - - 0 0
+!SET_MAPOBJECT 80 84 3 pine3 - - - 0 0
+!SET_MAPOBJECT 90 84 1 pine1 - - - 0 0
+!SET_MAPOBJECT 19 85 3 pine1 - - - 0 0
+!SET_MAPOBJECT 28 85 3 pine3 - - - 0 0
+!SET_MAPOBJECT 63 85 0 boulder - - - 0 0
+!SET_MAPOBJECT 82 85 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 30 86 1 pine1 - - - 0 0
+!SET_MAPOBJECT 66 86 2 pine3 - - - 0 0
+!SET_MAPOBJECT 24 87 1 pine3 - - - 0 0
+!SET_MAPOBJECT 26 87 2 pine3 - - - 0 0
+!SET_MAPOBJECT 32 87 0 pine2 - - - 0 0
+!SET_MAPOBJECT 93 87 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 19 88 0 pine3 - - - 0 0
+!SET_MAPOBJECT 21 88 1 pine3 - - - 0 0
+!SET_MAPOBJECT 28 88 2 pine3 - - - 0 0
+!SET_MAPOBJECT 64 88 0 pine3 - - - 0 0
+!SET_MAPOBJECT 86 88 0 pine3 - - - 0 0
+!SET_MAPOBJECT 90 88 1 pine3 - - - 0 0
+!SET_MAPOBJECT 25 89 3 pine2 - - - 0 0
+!SET_MAPOBJECT 28 89 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 30 89 1 pine1 - - - 0 0
+!SET_MAPOBJECT 19 90 0 pine2 - - - 0 0
+!SET_MAPOBJECT 27 90 2 pine1 - - - 0 0
+!SET_MAPOBJECT 65 90 3 pine1 - - - 0 0
+!SET_MAPOBJECT 69 90 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 32 91 1 pine2 - - - 0 0
+!SET_MAPOBJECT 76 91 0 milestone - - - 0 0
+!SET_MAPOBJECT 81 91 3 pine2 - - - 0 0
+!SET_MAPOBJECT 86 91 0 pine3 - - - 0 0
+!SET_MAPOBJECT 29 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 60 92 3 pine3 - - - 0 0
+!SET_MAPOBJECT 61 92 3 stockade_c - - - 0 0
+!SET_MAPOBJECT 62 92 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 63 92 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 64 92 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 65 92 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 66 92 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 67 92 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 68 92 0 stockade_c - - - 0 0
+!SET_MAPOBJECT 73 92 3 pine3 - - - 0 0
+!SET_MAPOBJECT 61 93 1 stockade_1 - - - 0 0
+!SET_MAPOBJECT 68 93 2 stockade_1 - - - 0 0
+!SET_MAPOBJECT 89 93 2 boulder - - - 0 0
+!SET_MAPOBJECT 72 94 0 pine1 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 18:01:25
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:19

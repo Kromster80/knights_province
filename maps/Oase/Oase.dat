@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !HANDS_COUNT 3
@@ -32,7 +34,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -93,7 +95,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -148,5 +150,347 @@
 !SET_EMITTER 5 74 72 // terrain_mist_large
 !SET_EMITTER 5 72 77 // terrain_mist_large
 
+// MapObjects
+!SET_MAPOBJECT 12 33 3 palm_b - - - 0 0
+!SET_MAPOBJECT 14 33 2 palm_b - - - 0 0
+!SET_MAPOBJECT 0 35 3 palm_c - - - 0 0
+!SET_MAPOBJECT 1 35 1 palm_c - - - 0 0
+!SET_MAPOBJECT 4 35 3 palm_c - - - 0 0
+!SET_MAPOBJECT 4 36 0 palm_c - - - 0 0
+!SET_MAPOBJECT 5 36 2 palm_c - - - 0 0
+!SET_MAPOBJECT 6 36 2 palm_c - - - 0 0
+!SET_MAPOBJECT 13 36 0 palm_a - - - 0 0
+!SET_MAPOBJECT 6 37 3 palm_a - - - 0 0
+!SET_MAPOBJECT 7 37 3 palm_b - - - 0 0
+!SET_MAPOBJECT 14 37 3 palm_c - - - 0 0
+!SET_MAPOBJECT 20 37 2 palm_a - - - 0 0
+!SET_MAPOBJECT 6 38 1 palm_c - - - 0 0
+!SET_MAPOBJECT 8 38 0 palm_b - - - 0 0
+!SET_MAPOBJECT 10 38 1 palm_c - - - 0 0
+!SET_MAPOBJECT 12 38 0 palm_c - - - 0 0
+!SET_MAPOBJECT 17 38 0 palm_c - - - 0 0
+!SET_MAPOBJECT 31 38 3 palm_a - - - 0 0
+!SET_MAPOBJECT 2 39 3 palm_a - - - 0 0
+!SET_MAPOBJECT 5 39 2 palm_a - - - 0 0
+!SET_MAPOBJECT 6 39 2 palm_a - - - 0 0
+!SET_MAPOBJECT 16 39 2 palm_a - - - 0 0
+!SET_MAPOBJECT 17 39 1 palm_c - - - 0 0
+!SET_MAPOBJECT 5 40 1 palm_c - - - 0 0
+!SET_MAPOBJECT 7 40 2 palm_a - - - 0 0
+!SET_MAPOBJECT 11 40 0 palm_b - - - 0 0
+!SET_MAPOBJECT 26 40 3 palm_a - - - 0 0
+!SET_MAPOBJECT 2 41 2 palm_a - - - 0 0
+!SET_MAPOBJECT 5 41 0 palm_a - - - 0 0
+!SET_MAPOBJECT 7 41 1 palm_a - - - 0 0
+!SET_MAPOBJECT 2 42 2 palm_c - - - 0 0
+!SET_MAPOBJECT 4 42 2 palm_a - - - 0 0
+!SET_MAPOBJECT 5 42 2 palm_a - - - 0 0
+!SET_MAPOBJECT 17 42 2 palm_b - - - 0 0
+!SET_MAPOBJECT 0 43 0 palm_c - - - 0 0
+!SET_MAPOBJECT 2 43 3 palm_a - - - 0 0
+!SET_MAPOBJECT 18 43 3 palm_b - - - 0 0
+!SET_MAPOBJECT 29 44 0 palm_b - - - 0 0
+!SET_MAPOBJECT 30 44 2 palm_a - - - 0 0
+!SET_MAPOBJECT 20 45 0 palm_a - - - 0 0
+!SET_MAPOBJECT 32 45 3 palm_c - - - 0 0
+!SET_MAPOBJECT 27 46 2 palm_b - - - 0 0
+!SET_MAPOBJECT 31 46 0 palm_a - - - 0 0
+!SET_MAPOBJECT 32 46 2 palm_a - - - 0 0
+!SET_MAPOBJECT 22 47 2 palm_b - - - 0 0
+!SET_MAPOBJECT 0 48 0 palm_c - - - 0 0
+!SET_MAPOBJECT 0 49 0 palm_b - - - 0 0
+!SET_MAPOBJECT 1 49 1 palm_b - - - 0 0
+!SET_MAPOBJECT 29 49 2 palm_a - - - 0 0
+!SET_MAPOBJECT 30 50 0 palm_c - - - 0 0
+!SET_MAPOBJECT 0 52 0 palm_c - - - 0 0
+!SET_MAPOBJECT 1 52 2 palm_a - - - 0 0
+!SET_MAPOBJECT 40 52 2 palm_a - - - 0 0
+!SET_MAPOBJECT 0 53 3 palm_c - - - 0 0
+!SET_MAPOBJECT 0 55 2 palm_a - - - 0 0
+!SET_MAPOBJECT 84 55 1 palm_a - - - 0 0
+!SET_MAPOBJECT 0 56 3 palm_a - - - 0 0
+!SET_MAPOBJECT 84 56 3 palm_a - - - 0 0
+!SET_MAPOBJECT 88 56 0 palm_a - - - 0 0
+!SET_MAPOBJECT 1 58 3 palm_a - - - 0 0
+!SET_MAPOBJECT 2 58 1 palm_a - - - 0 0
+!SET_MAPOBJECT 90 58 2 palm_a - - - 0 0
+!SET_MAPOBJECT 2 59 1 palm_a - - - 0 0
+!SET_MAPOBJECT 0 60 1 palm_a - - - 0 0
+!SET_MAPOBJECT 26 60 2 palm_c - - - 0 0
+!SET_MAPOBJECT 91 60 2 palm_a - - - 0 0
+!SET_MAPOBJECT 47 61 0 palm_b - - - 0 0
+!SET_MAPOBJECT 1 62 0 palm_b - - - 0 0
+!SET_MAPOBJECT 2 62 1 palm_a - - - 0 0
+!SET_MAPOBJECT 25 62 2 palm_c - - - 0 0
+!SET_MAPOBJECT 26 62 1 palm_c - - - 0 0
+!SET_MAPOBJECT 41 62 1 palm_a - - - 0 0
+!SET_MAPOBJECT 93 62 3 palm_b - - - 0 0
+!SET_MAPOBJECT 95 62 2 palm_b - - - 0 0
+!SET_MAPOBJECT 2 63 2 palm_a - - - 0 0
+!SET_MAPOBJECT 24 63 2 palm_a - - - 0 0
+!SET_MAPOBJECT 26 63 3 palm_a - - - 0 0
+!SET_MAPOBJECT 27 63 0 palm_a - - - 0 0
+!SET_MAPOBJECT 37 63 2 palm_a - - - 0 0
+!SET_MAPOBJECT 41 63 0 palm_c - - - 0 0
+!SET_MAPOBJECT 21 64 3 palm_a - - - 0 0
+!SET_MAPOBJECT 42 64 0 palm_a - - - 0 0
+!SET_MAPOBJECT 81 64 3 palm_c - - - 0 0
+!SET_MAPOBJECT 82 64 1 palm_c - - - 0 0
+!SET_MAPOBJECT 85 64 3 palm_c - - - 0 0
+!SET_MAPOBJECT 2 65 2 palm_a - - - 0 0
+!SET_MAPOBJECT 38 65 3 palm_c - - - 0 0
+!SET_MAPOBJECT 41 65 3 palm_a - - - 0 0
+!SET_MAPOBJECT 85 65 0 palm_c - - - 0 0
+!SET_MAPOBJECT 86 65 2 palm_c - - - 0 0
+!SET_MAPOBJECT 87 65 2 palm_c - - - 0 0
+!SET_MAPOBJECT 94 65 0 palm_a - - - 0 0
+!SET_MAPOBJECT 0 66 2 palm_b - - - 0 0
+!SET_MAPOBJECT 20 66 3 palm_a - - - 0 0
+!SET_MAPOBJECT 25 66 2 palm_c - - - 0 0
+!SET_MAPOBJECT 40 66 1 palm_a - - - 0 0
+!SET_MAPOBJECT 87 66 3 palm_a - - - 0 0
+!SET_MAPOBJECT 88 66 3 palm_b - - - 0 0
+!SET_MAPOBJECT 95 66 3 palm_c - - - 0 0
+!SET_MAPOBJECT 101 66 2 palm_a - - - 0 0
+!SET_MAPOBJECT 23 67 3 palm_c - - - 0 0
+!SET_MAPOBJECT 37 67 1 palm_a - - - 0 0
+!SET_MAPOBJECT 87 67 1 palm_c - - - 0 0
+!SET_MAPOBJECT 89 67 0 palm_b - - - 0 0
+!SET_MAPOBJECT 91 67 1 palm_c - - - 0 0
+!SET_MAPOBJECT 93 67 0 palm_c - - - 0 0
+!SET_MAPOBJECT 98 67 0 palm_c - - - 0 0
+!SET_MAPOBJECT 2 68 2 palm_b - - - 0 0
+!SET_MAPOBJECT 44 68 2 palm_a - - - 0 0
+!SET_MAPOBJECT 83 68 3 palm_a - - - 0 0
+!SET_MAPOBJECT 86 68 2 palm_a - - - 0 0
+!SET_MAPOBJECT 87 68 2 palm_a - - - 0 0
+!SET_MAPOBJECT 97 68 2 palm_a - - - 0 0
+!SET_MAPOBJECT 98 68 1 palm_c - - - 0 0
+!SET_MAPOBJECT 0 69 0 palm_c - - - 0 0
+!SET_MAPOBJECT 3 69 3 palm_b - - - 0 0
+!SET_MAPOBJECT 18 69 3 palm_c - - - 0 0
+!SET_MAPOBJECT 19 69 0 palm_a - - - 0 0
+!SET_MAPOBJECT 20 69 2 palm_b - - - 0 0
+!SET_MAPOBJECT 40 69 3 palm_c - - - 0 0
+!SET_MAPOBJECT 86 69 1 palm_c - - - 0 0
+!SET_MAPOBJECT 88 69 2 palm_a - - - 0 0
+!SET_MAPOBJECT 92 69 0 palm_b - - - 0 0
+!SET_MAPOBJECT 107 69 3 palm_a - - - 0 0
+!SET_MAPOBJECT 7 70 1 palm_b - - - 0 0
+!SET_MAPOBJECT 16 70 0 palm_c - - - 0 0
+!SET_MAPOBJECT 17 70 0 palm_c - - - 0 0
+!SET_MAPOBJECT 18 70 1 palm_a - - - 0 0
+!SET_MAPOBJECT 26 70 1 palm_b - - - 0 0
+!SET_MAPOBJECT 43 70 3 palm_a - - - 0 0
+!SET_MAPOBJECT 83 70 2 palm_a - - - 0 0
+!SET_MAPOBJECT 86 70 0 palm_a - - - 0 0
+!SET_MAPOBJECT 88 70 1 palm_a - - - 0 0
+!SET_MAPOBJECT 1 71 3 palm_c - - - 0 0
+!SET_MAPOBJECT 2 71 2 palm_a - - - 0 0
+!SET_MAPOBJECT 4 71 2 palm_a - - - 0 0
+!SET_MAPOBJECT 7 71 2 palm_b - - - 0 0
+!SET_MAPOBJECT 17 71 1 palm_c - - - 0 0
+!SET_MAPOBJECT 18 71 2 palm_a - - - 0 0
+!SET_MAPOBJECT 20 71 3 palm_c - - - 0 0
+!SET_MAPOBJECT 83 71 2 palm_c - - - 0 0
+!SET_MAPOBJECT 85 71 2 palm_a - - - 0 0
+!SET_MAPOBJECT 86 71 2 palm_a - - - 0 0
+!SET_MAPOBJECT 98 71 2 palm_b - - - 0 0
+!SET_MAPOBJECT 1 72 3 palm_c - - - 0 0
+!SET_MAPOBJECT 7 72 2 palm_b - - - 0 0
+!SET_MAPOBJECT 14 72 2 palm_c - - - 0 0
+!SET_MAPOBJECT 15 72 1 palm_c - - - 0 0
+!SET_MAPOBJECT 17 72 2 palm_a - - - 0 0
+!SET_MAPOBJECT 22 72 0 palm_b - - - 0 0
+!SET_MAPOBJECT 81 72 0 palm_c - - - 0 0
+!SET_MAPOBJECT 83 72 3 palm_a - - - 0 0
+!SET_MAPOBJECT 99 72 3 palm_b - - - 0 0
+!SET_MAPOBJECT 10 73 3 palm_c - - - 0 0
+!SET_MAPOBJECT 11 73 2 palm_c - - - 0 0
+!SET_MAPOBJECT 16 73 0 palm_a - - - 0 0
+!SET_MAPOBJECT 19 73 0 palm_a - - - 0 0
+!SET_MAPOBJECT 40 73 0 palm_a - - - 0 0
+!SET_MAPOBJECT 110 73 0 palm_b - - - 0 0
+!SET_MAPOBJECT 111 73 2 palm_a - - - 0 0
+!SET_MAPOBJECT 9 74 0 palm_a - - - 0 0
+!SET_MAPOBJECT 10 74 0 palm_a - - - 0 0
+!SET_MAPOBJECT 17 74 0 palm_c - - - 0 0
+!SET_MAPOBJECT 22 74 2 palm_b - - - 0 0
+!SET_MAPOBJECT 101 74 0 palm_a - - - 0 0
+!SET_MAPOBJECT 113 74 3 palm_c - - - 0 0
+!SET_MAPOBJECT 16 75 2 palm_c - - - 0 0
+!SET_MAPOBJECT 108 75 2 palm_b - - - 0 0
+!SET_MAPOBJECT 112 75 0 palm_a - - - 0 0
+!SET_MAPOBJECT 113 75 2 palm_a - - - 0 0
+!SET_MAPOBJECT 8 76 3 palm_c - - - 0 0
+!SET_MAPOBJECT 9 76 1 palm_c - - - 0 0
+!SET_MAPOBJECT 10 76 0 palm_c - - - 0 0
+!SET_MAPOBJECT 13 76 3 palm_c - - - 0 0
+!SET_MAPOBJECT 103 76 2 palm_b - - - 0 0
+!SET_MAPOBJECT 2 77 2 palm_a - - - 0 0
+!SET_MAPOBJECT 26 77 0 palm_a - - - 0 0
+!SET_MAPOBJECT 81 77 0 palm_c - - - 0 0
+!SET_MAPOBJECT 0 78 2 palm_c - - - 0 0
+!SET_MAPOBJECT 26 78 2 palm_a - - - 0 0
+!SET_MAPOBJECT 81 78 0 palm_b - - - 0 0
+!SET_MAPOBJECT 82 78 1 palm_b - - - 0 0
+!SET_MAPOBJECT 110 78 2 palm_a - - - 0 0
+!SET_MAPOBJECT 3 79 0 palm_b - - - 0 0
+!SET_MAPOBJECT 4 79 3 palm_b - - - 0 0
+!SET_MAPOBJECT 26 79 1 palm_b - - - 0 0
+!SET_MAPOBJECT 111 79 0 palm_c - - - 0 0
+!SET_MAPOBJECT 1 80 3 palm_c - - - 0 0
+!SET_MAPOBJECT 6 80 3 palm_a - - - 0 0
+!SET_MAPOBJECT 27 80 3 palm_a - - - 0 0
+!SET_MAPOBJECT 3 81 2 palm_c - - - 0 0
+!SET_MAPOBJECT 5 81 3 palm_b - - - 0 0
+!SET_MAPOBJECT 6 81 3 palm_a - - - 0 0
+!SET_MAPOBJECT 25 81 2 palm_c - - - 0 0
+!SET_MAPOBJECT 26 81 0 palm_c - - - 0 0
+!SET_MAPOBJECT 27 81 0 palm_a - - - 0 0
+!SET_MAPOBJECT 81 81 0 palm_c - - - 0 0
+!SET_MAPOBJECT 82 81 2 palm_a - - - 0 0
+!SET_MAPOBJECT 121 81 2 palm_a - - - 0 0
+!SET_MAPOBJECT 13 82 0 palm_a - - - 0 0
+!SET_MAPOBJECT 17 82 3 palm_a - - - 0 0
+!SET_MAPOBJECT 18 82 1 palm_b - - - 0 0
+!SET_MAPOBJECT 81 82 3 palm_c - - - 0 0
+!SET_MAPOBJECT 7 83 0 palm_b - - - 0 0
+!SET_MAPOBJECT 9 83 2 palm_a - - - 0 0
+!SET_MAPOBJECT 11 83 3 palm_a - - - 0 0
+!SET_MAPOBJECT 12 83 3 palm_a - - - 0 0
+!SET_MAPOBJECT 13 83 3 palm_a - - - 0 0
+!SET_MAPOBJECT 19 83 1 palm_b - - - 0 0
+!SET_MAPOBJECT 7 84 0 palm_c - - - 0 0
+!SET_MAPOBJECT 10 84 1 palm_a - - - 0 0
+!SET_MAPOBJECT 11 84 2 palm_a - - - 0 0
+!SET_MAPOBJECT 81 84 2 palm_a - - - 0 0
+!SET_MAPOBJECT 21 85 2 palm_b - - - 0 0
+!SET_MAPOBJECT 81 85 3 palm_a - - - 0 0
+!SET_MAPOBJECT 82 87 3 palm_a - - - 0 0
+!SET_MAPOBJECT 83 87 1 palm_a - - - 0 0
+!SET_MAPOBJECT 83 88 1 palm_a - - - 0 0
+!SET_MAPOBJECT 81 89 1 palm_a - - - 0 0
+!SET_MAPOBJECT 107 89 2 palm_c - - - 0 0
+!SET_MAPOBJECT 82 91 0 palm_b - - - 0 0
+!SET_MAPOBJECT 83 91 1 palm_a - - - 0 0
+!SET_MAPOBJECT 106 91 2 palm_c - - - 0 0
+!SET_MAPOBJECT 107 91 1 palm_c - - - 0 0
+!SET_MAPOBJECT 122 91 1 palm_a - - - 0 0
+!SET_MAPOBJECT 83 92 2 palm_a - - - 0 0
+!SET_MAPOBJECT 105 92 2 palm_a - - - 0 0
+!SET_MAPOBJECT 107 92 3 palm_a - - - 0 0
+!SET_MAPOBJECT 108 92 0 palm_a - - - 0 0
+!SET_MAPOBJECT 118 92 2 palm_a - - - 0 0
+!SET_MAPOBJECT 122 92 0 palm_c - - - 0 0
+!SET_MAPOBJECT 102 93 3 palm_a - - - 0 0
+!SET_MAPOBJECT 123 93 0 palm_a - - - 0 0
+!SET_MAPOBJECT 83 94 2 palm_a - - - 0 0
+!SET_MAPOBJECT 119 94 3 palm_c - - - 0 0
+!SET_MAPOBJECT 122 94 3 palm_a - - - 0 0
+!SET_MAPOBJECT 81 95 2 palm_b - - - 0 0
+!SET_MAPOBJECT 101 95 3 palm_a - - - 0 0
+!SET_MAPOBJECT 106 95 2 palm_c - - - 0 0
+!SET_MAPOBJECT 121 95 1 palm_a - - - 0 0
+!SET_MAPOBJECT 104 96 3 palm_c - - - 0 0
+!SET_MAPOBJECT 118 96 1 palm_a - - - 0 0
+!SET_MAPOBJECT 83 97 2 palm_b - - - 0 0
+!SET_MAPOBJECT 125 97 2 palm_a - - - 0 0
+!SET_MAPOBJECT 81 98 0 palm_c - - - 0 0
+!SET_MAPOBJECT 84 98 3 palm_b - - - 0 0
+!SET_MAPOBJECT 99 98 3 palm_c - - - 0 0
+!SET_MAPOBJECT 100 98 0 palm_a - - - 0 0
+!SET_MAPOBJECT 101 98 2 palm_b - - - 0 0
+!SET_MAPOBJECT 121 98 3 palm_c - - - 0 0
+!SET_MAPOBJECT 123 98 3 palm_a - - - 0 0
+!SET_MAPOBJECT 125 98 2 palm_c - - - 0 0
+!SET_MAPOBJECT 88 99 1 palm_b - - - 0 0
+!SET_MAPOBJECT 97 99 0 palm_c - - - 0 0
+!SET_MAPOBJECT 98 99 0 palm_c - - - 0 0
+!SET_MAPOBJECT 99 99 1 palm_a - - - 0 0
+!SET_MAPOBJECT 107 99 1 palm_b - - - 0 0
+!SET_MAPOBJECT 124 99 3 palm_a - - - 0 0
+!SET_MAPOBJECT 126 99 2 palm_a - - - 0 0
+!SET_MAPOBJECT 82 100 3 palm_c - - - 0 0
+!SET_MAPOBJECT 83 100 2 palm_a - - - 0 0
+!SET_MAPOBJECT 85 100 2 palm_a - - - 0 0
+!SET_MAPOBJECT 88 100 2 palm_b - - - 0 0
+!SET_MAPOBJECT 98 100 1 palm_c - - - 0 0
+!SET_MAPOBJECT 99 100 2 palm_a - - - 0 0
+!SET_MAPOBJECT 101 100 3 palm_c - - - 0 0
+!SET_MAPOBJECT 124 100 2 palm_a - - - 0 0
+!SET_MAPOBJECT 82 101 3 palm_c - - - 0 0
+!SET_MAPOBJECT 88 101 2 palm_b - - - 0 0
+!SET_MAPOBJECT 95 101 2 palm_c - - - 0 0
+!SET_MAPOBJECT 96 101 1 palm_c - - - 0 0
+!SET_MAPOBJECT 98 101 2 palm_a - - - 0 0
+!SET_MAPOBJECT 103 101 0 palm_b - - - 0 0
+!SET_MAPOBJECT 124 101 1 palm_a - - - 0 0
+!SET_MAPOBJECT 91 102 3 palm_c - - - 0 0
+!SET_MAPOBJECT 92 102 2 palm_c - - - 0 0
+!SET_MAPOBJECT 97 102 0 palm_a - - - 0 0
+!SET_MAPOBJECT 100 102 0 palm_a - - - 0 0
+!SET_MAPOBJECT 121 102 0 palm_a - - - 0 0
+!SET_MAPOBJECT 90 103 0 palm_a - - - 0 0
+!SET_MAPOBJECT 91 103 0 palm_a - - - 0 0
+!SET_MAPOBJECT 98 103 0 palm_c - - - 0 0
+!SET_MAPOBJECT 103 103 2 palm_b - - - 0 0
+!SET_MAPOBJECT 97 104 2 palm_c - - - 0 0
+!SET_MAPOBJECT 89 105 3 palm_c - - - 0 0
+!SET_MAPOBJECT 90 105 1 palm_c - - - 0 0
+!SET_MAPOBJECT 91 105 0 palm_c - - - 0 0
+!SET_MAPOBJECT 94 105 3 palm_c - - - 0 0
+!SET_MAPOBJECT 83 106 2 palm_a - - - 0 0
+!SET_MAPOBJECT 107 106 0 palm_a - - - 0 0
+!SET_MAPOBJECT 81 107 2 palm_c - - - 0 0
+!SET_MAPOBJECT 107 107 2 palm_a - - - 0 0
+!SET_MAPOBJECT 84 108 0 palm_b - - - 0 0
+!SET_MAPOBJECT 85 108 3 palm_b - - - 0 0
+!SET_MAPOBJECT 107 108 1 palm_b - - - 0 0
+!SET_MAPOBJECT 108 108 1 palm_a - - - 0 0
+!SET_MAPOBJECT 113 108 2 palm_b - - - 0 0
+!SET_MAPOBJECT 82 109 3 palm_c - - - 0 0
+!SET_MAPOBJECT 87 109 3 palm_a - - - 0 0
+!SET_MAPOBJECT 108 109 3 palm_a - - - 0 0
+!SET_MAPOBJECT 110 109 0 palm_a - - - 0 0
+!SET_MAPOBJECT 112 109 2 palm_b - - - 0 0
+!SET_MAPOBJECT 84 110 2 palm_c - - - 0 0
+!SET_MAPOBJECT 86 110 3 palm_b - - - 0 0
+!SET_MAPOBJECT 87 110 3 palm_a - - - 0 0
+!SET_MAPOBJECT 106 110 2 palm_c - - - 0 0
+!SET_MAPOBJECT 107 110 0 palm_c - - - 0 0
+!SET_MAPOBJECT 108 110 0 palm_a - - - 0 0
+!SET_MAPOBJECT 109 110 0 palm_a - - - 0 0
+!SET_MAPOBJECT 110 110 1 palm_b - - - 0 0
+!SET_MAPOBJECT 111 110 3 palm_c - - - 0 0
+!SET_MAPOBJECT 94 111 0 palm_a - - - 0 0
+!SET_MAPOBJECT 98 111 3 palm_a - - - 0 0
+!SET_MAPOBJECT 99 111 1 palm_b - - - 0 0
+!SET_MAPOBJECT 108 111 0 palm_c - - - 0 0
+!SET_MAPOBJECT 115 111 1 palm_a - - - 0 0
+!SET_MAPOBJECT 90 112 2 palm_a - - - 0 0
+!SET_MAPOBJECT 92 112 3 palm_a - - - 0 0
+!SET_MAPOBJECT 93 112 3 palm_a - - - 0 0
+!SET_MAPOBJECT 94 112 3 palm_a - - - 0 0
+!SET_MAPOBJECT 98 112 0 palm_b - - - 0 0
+!SET_MAPOBJECT 100 112 1 palm_b - - - 0 0
+!SET_MAPOBJECT 111 112 3 palm_b - - - 0 0
+!SET_MAPOBJECT 112 112 3 palm_c - - - 0 0
+!SET_MAPOBJECT 98 113 1 palm_c - - - 0 0
+!SET_MAPOBJECT 108 113 0 palm_a - - - 0 0
+!SET_MAPOBJECT 111 113 3 palm_a - - - 0 0
+!SET_MAPOBJECT 114 113 0 palm_a - - - 0 0
+!SET_MAPOBJECT 97 114 2 palm_c - - - 0 0
+!SET_MAPOBJECT 102 114 2 palm_b - - - 0 0
+!SET_MAPOBJECT 110 114 2 palm_a - - - 0 0
+!SET_MAPOBJECT 94 115 2 palm_b - - - 0 0
+!SET_MAPOBJECT 101 116 1 palm_b - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 11:13)"  on 19.03.2023 17:22:39
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:29

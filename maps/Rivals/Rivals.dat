@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !HANDS_COUNT 4
@@ -40,7 +42,7 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -108,7 +110,7 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -176,7 +178,7 @@
 // Block units
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -224,5 +226,74 @@
 // Fences
 
 
+// MapObjects
+!SET_MAPOBJECT 36 2 1 pine3 - - - 0 0
+!SET_MAPOBJECT 32 5 3 pine3 - - - 0 0
+!SET_MAPOBJECT 40 7 2 pine3 - - - 0 0
+!SET_MAPOBJECT 28 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 32 9 1 pine3 - - - 0 0
+!SET_MAPOBJECT 37 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 43 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 35 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 43 10 2 pine3 - - - 0 0
+!SET_MAPOBJECT 40 11 1 pine3 - - - 0 0
+!SET_MAPOBJECT 40 12 2 pine3 - - - 0 0
+!SET_MAPOBJECT 30 13 1 pine3 - - - 0 0
+!SET_MAPOBJECT 43 13 3 pine3 - - - 0 0
+!SET_MAPOBJECT 35 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 43 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 37 15 1 pine3 - - - 0 0
+!SET_MAPOBJECT 31 16 1 pine3 - - - 0 0
+!SET_MAPOBJECT 42 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 35 18 3 pine3 - - - 0 0
+!SET_MAPOBJECT 42 18 2 pine3 - - - 0 0
+!SET_MAPOBJECT 137 18 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 32 20 0 pine3 - - - 0 0
+!SET_MAPOBJECT 37 20 3 pine3 - - - 0 0
+!SET_MAPOBJECT 38 20 2 pine3 - - - 0 0
+!SET_MAPOBJECT 130 20 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 123 22 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 140 22 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 132 23 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 135 24 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 116 25 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 135 25 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 136 25 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 136 26 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 121 27 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 122 27 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 128 27 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 123 30 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 132 30 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 133 30 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 117 31 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 131 31 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 132 31 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 140 31 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 126 32 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 139 32 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 120 33 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 121 33 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 121 34 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 129 35 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 125 36 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 129 36 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 136 36 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 28 122 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 24 123 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 19 126 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 22 127 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 18 130 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 24 130 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 21 132 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 18 135 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 21 139 0 oak_3 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 17:46:33
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:36

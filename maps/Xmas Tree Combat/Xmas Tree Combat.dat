@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 0 // Disabled
 !MODE_TACTIC
@@ -20,8 +22,8 @@
 
 // Goals
 !ADD_GOAL 1 1 0 0 1
-!ADD_GOAL 0 1 1 2 1
-!ADD_GOAL 0 1 1 3 1
+!ADD_GOAL 0 1 0 2 1
+!ADD_GOAL 0 1 0 3 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -29,12 +31,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 16
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -47,7 +50,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -84,8 +87,8 @@
 
 // Goals
 !ADD_GOAL 1 1 0 1 1
-!ADD_GOAL 0 1 1 2 1
-!ADD_GOAL 0 1 1 3 1
+!ADD_GOAL 0 1 0 2 1
+!ADD_GOAL 0 1 0 3 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -93,12 +96,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 16
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -111,7 +115,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -148,8 +152,8 @@
 
 // Goals
 !ADD_GOAL 1 1 0 2 1
-!ADD_GOAL 0 1 1 0 1
-!ADD_GOAL 0 1 1 1 1
+!ADD_GOAL 0 1 0 0 1
+!ADD_GOAL 0 1 0 1 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -157,12 +161,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 16
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -175,7 +180,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -212,8 +217,8 @@
 
 // Goals
 !ADD_GOAL 1 1 0 3 1
-!ADD_GOAL 0 1 1 0 1
-!ADD_GOAL 0 1 1 1 1
+!ADD_GOAL 0 1 0 0 1
+!ADD_GOAL 0 1 0 1 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -221,12 +226,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 16
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 0
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -239,7 +245,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -277,5 +283,107 @@
 // Fences
 
 
+// MapObjects
+!SET_MAPOBJECT 27 8 2 pine1 - - - 0 0
+!SET_MAPOBJECT 27 10 3 pine1 - - - 0 0
+!SET_MAPOBJECT 19 11 3 pine2 - - - 0 0
+!SET_MAPOBJECT 21 11 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 12 0 oak_2 - - - 0 0
+!SET_MAPOBJECT 25 12 1 pine3 - - - 0 0
+!SET_MAPOBJECT 27 12 2 pine3 - - - 0 0
+!SET_MAPOBJECT 19 13 2 pine2 - - - 0 0
+!SET_MAPOBJECT 21 14 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 23 14 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 25 14 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 27 14 0 oak_1 - - - 0 0
+!SET_MAPOBJECT 19 16 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 22 16 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 24 16 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 26 16 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 28 16 1 birch_1 - - - 0 0
+!SET_MAPOBJECT 17 17 0 pine1 - - - 0 0
+!SET_MAPOBJECT 30 17 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 19 18 1 birch_1 - - - 0 0
+!SET_MAPOBJECT 21 18 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 23 18 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 25 18 3 oak_1 - - - 0 0
+!SET_MAPOBJECT 27 18 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 29 19 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 31 19 2 pine1 - - - 0 0
+!SET_MAPOBJECT 33 19 3 pine2 - - - 0 0
+!SET_MAPOBJECT 18 20 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 20 20 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 22 20 1 pine3 - - - 0 0
+!SET_MAPOBJECT 24 20 0 pine3 - - - 0 0
+!SET_MAPOBJECT 27 20 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 29 21 2 oak_1 - - - 0 0
+!SET_MAPOBJECT 18 22 1 pine2 - - - 0 0
+!SET_MAPOBJECT 20 22 0 oak_2 - - - 0 0
+!SET_MAPOBJECT 22 22 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 24 22 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 26 22 2 pine2 - - - 0 0
+!SET_MAPOBJECT 31 22 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 16 23 1 pine1 - - - 0 0
+!SET_MAPOBJECT 28 23 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 14 24 0 pine2 - - - 0 0
+!SET_MAPOBJECT 18 24 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 20 24 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 22 24 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 24 24 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 26 24 2 pine3 - - - 0 0
+!SET_MAPOBJECT 30 24 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 25 3 pine3 - - - 0 0
+!SET_MAPOBJECT 28 25 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 32 25 1 pine3 - - - 0 0
+!SET_MAPOBJECT 18 26 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 20 26 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 22 26 2 pine3 - - - 0 0
+!SET_MAPOBJECT 24 26 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 26 26 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 30 26 2 birch_2 - - - 0 0
+!SET_MAPOBJECT 15 27 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 28 27 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 32 27 0 pine2 - - - 0 0
+!SET_MAPOBJECT 17 28 0 pine3 - - - 0 0
+!SET_MAPOBJECT 19 28 3 pine3 - - - 0 0
+!SET_MAPOBJECT 21 28 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 23 28 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 25 28 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 30 28 1 pine3 - - - 0 0
+!SET_MAPOBJECT 15 29 3 pine2 - - - 0 0
+!SET_MAPOBJECT 27 29 3 pine3 - - - 0 0
+!SET_MAPOBJECT 17 30 2 pine3 - - - 0 0
+!SET_MAPOBJECT 19 30 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 21 30 0 pine3 - - - 0 0
+!SET_MAPOBJECT 23 30 1 pine3 - - - 0 0
+!SET_MAPOBJECT 25 30 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 29 30 3 pine3 - - - 0 0
+!SET_MAPOBJECT 31 30 2 pine3 - - - 0 0
+!SET_MAPOBJECT 27 31 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 16 32 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 18 32 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 20 32 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 22 32 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 24 32 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 29 32 1 pine2 - - - 0 0
+!SET_MAPOBJECT 31 32 1 oak_1 - - - 0 0
+!SET_MAPOBJECT 33 32 1 pine1 - - - 0 0
+!SET_MAPOBJECT 26 33 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 17 34 3 pine3 - - - 0 0
+!SET_MAPOBJECT 19 34 3 pine3 - - - 0 0
+!SET_MAPOBJECT 21 34 1 pine3 - - - 0 0
+!SET_MAPOBJECT 23 34 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 28 34 3 pine3 - - - 0 0
+!SET_MAPOBJECT 25 35 3 pine3 - - - 0 0
+!SET_MAPOBJECT 19 36 0 pine2 - - - 0 0
+!SET_MAPOBJECT 23 36 0 oak_1 - - - 0 0
+!SET_MAPOBJECT 27 36 1 pine1 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 17:33)"  on 19.03.2023 18:03:19
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:26

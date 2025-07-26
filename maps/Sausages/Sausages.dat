@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 3 // Max score
 !HANDS_COUNT 2
@@ -31,7 +33,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1121,4 +1123,4 @@
 !SUN_POSITION 236 25
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15445 (2024/10/11 18:45)" on 19/10/2024 11:21:44
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:42
