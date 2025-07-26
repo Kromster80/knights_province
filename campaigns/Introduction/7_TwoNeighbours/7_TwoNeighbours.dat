@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 1 // Min time
 !HANDS_COUNT 4
@@ -17,8 +19,8 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 1 1 1
-!ADD_GOAL 0 0 1 2 1
+!ADD_GOAL 0 0 0 1 1
+!ADD_GOAL 0 0 0 2 1
 !ADD_GOAL 1 0 0 0 0
 
 // AI
@@ -52,7 +54,7 @@
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -129,12 +131,13 @@
 !SET_AI_DEFENCE 66 41 4 1 10 -1 8 4 // melee
 !SET_AI_DEFENCE 70 39 4 1 10 -1 8 4 // melee
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 24000
 !SET_AI_ATTACK INTERVAL 6000
 !SET_AI_ATTACK MEN_PERCENTAGE 25
 !SET_AI_ATTACK TARGET 1
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -146,7 +149,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -279,12 +282,13 @@
 !SET_AI_DEFENCE 16 45 3 1 40 -1 9 3 // melee
 !SET_AI_DEFENCE_STOCK 18 9 // militia
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 25000
 !SET_AI_ATTACK INTERVAL 6000
 !SET_AI_ATTACK MEN_PERCENTAGE 25
 !SET_AI_ATTACK TARGET 1
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -296,7 +300,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -430,5 +434,165 @@
 !SET_UNIT 47 19 70 5 // duck2
 !SET_UNIT 47 29 87 5 // duck2
 
+// MapObjects
+!SET_MAPOBJECT 20 2 0 pine3 - - - 0 0
+!SET_MAPOBJECT 58 2 0 pine3 - - - 0 0
+!SET_MAPOBJECT 3 3 0 pine3 - - - 0 0
+!SET_MAPOBJECT 66 3 0 pine3 - - - 0 0
+!SET_MAPOBJECT 9 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 45 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 49 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 57 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 71 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 9 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 15 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 23 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 2 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 43 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 22 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 51 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 57 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 64 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 2 11 0 pine3 - - - 0 0
+!SET_MAPOBJECT 9 11 0 pine3 - - - 0 0
+!SET_MAPOBJECT 4 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 48 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 66 12 0 pine3 - - - 0 0
+!SET_MAPOBJECT 17 13 0 pine3 - - - 0 0
+!SET_MAPOBJECT 44 13 0 pine3 - - - 0 0
+!SET_MAPOBJECT 70 13 0 pine3 - - - 0 0
+!SET_MAPOBJECT 52 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 1 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 60 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 63 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 16 0 pine3 - - - 0 0
+!SET_MAPOBJECT 71 16 0 pine3 - - - 0 0
+!SET_MAPOBJECT 1 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 3 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 50 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 67 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 47 18 0 pine3 - - - 0 0
+!SET_MAPOBJECT 61 19 0 pine3 - - - 0 0
+!SET_MAPOBJECT 69 19 0 pine3 - - - 0 0
+!SET_MAPOBJECT 55 20 0 pine3 - - - 0 0
+!SET_MAPOBJECT 50 22 0 pine3 - - - 0 0
+!SET_MAPOBJECT 54 22 0 pine3 - - - 0 0
+!SET_MAPOBJECT 68 23 0 pine3 - - - 0 0
+!SET_MAPOBJECT 60 24 0 pine3 - - - 0 0
+!SET_MAPOBJECT 58 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 59 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 60 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 61 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 62 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 63 40 0 grain_max - - - 0 0
+!SET_MAPOBJECT 58 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 59 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 60 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 61 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 62 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 63 41 0 grain_max - - - 0 0
+!SET_MAPOBJECT 58 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 59 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 60 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 61 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 62 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 1 45 0 grain_max - - - 0 0
+!SET_MAPOBJECT 2 45 0 grain_max - - - 0 0
+!SET_MAPOBJECT 1 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 2 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 3 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 4 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 5 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 6 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 7 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 8 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 9 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 1 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 2 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 3 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 4 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 5 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 6 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 7 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 8 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 9 47 0 grain_max - - - 0 0
+!SET_MAPOBJECT 1 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 2 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 3 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 4 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 5 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 6 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 7 48 0 grain_max - - - 0 0
+!SET_MAPOBJECT 71 51 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 70 52 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 14 56 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 1 62 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 59 63 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 61 65 2 boulder - - - 0 0
+!SET_MAPOBJECT 63 65 1 reed2 - - - 0 0
+!SET_MAPOBJECT 66 65 1 reed2 - - - 0 0
+!SET_MAPOBJECT 67 65 1 reed2 - - - 0 0
+!SET_MAPOBJECT 68 65 2 reed2 - - - 0 0
+!SET_MAPOBJECT 63 66 0 reed2 - - - 0 0
+!SET_MAPOBJECT 64 66 3 reed2 - - - 0 0
+!SET_MAPOBJECT 65 66 2 reed2 - - - 0 0
+!SET_MAPOBJECT 66 66 0 reed2 - - - 0 0
+!SET_MAPOBJECT 67 66 3 reed2 - - - 0 0
+!SET_MAPOBJECT 68 66 2 reed2 - - - 0 0
+!SET_MAPOBJECT 66 67 3 reed2 - - - 0 0
+!SET_MAPOBJECT 67 67 2 reed2 - - - 0 0
+!SET_MAPOBJECT 66 68 3 reed2 - - - 0 0
+!SET_MAPOBJECT 2 69 0 reed2 - - - 0 0
+!SET_MAPOBJECT 0 70 3 reed2 - - - 0 0
+!SET_MAPOBJECT 1 70 2 reed2 - - - 0 0
+!SET_MAPOBJECT 3 70 0 reed2 - - - 0 0
+!SET_MAPOBJECT 4 70 2 reed2 - - - 0 0
+!SET_MAPOBJECT 5 70 0 reed2 - - - 0 0
+!SET_MAPOBJECT 9 70 2 reed2 - - - 0 0
+!SET_MAPOBJECT 11 70 1 reed2 - - - 0 0
+!SET_MAPOBJECT 16 73 0 reed2 - - - 0 0
+!SET_MAPOBJECT 9 80 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 3 81 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 12 81 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 13 81 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 7 82 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 15 82 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 39 82 0 boulder - - - 0 0
+!SET_MAPOBJECT 7 83 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 41 84 3 reed2 - - - 0 0
+!SET_MAPOBJECT 10 85 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 41 85 1 reed2 - - - 0 0
+!SET_MAPOBJECT 41 86 1 reed2 - - - 0 0
+!SET_MAPOBJECT 13 87 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 17 87 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 9 88 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 10 88 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 11 91 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 14 92 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 15 92 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 18 93 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 21 93 3 reed2 - - - 0 0
+!SET_MAPOBJECT 22 93 1 reed2 - - - 0 0
+!SET_MAPOBJECT 23 93 0 reed2 - - - 0 0
+!SET_MAPOBJECT 21 94 2 reed2 - - - 0 0
+!SET_MAPOBJECT 22 94 1 reed2 - - - 0 0
+!SET_MAPOBJECT 24 94 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 13 95 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 21 95 0 reed2 - - - 0 0
+!SET_MAPOBJECT 22 95 1 reed2 - - - 0 0
+!SET_MAPOBJECT 23 95 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 12 96 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 21 96 1 reed2 - - - 0 0
+!SET_MAPOBJECT 16 97 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 18 98 0 conepine_3 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 22:05:40
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:24:09

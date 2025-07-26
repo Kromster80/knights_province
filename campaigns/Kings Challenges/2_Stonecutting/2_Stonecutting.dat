@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 3 // Max score
 !HANDS_COUNT 2
@@ -60,7 +62,7 @@
 !UNIT_BLOCK 25 // horsescout
 !UNIT_BLOCK 26 // cavalry
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -112,5 +114,88 @@
 // Fences
 
 
+// MapObjects
+!SET_MAPOBJECT 5 4 2 stonewall - - - 0 0
+!SET_MAPOBJECT 7 4 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 3 5 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 4 5 1 stonewall - - - 0 0
+!SET_MAPOBJECT 5 5 3 obelisk - - - 0 0
+!SET_MAPOBJECT 6 5 3 stonewall - - - 0 0
+!SET_MAPOBJECT 9 5 1 boulder2 - - - 0 0
+!SET_MAPOBJECT 15 5 3 pine2 - - - 0 0
+!SET_MAPOBJECT 5 6 2 stonewall - - - 0 0
+!SET_MAPOBJECT 12 6 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 41 6 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 5 7 2 boulder - - - 0 0
+!SET_MAPOBJECT 7 7 0 milestone - - - 0 0
+!SET_MAPOBJECT 17 7 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 43 7 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 38 8 0 log - - - 0 0
+!SET_MAPOBJECT 39 8 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 40 8 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 38 9 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 37 11 3 milestone - - - 0 0
+!SET_MAPOBJECT 39 11 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 44 11 0 boulder - - - 0 0
+!SET_MAPOBJECT 2 13 0 pine3 - - - 0 0
+!SET_MAPOBJECT 40 15 1 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 45 15 1 boulder2 - - - 0 0
+!SET_MAPOBJECT 36 16 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 38 16 1 flower_red - - - 0 0
+!SET_MAPOBJECT 34 17 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 37 18 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 34 20 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 35 22 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 41 22 3 pine3 - - - 0 0
+!SET_MAPOBJECT 38 23 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 42 24 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 36 26 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 5 27 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 3 30 2 oak_3 - - - 0 0
+!SET_MAPOBJECT 6 30 2 flower_red - - - 0 0
+!SET_MAPOBJECT 18 31 3 boulder - - - 0 0
+!SET_MAPOBJECT 13 32 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 9 33 2 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 4 35 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 12 35 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 14 36 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 20 36 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 21 36 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 6 37 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 8 37 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 12 38 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 13 38 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 14 38 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 15 38 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 16 38 0 stockade_1 - - - 0 0
+!SET_MAPOBJECT 45 38 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 8 39 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 16 39 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 10 40 2 pine2 - - - 0 0
+!SET_MAPOBJECT 24 40 2 pine3 - - - 0 0
+!SET_MAPOBJECT 27 40 2 boulder - - - 0 0
+!SET_MAPOBJECT 12 41 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 30 41 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 13 42 1 stockade_2 - - - 0 0
+!SET_MAPOBJECT 21 42 0 pine3 - - - 0 0
+!SET_MAPOBJECT 24 42 1 pine1 - - - 0 0
+!SET_MAPOBJECT 27 42 3 pine3 - - - 0 0
+!SET_MAPOBJECT 13 43 1 stockade_2 - - - 0 0
+!SET_MAPOBJECT 32 43 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 34 43 1 pine3 - - - 0 0
+!SET_MAPOBJECT 36 43 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 9 44 1 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 13 44 1 stockade_2 - - - 0 0
+!SET_MAPOBJECT 23 44 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 25 44 0 birch_1 - - - 0 0
+!SET_MAPOBJECT 33 45 0 pine3 - - - 0 0
+!SET_MAPOBJECT 26 46 1 birch_2 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 22:13:56
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:24:25

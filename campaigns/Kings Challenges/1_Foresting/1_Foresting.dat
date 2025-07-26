@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 3 // Max score
 !HANDS_COUNT 2
@@ -61,7 +63,7 @@
 !UNIT_BLOCK 13 // fisher
 !UNIT_BLOCK 15 // smith
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -127,5 +129,115 @@
 !SET_STOCKPILE 1 39 47 5
 !SET_STOCKPILE 1 39 43 5
 
+// MapObjects
+!SET_MAPOBJECT 48 1 0 pine3 - - - 0 0
+!SET_MAPOBJECT 49 1 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 50 2 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 53 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 57 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 58 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 60 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 48 3 3 pine3 - - - 0 0
+!SET_MAPOBJECT 60 3 3 pine3 - - - 0 0
+!SET_MAPOBJECT 47 4 3 pine3 - - - 0 0
+!SET_MAPOBJECT 50 4 3 pine3 - - - 0 0
+!SET_MAPOBJECT 53 4 3 pine3 - - - 0 0
+!SET_MAPOBJECT 55 4 3 pine3 - - - 0 0
+!SET_MAPOBJECT 60 4 3 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 44 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 58 5 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 57 6 3 pine3 - - - 0 0
+!SET_MAPOBJECT 60 6 3 pine3 - - - 0 0
+!SET_MAPOBJECT 41 7 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 44 7 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 48 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 52 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 53 7 2 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 54 7 3 pine3 - - - 0 0
+!SET_MAPOBJECT 41 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 43 8 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 44 8 3 pine3 - - - 0 0
+!SET_MAPOBJECT 50 8 3 pine3 - - - 0 0
+!SET_MAPOBJECT 58 8 3 pine3 - - - 0 0
+!SET_MAPOBJECT 56 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 61 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 47 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 54 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 52 11 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 59 11 0 pine3 - - - 0 0
+!SET_MAPOBJECT 60 11 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 29 18 2 pine3 - - - 0 0
+!SET_MAPOBJECT 31 18 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 26 19 1 pine3 - - - 0 0
+!SET_MAPOBJECT 26 20 1 pine3 - - - 0 0
+!SET_MAPOBJECT 44 20 2 pine2 - - - 0 0
+!SET_MAPOBJECT 28 21 2 pine2 - - - 0 0
+!SET_MAPOBJECT 31 21 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 33 21 2 pine2 - - - 0 0
+!SET_MAPOBJECT 26 22 2 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 23 23 1 pine3 - - - 0 0
+!SET_MAPOBJECT 20 24 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 22 24 2 pine2 - - - 0 0
+!SET_MAPOBJECT 25 24 2 pine3 - - - 0 0
+!SET_MAPOBJECT 28 24 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 18 25 1 pine3 - - - 0 0
+!SET_MAPOBJECT 21 25 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 11 26 1 pine3 - - - 0 0
+!SET_MAPOBJECT 29 26 2 pine2 - - - 0 0
+!SET_MAPOBJECT 15 27 1 pine3 - - - 0 0
+!SET_MAPOBJECT 17 27 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 18 27 2 pine2 - - - 0 0
+!SET_MAPOBJECT 23 27 2 pine2 - - - 0 0
+!SET_MAPOBJECT 25 27 2 pine2 - - - 0 0
+!SET_MAPOBJECT 10 28 1 pine3 - - - 0 0
+!SET_MAPOBJECT 14 28 1 pine3 - - - 0 0
+!SET_MAPOBJECT 19 28 1 pine3 - - - 0 0
+!SET_MAPOBJECT 21 28 2 pine3 - - - 0 0
+!SET_MAPOBJECT 24 28 1 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 26 28 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 7 29 0 pine3 - - - 0 0
+!SET_MAPOBJECT 12 29 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 30 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 16 30 2 pine3 - - - 0 0
+!SET_MAPOBJECT 19 30 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 9 31 1 pine3 - - - 0 0
+!SET_MAPOBJECT 13 31 2 pine1 - - - 0 0
+!SET_MAPOBJECT 19 31 2 pine3 - - - 0 0
+!SET_MAPOBJECT 29 31 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 5 32 1 pine3 - - - 0 0
+!SET_MAPOBJECT 11 32 1 pine3 - - - 0 0
+!SET_MAPOBJECT 27 32 2 pine3 - - - 0 0
+!SET_MAPOBJECT 7 33 1 pine3 - - - 0 0
+!SET_MAPOBJECT 27 33 2 reed - - - 0 0
+!SET_MAPOBJECT 28 33 2 reed2 - - - 0 0
+!SET_MAPOBJECT 4 34 1 pine3 - - - 0 0
+!SET_MAPOBJECT 6 34 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 9 34 1 pine3 - - - 0 0
+!SET_MAPOBJECT 28 34 0 reed - - - 0 0
+!SET_MAPOBJECT 29 34 0 reed2 - - - 0 0
+!SET_MAPOBJECT 30 35 0 reed - - - 0 0
+!SET_MAPOBJECT 1 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 4 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 11 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 2 37 2 pine1 - - - 0 0
+!SET_MAPOBJECT 4 38 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 38 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 20 38 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 1 39 1 pine3 - - - 0 0
+!SET_MAPOBJECT 17 39 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 23 39 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 3 40 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 6 40 2 pine3 - - - 0 0
+!SET_MAPOBJECT 26 41 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 2 42 2 pine2 - - - 0 0
+!SET_MAPOBJECT 21 42 2 conepine_2 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12715 (2023.03.19 21:54)"  on 19.03.2023 22:12:49
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:24:17

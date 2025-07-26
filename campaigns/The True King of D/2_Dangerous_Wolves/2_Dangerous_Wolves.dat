@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 1 // Min time
 !HANDS_COUNT 2
@@ -50,7 +52,7 @@
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -187,34 +189,34 @@
 !SET_FENCE_V 65 59 1 !SET_FENCE_V 67 59 1
 
 // Units
-!SET_UNIT 1 87 57 4 // blank
-!SET_UNIT 1 85 57 4 // blank
-!SET_UNIT 1 86 57 4 // blank
-!SET_UNIT 1 85 59 4 // blank
-!SET_UNIT 1 86 59 4 // blank
-!SET_UNIT 1 87 59 4 // blank
-!SET_UNIT 1 75 59 4 // blank
-!SET_UNIT 1 63 44 4 // blank
-!SET_UNIT 1 62 44 4 // blank
-!SET_UNIT 1 61 44 4 // blank
-!SET_UNIT 1 63 40 4 // blank
-!SET_UNIT 1 63 39 4 // blank
-!SET_UNIT 1 64 37 4 // blank
-!SET_UNIT 1 62 48 4 // blank
-!SET_UNIT 1 62 47 4 // blank
-!SET_UNIT 1 61 46 4 // blank
-!SET_UNIT 1 60 48 4 // blank
-!SET_UNIT 1 60 49 4 // blank
-!SET_UNIT 1 61 50 4 // blank
-!SET_UNIT 1 61 48 4 // blank
-!SET_UNIT 1 61 47 4 // blank
-!SET_UNIT 1 60 46 4 // blank
-!SET_UNIT 2 67 46 4 // serf
-!SET_UNIT 2 67 47 4 // serf
-!SET_UNIT 2 68 49 4 // serf
-!SET_UNIT 2 67 49 4 // serf
-!SET_UNIT 2 68 51 4 // serf
-!SET_UNIT 2 68 52 4 // serf
+!SET_UNIT 1 87 57 4 // peasant
+!SET_UNIT 1 85 57 4 // peasant
+!SET_UNIT 1 86 57 4 // peasant
+!SET_UNIT 1 85 59 4 // peasant
+!SET_UNIT 1 86 59 4 // peasant
+!SET_UNIT 1 87 59 4 // peasant
+!SET_UNIT 1 75 59 4 // peasant
+!SET_UNIT 1 63 44 4 // peasant
+!SET_UNIT 1 62 44 4 // peasant
+!SET_UNIT 1 61 44 4 // peasant
+!SET_UNIT 1 63 40 4 // peasant
+!SET_UNIT 1 63 39 4 // peasant
+!SET_UNIT 1 64 37 4 // peasant
+!SET_UNIT 1 62 48 4 // peasant
+!SET_UNIT 1 62 47 4 // peasant
+!SET_UNIT 1 61 46 4 // peasant
+!SET_UNIT 1 60 48 4 // peasant
+!SET_UNIT 1 60 49 4 // peasant
+!SET_UNIT 1 61 50 4 // peasant
+!SET_UNIT 1 61 48 4 // peasant
+!SET_UNIT 1 61 47 4 // peasant
+!SET_UNIT 1 60 46 4 // peasant
+!SET_UNIT 2 67 46 4 // porter
+!SET_UNIT 2 67 47 4 // porter
+!SET_UNIT 2 68 49 4 // porter
+!SET_UNIT 2 67 49 4 // porter
+!SET_UNIT 2 68 51 4 // porter
+!SET_UNIT 2 68 52 4 // porter
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -392,59 +394,1780 @@
 !SET_STOCKPILE 30 109 119 3
 
 // Emitters
-!SET_EMITTER 3 28 71
-!SET_EMITTER 5 19 71
-!SET_EMITTER 6 31 69
-!SET_EMITTER 6 31 70
-!SET_EMITTER 7 57 85
-!SET_EMITTER 7 55 85
-!SET_EMITTER 7 59 85
-!SET_EMITTER 7 59 84
-!SET_EMITTER 7 58 84
-!SET_EMITTER 7 57 84
-!SET_EMITTER 7 56 84
-!SET_EMITTER 7 60 85
-!SET_EMITTER 7 56 86
-!SET_EMITTER 7 53 85
-!SET_EMITTER 7 55 86
-!SET_EMITTER 5 127 88
-!SET_EMITTER 5 127 89
-!SET_EMITTER 5 128 84
-!SET_EMITTER 5 129 84
-!SET_EMITTER 5 128 85
-!SET_EMITTER 3 27 13
-!SET_EMITTER 3 26 14
-!SET_EMITTER 3 23 15
-!SET_EMITTER 3 22 8
-!SET_EMITTER 3 32 7
-!SET_EMITTER 3 31 12
-!SET_EMITTER 3 31 15
-!SET_EMITTER 3 29 11
-!SET_EMITTER 3 26 10
-!SET_EMITTER 3 27 4
-!SET_EMITTER 3 23 4
-!SET_EMITTER 3 23 7
-!SET_EMITTER 3 19 8
-!SET_EMITTER 3 23 14
-!SET_EMITTER 3 24 12
-!SET_EMITTER 3 29 18
-!SET_EMITTER 3 28 20
-!SET_EMITTER 3 26 18
-!SET_EMITTER 3 26 15
-!SET_EMITTER 3 23 20
-!SET_EMITTER 3 16 15
-!SET_EMITTER 3 17 11
-!SET_EMITTER 3 22 16
-!SET_EMITTER 3 20 19
-!SET_EMITTER 3 34 13
-!SET_EMITTER 3 33 17
-!SET_EMITTER 3 34 11
-!SET_EMITTER 3 37 6
-!SET_EMITTER 3 32 1
-!SET_EMITTER 3 35 7
-!SET_EMITTER 3 28 7
-!SET_EMITTER 3 29 15
-!SET_EMITTER 3 27 17
+!SET_EMITTER 3 28 71 // terrain_mist_small
+!SET_EMITTER 5 19 71 // terrain_mist_large
+!SET_EMITTER 6 31 69 // terrain_wall_of_fog
+!SET_EMITTER 6 31 70 // terrain_wall_of_fog
+!SET_EMITTER 7 57 85 // terrain_smokestack
+!SET_EMITTER 7 55 85 // terrain_smokestack
+!SET_EMITTER 7 59 85 // terrain_smokestack
+!SET_EMITTER 7 59 84 // terrain_smokestack
+!SET_EMITTER 7 58 84 // terrain_smokestack
+!SET_EMITTER 7 57 84 // terrain_smokestack
+!SET_EMITTER 7 56 84 // terrain_smokestack
+!SET_EMITTER 7 60 85 // terrain_smokestack
+!SET_EMITTER 7 56 86 // terrain_smokestack
+!SET_EMITTER 7 53 85 // terrain_smokestack
+!SET_EMITTER 7 55 86 // terrain_smokestack
+!SET_EMITTER 5 127 88 // terrain_mist_large
+!SET_EMITTER 5 127 89 // terrain_mist_large
+!SET_EMITTER 5 128 84 // terrain_mist_large
+!SET_EMITTER 5 129 84 // terrain_mist_large
+!SET_EMITTER 5 128 85 // terrain_mist_large
+!SET_EMITTER 3 27 13 // terrain_mist_small
+!SET_EMITTER 3 26 14 // terrain_mist_small
+!SET_EMITTER 3 23 15 // terrain_mist_small
+!SET_EMITTER 3 22 8 // terrain_mist_small
+!SET_EMITTER 3 32 7 // terrain_mist_small
+!SET_EMITTER 3 31 12 // terrain_mist_small
+!SET_EMITTER 3 31 15 // terrain_mist_small
+!SET_EMITTER 3 29 11 // terrain_mist_small
+!SET_EMITTER 3 26 10 // terrain_mist_small
+!SET_EMITTER 3 27 4 // terrain_mist_small
+!SET_EMITTER 3 23 4 // terrain_mist_small
+!SET_EMITTER 3 23 7 // terrain_mist_small
+!SET_EMITTER 3 19 8 // terrain_mist_small
+!SET_EMITTER 3 23 14 // terrain_mist_small
+!SET_EMITTER 3 24 12 // terrain_mist_small
+!SET_EMITTER 3 29 18 // terrain_mist_small
+!SET_EMITTER 3 28 20 // terrain_mist_small
+!SET_EMITTER 3 26 18 // terrain_mist_small
+!SET_EMITTER 3 26 15 // terrain_mist_small
+!SET_EMITTER 3 23 20 // terrain_mist_small
+!SET_EMITTER 3 16 15 // terrain_mist_small
+!SET_EMITTER 3 17 11 // terrain_mist_small
+!SET_EMITTER 3 22 16 // terrain_mist_small
+!SET_EMITTER 3 20 19 // terrain_mist_small
+!SET_EMITTER 3 34 13 // terrain_mist_small
+!SET_EMITTER 3 33 17 // terrain_mist_small
+!SET_EMITTER 3 34 11 // terrain_mist_small
+!SET_EMITTER 3 37 6 // terrain_mist_small
+!SET_EMITTER 3 32 1 // terrain_mist_small
+!SET_EMITTER 3 35 7 // terrain_mist_small
+!SET_EMITTER 3 28 7 // terrain_mist_small
+!SET_EMITTER 3 29 15 // terrain_mist_small
+!SET_EMITTER 3 27 17 // terrain_mist_small
+
+// MapObjects
+!SET_MAPOBJECT 2 0 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 4 0 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 9 0 0 coalpile_t - - - 0 0
+!SET_MAPOBJECT 59 0 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 70 0 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 85 0 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 61 1 0 pine2 - - - 0 0
+!SET_MAPOBJECT 62 1 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 63 1 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 65 1 0 pine3 - - - 0 0
+!SET_MAPOBJECT 71 1 0 pine3 - - - 0 0
+!SET_MAPOBJECT 88 1 0 pine3 - - - 0 0
+!SET_MAPOBJECT 91 1 0 pine2 - - - 0 0
+!SET_MAPOBJECT 105 1 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 54 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 62 2 0 pine3 - - - 0 0
+!SET_MAPOBJECT 66 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 68 2 0 pine3 - - - 0 0
+!SET_MAPOBJECT 84 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 86 2 0 pine1 - - - 0 0
+!SET_MAPOBJECT 90 2 0 pine1 - - - 0 0
+!SET_MAPOBJECT 94 2 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 114 2 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 114 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 117 2 0 pine2 - - - 0 0
+!SET_MAPOBJECT 7 3 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 19 3 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 67 3 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 68 3 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 81 3 0 pine3 - - - 0 0
+!SET_MAPOBJECT 87 3 0 log - - - 0 0
+!SET_MAPOBJECT 88 3 0 pine2 - - - 0 0
+!SET_MAPOBJECT 90 3 0 log - - - 0 0
+!SET_MAPOBJECT 105 3 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 105 3 0 pine2 - - - 0 0
+!SET_MAPOBJECT 106 3 0 pine2 - - - 0 0
+!SET_MAPOBJECT 7 4 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 48 4 0 pine2 - - - 0 0
+!SET_MAPOBJECT 50 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 52 4 3 shrub_3 - - - 0 0
+!SET_MAPOBJECT 55 4 0 log - - - 0 0
+!SET_MAPOBJECT 63 4 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 63 4 0 pine2 - - - 0 0
+!SET_MAPOBJECT 64 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 66 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 83 4 0 pine1 - - - 0 0
+!SET_MAPOBJECT 84 4 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 86 4 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 86 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 87 4 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 91 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 93 4 0 pine1 - - - 0 0
+!SET_MAPOBJECT 94 4 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 102 4 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 103 4 0 pine2 - - - 0 0
+!SET_MAPOBJECT 0 5 0 coalpile_t - - - 0 0
+!SET_MAPOBJECT 2 5 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 11 5 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 54 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 66 5 0 log - - - 0 0
+!SET_MAPOBJECT 67 5 0 pine2 - - - 0 0
+!SET_MAPOBJECT 70 5 3 shrub_3 - - - 0 0
+!SET_MAPOBJECT 72 5 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 80 5 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 82 5 0 pine2 - - - 0 0
+!SET_MAPOBJECT 87 5 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 89 5 0 pine3 - - - 0 0
+!SET_MAPOBJECT 90 5 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 92 5 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 94 5 0 pine1 - - - 0 0
+!SET_MAPOBJECT 103 5 0 pine2 - - - 0 0
+!SET_MAPOBJECT 106 5 0 pine2 - - - 0 0
+!SET_MAPOBJECT 110 5 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 6 6 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 8 6 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 10 6 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 47 6 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 51 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 65 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 84 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 86 6 0 pine2 - - - 0 0
+!SET_MAPOBJECT 89 6 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 95 6 0 pine3 - - - 0 0
+!SET_MAPOBJECT 112 6 0 pine2 - - - 0 0
+!SET_MAPOBJECT 6 7 0 log - - - 0 0
+!SET_MAPOBJECT 7 7 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 49 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 51 7 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 53 7 0 pine2 - - - 0 0
+!SET_MAPOBJECT 57 7 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 81 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 84 7 0 pine2 - - - 0 0
+!SET_MAPOBJECT 86 7 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 87 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 90 7 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 91 7 0 pine2 - - - 0 0
+!SET_MAPOBJECT 92 7 0 pine3 - - - 0 0
+!SET_MAPOBJECT 94 7 0 pine1 - - - 0 0
+!SET_MAPOBJECT 95 7 0 pine2 - - - 0 0
+!SET_MAPOBJECT 111 7 0 pine2 - - - 0 0
+!SET_MAPOBJECT 6 8 0 log - - - 0 0
+!SET_MAPOBJECT 9 8 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 10 8 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 12 8 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 30 8 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 48 8 0 log - - - 0 0
+!SET_MAPOBJECT 83 8 0 log - - - 0 0
+!SET_MAPOBJECT 88 8 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 89 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 92 8 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 97 8 0 pine1 - - - 0 0
+!SET_MAPOBJECT 100 8 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 2 9 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 5 9 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 31 9 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 32 9 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 46 9 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 47 9 0 pine3 - - - 0 0
+!SET_MAPOBJECT 69 9 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 82 9 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 86 9 0 pine2 - - - 0 0
+!SET_MAPOBJECT 91 9 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 94 9 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 98 9 0 pine1 - - - 0 0
+!SET_MAPOBJECT 100 9 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 105 9 0 pine2 - - - 0 0
+!SET_MAPOBJECT 4 10 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 8 10 0 log - - - 0 0
+!SET_MAPOBJECT 11 10 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 20 10 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 23 10 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 30 10 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 31 10 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 46 10 0 shrub_3 - - - 0 0
+!SET_MAPOBJECT 49 10 0 pine3 - - - 0 0
+!SET_MAPOBJECT 94 10 0 log - - - 0 0
+!SET_MAPOBJECT 99 10 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 100 10 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 105 10 0 pine2 - - - 0 0
+!SET_MAPOBJECT 106 10 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 10 0 pine2 - - - 0 0
+!SET_MAPOBJECT 4 11 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 9 11 0 milestone - - - 0 0
+!SET_MAPOBJECT 11 11 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 45 11 0 pine3 - - - 0 0
+!SET_MAPOBJECT 51 11 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 68 11 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 69 11 0 shrub_3 - - - 0 0
+!SET_MAPOBJECT 77 11 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 78 11 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 112 11 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 3 12 0 milestone - - - 0 0
+!SET_MAPOBJECT 12 12 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 20 12 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 27 12 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 28 12 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 46 12 0 pine2 - - - 0 0
+!SET_MAPOBJECT 58 12 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 62 12 0 pine1 - - - 0 0
+!SET_MAPOBJECT 69 12 3 shrub_3 - - - 0 0
+!SET_MAPOBJECT 5 13 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 9 13 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 25 13 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 47 13 3 shrub_3 - - - 0 0
+!SET_MAPOBJECT 57 13 2 boulder - - - 0 0
+!SET_MAPOBJECT 59 13 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 62 13 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 76 13 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 125 13 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 130 13 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 61 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 63 14 0 pine3 - - - 0 0
+!SET_MAPOBJECT 65 14 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 76 14 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 77 14 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 109 14 0 pine2 - - - 0 0
+!SET_MAPOBJECT 120 14 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 15 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 6 15 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 11 15 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 59 15 0 pine3 - - - 0 0
+!SET_MAPOBJECT 60 15 0 pine2 - - - 0 0
+!SET_MAPOBJECT 62 15 0 pine2 - - - 0 0
+!SET_MAPOBJECT 63 15 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 64 15 0 pine1 - - - 0 0
+!SET_MAPOBJECT 77 15 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 110 15 0 pine2 - - - 0 0
+!SET_MAPOBJECT 125 15 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 16 0 log - - - 0 0
+!SET_MAPOBJECT 12 16 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 58 16 0 pine1 - - - 0 0
+!SET_MAPOBJECT 59 16 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 64 16 2 boulder - - - 0 0
+!SET_MAPOBJECT 65 16 0 pine3 - - - 0 0
+!SET_MAPOBJECT 119 16 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 119 16 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 16 0 pine2 - - - 0 0
+!SET_MAPOBJECT 1 17 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 7 17 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 9 17 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 11 17 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 25 17 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 52 17 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 55 17 0 pine1 - - - 0 0
+!SET_MAPOBJECT 56 17 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 57 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 61 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 62 17 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 63 17 0 pine3 - - - 0 0
+!SET_MAPOBJECT 65 17 0 pine2 - - - 0 0
+!SET_MAPOBJECT 78 17 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 79 17 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 120 17 0 pine2 - - - 0 0
+!SET_MAPOBJECT 125 17 0 pine2 - - - 0 0
+!SET_MAPOBJECT 126 17 0 pine2 - - - 0 0
+!SET_MAPOBJECT 127 17 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 128 17 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 2 18 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 6 18 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 10 18 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 24 18 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 26 18 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 27 18 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 57 18 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 59 18 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 60 18 0 pine2 - - - 0 0
+!SET_MAPOBJECT 62 18 0 pine1 - - - 0 0
+!SET_MAPOBJECT 78 18 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 96 18 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 4 19 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 8 19 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 9 19 0 log - - - 0 0
+!SET_MAPOBJECT 26 19 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 55 19 0 boulder - - - 0 0
+!SET_MAPOBJECT 71 19 0 sign_left - - - 0 0
+!SET_MAPOBJECT 8 20 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 11 20 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 13 20 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 45 20 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 46 20 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 54 20 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 57 20 1 boulder - - - 0 0
+!SET_MAPOBJECT 62 20 2 boulder - - - 0 0
+!SET_MAPOBJECT 82 20 0 log - - - 0 0
+!SET_MAPOBJECT 95 20 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 98 20 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 3 21 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 7 21 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 14 21 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 47 21 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 72 21 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 119 21 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 8 22 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 12 22 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 46 22 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 47 22 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 60 22 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 61 22 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 62 22 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 71 22 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 72 22 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 73 22 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 74 22 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 120 22 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 129 22 0 pine2 - - - 0 0
+!SET_MAPOBJECT 6 23 0 milestone - - - 0 0
+!SET_MAPOBJECT 8 23 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 13 23 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 16 23 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 43 23 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 54 23 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 61 23 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 62 23 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 71 23 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 73 23 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 120 23 0 pine2 - - - 0 0
+!SET_MAPOBJECT 122 23 0 pine2 - - - 0 0
+!SET_MAPOBJECT 2 24 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 7 24 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 8 24 3 boulder2 - - - 0 0
+!SET_MAPOBJECT 8 24 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 14 24 2 coalpile_t - - - 0 0
+!SET_MAPOBJECT 45 24 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 49 24 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 51 24 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 66 24 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 72 24 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 75 24 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 83 24 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 128 24 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 1 25 0 coalpile_t - - - 0 0
+!SET_MAPOBJECT 3 25 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 4 25 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 9 25 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 13 25 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 16 25 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 20 25 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 46 25 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 56 25 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 58 25 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 67 25 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 76 25 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 82 25 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 83 25 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 97 25 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 100 25 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 116 25 0 log - - - 0 0
+!SET_MAPOBJECT 122 25 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 127 25 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 128 25 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 2 26 2 coalpile_t - - - 0 0
+!SET_MAPOBJECT 4 26 2 coalpile_t - - - 0 0
+!SET_MAPOBJECT 11 26 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 17 26 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 22 26 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 45 26 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 55 26 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 64 26 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 66 26 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 67 26 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 70 26 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 83 26 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 84 26 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 87 26 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 88 26 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 91 26 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 97 26 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 101 26 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 102 26 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 103 26 0 log - - - 0 0
+!SET_MAPOBJECT 122 26 0 pine2 - - - 0 0
+!SET_MAPOBJECT 128 26 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 27 3 coalpile_t - - - 0 0
+!SET_MAPOBJECT 8 27 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 9 27 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 10 27 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 12 27 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 13 27 3 sign_right - - - 0 0
+!SET_MAPOBJECT 19 27 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 38 27 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 57 27 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 68 27 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 69 27 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 93 27 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 102 27 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 118 27 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 125 27 0 pine2 - - - 0 0
+!SET_MAPOBJECT 9 28 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 12 28 2 boulder - - - 0 0
+!SET_MAPOBJECT 19 28 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 41 28 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 42 28 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 43 28 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 44 28 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 45 28 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 88 28 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 89 28 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 91 28 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 4 29 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 7 29 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 8 29 1 boulder - - - 0 0
+!SET_MAPOBJECT 22 29 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 24 29 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 32 29 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 74 29 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 75 29 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 76 29 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 77 29 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 114 29 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 116 29 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 128 29 0 pine2 - - - 0 0
+!SET_MAPOBJECT 13 30 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 15 30 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 17 30 0 log - - - 0 0
+!SET_MAPOBJECT 43 30 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 44 30 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 51 30 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 52 30 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 97 30 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 98 30 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 30 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 123 30 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 128 30 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 2 31 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 4 31 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 5 31 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 6 31 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 9 31 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 19 31 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 24 31 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 43 31 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 44 31 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 49 31 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 55 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 57 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 58 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 59 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 60 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 61 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 62 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 63 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 64 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 65 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 66 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 67 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 68 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 69 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 70 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 71 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 80 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 81 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 82 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 83 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 84 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 85 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 86 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 87 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 88 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 89 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 90 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 91 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 92 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 93 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 94 31 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 107 31 3 sign_left - - - 0 0
+!SET_MAPOBJECT 116 31 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 117 31 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 24 32 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 30 32 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 39 32 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 40 32 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 49 32 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 100 32 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 123 32 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 125 32 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 128 32 0 log - - - 0 0
+!SET_MAPOBJECT 2 33 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 6 33 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 11 33 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 20 33 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 21 33 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 26 33 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 33 33 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 40 33 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 41 33 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 45 33 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 100 33 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 118 33 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 121 33 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 126 33 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 3 34 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 14 34 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 34 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 21 34 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 22 34 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 33 34 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 41 34 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 41 34 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 107 34 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 114 34 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 116 34 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 117 34 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 119 34 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 120 34 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 123 34 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 124 34 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 127 34 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 128 34 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 3 35 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 14 35 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 22 35 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 22 35 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 36 35 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 42 35 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 105 35 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 122 35 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 4 36 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 7 36 0 log - - - 0 0
+!SET_MAPOBJECT 12 36 0 flower_red - - - 0 0
+!SET_MAPOBJECT 17 36 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 28 36 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 30 36 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 42 36 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 43 36 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 52 36 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 70 36 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 82 36 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 97 36 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 107 36 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 110 36 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 124 36 0 log - - - 0 0
+!SET_MAPOBJECT 128 36 2 boulder2 - - - 0 0
+!SET_MAPOBJECT 130 36 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 5 37 0 coalpile_t - - - 0 0
+!SET_MAPOBJECT 11 37 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 15 37 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 24 37 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 30 37 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 32 37 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 35 37 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 42 37 3 boulder - - - 0 0
+!SET_MAPOBJECT 43 37 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 52 37 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 97 37 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 112 37 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 114 37 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 115 37 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 117 37 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 118 37 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 120 37 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 122 37 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 126 37 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 5 38 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 11 38 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 12 38 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 16 38 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 23 38 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 24 38 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 34 38 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 36 38 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 43 38 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 52 38 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 72 38 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 75 38 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 77 38 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 79 38 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 97 38 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 105 38 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 109 38 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 113 38 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 115 38 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 119 38 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 120 38 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 124 38 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 11 39 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 12 39 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 15 39 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 39 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 24 39 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 33 39 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 37 39 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 39 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 60 39 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 73 39 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 74 39 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 80 39 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 81 39 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 97 39 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 103 39 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 104 39 3 flower_red - - - 0 0
+!SET_MAPOBJECT 114 39 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 118 39 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 121 39 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 122 39 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 123 39 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 126 39 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 14 40 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 18 40 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 28 40 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 29 40 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 33 40 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 52 40 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 70 40 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 97 40 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 101 40 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 103 40 0 flower_red - - - 0 0
+!SET_MAPOBJECT 105 40 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 106 40 2 flower_red - - - 0 0
+!SET_MAPOBJECT 113 40 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 114 40 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 117 40 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 119 40 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 121 40 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 122 40 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 123 40 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 125 40 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 126 40 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 127 40 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 132 40 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 133 40 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 7 41 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 9 41 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 10 41 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 14 41 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 32 41 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 34 41 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 36 41 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 41 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 79 41 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 97 41 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 102 41 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 103 41 0 log - - - 0 0
+!SET_MAPOBJECT 104 41 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 105 41 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 106 41 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 110 41 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 116 41 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 117 41 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 120 41 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 133 41 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 4 42 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 13 42 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 15 42 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 42 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 31 42 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 37 42 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 39 42 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 42 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 57 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 58 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 59 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 60 42 0 grain_max - - - 0 0
+!SET_MAPOBJECT 71 42 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 73 42 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 85 42 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 86 42 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 97 42 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 102 42 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 104 42 3 flower_red - - - 0 0
+!SET_MAPOBJECT 105 42 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 106 42 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 113 42 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 124 42 0 log - - - 0 0
+!SET_MAPOBJECT 134 42 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 7 43 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 8 43 0 flower_red - - - 0 0
+!SET_MAPOBJECT 12 43 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 18 43 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 20 43 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 26 43 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 31 43 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 35 43 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 36 43 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 43 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 43 0 grain_max - - - 0 0
+!SET_MAPOBJECT 57 43 0 grain_max - - - 0 0
+!SET_MAPOBJECT 60 43 0 grain_max - - - 0 0
+!SET_MAPOBJECT 80 43 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 86 43 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 97 43 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 104 43 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 105 43 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 106 43 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 115 43 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 118 43 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 120 43 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 121 43 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 129 43 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 134 43 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 12 44 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 16 44 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 17 44 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 28 44 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 29 44 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 44 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 44 0 grain_max - - - 0 0
+!SET_MAPOBJECT 57 44 0 grain_max - - - 0 0
+!SET_MAPOBJECT 84 44 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 97 44 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 108 44 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 116 44 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 117 44 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 120 44 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 121 44 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 128 44 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 130 44 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 6 45 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 9 45 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 10 45 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 34 45 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 37 45 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 45 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 45 0 grain_max - - - 0 0
+!SET_MAPOBJECT 57 45 0 grain_max - - - 0 0
+!SET_MAPOBJECT 67 45 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 84 45 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 86 45 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 97 45 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 108 45 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 115 45 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 116 45 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 117 45 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 119 45 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 127 45 0 flower_red - - - 0 0
+!SET_MAPOBJECT 128 45 0 flower_red - - - 0 0
+!SET_MAPOBJECT 129 45 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 133 45 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 15 46 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 18 46 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 19 46 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 29 46 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 34 46 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 36 46 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 46 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 57 46 0 grain_max - - - 0 0
+!SET_MAPOBJECT 65 46 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 66 46 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 83 46 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 84 46 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 86 46 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 97 46 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 109 46 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 116 46 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 117 46 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 125 46 0 flower_red - - - 0 0
+!SET_MAPOBJECT 126 46 1 flower_red - - - 0 0
+!SET_MAPOBJECT 127 46 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 128 46 3 flower_red - - - 0 0
+!SET_MAPOBJECT 133 46 3 boulder - - - 0 0
+!SET_MAPOBJECT 134 46 2 boulder - - - 0 0
+!SET_MAPOBJECT 6 47 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 7 47 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 10 47 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 15 47 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 17 47 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 24 47 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 27 47 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 28 47 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 33 47 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 36 47 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 38 47 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 61 47 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 83 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 84 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 86 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 89 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 90 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 91 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 92 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 93 47 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 106 47 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 107 47 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 116 47 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 125 47 0 flower_red - - - 0 0
+!SET_MAPOBJECT 126 47 0 flower_red - - - 0 0
+!SET_MAPOBJECT 127 47 1 flower_red - - - 0 0
+!SET_MAPOBJECT 128 47 3 flower_red - - - 0 0
+!SET_MAPOBJECT 132 47 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 7 48 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 9 48 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 14 48 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 48 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 19 48 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 33 48 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 35 48 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 37 48 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 49 48 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 74 48 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 75 48 2 boulder2 - - - 0 0
+!SET_MAPOBJECT 89 48 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 90 48 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 91 48 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 92 48 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 93 48 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 107 48 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 108 48 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 115 48 3 boulder - - - 0 0
+!SET_MAPOBJECT 115 48 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 116 48 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 125 48 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 127 48 0 log - - - 0 0
+!SET_MAPOBJECT 131 48 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 132 48 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 133 48 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 7 49 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 13 49 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 14 49 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 16 49 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 18 49 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 33 49 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 34 49 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 49 49 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 57 49 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 74 49 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 76 49 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 89 49 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 100 49 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 105 49 0 pine1 - - - 0 0
+!SET_MAPOBJECT 108 49 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 109 49 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 115 49 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 119 49 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 123 49 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 124 49 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 125 49 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 131 49 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 132 49 3 flower_red - - - 0 0
+!SET_MAPOBJECT 133 49 0 flower_red - - - 0 0
+!SET_MAPOBJECT 134 49 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 6 50 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 14 50 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 15 50 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 24 50 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 27 50 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 32 50 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 36 50 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 49 50 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 58 50 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 73 50 3 stonewall - - - 0 0
+!SET_MAPOBJECT 76 50 3 stonewall - - - 0 0
+!SET_MAPOBJECT 89 50 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 100 50 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 115 50 0 log - - - 0 0
+!SET_MAPOBJECT 118 50 3 boulder - - - 0 0
+!SET_MAPOBJECT 119 50 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 125 50 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 131 50 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 132 50 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 134 50 0 flower_red - - - 0 0
+!SET_MAPOBJECT 8 51 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 13 51 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 51 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 26 51 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 31 51 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 93 51 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 100 51 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 104 51 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 108 51 0 pine1 - - - 0 0
+!SET_MAPOBJECT 120 51 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 121 51 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 123 51 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 126 51 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 127 51 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 128 51 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 133 51 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 134 51 0 reed2 - - - 0 0
+!SET_MAPOBJECT 8 52 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 12 52 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 14 52 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 30 52 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 34 52 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 62 52 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 89 52 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 90 52 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 91 52 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 92 52 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 93 52 0 grain_3 - - - 0 0
+!SET_MAPOBJECT 104 52 0 pine2 - - - 0 0
+!SET_MAPOBJECT 106 52 0 pine2 - - - 0 0
+!SET_MAPOBJECT 107 52 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 112 52 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 120 52 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 122 52 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 122 52 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 126 52 2 flower_red - - - 0 0
+!SET_MAPOBJECT 127 52 0 flower_red - - - 0 0
+!SET_MAPOBJECT 129 52 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 131 52 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 133 52 0 reed2 - - - 0 0
+!SET_MAPOBJECT 134 52 0 reed2 - - - 0 0
+!SET_MAPOBJECT 7 53 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 15 53 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 21 53 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 23 53 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 60 53 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 61 53 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 62 53 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 83 53 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 109 53 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 111 53 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 112 53 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 113 53 3 boulder - - - 0 0
+!SET_MAPOBJECT 120 53 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 122 53 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 129 53 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 130 53 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 132 53 0 reed2 - - - 0 0
+!SET_MAPOBJECT 25 54 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 27 54 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 31 54 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 52 54 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 63 54 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 65 54 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 66 54 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 68 54 3 boulder - - - 0 0
+!SET_MAPOBJECT 86 54 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 87 54 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 89 54 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 97 54 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 54 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 108 54 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 110 54 0 log - - - 0 0
+!SET_MAPOBJECT 111 54 0 log - - - 0 0
+!SET_MAPOBJECT 120 54 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 123 54 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 129 54 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 131 54 0 reed2 - - - 0 0
+!SET_MAPOBJECT 22 55 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 52 55 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 65 55 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 66 55 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 70 55 3 boulder2 - - - 0 0
+!SET_MAPOBJECT 79 55 3 boulder - - - 0 0
+!SET_MAPOBJECT 88 55 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 97 55 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 105 55 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 106 55 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 107 55 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 120 55 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 122 55 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 20 56 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 40 56 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 52 56 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 83 56 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 87 56 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 97 56 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 109 56 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 112 56 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 123 56 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 124 56 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 9 57 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 11 57 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 18 57 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 39 57 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 40 57 1 boulder - - - 0 0
+!SET_MAPOBJECT 52 57 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 61 57 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 63 57 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 97 57 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 101 57 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 105 57 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 107 57 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 110 57 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 112 57 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 112 57 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 113 57 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 120 57 0 log - - - 0 0
+!SET_MAPOBJECT 121 57 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 123 57 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 126 57 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 17 58 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 40 58 2 boulder - - - 0 0
+!SET_MAPOBJECT 41 58 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 45 58 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 52 58 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 63 58 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 97 58 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 102 58 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 104 58 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 112 58 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 119 58 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 120 58 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 122 58 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 123 58 0 flower_red - - - 0 0
+!SET_MAPOBJECT 125 58 0 flower_red - - - 0 0
+!SET_MAPOBJECT 126 58 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 41 59 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 45 59 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 46 59 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 52 59 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 60 59 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 61 59 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 64 59 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 86 59 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 97 59 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 100 59 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 103 59 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 106 59 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 108 59 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 111 59 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 114 59 0 log - - - 0 0
+!SET_MAPOBJECT 119 59 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 120 59 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 121 59 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 126 59 0 reed2 - - - 0 0
+!SET_MAPOBJECT 126 59 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 132 59 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 42 60 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 44 60 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 45 60 0 boulder - - - 0 0
+!SET_MAPOBJECT 52 60 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 84 60 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 85 60 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 86 60 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 88 60 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 97 60 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 101 60 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 103 60 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 104 60 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 107 60 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 109 60 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 110 60 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 111 60 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 116 60 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 117 60 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 121 60 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 122 60 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 124 60 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 125 60 0 reed2 - - - 0 0
+!SET_MAPOBJECT 126 60 0 reed2 - - - 0 0
+!SET_MAPOBJECT 129 60 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 131 60 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 132 60 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 21 61 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 24 61 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 52 61 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 62 61 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 88 61 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 90 61 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 97 61 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 103 61 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 104 61 0 log - - - 0 0
+!SET_MAPOBJECT 105 61 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 107 61 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 108 61 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 116 61 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 122 61 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 123 61 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 128 61 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 131 61 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 132 61 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 134 61 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 23 62 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 33 62 2 reed2 - - - 0 0
+!SET_MAPOBJECT 34 62 0 reed2 - - - 0 0
+!SET_MAPOBJECT 35 62 1 reed2 - - - 0 0
+!SET_MAPOBJECT 52 62 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 85 62 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 97 62 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 103 62 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 108 62 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 116 62 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 119 62 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 121 62 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 121 62 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 124 62 0 reed2 - - - 0 0
+!SET_MAPOBJECT 125 62 0 reed2 - - - 0 0
+!SET_MAPOBJECT 130 62 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 22 63 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 34 63 2 reed2 - - - 0 0
+!SET_MAPOBJECT 35 63 0 reed2 - - - 0 0
+!SET_MAPOBJECT 52 63 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 97 63 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 63 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 109 63 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 110 63 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 119 63 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 123 63 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 124 63 0 reed2 - - - 0 0
+!SET_MAPOBJECT 130 63 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 131 63 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 36 64 2 reed2 - - - 0 0
+!SET_MAPOBJECT 45 64 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 104 64 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 108 64 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 110 64 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 120 64 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 122 64 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 124 64 0 reed2 - - - 0 0
+!SET_MAPOBJECT 124 64 0 log - - - 0 0
+!SET_MAPOBJECT 36 65 0 reed - - - 0 0
+!SET_MAPOBJECT 49 65 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 108 65 0 log - - - 0 0
+!SET_MAPOBJECT 109 65 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 120 65 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 121 65 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 134 65 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 40 66 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 49 66 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 100 66 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 66 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 107 66 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 109 66 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 114 66 0 log - - - 0 0
+!SET_MAPOBJECT 119 66 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 120 66 2 boulder - - - 0 0
+!SET_MAPOBJECT 121 66 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 122 66 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 100 67 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 108 67 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 120 67 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 122 67 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 128 67 0 reed2 - - - 0 0
+!SET_MAPOBJECT 129 67 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 130 67 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 131 67 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 55 68 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 56 68 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 57 68 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 58 68 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 59 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 60 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 61 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 62 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 63 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 64 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 65 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 84 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 85 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 86 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 87 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 88 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 89 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 90 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 91 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 92 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 93 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 94 68 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 68 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 107 68 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 109 68 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 120 68 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 128 68 0 reed2 - - - 0 0
+!SET_MAPOBJECT 33 69 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 34 69 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 51 69 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 52 69 2 stockade_2 - - - 0 0
+!SET_MAPOBJECT 68 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 69 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 80 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 81 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 97 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 98 69 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 106 69 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 126 69 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 129 69 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 33 70 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 34 70 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 122 70 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 122 71 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 131 71 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 134 71 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 39 72 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 105 72 0 boulder4 - - - 0 0
+!SET_MAPOBJECT 129 72 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 130 72 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 88 73 0 pine3 - - - 0 0
+!SET_MAPOBJECT 90 73 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 109 73 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 111 73 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 112 73 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 128 73 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 58 74 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 88 74 0 log - - - 0 0
+!SET_MAPOBJECT 95 74 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 102 74 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 109 74 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 110 74 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 110 74 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 111 74 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 129 74 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 131 74 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 37 75 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 38 75 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 75 0 reed2 - - - 0 0
+!SET_MAPOBJECT 46 75 0 reed2 - - - 0 0
+!SET_MAPOBJECT 53 75 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 54 75 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 60 75 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 69 75 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 80 75 0 stockade_2 - - - 0 0
+!SET_MAPOBJECT 86 75 0 pine3 - - - 0 0
+!SET_MAPOBJECT 91 75 0 pine3 - - - 0 0
+!SET_MAPOBJECT 100 75 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 101 75 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 102 75 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 112 75 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 113 75 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 129 75 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 131 75 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 32 76 0 reed - - - 0 0
+!SET_MAPOBJECT 34 76 3 reed2 - - - 0 0
+!SET_MAPOBJECT 39 76 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 76 1 reed2 - - - 0 0
+!SET_MAPOBJECT 46 76 0 reed2 - - - 0 0
+!SET_MAPOBJECT 54 76 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 55 76 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 57 76 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 85 76 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 87 76 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 109 76 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 110 76 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 111 76 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 112 76 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 126 76 0 reed2 - - - 0 0
+!SET_MAPOBJECT 128 76 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 133 76 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 33 77 2 reed2 - - - 0 0
+!SET_MAPOBJECT 34 77 0 reed2 - - - 0 0
+!SET_MAPOBJECT 35 77 2 reed2 - - - 0 0
+!SET_MAPOBJECT 43 77 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 45 77 3 reed - - - 0 0
+!SET_MAPOBJECT 46 77 2 reed - - - 0 0
+!SET_MAPOBJECT 83 77 0 pine3 - - - 0 0
+!SET_MAPOBJECT 108 77 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 109 77 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 110 77 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 111 77 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 112 77 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 117 77 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 126 77 0 reed2 - - - 0 0
+!SET_MAPOBJECT 129 77 1 boulder2 - - - 0 0
+!SET_MAPOBJECT 132 77 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 133 77 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 135 77 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 35 78 0 reed2 - - - 0 0
+!SET_MAPOBJECT 36 78 3 reed2 - - - 0 0
+!SET_MAPOBJECT 44 78 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 81 78 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 85 78 0 pine2 - - - 0 0
+!SET_MAPOBJECT 89 78 0 pine3 - - - 0 0
+!SET_MAPOBJECT 106 78 0 log - - - 0 0
+!SET_MAPOBJECT 120 78 0 reed2 - - - 0 0
+!SET_MAPOBJECT 122 78 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 123 78 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 125 78 0 reed2 - - - 0 0
+!SET_MAPOBJECT 126 78 0 reed2 - - - 0 0
+!SET_MAPOBJECT 127 78 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 134 78 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 83 79 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 92 79 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 119 79 0 reed2 - - - 0 0
+!SET_MAPOBJECT 122 79 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 123 79 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 125 79 0 reed2 - - - 0 0
+!SET_MAPOBJECT 52 80 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 85 80 0 pine3 - - - 0 0
+!SET_MAPOBJECT 88 80 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 102 80 1 shrub_2 - - - 0 0
+!SET_MAPOBJECT 119 80 0 reed2 - - - 0 0
+!SET_MAPOBJECT 121 80 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 122 80 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 125 80 0 reed2 - - - 0 0
+!SET_MAPOBJECT 37 81 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 81 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 60 81 0 log - - - 0 0
+!SET_MAPOBJECT 62 81 1 coalpile_t - - - 0 0
+!SET_MAPOBJECT 83 81 0 pine3 - - - 0 0
+!SET_MAPOBJECT 86 81 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 93 81 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 94 81 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 99 81 0 log - - - 0 0
+!SET_MAPOBJECT 101 81 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 112 81 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 115 81 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 118 81 0 reed2 - - - 0 0
+!SET_MAPOBJECT 119 81 0 reed2 - - - 0 0
+!SET_MAPOBJECT 121 81 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 17 82 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 30 82 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 67 82 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 87 82 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 88 82 0 pine3 - - - 0 0
+!SET_MAPOBJECT 92 82 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 93 82 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 94 82 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 95 82 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 102 82 0 pine2 - - - 0 0
+!SET_MAPOBJECT 116 82 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 118 82 0 reed2 - - - 0 0
+!SET_MAPOBJECT 16 83 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 17 83 2 stockade_c - - - 0 0
+!SET_MAPOBJECT 28 83 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 57 83 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 83 83 0 log - - - 0 0
+!SET_MAPOBJECT 85 83 0 pine2 - - - 0 0
+!SET_MAPOBJECT 93 83 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 109 83 2 flower_red - - - 0 0
+!SET_MAPOBJECT 110 83 0 flower_red - - - 0 0
+!SET_MAPOBJECT 112 83 3 flower_red - - - 0 0
+!SET_MAPOBJECT 17 84 3 stockade_1 - - - 0 0
+!SET_MAPOBJECT 35 84 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 55 84 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 60 84 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 65 84 0 pine3 - - - 0 0
+!SET_MAPOBJECT 68 84 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 99 84 0 pine3 - - - 0 0
+!SET_MAPOBJECT 102 84 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 103 84 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 110 84 1 flower_red - - - 0 0
+!SET_MAPOBJECT 16 85 1 boulder - - - 0 0
+!SET_MAPOBJECT 17 85 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 68 85 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 84 85 0 pine3 - - - 0 0
+!SET_MAPOBJECT 111 85 0 flower_red - - - 0 0
+!SET_MAPOBJECT 113 85 0 flower_red - - - 0 0
+!SET_MAPOBJECT 115 85 0 reed2 - - - 0 0
+!SET_MAPOBJECT 119 85 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 121 85 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 17 86 3 stockade_2 - - - 0 0
+!SET_MAPOBJECT 65 86 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 67 86 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 69 86 0 pine3 - - - 0 0
+!SET_MAPOBJECT 98 86 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 99 86 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 101 86 0 log - - - 0 0
+!SET_MAPOBJECT 102 86 0 pine3 - - - 0 0
+!SET_MAPOBJECT 110 86 2 flower_red - - - 0 0
+!SET_MAPOBJECT 112 86 0 flower_red - - - 0 0
+!SET_MAPOBJECT 115 86 0 reed2 - - - 0 0
+!SET_MAPOBJECT 120 86 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 87 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 49 87 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 66 87 0 pine3 - - - 0 0
+!SET_MAPOBJECT 111 87 1 flower_red - - - 0 0
+!SET_MAPOBJECT 114 87 0 reed2 - - - 0 0
+!SET_MAPOBJECT 115 87 0 reed2 - - - 0 0
+!SET_MAPOBJECT 39 88 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 88 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 99 88 0 pine2 - - - 0 0
+!SET_MAPOBJECT 113 88 2 flower_red - - - 0 0
+!SET_MAPOBJECT 119 88 0 reed2 - - - 0 0
+!SET_MAPOBJECT 46 89 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 64 89 0 log - - - 0 0
+!SET_MAPOBJECT 69 89 0 pine3 - - - 0 0
+!SET_MAPOBJECT 71 89 0 pine3 - - - 0 0
+!SET_MAPOBJECT 83 89 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 98 89 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 119 89 0 reed2 - - - 0 0
+!SET_MAPOBJECT 32 90 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 53 90 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 64 90 0 pine3 - - - 0 0
+!SET_MAPOBJECT 65 90 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 84 90 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 97 90 0 pine3 - - - 0 0
+!SET_MAPOBJECT 99 90 0 pine3 - - - 0 0
+!SET_MAPOBJECT 101 90 0 pine3 - - - 0 0
+!SET_MAPOBJECT 119 90 0 reed2 - - - 0 0
+!SET_MAPOBJECT 121 90 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 68 91 0 pine3 - - - 0 0
+!SET_MAPOBJECT 111 91 3 flower_red - - - 0 0
+!SET_MAPOBJECT 118 91 0 reed2 - - - 0 0
+!SET_MAPOBJECT 119 91 0 reed2 - - - 0 0
+!SET_MAPOBJECT 122 91 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 62 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 64 92 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 66 92 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 72 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 91 92 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 96 92 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 97 92 0 log - - - 0 0
+!SET_MAPOBJECT 98 92 0 pine1 - - - 0 0
+!SET_MAPOBJECT 99 92 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 111 92 2 flower_red - - - 0 0
+!SET_MAPOBJECT 112 92 2 flower_red - - - 0 0
+!SET_MAPOBJECT 116 92 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 117 92 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 121 92 0 boulder - - - 0 0
+!SET_MAPOBJECT 56 93 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 57 93 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 61 93 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 67 93 0 mushroom_4 - - - 0 0
+!SET_MAPOBJECT 71 93 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 85 93 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 95 93 0 pine3 - - - 0 0
+!SET_MAPOBJECT 100 93 0 pine2 - - - 0 0
+!SET_MAPOBJECT 112 93 1 flower_red - - - 0 0
+!SET_MAPOBJECT 114 93 1 reed2 - - - 0 0
+!SET_MAPOBJECT 116 93 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 117 93 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 10 94 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 16 94 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 55 94 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 56 94 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 60 94 0 pine2 - - - 0 0
+!SET_MAPOBJECT 98 94 0 pine3 - - - 0 0
+!SET_MAPOBJECT 100 94 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 114 94 2 reed2 - - - 0 0
+!SET_MAPOBJECT 130 94 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 11 95 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 65 95 0 log - - - 0 0
+!SET_MAPOBJECT 69 95 0 pine3 - - - 0 0
+!SET_MAPOBJECT 95 95 0 pine2 - - - 0 0
+!SET_MAPOBJECT 101 95 0 pine2 - - - 0 0
+!SET_MAPOBJECT 128 95 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 14 96 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 41 96 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 57 96 0 pine3 - - - 0 0
+!SET_MAPOBJECT 59 96 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 60 96 0 pine2 - - - 0 0
+!SET_MAPOBJECT 62 96 0 pine3 - - - 0 0
+!SET_MAPOBJECT 72 96 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 81 96 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 96 96 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 97 96 0 pine1 - - - 0 0
+!SET_MAPOBJECT 99 96 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 100 96 0 pine1 - - - 0 0
+!SET_MAPOBJECT 129 96 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 66 97 0 pine3 - - - 0 0
+!SET_MAPOBJECT 71 97 0 pine3 - - - 0 0
+!SET_MAPOBJECT 81 97 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 82 97 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 98 97 0 pine3 - - - 0 0
+!SET_MAPOBJECT 13 98 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 41 98 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 79 98 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 82 98 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 84 98 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 96 98 0 pine2 - - - 0 0
+!SET_MAPOBJECT 101 98 0 pine1 - - - 0 0
+!SET_MAPOBJECT 32 99 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 59 99 0 pine3 - - - 0 0
+!SET_MAPOBJECT 63 99 0 pine3 - - - 0 0
+!SET_MAPOBJECT 70 99 0 pine3 - - - 0 0
+!SET_MAPOBJECT 81 99 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 98 99 0 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 99 99 0 pine2 - - - 0 0
+!SET_MAPOBJECT 103 99 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 113 99 3 reed2 - - - 0 0
+!SET_MAPOBJECT 114 99 3 reed2 - - - 0 0
+!SET_MAPOBJECT 15 100 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 16 100 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 25 100 3 sign_left - - - 0 0
+!SET_MAPOBJECT 68 100 0 pine2 - - - 0 0
+!SET_MAPOBJECT 71 100 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 82 100 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 113 100 0 reed2 - - - 0 0
+!SET_MAPOBJECT 114 100 3 reed2 - - - 0 0
+!SET_MAPOBJECT 117 100 3 reed2 - - - 0 0
+!SET_MAPOBJECT 118 100 2 reed2 - - - 0 0
+!SET_MAPOBJECT 55 101 0 log - - - 0 0
+!SET_MAPOBJECT 65 101 0 pine3 - - - 0 0
+!SET_MAPOBJECT 72 101 0 pine2 - - - 0 0
+!SET_MAPOBJECT 81 101 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 82 101 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 113 101 0 reed2 - - - 0 0
+!SET_MAPOBJECT 117 101 3 reed2 - - - 0 0
+!SET_MAPOBJECT 118 101 1 reed2 - - - 0 0
+!SET_MAPOBJECT 123 101 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 129 101 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 4 102 0 log - - - 0 0
+!SET_MAPOBJECT 8 102 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 13 102 2 boulder2 - - - 0 0
+!SET_MAPOBJECT 14 102 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 102 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 59 102 0 pine3 - - - 0 0
+!SET_MAPOBJECT 62 102 0 pine2 - - - 0 0
+!SET_MAPOBJECT 67 102 0 pine2 - - - 0 0
+!SET_MAPOBJECT 68 102 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 118 102 3 reed2 - - - 0 0
+!SET_MAPOBJECT 121 102 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 122 102 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 125 102 0 pine3 - - - 0 0
+!SET_MAPOBJECT 129 102 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 130 102 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 133 102 0 pine1 - - - 0 0
+!SET_MAPOBJECT 7 103 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 11 103 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 103 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 25 103 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 32 103 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 63 103 0 log - - - 0 0
+!SET_MAPOBJECT 70 103 0 pine3 - - - 0 0
+!SET_MAPOBJECT 77 103 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 78 103 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 121 103 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 122 103 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 123 103 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 103 0 pine3 - - - 0 0
+!SET_MAPOBJECT 8 104 0 pine1 - - - 0 0
+!SET_MAPOBJECT 9 104 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 13 104 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 104 0 pine3 - - - 0 0
+!SET_MAPOBJECT 56 104 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 65 104 0 pine3 - - - 0 0
+!SET_MAPOBJECT 77 104 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 78 104 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 116 104 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 120 104 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 126 104 0 pine2 - - - 0 0
+!SET_MAPOBJECT 132 104 0 pine2 - - - 0 0
+!SET_MAPOBJECT 12 105 0 pine2 - - - 0 0
+!SET_MAPOBJECT 15 105 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 18 105 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 20 105 0 log - - - 0 0
+!SET_MAPOBJECT 39 105 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 54 105 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 55 105 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 62 105 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 68 105 0 pine1 - - - 0 0
+!SET_MAPOBJECT 76 105 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 78 105 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 122 105 0 pine1 - - - 0 0
+!SET_MAPOBJECT 123 105 0 pine3 - - - 0 0
+!SET_MAPOBJECT 130 105 0 pine1 - - - 0 0
+!SET_MAPOBJECT 132 105 0 pine1 - - - 0 0
+!SET_MAPOBJECT 7 106 0 pine3 - - - 0 0
+!SET_MAPOBJECT 12 106 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 15 106 0 pine2 - - - 0 0
+!SET_MAPOBJECT 17 106 0 pine3 - - - 0 0
+!SET_MAPOBJECT 54 106 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 56 106 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 58 106 0 pine2 - - - 0 0
+!SET_MAPOBJECT 65 106 0 pine2 - - - 0 0
+!SET_MAPOBJECT 72 106 0 pine1 - - - 0 0
+!SET_MAPOBJECT 115 106 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 126 106 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 106 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 131 106 0 pine3 - - - 0 0
+!SET_MAPOBJECT 134 106 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 5 107 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 48 107 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 61 107 0 pine3 - - - 0 0
+!SET_MAPOBJECT 68 107 0 log - - - 0 0
+!SET_MAPOBJECT 69 107 0 pine1 - - - 0 0
+!SET_MAPOBJECT 107 107 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 119 107 0 pine3 - - - 0 0
+!SET_MAPOBJECT 121 107 0 pine2 - - - 0 0
+!SET_MAPOBJECT 123 107 0 pine3 - - - 0 0
+!SET_MAPOBJECT 125 107 0 pine2 - - - 0 0
+!SET_MAPOBJECT 128 107 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 107 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 130 107 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 134 107 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 135 107 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 4 108 0 pine2 - - - 0 0
+!SET_MAPOBJECT 21 108 0 pine3 - - - 0 0
+!SET_MAPOBJECT 65 108 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 66 108 0 pine1 - - - 0 0
+!SET_MAPOBJECT 90 108 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 92 108 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 98 108 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 121 108 0 pine1 - - - 0 0
+!SET_MAPOBJECT 129 108 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 130 108 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 5 109 0 pine3 - - - 0 0
+!SET_MAPOBJECT 19 109 0 pine2 - - - 0 0
+!SET_MAPOBJECT 27 109 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 61 109 0 pine2 - - - 0 0
+!SET_MAPOBJECT 67 109 0 pine1 - - - 0 0
+!SET_MAPOBJECT 90 109 0 fern_2 - - - 0 0
+!SET_MAPOBJECT 91 109 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 92 109 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 103 109 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 105 109 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 107 109 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 119 109 0 pine2 - - - 0 0
+!SET_MAPOBJECT 121 109 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 122 109 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 123 109 0 pine1 - - - 0 0
+!SET_MAPOBJECT 125 109 0 pine2 - - - 0 0
+!SET_MAPOBJECT 126 109 0 pine3 - - - 0 0
+!SET_MAPOBJECT 4 110 1 boulder2 - - - 0 0
+!SET_MAPOBJECT 25 110 0 boulder - - - 0 0
+!SET_MAPOBJECT 26 110 3 boulder - - - 0 0
+!SET_MAPOBJECT 26 110 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 92 110 0 fern_3 - - - 0 0
+!SET_MAPOBJECT 102 110 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 103 110 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 113 110 0 reed2 - - - 0 0
+!SET_MAPOBJECT 114 110 0 reed2 - - - 0 0
+!SET_MAPOBJECT 117 110 0 reed2 - - - 0 0
+!SET_MAPOBJECT 118 110 0 reed2 - - - 0 0
+!SET_MAPOBJECT 122 110 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 123 110 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 130 110 0 pine2 - - - 0 0
+!SET_MAPOBJECT 97 111 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 98 111 3 flower_red - - - 0 0
+!SET_MAPOBJECT 105 111 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 113 111 0 reed2 - - - 0 0
+!SET_MAPOBJECT 114 111 0 reed2 - - - 0 0
+!SET_MAPOBJECT 116 111 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 118 111 0 reed2 - - - 0 0
+!SET_MAPOBJECT 120 111 0 pine3 - - - 0 0
+!SET_MAPOBJECT 123 111 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 126 111 0 pine3 - - - 0 0
+!SET_MAPOBJECT 4 112 3 boulder2 - - - 0 0
+!SET_MAPOBJECT 4 112 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 9 112 2 boulder - - - 0 0
+!SET_MAPOBJECT 12 112 0 pine3 - - - 0 0
+!SET_MAPOBJECT 20 112 0 pine3 - - - 0 0
+!SET_MAPOBJECT 97 112 0 flower_red - - - 0 0
+!SET_MAPOBJECT 98 112 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 99 112 1 flower_red - - - 0 0
+!SET_MAPOBJECT 103 112 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 122 112 0 pine1 - - - 0 0
+!SET_MAPOBJECT 129 112 0 pine2 - - - 0 0
+!SET_MAPOBJECT 3 113 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 14 113 0 pine2 - - - 0 0
+!SET_MAPOBJECT 15 113 0 log - - - 0 0
+!SET_MAPOBJECT 20 113 0 pine2 - - - 0 0
+!SET_MAPOBJECT 60 113 0 oak_stump - - - 0 0
+!SET_MAPOBJECT 98 113 3 flower_red - - - 0 0
+!SET_MAPOBJECT 99 113 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 101 113 0 pine2 - - - 0 0
+!SET_MAPOBJECT 102 113 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 104 113 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 117 113 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 125 113 0 pine1 - - - 0 0
+!SET_MAPOBJECT 130 113 0 pine1 - - - 0 0
+!SET_MAPOBJECT 133 113 0 pine2 - - - 0 0
+!SET_MAPOBJECT 10 114 0 pine3 - - - 0 0
+!SET_MAPOBJECT 12 114 0 pine1 - - - 0 0
+!SET_MAPOBJECT 15 114 0 pine3 - - - 0 0
+!SET_MAPOBJECT 20 114 0 pine1 - - - 0 0
+!SET_MAPOBJECT 99 114 0 pine2 - - - 0 0
+!SET_MAPOBJECT 105 114 0 pine2 - - - 0 0
+!SET_MAPOBJECT 118 114 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 124 114 0 pine3 - - - 0 0
+!SET_MAPOBJECT 127 114 0 pine2 - - - 0 0
+!SET_MAPOBJECT 12 115 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 13 115 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 56 115 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 60 115 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 99 115 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 101 115 0 pine3 - - - 0 0
+!SET_MAPOBJECT 103 115 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 116 115 0 reed2 - - - 0 0
+!SET_MAPOBJECT 117 115 0 reed2 - - - 0 0
+!SET_MAPOBJECT 130 115 0 pine3 - - - 0 0
+!SET_MAPOBJECT 133 115 0 pine2 - - - 0 0
+!SET_MAPOBJECT 7 116 0 pine3 - - - 0 0
+!SET_MAPOBJECT 10 116 0 pine3 - - - 0 0
+!SET_MAPOBJECT 33 116 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 97 116 0 pine2 - - - 0 0
+!SET_MAPOBJECT 103 116 0 pine3 - - - 0 0
+!SET_MAPOBJECT 117 116 0 reed2 - - - 0 0
+!SET_MAPOBJECT 127 116 0 pine1 - - - 0 0
+!SET_MAPOBJECT 128 116 0 pine2 - - - 0 0
+!SET_MAPOBJECT 130 116 0 pine1 - - - 0 0
+!SET_MAPOBJECT 8 117 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 28 117 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 38 117 0 pine3 - - - 0 0
+!SET_MAPOBJECT 40 117 0 pine2 - - - 0 0
+!SET_MAPOBJECT 54 117 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 82 117 0 pine3 - - - 0 0
+!SET_MAPOBJECT 83 117 0 pine1 - - - 0 0
+!SET_MAPOBJECT 99 117 0 pine3 - - - 0 0
+!SET_MAPOBJECT 100 117 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 104 117 0 pine2 - - - 0 0
+!SET_MAPOBJECT 124 117 0 reed2 - - - 0 0
+!SET_MAPOBJECT 125 117 0 reed2 - - - 0 0
+!SET_MAPOBJECT 6 118 0 pine3 - - - 0 0
+!SET_MAPOBJECT 7 118 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 9 118 0 pine2 - - - 0 0
+!SET_MAPOBJECT 15 118 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 17 118 0 pine3 - - - 0 0
+!SET_MAPOBJECT 39 118 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 40 118 0 log - - - 0 0
+!SET_MAPOBJECT 41 118 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 56 118 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 131 118 0 pine1 - - - 0 0
+!SET_MAPOBJECT 133 118 0 pine3 - - - 0 0
+!SET_MAPOBJECT 7 119 0 pine1 - - - 0 0
+!SET_MAPOBJECT 13 119 0 pine1 - - - 0 0
+!SET_MAPOBJECT 17 119 0 pine1 - - - 0 0
+!SET_MAPOBJECT 19 119 0 pine2 - - - 0 0
+!SET_MAPOBJECT 35 119 0 pine3 - - - 0 0
+!SET_MAPOBJECT 41 119 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 56 119 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 81 119 0 pine2 - - - 0 0
+!SET_MAPOBJECT 86 119 0 pine3 - - - 0 0
+!SET_MAPOBJECT 132 119 0 pine1 - - - 0 0
+!SET_MAPOBJECT 13 120 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 15 120 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 120 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 18 120 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 19 120 0 pine1 - - - 0 0
+!SET_MAPOBJECT 22 120 0 pine2 - - - 0 0
+!SET_MAPOBJECT 30 120 0 pine3 - - - 0 0
+!SET_MAPOBJECT 33 120 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 34 120 0 pine2 - - - 0 0
+!SET_MAPOBJECT 38 120 0 pine3 - - - 0 0
+!SET_MAPOBJECT 40 120 0 pine2 - - - 0 0
+!SET_MAPOBJECT 42 120 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 82 120 0 pine3 - - - 0 0
+!SET_MAPOBJECT 125 120 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 131 120 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 17 121 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 121 1 boulder - - - 0 0
+!SET_MAPOBJECT 24 121 0 log - - - 0 0
+!SET_MAPOBJECT 30 121 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 38 121 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 39 121 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 83 121 0 pine2 - - - 0 0
+!SET_MAPOBJECT 129 121 0 reed2 - - - 0 0
+!SET_MAPOBJECT 130 121 0 reed2 - - - 0 0
+!SET_MAPOBJECT 131 121 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 132 121 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 3 122 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 22 122 0 pine2 - - - 0 0
+!SET_MAPOBJECT 26 122 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 26 122 0 pine2 - - - 0 0
+!SET_MAPOBJECT 32 122 0 pine3 - - - 0 0
+!SET_MAPOBJECT 34 122 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 36 122 0 pine2 - - - 0 0
+!SET_MAPOBJECT 77 122 0 pine3 - - - 0 0
+!SET_MAPOBJECT 126 122 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 128 122 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 130 122 0 reed2 - - - 0 0
+!SET_MAPOBJECT 10 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 123 0 pine2 - - - 0 0
+!SET_MAPOBJECT 24 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 29 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 34 123 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 35 123 0 log - - - 0 0
+!SET_MAPOBJECT 37 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 39 123 0 pine2 - - - 0 0
+!SET_MAPOBJECT 42 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 43 123 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 87 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 110 123 0 pine3 - - - 0 0
+!SET_MAPOBJECT 111 123 0 pine2 - - - 0 0
+!SET_MAPOBJECT 126 123 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 129 123 0 reed2 - - - 0 0
+!SET_MAPOBJECT 130 123 0 reed2 - - - 0 0
+!SET_MAPOBJECT 11 124 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 28 124 0 pine2 - - - 0 0
+!SET_MAPOBJECT 32 124 0 pine2 - - - 0 0
+!SET_MAPOBJECT 39 124 0 birch_stump - - - 0 0
+!SET_MAPOBJECT 43 124 0 pine2 - - - 0 0
+!SET_MAPOBJECT 57 124 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 79 124 0 pine2 - - - 0 0
+!SET_MAPOBJECT 108 124 0 pine2 - - - 0 0
+!SET_MAPOBJECT 111 124 0 pine1 - - - 0 0
+!SET_MAPOBJECT 125 124 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 126 124 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 127 124 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 129 124 0 reed2 - - - 0 0
+
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12370 (2023.02.12 15:58)"  on 18.02.2023 20:38:20
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:26:18

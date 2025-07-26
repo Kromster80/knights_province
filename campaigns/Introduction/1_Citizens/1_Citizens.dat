@@ -1,5 +1,7 @@
 !VERSION 3
 
+// Mod requirements
+
 // General settings
 !RANKING 1 // Min time
 !HANDS_COUNT 4
@@ -77,7 +79,7 @@
 !UNIT_BLOCK 26 // cavalry
 !UNIT_BLOCK 32 // wagon
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -207,7 +209,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -249,12 +251,13 @@
 !SET_AI_CHARACTER SERFS_PER_10_HOUSES 10
 !SET_AI_CHARACTER BUILDERS_COUNT 12
 
-// Attacks
+// AttackSchedule
 !SET_AI_ATTACK TYPE 1
 !SET_AI_ATTACK DELAY 0
 !SET_AI_ATTACK INTERVAL 0
 !SET_AI_ATTACK MEN_PERCENTAGE 100
 !SET_AI_ATTACK TARGET 1
+!SET_AI_ATTACK KEEP_ATTACKING 0
 !ADD_AI_ATTACK
 
 
@@ -266,7 +269,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -280,11 +283,11 @@
 
 // Groups
 !SET_GROUP 18 33 31 6 4 4 // militia
-!ATTACK_POSITION 31 31
+!ATTACK_POSITION 31 31 -1
 !SET_GROUP 18 37 23 6 3 3 // militia
-!ATTACK_POSITION 34 23
+!ATTACK_POSITION 34 23 -1
 !SET_GROUP 18 31 16 6 3 3 // militia
-!ATTACK_POSITION 28 16
+!ATTACK_POSITION 28 16 -1
 
 -----Hand3-----
 !HAND_CURRENT 3
@@ -300,5 +303,175 @@
 // Fences
 
 
+// MapObjects
+!SET_MAPOBJECT 6 1 2 boulder - - - 0 0
+!SET_MAPOBJECT 9 1 2 oak_2 - - - 0 0
+!SET_MAPOBJECT 11 1 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 12 1 1 birch_2 - - - 0 0
+!SET_MAPOBJECT 2 2 3 pine3 - - - 0 0
+!SET_MAPOBJECT 5 2 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 3 3 2 boulder - - - 0 0
+!SET_MAPOBJECT 5 3 0 pine3 - - - 0 0
+!SET_MAPOBJECT 7 3 3 pine3 - - - 0 0
+!SET_MAPOBJECT 10 3 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 13 4 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 3 5 0 oak_2 - - - 0 0
+!SET_MAPOBJECT 5 5 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 10 5 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 62 5 2 log - - - 0 0
+!SET_MAPOBJECT 1 6 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 7 6 0 pine2 - - - 0 0
+!SET_MAPOBJECT 13 6 3 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 3 7 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 12 7 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 13 7 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 15 7 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 64 7 3 flower_white - - - 0 0
+!SET_MAPOBJECT 86 7 1 boulder - - - 0 0
+!SET_MAPOBJECT 5 8 2 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 7 8 1 pine3 - - - 0 0
+!SET_MAPOBJECT 10 8 3 pine2 - - - 0 0
+!SET_MAPOBJECT 64 8 0 flower_white - - - 0 0
+!SET_MAPOBJECT 65 8 2 flower_white - - - 0 0
+!SET_MAPOBJECT 1 9 1 oak_1 - - - 0 0
+!SET_MAPOBJECT 3 9 3 pine3 - - - 0 0
+!SET_MAPOBJECT 5 9 3 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 13 9 3 birch_2 - - - 0 0
+!SET_MAPOBJECT 64 9 0 flower_white - - - 0 0
+!SET_MAPOBJECT 65 9 3 flower_white - - - 0 0
+!SET_MAPOBJECT 5 10 1 oak_1 - - - 0 0
+!SET_MAPOBJECT 8 10 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 63 10 2 flower_white - - - 0 0
+!SET_MAPOBJECT 4 11 1 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 62 11 1 flower_white - - - 0 0
+!SET_MAPOBJECT 2 12 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 6 12 2 pine3 - - - 0 0
+!SET_MAPOBJECT 36 12 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 39 13 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 61 13 0 flower_white - - - 0 0
+!SET_MAPOBJECT 24 14 3 flower_white - - - 0 0
+!SET_MAPOBJECT 60 14 2 flower_white - - - 0 0
+!SET_MAPOBJECT 3 15 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 39 15 2 flower_yellow - - - 0 0
+!SET_MAPOBJECT 41 15 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 58 15 3 flower_white - - - 0 0
+!SET_MAPOBJECT 59 15 1 flower_white - - - 0 0
+!SET_MAPOBJECT 38 16 3 flower_yellow - - - 0 0
+!SET_MAPOBJECT 40 16 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 57 16 3 flower_white - - - 0 0
+!SET_MAPOBJECT 9 17 3 flower_white - - - 0 0
+!SET_MAPOBJECT 34 17 0 flower_white - - - 0 0
+!SET_MAPOBJECT 52 17 0 log2 - - - 0 0
+!SET_MAPOBJECT 55 17 1 flower_white - - - 0 0
+!SET_MAPOBJECT 56 17 0 flower_white - - - 0 0
+!SET_MAPOBJECT 58 17 0 flower_white - - - 0 0
+!SET_MAPOBJECT 3 18 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 13 18 0 flower_white - - - 0 0
+!SET_MAPOBJECT 20 18 2 flower_white - - - 0 0
+!SET_MAPOBJECT 24 18 3 flower_white - - - 0 0
+!SET_MAPOBJECT 53 18 0 flower_white - - - 0 0
+!SET_MAPOBJECT 55 18 2 flower_white - - - 0 0
+!SET_MAPOBJECT 57 18 1 flower_white - - - 0 0
+!SET_MAPOBJECT 30 19 3 flower_white - - - 0 0
+!SET_MAPOBJECT 43 19 0 birch_1 - - - 0 0
+!SET_MAPOBJECT 9 20 1 flower_white - - - 0 0
+!SET_MAPOBJECT 27 20 0 flower_white - - - 0 0
+!SET_MAPOBJECT 29 20 2 flower_white - - - 0 0
+!SET_MAPOBJECT 40 20 0 flower_white - - - 0 0
+!SET_MAPOBJECT 53 20 3 flower_white - - - 0 0
+!SET_MAPOBJECT 30 21 0 flower_white - - - 0 0
+!SET_MAPOBJECT 31 21 3 flower_white - - - 0 0
+!SET_MAPOBJECT 53 21 0 flower_white - - - 0 0
+!SET_MAPOBJECT 54 21 3 flower_white - - - 0 0
+!SET_MAPOBJECT 28 22 0 flower_white - - - 0 0
+!SET_MAPOBJECT 43 22 1 obelisk_broken - - - 0 0
+!SET_MAPOBJECT 52 22 0 flower_white - - - 0 0
+!SET_MAPOBJECT 55 22 1 stonewall - - - 0 0
+!SET_MAPOBJECT 14 23 0 flower_white - - - 0 0
+!SET_MAPOBJECT 44 23 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 15 25 0 flower_white - - - 0 0
+!SET_MAPOBJECT 43 25 1 obelisk - - - 0 0
+!SET_MAPOBJECT 36 26 2 flower_white - - - 0 0
+!SET_MAPOBJECT 41 26 3 flower_white - - - 0 0
+!SET_MAPOBJECT 43 26 0 flower_red - - - 0 0
+!SET_MAPOBJECT 45 26 0 flower_red - - - 0 0
+!SET_MAPOBJECT 1 27 0 pine1 - - - 0 0
+!SET_MAPOBJECT 29 28 2 flower_white - - - 0 0
+!SET_MAPOBJECT 40 28 2 log - - - 0 0
+!SET_MAPOBJECT 44 28 0 flower_red - - - 0 0
+!SET_MAPOBJECT 37 29 2 flower_white - - - 0 0
+!SET_MAPOBJECT 2 31 1 pine1 - - - 0 0
+!SET_MAPOBJECT 39 31 1 pine1 - - - 0 0
+!SET_MAPOBJECT 41 31 3 oak_2 - - - 0 0
+!SET_MAPOBJECT 85 31 0 oak_2 - - - 0 0
+!SET_MAPOBJECT 17 32 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 18 32 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 19 32 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 17 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 18 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 19 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 20 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 21 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 22 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 25 33 0 flower_white - - - 0 0
+!SET_MAPOBJECT 40 33 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 22 34 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 29 34 0 flower_white - - - 0 0
+!SET_MAPOBJECT 35 35 3 pine3 - - - 0 0
+!SET_MAPOBJECT 30 37 2 pine1 - - - 0 0
+!SET_MAPOBJECT 35 37 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 38 37 1 birch_1 - - - 0 0
+!SET_MAPOBJECT 3 38 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 7 38 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 25 38 1 flower_white - - - 0 0
+!SET_MAPOBJECT 28 38 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 33 39 3 pine3 - - - 0 0
+!SET_MAPOBJECT 9 40 0 birch_2 - - - 0 0
+!SET_MAPOBJECT 29 40 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 80 40 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 81 40 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 84 40 2 birch_3 - - - 0 0
+!SET_MAPOBJECT 12 41 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 17 41 3 pine1 - - - 0 0
+!SET_MAPOBJECT 27 41 1 flower_yellow - - - 0 0
+!SET_MAPOBJECT 32 41 2 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 33 41 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 35 41 0 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 4 42 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 8 42 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 11 42 0 log - - - 0 0
+!SET_MAPOBJECT 15 42 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 24 42 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 30 42 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 31 42 2 log - - - 0 0
+!SET_MAPOBJECT 83 42 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 85 42 1 pine2 - - - 0 0
+!SET_MAPOBJECT 4 43 0 mushroom_1 - - - 0 0
+!SET_MAPOBJECT 9 43 3 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 10 43 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 80 43 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 82 43 3 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 2 44 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 7 44 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 24 44 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 27 44 1 oak_3 - - - 0 0
+!SET_MAPOBJECT 31 44 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 77 44 3 oak_2 - - - 0 0
+!SET_MAPOBJECT 7 45 1 birch_1 - - - 0 0
+!SET_MAPOBJECT 18 45 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 29 45 3 oak_3 - - - 0 0
+!SET_MAPOBJECT 33 45 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 75 45 3 oak_2 - - - 0 0
+!SET_MAPOBJECT 2 46 1 log - - - 0 0
+!SET_MAPOBJECT 14 46 1 oak_stump - - - 0 0
+!SET_MAPOBJECT 74 46 1 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 78 46 2 oak_1 - - - 0 0
 
-// This mission was made with Map Editor of "Knights Province. Alpha 12 wip r12389 (2023.02.13 23:24)"  on 13.02.2023 23:33:41
+// Weather
+!SUN_COLOR 244 244 237
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 244 55
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:23:16

@@ -50,7 +50,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -223,7 +223,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 !ORDER_BLOCK 18 // metalshield
 !ORDER_BLOCK 20 // metalarmor
 !ORDER_BLOCK 22 // sword
@@ -989,7 +989,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1595,7 +1595,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1729,7 +1729,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1812,7 +1812,7 @@
 // Block units
 !UNIT_BLOCK 3 // builder
 
-// Block orders
+// Block warfare orders
 !ORDER_BLOCK 17 // shield
 !ORDER_BLOCK 18 // metalshield
 !ORDER_BLOCK 20 // metalarmor
@@ -1924,7 +1924,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1996,7 +1996,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -2042,7 +2042,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -2093,7 +2093,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -6551,4 +6551,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15386 (2024.09.15 14:26)" on 21.09.2024 13:22:16
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:25:40
