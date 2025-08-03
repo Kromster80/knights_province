@@ -1,5 +1,5 @@
 ﻿0:Mathijs
-1:Enter mission description here.
+1:Produce as many sausages as possible before the time runs out!
 obj_sausage:Sausages
 obj_time:Time left
 msg_intro_01:Produce as many sausages as possible before the time runs out!
