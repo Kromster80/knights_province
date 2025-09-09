@@ -1084,7 +1084,6 @@
 !SET_MAPOBJECT 235 92 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 12 93 0 conepine_3 - - - 0 0
 !SET_MAPOBJECT 57 93 0 pine1 - - - 0 0
-!SET_MAPOBJECT 154 93 1 boulder3 - - - 0 0
 !SET_MAPOBJECT 225 93 0 mushroom_4 - - - 0 0
 !SET_MAPOBJECT 166 94 3 boulder - - - 0 0
 !SET_MAPOBJECT 227 94 2 boulder - - - 0 0
@@ -1840,4 +1839,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:16:40
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17192 (2025/09/07 20:47)" on 09/09/2025 13:05:53
