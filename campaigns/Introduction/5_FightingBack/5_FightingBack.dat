@@ -332,7 +332,7 @@
 
 // Units
 !SET_UNIT 32 30 59 4 // wagon
-!SET_UNIT_WARE 3 50
+!SET_UNIT_WARE 3 40
 
 // MapObjects
 !SET_MAPOBJECT 62 1 0 conepine_1 - - - 0 0
@@ -478,15 +478,24 @@
 !SET_MAPOBJECT 65 33 0 apple_tree_max - - - 0 0
 !SET_MAPOBJECT 66 33 0 apple_tree_max - - - 0 0
 !SET_MAPOBJECT 67 33 0 apple_tree_max - - - 0 0
+!SET_MAPOBJECT 32 35 0 flower_yellow - - - 0 0
+!SET_MAPOBJECT 35 35 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 35 35 1 log2 - - - 0 0
+!SET_MAPOBJECT 32 36 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 39 36 2 log2 - - - 0 0
+!SET_MAPOBJECT 27 37 3 mushroom_3 - - - 0 0
+!SET_MAPOBJECT 31 37 2 mushroom_4 - - - 0 0
 !SET_MAPOBJECT 58 37 0 grain_max - - - 0 0
 !SET_MAPOBJECT 59 37 0 grain_max - - - 0 0
 !SET_MAPOBJECT 60 37 0 grain_max - - - 0 0
 !SET_MAPOBJECT 61 37 0 grain_max - - - 0 0
+!SET_MAPOBJECT 33 38 1 flower_red - - - 0 0
 !SET_MAPOBJECT 57 38 0 grain_max - - - 0 0
 !SET_MAPOBJECT 58 38 0 grain_max - - - 0 0
 !SET_MAPOBJECT 59 38 0 grain_max - - - 0 0
 !SET_MAPOBJECT 60 38 0 grain_max - - - 0 0
 !SET_MAPOBJECT 61 38 0 grain_max - - - 0 0
+!SET_MAPOBJECT 35 39 1 shrub_2 - - - 0 0
 !SET_MAPOBJECT 57 39 0 grain_max - - - 0 0
 !SET_MAPOBJECT 58 39 0 grain_max - - - 0 0
 !SET_MAPOBJECT 59 39 0 grain_max - - - 0 0
@@ -552,12 +561,16 @@
 !SET_MAPOBJECT 29 58 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 49 58 0 pine3 - - - 0 0
 !SET_MAPOBJECT 65 61 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 4 64 1 log2 - - - 0 0
+!SET_MAPOBJECT 5 65 0 rock_2 - - - 0 0
 !SET_MAPOBJECT 17 66 0 pine3 - - - 0 0
+!SET_MAPOBJECT 38 66 1 boulder3 - - - 0 0
 !SET_MAPOBJECT 74 67 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 17 69 0 pine3 - - - 0 0
 !SET_MAPOBJECT 2 71 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 14 71 0 pine3 - - - 0 0
 !SET_MAPOBJECT 26 72 0 oak_3 - - - 0 0
+!SET_MAPOBJECT 36 72 2 boulder3 - - - 0 0
 !SET_MAPOBJECT 1 74 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 23 75 0 oak_3 - - - 0 0
 !SET_MAPOBJECT 59 75 0 oak_2 - - - 0 0
@@ -570,4 +583,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:23:54
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17276 (2025.09.24 20:37)" on 24.09.2025 20:40:47

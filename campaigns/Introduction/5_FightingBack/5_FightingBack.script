@@ -3,7 +3,7 @@
 
 const
   HUMAN_PLAYER = 0;
-  WOOD_IN_WAGON = 50;
+  WOOD_IN_WAGON = 40;
 
 var
   objWood, objSword: Integer;
@@ -42,6 +42,8 @@ begin
   swordsmanUnit := States.UnitAt(64, 23);
   swordsmanGroup := States.GroupAt(64, 23);
   camp := States.HouseAt(20, 35);
+
+  Actions.UnitHitpointsSet(swordsmanUnit, 180);
 
   objWood  := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$2>');
   objSword := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 1, osActive, '<$3>');
