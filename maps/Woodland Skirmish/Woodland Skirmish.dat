@@ -19,8 +19,6 @@
 
 // Fog of War
 !FOW_REVEAL 16 145 15
-!FOW_REVEAL 8 125 10
-!FOW_REVEAL 22 125 10
 
 // Goals
 
@@ -49,7 +47,7 @@
 !SET_HOUSE 11 16 145 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -63,18 +61,18 @@
 
 
 // Units
+!SET_UNIT 2 15 146 4 // porter
+!SET_UNIT 3 17 146 4 // builder
+!SET_UNIT 2 14 146 4 // porter
+!SET_UNIT 3 18 146 4 // builder
+!SET_UNIT 2 13 146 4 // porter
+!SET_UNIT 3 19 146 4 // builder
+!SET_UNIT 2 15 147 4 // porter
+!SET_UNIT 3 17 147 4 // builder
+!SET_UNIT 2 14 147 4 // porter
+!SET_UNIT 3 18 147 4 // builder
 !SET_UNIT 1 16 146 4 // peasant
 !SET_UNIT 1 16 147 4 // peasant
-!SET_UNIT 2 15 146 4 // porter
-!SET_UNIT 2 15 147 4 // porter
-!SET_UNIT 2 14 147 4 // porter
-!SET_UNIT 2 14 146 4 // porter
-!SET_UNIT 2 13 146 4 // porter
-!SET_UNIT 3 17 146 4 // builder
-!SET_UNIT 3 17 147 4 // builder
-!SET_UNIT 3 18 146 4 // builder
-!SET_UNIT 3 18 147 4 // builder
-!SET_UNIT 3 19 146 4 // builder
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -87,9 +85,6 @@
 
 // Fog of War
 !FOW_REVEAL 16 81 15
-!FOW_REVEAL 8 98 10
-!FOW_REVEAL 23 100 10
-!FOW_REVEAL 12 62 10
 
 // Goals
 
@@ -118,7 +113,7 @@
 !SET_HOUSE 11 16 81 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -132,18 +127,18 @@
 
 
 // Units
+!SET_UNIT 2 15 82 4 // porter
+!SET_UNIT 3 17 82 4 // builder
+!SET_UNIT 2 14 82 4 // porter
+!SET_UNIT 3 18 82 4 // builder
+!SET_UNIT 2 13 82 4 // porter
+!SET_UNIT 3 19 82 4 // builder
+!SET_UNIT 2 15 83 4 // porter
+!SET_UNIT 3 17 83 4 // builder
+!SET_UNIT 2 14 83 4 // porter
+!SET_UNIT 3 18 83 4 // builder
 !SET_UNIT 1 16 82 4 // peasant
 !SET_UNIT 1 16 83 4 // peasant
-!SET_UNIT 2 15 82 4 // porter
-!SET_UNIT 2 15 83 4 // porter
-!SET_UNIT 2 14 82 4 // porter
-!SET_UNIT 2 14 83 4 // porter
-!SET_UNIT 2 13 82 4 // porter
-!SET_UNIT 3 17 82 4 // builder
-!SET_UNIT 3 17 83 4 // builder
-!SET_UNIT 3 18 83 4 // builder
-!SET_UNIT 3 18 82 4 // builder
-!SET_UNIT 3 19 82 4 // builder
 
 -----Hand2-----
 !HAND_CURRENT 2
@@ -156,9 +151,6 @@
 
 // Fog of War
 !FOW_REVEAL 56 33 15
-!FOW_REVEAL 37 30 10
-!FOW_REVEAL 52 49 10
-!FOW_REVEAL 64 49 10
 
 // Goals
 
@@ -187,7 +179,7 @@
 !SET_HOUSE 11 56 33 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -225,8 +217,6 @@
 
 // Fog of War
 !FOW_REVEAL 144 17 15
-!FOW_REVEAL 149 36 10
-!FOW_REVEAL 134 36 10
 
 // Goals
 
@@ -255,7 +245,7 @@
 !SET_HOUSE 11 144 17 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -269,18 +259,18 @@
 
 
 // Units
+!SET_UNIT 2 143 18 4 // porter
+!SET_UNIT 3 145 18 4 // builder
+!SET_UNIT 2 142 18 4 // porter
+!SET_UNIT 3 146 18 4 // builder
+!SET_UNIT 2 141 18 4 // porter
+!SET_UNIT 3 147 18 4 // builder
+!SET_UNIT 2 143 19 4 // porter
+!SET_UNIT 3 145 19 4 // builder
+!SET_UNIT 2 142 19 4 // porter
+!SET_UNIT 3 146 19 4 // builder
 !SET_UNIT 1 144 18 4 // peasant
 !SET_UNIT 1 144 19 4 // peasant
-!SET_UNIT 2 143 18 4 // porter
-!SET_UNIT 2 143 19 4 // porter
-!SET_UNIT 2 142 18 4 // porter
-!SET_UNIT 2 142 19 4 // porter
-!SET_UNIT 2 141 18 4 // porter
-!SET_UNIT 3 145 18 4 // builder
-!SET_UNIT 3 145 19 4 // builder
-!SET_UNIT 3 146 19 4 // builder
-!SET_UNIT 3 146 18 4 // builder
-!SET_UNIT 3 147 18 4 // builder
 
 -----Hand4-----
 !HAND_CURRENT 4
@@ -293,9 +283,6 @@
 
 // Fog of War
 !FOW_REVEAL 144 81 15
-!FOW_REVEAL 148 62 10
-!FOW_REVEAL 133 62 10
-!FOW_REVEAL 146 97 10
 
 // Goals
 
@@ -324,7 +311,7 @@
 !SET_HOUSE 11 144 81 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -338,18 +325,18 @@
 
 
 // Units
+!SET_UNIT 2 143 82 4 // porter
+!SET_UNIT 3 145 82 4 // builder
+!SET_UNIT 2 142 82 4 // porter
+!SET_UNIT 3 146 82 4 // builder
+!SET_UNIT 2 141 82 4 // porter
+!SET_UNIT 3 147 82 4 // builder
+!SET_UNIT 2 143 83 4 // porter
+!SET_UNIT 3 145 83 4 // builder
+!SET_UNIT 2 142 83 4 // porter
+!SET_UNIT 3 146 83 4 // builder
 !SET_UNIT 1 144 82 4 // peasant
 !SET_UNIT 1 144 83 4 // peasant
-!SET_UNIT 2 143 82 4 // porter
-!SET_UNIT 2 143 83 4 // porter
-!SET_UNIT 2 142 82 4 // porter
-!SET_UNIT 2 142 83 4 // porter
-!SET_UNIT 2 141 82 4 // porter
-!SET_UNIT 3 145 82 4 // builder
-!SET_UNIT 3 145 83 4 // builder
-!SET_UNIT 3 146 83 4 // builder
-!SET_UNIT 3 146 82 4 // builder
-!SET_UNIT 3 147 82 4 // builder
 
 -----Hand5-----
 !HAND_CURRENT 5
@@ -362,9 +349,6 @@
 
 // Fog of War
 !FOW_REVEAL 104 129 15
-!FOW_REVEAL 93 110 10
-!FOW_REVEAL 105 110 10
-!FOW_REVEAL 122 126 10
 
 // Goals
 
@@ -393,7 +377,7 @@
 !SET_HOUSE 11 104 129 0 // camp
 !WARE_OUT_ADD_TO_LAST 2 60 // stone
 !WARE_OUT_ADD_TO_LAST 3 60 // wood
-!WARE_OUT_ADD_TO_LAST 8 30 // gold
+!WARE_OUT_ADD_TO_LAST 8 60 // gold
 !WARE_OUT_ADD_TO_LAST 28 90 // fish
 !WARE_OUT_ADD_TO_LAST 29 5 // club
 !WARE_OUT_ADD_TO_LAST 30 80 // cider
@@ -1442,4 +1426,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:22
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17303 (2025/09/29 21:01)" on 04/10/2025 14:08:14
