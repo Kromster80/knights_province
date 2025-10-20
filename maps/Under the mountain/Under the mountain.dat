@@ -62,14 +62,18 @@
 
 
 // Units
-!SET_UNIT 2 8 12 4 // porter
-!SET_UNIT 2 7 12 4 // porter
-!SET_UNIT 2 6 12 4 // porter
-!SET_UNIT 2 8 13 4 // porter
-!SET_UNIT 3 10 13 4 // builder
-!SET_UNIT 2 7 13 4 // porter
-!SET_UNIT 3 11 13 4 // builder
-!SET_UNIT 1 9 13 4 // peasant
+!SET_UNIT 2 8 10 6 // porter
+!SET_UNIT 3 8 12 6 // builder
+!SET_UNIT 2 8 9 6 // porter
+!SET_UNIT 3 8 13 6 // builder
+!SET_UNIT 2 8 8 6 // porter
+!SET_UNIT 3 8 14 6 // builder
+!SET_UNIT 2 7 10 6 // porter
+!SET_UNIT 3 7 12 6 // builder
+!SET_UNIT 2 7 9 6 // porter
+!SET_UNIT 3 7 13 6 // builder
+!SET_UNIT 1 8 11 6 // peasant
+!SET_UNIT 1 7 11 6 // peasant
 
 -----Hand1-----
 !HAND_CURRENT 1
@@ -435,4 +439,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:03
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17399 (2025.10.20 19:00)" on 20.10.2025 19:02:54
