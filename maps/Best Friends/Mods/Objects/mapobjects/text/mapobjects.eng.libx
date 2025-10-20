@@ -1,0 +1,90 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.Cactus1]
+        desc:Watch out, it stings
+        name:Medium cactus
+    [mapobjects.Cactus2]
+        desc:Watch out, it stings
+        name:Big cactus
+    [mapobjects.Cactus3]
+        desc:it stings even more
+        name:Little cactus
+    [mapobjects.small_campfire]
+        desc:cold or maybe hungry?
+        name:campfire
+    [mapobjects.Stones1]
+        desc:Various medium stones
+        name:Mix of medium stones
+    [mapobjects.Stones2]
+        desc:Various small stones
+        name:Mix of small stones
+    [mapobjects.Stones3]
+        desc:Stone
+        name:A huge rock
+    [mapobjects.Stones4]
+        desc:Stone
+        name:A very large 
+    [mapobjects.Stones5]
+        desc:Stone
+        name:Large rock
+    [mapobjects.xLantern]
+        desc:Seaside lighthouse
+        name:Lantern
+    [mapobjects.moat_support]
+        desc:Moat support
+        name:Moat
+    [mapobjects.Tortur_Gallows]
+        desc:How much your life is worth?
+        name:Gallows
+    [mapobjects.Tortur_Gallows2]
+        desc:Death is waiting for you
+        name:Gallows
+    [mapobjects.Tortur_Pillory]
+        desc:May you never get there
+        name:Pillory
+    [mapobjects.Tortur_Guillotine]
+        desc:Where is your head?
+        name:Guillotine
+    [mapobjects.Shooting_target]
+        desc:Can you hit the center?
+        name:Shooting target
+    [mapobjects.Training_dummy1]
+        desc:Train you skills!
+        name:Training dummy
+    [mapobjects.Training_dummy2]
+        desc:Train you skills!
+        name:Training dummy    
+	[mapobjects.Sword_store]
+        desc:Best sword
+        name:Swort store
+	[mapobjects.Halberds_store]
+        desc:Best halberds
+        name:Halberds store		
+	[mapobjects.Well_1]
+        desc:You need fresh water no problem
+        name:Well		
+	[mapobjects.Well_2]
+        desc:You need fresh water no problem
+        name:Well		
+	[mapobjects.Cross]
+        desc:Let's pray
+        name:Cross				
+	[mapobjects.Border_cones]
+        desc:Field marking stakes
+        name:Single border cones			
+	[mapobjects.Border_cones2]
+        desc:Field marking stakes
+        name:Doble border cones		
+	[mapobjects.Blank_Blockade]
+        desc:Transparent passage blockade. Allows blocking entry, intended for scripts.
+        name:Blank Blockade		
+	[mapobjects.Info_board1]
+        desc:You need some information?
+        name:Information board					
+	[mapobjects.Info_board2]
+        desc:You need some information?
+        name:Information board					
+
+		
+		

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="flag1" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="7.000; 1.000; 3.000; 0.500; 0.000; 5.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="flag2" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="6.000; 1.000; 4.000; 0.500; 0.000; 5.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+
+	  </Objects>  
+  </item1>   	
+</Root>
+
+

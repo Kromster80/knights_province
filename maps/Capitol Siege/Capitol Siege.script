@@ -1,0 +1,771 @@
+//Kinghts Dzapan
+//Mission win if enemy 3-10 is defeat and 4 units from enemy 11 are killed in prison
+//Mission loost if player 1 or player 2 lost his importatt houses Camp/School ect. 
+// Knights Province dynamic script.
+// Wiki available at: https://github.com/Kromster80/knights_province/wiki
+
+
+
+
+const
+  Human_Player_1 = 0;
+  Human_Player_2 = 1;	
+  Enemy3 = 2;
+  Enemy4 = 3;  
+  {All hand Players = -1}
+ 
+var
+    BulidCamp                                                     : array of Boolean;	
+	ConquerTheCastle_P1, ConquerTheCastle_P2, Gate1_P1, Gate1_P2  :  Integer;	
+	Moat_P1, Moat_P2, Marker1, Marker2, Marker3				   	  :  Integer;
+	EnemyCamp, EnemyBarracks				                	  :  Integer;
+	Trigger1, Trigger2, Trigger3, Trigger4, Trigger5, Trigger6	  :  Boolean; 
+	Trigger7, Trigger8, Trigger9, Trigger10, Trigger11, Trigger12 :  Boolean;
+	Trigger13, Trigger14, Trigger15, Trigger16, Trigger17    	  :  Boolean; 
+	Trigger18, Trigger19, Trigger20, Trigger21, Trigger22         :  Boolean;	
+	Trigger23, Trigger24, Trigger25, Trigger26, Trigger27    	  :  Boolean; 
+	Trigger28, Trigger29, Trigger30, Trigger31, Trigger32         :  Boolean;	
+	Trigger33, Trigger34, Trigger35, Trigger36, Trigger37    	  :  Boolean; 
+	Trigger38, Trigger39, Trigger40, Trigger41, Trigger42         :  Boolean;	
+	Trigger43, Trigger44, Trigger45, Trigger46, Trigger47    	  :  Boolean; 
+	Trigger48                                               	  :  Boolean; 
+
+
+
+	
+procedure OnMissionStart;
+var
+  U: Integer;
+  i: Integer;
+begin
+  SetLength(BulidCamp, States.StatPlayerCount());
+  for i := Low(BulidCamp) to High(BulidCamp) do
+  BulidCamp[i] := False;	
+
+  Actions.PlayerMessage(-1, '<$2>', True);	 
+ 
+  ConquerTheCastle_P1   := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osActive, '<$6>');
+  ConquerTheCastle_P2   := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osActive, '<$6>');
+  Gate1_P1				:= Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$7>');
+  Gate1_P2				:= Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$7>');
+  Moat_P1				:= Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$8>');
+  Moat_P2				:= Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$8>')
+  
+  //Block all houses
+  Actions.PlayerHouseBlock(Human_Player_1, htCamp, True);												
+  Actions.PlayerHouseBlock(Human_Player_2, htCamp, True);		
+  Actions.PlayerHouseBlock(Human_Player_1, htFoundry, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htFoundry, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htWeaponSmithy, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htWeaponSmithy, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htCoalmakers, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htCoalmakers, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htIronMine, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htIronMine, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htGoldMine, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htGoldMine, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htFisherHut, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htFisherHut, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htBakery, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htBakery, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htFarm, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htFarm, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htWoodcutters, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htWoodcutters, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htArmorSmithy, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htArmorSmithy, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htStables, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htStables, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htSchool, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htSchool, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htStonecutters, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htStonecutters, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htMint, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htMint, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htCattleFarm, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htCattleFarm, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htTowerArrow, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htTowerArrow, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htRangerShop, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htRangerShop, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htWeaponWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htWeaponWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htArmorWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htArmorWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htBarracks, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htBarracks, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htMill, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htMill, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htSiegeWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htSiegeWorkshop, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htButchers, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htButchers, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htTannery, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htTannery, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htStore, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htStore, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htTavern, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htTavern, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htBrewery, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htBrewery, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htMarketplace, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htMarketplace, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htFort, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htFort, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htTowerBolt, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htTowerBolt, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htCiderMaker, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htCiderMaker, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htSawmill, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htSawmill, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htSheepyard, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htSheepyard, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htClothMaker, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htClothMaker, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htCampfire, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htCampfire, True);
+  Actions.PlayerHouseBlock(Human_Player_1, htCottage, True);
+  Actions.PlayerHouseBlock(Human_Player_2, htCottage, True);
+ end;
+
+
+
+procedure FeedPlayer(aHand: Integer);
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(aHand);
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+
+end;
+
+
+Procedure RemoveBlockade;
+begin
+   Actions.TerrainObjectRemoveTile(39, 61);   
+   Actions.TerrainObjectRemoveTile(39, 62);   
+   Actions.TerrainObjectRemoveTile(39, 63);   
+   Actions.TerrainObjectRemoveTile(39, 64);   
+   Actions.TerrainObjectRemoveTile(39, 65);   
+   Actions.TerrainObjectRemoveTile(39, 66);   
+   Actions.TerrainObjectRemoveTile(39, 67);   
+   Actions.TerrainObjectRemoveTile(39, 68);   
+   Actions.TerrainObjectRemoveTile(39, 69);   
+   Actions.TerrainObjectRemoveTile(39, 70);   
+   Actions.TerrainObjectRemoveTile(39, 71);   
+ 
+   Actions.TerrainObjectRemoveTile(40, 71);   
+   Actions.TerrainObjectRemoveTile(41, 71);   
+   Actions.TerrainObjectRemoveTile(42, 71);   
+   Actions.TerrainObjectRemoveTile(43, 71);   
+   Actions.TerrainObjectRemoveTile(44, 71);   
+   Actions.TerrainObjectRemoveTile(45, 71);   
+   Actions.TerrainObjectRemoveTile(46, 71);   
+   Actions.TerrainObjectRemoveTile(47, 71);   
+   Actions.TerrainObjectRemoveTile(48, 71);   
+   Actions.TerrainObjectRemoveTile(49, 71);   
+   Actions.TerrainObjectRemoveTile(50, 71);   
+   Actions.TerrainObjectRemoveTile(51, 71);   
+   Actions.TerrainObjectRemoveTile(52, 71);   
+   Actions.TerrainObjectRemoveTile(53, 71);   
+   Actions.TerrainObjectRemoveTile(54, 71);   
+   Actions.TerrainObjectRemoveTile(55, 71); 
+   Actions.TerrainObjectRemoveTile(56, 71);   
+   
+   Actions.TerrainObjectRemoveTile(59, 60);   
+   Actions.TerrainObjectRemoveTile(59, 61);   
+   Actions.TerrainObjectRemoveTile(59, 62);   
+   Actions.TerrainObjectRemoveTile(59, 63);   
+   Actions.TerrainObjectRemoveTile(59, 64);   
+   Actions.TerrainObjectRemoveTile(59, 65);   
+   Actions.TerrainObjectRemoveTile(59, 66);   
+   Actions.TerrainObjectRemoveTile(59, 67);   
+   Actions.TerrainObjectRemoveTile(59, 68);   
+   Actions.TerrainObjectRemoveTile(59, 69);   
+end;
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin			
+if (aTriggerId = 1) and (not Trigger1) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 1) and (not Trigger1) and (States.UnitOwner(aUnit) = Human_Player_2) then  begin
+   Actions.PlayWAV(-1, 'ExplosionGate.wav', 1.0);
+   Actions.UnitKill(aUnit, False);	
+   Actions.TerrainObjectRemoveTile(48, 57);   
+   Actions.InteractionMarkerRemove(marker1);
+   Marker2 := Actions.InteractionMarkerAdd(itExclamation, 48.5, 57.5); 
+   Actions.InteractionMarkerUpdate(marker2, $0000FF, True, 2.0);     
+   Actions.TerrainParticleEmitterAdd(50,56, 7)
+   Actions.TerrainParticleEmitterAdd(51,56, 7)
+   Actions.TerrainParticleEmitterAdd(51,57, 7)   
+   Actions.PlayerMessage(-1, '<$4>', True);	  
+  //Actions.CinematicTalkingHead('icon.png', '<$3>', '');	
+   trigger1:= True;
+  end; 
+   
+if (aTriggerId = 2) and (not Trigger2) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 2) and (not Trigger2) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(-1, 'ExplosionGate.wav', 1.0);
+   Actions.UnitKill(aUnit, False);		
+   Actions.TerrainObjectRemoveTile(49, 57); 
+   Actions.InteractionMarkerRemove(marker2);
+   Marker3 := Actions.InteractionMarkerAdd(itExclamation, 49.5, 57.5); 
+   Actions.InteractionMarkerUpdate(marker3, $0000FF, True, 2.0);     
+   Actions.TerrainParticleEmitterAdd(48,56, 7)
+   Actions.TerrainParticleEmitterAdd(47,56, 7)
+   Actions.TerrainParticleEmitterAdd(47,57, 7) 
+   trigger2:= True;
+  end;
+  
+if (aTriggerId = 3) and (not Trigger3) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 3) and (not Trigger3) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(-1, 'ExplosionGate.wav', 0.5);
+   Actions.UnitKill(aUnit, False);	
+   Actions.TerrainObjectRemoveTile(48, 56);   
+   Actions.TerrainObjectRemoveTile(49, 56);   
+   Actions.TerrainObjectRemoveTile(50, 56); 
+   Actions.TerrainObjectRemoveVert(50, 57);	
+   Actions.TerrainObjectSetEx(49, 56, 2, 'Stone_Gate1');	  
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_1, Gate1_P1, osCompleted);
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_2, Gate1_P2, osCompleted);
+   Actions.InteractionMarkerRemove(marker3);
+   RemoveBlockade;
+   trigger3:= True;
+  end;
+  
+if (aTriggerId = 4) and (not Trigger4) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 4) and (not Trigger4) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Marker1 := Actions.InteractionMarkerAdd(itExclamation, 50.5, 57.5);
+   Actions.PlayWAV(-1, 'Close_Gate.wav', 1.0);
+   Actions.TerrainObjectRemoveVert(50, 57);	
+   Actions.InteractionMarkerUpdate(marker1, $0000FF, True, 2.0);  														 
+   Actions.TerrainObjectSetEx(50, 57, 0, 'Stone_Gate3');
+   trigger4:= True;
+  end; 
+	
+if (aTriggerId = 5) and (not Trigger5) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 5) and (not Trigger5) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.FogRevealCircle(Human_Player_1, 49, 59, 3);	
+   Actions.FogRevealCircle(Human_Player_2, 49, 59, 3);	
+   Actions.FogRevealCircle(Human_Player_1, 45, 58, 2);		
+   Actions.FogRevealCircle(Human_Player_2, 45, 58, 2);		
+   Actions.FogRevealCircle(Human_Player_1, 41, 59, 2);		
+   Actions.FogRevealCircle(Human_Player_2, 41, 59, 2);		
+   Actions.FogRevealCircle(Human_Player_1, 55, 59, 2);		
+   Actions.FogRevealCircle(Human_Player_1, 59, 58, 2);
+   Actions.FogRevealCircle(Human_Player_2, 59, 58, 2);
+   trigger5:= True;
+  end; 
+  
+if (aTriggerId = 6) and (not Trigger6) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 6) and (not Trigger6) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.TerrainObjectStateChange(38, 52, 0, 1, True)
+   Actions.TerrainObjectStateChange(61, 52, 0, 1, True)
+   Actions.PlayWAV(-1, 'Wolf.wav', 1.0);   
+   trigger6:= True;
+  end;
+
+if (aTriggerId = 7) and (not Trigger7) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 7) and (not Trigger7) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(-1, 'Close_Gate.wav', 1.0);
+   Actions.TerrainObjectRemoveVert(50, 45);															 
+   Actions.TerrainObjectSetEx(50, 45, 0, 'Stone_Gate3');
+   Actions.PlayerMessage(-1, '<$5>', True);	
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_1, Moat_P1, osActive);
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_2, Moat_P2, osActive);
+   trigger7:= True;
+  end; 
+  
+if (aTriggerId = 8) and (not Trigger8) and (States.UnitOwner(aUnit) = Human_Player_1) or (aTriggerId = 8) and (not Trigger8) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_1, Moat_P1, osCompleted);
+   Actions.PlayerObjectiveUpdateStatus(Human_Player_2, Moat_P2, osCompleted);
+   trigger8:= True;
+  end; 
+  
+if (aTriggerId = 9) and (not Trigger9) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger9:= True;
+  end; 
+
+if (aTriggerId = 10) and (not Trigger10) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (25, 78, 0, 'rock_1')
+ trigger10:= True;
+  end; 
+
+if (aTriggerId = 11) and (not Trigger11) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger11:= True;
+  end; 
+
+if (aTriggerId = 12) and (not Trigger12) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (14, 76, 2, 'rock_1')
+   trigger12:= True;
+  end; 
+  
+  if (aTriggerId = 13) and (not Trigger13) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger13:= True;
+  end; 
+
+if (aTriggerId = 14) and (not Trigger14) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (34, 74, 0, 'rock_1')
+   trigger14:= True;
+  end; 
+  
+   if (aTriggerId = 15) and (not Trigger15) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger15:= True;
+  end; 
+
+if (aTriggerId = 16) and (not Trigger16) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (29, 66, 2, 'rock_1')
+   trigger16:= True;
+  end;  
+  
+    if (aTriggerId = 17) and (not Trigger17) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger17:= True;
+  end; 
+
+if (aTriggerId = 18) and (not Trigger18) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (38, 66, 1, 'rock_1')
+   trigger18:= True;
+  end;  
+
+    if (aTriggerId = 19) and (not Trigger19) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger19:= True;
+  end; 
+
+if (aTriggerId = 20) and (not Trigger20) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (45, 78, 2, 'rock_1')
+   trigger20:= True;
+  end;   
+  
+   if (aTriggerId = 21) and (not Trigger21) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger21:= True;
+  end; 
+
+if (aTriggerId = 22) and (not Trigger22) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (48, 62, 0, 'rock_1')
+   trigger22:= True;
+  end; 
+  
+    if (aTriggerId = 23) and (not Trigger23) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger23:= True;
+  end; 
+
+if (aTriggerId = 24) and (not Trigger24) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (23, 90, 2, 'rock_1')
+   trigger24:= True;
+  end;   
+  
+    if (aTriggerId = 25) and (not Trigger25) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger25:= True;
+  end; 
+
+if (aTriggerId = 26) and (not Trigger26) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (42, 50, 1, 'rock_1')
+   trigger26:= True;
+  end;     
+  
+   if (aTriggerId = 27) and (not Trigger27) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'shotCatapult1.wav', 1.0);
+   trigger27:= True;
+  end; 
+
+if (aTriggerId = 28) and (not Trigger28) and (States.UnitOwner(aUnit) = Human_Player_1) then
+  begin
+   Actions.PlayWAV(Human_Player_1, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (48, 50, 1, 'rock_1')
+   trigger28:= True;
+  end;     
+  
+   if (aTriggerId = 29) and (not Trigger29) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger29:= True;
+  end;   
+  
+  if (aTriggerId = 30) and (not Trigger30) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (86, 84, 1, 'rock_1')
+   trigger30:= True;
+  end;   
+  
+   if (aTriggerId = 31) and (not Trigger31) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger31:= True;
+  end;   
+  
+  if (aTriggerId = 32) and (not Trigger32) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (82, 90, 0, 'rock_1')
+   trigger32:= True;
+  end;     
+  
+   if (aTriggerId = 33) and (not Trigger33) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger33:= True;
+  end;   
+  
+  if (aTriggerId = 34) and (not Trigger34) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (75, 81, 2, 'rock_1')
+   trigger34:= True;
+  end;  
+  
+   if (aTriggerId = 35) and (not Trigger35) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger35:= True;
+  end;   
+  
+  if (aTriggerId = 36) and (not Trigger36) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (66, 88, 2, 'rock_1')
+   trigger36:= True;
+  end; 
+  
+  if (aTriggerId = 37) and (not Trigger37) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger37:= True;
+  end;   
+  
+  if (aTriggerId = 38) and (not Trigger38) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (68, 69, 1, 'rock_1')
+   trigger38:= True;
+  end;  
+  
+   if (aTriggerId = 39) and (not Trigger39) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger39:= True;
+  end;   
+  
+  if (aTriggerId = 40) and (not Trigger40) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (67, 79, 1, 'rock_1')
+   trigger40:= True;
+  end;   
+  
+   if (aTriggerId = 41) and (not Trigger41) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger41:= True;
+  end;   
+  
+  if (aTriggerId = 42) and (not Trigger42) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (58, 77, 0, 'rock_1')
+   trigger42:= True;
+  end;  
+
+  if (aTriggerId = 43) and (not Trigger43) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger43:= True;
+  end;   
+  
+  if (aTriggerId = 44) and (not Trigger44) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (50, 61, 1, 'rock_1')
+   trigger44:= True;
+  end;  
+
+   if (aTriggerId = 45) and (not Trigger45) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger45:= True;
+  end;   
+  
+  if (aTriggerId = 46) and (not Trigger46) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (50, 50, 1, 'rock_1')
+   trigger46:= True;
+  end;
+
+   if (aTriggerId = 47) and (not Trigger47) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'shotCatapult1.wav', 1.0);
+   trigger47:= True;
+  end;   
+  
+  if (aTriggerId = 48) and (not Trigger48) and (States.UnitOwner(aUnit) = Human_Player_2) then
+  begin
+   Actions.PlayWAV(Human_Player_2, 'stone_impact1.wav', 1.0);
+   Actions.UnitKill(aUnit, False);
+   Actions.TerrainObjectSetEx (55, 49, 1, 'rock_1')
+   trigger48:= True;
+  end;
+ end;	
+
+
+Procedure Moat;
+begin
+  if States.IsFieldAt(-1, 35, 47) then begin
+    Actions.TerrainObjectRemoveTile(33, 46); 
+    Actions.TerrainObjectRemoveTile(33, 45); 
+    Actions.TerrainObjectRemoveTile(34, 46); 
+    Actions.TerrainObjectRemoveTile(34, 45); 
+    Actions.TerrainObjectRemoveTile(35, 46); 
+    Actions.TerrainObjectRemoveTile(35, 45);
+    Actions.FieldRemove(35, 47);
+	end;
+  if States.IsFieldAt(-1, 36, 47) then begin
+    Actions.TerrainObjectRemoveTile(36, 46);
+    Actions.TerrainObjectRemoveTile(36, 45); 	
+    Actions.FieldRemove(36, 47);
+	end;
+  if States.IsFieldAt(-1, 37, 47) then begin
+    Actions.TerrainObjectRemoveTile(37, 46);
+    Actions.TerrainObjectRemoveTile(37, 45); 
+    Actions.FieldRemove(37, 47);
+	end;
+  if States.IsFieldAt(-1, 38, 47) then begin
+    Actions.TerrainObjectRemoveTile(38, 46);
+    Actions.TerrainObjectRemoveTile(38, 45); 
+    Actions.FieldRemove(38, 47);
+	end;
+  if States.IsFieldAt(-1, 39, 47) then begin
+    Actions.TerrainObjectRemoveTile(39, 46);
+    Actions.TerrainObjectRemoveTile(39, 45); 
+    Actions.FieldRemove(39, 47);
+    end;	
+  if States.IsFieldAt(-1, 40, 47) then begin
+    Actions.TerrainObjectRemoveTile(40, 46);
+    Actions.TerrainObjectRemoveTile(40, 45); 
+    Actions.FieldRemove(40, 47);
+	end;
+  if States.IsFieldAt(-1, 41, 47) then begin
+    Actions.TerrainObjectRemoveTile(41, 46);	
+    Actions.TerrainObjectRemoveTile(41, 45); 	
+    Actions.FieldRemove(41, 47);
+	end;
+  if States.IsFieldAt(-1, 42, 47) then begin
+    Actions.TerrainObjectRemoveTile(42, 46);
+    Actions.TerrainObjectRemoveTile(42, 45); 
+    Actions.FieldRemove(42, 47);
+    end;	
+  if States.IsFieldAt(-1, 43, 47) then begin
+    Actions.TerrainObjectRemoveTile(43, 46);
+    Actions.TerrainObjectRemoveTile(43, 45); 	
+    Actions.FieldRemove(43, 47);
+	end;
+  if States.IsFieldAt(-1, 44, 47) then begin
+    Actions.TerrainObjectRemoveTile(44, 46);
+    Actions.TerrainObjectRemoveTile(44, 45); 
+    Actions.FieldRemove(44, 47);
+	end;
+  if States.IsFieldAt(-1, 45, 47) then begin
+    Actions.TerrainObjectRemoveTile(45, 46);	
+    Actions.TerrainObjectRemoveTile(45, 45); 
+    Actions.FieldRemove(45, 47);
+	end;
+  if States.IsFieldAt(-1, 46, 47) then begin
+    Actions.TerrainObjectRemoveTile(46, 46);
+    Actions.TerrainObjectRemoveTile(46, 45); 
+    Actions.FieldRemove(46, 47);
+    end;	
+  if States.IsFieldAt(-1, 47, 47) then begin
+    Actions.TerrainObjectRemoveTile(47, 46);  
+    Actions.TerrainObjectRemoveTile(47, 45); 
+    Actions.FieldRemove(47, 47);
+    end;	
+   if States.IsFieldAt(-1, 48, 47) then begin
+	Actions.TerrainObjectRemoveTile(48, 46);   
+    Actions.TerrainObjectRemoveTile(48, 45); 
+    Actions.FieldRemove(48, 47);
+    end;	
+	///////
+ if States.IsFieldAt(-1, 49, 47) then begin
+	Actions.TerrainObjectRemoveTile(49, 46); 
+    Actions.TerrainObjectRemoveVert(50, 45);
+
+    Actions.TerrainObjectRemoveTile(49, 45); 
+    Actions.TerrainObjectSetEx(49, 44, 2, 'Stone_Gate1');
+    Actions.FieldRemove(49, 47);
+    end;	
+	
+  if States.IsFieldAt(-1, 50, 47) then begin
+    Actions.TerrainObjectRemoveTile(50, 46);	
+    Actions.TerrainObjectRemoveTile(50, 45); 
+    Actions.FieldRemove(50, 47);
+	end;
+  if States.IsFieldAt(-1, 51, 47) then begin
+    Actions.TerrainObjectRemoveTile(51, 46);
+    Actions.TerrainObjectRemoveTile(51, 45); 
+    Actions.FieldRemove(51, 47);
+	end;
+  if States.IsFieldAt(-1, 52, 47) then begin
+    Actions.TerrainObjectRemoveTile(52, 46);
+    Actions.TerrainObjectRemoveTile(52, 45); 
+    Actions.FieldRemove(52, 47);
+	end;
+  if States.IsFieldAt(-1, 53, 47) then begin
+    Actions.TerrainObjectRemoveTile(53, 46);
+    Actions.TerrainObjectRemoveTile(53, 45); 
+    Actions.FieldRemove(53, 47);
+	end;
+  if States.IsFieldAt(-1, 54, 47) then begin
+    Actions.TerrainObjectRemoveTile(54, 46);
+    Actions.TerrainObjectRemoveTile(54, 45); 
+    Actions.FieldRemove(54, 47);
+	end;
+  if States.IsFieldAt(-1, 55, 47) then begin
+    Actions.TerrainObjectRemoveTile(55, 46);
+    Actions.TerrainObjectRemoveTile(55, 45); 
+    Actions.FieldRemove(55, 47);
+	end;
+  if States.IsFieldAt(-1, 56, 47) then begin
+    Actions.TerrainObjectRemoveTile(56, 46);
+    Actions.TerrainObjectRemoveTile(56, 45); 
+    Actions.FieldRemove(56, 47);
+    end;	
+  if States.IsFieldAt(-1, 57, 47) then begin
+    Actions.TerrainObjectRemoveTile(57, 46);
+    Actions.TerrainObjectRemoveTile(57, 45); 
+    Actions.FieldRemove(57, 47);
+	end;
+  if States.IsFieldAt(-1, 58, 47) then begin
+    Actions.TerrainObjectRemoveTile(58, 46);
+    Actions.TerrainObjectRemoveTile(58, 45); 
+    Actions.FieldRemove(58, 47);
+	end;
+  if States.IsFieldAt(-1, 59, 47) then begin
+    Actions.TerrainObjectRemoveTile(59, 46);
+    Actions.TerrainObjectRemoveTile(59, 45); 
+    Actions.FieldRemove(59, 47);
+	end;
+  if States.IsFieldAt(-1, 60, 47) then begin
+    Actions.TerrainObjectRemoveTile(60, 46);
+    Actions.TerrainObjectRemoveTile(60, 45); 
+    Actions.FieldRemove(60, 47);
+	end;
+  if States.IsFieldAt(-1, 61, 47) then begin
+    Actions.TerrainObjectRemoveTile(61, 46);
+    Actions.TerrainObjectRemoveTile(61, 45); 
+    Actions.FieldRemove(61, 47);
+	end;
+  if States.IsFieldAt(-1, 62, 47) then begin
+    Actions.TerrainObjectRemoveTile(62, 46);
+    Actions.TerrainObjectRemoveTile(62, 45); 
+    Actions.FieldRemove(62, 47);
+	end;
+  if States.IsFieldAt(-1, 63, 47) then begin
+    Actions.TerrainObjectRemoveTile(63, 46);
+    Actions.TerrainObjectRemoveTile(63, 45); 
+    Actions.FieldRemove(63, 47);
+	end;
+	
+  if States.IsFieldAt(-1, 64, 47) then begin
+    Actions.TerrainObjectRemoveTile(64, 46);
+    Actions.TerrainObjectRemoveTile(64, 45); 
+    Actions.TerrainObjectRemoveTile(65, 46);
+    Actions.TerrainObjectRemoveTile(65, 45); 
+    Actions.TerrainObjectRemoveTile(66, 46);
+    Actions.TerrainObjectRemoveTile(66, 45); 
+    Actions.TerrainObjectRemoveTile(67, 46);
+    Actions.TerrainObjectRemoveTile(67, 45); 
+    Actions.FieldRemove(64, 47);
+	end;	
+end;
+
+
+
+procedure OnHouseDestroyed(aHouse: Integer; aDestroyerIndex: Integer);
+begin
+	if (States.StatHouseTypeCount(Enemy3, htCamp) = 0) and (States.StatHouseTypeCount(Enemy3, htBarracks) = 0) then  
+
+  begin
+    Actions.PlayerWin([Human_Player_1], True);
+    Actions.PlayerWin([Human_Player_2], True);
+  end;
+end;
+
+
+
+procedure OnTick(aTick: Integer);
+begin			
+
+if aTick mod 9000 = 0 then
+  begin
+    FeedPlayer(Enemy3);
+	FeedPlayer(Human_Player_1);
+	FeedPlayer(Human_Player_2);	
+	FeedPlayer(Enemy4);
+  end;
+  
+if aTick = 120 then begin
+ Actions.PlayerMessage(-1, '<$3>', True);
+ Actions.PlayerObjectiveUpdateStatus(Human_Player_1, Gate1_P1, osActive);
+ Actions.PlayerObjectiveUpdateStatus(Human_Player_2, Gate1_P2, osActive);
+  end;
+ if aTick mod 5 = 0 then
+ Moat;
+end;

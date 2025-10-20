@@ -1,0 +1,22 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.Ship1]
+        desc:Mała łódka dla dwóch osób
+        name:Mała łódka
+    [mapobjects.Ship2]
+        desc:Mała łódka z żaglem przeznaczona do krótkich wyprawy
+        name:Łódka z żaglem
+    [mapobjects.Ship3]
+        desc:Rybacy używają ich do połowu ryb na morzu
+        name:Łódka rybacka
+    [mapobjects.Ship4]
+        desc:Ogromny statek na długie wyprawy, można nim dotrzeć na drugi koniec świata
+        name:Duży statek 
+    [mapobjects.Ship5]
+        desc:Łódź z wiosłami, używana tylko przez najsilniejszych osadników
+        name:Średni statek
+		
+		
+		
+		

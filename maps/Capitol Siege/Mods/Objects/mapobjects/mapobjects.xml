@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="Stones1" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.000; 2.000; 0.500; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+     <item1 EngName="Stones2" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="3.000; 2.000; 0.200; 0.000; 0.000; 180.000"/>
+      <Flags items="static,repelTrees"/>
+
+
+  </item1>
+     <item1 EngName="Stones3" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="13.000; 5.000; 1.600; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+       <item1 EngName="Stones5" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="hard" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="5.000; 5.000; 0.800; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+ <item1 EngName="Border_cones" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.000; 1.000; 0.600; 0.000; 0.000; 30.000"/>
+    <Flags items="static,decoration"/>
+  </item1> 
+  
+    <item1 EngName="Border_cones2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.000; 1.000; 0.600; -0.200; 0.000; 180.000"/>
+    <Flags items="static,decoration"/>
+  </item1> 
+  
+     <item1 EngName="Grass1" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="easy" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="2.500; 1.000; 0.450; 0.000; 0.000; 10.000"/>
+    <Flags items="static,decoration"/>
+  </item1>
+  
+     <item1 EngName="Grass2" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="easy" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.700; 1.000; 0.800; 0.000; 0.000; 0.000"/>
+    <Flags items="static,decoration"/>
+  </item1>
+    
+     <item1 EngName="Grass3" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="easy" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="7.500; 1.000; 1.200; 0.000; 0.000; 0.000"/>
+    <Flags items="static,decoration"/>
+  </item1>
+
+     <item1 EngName="Grass4" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="easy" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.700; 1.000; 0.800; 0.000; 0.000; 180.000"/>
+    <Flags items="static,decoration"/>
+  </item1>
+    
+     <item1 EngName="Grass5" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="easy" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="7.500; 1.000; 1.200; 0.000; 0.000; 0.000"/>
+    <Flags items="static,decoration"/>
+  </item1>
+  
+
+  <item1 EngName="moat_support" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="9.000; 3.500; 1.100; 0.000; 0.000; 15.000"/>
+    <Flags items="static,decoration"/>
+  </item1> 
+   
+  <item1 EngName="Tortur_Gallows2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 2.000; 1.100; 0.000; 0.000; 35.000"/>
+    <Flags items="static,decoration"/>
+  </item1>  
+
+   <item1 EngName="Tortur_Pillory" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="4.600; 2.000; 0.700; 0.000; 0.000; 35.000"/>
+    <Flags items="static,decoration"/>
+  </item1>  
+
+   <item1 EngName="Tortur_Guillotine" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="9.200; 2.000; 1.300; 0.000; 0.000; 35.000"/>
+    <Flags items="static,decoration"/>
+  </item1>  
+  
+    <item1 EngName="Blank_Blockade" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="0.100; 1.000; 0.000; 0.000; 0.000; 30.000"/>
+    <Flags items="static,decoration"/>
+  </item1>   
+  
+      <item1 EngName="Moat" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="5.000; 3.500; 1.100; 0.000; 0.000; 10.000"/>
+    <Flags items="static,decoration"/>
+  </item1>      
+
+      <item1 EngName="Catapult2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="18.000; 5.000; 2.500; 1.200; 0.000; 0.000"/>
+    <Flags items="static,decoration"/>
+  
+	  </Objects>  
+  </item1>   	
+</Root>
+

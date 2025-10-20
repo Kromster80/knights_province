@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="Stone_Gate1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="11.500; 8.000; 1.400; 0.000; 0.000; 30.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+    <item1 EngName="Stone_Gate2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="11.500; 8.000; 1.400; 0.000; 0.000; 30.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>  
+
+    <item1 EngName="Stone_Gate2a" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="11.500; 8.000; 1.900; 0.000; 0.000; 20.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>  
+  
+    <item1 EngName="Stone_Gate2b" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="11.500; 8.000; 1.400; 0.000; 0.000; 20.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>   
+   
+    <item1 EngName="Stone_Gate3" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="yes" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="12.500; 8.000; 1.500; 0.300; 0.000; 215.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>  
+   
+    <item1 EngName="Stone_Gate3a" CanPlaceInMapEd="True" Placement="csVertice" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="13.500; 8.000; 1.300; 0.600; 0.000; 215.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>     
+  
+    <item1 EngName="Stone_Gate4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="12.500; 8.000; 2.400; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>      
+
+
+  
+  
+  
+  
+
+    <item1 EngName="Stone_Tower1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="10.000; 5.000; 1.700; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>   
+
+    <item1 EngName="Stone_Tower2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="14.000; 5.000; 2.300; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1> 
+  
+    <item1 EngName="Stone_Tower3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="10.000; 5.000; 1.700; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1> 
+	  
+    <item1 EngName="Stone_Tower4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="10.000; 5.000; 1.700; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1> 
+	  
+    <item1 EngName="Stone_Tower5" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="14.000; 5.000; 2.300; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+	  
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Tower6" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="15.000; 5.000; 2.500; 0.000; 0.000; 15.000"/>
+      <Flags items="static,repelTrees"/>
+	
+
+
+	
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.300; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>		  
+	  
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.400; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>		  
+	  
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.500; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>	  
+
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall3b" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.300; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+	  
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.400; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>	
+
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall5" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="7.600; 5.000; 1.400; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>	
+
+  </item1> 	  	  	  	  
+    <item1 EngName="Stone_Wall6" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="10.000; 5.000; 2.000; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>	
+
+
+
+
+
+
+
+
+
+	  
+	  </Objects>  
+  </item1>   	
+</Root>
+  

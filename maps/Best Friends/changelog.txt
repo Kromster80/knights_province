@@ -1,0 +1,10 @@
+********************************
+**** Changelog Best Friends ****
+********************************
+
+
+19/10/2025
+* removed iron ore from the South west side
+* fixed Patrol 2 group position, when they scouting one position was too close to the player's gold mine
+* AI 5 location fixed, they didn't train units because there was no cottage
+* AI 7 Starting position changed and attack position changed that they attack now Player 1

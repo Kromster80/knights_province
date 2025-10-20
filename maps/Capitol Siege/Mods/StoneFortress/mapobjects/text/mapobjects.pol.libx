@@ -1,0 +1,72 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.Stone_Gate1]
+        desc:Pozwala na przejście pod nim
+        name:Wiszący mur bramy
+    [mapobjects.Stone_Gate2]
+        desc:Pozwala na przejście pod nim
+        name:Wisząca mur bramy z metalem
+    [mapobjects.Stone_Gate2a]
+        desc:Otwarta metalowa brama, użyj skryptów, aby zamknąć bramę
+        name:Brama z otwartymi kratami
+    [mapobjects.Stone_Gate2b]
+        desc:Zamknięta metalowa brama, użyj skryptów, aby otworzyć bramę
+        name:Brama z zamkniętymi kratami
+    [mapobjects.Stone_Gate3]
+        desc:Zamknięta drewniana brama, użyj skryptów, aby otworzyć bramę
+        name:Drewniana zamknięta brama 
+    [mapobjects.Stone_Gate3a]
+        desc:Otwarta drewniana brama, użyj skryptów, aby zamknąć bramę
+        name:Drewniana otwarta brama
+    [mapobjects.Stone_Gate4]
+        desc:Pozwala na przejście pod nim
+        name:Duży wiszący mur bramy
+	
+    [mapobjects.Stone_Tower1]
+        desc:Mała wieża
+        name:Mała wieża
+    [mapobjects.Stone_Tower2]
+        desc:Normalna wieża
+        name:Wieża 
+    [mapobjects.Stone_Tower3]
+        desc:Mała okrągła wieża
+        name:Mała okrągła wieża
+    [mapobjects.Stone_Tower4]
+        desc:Mała okrągła wieża
+        name:Mała okrągła wieża
+    [mapobjects.Stone_Tower5]
+        desc:Duża okrągła wieża
+        name:Duża okrągła wieża
+    [mapobjects.Stone_Tower6]
+        desc:Duża wieża
+        name:Duża wieża
+
+    [mapobjects.Stone_Wall1]
+        desc:Mały prosty mur
+        name:Mur
+    [mapobjects.Stone_Wall2]
+        desc:Mały prosty mur z oknem
+        name:Mur z oknem
+    [mapobjects.Stone_Wall3]
+        desc:Mały narożny mur zewnętrzny
+        name:Narożny zewnętrzny mur 
+    [mapobjects.Stone_Wall3b]
+        desc:Mały narożny mur zewnętrzny
+        name:Narożny wewnętrzny mur
+    [mapobjects.Stone_Wall4]
+        desc:Zakończenie muru, lewa strona
+        name:Lewe zakończenie muru
+    [mapobjects.Stone_Wall5]
+        desc:Zakończenie muru, prawa strona
+        name:Prawe zakończenie muru
+    [mapobjects.Stone_Wall6]
+        desc:Duży prosty mur
+        name:Duży Mur
+
+
+
+
+
+
+

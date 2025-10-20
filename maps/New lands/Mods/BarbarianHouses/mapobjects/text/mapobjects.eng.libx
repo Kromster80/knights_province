@@ -1,0 +1,39 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.xBarbarianHous1]
+        desc:Tent for two people, it's small but very warm
+        name:Small barbarian tent
+
+    [mapobjects.xBarbarianHous2]
+        desc:The whole family lives here
+        name:Barbarian family house
+
+    [mapobjects.xBarbarianHous3]
+        desc:People live here
+        name:Medium barbarian tent
+
+    [mapobjects.xBarbarianHous4]
+        desc:Good constructed and very stable home for a large family
+        name:Very Stable Barbarian House
+
+    [mapobjects.xBarbarianHous5]
+        desc:Several families can live here
+        name:Large barbarian house
+		
+    [mapobjects.xBarbarianTower1]
+        desc:Observation Tower
+        name:Barbarian Tower
+
+    [mapobjects.xBarbarianTower2]
+        desc:Troops inside are very safe
+        name:Massive barbarian tower
+		
+    [mapobjects.xBarbarianHous6]
+        desc:This is where real men are born
+        name:Barbarian barracks
+
+    [mapobjects.xBarbarianHous7]
+        desc:Place where fishermen go out to sea
+        name:Barbarian Port
+

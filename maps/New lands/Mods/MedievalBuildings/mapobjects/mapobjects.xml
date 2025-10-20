@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+ <Objects>
+  <item1 EngName="yCathedral" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="24.000; 8.000; 3.200; 0.000; 0.000; 320.000"/>
+    <Flags items="static,repelTrees"/>	
+   </item1>      
+   
+   
+  </Objects>
+</Root>

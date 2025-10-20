@@ -1,0 +1,28 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.Tree1]
+        desc:a bigger tree without leaves
+        name:Bigger dried tree
+    [mapobjects.Tree2]
+        desc:a small tree without leaves
+        name:Small dried tree
+    [mapobjects.Tree3]
+        desc:a tree without leaves
+        name:Dried tree
+    [mapobjects.Tree4]
+        desc:Green Tree
+        name:Shiny Green Tree
+    [mapobjects.Tree4_snow]
+        desc:a shiny Green Tree with snow
+        name:Shiny Green Tree with snow
+    [mapobjects.Tree5_desert]
+        desc:a bigger desert Tree
+        name:Biger desert Tree
+    [mapobjects.Tree6_desert]
+        desc:Desert Tree with Ropes
+        name:Rope desert Tree
+    [mapobjects.Tree7_desert]
+        desc:Desert Tree
+        name:Desert Tree
+

@@ -1,0 +1,96 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.Cactus1]
+        desc:Uważaj, to kuje
+        name:Średni kaktus
+    [mapobjects.Cactus2]
+        desc:Uważaj, to kuje
+        name:Duży kaktus
+    [mapobjects.Cactus3]
+        desc:Uważaj, to kuje
+        name:Mały kaktus
+    [mapobjects.small_campfire]
+        desc:zimno, a może głodny?
+        name:Małe ognisko
+    [mapobjects.Stones1]
+        desc:Rożnorodne średnie kamienie
+        name:Mix średnich kamienii
+    [mapobjects.Stones2]
+        desc:Rożnorodne małe kamienie
+        name:Mix małych kamienii
+    [mapobjects.Stones3]
+        desc:Głaz
+        name:Ogromny głaz
+    [mapobjects.Stones4]
+        desc:Głaz
+        name:Bardzo duży głaz
+    [mapobjects.Stones5]
+        desc:Głaz
+        name:Duży głaz
+    [mapobjects.xLantern]
+        desc:znak nawigacyjny, możn patrzeć bardzo daleko
+        name:Latarnia morska
+    [mapobjects.moat_support]
+        desc:Zadbaj, aby ziemia się nie osuwała
+        name:Podpora fosy
+    [mapobjects.Tortur_Gallows]
+        desc:Ile jest warte Twoje życie?
+        name:Szubienica
+    [mapobjects.Tortur_Gallows2]
+        desc:Śmierć czeka na ciebie
+        name:Szubienica
+    [mapobjects.Tortur_Pillory]
+        desc:Obyś nigdy tam nie trafił
+        name:Pręgierz
+    [mapobjects.Tortur_Guillotine]
+        desc:Pokażesz głowę?
+        name:Gilotyna
+    [mapobjects.Shooting_target]
+        desc:Trafisz w środek?
+        name:Tarcza strzelecka
+    [mapobjects.Training_dummy1]
+        desc:Ćwicz swoje umiejętności!
+        name:Manekin treningowy
+    [mapobjects.Training_dummy2]
+        desc:Ćwicz swoje umiejętności!
+        name:Manekin treningowy    
+	[mapobjects.Sword_store]
+        desc:Najlepszy miecz
+        name:Magazyn mieczy
+	[mapobjects.Halberds_store]
+        desc:Najlepsze halabandry
+        name:Magazyn halabandr		
+	[mapobjects.Well_1]
+        desc:Potrzebujesz świeżej wody, nie ma problemu
+        name:Studnia		
+	[mapobjects.Well_2]
+        desc:Potrzebujesz świeżej wody, nie ma problemu
+        name:Studnia		
+	[mapobjects.Cross]
+        desc:Módlmy się
+        name:Krzyż				
+	[mapobjects.Border_cones]
+        desc:Field marking stakes
+        name:Słupek graniczny			
+	[mapobjects.Border_cones2]
+        desc:Field marking stakes
+        name:Podwójny słupk graniczny
+	[mapobjects.Blank_Blockade]
+        desc:Przezroczysta blokada przejścia. Umożliwia blokowanie przejścia, przeznaczone dla skryptów.
+        name:Pusta blokada		
+	[mapobjects.Info_board1]
+        desc:Potrzebujesz jakichś informacji?
+        name:Tablica informacyjna					
+	[mapobjects.Info_board2]
+        desc:Potrzebujesz jakichś informacji?
+        name:Tablica informacyjna					
+	[mapobjects.Moat]
+        desc:Mała fosa, przeszkoda dla jednostek
+        name:Fosa
+	[mapobjects.Catapult]
+        desc:Catapult
+        name:Catapult		
+	[mapobjects.Catapult2]
+        desc:Catapult2
+        name:Catapult2			

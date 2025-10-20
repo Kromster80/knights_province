@@ -1,0 +1,58 @@
+﻿0:Kinghts Dzapan
+1:Nowe ziemie. |Tak brzmi historia opowiadana przez dziadów i pradziadów. |Zbiór baśni płynących od wieków, iż gdzieś daleko na północy znajduje się piękna, wiecznie lśniąca kraina. Promienie przebijają się tam przez delikatne, błękitne niebo, a zachód słońca magicznie odmienia morską otchłań. |Nie wszyscy jednak podzielają tę wersję zdarzeń. Co jakis czas powracają plotki, o terenach pełnych barbarzyńskich plemion oraz fortecach sięgających chmur. ||Nadszedł czas, by sprawdzić czy te legendy są prawdziwe! ||Popłyńmy razem ku złocistemu słońcu. ||||[$00FFFF]Wersja mapy:[] |[$808080]* 1.0[] ||[$00FFFF]Użyte mody:[] |[$808080]* Barbarzyńskie budynki |* Flagi |* Średniowieczne budynki |* Obiekty |* Statki |* Kamienna Twierdza |* Drzewa |* Drewniana Twierdza[] ||[$00FFFF]Aktywne skrypty:[] |[$808080]* Amaroth dzień-noc[] ||[$00FFFF]Specjalne podziękowania:[] |[$808080]* Dolbi |* Krom[]
+2:Wiele lat trwało przygotowywanie do wyprawy. Teraz, gdy jesteśmy 21. dzień na morzu, wydaje się jakby legendy te były tylko mitem... ||Kamraci niech ta wyprawa zostanie zapamiętana na zawsze!
+3:Wodzu, wodzu! Port, widzę jakiś port. Zbadajmy to! ||Czyżby legendy były prawdziwe? Musimy to zbadać.
+4:Bądźmy ostrożni. Nie wiemy, co nas tu czeka.
+5:Zbadaj obszar portowy
+6:Co to za dziwna nacja?
+7:To wygląda na jakiś mały garnizon, lecz nikogo tu nie ma.
+8:Przybyły nasze posiłki wraz z budowlańcami. |Gdy tylko statek zacumuje, użyj naszych bojowników i zabezpiecz nowy teren.
+9:Oddziały. Widzę jednostki kierujące się na nas! ||Szybko dajmy znać reszcie i wycofajmy się do portu. ||Pod żadnym warunkiem, nie możemy utracić naszych wojsk. Ich utrata stanowiłaby totalną porażkę naszej wyprawy.
+11:Zniszcz jednostki wroga
+12:Wygląda na to, że to już wszyscy. |Zbadajmy pozostałą część wyspy w celu umiejscowienia nowej osady.
+13:Znajdź miejsce na nową osadę.
+14:Ten rejon wygląda idealnie, aby zbudować tu naszą kolonię. |Zbuduj osadę i daj wypocząć towarzyszom.
+15:Zbuduj Obóz
+16:Znajdź surowce budowlane, a następnie użyj ich do rozbudowy twojej osady. |Pamiętaj, jesteśmy tu na obcej ziemi, a więc śpiesz się, bo rychło nastać może niespodzianka.
+17:Znajdź surowce budowlane: |* kamienie |* deski |* pnie 
+18:Nasza osada nabiera rozmiarów, a chłopi nareszcie wypoczeli. |Czas na kolejny ruch. |Zbadaj pozostałą część mapy, wyślij zwiadowców i ostrożnie przeszukaj każdy zakątek.
+19:Zbadaj pozostałą część terenu
+20:Znaleźliśmy mały obóz wojowników, ale ci wojownicy wyglądają bardzo groźnie. Bądźmy ostrożni.
+21:Zniszcz wojska wojowników
+22:Osada wroga. Wycofajmy się i przygotujmy do oblężenia.
+23:Zniszcz wojska barbarzyńców
+24:Coś blokuje nam przejście. Zajmijmy się najpierw barbarzyńską hołotą, a poźniej zdecydujemy, co zrobić dalej.
+25:Pokonanie wojsk wroga otwarło nam przejście w nieznane. Sprawdźmy to.
+26:Kolejni wrogowie... musimy odeprzeć ich atak. |Wyglądają na poteżnych wojowników, odzianych w żelazne zbroje. Czegoś takiego jeszcze nigdy nie widziałem! Pewnie to są ci wojownicy ''złotego słońca'', o których mowa w opowieściach.
+27:Cóż to za mury? Jak mamy zdobyć tak potężną fortecę? Musimy znaleźć słaby punkt tej poteżnej konstrukcji.
+28:Brama! Jedyny możliwy sposób dostania się do środka, to odczekać, aż wojska wroga otworzą bramę. |Wykorzystajmy ten moment, a następnie wślizgnijmy się do środka.
+29:Podbij złocistą fortecę
+30:Więzienie ||Lista więźniów jest długa.
+31:Plac tortur ||Kilka miejsc jest jeszcze wolnych... czy jesteś posłuszny swojemu władcy?
+32:Turniej rycerski ||Arena walk najlepszych jeźdźców. Lud kocha swych rycerzy. |Może i ty spróbujesz swoich sił?
+33:Plac treningowy szermierzy. ||Miejsce, w którym szermiercze ćwiczenia rozwijają formę oraz hartują ducha.
+34:Plac treningowy ||Strzały łuczników słychać z daleka. Uważaj na własną głowę.
+35:Port treningowy ||Żołnierz z włócznią to klucz do zwycięstwa. |Czy ty odbyłeś już swój trening?
+36:Katedra ||Wierny lud oddaje swe modły. Czas na nas.
+37:[$00FFFF]Oferty pracy:[] ||Wojsko ||być częścią armii to honor, zapraszamy.
+38:[$00FFFF]Oferty pracy:[] ||Budowlańcy ||Jesteś silny i posiadasz zdolności twórcze? To zapraszamy.
+39:[$00FFFF]Oferty pracy:[] ||Zwiadowca ||Na razie brak chętnych, lecz Ty możesz zostać pierwszy.
+40:[$00FFFF]Oferty pracy:[] ||Rybak ||Jeśli kochasz morze, ta praca jest właśnie dla ciebie.
+41:Najpopularniejsza knajpa w regionie ||Willem Knot, |skonsumował najwięcej ryb w ciągu jednego dnia, a jego wyczyn to 15 sztuk. ||Henry Tusa, |skonsumował 7 bochenków chleba. ||Viktor Nowey, |człowiek, o którym mieszkańcy powiadają parówa, pewnie nie bez powodu, gdyż ma na swoim koncie 21 kiełbas. ||Teresa Frid, |degustatorka cydru, 9 butelek. ||Harold Drunks, |niekwestionowany zwyciężca piwa, do dzisiejszego dnia niezliczone baryłki. W sumie... nadal siedzi i pije.
+42:Najlepszy farmer: ||Dor Baki, |pracujący siedem dni w tygodniu po 20h, więc jego wyczy musiał zostać docieniony. |Całe któlestwo składa ci hołd.
+43:Cydr ekspert: ||Sabrin Meg, |jeżeli ktoś jeszcze nie słyszał o jej zasługach, to już wie, iż jabłka to jej drugie imię.
+44:[$00FFFF]Oferty pracy:[] ||Sprzątacz ||Bądz pierwszy! Nasz zamek potrzebuje ciebie.
+45:Stolica Melbork
+46:Nadmorski port
+47:Osada Turk
+48:Osada Burks
+49:Złocista kraina ||Kraj płynący miodem i mlekiem.
+50:Osada Wojowników
+51:Osada Barbarzyńców
+52:Port
+53:Turks
+54:Burks
+55:Barbarzyńcy
+56:Wojownicy
+57:Melborkowie
+58:Gracz

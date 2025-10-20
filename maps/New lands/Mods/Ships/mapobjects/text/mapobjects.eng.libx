@@ -1,0 +1,22 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.Ship1]
+        desc:Small boat for two people
+        name:Little boat
+    [mapobjects.Ship2]
+        desc:A small boat with a sail for short trips
+        name:Boat with sail
+    [mapobjects.Ship3]
+        desc:Fishermen use them for fishing at sea
+        name:Fishing boat
+    [mapobjects.Ship4]
+        desc:A huge ship for long expeditions, you can reach the other end of the world
+        name:Big ship 
+    [mapobjects.Ship5]
+        desc:a boat with oars, used only by the strongest settlers
+        name:Medium ship
+		
+		
+		
+		

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="Wodden_Wall1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="9.500; 5.000; 1.600; 0.000; 0.000; 25.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+    <item1 EngName="Wodden_Wall2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="9.500; 5.000; 1.600; 0.000; 0.000; 25.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Wodden_Wall3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="9.000; 5.000; 1.800; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Wodden_Wall4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="16.000; 5.000; 2.200; 0.300; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Wodden_Wall5" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="7.000; 5.000; 1.400; -0.400; 0.000; 355.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+ 
+    <item1 EngName="Wodden_Wall6" CanPlaceInMapEd="True" Placement="csTile" TileBlock="everything" Removable="nonremovable" Selectable="none" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="sand,savanna,grass,dirt,swamp,snow">
+    <HUD AvatarSetup="8.000; 5.000; 1.600; 0.000; 0.000; 35.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+
+  
+	  </Objects>  
+  </item1>   	
+</Root>
+  

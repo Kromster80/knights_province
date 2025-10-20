@@ -1,0 +1,2065 @@
+!VERSION 3
+
+// Mod requirements
+
+// General settings
+!RANKING 1 // Min time
+!HANDS_COUNT 5
+!HAND_DEFAULT_HUMAN 0
+
+// Hands
+-----Hand0-----
+!HAND_CURRENT 0
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 14924635
+!HAND_CENTER_SCREEN 21 82
+!HAND_VIEW_DIR 60
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 0 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Dispositions
+!SET_AI_DEFENCE 25 41 2 1 10 -1 1 1 // melee
+
+// Alliances
+!SET_ALLIANCE 1 1
+!SET_ALLIANCE 2 0
+!SET_ALLIANCE 3 0
+
+// Grant/Block houses
+
+// Block units
+
+// Block warfare orders
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+!SET_FENCE_V 32 39 2 !SET_FENCE_H 32 56 1 !SET_FENCE_H 33 56 1 !SET_FENCE_H 34 56 1
+!SET_FENCE_H 35 56 1 !SET_FENCE_V 36 56 1 !SET_FENCE_H 38 56 1 !SET_FENCE_V 38 56 1
+!SET_FENCE_H 39 56 1 !SET_FENCE_H 40 56 1 !SET_FENCE_H 41 56 1 !SET_FENCE_V 42 56 1
+!SET_FENCE_H 44 56 1 !SET_FENCE_V 44 56 1 !SET_FENCE_H 45 56 1 !SET_FENCE_H 46 56 1
+!SET_FENCE_H 36 57 1 !SET_FENCE_H 37 57 1 !SET_FENCE_H 42 57 1 !SET_FENCE_H 43 57 1
+!SET_FENCE_H 20 68 1 !SET_FENCE_V 20 68 1 !SET_FENCE_H 21 68 1 !SET_FENCE_H 19 69 1
+!SET_FENCE_V 19 69 1 !SET_FENCE_V 19 70 1 !SET_FENCE_V 24 70 1 !SET_FENCE_V 19 71 1
+!SET_FENCE_H 24 71 1 !SET_FENCE_V 25 71 1 !SET_FENCE_H 19 72 1 !SET_FENCE_V 20 74 1
+!SET_FENCE_H 24 74 1 !SET_FENCE_V 24 74 1 !SET_FENCE_H 20 75 1 !SET_FENCE_V 21 75 1
+!SET_FENCE_V 24 75 1 !SET_FENCE_H 21 76 1 !SET_FENCE_H 22 76 1 !SET_FENCE_H 23 76 1
+
+// Units
+!SET_UNIT 32 47 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 32 46 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 32 45 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 3 16 81 2 // builder
+!SET_UNIT 3 13 80 2 // builder
+!SET_UNIT 3 14 80 2 // builder
+!SET_UNIT 3 15 80 2 // builder
+!SET_UNIT 3 16 80 2 // builder
+!SET_UNIT 3 17 80 2 // builder
+!SET_UNIT 3 12 80 2 // builder
+!SET_UNIT 3 12 83 2 // builder
+!SET_UNIT 3 17 81 2 // builder
+!SET_UNIT 3 14 81 2 // builder
+!SET_UNIT 3 13 81 2 // builder
+!SET_UNIT 3 13 82 2 // builder
+!SET_UNIT 3 14 82 2 // builder
+!SET_UNIT 3 15 82 2 // builder
+!SET_UNIT 3 16 82 2 // builder
+!SET_UNIT 3 17 82 2 // builder
+!SET_UNIT 3 12 81 2 // builder
+!SET_UNIT 3 15 81 2 // builder
+!SET_UNIT 3 13 83 2 // builder
+!SET_UNIT 3 14 83 2 // builder
+!SET_UNIT 3 15 83 2 // builder
+!SET_UNIT 3 16 83 2 // builder
+!SET_UNIT 3 17 83 2 // builder
+!SET_UNIT 3 12 82 2 // builder
+!SET_UNIT 3 14 84 2 // builder
+!SET_UNIT 3 15 84 2 // builder
+!SET_UNIT 3 12 84 2 // builder
+!SET_UNIT 3 17 84 2 // builder
+!SET_UNIT 3 16 84 2 // builder
+!SET_UNIT 3 13 84 2 // builder
+
+// Groups
+!SET_GROUP 22 36 89 0 3 9 // arbaletman
+!SET_GROUP 22 25 84 1 3 6 // arbaletman
+!SET_GROUP 20 10 77 2 4 12 // swordsman
+!SET_GROUP 24 36 85 1 4 6 // halberdier
+!SET_GROUP 26 5 88 1 3 6 // cavalry
+!SET_GROUP 26 16 91 2 3 6 // cavalry
+!SET_GROUP 22 6 82 2 4 8 // arbaletman
+!SET_GROUP 24 20 77 2 3 6 // halberdier
+!SET_GROUP 22 40 80 1 3 9 // arbaletman
+!SET_GROUP 20 39 76 2 3 6 // swordsman
+!SET_GROUP 26 43 73 0 3 9 // cavalry
+
+-----Hand1-----
+!HAND_CURRENT 1
+!HAND_ALLOW_HUMAN
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_COLOR 16738303
+!HAND_CENTER_SCREEN 79 82
+!HAND_VIEW_DIR 290
+
+// Fog of War
+
+// Goals
+!ADD_GOAL 1 1 0 1 0
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Alliances
+!SET_ALLIANCE 0 1
+!SET_ALLIANCE 2 0
+!SET_ALLIANCE 3 0
+
+// Grant/Block houses
+
+// Block units
+
+// Block warfare orders
+
+// Block trades
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 32 52 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 32 53 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 32 54 70 4 // wagon
+!SET_UNIT_WARE 9 50
+!SET_UNIT 3 91 84 6 // builder
+!SET_UNIT 3 91 85 6 // builder
+!SET_UNIT 3 90 85 6 // builder
+!SET_UNIT 3 93 84 6 // builder
+!SET_UNIT 3 94 84 6 // builder
+!SET_UNIT 3 92 85 6 // builder
+!SET_UNIT 3 92 84 6 // builder
+!SET_UNIT 3 94 85 6 // builder
+!SET_UNIT 3 90 84 6 // builder
+!SET_UNIT 3 90 86 6 // builder
+!SET_UNIT 3 92 87 6 // builder
+!SET_UNIT 3 90 87 6 // builder
+!SET_UNIT 3 94 86 6 // builder
+!SET_UNIT 3 93 87 6 // builder
+!SET_UNIT 3 94 87 6 // builder
+!SET_UNIT 3 93 86 6 // builder
+!SET_UNIT 3 93 85 6 // builder
+!SET_UNIT 3 92 86 6 // builder
+!SET_UNIT 3 91 86 6 // builder
+!SET_UNIT 3 91 87 6 // builder
+!SET_UNIT 3 94 83 6 // builder
+!SET_UNIT 3 93 83 6 // builder
+!SET_UNIT 3 94 88 6 // builder
+!SET_UNIT 3 93 88 6 // builder
+!SET_UNIT 3 90 88 6 // builder
+!SET_UNIT 3 91 88 6 // builder
+!SET_UNIT 3 92 88 6 // builder
+!SET_UNIT 3 90 83 6 // builder
+!SET_UNIT 3 91 83 6 // builder
+!SET_UNIT 3 92 83 6 // builder
+
+// Groups
+!SET_GROUP 22 80 82 6 3 6 // arbaletman
+!SET_GROUP 20 86 78 6 4 12 // swordsman
+!SET_GROUP 26 71 81 6 6 6 // cavalry
+!SET_GROUP 26 55 74 0 3 9 // cavalry
+!SET_GROUP 20 63 77 6 3 6 // swordsman
+!SET_GROUP 22 91 69 5 3 9 // arbaletman
+!SET_GROUP 22 87 73 6 3 9 // arbaletman
+!SET_GROUP 22 90 76 5 4 8 // arbaletman
+!SET_GROUP 26 87 91 7 3 6 // cavalry
+!SET_GROUP 24 71 87 7 3 6 // halberdier
+!SET_GROUP 24 81 76 5 4 6 // halberdier
+
+-----Hand2-----
+!HAND_CURRENT 2
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 65280
+!HAND_CENTER_SCREEN 65 9
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Dispositions
+!SET_AI_DEFENCE 34 39 4 3 10 -1 12 6 // ranged
+!SET_AI_DEFENCE 42 39 4 3 10 -1 10 5 // ranged
+!SET_AI_DEFENCE 63 39 4 3 10 -1 10 5 // ranged
+!SET_AI_DEFENCE 56 39 4 3 10 -1 10 5 // ranged
+!SET_AI_DEFENCE 49 37 4 2 10 -1 9 3 // antihorse
+!SET_AI_DEFENCE 39 28 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 33 16 4 2 10 -1 7 3 // antihorse
+!SET_AI_DEFENCE 61 17 4 2 10 -1 6 3 // antihorse
+!SET_AI_DEFENCE 60 15 4 3 10 -1 8 4 // ranged
+!SET_AI_DEFENCE 55 14 5 1 10 -1 6 3 // melee
+!SET_AI_DEFENCE 44 32 4 4 10 -1 9 3 // mounted
+!SET_AI_DEFENCE 53 34 4 4 10 -1 6 3 // mounted
+!SET_AI_DEFENCE 46 63 4 4 10 -1 9 3 // mounted
+!SET_AI_DEFENCE 52 63 4 4 10 -1 9 3 // mounted
+!SET_AI_DEFENCE 54 55 4 3 10 -1 10 5 // ranged
+!SET_AI_DEFENCE 44 55 4 3 10 -1 10 5 // ranged
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 3 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block warfare orders
+
+// Block trades
+
+// Houses
+!SET_HOUSE 21 20 10 3 // barracks
+!WARE_OUT_ADD_TO_LAST 20 40 // metalarmor
+!WARE_OUT_ADD_TO_LAST 26 25 // arbalet
+!WARE_OUT_ADD_TO_LAST 27 30 // horse
+!SET_HOUSE 11 65 9 1 // camp
+!WARE_OUT_ADD_TO_LAST 2 60 // stone
+!WARE_OUT_ADD_TO_LAST 3 60 // wood
+!WARE_OUT_ADD_TO_LAST 8 80 // gold
+!WARE_OUT_ADD_TO_LAST 28 4090 // fish
+!WARE_BLOCK_LAST 29 1 // club
+!WARE_OUT_ADD_TO_LAST 30 4080 // cider
+!SET_HOUSE 31 56 18 2 // towerBolt
+!SET_HOUSE 31 52 2 0 // towerBolt
+!SET_HOUSE 31 45 22 2 // towerBolt
+!SET_HOUSE 31 36 17 1 // towerBolt
+!SET_HOUSE 31 25 26 1 // towerBolt
+!SET_HOUSE 31 52 11 3 // towerBolt
+!SET_HOUSE 6 9 64 0 // fishermans
+!SET_HOUSE 26 38 22 0 // store
+!WARE_OUT_ADD_TO_LAST 5 4000 // goldore
+!WARE_OUT_ADD_TO_LAST 6 4000 // coal
+!WARE_OUT_ADD_TO_LAST 9 4000 // ale
+!WARE_OUT_ADD_TO_LAST 14 4000 // sausages
+!SET_HOUSE 37 22 26 2 // cottage
+!SET_HOUSE 13 46 5 0 // school
+!SET_HOUSE 27 57 6 0 // tavern
+!SET_HOUSE 22 46 10 1 // mill
+!SET_HOUSE 22 47 13 2 // mill
+!SET_HOUSE 22 44 12 3 // mill
+!SET_HOUSE 26 26 18 3 // store
+!WARE_OUT_ADD_TO_LAST 4 4000 // ironore
+!WARE_OUT_ADD_TO_LAST 10 3000 // grain
+!WARE_OUT_ADD_TO_LAST 11 4000 // bread
+!WARE_OUT_ADD_TO_LAST 15 4000 // beef
+!SET_HOUSE 7 38 4 0 // bakery
+!SET_HOUSE 7 40 5 1 // bakery
+!SET_HOUSE 10 31 11 0 // armorSmithy
+!SET_HOUSE 2 37 10 0 // weaponSmithy
+!SET_HOUSE 12 41 16 3 // stables
+!SET_HOUSE 1 52 29 2 // foundry
+!SET_HOUSE 37 44 26 1 // cottage
+!SET_HOUSE 1 67 4 0 // foundry
+!SET_HOUSE 15 59 12 1 // mint
+!SET_HOUSE 27 33 4 3 // tavern
+!SET_HOUSE 28 30 19 3 // brewery
+!SET_HOUSE 37 27 31 0 // cottage
+
+// Roads and fields
+
+!SET_ROAD 33 4 !SET_ROAD 34 4 !SET_ROAD 38 4 !SET_ROAD 67 4
+!SET_ROAD 34 5 !SET_ROAD 35 5 !SET_ROAD 38 5 !SET_ROAD 39 5
+!SET_ROAD 40 5 !SET_ROAD 46 5 !SET_ROAD 48 5 !SET_ROAD 49 5
+!SET_ROAD 50 5 !SET_ROAD 51 5 !SET_ROAD 52 5 !SET_ROAD 53 5
+!SET_ROAD 54 5 !SET_ROAD 64 5 !SET_ROAD 65 5 !SET_ROAD 66 5
+!SET_ROAD 67 5 !SET_ROAD 34 6 !SET_ROAD 35 6 !SET_ROAD 36 6
+!SET_ROAD 37 6 !SET_ROAD 38 6 !SET_ROAD 39 6 !SET_ROAD 40 6
+!SET_ROAD 41 6 !SET_ROAD 45 6 !SET_ROAD 46 6 !SET_ROAD 47 6
+!SET_ROAD 48 6 !SET_ROAD 53 6 !SET_ROAD 54 6 !SET_ROAD 57 6
+!SET_ROAD 63 6 !SET_ROAD 64 6 !SET_ROAD 34 7 !SET_ROAD 41 7
+!SET_ROAD 42 7 !SET_ROAD 43 7 !SET_ROAD 44 7 !SET_ROAD 45 7
+!SET_ROAD 53 7 !SET_ROAD 54 7 !SET_ROAD 55 7 !SET_ROAD 56 7
+!SET_ROAD 57 7 !SET_ROAD 58 7 !SET_ROAD 59 7 !SET_ROAD 63 7
+!SET_ROAD 64 7 !SET_ROAD 21 8 !SET_ROAD 22 8 !SET_ROAD 23 8
+!SET_ROAD 24 8 !SET_ROAD 34 8 !SET_ROAD 40 8 !SET_ROAD 41 8
+!SET_ROAD 45 8 !SET_ROAD 55 8 !SET_ROAD 56 8 !SET_ROAD 57 8
+!SET_ROAD 58 8 !SET_ROAD 59 8 !SET_ROAD 60 8 !SET_ROAD 61 8
+!SET_ROAD 62 8 !SET_ROAD 63 8 !SET_ROAD 64 8 !SET_ROAD 21 9
+!SET_ROAD 22 9 !SET_ROAD 23 9 !SET_ROAD 24 9 !SET_ROAD 25 9
+!SET_ROAD 34 9 !SET_ROAD 40 9 !SET_ROAD 45 9 !SET_ROAD 56 9
+!SET_ROAD 57 9 !SET_ROAD 58 9 !SET_ROAD 59 9 !SET_ROAD 60 9
+!SET_ROAD 61 9 !SET_ROAD 62 9 !SET_ROAD 63 9 !SET_ROAD 64 9
+!SET_ROAD 65 9 !SET_ROAD 20 10 !SET_ROAD 21 10 !SET_ROAD 25 10
+!SET_ROAD 26 10 !SET_ROAD 34 10 !SET_ROAD 37 10 !SET_ROAD 40 10
+!SET_ROAD 45 10 !SET_ROAD 46 10 !SET_ROAD 57 10 !SET_ROAD 58 10
+!SET_ROAD 62 10 !SET_ROAD 63 10 !SET_ROAD 64 10 !SET_ROAD 26 11
+!SET_ROAD 27 11 !SET_ROAD 31 11 !SET_ROAD 34 11 !SET_ROAD 35 11
+!SET_ROAD 36 11 !SET_ROAD 37 11 !SET_ROAD 38 11 !SET_ROAD 39 11
+!SET_ROAD 40 11 !SET_ROAD 45 11 !SET_ROAD 58 11 !SET_ROAD 63 11
+!SET_ROAD 64 11 !SET_ROAD 27 12 !SET_ROAD 28 12 !SET_ROAD 31 12
+!SET_ROAD 32 12 !SET_ROAD 33 12 !SET_ROAD 34 12 !SET_ROAD 39 12
+!SET_ROAD 40 12 !SET_ROAD 44 12 !SET_ROAD 45 12 !SET_ROAD 46 12
+!SET_ROAD 47 12 !SET_ROAD 48 12 !SET_ROAD 57 12 !SET_ROAD 58 12
+!SET_ROAD 59 12 !SET_ROAD 28 13 !SET_ROAD 32 13 !SET_ROAD 40 13
+!SET_ROAD 45 13 !SET_ROAD 47 13 !SET_ROAD 57 13 !SET_ROAD 28 14
+!SET_ROAD 29 14 !SET_ROAD 30 14 !SET_ROAD 31 14 !SET_ROAD 32 14
+!SET_ROAD 40 14 !SET_ROAD 41 14 !SET_ROAD 42 14 !SET_ROAD 44 14
+!SET_ROAD 45 14 !SET_ROAD 54 14 !SET_ROAD 55 14 !SET_ROAD 56 14
+!SET_ROAD 57 14 !SET_ROAD 29 15 !SET_ROAD 42 15 !SET_ROAD 43 15
+!SET_ROAD 44 15 !SET_ROAD 45 15 !SET_ROAD 53 15 !SET_ROAD 54 15
+!SET_ROAD 29 16 !SET_ROAD 30 16 !SET_ROAD 41 16 !SET_ROAD 42 16
+!SET_ROAD 44 16 !SET_ROAD 50 16 !SET_ROAD 51 16 !SET_ROAD 52 16
+!SET_ROAD 53 16 !SET_ROAD 30 17 !SET_ROAD 43 17 !SET_ROAD 44 17
+!SET_ROAD 45 17 !SET_ROAD 46 17 !SET_ROAD 47 17 !SET_ROAD 48 17
+!SET_ROAD 49 17 !SET_ROAD 50 17 !SET_ROAD 53 17 !SET_ROAD 26 18
+!SET_ROAD 27 18 !SET_ROAD 28 18 !SET_ROAD 29 18 !SET_ROAD 30 18
+!SET_ROAD 31 18 !SET_ROAD 43 18 !SET_ROAD 48 18 !SET_ROAD 53 18
+!SET_ROAD 30 19 !SET_ROAD 31 19 !SET_ROAD 42 19 !SET_ROAD 43 19
+!SET_ROAD 48 19 !SET_ROAD 53 19 !SET_ROAD 31 20 !SET_ROAD 32 20
+!SET_ROAD 42 20 !SET_ROAD 48 20 !SET_ROAD 49 20 !SET_ROAD 50 20
+!SET_ROAD 51 20 !SET_ROAD 52 20 !SET_ROAD 53 20 !SET_ROAD 31 21
+!SET_ROAD 32 21 !SET_ROAD 33 21 !SET_ROAD 42 21 !SET_ROAD 51 21
+!SET_ROAD 29 22 !SET_ROAD 30 22 !SET_ROAD 31 22 !SET_ROAD 33 22
+!SET_ROAD 34 22 !SET_ROAD 38 22 !SET_ROAD 42 22 !SET_ROAD 51 22
+!SET_ROAD 52 22 !SET_ROAD 25 23 !SET_ROAD 26 23 !SET_ROAD 27 23
+!SET_ROAD 28 23 !SET_ROAD 29 23 !SET_ROAD 34 23 !SET_ROAD 35 23
+!SET_ROAD 36 23 !SET_ROAD 37 23 !SET_ROAD 38 23 !SET_ROAD 39 23
+!SET_ROAD 40 23 !SET_ROAD 41 23 !SET_ROAD 42 23 !SET_ROAD 52 23
+!SET_ROAD 24 24 !SET_ROAD 25 24 !SET_ROAD 34 24 !SET_ROAD 35 24
+!SET_ROAD 36 24 !SET_ROAD 37 24 !SET_ROAD 38 24 !SET_ROAD 39 24
+!SET_ROAD 40 24 !SET_ROAD 41 24 !SET_ROAD 42 24 !SET_ROAD 43 24
+!SET_ROAD 52 24 !SET_ROAD 22 25 !SET_ROAD 23 25 !SET_ROAD 24 25
+!SET_ROAD 34 25 !SET_ROAD 35 25 !SET_ROAD 36 25 !SET_ROAD 37 25
+!SET_ROAD 38 25 !SET_ROAD 39 25 !SET_ROAD 43 25 !SET_ROAD 52 25
+!SET_ROAD 22 26 !SET_ROAD 24 26 !SET_ROAD 34 26 !SET_ROAD 43 26
+!SET_ROAD 44 26 !SET_ROAD 52 26 !SET_ROAD 24 27 !SET_ROAD 34 27
+!SET_ROAD 52 27 !SET_ROAD 24 28 !SET_ROAD 34 28 !SET_ROAD 52 28
+!SET_ROAD 24 29 !SET_ROAD 33 29 !SET_ROAD 34 29 !SET_ROAD 52 29
+!SET_ROAD 24 30 !SET_ROAD 25 30 !SET_ROAD 33 30 !SET_ROAD 25 31
+!SET_ROAD 27 31 !SET_ROAD 29 31 !SET_ROAD 30 31 !SET_ROAD 31 31
+!SET_ROAD 32 31 !SET_ROAD 33 31 !SET_ROAD 25 32 !SET_ROAD 26 32
+!SET_ROAD 27 32 !SET_ROAD 28 32 !SET_ROAD 29 32 !SET_ROAD 9 64
+
+// Fences
+
+!SET_FENCE_V 63 22 2 !SET_FENCE_H 30 23 1 !SET_FENCE_V 30 23 1 !SET_FENCE_H 31 23 1
+!SET_FENCE_H 32 23 1 !SET_FENCE_H 33 23 1 !SET_FENCE_V 34 23 1 !SET_FENCE_H 61 23 2
+!SET_FENCE_V 61 23 2 !SET_FENCE_H 62 23 2 !SET_FENCE_V 34 24 1 !SET_FENCE_H 57 24 1
+!SET_FENCE_H 58 24 1 !SET_FENCE_V 59 24 1 !SET_FENCE_H 60 24 2 !SET_FENCE_H 61 24 2
+!SET_FENCE_H 62 24 2 !SET_FENCE_H 63 24 2 !SET_FENCE_H 64 24 2 !SET_FENCE_V 34 25 1
+!SET_FENCE_H 59 25 1 !SET_FENCE_H 60 25 2 !SET_FENCE_V 60 25 2 !SET_FENCE_H 61 25 2
+!SET_FENCE_H 62 25 2 !SET_FENCE_H 63 25 2 !SET_FENCE_H 64 25 2 !SET_FENCE_V 34 26 1
+!SET_FENCE_V 60 26 2 !SET_FENCE_V 34 27 1 !SET_FENCE_V 56 27 1 !SET_FENCE_V 60 27 2
+!SET_FENCE_V 34 28 1 !SET_FENCE_V 56 28 1 !SET_FENCE_H 33 29 1 !SET_FENCE_V 33 29 1
+!SET_FENCE_H 51 29 1 !SET_FENCE_V 51 29 1 !SET_FENCE_V 33 30 1 !SET_FENCE_V 51 30 1
+!SET_FENCE_H 29 31 1 !SET_FENCE_H 30 31 1 !SET_FENCE_H 31 31 1 !SET_FENCE_H 32 31 1
+!SET_FENCE_V 51 31 1 !SET_FENCE_V 60 31 1 !SET_FENCE_H 51 32 1 !SET_FENCE_H 56 32 1
+!SET_FENCE_H 57 32 1 !SET_FENCE_H 58 32 1 !SET_FENCE_H 59 32 1 !SET_FENCE_H 52 56 1
+!SET_FENCE_H 53 56 1 !SET_FENCE_H 54 56 1 !SET_FENCE_V 55 56 1 !SET_FENCE_H 57 56 1
+!SET_FENCE_V 57 56 1 !SET_FENCE_H 58 56 1 !SET_FENCE_H 59 56 1 !SET_FENCE_H 60 56 1
+!SET_FENCE_V 61 56 1 !SET_FENCE_H 63 56 1 !SET_FENCE_V 63 56 1 !SET_FENCE_H 64 56 1
+!SET_FENCE_H 65 56 1 !SET_FENCE_H 55 57 1 !SET_FENCE_H 56 57 1 !SET_FENCE_H 61 57 1
+!SET_FENCE_H 62 57 1
+
+// Units
+!SET_UNIT 1 29 16 4 // peasant
+!SET_UNIT 1 32 21 4 // peasant
+!SET_UNIT 1 34 25 4 // peasant
+!SET_UNIT 1 36 25 4 // peasant
+!SET_UNIT 1 40 25 4 // peasant
+!SET_UNIT 1 42 24 4 // peasant
+!SET_UNIT 1 40 24 4 // peasant
+!SET_UNIT 1 36 24 4 // peasant
+!SET_UNIT 1 42 23 4 // peasant
+!SET_UNIT 1 44 21 4 // peasant
+!SET_UNIT 1 45 16 4 // peasant
+!SET_UNIT 1 45 12 4 // peasant
+!SET_UNIT 1 43 17 4 // peasant
+!SET_UNIT 1 43 19 4 // peasant
+!SET_UNIT 1 44 15 4 // peasant
+!SET_UNIT 1 45 14 4 // peasant
+!SET_UNIT 1 45 11 4 // peasant
+!SET_UNIT 1 45 7 4 // peasant
+!SET_UNIT 1 42 7 4 // peasant
+!SET_UNIT 1 40 8 4 // peasant
+!SET_UNIT 1 39 10 4 // peasant
+!SET_UNIT 1 43 6 4 // peasant
+!SET_UNIT 1 48 5 4 // peasant
+!SET_UNIT 1 52 5 4 // peasant
+!SET_UNIT 1 54 4 4 // peasant
+!SET_UNIT 1 57 9 4 // peasant
+!SET_UNIT 1 58 11 4 // peasant
+!SET_UNIT 1 63 8 4 // peasant
+!SET_UNIT 1 64 8 4 // peasant
+!SET_UNIT 1 64 11 4 // peasant
+!SET_UNIT 1 60 8 4 // peasant
+!SET_UNIT 1 57 8 4 // peasant
+!SET_UNIT 1 54 7 4 // peasant
+!SET_UNIT 1 53 6 4 // peasant
+!SET_UNIT 1 57 10 4 // peasant
+!SET_UNIT 3 62 8 4 // builder
+!SET_UNIT 3 59 8 4 // builder
+!SET_UNIT 3 51 5 4 // builder
+!SET_UNIT 3 49 5 4 // builder
+!SET_UNIT 3 55 8 4 // builder
+!SET_UNIT 3 59 9 4 // builder
+!SET_UNIT 3 58 9 4 // builder
+!SET_UNIT 2 36 23 4 // porter
+!SET_UNIT 2 35 23 4 // porter
+!SET_UNIT 2 34 22 4 // porter
+!SET_UNIT 2 32 20 4 // porter
+!SET_UNIT 2 30 16 4 // porter
+!SET_UNIT 9 44 7 4 // baker
+!SET_UNIT 9 45 8 4 // baker
+!SET_UNIT 9 46 7 4 // baker
+!SET_UNIT 9 47 6 4 // baker
+!SET_UNIT 12 35 24 4 // brewer
+!SET_UNIT 12 35 27 4 // brewer
+!SET_UNIT 16 58 12 4 // metallurg
+!SET_UNIT 16 65 5 4 // metallurg
+!SET_UNIT 16 52 28 4 // metallurg
+!SET_UNIT 15 32 13 4 // smith
+!SET_UNIT 15 35 11 4 // smith
+
+// Groups
+!SET_GROUP 21 34 39 4 6 12 // bowman
+!SET_GROUP 22 42 39 4 5 10 // arbaletman
+!SET_GROUP 22 63 39 4 5 10 // arbaletman
+!SET_GROUP 22 56 39 4 5 10 // arbaletman
+!SET_GROUP 24 49 37 4 3 9 // halberdier
+!SET_GROUP 20 39 28 4 3 6 // swordsman
+!SET_GROUP 20 55 14 5 3 6 // swordsman
+!SET_GROUP 24 61 17 4 3 3 // halberdier
+!SET_GROUP 24 33 16 4 3 3 // halberdier
+!SET_GROUP 22 60 15 4 4 4 // arbaletman
+!SET_GROUP 26 52 34 4 3 6 // cavalry
+!SET_GROUP 22 24 28 0 3 3 // arbaletman
+!SEND_GROUP 24 26 1
+!SET_GROUP 22 32 18 1 3 3 // arbaletman
+!SEND_GROUP 35 17 2
+!SET_GROUP 22 53 4 7 3 3 // arbaletman
+!SEND_GROUP 52 3 7
+!SET_GROUP 22 54 11 6 3 3 // arbaletman
+!SEND_GROUP 53 11 6
+!SET_GROUP 26 47 34 4 3 9 // cavalry
+!SET_GROUP 26 47 30 4 3 9 // cavalry
+!SET_GROUP 26 50 25 4 3 9 // cavalry
+!SET_GROUP 22 38 30 4 5 5 // arbaletman
+!SET_GROUP 22 56 33 4 5 5 // arbaletman
+
+-----Hand3-----
+!HAND_CURRENT 3
+!HAND_ALLOW_AI
+!HAND_ACTIVATE
+!HAND_AI_CHARACTER 0
+!HAND_COLOR 54440
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Goals
+
+// AI
+!SET_AI_AUTO_REPAIR
+!SET_AI_CHARACTER SERFS_PER_10_HOUSES 7
+!SET_AI_CHARACTER BUILDERS_COUNT 16
+
+// Dispositions
+!SET_AI_DEFENCE 45 70 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 52 70 4 1 10 -1 12 4 // melee
+!SET_AI_DEFENCE 36 70 5 3 10 -1 8 4 // ranged
+!SET_AI_DEFENCE 75 72 3 3 10 -1 8 4 // ranged
+!SET_AI_DEFENCE 46 62 4 4 10 -1 6 3 // mounted
+!SET_AI_DEFENCE 52 62 4 4 10 -1 6 3 // mounted
+
+// Alliances
+!SET_ALLIANCE 0 0
+!SET_ALLIANCE 1 0
+!SET_ALLIANCE 2 1
+
+// Grant/Block houses
+
+// Block units
+
+// Block warfare orders
+
+// Block trades
+
+// Houses
+!SET_HOUSE 36 59 51 0 // campfire
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+
+// Groups
+!SET_GROUP 21 36 56 4 2 4 // bowman
+!SET_GROUP 21 42 56 4 2 4 // bowman
+!SET_GROUP 21 55 56 4 2 4 // bowman
+!SET_GROUP 21 61 56 4 2 4 // bowman
+!SET_GROUP 23 49 54 4 4 6 // pikeman
+!SET_GROUP 19 45 50 4 3 9 // axefighter
+!SET_GROUP 19 56 53 4 3 9 // axefighter
+!SET_GROUP 21 49 48 4 4 8 // bowman
+!SET_GROUP 21 49 52 4 4 8 // bowman
+!SET_GROUP 25 41 48 4 3 6 // horsescout
+!SET_GROUP 25 58 48 4 3 6 // horsescout
+
+-----Hand4-----
+!HAND_CURRENT 4
+!HAND_NEUTRAL_TYPE
+!HAND_ACTIVATE
+!HAND_VIEW_DIR 30
+
+// Fog of War
+
+// Houses
+!SET_HOUSE 36 35 44 2 // campfire
+!SET_HOUSE 36 4 66 3 // campfire
+
+// Roads and fields
+
+
+// Fences
+
+
+// Units
+!SET_UNIT 36 38 50 4 // wolf
+!SET_UNIT 36 61 50 4 // wolf
+!SET_UNIT 36 38 51 4 // wolf
+!SET_UNIT 36 62 50 4 // wolf
+!SET_UNIT 36 37 51 4 // wolf
+!SET_UNIT 36 61 51 4 // wolf
+!SET_UNIT 41 6 58 4 // waterflower
+!SET_UNIT 41 0 65 4 // waterflower
+!SET_UNIT 41 2 63 4 // waterflower
+!SET_UNIT 43 1 61 4 // duck
+!SET_UNIT 43 5 16 4 // duck
+!SET_UNIT 43 6 13 4 // duck
+!SET_UNIT 43 10 24 4 // duck
+!SET_UNIT 41 3 10 4 // waterflower
+!SET_UNIT 41 3 7 4 // waterflower
+!SET_UNIT 41 18 31 4 // waterflower
+!SET_UNIT 42 19 32 4 // waterleaf
+!SET_UNIT 42 23 36 4 // waterleaf
+!SET_UNIT 43 27 53 4 // duck
+!SET_UNIT 43 29 54 4 // duck
+!SET_UNIT 42 28 45 4 // waterleaf
+!SET_UNIT 41 27 54 4 // waterflower
+!SET_UNIT 41 39 58 4 // waterflower
+!SET_UNIT 42 37 58 4 // waterleaf
+!SET_UNIT 42 33 59 4 // waterleaf
+!SET_UNIT 42 53 58 4 // waterleaf
+!SET_UNIT 42 64 58 4 // waterleaf
+!SET_UNIT 42 79 53 4 // waterleaf
+!SET_UNIT 42 79 50 4 // waterleaf
+!SET_UNIT 42 83 50 4 // waterleaf
+!SET_UNIT 43 80 51 4 // duck
+!SET_UNIT 43 77 52 4 // duck
+!SET_UNIT 41 81 51 4 // waterflower
+!SET_UNIT 41 86 66 4 // waterflower
+!SET_UNIT 41 83 62 4 // waterflower
+!SET_UNIT 41 84 60 4 // waterflower
+!SET_UNIT 47 85 63 4 // duck2
+!SET_UNIT 47 85 62 4 // duck2
+!SET_UNIT 42 81 65 4 // waterleaf
+!SET_UNIT 42 87 64 4 // waterleaf
+!SET_UNIT 42 68 30 4 // waterleaf
+!SET_UNIT 42 74 39 4 // waterleaf
+!SET_UNIT 41 76 34 4 // waterflower
+!SET_UNIT 41 84 11 4 // waterflower
+!SET_UNIT 41 82 5 4 // waterflower
+
+// Stockpiles
+!SET_STOCKPILE 2 32 23 5
+!SET_STOCKPILE 2 33 23 5
+!SET_STOCKPILE 2 33 24 5
+!SET_STOCKPILE 2 31 23 5
+!SET_STOCKPILE 2 30 23 5
+!SET_STOCKPILE 2 33 25 5
+!SET_STOCKPILE 2 32 25 5
+!SET_STOCKPILE 2 32 24 5
+!SET_STOCKPILE 2 30 25 5
+!SET_STOCKPILE 2 31 25 5
+!SET_STOCKPILE 2 33 27 5
+!SET_STOCKPILE 2 56 28 5
+!SET_STOCKPILE 2 56 29 5
+!SET_STOCKPILE 2 59 25 5
+!SET_STOCKPILE 2 59 26 5
+!SET_STOCKPILE 2 58 26 5
+!SET_STOCKPILE 2 56 30 5
+!SET_STOCKPILE 2 56 31 5
+!SET_STOCKPILE 2 57 31 5
+
+// Triggers
+!SET_TRIGGER 1 50 57 50 57
+!SET_TRIGGER 2 48 57 48 57
+!SET_TRIGGER 3 49 57 49 57
+!SET_TRIGGER 4 43 59 56 66
+!SET_TRIGGER 5 40 67 58 67
+!SET_TRIGGER 6 34 53 67 53
+!SET_TRIGGER 7 34 51 66 51
+!SET_TRIGGER 8 36 44 64 44
+!SET_TRIGGER 9 23 76 27 80
+!SET_TRIGGER 10 25 78 25 78
+!SET_TRIGGER 11 12 74 17 78
+!SET_TRIGGER 12 14 76 14 76
+!SET_TRIGGER 13 32 72 36 76
+!SET_TRIGGER 14 34 74 34 74
+!SET_TRIGGER 15 27 64 31 68
+!SET_TRIGGER 16 29 66 29 66
+!SET_TRIGGER 17 36 64 40 68
+!SET_TRIGGER 18 38 66 38 66
+!SET_TRIGGER 19 43 76 47 80
+!SET_TRIGGER 20 45 78 45 78
+!SET_TRIGGER 21 47 61 49 63
+!SET_TRIGGER 22 48 62 48 62
+!SET_TRIGGER 23 21 88 25 92
+!SET_TRIGGER 24 23 90 23 90
+!SET_TRIGGER 25 41 49 43 51
+!SET_TRIGGER 26 42 50 42 50
+!SET_TRIGGER 27 47 49 49 51
+!SET_TRIGGER 28 48 50 48 50
+!SET_TRIGGER 29 84 82 88 86
+!SET_TRIGGER 30 86 84 86 84
+!SET_TRIGGER 31 80 88 84 92
+!SET_TRIGGER 32 82 90 82 90
+!SET_TRIGGER 33 73 79 77 83
+!SET_TRIGGER 34 75 81 75 81
+!SET_TRIGGER 35 64 86 68 90
+!SET_TRIGGER 36 66 88 66 88
+!SET_TRIGGER 37 66 67 70 71
+!SET_TRIGGER 38 68 69 68 69
+!SET_TRIGGER 39 65 77 69 81
+!SET_TRIGGER 40 67 79 67 79
+!SET_TRIGGER 41 57 75 60 79
+!SET_TRIGGER 42 58 77 58 77
+!SET_TRIGGER 43 49 60 51 62
+!SET_TRIGGER 44 50 61 50 61
+!SET_TRIGGER 45 49 49 51 51
+!SET_TRIGGER 46 50 50 50 50
+!SET_TRIGGER 47 54 48 56 50
+!SET_TRIGGER 48 55 49 55 49
+
+// Emitters
+!SET_EMITTER 5 26 37 // terrain_mist_large
+!SET_EMITTER 5 27 38 // terrain_mist_large
+!SET_EMITTER 5 28 39 // terrain_mist_large
+!SET_EMITTER 5 28 41 // terrain_mist_large
+!SET_EMITTER 5 27 42 // terrain_mist_large
+!SET_EMITTER 5 30 42 // terrain_mist_large
+!SET_EMITTER 5 31 43 // terrain_mist_large
+!SET_EMITTER 5 24 35 // terrain_mist_large
+!SET_EMITTER 5 21 36 // terrain_mist_large
+!SET_EMITTER 5 25 37 // terrain_mist_large
+!SET_EMITTER 5 30 38 // terrain_mist_large
+!SET_EMITTER 4 27 45 // terrain_mist_medium
+!SET_EMITTER 4 26 45 // terrain_mist_medium
+!SET_EMITTER 4 27 46 // terrain_mist_medium
+!SET_EMITTER 5 32 45 // terrain_mist_large
+!SET_EMITTER 5 33 45 // terrain_mist_large
+!SET_EMITTER 5 33 46 // terrain_mist_large
+!SET_EMITTER 5 32 46 // terrain_mist_large
+!SET_EMITTER 3 35 46 // terrain_mist_small
+!SET_EMITTER 3 36 46 // terrain_mist_small
+!SET_EMITTER 3 37 45 // terrain_mist_small
+!SET_EMITTER 3 40 45 // terrain_mist_small
+!SET_EMITTER 3 39 46 // terrain_mist_small
+!SET_EMITTER 3 43 46 // terrain_mist_small
+!SET_EMITTER 3 42 46 // terrain_mist_small
+!SET_EMITTER 3 43 45 // terrain_mist_small
+!SET_EMITTER 3 44 45 // terrain_mist_small
+!SET_EMITTER 3 47 46 // terrain_mist_small
+!SET_EMITTER 3 47 45 // terrain_mist_small
+!SET_EMITTER 3 46 46 // terrain_mist_small
+!SET_EMITTER 3 52 45 // terrain_mist_small
+!SET_EMITTER 3 54 45 // terrain_mist_small
+!SET_EMITTER 3 56 45 // terrain_mist_small
+!SET_EMITTER 3 56 46 // terrain_mist_small
+!SET_EMITTER 3 54 47 // terrain_mist_small
+!SET_EMITTER 3 52 46 // terrain_mist_small
+!SET_EMITTER 3 63 45 // terrain_mist_small
+!SET_EMITTER 3 61 46 // terrain_mist_small
+!SET_EMITTER 3 60 46 // terrain_mist_small
+!SET_EMITTER 3 59 45 // terrain_mist_small
+!SET_EMITTER 3 58 46 // terrain_mist_small
+!SET_EMITTER 3 57 46 // terrain_mist_small
+!SET_EMITTER 3 65 46 // terrain_mist_small
+!SET_EMITTER 3 63 46 // terrain_mist_small
+!SET_EMITTER 5 66 45 // terrain_mist_large
+!SET_EMITTER 5 67 45 // terrain_mist_large
+!SET_EMITTER 5 67 46 // terrain_mist_large
+!SET_EMITTER 5 66 47 // terrain_mist_large
+!SET_EMITTER 5 65 47 // terrain_mist_large
+!SET_EMITTER 5 64 44 // terrain_mist_large
+!SET_EMITTER 5 68 48 // terrain_mist_large
+!SET_EMITTER 5 70 48 // terrain_mist_large
+!SET_EMITTER 5 67 50 // terrain_mist_large
+!SET_EMITTER 3 58 41 // terrain_mist_small
+!SET_EMITTER 3 58 42 // terrain_mist_small
+!SET_EMITTER 3 43 42 // terrain_mist_small
+!SET_EMITTER 4 36 42 // terrain_mist_medium
+!SET_EMITTER 4 39 45 // terrain_mist_medium
+!SET_EMITTER 4 54 46 // terrain_mist_medium
+!SET_EMITTER 4 65 42 // terrain_mist_medium
+!SET_EMITTER 4 22 72 // terrain_mist_medium
+!SET_EMITTER 4 21 73 // terrain_mist_medium
+!SET_EMITTER 4 20 71 // terrain_mist_medium
+!SET_EMITTER 4 21 69 // terrain_mist_medium
+!SET_EMITTER 4 22 70 // terrain_mist_medium
+!SET_EMITTER 4 23 72 // terrain_mist_medium
+!SET_EMITTER 4 4 45 // terrain_mist_medium
+!SET_EMITTER 4 7 43 // terrain_mist_medium
+!SET_EMITTER 4 6 42 // terrain_mist_medium
+!SET_EMITTER 4 6 36 // terrain_mist_medium
+!SET_EMITTER 4 7 35 // terrain_mist_medium
+!SET_EMITTER 4 6 35 // terrain_mist_medium
+!SET_EMITTER 4 9 40 // terrain_mist_medium
+!SET_EMITTER 4 3 50 // terrain_mist_medium
+!SET_EMITTER 4 4 33 // terrain_mist_medium
+!SET_EMITTER 4 6 27 // terrain_mist_medium
+!SET_EMITTER 4 2 41 // terrain_mist_medium
+!SET_EMITTER 4 1 42 // terrain_mist_medium
+!SET_EMITTER 4 57 59 // terrain_mist_medium
+!SET_EMITTER 5 58 59 // terrain_mist_large
+!SET_EMITTER 3 57 60 // terrain_mist_small
+!SET_EMITTER 3 59 59 // terrain_mist_small
+
+// MapObjects
+!SET_MAPOBJECT 23 0 2 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 24 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 25 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 26 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 26 0 2 flag2 - - - 0 0
+!SET_MAPOBJECT 27 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 28 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 29 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 30 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 31 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 32 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 33 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 34 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 36 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 37 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 39 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 40 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 41 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 42 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 43 0 1 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 44 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 45 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 46 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 47 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 48 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 49 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 50 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 51 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 52 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 53 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 54 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 55 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 56 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 57 0 2 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 58 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 60 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 61 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 62 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 63 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 64 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 67 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 68 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 69 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 70 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 71 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 72 0 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 73 0 2 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 74 0 2 Stone_Wall5 - - - 0 0
+!SET_MAPOBJECT 26 1 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 31 1 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 34 1 0 shrub_3 - - - 0 0
+!SET_MAPOBJECT 35 1 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 38 1 2 flag2 - - - 0 0
+!SET_MAPOBJECT 48 1 2 flag2 - - - 0 0
+!SET_MAPOBJECT 50 1 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 54 1 2 flag2 - - - 0 0
+!SET_MAPOBJECT 64 1 2 flag2 - - - 0 0
+!SET_MAPOBJECT 68 1 2 flag2 - - - 0 0
+!SET_MAPOBJECT 28 2 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 29 2 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 31 2 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 33 2 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 44 2 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 50 2 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 54 2 0 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 56 2 3 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 92 2 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 27 3 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 29 3 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 44 3 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 49 3 2 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 50 3 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 55 3 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 56 3 1 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 57 3 0 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 61 3 3 shrub_3 - - - 0 0
+!SET_MAPOBJECT 29 4 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 30 4 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 88 4 2 pine3 - - - 0 0
+!SET_MAPOBJECT 90 4 3 pine2 - - - 0 0
+!SET_MAPOBJECT 91 4 0 pine3 - - - 0 0
+!SET_MAPOBJECT 28 5 1 Stone_Wall5 - - - 0 0
+!SET_MAPOBJECT 29 5 1 Stone_Tower2 - - - 0 0
+!SET_MAPOBJECT 29 5 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 70 5 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 88 5 0 pine1 - - - 0 0
+!SET_MAPOBJECT 89 5 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 90 5 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 6 0 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 17 6 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 18 6 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 19 6 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 20 6 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 21 6 0 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 28 6 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 6 1 chest_small - - - 0 0
+!SET_MAPOBJECT 67 6 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 85 6 2 boulder2 - - - 0 0
+!SET_MAPOBJECT 86 6 1 pine3 - - - 0 0
+!SET_MAPOBJECT 90 6 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 0 7 2 pine3 - - - 0 0
+!SET_MAPOBJECT 1 7 2 pine2 - - - 0 0
+!SET_MAPOBJECT 16 7 3 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 19 7 2 flag2 - - - 0 0
+!SET_MAPOBJECT 28 7 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 30 7 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 70 7 1 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 86 7 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 87 7 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 8 3 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 28 8 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 39 8 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 44 8 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 70 8 1 log2 - - - 0 0
+!SET_MAPOBJECT 71 8 1 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 86 8 1 pine2 - - - 0 0
+!SET_MAPOBJECT 87 8 0 pine3 - - - 0 0
+!SET_MAPOBJECT 1 9 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 9 3 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 16 9 3 flag2 - - - 0 0
+!SET_MAPOBJECT 27 9 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 28 9 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 50 9 1 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 50 9 3 flag2 - - - 0 0
+!SET_MAPOBJECT 70 9 0 tree_a_3 - - - 0 0
+!SET_MAPOBJECT 1 10 1 pine2 - - - 0 0
+!SET_MAPOBJECT 16 10 3 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 29 10 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 50 10 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 53 10 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 55 10 2 shrub_3 - - - 0 0
+!SET_MAPOBJECT 70 10 1 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 72 10 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 0 11 3 pine3 - - - 0 0
+!SET_MAPOBJECT 16 11 3 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 50 11 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 11 0 chest_small - - - 0 0
+!SET_MAPOBJECT 66 11 0 chest_small - - - 0 0
+!SET_MAPOBJECT 67 11 0 chest_small - - - 0 0
+!SET_MAPOBJECT 16 12 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 17 12 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 18 12 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 19 12 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 20 12 2 Stone_Wall6 - - - 0 0
+!SET_MAPOBJECT 21 12 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 25 12 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 29 12 3 conepine_2 - - - 0 0
+!SET_MAPOBJECT 50 12 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 12 3 flag1 - - - 0 0
+!SET_MAPOBJECT 24 13 2 Stone_Wall4 - - - 0 0
+!SET_MAPOBJECT 25 13 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 25 13 2 flag2 - - - 0 0
+!SET_MAPOBJECT 30 13 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 31 13 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 35 13 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 38 13 1 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 50 13 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 57 13 1 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 67 13 1 Grass2 - - - 0 0
+!SET_MAPOBJECT 68 13 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 25 14 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 27 14 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 38 14 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 50 14 3 Stone_Wall5 - - - 0 0
+!SET_MAPOBJECT 0 15 2 pine3 - - - 0 0
+!SET_MAPOBJECT 24 15 0 shrub_3 - - - 0 0
+!SET_MAPOBJECT 26 15 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 27 15 2 log2 - - - 0 0
+!SET_MAPOBJECT 37 15 3 Grass3 - - - 0 0
+!SET_MAPOBJECT 38 15 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 50 15 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 0 16 3 pine3 - - - 0 0
+!SET_MAPOBJECT 1 16 0 pine2 - - - 0 0
+!SET_MAPOBJECT 25 16 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 28 16 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 38 16 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 55 16 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 0 17 3 pine3 - - - 0 0
+!SET_MAPOBJECT 17 17 1 Stone_Tower2 - - - 0 0
+!SET_MAPOBJECT 23 17 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 33 17 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 38 17 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 51 17 0 table - - - 0 0
+!SET_MAPOBJECT 54 17 2 Stone_Tower1 - - - 0 0
+!SET_MAPOBJECT 55 17 2 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 73 17 2 boulder2 - - - 0 0
+!SET_MAPOBJECT 14 18 3 flag2 - - - 0 0
+!SET_MAPOBJECT 20 18 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 35 18 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 36 18 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 37 18 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 18 2 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 49 18 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 50 18 1 table - - - 0 0
+!SET_MAPOBJECT 51 18 2 fountain - - - 0 0
+!SET_MAPOBJECT 52 18 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 52 18 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 54 18 2 flag1 - - - 0 0
+!SET_MAPOBJECT 55 18 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 19 2 flag1 - - - 0 0
+!SET_MAPOBJECT 38 19 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 39 19 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 40 19 1 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 55 19 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 19 1 Stone_Tower2 - - - 0 0
+!SET_MAPOBJECT 61 19 2 Stone_Gate1 - - - 0 0
+!SET_MAPOBJECT 63 19 3 Stone_Tower2 - - - 0 0
+!SET_MAPOBJECT 17 20 3 Stone_Gate4 - - - 0 0
+!SET_MAPOBJECT 23 20 0 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 42 20 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 55 20 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 55 20 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 56 20 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 57 20 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 58 20 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 20 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 34 21 3 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 41 21 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 54 21 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 55 21 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 56 22 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 58 22 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 65 22 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 73 22 2 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 17 23 1 Stone_Tower2 - - - 0 0
+!SET_MAPOBJECT 44 23 1 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 49 23 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 70 23 0 boulder2 - - - 0 0
+!SET_MAPOBJECT 71 23 3 boulder2 - - - 0 0
+!SET_MAPOBJECT 72 23 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 15 24 3 flag2 - - - 0 0
+!SET_MAPOBJECT 20 24 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 21 24 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 22 24 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 28 24 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 44 24 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 45 24 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 46 24 2 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 21 25 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 27 25 1 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 28 25 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 29 25 1 flag2 - - - 0 0
+!SET_MAPOBJECT 46 25 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 47 25 2 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 49 25 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 50 25 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 27 26 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 29 26 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 42 26 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 46 26 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 47 26 2 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 47 26 2 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 48 26 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 49 26 2 log2 - - - 0 0
+!SET_MAPOBJECT 50 26 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 69 26 2 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 70 26 3 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 6 27 1 pine2 - - - 0 0
+!SET_MAPOBJECT 26 27 1 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 27 27 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 28 27 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 29 27 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 43 27 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 47 27 2 flag2 - - - 0 0
+!SET_MAPOBJECT 62 27 1 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 6 28 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 7 28 1 pine3 - - - 0 0
+!SET_MAPOBJECT 26 28 1 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 28 28 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 43 28 3 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 47 28 2 tree_a_stump - - - 0 0
+!SET_MAPOBJECT 53 28 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 17 29 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 22 29 3 birch_3 - - - 0 0
+!SET_MAPOBJECT 31 29 1 Catapult2 - - - 0 0
+!SET_MAPOBJECT 23 30 0 conepine_2 - - - 0 0
+!SET_MAPOBJECT 24 30 1 birch_3 - - - 0 0
+!SET_MAPOBJECT 36 30 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 58 30 1 Catapult2 - - - 0 0
+!SET_MAPOBJECT 35 31 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 40 31 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 3 32 1 pine3 - - - 0 0
+!SET_MAPOBJECT 16 32 1 conepine_1 - - - 0 0
+!SET_MAPOBJECT 31 32 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 39 32 3 conepine_2 - - - 0 0
+!SET_MAPOBJECT 40 32 2 conepine_2 - - - 0 0
+!SET_MAPOBJECT 41 32 0 conepine_1 - - - 0 0
+!SET_MAPOBJECT 14 33 3 fern_2 - - - 0 0
+!SET_MAPOBJECT 40 33 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 57 33 2 pine3 - - - 0 0
+!SET_MAPOBJECT 61 33 2 pine1 - - - 0 0
+!SET_MAPOBJECT 62 33 2 pine3 - - - 0 0
+!SET_MAPOBJECT 4 34 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 5 34 2 pine3 - - - 0 0
+!SET_MAPOBJECT 58 34 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 59 34 2 pine3 - - - 0 0
+!SET_MAPOBJECT 5 35 0 pine1 - - - 0 0
+!SET_MAPOBJECT 16 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 27 35 2 conepine_3 - - - 0 0
+!SET_MAPOBJECT 28 35 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 42 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 45 35 2 pine3 - - - 0 0
+!SET_MAPOBJECT 53 35 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 57 35 3 pine3 - - - 0 0
+!SET_MAPOBJECT 7 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 28 36 2 conepine_1 - - - 0 0
+!SET_MAPOBJECT 31 36 0 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 32 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 33 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 34 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 36 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 36 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 37 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 39 36 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 40 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 41 36 1 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 42 36 1 pine3 - - - 0 0
+!SET_MAPOBJECT 44 36 1 Stone_Wall5 - - - 0 0
+!SET_MAPOBJECT 44 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 53 36 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 54 36 3 Stone_Wall4 - - - 0 0
+!SET_MAPOBJECT 54 36 3 pine2 - - - 0 0
+!SET_MAPOBJECT 57 36 0 Stone_Tower4 - - - 0 0
+!SET_MAPOBJECT 57 36 2 pine3 - - - 0 0
+!SET_MAPOBJECT 58 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 36 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 60 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 61 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 62 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 63 36 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 64 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 36 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 36 1 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 6 37 3 pine3 - - - 0 0
+!SET_MAPOBJECT 7 37 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 8 37 0 pine2 - - - 0 0
+!SET_MAPOBJECT 19 37 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 31 37 0 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 32 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 33 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 34 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 36 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 37 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 39 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 40 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 41 37 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 44 37 0 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 45 37 1 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 53 37 0 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 54 37 3 Stone_Wall3b - - - 0 0
+!SET_MAPOBJECT 57 37 2 Stone_Wall4 - - - 0 0
+!SET_MAPOBJECT 57 37 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 58 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 60 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 61 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 62 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 63 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 64 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 37 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 37 3 Stone_Tower5 - - - 0 0
+!SET_MAPOBJECT 67 37 1 Stones5 - - - 0 0
+!SET_MAPOBJECT 68 37 1 pine3 - - - 0 0
+!SET_MAPOBJECT 17 38 0 pine3 - - - 0 0
+!SET_MAPOBJECT 31 38 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 33 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 37 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 41 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 44 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 45 38 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 53 38 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 54 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 57 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 61 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 65 38 2 flag1 - - - 0 0
+!SET_MAPOBJECT 66 38 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 69 38 1 Stones5 - - - 0 0
+!SET_MAPOBJECT 14 39 3 pine3 - - - 0 0
+!SET_MAPOBJECT 19 39 3 pine1 - - - 0 0
+!SET_MAPOBJECT 29 39 3 pine3 - - - 0 0
+!SET_MAPOBJECT 31 39 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 31 39 2 Stones3 - - - 0 0
+!SET_MAPOBJECT 45 39 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 53 39 3 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 39 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 68 39 3 Stones3 - - - 0 0
+!SET_MAPOBJECT 1 40 1 pine3 - - - 0 0
+!SET_MAPOBJECT 12 40 2 pine3 - - - 0 0
+!SET_MAPOBJECT 18 40 1 pine3 - - - 0 0
+!SET_MAPOBJECT 30 40 3 pine3 - - - 0 0
+!SET_MAPOBJECT 31 40 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 32 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 33 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 34 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 36 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 37 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 39 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 40 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 41 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 42 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 43 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 44 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 45 40 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 53 40 3 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 54 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 55 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 56 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 57 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 58 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 59 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 60 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 61 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 62 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 63 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 64 40 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 40 1 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 40 2 Stone_Wall3 - - - 0 0
+!SET_MAPOBJECT 69 40 1 boulder2 - - - 0 0
+!SET_MAPOBJECT 1 41 2 pine1 - - - 0 0
+!SET_MAPOBJECT 9 41 0 pine3 - - - 0 0
+!SET_MAPOBJECT 10 41 0 pine1 - - - 0 0
+!SET_MAPOBJECT 13 41 3 pine1 - - - 0 0
+!SET_MAPOBJECT 22 41 3 fern_2 - - - 0 0
+!SET_MAPOBJECT 33 41 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 34 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 35 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 36 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 37 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 38 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 39 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 40 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 41 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 42 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 43 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 44 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 45 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 46 41 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 49 41 2 Stone_Gate4 - - - 0 0
+!SET_MAPOBJECT 52 41 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 53 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 54 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 55 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 56 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 57 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 58 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 59 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 60 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 61 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 62 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 63 41 2 Stone_Wall2 - - - 0 0
+!SET_MAPOBJECT 64 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 65 41 2 Stone_Wall1 - - - 0 0
+!SET_MAPOBJECT 66 41 2 Stone_Tower6 - - - 0 0
+!SET_MAPOBJECT 69 41 3 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 2 42 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 42 2 pine3 - - - 0 0
+!SET_MAPOBJECT 14 42 3 fern_2 - - - 0 0
+!SET_MAPOBJECT 24 42 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 36 42 2 flag2 - - - 0 0
+!SET_MAPOBJECT 39 42 2 Tortur_Gallows2 - - - 0 0
+!SET_MAPOBJECT 41 42 2 Tortur_Gallows2 - - - 0 0
+!SET_MAPOBJECT 43 42 2 flag2 - - - 0 0
+!SET_MAPOBJECT 54 42 0 Tortur_Guillotine - - - 0 0
+!SET_MAPOBJECT 55 42 2 flag2 - - - 0 0
+!SET_MAPOBJECT 56 42 3 pine1 - - - 0 0
+!SET_MAPOBJECT 58 42 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 59 42 0 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 63 42 0 Tortur_Pillory - - - 0 0
+!SET_MAPOBJECT 63 42 2 flag2 - - - 0 0
+!SET_MAPOBJECT 64 42 0 Tortur_Pillory - - - 0 0
+!SET_MAPOBJECT 1 43 2 pine3 - - - 0 0
+!SET_MAPOBJECT 6 43 3 pine3 - - - 0 0
+!SET_MAPOBJECT 16 43 2 pine3 - - - 0 0
+!SET_MAPOBJECT 23 43 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 25 43 3 pine2 - - - 0 0
+!SET_MAPOBJECT 32 43 3 pine3 - - - 0 0
+!SET_MAPOBJECT 34 43 3 pine1 - - - 0 0
+!SET_MAPOBJECT 35 43 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 36 43 2 pine3 - - - 0 0
+!SET_MAPOBJECT 37 43 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 39 43 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 43 43 1 pine3 - - - 0 0
+!SET_MAPOBJECT 44 43 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 56 43 2 Grass5 - - - 0 0
+!SET_MAPOBJECT 57 43 3 Grass5 - - - 0 0
+!SET_MAPOBJECT 58 43 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 59 43 3 Stones2 - - - 0 0
+!SET_MAPOBJECT 6 44 3 pine3 - - - 0 0
+!SET_MAPOBJECT 7 44 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 18 44 0 pine3 - - - 0 0
+!SET_MAPOBJECT 25 44 3 pine3 - - - 0 0
+!SET_MAPOBJECT 37 44 1 pine1 - - - 0 0
+!SET_MAPOBJECT 43 44 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 47 44 0 Stone_Tower3 - - - 0 0
+!SET_MAPOBJECT 51 44 0 Stone_Tower3 - - - 0 0
+!SET_MAPOBJECT 52 44 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 54 44 1 Stones1 - - - 0 0
+!SET_MAPOBJECT 55 44 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 59 44 3 deadtree_4 - - - 0 0
+!SET_MAPOBJECT 60 44 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 62 44 1 Stones1 - - - 0 0
+!SET_MAPOBJECT 63 44 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 65 44 0 pine3 - - - 0 0
+!SET_MAPOBJECT 7 45 0 pine2 - - - 0 0
+!SET_MAPOBJECT 16 45 2 pine3 - - - 0 0
+!SET_MAPOBJECT 17 45 2 pine3 - - - 0 0
+!SET_MAPOBJECT 18 45 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 19 45 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 24 45 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 33 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 34 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 35 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 36 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 37 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 37 45 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 38 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 39 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 40 45 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 41 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 41 45 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 42 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 43 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 43 45 2 Stones1 - - - 0 0
+!SET_MAPOBJECT 44 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 44 45 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 45 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 46 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 47 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 48 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 49 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 50 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 50 45 0 Stone_Gate3a - - - 0 0
+!SET_MAPOBJECT 51 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 52 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 53 45 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 54 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 54 45 1 deadtree_4 - - - 0 0
+!SET_MAPOBJECT 55 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 55 45 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 56 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 56 45 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 57 45 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 58 45 3 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 58 45 2 pine1 - - - 0 0
+!SET_MAPOBJECT 59 45 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 59 45 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 60 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 61 45 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 62 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 63 45 2 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 64 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 64 45 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 65 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 65 45 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 66 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 66 45 1 Grass5 - - - 0 0
+!SET_MAPOBJECT 67 45 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 71 45 0 Stones5 - - - 0 0
+!SET_MAPOBJECT 5 46 0 pine3 - - - 0 0
+!SET_MAPOBJECT 18 46 3 pine1 - - - 0 0
+!SET_MAPOBJECT 33 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 33 46 0 Stones5 - - - 0 0
+!SET_MAPOBJECT 34 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 35 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 36 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 37 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 38 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 38 46 1 Stones1 - - - 0 0
+!SET_MAPOBJECT 39 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 40 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 41 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 41 46 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 42 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 42 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 43 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 43 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 44 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 45 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 45 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 46 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 46 46 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 47 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 47 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 48 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 48 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 49 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 50 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 51 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 52 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 52 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 53 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 54 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 54 46 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 55 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 56 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 56 46 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 57 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 57 46 3 Stones2 - - - 0 0
+!SET_MAPOBJECT 58 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 58 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 59 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 59 46 3 Stones2 - - - 0 0
+!SET_MAPOBJECT 60 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 60 46 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 61 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 61 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 62 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 62 46 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 63 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 64 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 64 46 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 65 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 65 46 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 66 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 67 46 1 Moat - - - 0 0
+!SET_MAPOBJECT 68 46 0 Stones5 - - - 0 0
+!SET_MAPOBJECT 69 46 1 Stones5 - - - 0 0
+!SET_MAPOBJECT 27 47 3 pine2 - - - 0 0
+!SET_MAPOBJECT 35 47 0 pine3 - - - 0 0
+!SET_MAPOBJECT 36 47 1 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 38 47 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 39 47 3 Stones1 - - - 0 0
+!SET_MAPOBJECT 44 47 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 53 47 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 66 47 3 pine3 - - - 0 0
+!SET_MAPOBJECT 67 47 3 pine3 - - - 0 0
+!SET_MAPOBJECT 24 48 1 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 35 48 2 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 37 48 0 pine1 - - - 0 0
+!SET_MAPOBJECT 40 48 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 45 48 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 46 48 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 54 48 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 56 48 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 57 48 1 Grass5 - - - 0 0
+!SET_MAPOBJECT 65 48 3 pine3 - - - 0 0
+!SET_MAPOBJECT 24 49 3 pine2 - - - 0 0
+!SET_MAPOBJECT 26 49 2 pine3 - - - 0 0
+!SET_MAPOBJECT 35 49 1 Grass5 - - - 0 0
+!SET_MAPOBJECT 36 49 0 bars_corner - - - 0 0
+!SET_MAPOBJECT 37 49 0 bars_1 - - - 0 0
+!SET_MAPOBJECT 38 49 0 bars_1 - - - 0 0
+!SET_MAPOBJECT 39 49 1 bars_corner - - - 0 0
+!SET_MAPOBJECT 42 49 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 46 49 0 Stones2 - - - 0 0
+!SET_MAPOBJECT 60 49 0 bars_corner - - - 0 0
+!SET_MAPOBJECT 61 49 2 bars_1 - - - 0 0
+!SET_MAPOBJECT 62 49 2 bars_1 - - - 0 0
+!SET_MAPOBJECT 63 49 1 bars_corner - - - 0 0
+!SET_MAPOBJECT 65 49 1 Grass4 - - - 0 0
+!SET_MAPOBJECT 67 49 3 pine3 - - - 0 0
+!SET_MAPOBJECT 3 50 2 pine1 - - - 0 0
+!SET_MAPOBJECT 23 50 3 pine3 - - - 0 0
+!SET_MAPOBJECT 24 50 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 25 50 1 pine3 - - - 0 0
+!SET_MAPOBJECT 26 50 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 27 50 2 pine3 - - - 0 0
+!SET_MAPOBJECT 36 50 1 bars_1 - - - 0 0
+!SET_MAPOBJECT 36 50 3 deadtree_4 - - - 0 0
+!SET_MAPOBJECT 39 50 1 bars_1 - - - 0 0
+!SET_MAPOBJECT 40 50 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 41 50 2 Grass4 - - - 0 0
+!SET_MAPOBJECT 42 50 0 Stones1 - - - 0 0
+!SET_MAPOBJECT 43 50 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 53 50 0 Stones1 - - - 0 0
+!SET_MAPOBJECT 54 50 3 Grass4 - - - 0 0
+!SET_MAPOBJECT 55 50 2 Grass4 - - - 0 0
+!SET_MAPOBJECT 56 50 2 Stones2 - - - 0 0
+!SET_MAPOBJECT 57 50 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 60 50 3 bars_1 - - - 0 0
+!SET_MAPOBJECT 63 50 1 bars_1 - - - 0 0
+!SET_MAPOBJECT 65 50 1 Grass5 - - - 0 0
+!SET_MAPOBJECT 3 51 2 pine2 - - - 0 0
+!SET_MAPOBJECT 7 51 0 pine3 - - - 0 0
+!SET_MAPOBJECT 25 51 3 pine2 - - - 0 0
+!SET_MAPOBJECT 36 51 3 bars_1 - - - 0 0
+!SET_MAPOBJECT 39 51 3 bars_1 - - - 0 0
+!SET_MAPOBJECT 48 51 3 Grass4 - - - 0 0
+!SET_MAPOBJECT 53 51 2 Stones1 - - - 0 0
+!SET_MAPOBJECT 57 51 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 60 51 1 bars_1 - - - 0 0
+!SET_MAPOBJECT 63 51 1 bars_1 - - - 0 0
+!SET_MAPOBJECT 64 51 1 Stones2 - - - 0 0
+!SET_MAPOBJECT 8 52 0 pine2 - - - 0 0
+!SET_MAPOBJECT 15 52 3 pine1 - - - 0 0
+!SET_MAPOBJECT 16 52 0 pine1 - - - 0 0
+!SET_MAPOBJECT 17 52 1 pine1 - - - 0 0
+!SET_MAPOBJECT 36 52 3 bars_corner - - - 0 0
+!SET_MAPOBJECT 37 52 2 bars_1 - - - 0 0
+!SET_MAPOBJECT 38 52 2 bars_door - - - 0 0
+!SET_MAPOBJECT 39 52 2 bars_corner - - - 0 0
+!SET_MAPOBJECT 48 52 2 Grass4 - - - 0 0
+!SET_MAPOBJECT 54 52 1 pine2 - - - 0 0
+!SET_MAPOBJECT 55 52 1 pine1 - - - 0 0
+!SET_MAPOBJECT 60 52 3 bars_corner - - - 0 0
+!SET_MAPOBJECT 61 52 2 bars_door - - - 0 0
+!SET_MAPOBJECT 62 52 0 bars_1 - - - 0 0
+!SET_MAPOBJECT 63 52 2 bars_corner - - - 0 0
+!SET_MAPOBJECT 66 52 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 5 53 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 5 53 0 pine1 - - - 0 0
+!SET_MAPOBJECT 6 53 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 53 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 14 53 1 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 15 53 3 fern_2 - - - 0 0
+!SET_MAPOBJECT 16 53 0 pine3 - - - 0 0
+!SET_MAPOBJECT 35 53 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 54 53 0 pine1 - - - 0 0
+!SET_MAPOBJECT 59 53 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 3 54 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 5 54 2 pine3 - - - 0 0
+!SET_MAPOBJECT 13 54 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 54 3 pine2 - - - 0 0
+!SET_MAPOBJECT 17 54 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 18 54 3 pine3 - - - 0 0
+!SET_MAPOBJECT 19 54 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 34 54 0 Grass2 - - - 0 0
+!SET_MAPOBJECT 35 54 1 Grass2 - - - 0 0
+!SET_MAPOBJECT 39 54 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 43 54 3 pine1 - - - 0 0
+!SET_MAPOBJECT 44 54 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 13 55 3 pine1 - - - 0 0
+!SET_MAPOBJECT 15 55 2 pine2 - - - 0 0
+!SET_MAPOBJECT 16 55 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 17 55 0 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 35 55 3 pine3 - - - 0 0
+!SET_MAPOBJECT 36 55 3 pine1 - - - 0 0
+!SET_MAPOBJECT 53 55 0 Grass1 - - - 0 0
+!SET_MAPOBJECT 60 55 3 Grass2 - - - 0 0
+!SET_MAPOBJECT 2 56 3 fern_2 - - - 0 0
+!SET_MAPOBJECT 3 56 1 fern_2 - - - 0 0
+!SET_MAPOBJECT 13 56 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 14 56 3 pine2 - - - 0 0
+!SET_MAPOBJECT 17 56 3 pine2 - - - 0 0
+!SET_MAPOBJECT 18 56 0 pine3 - - - 0 0
+!SET_MAPOBJECT 19 56 0 pine1 - - - 0 0
+!SET_MAPOBJECT 32 56 1 Stone_Tower1 - - - 0 0
+!SET_MAPOBJECT 41 56 3 pine3 - - - 0 0
+!SET_MAPOBJECT 46 56 3 Grass2 - - - 0 0
+!SET_MAPOBJECT 47 56 3 Stone_Tower1 - - - 0 0
+!SET_MAPOBJECT 48 56 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 49 56 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 50 56 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 51 56 1 Stone_Tower1 - - - 0 0
+!SET_MAPOBJECT 55 56 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 60 56 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 66 56 3 Stone_Tower1 - - - 0 0
+!SET_MAPOBJECT 74 56 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 14 57 3 pine1 - - - 0 0
+!SET_MAPOBJECT 15 57 2 pine3 - - - 0 0
+!SET_MAPOBJECT 16 57 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 17 57 1 pine1 - - - 0 0
+!SET_MAPOBJECT 39 57 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 42 57 3 Grass2 - - - 0 0
+!SET_MAPOBJECT 46 57 3 Grass3 - - - 0 0
+!SET_MAPOBJECT 47 57 1 moat_support - - - 0 0
+!SET_MAPOBJECT 47 57 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 48 57 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 49 57 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 50 57 0 Stone_Gate3a - - - 0 0
+!SET_MAPOBJECT 51 57 3 moat_support - - - 0 0
+!SET_MAPOBJECT 52 57 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 52 57 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 59 57 3 deadtree_4 - - - 0 0
+!SET_MAPOBJECT 60 57 0 log2 - - - 0 0
+!SET_MAPOBJECT 73 57 1 pine2 - - - 0 0
+!SET_MAPOBJECT 74 57 2 pine1 - - - 0 0
+!SET_MAPOBJECT 76 57 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 77 57 0 reed2 - - - 0 0
+!SET_MAPOBJECT 78 57 0 reed2 - - - 0 0
+!SET_MAPOBJECT 3 58 3 pine3 - - - 0 0
+!SET_MAPOBJECT 4 58 0 pine1 - - - 0 0
+!SET_MAPOBJECT 8 58 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 14 58 2 fern_2 - - - 0 0
+!SET_MAPOBJECT 43 58 1 deadtree_4 - - - 0 0
+!SET_MAPOBJECT 47 58 3 Grass2 - - - 0 0
+!SET_MAPOBJECT 52 58 0 Grass2 - - - 0 0
+!SET_MAPOBJECT 72 58 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 73 58 2 pine3 - - - 0 0
+!SET_MAPOBJECT 77 58 2 reed2 - - - 0 0
+!SET_MAPOBJECT 77 58 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 78 58 3 reed2 - - - 0 0
+!SET_MAPOBJECT 1 59 0 log2 - - - 0 0
+!SET_MAPOBJECT 3 59 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 4 59 3 pine2 - - - 0 0
+!SET_MAPOBJECT 8 59 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 58 59 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 70 59 3 pine2 - - - 0 0
+!SET_MAPOBJECT 72 59 3 pine2 - - - 0 0
+!SET_MAPOBJECT 73 59 2 log2 - - - 0 0
+!SET_MAPOBJECT 74 59 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 1 60 3 pine3 - - - 0 0
+!SET_MAPOBJECT 23 60 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 24 60 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 26 60 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 58 60 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 58 60 2 Grass1 - - - 0 0
+!SET_MAPOBJECT 59 60 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 59 60 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 60 60 1 Grass2 - - - 0 0
+!SET_MAPOBJECT 61 60 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 65 60 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 71 60 1 pine3 - - - 0 0
+!SET_MAPOBJECT 72 60 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 73 60 1 pine1 - - - 0 0
+!SET_MAPOBJECT 74 60 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 75 60 1 pine2 - - - 0 0
+!SET_MAPOBJECT 76 60 2 pine2 - - - 0 0
+!SET_MAPOBJECT 88 60 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 94 60 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 3 61 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 39 61 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 54 61 0 shrub_2 - - - 0 0
+!SET_MAPOBJECT 57 61 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 58 61 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 59 61 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 59 61 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 61 61 2 Grass1 - - - 0 0
+!SET_MAPOBJECT 70 61 0 pine2 - - - 0 0
+!SET_MAPOBJECT 71 61 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 75 61 1 pine1 - - - 0 0
+!SET_MAPOBJECT 80 61 0 boulder - - - 0 0
+!SET_MAPOBJECT 81 61 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 81 61 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 87 61 2 boulder - - - 0 0
+!SET_MAPOBJECT 88 61 1 boulder - - - 0 0
+!SET_MAPOBJECT 88 61 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 89 61 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 94 61 3 shrub_2 - - - 0 0
+!SET_MAPOBJECT 6 62 1 fern_2 - - - 0 0
+!SET_MAPOBJECT 32 62 3 pine1 - - - 0 0
+!SET_MAPOBJECT 33 62 3 pine2 - - - 0 0
+!SET_MAPOBJECT 37 62 3 fern_1 - - - 0 0
+!SET_MAPOBJECT 38 62 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 39 62 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 58 62 1 Grass2 - - - 0 0
+!SET_MAPOBJECT 59 62 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 80 62 3 reed2 - - - 0 0
+!SET_MAPOBJECT 81 62 0 boulder - - - 0 0
+!SET_MAPOBJECT 81 62 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 82 62 0 reed2 - - - 0 0
+!SET_MAPOBJECT 88 62 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 89 62 3 boulder - - - 0 0
+!SET_MAPOBJECT 94 62 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 1 63 3 pine3 - - - 0 0
+!SET_MAPOBJECT 2 63 0 pine1 - - - 0 0
+!SET_MAPOBJECT 33 63 3 pine1 - - - 0 0
+!SET_MAPOBJECT 39 63 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 59 63 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 82 63 2 Grass5 - - - 0 0
+!SET_MAPOBJECT 84 63 3 Grass5 - - - 0 0
+!SET_MAPOBJECT 87 63 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 88 63 0 reed2 - - - 0 0
+!SET_MAPOBJECT 91 63 2 shrub_2 - - - 0 0
+!SET_MAPOBJECT 91 63 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 93 63 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 1 64 3 pine1 - - - 0 0
+!SET_MAPOBJECT 39 64 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 39 64 0 birch_3 - - - 0 0
+!SET_MAPOBJECT 42 64 3 pine3 - - - 0 0
+!SET_MAPOBJECT 43 64 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 59 64 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 84 64 0 Grass4 - - - 0 0
+!SET_MAPOBJECT 85 64 2 Grass5 - - - 0 0
+!SET_MAPOBJECT 88 64 1 reed2 - - - 0 0
+!SET_MAPOBJECT 90 64 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 94 64 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 39 65 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 41 65 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 42 65 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 42 65 3 pine1 - - - 0 0
+!SET_MAPOBJECT 43 65 3 pine3 - - - 0 0
+!SET_MAPOBJECT 44 65 3 pine2 - - - 0 0
+!SET_MAPOBJECT 59 65 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 80 65 1 boulder - - - 0 0
+!SET_MAPOBJECT 82 65 2 Grass5 - - - 0 0
+!SET_MAPOBJECT 83 65 2 reed2 - - - 0 0
+!SET_MAPOBJECT 84 65 0 Grass5 - - - 0 0
+!SET_MAPOBJECT 88 65 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 89 65 3 boulder - - - 0 0
+!SET_MAPOBJECT 89 65 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 90 65 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 91 65 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 92 65 3 shrub_2 - - - 0 0
+!SET_MAPOBJECT 92 65 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 24 66 2 fern_2 - - - 0 0
+!SET_MAPOBJECT 39 66 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 44 66 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 59 66 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 63 66 3 pine3 - - - 0 0
+!SET_MAPOBJECT 65 66 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 66 66 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 70 66 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 80 66 1 boulder - - - 0 0
+!SET_MAPOBJECT 80 66 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 84 66 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 85 66 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 89 66 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 91 66 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 22 67 2 Grass1 - - - 0 0
+!SET_MAPOBJECT 24 67 3 fern_1 - - - 0 0
+!SET_MAPOBJECT 25 67 0 Grass2 - - - 0 0
+!SET_MAPOBJECT 34 67 2 pine1 - - - 0 0
+!SET_MAPOBJECT 39 67 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 43 67 3 pine3 - - - 0 0
+!SET_MAPOBJECT 59 67 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 63 67 2 log2 - - - 0 0
+!SET_MAPOBJECT 64 67 3 pine1 - - - 0 0
+!SET_MAPOBJECT 66 67 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 83 67 1 reed2 - - - 0 0
+!SET_MAPOBJECT 84 67 2 reed2 - - - 0 0
+!SET_MAPOBJECT 84 67 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 87 67 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 91 67 0 conepine_3 - - - 0 0
+!SET_MAPOBJECT 92 67 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 25 68 3 pine3 - - - 0 0
+!SET_MAPOBJECT 28 68 2 pine2 - - - 0 0
+!SET_MAPOBJECT 32 68 3 pine1 - - - 0 0
+!SET_MAPOBJECT 39 68 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 57 68 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 59 68 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 76 68 2 pine1 - - - 0 0
+!SET_MAPOBJECT 83 68 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 84 68 3 boulder - - - 0 0
+!SET_MAPOBJECT 86 68 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 21 69 3 pine1 - - - 0 0
+!SET_MAPOBJECT 23 69 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 25 69 0 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 26 69 3 pine2 - - - 0 0
+!SET_MAPOBJECT 27 69 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 34 69 3 pine2 - - - 0 0
+!SET_MAPOBJECT 39 69 2 Border_cones - - - 0 0
+!SET_MAPOBJECT 59 69 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 76 69 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 77 69 2 pine3 - - - 0 0
+!SET_MAPOBJECT 78 69 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 78 69 1 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 83 69 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 84 69 0 boulder - - - 0 0
+!SET_MAPOBJECT 84 69 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 85 69 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 85 69 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 89 69 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 20 70 0 Grass2 - - - 0 0
+!SET_MAPOBJECT 21 70 3 Grass3 - - - 0 0
+!SET_MAPOBJECT 23 70 1 Grass1 - - - 0 0
+!SET_MAPOBJECT 34 70 1 pine3 - - - 0 0
+!SET_MAPOBJECT 37 70 0 pine1 - - - 0 0
+!SET_MAPOBJECT 39 70 3 Border_cones - - - 0 0
+!SET_MAPOBJECT 57 70 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 76 70 3 pine2 - - - 0 0
+!SET_MAPOBJECT 77 70 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 78 70 2 pine1 - - - 0 0
+!SET_MAPOBJECT 84 70 1 boulder4 - - - 0 0
+!SET_MAPOBJECT 84 70 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 91 70 0 shrub_2 - - - 0 0
+!SET_MAPOBJECT 20 71 3 pine1 - - - 0 0
+!SET_MAPOBJECT 21 71 3 pine2 - - - 0 0
+!SET_MAPOBJECT 23 71 1 Grass2 - - - 0 0
+!SET_MAPOBJECT 35 71 0 pine1 - - - 0 0
+!SET_MAPOBJECT 39 71 0 Border_cones - - - 0 0
+!SET_MAPOBJECT 40 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 40 71 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 41 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 42 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 43 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 44 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 45 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 46 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 47 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 48 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 49 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 50 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 51 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 52 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 53 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 54 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 55 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 56 71 1 Border_cones - - - 0 0
+!SET_MAPOBJECT 71 71 3 boulder4 - - - 0 0
+!SET_MAPOBJECT 83 71 1 shrub_1 - - - 0 0
+!SET_MAPOBJECT 84 71 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 93 71 3 conepine_2 - - - 0 0
+!SET_MAPOBJECT 94 71 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 12 72 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 21 72 2 reed2 - - - 0 0
+!SET_MAPOBJECT 22 72 0 conepine_stump - - - 0 0
+!SET_MAPOBJECT 23 72 3 pine3 - - - 0 0
+!SET_MAPOBJECT 24 72 3 pine1 - - - 0 0
+!SET_MAPOBJECT 36 72 2 pine3 - - - 0 0
+!SET_MAPOBJECT 37 72 0 pine2 - - - 0 0
+!SET_MAPOBJECT 40 72 2 pine1 - - - 0 0
+!SET_MAPOBJECT 70 72 0 pine2 - - - 0 0
+!SET_MAPOBJECT 80 72 1 pine2 - - - 0 0
+!SET_MAPOBJECT 85 72 1 conepine_3 - - - 0 0
+!SET_MAPOBJECT 91 72 1 shrub_2 - - - 0 0
+!SET_MAPOBJECT 92 72 3 conepine_1 - - - 0 0
+!SET_MAPOBJECT 93 72 2 birch_1 - - - 0 0
+!SET_MAPOBJECT 11 73 1 boulder3 - - - 0 0
+!SET_MAPOBJECT 12 73 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 21 73 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 23 73 2 boulder3 - - - 0 0
+!SET_MAPOBJECT 23 73 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 24 73 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 39 73 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 39 73 1 log - - - 0 0
+!SET_MAPOBJECT 40 73 2 pine3 - - - 0 0
+!SET_MAPOBJECT 64 73 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 70 73 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 79 73 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 80 73 3 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 85 73 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 85 73 1 conepine_2 - - - 0 0
+!SET_MAPOBJECT 90 73 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 92 73 3 conepine_3 - - - 0 0
+!SET_MAPOBJECT 22 74 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 23 74 3 pine2 - - - 0 0
+!SET_MAPOBJECT 25 74 2 fern_2 - - - 0 0
+!SET_MAPOBJECT 39 74 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 40 74 0 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 41 74 1 Blank_Blockade - - - 0 0
+!SET_MAPOBJECT 64 74 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 71 74 3 pine3 - - - 0 0
+!SET_MAPOBJECT 78 74 3 pine3 - - - 0 0
+!SET_MAPOBJECT 79 74 3 pine3 - - - 0 0
+!SET_MAPOBJECT 80 74 1 pine1 - - - 0 0
+!SET_MAPOBJECT 81 74 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 8 75 3 pine2 - - - 0 0
+!SET_MAPOBJECT 22 75 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 23 75 0 Grass1 - - - 0 0
+!SET_MAPOBJECT 70 75 2 pine2 - - - 0 0
+!SET_MAPOBJECT 71 75 3 pine1 - - - 0 0
+!SET_MAPOBJECT 72 75 1 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 76 75 1 pine3 - - - 0 0
+!SET_MAPOBJECT 77 75 2 pine1 - - - 0 0
+!SET_MAPOBJECT 78 75 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 79 75 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 6 76 3 pine3 - - - 0 0
+!SET_MAPOBJECT 7 76 2 pine2 - - - 0 0
+!SET_MAPOBJECT 21 76 1 Grass1 - - - 0 0
+!SET_MAPOBJECT 71 76 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 72 76 0 pine1 - - - 0 0
+!SET_MAPOBJECT 74 76 3 pine3 - - - 0 0
+!SET_MAPOBJECT 75 76 0 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 77 76 3 log2 - - - 0 0
+!SET_MAPOBJECT 78 76 3 pine2 - - - 0 0
+!SET_MAPOBJECT 6 77 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 11 77 3 log2 - - - 0 0
+!SET_MAPOBJECT 21 77 3 fern_1 - - - 0 0
+!SET_MAPOBJECT 34 77 0 pine2 - - - 0 0
+!SET_MAPOBJECT 53 77 0 pine2 - - - 0 0
+!SET_MAPOBJECT 73 77 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 75 77 0 pine1 - - - 0 0
+!SET_MAPOBJECT 76 77 1 pine2 - - - 0 0
+!SET_MAPOBJECT 5 78 3 pine2 - - - 0 0
+!SET_MAPOBJECT 6 78 3 pine1 - - - 0 0
+!SET_MAPOBJECT 32 78 0 pine3 - - - 0 0
+!SET_MAPOBJECT 33 78 1 pine3 - - - 0 0
+!SET_MAPOBJECT 51 78 0 pine1 - - - 0 0
+!SET_MAPOBJECT 74 78 2 pine3 - - - 0 0
+!SET_MAPOBJECT 75 78 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 0 79 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 4 79 2 shrub_2 - - - 0 0
+!SET_MAPOBJECT 5 79 3 pine1 - - - 0 0
+!SET_MAPOBJECT 34 79 1 fern_1 - - - 0 0
+!SET_MAPOBJECT 35 79 3 pine3 - - - 0 0
+!SET_MAPOBJECT 52 79 2 pine3 - - - 0 0
+!SET_MAPOBJECT 54 79 3 pine3 - - - 0 0
+!SET_MAPOBJECT 56 79 0 pine2 - - - 0 0
+!SET_MAPOBJECT 2 80 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 30 80 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 35 80 2 log2 - - - 0 0
+!SET_MAPOBJECT 36 80 1 pine1 - - - 0 0
+!SET_MAPOBJECT 37 80 1 fern_1 - - - 0 0
+!SET_MAPOBJECT 53 80 2 pine1 - - - 0 0
+!SET_MAPOBJECT 54 80 1 pine2 - - - 0 0
+!SET_MAPOBJECT 55 80 1 pine3 - - - 0 0
+!SET_MAPOBJECT 56 80 0 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 57 80 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 2 81 2 pine1 - - - 0 0
+!SET_MAPOBJECT 30 81 0 pine3 - - - 0 0
+!SET_MAPOBJECT 34 81 2 pine3 - - - 0 0
+!SET_MAPOBJECT 37 81 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 52 81 2 pine3 - - - 0 0
+!SET_MAPOBJECT 53 81 1 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 54 81 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 55 81 1 log2 - - - 0 0
+!SET_MAPOBJECT 56 81 3 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 59 81 3 pine3 - - - 0 0
+!SET_MAPOBJECT 60 81 0 pine1 - - - 0 0
+!SET_MAPOBJECT 61 81 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 1 82 1 pine3 - - - 0 0
+!SET_MAPOBJECT 2 82 2 pine1 - - - 0 0
+!SET_MAPOBJECT 27 82 1 pine2 - - - 0 0
+!SET_MAPOBJECT 28 82 2 pine3 - - - 0 0
+!SET_MAPOBJECT 33 82 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 33 82 1 pine3 - - - 0 0
+!SET_MAPOBJECT 34 82 0 pine2 - - - 0 0
+!SET_MAPOBJECT 43 82 0 fern_1 - - - 0 0
+!SET_MAPOBJECT 47 82 3 shrub_1 - - - 0 0
+!SET_MAPOBJECT 54 82 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 55 82 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 56 82 3 log - - - 0 0
+!SET_MAPOBJECT 57 82 0 pine3 - - - 0 0
+!SET_MAPOBJECT 59 82 0 log - - - 0 0
+!SET_MAPOBJECT 62 82 3 pine3 - - - 0 0
+!SET_MAPOBJECT 1 83 0 boulder3 - - - 0 0
+!SET_MAPOBJECT 19 83 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 21 83 0 shrub_1 - - - 0 0
+!SET_MAPOBJECT 28 83 2 pine3 - - - 0 0
+!SET_MAPOBJECT 30 83 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 54 83 2 pine3 - - - 0 0
+!SET_MAPOBJECT 57 83 1 pine2 - - - 0 0
+!SET_MAPOBJECT 58 83 0 log2 - - - 0 0
+!SET_MAPOBJECT 62 83 1 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 63 83 3 pine1 - - - 0 0
+!SET_MAPOBJECT 0 84 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 1 84 2 pine1 - - - 0 0
+!SET_MAPOBJECT 12 84 2 pine1 - - - 0 0
+!SET_MAPOBJECT 31 84 1 pine3 - - - 0 0
+!SET_MAPOBJECT 32 84 2 pine2 - - - 0 0
+!SET_MAPOBJECT 33 84 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 40 84 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 41 84 1 pine1 - - - 0 0
+!SET_MAPOBJECT 42 84 2 pine3 - - - 0 0
+!SET_MAPOBJECT 56 84 2 pine3 - - - 0 0
+!SET_MAPOBJECT 57 84 0 Grass3 - - - 0 0
+!SET_MAPOBJECT 59 84 0 pine3 - - - 0 0
+!SET_MAPOBJECT 64 84 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 13 85 3 pine2 - - - 0 0
+!SET_MAPOBJECT 18 85 3 pine2 - - - 0 0
+!SET_MAPOBJECT 31 85 3 pine1 - - - 0 0
+!SET_MAPOBJECT 32 85 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 41 85 3 pine2 - - - 0 0
+!SET_MAPOBJECT 43 85 0 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 53 85 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 54 85 0 pine3 - - - 0 0
+!SET_MAPOBJECT 56 85 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 60 85 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 61 85 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 1 86 1 pine3 - - - 0 0
+!SET_MAPOBJECT 14 86 3 pine1 - - - 0 0
+!SET_MAPOBJECT 15 86 3 pine1 - - - 0 0
+!SET_MAPOBJECT 16 86 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 17 86 3 pine1 - - - 0 0
+!SET_MAPOBJECT 42 86 1 pine3 - - - 0 0
+!SET_MAPOBJECT 46 86 0 rock_2 - - - 0 0
+!SET_MAPOBJECT 55 86 2 pine2 - - - 0 0
+!SET_MAPOBJECT 56 86 3 pine3 - - - 0 0
+!SET_MAPOBJECT 61 86 3 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 62 86 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 63 86 3 pine2 - - - 0 0
+!SET_MAPOBJECT 70 86 2 boulder - - - 0 0
+!SET_MAPOBJECT 71 86 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 87 86 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 15 87 0 pine3 - - - 0 0
+!SET_MAPOBJECT 16 87 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 17 87 0 deadtree_2 - - - 0 0
+!SET_MAPOBJECT 18 87 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 24 87 0 Grass1 - - - 0 0
+!SET_MAPOBJECT 42 87 1 rock_2 - - - 0 0
+!SET_MAPOBJECT 45 87 2 pine3 - - - 0 0
+!SET_MAPOBJECT 55 87 0 pine1 - - - 0 0
+!SET_MAPOBJECT 56 87 2 pine_stump - - - 0 0
+!SET_MAPOBJECT 61 87 2 pine3 - - - 0 0
+!SET_MAPOBJECT 62 87 3 Grass3 - - - 0 0
+!SET_MAPOBJECT 87 87 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 8 88 0 log2 - - - 0 0
+!SET_MAPOBJECT 13 88 2 pine1 - - - 0 0
+!SET_MAPOBJECT 16 88 3 pine1 - - - 0 0
+!SET_MAPOBJECT 17 88 0 pine2 - - - 0 0
+!SET_MAPOBJECT 24 88 1 Grass3 - - - 0 0
+!SET_MAPOBJECT 25 88 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 40 88 1 pine3 - - - 0 0
+!SET_MAPOBJECT 41 88 1 log - - - 0 0
+!SET_MAPOBJECT 44 88 2 log2 - - - 0 0
+!SET_MAPOBJECT 61 88 3 pine1 - - - 0 0
+!SET_MAPOBJECT 62 88 2 pine1 - - - 0 0
+!SET_MAPOBJECT 10 89 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 13 89 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 22 89 2 Grass1 - - - 0 0
+!SET_MAPOBJECT 26 89 3 Grass1 - - - 0 0
+!SET_MAPOBJECT 39 89 3 boulder3 - - - 0 0
+!SET_MAPOBJECT 40 89 3 pine2 - - - 0 0
+!SET_MAPOBJECT 44 89 1 pine2 - - - 0 0
+!SET_MAPOBJECT 53 89 2 boulder - - - 0 0
+!SET_MAPOBJECT 53 89 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 82 89 1 shrub_3 - - - 0 0
+!SET_MAPOBJECT 21 90 2 Grass2 - - - 0 0
+!SET_MAPOBJECT 22 90 2 Grass3 - - - 0 0
+!SET_MAPOBJECT 23 90 0 pine_stump - - - 0 0
+!SET_MAPOBJECT 24 90 2 fern_2 - - - 0 0
+!SET_MAPOBJECT 42 90 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 43 90 0 pine3 - - - 0 0
+!SET_MAPOBJECT 44 90 1 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 45 90 2 deadtree_3 - - - 0 0
+!SET_MAPOBJECT 46 90 3 pine3 - - - 0 0
+!SET_MAPOBJECT 54 90 3 rock_1 - - - 0 0
+!SET_MAPOBJECT 76 90 2 boulder4 - - - 0 0
+!SET_MAPOBJECT 77 90 2 rock_1 - - - 0 0
+!SET_MAPOBJECT 8 91 2 pine1 - - - 0 0
+!SET_MAPOBJECT 12 91 0 log2 - - - 0 0
+!SET_MAPOBJECT 13 91 2 pine3 - - - 0 0
+!SET_MAPOBJECT 28 91 2 shrub_1 - - - 0 0
+!SET_MAPOBJECT 31 91 1 pine2 - - - 0 0
+!SET_MAPOBJECT 40 91 0 pine1 - - - 0 0
+!SET_MAPOBJECT 41 91 1 pine3 - - - 0 0
+!SET_MAPOBJECT 44 91 1 pine3 - - - 0 0
+!SET_MAPOBJECT 45 91 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 66 91 2 pine1 - - - 0 0
+!SET_MAPOBJECT 75 91 3 pine1 - - - 0 0
+!SET_MAPOBJECT 76 91 2 pine2 - - - 0 0
+!SET_MAPOBJECT 78 91 1 rock_1 - - - 0 0
+!SET_MAPOBJECT 81 91 0 shrub_3 - - - 0 0
+!SET_MAPOBJECT 10 92 2 pine1 - - - 0 0
+!SET_MAPOBJECT 24 92 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 29 92 2 pine3 - - - 0 0
+!SET_MAPOBJECT 31 92 3 pine1 - - - 0 0
+!SET_MAPOBJECT 32 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 44 92 2 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 45 92 0 pine1 - - - 0 0
+!SET_MAPOBJECT 52 92 1 pine2 - - - 0 0
+!SET_MAPOBJECT 53 92 2 pine3 - - - 0 0
+!SET_MAPOBJECT 61 92 1 shrub_2 - - - 0 0
+!SET_MAPOBJECT 66 92 2 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 67 92 2 pine3 - - - 0 0
+!SET_MAPOBJECT 70 92 2 pine1 - - - 0 0
+!SET_MAPOBJECT 71 92 2 pine1 - - - 0 0
+!SET_MAPOBJECT 75 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 77 92 0 pine3 - - - 0 0
+!SET_MAPOBJECT 78 92 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 79 92 0 pine1 - - - 0 0
+!SET_MAPOBJECT 94 92 3 pine3 - - - 0 0
+!SET_MAPOBJECT 6 93 1 pine3 - - - 0 0
+!SET_MAPOBJECT 7 93 1 log - - - 0 0
+!SET_MAPOBJECT 8 93 3 pine2 - - - 0 0
+!SET_MAPOBJECT 13 93 2 fern_1 - - - 0 0
+!SET_MAPOBJECT 27 93 3 pine1 - - - 0 0
+!SET_MAPOBJECT 32 93 0 pine2 - - - 0 0
+!SET_MAPOBJECT 34 93 0 pine1 - - - 0 0
+!SET_MAPOBJECT 52 93 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 53 93 1 log - - - 0 0
+!SET_MAPOBJECT 54 93 0 rock_1 - - - 0 0
+!SET_MAPOBJECT 60 93 0 shrub_2 - - - 0 0
+!SET_MAPOBJECT 68 93 3 pine1 - - - 0 0
+!SET_MAPOBJECT 69 93 1 log - - - 0 0
+!SET_MAPOBJECT 70 93 2 pine3 - - - 0 0
+!SET_MAPOBJECT 74 93 1 pine2 - - - 0 0
+!SET_MAPOBJECT 75 93 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 76 93 3 pine_stump - - - 0 0
+!SET_MAPOBJECT 78 93 0 pine1 - - - 0 0
+!SET_MAPOBJECT 79 93 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 81 93 3 pine3 - - - 0 0
+!SET_MAPOBJECT 5 94 2 pine2 - - - 0 0
+!SET_MAPOBJECT 7 94 2 pine1 - - - 0 0
+!SET_MAPOBJECT 9 94 2 rock_2 - - - 0 0
+!SET_MAPOBJECT 12 94 1 fern_2 - - - 0 0
+!SET_MAPOBJECT 13 94 2 fern_2 - - - 0 0
+!SET_MAPOBJECT 20 94 2 fern_1 - - - 0 0
+!SET_MAPOBJECT 21 94 3 fern_1 - - - 0 0
+!SET_MAPOBJECT 26 94 2 pine2 - - - 0 0
+!SET_MAPOBJECT 27 94 3 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 28 94 3 pine3 - - - 0 0
+!SET_MAPOBJECT 31 94 2 pine3 - - - 0 0
+!SET_MAPOBJECT 33 94 3 rock_2 - - - 0 0
+!SET_MAPOBJECT 52 94 0 pine3 - - - 0 0
+!SET_MAPOBJECT 54 94 3 pine3 - - - 0 0
+!SET_MAPOBJECT 55 94 3 pine1 - - - 0 0
+!SET_MAPOBJECT 68 94 1 pine3 - - - 0 0
+!SET_MAPOBJECT 69 94 1 mushroom_2 - - - 0 0
+!SET_MAPOBJECT 70 94 2 pine2 - - - 0 0
+!SET_MAPOBJECT 75 94 0 pine3 - - - 0 0
+!SET_MAPOBJECT 77 94 0 mushroom_5 - - - 0 0
+!SET_MAPOBJECT 79 94 1 pine3 - - - 0 0
+!SET_MAPOBJECT 80 94 1 pine_stump - - - 0 0
+!SET_MAPOBJECT 81 94 3 pine2 - - - 0 0
+!SET_MAPOBJECT 90 94 3 pine2 - - - 0 0
+!SET_MAPOBJECT 91 94 2 pine1 - - - 0 0
+!SET_MAPOBJECT 93 94 1 pine3 - - - 0 0
+!SET_MAPOBJECT 94 94 1 pine3 - - - 0 0
+!SET_MAPOBJECT 28 95 0 pine3 - - - 0 0
+!SET_MAPOBJECT 53 95 3 pine2 - - - 0 0
+!SET_MAPOBJECT 92 95 3 pine2 - - - 0 0
+
+// Weather
+!SUN_COLOR 233 212 62
+!SKY_COLOR 42 48 55
+!AMB_COLOR 24 24 24
+!SUN_POSITION 211 27
+
+
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17349 (2025.10.05 18:22)" on 5.10.2025 20:27:37

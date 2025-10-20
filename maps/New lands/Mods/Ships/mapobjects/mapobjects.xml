@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="Ship1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="9.000; 5.000; 1.600; 0.100; 0.000; 25.000"/>
+    <Flags items="static,repelTrees"/>
+  </item1>
+  
+     <item1 EngName="Ship2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="11.000; 7.000; 2.000; 0.200; 0.000; 20.000"/>
+    <Flags items="static,repelTrees"/>
+  </item1>
+   
+     <item1 EngName="Ship3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="15.000; 9.000; 2.000; 0.200; 0.000; 25.000"/>
+    <Flags items="static,repelTrees"/>
+  </item1>  
+ 
+     <item1 EngName="Ship4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="28.000; 13.000; 4.500; 0.200; 0.000; 315.000"/>
+    <Flags items="static,repelTrees"/>
+  </item1>  
+ 
+     <item1 EngName="Ship5" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="nonremovable" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="20.000; 9.000; 3.000; 0.200; 0.000; 35.000"/>
+    <Flags items="static,repelTrees"/>
+  </item1>  
+
+  
+	  </Objects>  
+  </item1>   	
+</Root>
+  
+  

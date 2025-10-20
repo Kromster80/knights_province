@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Objects> 
+    <item1 EngName="Tree1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.500; 3.000; 1.300; 0.000; 0.000; 115.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+    <item1 EngName="Tree2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="5.000; 3.000; 1.000; 0.000; 0.000; 295.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Tree3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="5.500; 0.300; 0.900; 0.000; 0.000; 50.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+ 
+    <item1 EngName="Tree4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.500; 3.000; 1.300; 0.000; 0.000; 115.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Tree4_snow" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.500; 3.000; 1.300; 0.000; 0.000; 115.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+  
+    <item1 EngName="Tree5_desert" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.600; 5.000; 1.500; -0.400; 0.000; 25.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1>
+
+    <item1 EngName="Tree6_desert" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.500; 3.000; 1.200; 0.000; 0.000; 115.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1> 
+  
+    <item1 EngName="Tree7_desert" CanPlaceInMapEd="True" Placement="csTile" TileBlock="none" Removable="hard" Selectable="True" ColorMinimap="$00000000" AllowedHumiditySet="">
+    <HUD AvatarSetup="7.500; 3.000; 1.300; 0.200; 0.000; 165.000"/>
+      <Flags items="static,repelTrees"/>
+  </item1> 
+  
+	  </Objects>  
+  </item1>   	
+</Root>
+  
+  

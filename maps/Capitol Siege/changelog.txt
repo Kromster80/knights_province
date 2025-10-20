@@ -1,0 +1,7 @@
+5/10/2025:
+* added a script that removed a dug field
+
+4/10/2025:
+* fixed issue with the script, now after destruction Camp and Barracks mission ends.
+* block the ability to build building
+

@@ -1,0 +1,12 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.flag1]
+        desc:Royal flags
+        name:Flag
+    [mapobjects.flag2]
+        desc:Royal flags
+        name:Flag
+
+
+

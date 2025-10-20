@@ -1,0 +1,28 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.Tree1]
+        desc:Większe drzewo bez liści
+        name:Większe wysuszone drzewo
+    [mapobjects.Tree2]
+        desc:Małe drzewo bez liści
+        name:Małe wysuszone drzewo
+    [mapobjects.Tree3]
+        desc:Drzewo bez liści
+        name:Wysuszone drzewo
+    [mapobjects.Tree4]
+        desc:Zielone drzewo
+        name:Lśniące zielone drzewo
+    [mapobjects.Tree4_snow]
+        desc:Lśniące zielone drzewo pokryte śniegiem
+        name:Zielone drzewo pokryte śniegiem
+    [mapobjects.Tree5_desert]
+        desc:Większe pustynne drzewo
+        name:Większe pustynne drzewo
+    [mapobjects.Tree6_desert]
+        desc:Pustynne drzewo z linami
+        name:Pustynne drzewo z linami
+    [mapobjects.Tree7_desert]
+        desc:Pustynne drzewo
+        name:Pustynne drzewo
+

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+ <Objects>
+  <item1 EngName="xBarbarianHous1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="9.000; 5.000; 1.000; 0.000; 0.000; 30.000"/>
+    <Flags items="static,repelTrees"/>	
+	
+   </item1>   
+  <item1 EngName="xBarbarianHous2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="12.000; 5.000; 1.500; 0.300; 0.000; 30.000"/>
+    <Flags items="static,repelTrees"/>	
+   </item1>   
+   
+  <item1 EngName="xBarbarianHous3" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="13.400; 5.000; 1.500; 0.000; 0.000; 45.000"/>
+    <Flags items="static,repelTrees"/>		
+	
+   </item1>   	
+  <item1 EngName="xBarbarianHous4" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="11.000; 5.000; 1.200; 0.000; 0.500; 30.000"/>11
+    <Flags items="static,repelTrees"/>	
+
+   </item1>   	
+  <item1 EngName="xBarbarianHous5" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="14.000; 5.000; 1.500; 0.200; 0.000; 25.000"/>
+    <Flags items="static,repelTrees"/>	
+	
+   </item1>   
+  <item1 EngName="xBarbarianTower1" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="12.500; 7.000; 2.000; 0.000; 0.000; 30.000"/>
+    <Flags items="static,repelTrees"/>	 	
+
+   </item1>   
+  <item1 EngName="xBarbarianTower2" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="17.500; 8.000; 1.000; 3.000; 0.000; 240.000"/>
+    <Flags items="static,repelTrees"/>	
+	
+   </item1>   	
+  <item1 EngName="xBarbarianHous6" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="12.000; 5.000; 1.000; 0.700; 0.000; 195.000"/>
+    <Flags items="static,repelTrees"/>	
+  
+  </item1>        
+   <item1 EngName="xBarbarianHous7" CanPlaceInMapEd="True" Placement="csTile" TileBlock="yes" Removable="nonremovable" Selectable="True" ColorMinimap="$FFA0A0A0" AllowedHumiditySet="none">
+    <HUD AvatarSetup="14.000; 5.000; 2.000; 0.400; 0.000; 30.000"/>
+    <Flags items="static,repelTrees"/>	
+   </item1>      
+   
+   
+  </Objects>
+</Root>

@@ -1,0 +1,39 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.xBarbarianHous1]
+        desc:Namiot dla dwóch osób, mały ale bardzo ciepły
+        name:Mały barbarzyński namiot
+
+    [mapobjects.xBarbarianHous2]
+        desc:Cała rodzina tu mieszka
+        name:Barbarzyński rodzinny dom
+
+    [mapobjects.xBarbarianHous3]
+        desc:Tu mieszkają ludzie
+        name:Średni barbarzyński namiot
+
+    [mapobjects.xBarbarianHous4]
+        desc:Dobrze zbudowany i bardzo stabilny dom dla dużej rodziny
+        name:Bardzo stabilny barbarzyński dom
+
+    [mapobjects.xBarbarianHous5]
+        desc:Tutaj może mieszkać kilka rodzin
+        name:Duży barbarzyński dom
+		
+    [mapobjects.xBarbarianTower1]
+        desc:Wieża Obserwacyjna
+        name:Barbarzyńska wieża
+
+    [mapobjects.xBarbarianTower2]
+        desc:Żołnierze znajdujący się w środku są bardzo bezpieczni
+        name:Masywna barbarzyńska wieża
+		
+    [mapobjects.xBarbarianHous6]
+        desc:To tutaj rodzą się prawdziwi mężczyźni
+        name:Baraki barbarzyńskie
+
+    [mapobjects.xBarbarianHous7]
+        desc:Miejsce, z którego rybacy wypływają w morze
+        name:Barbarzyński port
+

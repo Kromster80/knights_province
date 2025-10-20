@@ -1,0 +1,22 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.Wodden_Wall1]
+        desc:Wooden wall 
+        name:Wooden wall
+    [mapobjects.Wodden_Wall2]
+        desc:Wooden wall with roof
+        name:Wooden wall with roof
+    [mapobjects.Wodden_Wall3]
+        desc:Wooden corner wall
+        name:Wooden corner wall
+    [mapobjects.Wodden_Wall4]
+        desc:Wooden gate with roof
+        name:Wooden gate
+    [mapobjects.Wodden_Wall5]
+        desc:Small simple fence
+        name:Small fance
+    [mapobjects.Wodden_Wall6]
+        desc:Small simple corner fence
+        name:Small corner fance
+

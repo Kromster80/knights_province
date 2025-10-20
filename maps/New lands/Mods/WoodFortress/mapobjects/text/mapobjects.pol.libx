@@ -1,0 +1,22 @@
+﻿#Plik lokalizacji Knights Province
+#Wypełnienie jest czysto wizualną rzeczą. Format nie zwraca na to uwagi
+[mapobjects]
+    [mapobjects.Wodden_Wall1]
+        desc:Drewniany mur 
+        name:Drewniany mur
+    [mapobjects.Wodden_Wall2]
+        desc:Drewniany mur z daszkiem
+        name:Drewniany mur z daszkiem
+    [mapobjects.Wodden_Wall3]
+        desc:Drewniany naroży mur
+        name:Drewniany naroży mur
+    [mapobjects.Wodden_Wall4]
+        desc:Drewniana brama z daszkiem
+        name:Drewniana brama
+    [mapobjects.Wodden_Wall5]
+        desc:Mały drewniany płotek
+        name:Mały płotek
+    [mapobjects.Wodden_Wall6]
+        desc:Mały naroży drewniany płotek
+        name:Mały naroży płotek
+

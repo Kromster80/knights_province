@@ -1,0 +1,63 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.Stone_Gate1]
+        desc:Allows you to pass under it
+        name:Hanging gate wall
+    [mapobjects.Stone_Gate3]
+        desc:Closed wooden gate, use scripts to open the gate
+        name:Wooden gate closed
+    [mapobjects.Stone_Gate3a]
+        desc:Open wooden gate, use scripts to close the gate
+        name:Wooden gate open
+    [mapobjects.Stone_Gate4]
+        desc:Allows you to pass under it
+        name:Big hanging gate wall
+	
+    [mapobjects.Stone_Tower1]
+        desc:a small tower
+        name:Small tower
+    [mapobjects.Stone_Tower2]
+        desc:a normal tower
+        name:Tower 
+    [mapobjects.Stone_Tower3]
+        desc:a small round tower
+        name:Small round tower
+    [mapobjects.Stone_Tower4]
+        desc:a small round tower
+        name:Small round tower
+    [mapobjects.Stone_Tower5]
+        desc:a big round tower
+        name:Big round tower
+    [mapobjects.Stone_Tower6]
+        desc:a big tower
+        name:Big tower
+
+    [mapobjects.Stone_Wall1]
+        desc:Small oblong wall
+        name:Wall
+    [mapobjects.Stone_Wall2]
+        desc:Small oblong wall with window
+        name:Wall with window
+    [mapobjects.Stone_Wall3]
+        desc:Small outer wall corner
+        name:Corner wall outside
+    [mapobjects.Stone_Wall3b]
+        desc:Small inside wall corner
+        name:Corner wall inside
+    [mapobjects.Stone_Wall4]
+        desc:End of the wall, left side
+        name:Left end wall
+    [mapobjects.Stone_Wall5]
+        desc:End of the wall, right side
+        name:Right end wall
+    [mapobjects.Stone_Wall6]
+        desc:Big oblong wall
+        name:Big wall
+
+
+
+
+
+
+

@@ -1,0 +1,1117 @@
+//Kinghts Dzapan
+
+uses
+	day_night;
+	
+const
+  Human_Player = 0;
+  Rebels = 1;
+  Enemy_2 = 2;
+  AI4_BarbariansArmy = 3;
+  AI5_IronEnnemy = 4;
+  AI6_WarriorsArmy = 5;
+  Enemy_8 = 7; 
+  Ennemy_9 = 8;
+  
+  
+var
+  BulidCamp: array of Boolean;
+  
+  CheckPort, PortArmy, PlaceForVillage, BuildCamp:    Integer;										{GoBackPort,}
+  FindResources, CheckMap, WarriorsArmy, BarbariansArmy:          Integer;
+  CheckWarriorArmy, CheckBarbariansArmy, WarriorGroupUnit:        Integer;
+  MissionRuningUnit, BarbarianGroupUnit, FirstAttack_GateOpen:    Integer;
+  FirstAttack_GateClose, ConquerMelbork:                          Integer;
+  
+  Wagon_Ale1, Wagon_Ale2, Wagon_Cider1, Wagon_Cider2, Wagon_Fish: Integer;
+  Wagon_Sausages, Wagon_Bread1, Wagon_Bread2, Wagon_Gold:         Integer;
+
+  Trigger1,  Trigger2,  Trigger3,  Trigger4,  Trigger5:  Boolean;            	
+  Trigger6,  Trigger7,  Trigger8,  Trigger9,  Trigger10: Boolean;  
+  Trigger11, Trigger12, Trigger13, Trigger14, Trigger15: Boolean;
+  Trigger16, Trigger17_24, Trigger25, Trigger26 : Boolean;
+  CheckCamp, CheckSawmill, CheckFort: Boolean; 
+
+
+procedure OnMissionStart;
+var
+  i: Integer;
+begin
+  SetLength(BulidCamp, States.StatPlayerCount());
+  for i := Low(BulidCamp) to High(BulidCamp) do
+  BulidCamp[i] := False;
+	
+  Actions.PlayerHouseBlock(Human_Player, htCamp, True);												//Camp Deactive
+  WarriorGroupUnit   := States.GroupAt(121, 84);
+  BarbarianGroupUnit := States.GroupAt(156, 24);
+  MissionRuningUnit  := States.UnitAt(31, 161); 													//On Mission start hold mission running (unit in Latern)										
+  
+
+
+
+	
+  CheckPort       := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$5>');
+  // GoBackPort      := Actions.PlayerObjectiveAdd(Human_Player, otMain, 1, osHidden, '<$10>');
+  PortArmy        := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$11>'); 
+  PlaceForVillage := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$13>'); 
+  BuildCamp       := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$15>');
+  FindResources   := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$17>');
+  CheckMap        := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$19>');
+  WarriorsArmy    := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$21>');
+  BarbariansArmy  := Actions.PlayerObjectiveAdd(Human_Player, otMain, 0, osHidden, '<$23>');
+  ConquerMelbork  := Actions.PlayerObjectiveAdd(Human_Player, otMain, 1, osHidden, '<$29>');  
+  
+  DNInitiateScript(9900, 21000);  																	//one day cycle = 35min 
+ end;
+
+
+
+
+
+Procedure RemoveBlockadePassage_1;																	//If Sawmil is build - open the passage 1 to the second part of the map
+ begin
+  Actions.TerrainObjectRemoveTile(82, 14);
+  Actions.TerrainObjectRemoveTile(83, 15);
+  Actions.TerrainObjectRemoveTile(84, 15);
+  Actions.TerrainObjectRemoveTile(84, 16);
+  Actions.TerrainObjectRemoveTile(85, 16);
+  Actions.TerrainObjectRemoveTile(85, 17); 
+  Actions.TerrainObjectRemoveTile(86, 17);
+  Actions.TerrainObjectRemoveTile(86, 18);
+  Actions.TerrainObjectRemoveTile(87, 18);
+  Actions.TerrainObjectRemoveTile(88, 18);
+  Actions.TerrainObjectRemoveTile(88, 19);
+  Actions.TerrainObjectRemoveTile(89, 19);
+  Actions.TerrainObjectRemoveTile(89, 20);
+  Actions.TerrainObjectRemoveTile(90, 20);
+  Actions.TerrainObjectRemoveTile(91, 21);
+  Actions.TerrainObjectRemoveTile(91, 20);
+  Actions.TerrainObjectRemoveTile(92, 21);
+  Actions.TerrainObjectRemoveTile(93, 21);
+  Actions.TerrainObjectRemoveTile(93, 22);
+  Actions.TerrainObjectRemoveTile(94, 22);
+  Actions.TerrainObjectRemoveTile(95, 22);
+  Actions.TerrainObjectRemoveTile(95, 23);
+  Actions.TerrainObjectRemoveTile(96, 23);
+  Actions.TerrainObjectRemoveTile(96, 24);
+  Actions.TerrainObjectRemoveTile(96, 25);   
+  Actions.TerrainObjectRemoveTile(96, 26);
+  Actions.TerrainObjectRemoveTile(96, 27); 
+  Actions.TerrainObjectRemoveTile(97, 27); 
+  Actions.TerrainObjectRemoveTile(97, 28); 
+  
+  Actions.TerrainObjectRemoveTile(98, 36);   
+  Actions.TerrainObjectRemoveTile(98, 37);
+  Actions.TerrainObjectRemoveTile(98, 38); 
+  Actions.TerrainObjectRemoveTile(98, 39);
+  Actions.TerrainObjectRemoveTile(97, 39);  
+  Actions.TerrainObjectRemoveTile(97, 40);   
+  Actions.TerrainObjectRemoveTile(97, 41);
+  Actions.TerrainObjectRemoveTile(97, 42); 
+  Actions.TerrainObjectRemoveTile(97, 43); 
+  Actions.TerrainObjectRemoveTile(96, 43);   
+  Actions.TerrainObjectRemoveTile(96, 44); 
+  Actions.TerrainObjectRemoveTile(95, 44);   
+  Actions.TerrainObjectRemoveTile(95, 45); 
+  Actions.TerrainObjectRemoveTile(94, 45);
+  Actions.TerrainObjectRemoveTile(94, 46); 
+  Actions.TerrainObjectRemoveTile(94, 47);   
+  Actions.TerrainObjectRemoveTile(94, 48); 
+  Actions.TerrainObjectRemoveTile(93, 48); 
+  Actions.TerrainObjectRemoveTile(93, 49); 
+  Actions.TerrainObjectRemoveTile(92, 49); 
+  Actions.TerrainObjectRemoveTile(92, 50); 
+  
+  Actions.TerrainObjectRemoveTile(86, 63); 
+  Actions.TerrainObjectRemoveTile(86, 64);   
+  Actions.TerrainObjectRemoveTile(86, 65);   
+  Actions.TerrainObjectRemoveTile(85, 65); 
+  Actions.TerrainObjectRemoveTile(85, 66);  
+  Actions.TerrainObjectRemoveTile(85, 67); 
+  Actions.TerrainObjectRemoveTile(85, 68);  
+  Actions.TerrainObjectRemoveTile(85, 69); 
+  Actions.TerrainObjectRemoveTile(85, 70);  
+  Actions.TerrainObjectRemoveTile(85, 71);
+  Actions.TerrainObjectRemoveTile(84, 71); 
+  Actions.TerrainObjectRemoveTile(84, 72); 
+  Actions.TerrainObjectRemoveTile(84, 71);  
+  Actions.TerrainObjectRemoveTile(83, 73); 
+  Actions.TerrainObjectRemoveTile(83, 72); 
+  Actions.TerrainObjectRemoveTile(82, 73); 
+  Actions.TerrainObjectRemoveTile(82, 74); 
+  Actions.TerrainObjectRemoveTile(82, 75);  
+  Actions.TerrainObjectRemoveTile(82, 76); 
+  Actions.TerrainObjectRemoveTile(81, 76);   
+  Actions.TerrainObjectRemoveTile(81, 77);   
+  Actions.TerrainObjectRemoveTile(80, 78);  
+  Actions.TerrainObjectRemoveTile(81, 78);  
+  Actions.TerrainObjectRemoveTile(81, 77);    
+  Actions.TerrainObjectRemoveTile(80, 79);    
+  Actions.TerrainObjectRemoveTile(79, 79); 
+  Actions.TerrainObjectRemoveTile(79, 80); 
+ end;
+
+Procedure RemoveBlockadePassage_2;																	
+ begin
+  Actions.TerrainObjectRemoveTile(146, 70);
+  Actions.TerrainObjectRemoveTile(147, 70);
+  Actions.TerrainObjectRemoveTile(145, 71);
+  Actions.TerrainObjectRemoveTile(146, 71);
+  Actions.TerrainObjectRemoveTile(144, 72);
+  Actions.TerrainObjectRemoveTile(145, 72);
+  Actions.TerrainObjectRemoveTile(143, 73);
+  Actions.TerrainObjectRemoveTile(144, 73);  
+  Actions.TerrainObjectRemoveTile(142, 74);
+  Actions.TerrainObjectRemoveTile(143, 74);
+  Actions.TerrainObjectRemoveTile(141, 75);
+  Actions.TerrainObjectRemoveTile(142, 75);
+  Actions.TerrainObjectRemoveTile(140, 76);
+  Actions.TerrainObjectRemoveTile(141, 76);
+  Actions.TerrainObjectRemoveTile(139, 77); 
+  Actions.TerrainObjectRemoveTile(140, 77); 
+  Actions.TerrainObjectRemoveTile(139, 78); 
+ end; 
+  
+
+
+  
+Procedure CheckBuildingProgressCamp;															
+ begin
+   if (States.StatHouseTypeCount(Human_Player, htCamp) >= 1) then
+  begin
+    CheckCamp := true;
+    //Actions.PlayerMessage(Human_Player, '<$16>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, BuildCamp, osHidden);	
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, FindResources, osActive);
+  end;
+ end;
+
+
+procedure CheckBuildingProgressSawmill;
+ begin
+   if (States.StatHouseTypeCount(Human_Player, htSawmill) >= 1) then
+  begin
+    CheckSawmill := true;
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, FindResources, osHidden);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, CheckMap, osActive);		
+    Actions.PlayerMessage(Human_Player, '<$18>', True);
+	RemoveBlockadePassage_1
+  end;
+ end;
+ 
+ procedure CheckBuildingProgressFort;
+ begin
+   if (States.StatHouseTypeCount(Human_Player, htFort) >= 1) then
+  begin
+    CheckFort := true;
+		 Actions.GiveGroup(Ennemy_9, utMilitia, 143, 40, 0, 6, 3);	 
+		 Actions.GiveGroup(Ennemy_9, utPikeman, 146, 53, 0, 6, 3);
+		 Actions.GiveGroup(Ennemy_9, utBowman,  148, 38, 0, 6, 3);
+  end;
+ end; 
+  
+
+  
+procedure OnGroupDied(aGroup: Integer; aKiller: Integer);  
+begin
+  if aGroup = WarriorGroupUnit then
+	begin
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, WarriorsArmy, osHidden);
+	end;
+	
+  if aGroup = BarbarianGroupUnit then																	//Kill this group will open the passage 2 
+	begin
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, BarbariansArmy, osHidden);
+  /////  Actions.PlayerMessage(Human_Player, '<$25>', True);	
+	//// RemoveBlockadePassage_2
+	end;
+end;
+	   
+
+
+procedure OnHousePlanPlaced(aPlayer: Integer; aX, aY: Word; aType: TKMHouseType; aFace: TKMHouseFace);
+var
+  camp: Integer;
+begin
+  if (aType = htCamp) and not BulidCamp[aPlayer] then
+  begin
+    Actions.PlanRemove(aPlayer, aX, aY);
+    camp := Actions.GiveHouse(aPlayer, aType, aX, aY, aFace);
+    if camp <> 0 then
+    begin
+      BulidCamp[aPlayer] := True;
+
+      //=> Camp needs roads 4x2 !
+      if aFace = toSouth then
+      begin
+        Actions.RoadAdd(aX-2, aY+1, aPlayer);
+        Actions.RoadAdd(aX-1, aY+1, aPlayer);
+        Actions.RoadAdd(aX, aY+1, aPlayer);
+        Actions.RoadAdd(aX+1, aY+1, aPlayer);
+        Actions.RoadAdd(aX-2, aY+2, aPlayer);
+        Actions.RoadAdd(aX-1, aY+2, aPlayer);
+        Actions.RoadAdd(aX, aY+2, aPlayer);
+        Actions.RoadAdd(aX+1, aY+2, aPlayer);
+      end else
+      if aFace = toWest then
+      begin
+        Actions.RoadAdd(aX-1, aY-2, aPlayer);
+        Actions.RoadAdd(aX-1, aY-1, aPlayer);
+        Actions.RoadAdd(aX-1, aY, aPlayer);
+        Actions.RoadAdd(aX-1, aY+1, aPlayer);
+        Actions.RoadAdd(aX-2, aY-2, aPlayer);
+        Actions.RoadAdd(aX-2, aY-1, aPlayer);
+        Actions.RoadAdd(aX-2, aY, aPlayer);
+        Actions.RoadAdd(aX-2, aY+1, aPlayer);
+      end else
+      if aFace = toEast then
+      begin
+        Actions.RoadAdd(aX+1, aY, aPlayer);
+        Actions.RoadAdd(aX+1, aY +1, aPlayer);
+        Actions.RoadAdd(aX+1, aY -1, aPlayer);
+        Actions.RoadAdd(aX+1, aY+2, aPlayer);
+        Actions.RoadAdd(aX+2, aY, aPlayer);
+        Actions.RoadAdd(aX+2, aY +1, aPlayer);
+        Actions.RoadAdd(aX+2, aY -1, aPlayer);
+        Actions.RoadAdd(aX+2, aY+2, aPlayer);
+      end else
+      if aFace = toNorth then
+      begin
+        Actions.RoadAdd(aX-1, aY-1, aPlayer);
+        Actions.RoadAdd(aX, aY-1, aPlayer);
+        Actions.RoadAdd(aX+1, aY-1, aPlayer);
+        Actions.RoadAdd(aX+2, aY-1, aPlayer);
+        Actions.RoadAdd(aX-1, aY-2, aPlayer);
+        Actions.RoadAdd(aX, aY-2, aPlayer);
+        Actions.RoadAdd(aX+1, aY-2, aPlayer);
+        Actions.RoadAdd(aX+2, aY-2, aPlayer);
+      end;
+    Actions.PlayerMessage(Human_Player, '<$16>', True);
+    end;
+  end;
+end;
+
+
+
+
+
+
+procedure OnTerrainTrigger(aTriggerId: Integer; aUnit: Integer; aX, aY: Word);
+begin
+  if (aTriggerId = 1) and (not Trigger1) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayWAV(Human_Player, 'Cathedral.wav', 1.0);
+    trigger1:= True;
+  end;
+
+  if (aTriggerId = 2) and (not Trigger2) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayWAV(Human_Player, 'Range_training_cente.wav', 1.0);
+    trigger2:= True;
+  end;
+
+  if (aTriggerId = 3) and (not Trigger3) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayWAV(Human_Player, 'Melee_training_cente.wav', 1.0);
+    trigger3:= True;
+  end;
+
+  if (aTriggerId = 4) and (not Trigger4) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayWAV(Human_Player, 'AntiHorse_training_cente.wav', 1.0);
+    trigger4:= True;
+  end;
+
+  if (aTriggerId = 5) and (not Trigger5) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayWAV(Human_Player, 'Knight_tournament.wav', 1.0);
+    trigger5:= True;
+  end;
+
+  if (aTriggerId = 6) and (not Trigger6) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$4>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, CheckPort, osActive);
+    trigger6:= True;
+  end;
+
+  if (aTriggerId = 7) and (not Trigger7) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$6>', True);
+    trigger7:= True;
+  end;
+
+  if (aTriggerId = 8) and (not Trigger8) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$7>', True);
+    trigger8:= True;
+  end;
+
+  if (aTriggerId = 9) and (not Trigger9) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$9>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, CheckPort,  osHidden);
+    // Actions.PlayerObjectiveUpdateStatus(Human_Player, GoBackPort, osActive);	
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, PortArmy,   osActive);
+	Actions.GiveGroup(Rebels, utRebelFork, 67, 79, 4, 9, 3);	
+	Actions.GiveGroup(Rebels, utRebelFork, 67, 74, 4, 6, 3);	
+    trigger9:= True;
+  end;
+
+if (aTriggerId = 10) and (not Trigger10) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$12>', True);  
+    // Actions.PlayerObjectiveUpdateStatus(Human_Player, GoBackPort, osHidden);	
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, PortArmy,   osHidden);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, PlaceForVillage, osActive);	
+    trigger10:= True;
+  end;
+	
+  if (aTriggerId = 11) and (not Trigger11) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$14>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, PlaceForVillage, osHidden);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, BuildCamp, osActive);
+	Actions.PlayerHouseBlock(Human_Player, htCamp, False);											//Camp Active								
+    trigger11:= True;
+  end;
+
+  if (aTriggerId = 12) and (not Trigger12) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$20>', True);		
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, WarriorsArmy, osActive);		
+    trigger12:= True;
+  end;
+  
+    if (aTriggerId = 13) and (not Trigger13) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$22>', True);		
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, BarbariansArmy, osActive);		
+    trigger13:= True;
+  end;
+  
+    if (aTriggerId = 14) and (not Trigger14) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$24>', True);								
+    trigger14:= True;
+  end;  
+
+    if (aTriggerId = 15) and (not Trigger15) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerObjectiveUpdateStatus(Human_Player, CheckMap, osHidden);								
+    trigger15:= True;
+  end;   
+  
+    if (aTriggerId = 16) and (not Trigger16) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+    Actions.PlayerMessage(Human_Player, '<$26>', True);		
+		 Actions.GiveGroup(Enemy_8, utSwordsman,  155, 83, 7, 12, 4);
+		 Actions.GiveGroup(Enemy_8, utHalberdier, 146, 87, 0, 12, 4);
+   trigger16:= True;
+  end;
+  
+if Utils.InRangeI(aTriggerId, 17, 24) and (not Trigger17_24) and (States.UnitOwner(aUnit) = Human_Player) then
+  begin
+    Actions.PlayerMessage(Human_Player, '<$27>', True);
+    Trigger17_24 := True;
+  end;  
+  
+    if (aTriggerId = 25) and (not Trigger25) and (States.UnitOwner(aUnit) = Human_Player) then      
+  begin
+   Actions.PlayerMessage(Human_Player, '<$28>', True);	
+   Actions.PlayerObjectiveUpdateStatus(Human_Player, ConquerMelbork, osActive);   
+   trigger25:= True;
+  end;  
+ 
+end;
+
+ 
+Procedure Gate_Open;
+ begin
+  Actions.PlayWAVAtLocation(Human_Player, 'Open_Gate.wav', 1.0, 170, 110);
+  Actions.TerrainObjectRemoveTile(170, 112);
+  Actions.TerrainObjectSetEx(170, 112, 2, 'Stone_Gate3a');	
+  Actions.TerrainObjectRemoveTile(169, 111);
+  Actions.TerrainObjectRemoveTile(170, 111);
+  Actions.TerrainObjectRemoveTile(171, 111);
+  Actions.TerrainObjectRemoveTile(169, 110);
+  Actions.TerrainObjectRemoveTile(170, 110);
+  Actions.TerrainObjectRemoveTile(171, 110);
+  Actions.TerrainObjectRemoveTile(169, 112);
+  Actions.TerrainObjectRemoveTile(170, 112);
+  Actions.TerrainObjectRemoveTile(171, 112);
+  Actions.TerrainObjectRemoveTile(169, 113);
+  Actions.TerrainObjectRemoveTile(170, 113);
+  Actions.TerrainObjectRemoveTile(171, 113);
+ end;
+ 
+Procedure Gate_Close;
+ begin 
+  Actions.PlayWAVAtLocation(Human_Player, 'Close_Gate.wav', 1.0, 170, 110);
+  Actions.TerrainObjectSetEx(170, 112, 2, 'Stone_Gate3');  
+  Actions.TerrainObjectSetEx(169, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(169, 110, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 110, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 110, 2, 'Blank_Blockade'); 
+  Actions.TerrainObjectSetEx(169, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(169, 113, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 113, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 113, 2, 'Blank_Blockade');
+ end;
+
+Procedure Gate_Close_NoSound;
+ begin 
+  Actions.TerrainObjectSetEx(170, 112, 2, 'Stone_Gate3');  
+  Actions.TerrainObjectSetEx(169, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 111, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(169, 110, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 110, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 110, 2, 'Blank_Blockade'); 
+  Actions.TerrainObjectSetEx(169, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 112, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(169, 113, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(170, 113, 2, 'Blank_Blockade');
+  Actions.TerrainObjectSetEx(171, 113, 2, 'Blank_Blockade');
+ end;
+
+ 
+Procedure FirstAttack_Group;
+ begin
+	Actions.GiveGroup(Enemy_8, utCavalry,   170, 122, 4, 9, 3);
+	Actions.GiveGroup(Enemy_8, utSwordsman, 170, 125, 4, 12, 4);
+	//Actions.GiveGroup(Enemy_8, utHalberdier,146, 87, 4, 12, 4);
+ end;
+  
+  
+procedure FeedPlayer(aHand: Integer);
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(aHand);
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
+procedure OnPlayerDefeated(aPlayer: Integer);														//If Army BarbariansArmy and WarriorsArmy defeaded - open the passage 2 to the last part of the map
+begin
+  if (aPlayer = AI4_BarbariansArmy) then
+
+     Actions.PlayerMessage(Human_Player, '<$25>', True);
+     RemoveBlockadePassage_2;
+end;
+
+
+  
+procedure OnTick(aTick: Integer);
+begin			
+
+	DNResolveTick(aTick);
+
+								
+  if aTick = 26 then																				//First Ship arived
+		 Actions.TerrainObjectSetEx(57, 182, 2, 'Ship4');	
+		 
+     if aTick = 34 then
+         Actions.TerrainObjectRemoveTile(57, 182);  
+
+  if aTick = 34 then
+		 Actions.TerrainObjectSetEx(57, 181, 2, 'Ship4');
+     if aTick = 42 then
+		 Actions.TerrainObjectRemoveTile(57, 181);		 
+		 
+  if aTick = 42 then
+		 Actions.TerrainObjectSetEx(57, 180, 2, 'Ship4');		
+     if aTick = 50 then
+         Actions.TerrainObjectRemoveTile(57, 180);  
+		
+  if aTick = 50 then
+		 Actions.TerrainObjectSetEx(57, 179, 2, 'Ship4'); 
+     if aTick = 57 then
+         Actions.TerrainObjectRemoveTile(57, 179);  
+
+  if aTick = 57 then
+		 Actions.TerrainObjectSetEx(57, 178, 2, 'Ship4');
+     if aTick = 66 then
+		 Actions.TerrainObjectRemoveTile(57, 178);		 
+		 
+  if aTick = 66 then
+		 Actions.TerrainObjectSetEx(57, 177, 2, 'Ship4');	
+		 
+ if aTick = 74 then
+         Actions.TerrainObjectRemoveTile(57, 177);  
+
+  if aTick = 74 then
+		 Actions.TerrainObjectSetEx(57, 176, 2, 'Ship4');
+ if aTick = 82 then
+		 Actions.TerrainObjectRemoveTile(57, 176);
+		 		 
+  if aTick = 82 then
+		 Actions.TerrainObjectSetEx(57, 175, 2, 'Ship4');
+     if aTick = 90 then
+		 Actions.TerrainObjectRemoveTile(57, 175);
+		 		 
+  if aTick = 90 then
+		 Actions.TerrainObjectSetEx(57, 174, 2, 'Ship4');		
+     if aTick = 98 then
+         Actions.TerrainObjectRemoveTile(57, 174);  
+
+  if aTick = 98 then
+		 Actions.TerrainObjectSetEx(57, 173, 2, 'Ship4');
+     if aTick = 106 then
+		 Actions.TerrainObjectRemoveTile(57, 173);		 
+		 
+  if aTick = 106 then
+		 Actions.TerrainObjectSetEx(57, 172, 2, 'Ship4');		
+     if aTick = 114 then
+         Actions.TerrainObjectRemoveTile(57, 172);  
+
+  if aTick = 114 then
+		 Actions.TerrainObjectSetEx(57, 171, 2, 'Ship4');		
+     if aTick = 122 then
+         Actions.TerrainObjectRemoveTile(57, 171);  
+
+  if aTick = 122 then
+		 Actions.TerrainObjectSetEx(57, 170, 2, 'Ship4');
+     if aTick = 130 then
+		 Actions.TerrainObjectRemoveTile(57, 170);		 
+		 
+  if aTick = 130 then
+		 Actions.TerrainObjectSetEx(57, 169, 2, 'Ship4');		
+     if aTick = 138 then
+		 Actions.TerrainObjectRemoveTile(57, 169);		 
+		 
+  if aTick = 138 then
+		 Actions.TerrainObjectSetEx(57, 168, 2, 'Ship4');			
+     if aTick = 146 then
+         Actions.TerrainObjectRemoveTile(57, 168);  
+
+  if aTick = 146 then
+		 Actions.TerrainObjectSetEx(57, 167, 2, 'Ship4');		
+     if aTick = 154 then
+         Actions.TerrainObjectRemoveTile(57, 167);  
+
+  if aTick = 154 then
+		 Actions.TerrainObjectSetEx(57, 166, 2, 'Ship4');	
+     if aTick = 162 then
+		 Actions.TerrainObjectRemoveTile(57, 166);		 
+		 
+  if aTick = 162 then
+		 Actions.TerrainObjectSetEx(57, 165, 2, 'Ship4');	
+     if aTick = 170 then
+		 Actions.TerrainObjectRemoveTile(57, 165);		 
+		 
+  if aTick = 170 then
+		 Actions.TerrainObjectSetEx(57, 164, 2, 'Ship4');			
+     if aTick = 178 then
+         Actions.TerrainObjectRemoveTile(57, 164);  
+
+  if aTick = 178 then
+		 Actions.TerrainObjectSetEx(57, 163, 2, 'Ship4');		
+     if aTick = 186 then
+         Actions.TerrainObjectRemoveTile(57, 163);  
+
+  if aTick = 186 then
+		 Actions.TerrainObjectSetEx(57, 162, 2, 'Ship4');	
+     if aTick = 194 then
+		 Actions.TerrainObjectRemoveTile(57, 162);		 
+		 
+  if aTick = 194 then
+		 Actions.TerrainObjectSetEx(57, 161, 2, 'Ship4');	
+     if aTick = 202 then
+		 Actions.TerrainObjectRemoveTile(57, 161);		 
+		 
+  if aTick = 202 then
+		 Actions.TerrainObjectSetEx(57, 160, 2, 'Ship4');		
+     if aTick = 210 then
+		 Actions.TerrainObjectRemoveTile(57, 160);		 
+		 
+  if aTick = 210 then 
+		 Actions.TerrainObjectSetEx(57, 159, 2, 'Ship4');
+		 
+  if aTick = 212 then 
+   begin 		 
+		 Actions.GiveGroup(Human_Player, utRebelFork, 52, 153, 0, 6, 3);
+		 Actions.GiveGroup(Human_Player, utMilitia, 52, 156, 0, 6, 3);
+		 Actions.UnitKill(MissionRuningUnit, False);
+   end;
+   
+  
+   
+  if aTick = 1026 then																				//Second Ship arived 		
+		 Actions.TerrainObjectSetEx(48, 182, 2, 'Ship4');	 
+     if aTick = 1034 then
+         Actions.TerrainObjectRemoveTile(48, 182);  
+
+  if aTick = 1034 then
+		 Actions.TerrainObjectSetEx(48, 181, 2, 'Ship4');
+     if aTick = 1042 then
+		 Actions.TerrainObjectRemoveTile(48, 181);		 
+		 
+  if aTick = 1042 then
+		 Actions.TerrainObjectSetEx(48, 180, 2, 'Ship4');		
+     if aTick = 1050 then
+         Actions.TerrainObjectRemoveTile(48, 180);  
+
+  if aTick = 1050 then
+		 Actions.TerrainObjectSetEx(48, 179, 2, 'Ship4');	 
+     if aTick = 1058 then
+         Actions.TerrainObjectRemoveTile(48, 179);  
+
+  if aTick = 1058 then
+		 Actions.TerrainObjectSetEx(48, 178, 2, 'Ship4');
+     if aTick = 1066 then
+		 Actions.TerrainObjectRemoveTile(48, 178);		 
+		 
+  if aTick = 1066 then
+		 Actions.TerrainObjectSetEx(48, 177, 2, 'Ship4');		 
+ if aTick = 1074 then
+         Actions.TerrainObjectRemoveTile(48, 177);  
+
+  if aTick = 1074 then
+		 Actions.TerrainObjectSetEx(48, 176, 2, 'Ship4');
+ if aTick = 1082 then
+		 Actions.TerrainObjectRemoveTile(48, 176);
+		 		 
+  if aTick = 1082 then
+		 Actions.TerrainObjectSetEx(48, 175, 2, 'Ship4');
+     if aTick = 1090 then
+		 Actions.TerrainObjectRemoveTile(48, 175);
+		 		 
+  if aTick = 1090 then
+		 Actions.TerrainObjectSetEx(48, 174, 2, 'Ship4');		
+     if aTick = 1098 then
+         Actions.TerrainObjectRemoveTile(48, 174);  
+
+  if aTick = 1098 then
+		 Actions.TerrainObjectSetEx(48, 173, 2, 'Ship4');
+     if aTick = 1106 then
+		 Actions.TerrainObjectRemoveTile(48, 173);		 
+		 
+  if aTick = 1106 then
+		 Actions.TerrainObjectSetEx(48, 172, 2, 'Ship4');		
+     if aTick = 1114 then
+         Actions.TerrainObjectRemoveTile(48, 172);  
+
+  if aTick = 1114 then
+		 Actions.TerrainObjectSetEx(48, 171, 2, 'Ship4');		
+     if aTick = 1122 then
+         Actions.TerrainObjectRemoveTile(48, 171);  
+
+  if aTick = 1122 then
+		 Actions.TerrainObjectSetEx(48, 170, 2, 'Ship4');
+     if aTick = 1130 then
+		 Actions.TerrainObjectRemoveTile(48, 170);		 
+		 
+  if aTick = 1130 then
+		 Actions.TerrainObjectSetEx(48, 169, 2, 'Ship4');		
+     if aTick = 1138 then
+		 Actions.TerrainObjectRemoveTile(48, 169);		 
+		 
+  if aTick = 1138 then
+		 Actions.TerrainObjectSetEx(48, 168, 2, 'Ship4');			
+     if aTick = 1146 then
+         Actions.TerrainObjectRemoveTile(48, 168);  
+
+  if aTick = 1146 then
+		 Actions.TerrainObjectSetEx(48, 167, 2, 'Ship4');		
+     if aTick = 1154 then
+         Actions.TerrainObjectRemoveTile(48, 167);  
+
+  if aTick = 1154 then
+		 Actions.TerrainObjectSetEx(48, 166, 2, 'Ship4');	
+     if aTick = 1162 then
+		 Actions.TerrainObjectRemoveTile(48, 166);		 
+		 
+  if aTick = 1162 then
+		 Actions.TerrainObjectSetEx(48, 165, 2, 'Ship4');	
+     if aTick = 1170 then
+		 Actions.TerrainObjectRemoveTile(48, 165);		 
+		 
+  if aTick = 1170 then
+		 Actions.TerrainObjectSetEx(48, 164, 2, 'Ship4');			
+     if aTick = 1178 then
+         Actions.TerrainObjectRemoveTile(48, 164);  
+
+  if aTick = 1178 then
+		 Actions.TerrainObjectSetEx(48, 163, 2, 'Ship4');		
+     if aTick = 1186 then
+         Actions.TerrainObjectRemoveTile(48, 163);  
+
+  if aTick = 1186 then
+		 Actions.TerrainObjectSetEx(48, 162, 2, 'Ship4');	
+     if aTick = 1194 then
+		 Actions.TerrainObjectRemoveTile(48, 162);		 
+		 
+  if aTick = 1194 then
+		 Actions.TerrainObjectSetEx(48, 161, 2, 'Ship4');	
+     if aTick = 1202 then
+		 Actions.TerrainObjectRemoveTile(48, 161);		 
+		 
+  if aTick = 1202 then
+		 Actions.TerrainObjectSetEx(48, 160, 2, 'Ship4');		
+     if aTick = 1210 then
+		 Actions.TerrainObjectRemoveTile(48, 160);		 
+		 
+  if aTick = 1210 then
+		 Actions.TerrainObjectSetEx(48, 159, 2, 'Ship4');			 
+  
+  if aTick = 1212 then 
+   begin 		 		 
+		 Actions.GiveGroup(Human_Player, utMilitia, 52, 148, 0, 3, 3);	 
+		 Actions.GiveGroup(Human_Player, utPikeman, 52, 150, 0, 6, 3);
+		 Actions.GiveGroup(Human_Player, utBowman,  52, 152, 0, 4, 2);
+		 
+		 Actions.GiveUnit(Human_Player, utPorter, 51, 154, 0);	
+		 Actions.GiveUnit(Human_Player, utPorter, 52, 154, 0);	
+		 Actions.GiveUnit(Human_Player, utPorter, 53, 154, 0);	
+		 Actions.GiveUnit(Human_Player, utBuilder, 51, 155, 0);	
+		 Actions.GiveUnit(Human_Player, utBuilder, 52, 155, 0);	
+		 Actions.GiveUnit(Human_Player, utBuilder, 53, 155, 0);	
+		 
+		  Wagon_Ale1 := Actions.GiveUnit(Human_Player, utWagon, 47, 149, 0);
+          Actions.UnitCarryGive(Wagon_Ale1, wtAle, 50);
+		  Wagon_Ale2 := Actions.GiveUnit(Human_Player, utWagon, 48, 149, 0);
+          Actions.UnitCarryGive(Wagon_Ale2, wtAle, 45);		 
+		 
+		  Wagon_Cider1 := Actions.GiveUnit(Human_Player, utWagon, 49, 149, 0);
+          Actions.UnitCarryGive(Wagon_Cider1, wtCider, 50);			 
+		  Wagon_Cider2 := Actions.GiveUnit(Human_Player, utWagon, 50, 149, 0);
+          Actions.UnitCarryGive(Wagon_Cider2, wtCider, 45);		 
+		 
+		  Wagon_Fish := Actions.GiveUnit(Human_Player, utWagon, 54, 149, 0);
+          Actions.UnitCarryGive(Wagon_Fish, wtFish, 50);			 
+		 
+		  Wagon_Sausages := Actions.GiveUnit(Human_Player, utWagon, 55, 149, 0);
+          Actions.UnitCarryGive(Wagon_Sausages, wtSausages, 50);		 
+		 
+		  Wagon_Bread1 := Actions.GiveUnit(Human_Player, utWagon, 56, 149, 0);
+          Actions.UnitCarryGive(Wagon_Bread1, wtBread, 50);	
+		  Wagon_Bread2 := Actions.GiveUnit(Human_Player, utWagon, 57, 149, 0);
+          Actions.UnitCarryGive(Wagon_Bread2, wtBread, 25);		
+
+		  Wagon_Gold := Actions.GiveUnit(Human_Player, utWagon, 47, 148, 0);
+          Actions.UnitCarryGive(Wagon_Gold, wtGold, 48);	
+   end;
+
+ 
+   if CheckCamp = false then
+    CheckBuildingProgressCamp;
+
+   if CheckSawmill = false then
+    CheckBuildingProgressSawmill;
+
+   if CheckFort = false then
+    CheckBuildingProgressFort;
+
+	
+	
+  if aTick = 15 then begin																		//Extra Sounds
+     Actions.PlayWAV(0, 'Wind.wav', 0.5);	
+     end;	 
+  if aTick = 20 then begin
+      Actions.PlayerMessage(Human_Player, '<$2>', True);	 		
+	end;	 
+  if aTick = 80 then begin
+		Actions.PlayerMessage(Human_Player, '<$3>', True);		 		
+	end;	
+ if aTick = 1025 then begin
+		Actions.PlayerMessage(Human_Player, '<$8>', True);		 		
+	end;
+	
+	
+  if aTick = 25 then begin																		//FOW Ship 1 ON
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 180, 10);	
+	end;
+  if aTick = 49 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 10);
+    end;
+  if aTick = 75 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 15);
+    end;
+  if aTick = 90 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 20);
+    end;	 
+  if aTick = 110 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 25);
+    end;
+  if aTick = 130 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 25);
+    end;
+  if aTick = 140 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 20);
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 20);
+    end;
+  if aTick = 160 then begin													
+		Actions.FogRevealCircle(HUMAN_PLAYER, 57, 172, 20);
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 20);
+    end;	
+	
+	
+  if aTick = 1026 then begin																	//FOW Ship 2 ON 
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 180, 10);	
+	end;
+  if aTick = 1056 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 10);
+    end;
+  if aTick = 1086 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 15);
+    end;
+  if aTick = 1110 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 20);
+    end;	 
+  if aTick = 1140 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 25);
+    end;
+  if aTick = 1170 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 25);
+    end;
+  if aTick = 1190 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 20);
+    end;
+  if aTick = 1210 then begin												
+		Actions.FogRevealCircle(HUMAN_PLAYER, 45, 172, 20);
+    end;	
+
+	
+ {################################################
+  ##   Gate System open after 60min game + 10h 	##
+  ##			Open Gate every 20min			##
+  ##			Close Gate after 5min			##
+  ##  Re-close gate after 30sec	without sound   ##
+  ################################################}
+  
+  if aTick = 36000 then																	
+	Gate_Open();								  										
+  if aTick = 39000 then																	
+	Gate_Close();		
+  if aTick = 39300 then																	
+	Gate_Close_NoSound();
+		
+  if aTick = 48000 then																	
+	Gate_Open();
+  if aTick = 51000 then																	
+	Gate_Close();		
+  if aTick = 51300 then																	
+	Gate_Close_NoSound();
+
+  if aTick = 60000 then																	
+	Gate_Open();
+  if aTick = 63000 then																	
+	Gate_Close();		
+  if aTick = 63300 then																	
+	Gate_Close_NoSound();
+
+  if aTick = 60000 then																	
+	Gate_Open();
+  if aTick = 63000 then																	
+	Gate_Close();		
+  if aTick = 63300 then																	
+	Gate_Close_NoSound();
+
+  if aTick = 72000 then																	
+	Gate_Open();
+  if aTick = 75000 then																	
+	Gate_Close();		
+  if aTick = 75300 then																	
+	Gate_Close_NoSound();
+
+  if aTick = 84000 then																	  
+	Gate_Open();
+  if aTick = 87000 then																	
+	Gate_Close();		
+  if aTick = 87300 then																	
+	Gate_Close_NoSound();
+	
+  if aTick = 96000 then																	
+	 Gate_Open();
+  if aTick = 99000 then	
+	Gate_Close();
+  if aTick = 99300 then
+	Gate_Close_NoSound();
+
+  if aTick = 108000 then																	
+	 Gate_Open();	 
+  if aTick = 111000 then	
+	Gate_Close();
+  if aTick = 111300 then
+	Gate_Close_NoSound();
+
+  if aTick = 120000 then																	
+	 Gate_Open();	 
+  if aTick = 123000 then	
+	Gate_Close();
+  if aTick = 123300 then
+	Gate_Close_NoSound();
+
+  if aTick = 132000 then																	
+	 Gate_Open();	 
+  if aTick = 135000 then	
+	Gate_Close();
+  if aTick = 135300 then
+	Gate_Close_NoSound();
+
+  if aTick = 144000 then																	
+	 Gate_Open();	 
+  if aTick = 147000 then	
+	Gate_Close();
+  if aTick = 147300 then
+	Gate_Close_NoSound();
+
+  if aTick = 156000 then																	
+	 Gate_Open();	 
+  if aTick = 159000 then	
+	Gate_Close();
+  if aTick = 159300 then
+	Gate_Close_NoSound();
+
+  if aTick = 168000 then																	
+	 Gate_Open();	 
+  if aTick = 171000 then	
+	Gate_Close();
+  if aTick = 171300 then
+	Gate_Close_NoSound();
+
+  if aTick = 180000 then																	
+	 Gate_Open();	 
+  if aTick = 183000 then	
+	Gate_Close();
+  if aTick = 183300 then
+	Gate_Close_NoSound();
+
+  if aTick = 192000 then																	
+	 Gate_Open();	 
+  if aTick = 195000 then	
+	Gate_Close();
+  if aTick = 195300 then
+	Gate_Close_NoSound();
+
+  if aTick = 204000 then																	
+	 Gate_Open();	 
+  if aTick = 207000 then	
+	Gate_Close();
+  if aTick = 207300 then
+	Gate_Close_NoSound();
+
+  if aTick = 216000 then																	
+	 Gate_Open();	 
+  if aTick = 219000 then	
+	Gate_Close();
+  if aTick = 219300 then
+	Gate_Close_NoSound();
+
+  if aTick = 228000 then																	
+	 Gate_Open();	 
+  if aTick = 231000 then	
+	Gate_Close();
+  if aTick = 231300 then
+	Gate_Close_NoSound();
+
+  if aTick = 240000 then																	
+	 Gate_Open();	 
+  if aTick = 243000 then	
+	Gate_Close();
+  if aTick = 243300 then
+	Gate_Close_NoSound();
+
+  if aTick = 240000 then																	
+	 Gate_Open();	 
+  if aTick = 243000 then	
+	Gate_Close();
+  if aTick = 243300 then
+	Gate_Close_NoSound();
+
+  if aTick = 264000 then																	
+	 Gate_Open();	 
+  if aTick = 267000 then	
+	Gate_Close();
+  if aTick = 267300 then
+	Gate_Close_NoSound();
+
+  if aTick = 276000 then																	
+	 Gate_Open();	 
+  if aTick = 279000 then	
+	Gate_Close();
+  if aTick = 279300 then
+	Gate_Close_NoSound();
+
+  if aTick = 288000 then																	
+	 Gate_Open();	 
+  if aTick = 291000 then	
+	Gate_Close();
+  if aTick = 291300 then
+	Gate_Close_NoSound();
+
+  if aTick = 300000 then																	
+	 Gate_Open();	 
+  if aTick = 303000 then	
+	Gate_Close();
+  if aTick = 303300 then
+	Gate_Close_NoSound();
+
+  if aTick = 312000 then																	
+	 Gate_Open();	 
+  if aTick = 315000 then	
+	Gate_Close();
+  if aTick = 315300 then
+	Gate_Close_NoSound();
+
+  if aTick = 324000 then																	
+	 Gate_Open();	 
+  if aTick = 327000 then	
+	Gate_Close();
+  if aTick = 327300 then
+	Gate_Close_NoSound();
+
+  if aTick = 336000 then																	
+	 Gate_Open();	 
+  if aTick = 339000 then	
+	Gate_Close();
+  if aTick = 339300 then
+	Gate_Close_NoSound();
+
+  if aTick = 348000 then																	
+	 Gate_Open();	 
+  if aTick = 351000 then	
+	Gate_Close();
+  if aTick = 351300 then
+	Gate_Close_NoSound();
+
+  if aTick = 360000 then																	
+	 Gate_Open();	 
+  if aTick = 363000 then	
+	Gate_Close();
+  if aTick = 363300 then
+	Gate_Close_NoSound();
+
+
+
+
+if aTick mod 9000 = 0 then
+  begin
+    {FeedPlayer(Human_Player);}
+    FeedPlayer(Rebels);
+    FeedPlayer(Enemy_2);
+    FeedPlayer(AI4_BarbariansArmy);	
+    FeedPlayer(AI5_IronEnnemy);
+    FeedPlayer(AI6_WarriorsArmy);	
+    FeedPlayer(Enemy_8);	
+	FeedPlayer(Ennemy_9);
+  end;
+
+
+
+end;
+
+
+
+
+
+
+

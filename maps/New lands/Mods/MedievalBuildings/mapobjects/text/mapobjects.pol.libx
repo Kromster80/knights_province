@@ -1,0 +1,6 @@
+﻿#Knights Province localization file
+#Padding is purely visual thing. Format does not care about it
+[mapobjects]
+    [mapobjects.yCathedral]
+        desc:Niech Twój lud będzie błogosławiony
+        name:Katedra
