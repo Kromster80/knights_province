@@ -11,7 +11,7 @@
 !MOD_REQUIREMENT WoodFortress 0.0.1
 
 // General settings
-!RANKING 3 // Max score
+!RANKING 1 // Min time
 !HANDS_COUNT 10
 !HAND_DEFAULT_HUMAN 0
 
@@ -69,7 +69,7 @@
 !UNIT_BLOCK 29 // skeletonBow
 !UNIT_BLOCK 31 // skeleton
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -165,7 +165,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -230,7 +230,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -308,7 +308,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -508,7 +508,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1013,7 +1013,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1078,7 +1078,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1187,7 +1187,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -1238,7 +1238,7 @@
 
 // Block units
 
-// Block orders
+// Block warfare orders
 
 // Block trades
 
@@ -6224,4 +6224,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r15511 (2024.10.20 21:21)" on 10.11.2024 16:10:16
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17418 (2025.10.26 14:13)" on 27.10.2025 18:07:33

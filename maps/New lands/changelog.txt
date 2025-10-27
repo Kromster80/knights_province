@@ -1,0 +1,12 @@
+changelog: New Lands
+_____________________________
+
+
+1.1 version:   27/10/2025
+* fixed higscore (lower time is better)
+* some script improved 
+
+
+1.0 version:   19/10/2025
+* add CC BY license
+
