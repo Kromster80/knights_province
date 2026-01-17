@@ -30,6 +30,11 @@
 // Alliances
 
 // Grant/Block houses
+!HOUSE_BLOCK 1 // foundry
+!HOUSE_BLOCK 2 // weaponSmithy
+!HOUSE_BLOCK 4 // ironMine
+!HOUSE_BLOCK 10 // armorSmithy
+!HOUSE_BLOCK 21 // barracks
 
 // Block units
 
@@ -1123,4 +1128,4 @@
 !SUN_POSITION 236 25
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:17:42
+// This mission was made with Map Editor of "Knights Province. Alpha 13 r17785 (2026.01.17 11:14)" on 17.01.2026 11:15:18
