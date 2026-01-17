@@ -36,6 +36,7 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -102,6 +103,7 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -168,6 +170,7 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -234,6 +237,7 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -300,6 +304,7 @@
 !SET_ALLIANCE 5 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -366,6 +371,7 @@
 !SET_ALLIANCE 4 0
 
 // Grant/Block houses
+!HOUSE_BLOCK 6 // fishermans
 
 // Block units
 
@@ -1426,4 +1432,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17303 (2025/09/29 21:01)" on 04/10/2025 14:08:14
+// This mission was made with Map Editor of "Knights Province. Alpha 13 r17785 (2026.01.17 11:14)" on 17.01.2026 11:21:36
