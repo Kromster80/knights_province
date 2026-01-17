@@ -21,9 +21,6 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 1 1 0 0 1
-!ADD_GOAL 0 1 0 2 1
-!ADD_GOAL 0 1 0 3 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -86,9 +83,6 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 1 1 0 1 1
-!ADD_GOAL 0 1 0 2 1
-!ADD_GOAL 0 1 0 3 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -151,9 +145,6 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 1 1 0 2 1
-!ADD_GOAL 0 1 0 0 1
-!ADD_GOAL 0 1 0 1 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -216,9 +207,6 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 1 1 0 3 1
-!ADD_GOAL 0 1 0 0 1
-!ADD_GOAL 0 1 0 1 1
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -386,4 +374,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r16791 (2025.07.26 15:15)" on 26.07.2025 15:18:26
+// This mission was made with Map Editor of "Knights Province. Alpha 13 r17785 (2026.01.17 11:14)" on 17.01.2026 11:22:51
