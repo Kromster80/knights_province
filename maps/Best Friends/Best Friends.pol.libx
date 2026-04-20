@@ -1,6 +1,6 @@
 ﻿0:Kinghs Dzapan
-1:Najlepsi przyjaciele ||Historia opowiada o trzech przyjaciołach Maxim, Alex, Shanks, który jeden z nich został uprowadzony. |Zmartwieni koledzy postanowili ruszyć mu na ratunek, lecz władcy nie obchodził los pojedynczego obywatela, pomimo tego, iż On i jego przyjaciele są najjaśniejszymi żołnierzami w całej armii. |Pod silnym naporem przyjaciół, władający zezwolił im na wymarsz, oraz pozwolił zabrać ze sobą ochotników, lecz jeśli zostaną skarceni, ich los zostanie zapomniany. ||Pozycja 1 - Maxim |Pozycja 2 - Alex
-2:Po kilku dniach marszu dotarliśmy do terenu, gdzie Shanks został uwięziony. |Tereny te są nam zupełnie obce, lecz wiemy, iż wróg posiada tu kilka osad, co stanowić będzie nie lada wyzwanie. ||Czas zacząć działać, stwórzmy osadę, a w międzyczasie zbadajmy teren, aby ustanowić taktykę do dalszych działań. |Nieopodal znajduje się opuszczony fort, wykorzystajmy go no naszych działań.
+1:Najlepsi przyjaciele ||Historia opowiada o trzech przyjaciołach Maxim, Alex, Shanks, który jeden z nich został uprowadzony. |Zmartwieni koledzy postanowili ruszyć mu na ratunek, lecz władcy nie obchodził los pojedynczego obywatela, pomimo tego, iż On i jego przyjaciele są najjaśniejszymi żołnierzami w całej armii. |Pod silnym naporem przyjaciół, władający zezwolił im na wymarsz, oraz pozwolił zabrać ze sobą ochotników, lecz jeśli zostaną skarceni, ich los zostanie zapomniany. ||Pozycja 1 - Maxim |Pozycja 2 - Alex ||Rev.2
+2:Po kilku dniach marszu dotarliśmy do terenu, gdzie Shanks został uwięziony. ||Tereny te są nam zupełnie obce, lecz wiemy, iż wróg posiada tu kilka osad, co stanowić będzie nie lada wyzwanie. ||Czas zacząć działać, stwórzmy osadę, a w międzyczasie zbadajmy teren, aby ustanowić taktykę do dalszych działań. |Nieopodal znajduje się opuszczony fort, wykorzystajmy go no naszych działań.
 3:Wybierz miejsce na Obóz
 4:Obóz ukończony. ||Nasz priorytet to silna i stabilna ekonomia, zadbaj o to, a wróg poczuje, że zadarł z niewłaściwymi ludźmi!
 5:Wróg wie, iż przybyliśmy w jego rejon. |Według zwiadowców, przeciwnik planuje wyprzeć nas stąd. |Zbuduj solidną obronę, by być gotowym, kiedy tyran nadejdzie.
@@ -23,13 +23,18 @@
 22:Niestety to nie nasz przyjaciel, to inny porwany mieszkaniec.
 23:Więzienie, sprawdźmy je! Zabijmy wartownika, a następnie otwórzmy drzwi.
 30:Zniszcz wszystkich wrogów
-31:Przyjaciele, moi kochani koledzy, dziękuję za ratunek.
+31:Shanks: Przyjaciele, moi kochani koledzy, dziękuję za ratunek.
+32:-------------------------------|||[$00FFFF]Fabuła:
+33:Zbuduj osadę
+34:Nieprzyjaciel zbliża się! |Zabezpieczyć pozycje i przygotujcie się do walki – nie mamy czasu do stracenia!
+35:Wykryto zbliżające się siły wroga. Przygotować się do obrony całej linii. |Wzmocnić kluczowe punkty, rozmieścić jednostki i utrzymać pełną gotowość bojową.
 
-
-
-
-
-
-
-
--
+40:Wróg I
+41:Wróg II
+42:Wróg III
+43:Wróg IV
+44:Wróg V
+45:Wróg VI
+46:Wróg VII
+47:Wróg VIII
+48:Wróg IX

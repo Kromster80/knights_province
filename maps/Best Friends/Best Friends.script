@@ -1,24 +1,31 @@
 {Kinghts Dzapan
   [[ Mission win if enemy 3-10 is defeat and 4 units from Enemy11 are killed in prison ]]
-  [[ Mission loost if player 1 or player 2 lost his importatt houses Camp/School ect.  ]]}
+  [[ Mission loost if player 1 or player 2 lost his importatt houses Camp/School ect.  ]]
+  [[ Rev.2																			   ]]}
+  
 // Knights Province dynamic script.
 // Wiki available at: https://github.com/Kromster80/knights_province/wiki 
 
 
 
 uses
-	day_night;
+  day_night;
 	
 const
   Human_Player_1 = 0;
   Human_Player_2 = 1;	
   Player3_HorseScout = 2; 
+  Enemy4 = 3;
+  Enemy5 = 4;
+  Enemy6 = 5;
+  Enemy7 = 6;
+  Enemy8 = 7;
   Player9_HorseScout = 8; 
+  Enemy10 = 9; 
   Prison_Enemy_11 = 10;   
   Neutral_Player = 11;
-  {All hand Players = -1}
   
-//Patrol group points
+  //Patrol group points
   PATROL_COUNT = 5;                      // Number of waypoints in patrol route
   PATROL_COUNT_2 = 9;             		 // Number of waypoints in patrol route
   PATROL_COUNT_3 = 5;  					 // Number of waypoints in patrol route 
@@ -26,13 +33,12 @@ const
 var
     BulidCamp                                                     : array of Boolean;	
 	
-	
     BuildCamp_P1, BuildCamp_P2, Defense_P1, Defense_P2            :  Integer;	
-	BuildBarracks_P1, BuildBarracks_P2  						  :  Integer;	
+	BuildBarracks_P1, BuildBarracks_P2, ObjCity_P1, ObjCity_P2	  :  Integer;	
     PatrolGroup, PatrolGroup2, PatrolGroup3                       :  Integer;                     // Group that will do the patroling 	
     PatrolTarget, PatrolTarget2, PatrolTarget3                    :  Integer;                     // Current patrol waypoint
 	DestroyEnemies1, DestroyEnemies2, PrisonGroup, PrisonGroup2   :  Integer;
-	OurFriend_Dead, Marker1, Marker2							  :  Integer;
+	OurFriend_Dead, Marker1, Marker2, StoryObj_P1, StoryObj_P2	  :  Integer;
 	GlowAlertId1, GlowAlertId2, GlowAlertId3, GlowAlertId4		  :  Integer;
 	
     CheckCamp_1, CheckCamp_2, CheckSawmill_1, CheckSawmill_2      :  Boolean; 
@@ -48,7 +54,6 @@ var
     PatrolPoints3                                    : array [0..PATROL_COUNT_3-1] of TKMPoint;  
     PatrolDirection3                                 : array [0..PATROL_COUNT_3-1] of Integer;   	
 
-
 	
 procedure PatrolToNextPoint;                                                                      //Patrol Units 1 + 2 + 3
 var
@@ -59,19 +64,16 @@ begin
   PatrolTarget := (PatrolTarget + 1) mod PATROL_COUNT;
   PatrolTarget2 := (PatrolTarget2 + 1) mod PATROL_COUNT_2;
   PatrolTarget3 := (PatrolTarget3 + 1) mod PATROL_COUNT_3;
-  
   P := PatrolPoints[PatrolTarget];
   D := PatrolDirection[PatrolTarget];
   P2 := PatrolPoints2[PatrolTarget2];
   D2 := PatrolDirection2[PatrolTarget2];
   P3 := PatrolPoints3[PatrolTarget3];
-  D3 := PatrolDirection3[PatrolTarget3];
-  
+  D3 := PatrolDirection3[PatrolTarget3];  
   Actions.GroupOrderWalk(PatrolGroup, P.X, P.Y, D);
   Actions.GroupOrderWalk(PatrolGroup2, P2.X, P2.Y, D2);
   Actions.GroupOrderWalk(PatrolGroup3, P3.X, P3.Y, D3);
 end;
-
 
 	
 procedure OnMissionStart;
@@ -83,17 +85,31 @@ begin
   for i := Low(BulidCamp) to High(BulidCamp) do
   BulidCamp[i] := False;	
 
+  Actions.PlayerNameSet(Player3_HorseScout, '<$40>');
+  Actions.PlayerNameSet(Enemy4, '<$41>');
+  Actions.PlayerNameSet(Enemy5, '<$42>');
+  Actions.PlayerNameSet(Enemy6, '<$43>');
+  Actions.PlayerNameSet(Enemy7, '<$44>');
+  Actions.PlayerNameSet(Enemy8, '<$45>');
+  Actions.PlayerNameSet(Player9_HorseScout, '<$46>');
+  Actions.PlayerNameSet(Enemy10, '<$47>');
+  Actions.PlayerNameSet(Prison_Enemy_11, '<$48>');
+
 	
   Actions.PlayerMessage(Human_Player_1, '<$2>', True);	
   Actions.PlayerMessage(Human_Player_2, '<$2>', True);  
-  BuildCamp_P1       := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$3>');
-  BuildCamp_P2       := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$3>');
-  Defense_P1         := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$6>');
-  Defense_P2         := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$6>');  
-  BuildBarracks_P1   := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$8>');	//Find friend
-  BuildBarracks_P2   := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$8>');  	//Find friend
-  DestroyEnemies1    := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 0, osHidden, '<$30>'); 
-  DestroyEnemies2    := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 0, osHidden, '<$30>'); 
+  StoryObj_P1   	 := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 11, osHidden, '<$32>'); 
+  StoryObj_P2   	 := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 11, osHidden, '<$32>'); 
+  BuildCamp_P1       := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 13, osHidden, '<$3>');
+  BuildCamp_P2       := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 13, osHidden, '<$3>');
+  Defense_P1         := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 12, osHidden, '<$6>');
+  Defense_P2         := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 12, osHidden, '<$6>');  
+  BuildBarracks_P1   := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 12, osHidden, '<$8>');	//Find friend
+  BuildBarracks_P2   := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 12, osHidden, '<$8>');  	//Find friend
+  DestroyEnemies1    := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 13, osHidden, '<$30>'); 
+  DestroyEnemies2    := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 13, osHidden, '<$30>'); 
+  ObjCity_P1	     := Actions.PlayerObjectiveAdd(Human_Player_1, otMain, 12, osHidden, '<$33>'); 
+  ObjCity_P2	     := Actions.PlayerObjectiveAdd(Human_Player_2, otMain, 12, osHidden, '<$33>'); 
 
   
   DNInitiateScript(6900, 23000);  																	//one day cycle = 35min 
@@ -133,9 +149,9 @@ begin
   patrolPoints2[0].Y := 195;
   patrolDirection2[0] := 0;
 
-  patrolPoints2[1].X := 229;
-  patrolPoints2[1].Y := 163;
-  patrolDirection2[1] := 7;
+  patrolPoints2[1].X := 228;
+  patrolPoints2[1].Y := 168;
+  patrolDirection2[1] := 0;		
 
   patrolPoints2[2].X := 202;
   patrolPoints2[2].Y := 167;
@@ -145,8 +161,8 @@ begin
   patrolPoints2[3].Y := 165;
   patrolDirection2[3] := 0;
 
-  patrolPoints2[4].X := 221;
-  patrolPoints2[4].Y := 152;
+  patrolPoints2[4].X := 219; 
+  patrolPoints2[4].Y := 160;
   patrolDirection2[4] := 7;
   
   patrolPoints2[5].X := 182;
@@ -225,12 +241,14 @@ begin
    if (aTriggerId = 2) and (not Trigger2) and (States.UnitOwner(aUnit) = Human_Player_1) then          
   begin
 	Actions.PlayerObjectiveUpdateStatus(Human_Player_1, BuildCamp_P1, osActive);
+	Actions.PlayerObjectiveUpdateStatus(Human_Player_1, StoryObj_P1, osActive);
     trigger2:= True;
   end; 
   
    if (aTriggerId = 3) and (not Trigger3) and (States.UnitOwner(aUnit) = Human_Player_2) then       
   begin
     Actions.PlayerObjectiveUpdateStatus(Human_Player_2, BuildCamp_P2, osActive);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player_2, StoryObj_P2, osActive);
     trigger3:= True;
   end;
   
@@ -363,6 +381,7 @@ Procedure CheckBuildingProgressCamp_Player1;
     begin
     CheckCamp_1 := true;
     Actions.PlayerMessage(Human_Player_1, '<$4>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player_1, ObjCity_P1, osActive);	   
     Actions.PlayerObjectiveUpdateStatus(Human_Player_1, BuildCamp_P1, osHidden);	
 	Actions.GroupOrderAttackHouse(States.GroupAt(93, 43), States.HouseAt(165, 21));						 	//Player 1 fort will be destroyed after Camp is built
     end;
@@ -374,6 +393,7 @@ Procedure CheckBuildingProgressCamp_Player2;
     begin
     CheckCamp_2 := true;
     Actions.PlayerMessage(Human_Player_2, '<$4>', True);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player_2, ObjCity_P2, osActive);	
     Actions.PlayerObjectiveUpdateStatus(Human_Player_2, BuildCamp_P2, osHidden);
 	Actions.GroupOrderAttackHouse(States.GroupAt(135, 135), States.HouseAt(170, 106));						//Player 2 fort will be destroyed after Camp is built
     end;
@@ -387,6 +407,7 @@ Procedure CheckBuildingProgressSawmill_1;
     CheckSawmill_1 := true;
     Actions.PlayerMessage(Human_Player_1, '<$5>', True);
     Actions.PlayerObjectiveUpdateStatus(Human_Player_1, Defense_P1, osActive);	
+    Actions.PlayerObjectiveUpdateStatus(Human_Player_1, ObjCity_P1, osHidden);	
     end;
 end;
 
@@ -397,13 +418,14 @@ Procedure CheckBuildingProgressSawmill_2;
     CheckSawmill_2 := true;
     Actions.PlayerMessage(Human_Player_2, '<$5>', True);
     Actions.PlayerObjectiveUpdateStatus(Human_Player_2, Defense_P2, osActive);
+    Actions.PlayerObjectiveUpdateStatus(Human_Player_2, ObjCity_P2, osHidden);
     end;
  end;
 
 
 Procedure CheckBuildingProgressBarracks_1;															
  begin
-   if (States.StatHouseTypeCount(Human_Player_1, htBarracks) >= 1) then
+   if (States.StatHouseTypeCount(Human_Player_1, htBarracks) >= 1) or (States.StatHouseTypeCount(Human_Player_1, htArmorWorkshop) >= 1) then  
     begin
     CheckBarracks_1 := true;
     Actions.PlayerMessage(Human_Player_1, '<$7>', True);
@@ -416,7 +438,7 @@ end;
 
 Procedure CheckBuildingProgressBarracks_2;															
  begin	 
-   if (States.StatHouseTypeCount(Human_Player_2, htBarracks) >= 1) then
+   if (States.StatHouseTypeCount(Human_Player_2, htBarracks) >= 1) or (States.StatHouseTypeCount(Human_Player_2, htArmorWorkshop) >= 1) then
     begin
     CheckBarracks_2 := true;
     Actions.PlayerMessage(Human_Player_2, '<$7>', True);
@@ -527,7 +549,13 @@ end;
 procedure OnTick(aTick: Integer);
 begin			
 
-	DNResolveTick(aTick);
+  if aTick = 24000 then 
+  Actions.PlayerMessage(-1, '<$34>', True);		
+ 
+  if aTick = 51600 then 
+  Actions.PlayerMessage(-1, '<$35>', True);		
+
+  DNResolveTick(aTick);
 
   if CheckCamp_1 = false then
    CheckBuildingProgressCamp_Player1;
@@ -555,9 +583,4 @@ if aTick mod 9000 = 0 then
     FeedPlayer(Prison_Enemy_11);
     FeedPlayer(Neutral_Player);
   end;
-
-
-   {Actions.AlertColor(GlowAlertId1, $FFFFFF, 1.0 - Abs(5.0 - Single(aTick mod 10)) / 5.0);   
-    Actions.AlertColor(GlowAlertId2, $FFFFFF, 1.0 - Abs(5.0 - Single(aTick mod 10)) / 5.0);  		 //  Glowing doesn't work}
-
 end;

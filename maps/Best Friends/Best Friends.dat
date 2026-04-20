@@ -23,17 +23,16 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 0 2 0
-!ADD_GOAL 0 0 0 3 0
-!ADD_GOAL 0 0 0 4 0
-!ADD_GOAL 0 0 0 5 0
-!ADD_GOAL 0 0 0 6 0
-!ADD_GOAL 0 0 0 7 0
-!ADD_GOAL 0 0 0 8 0
-!ADD_GOAL 0 0 0 9 0
-!ADD_GOAL 0 1 0 10 0
+!ADD_GOAL 0 0 0 2 1
+!ADD_GOAL 0 0 0 3 1
+!ADD_GOAL 0 0 0 4 1
+!ADD_GOAL 0 0 0 5 1
+!ADD_GOAL 0 0 0 6 1
+!ADD_GOAL 0 0 0 7 1
+!ADD_GOAL 0 0 0 8 1
+!ADD_GOAL 0 0 0 9 1
+!ADD_GOAL 0 1 0 10 1
 !ADD_GOAL 1 0 0 0 0
-!ADD_GOAL 1 0 0 1 0
 
 // AI
 !SET_AI_AUTO_DEFEND
@@ -133,16 +132,15 @@
 // Fog of War
 
 // Goals
-!ADD_GOAL 0 0 0 2 0
-!ADD_GOAL 0 0 0 3 0
-!ADD_GOAL 0 0 0 4 0
-!ADD_GOAL 0 0 0 5 0
-!ADD_GOAL 0 0 0 6 0
-!ADD_GOAL 0 0 0 7 0
-!ADD_GOAL 0 0 0 8 0
-!ADD_GOAL 0 0 0 9 0
-!ADD_GOAL 0 1 0 10 0
-!ADD_GOAL 1 0 0 0 0
+!ADD_GOAL 0 0 0 2 1
+!ADD_GOAL 0 0 0 3 1
+!ADD_GOAL 0 0 0 4 1
+!ADD_GOAL 0 0 0 5 1
+!ADD_GOAL 0 0 0 6 1
+!ADD_GOAL 0 0 0 7 1
+!ADD_GOAL 0 0 0 8 1
+!ADD_GOAL 0 0 0 9 1
+!ADD_GOAL 0 1 0 10 1
 !ADD_GOAL 1 0 0 1 0
 
 // AI
@@ -9399,4 +9397,4 @@
 !SUN_POSITION 244 55
 
 
-// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17399 (2025.10.19 17:05)" on 19.10.2025 21:46:11
+// This mission was made with Map Editor of "Knights Province. Alpha 13 wip r17594 (2025.12.19 16:01)" on 20.04.2026 20:48:16
