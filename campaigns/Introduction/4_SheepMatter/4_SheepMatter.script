@@ -86,7 +86,7 @@ begin
 
   countPastures := 0;
   for I := 0 to High(houses) do
-  if States.HouseSheepyardHasPasture(houses[I]) then
+  if States.HouseHasPasture(houses[I]) then
     Inc(countPastures);
 
   if countPastures >= 2 then
