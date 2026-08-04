@@ -1,6 +1,7 @@
 // Knights Province dynamic script.
 // Wiki available at: https://github.com/Kromster80/knights_province/wiki
 
+
 const
   HUMAN_PLAYER = 0;
   ENEMY_PLAYER = 2; // Minor group of enemy offenders
@@ -8,6 +9,7 @@ const
 var
   objDefend: Integer;
   objCottage: Integer;
+
 
 procedure CheckVictory;
 begin
@@ -63,6 +65,18 @@ begin
 end;
 
 
+procedure Feed(aPlayer: Integer);
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(aPlayer);
+
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
+
 procedure OnMissionStart;
 begin
   objDefend := Actions.PlayerObjectiveAdd(HUMAN_PLAYER, otMain, 0, osActive, '<$4>');
@@ -79,4 +93,7 @@ begin
     CheckVictory;
 
   CheckCinematic(aTick);
+
+  if aTick mod 1000 = 0 then
+    Feed(HUMAN_PLAYER);
 end;

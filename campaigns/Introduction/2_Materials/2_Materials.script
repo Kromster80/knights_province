@@ -1,10 +1,31 @@
 // Knights Province dynamic script.
 // Wiki available at: https://github.com/Kromster80/knights_province/wiki
 
+
 const
   HUMAN_PLAYER = 0;
+
+
+procedure Feed(aPlayer: Integer);
+var
+  allUnits: array of Integer;
+  I: Integer;
+begin
+  allUnits := States.PlayerGetAllUnits(aPlayer);
+
+  for I := 0 to High(allUnits) do
+    Actions.UnitHungerSet(allUnits[I], States.UnitHungerMax);
+end;
+
 
 procedure OnMissionStart;
 begin
   Actions.PlayerMessage(HUMAN_PLAYER, '<$2>', True);
+end;
+
+
+procedure OnTick(aTick: Integer);
+begin
+  if aTick mod 1000 = 0 then
+    Feed(HUMAN_PLAYER);
 end;
