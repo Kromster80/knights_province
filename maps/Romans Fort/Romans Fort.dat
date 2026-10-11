@@ -149,7 +149,7 @@
 !SET_UNIT 2 72 73 4 // porter
 !SET_UNIT 2 69 73 4 // porter
 !SET_UNIT 2 73 72 4 // porter
-!SET_UNIT 32 71 109 4 // wagon
+!SET_UNIT 32 70 109 4 // wagon
 !SET_UNIT_WARE 3 5
 !SET_UNIT 32 70 29 4 // wagon
 !SET_UNIT_WARE 2 10
