@@ -191,7 +191,7 @@
 !SET_UNIT 49 56 73 5 // sheep
 !SET_UNIT 49 52 74 5 // sheep
 !SET_UNIT 49 58 73 5 // sheep
-!SET_UNIT 44 68 11 5 // deer
+!SET_UNIT 44 69 11 5 // deer
 !SET_UNIT 44 76 4 5 // deer
 !SET_UNIT 44 76 13 5 // deer
 !SET_UNIT 44 89 5 5 // deer
